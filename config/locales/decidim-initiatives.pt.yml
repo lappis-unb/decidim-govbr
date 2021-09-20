@@ -1,0 +1,25 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-initiatives/config/locales/en.yml
+pt:
+  activemodel:
+    attributes:
+      initiative:
+        area_id: Área
+  decidim:
+    initiatives:
+      create_initiative:
+        fill_data:
+          fill_data_help: "<ul> <li>Revise o conteúdo de sua iniciativa. Seu título é fácil de entender? O objetivo de sua iniciativa é claro?</li> <li>Você tem que escolher o tipo de assinatura. Pessoalmente, online ou uma combinação de ambos.</li> <li>Qual é o âmbito geográfico da iniciativa?</li> </ul>"
+        finish:
+          back: Voltar
+          back_to_initiatives: Voltar para iniciativas
+          callout_text: Parabéns! Sua iniciativa foi criada com sucesso.
+          confirm: Você vai enviar a iniciativa para um administrador para revisá-la e publicá-la. Uma vez publicada, você não poderá editá-la. Você tem certeza?
+          edit_my_initiative: Editar minha iniciativa
+          go_to_my_initiatives: Ir para minhas iniciativas
+          more_information: "(Mais informações)"
+          send_my_initiative: Enviar minha iniciativa para validação técnica
+        finish_help:
+          access_reminder: Você pode acessar suas iniciativas através do filtro %{link} na página Iniciativas.
+          publish_helper_text: Lembre-se! Para que sua iniciativa seja publicada, você deve completar as informações necessárias e <strong>enviá-la para validação técnica</strong> para que um administrador a reveja.
+        select_initiative_type:
+          select_initiative_type_help: As iniciativas são um meio pelo qual os participantes podem intervir para que a organização possa empreender ações em defesa do interesse geral. Que iniciativa você deseja lançar?

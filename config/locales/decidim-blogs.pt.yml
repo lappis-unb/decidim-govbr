@@ -1,0 +1,7 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-blogs/config/locales/en.yml
+pt:
+  decidim:
+    blogs:
+      posts:
+        show:
+          back: Voltar à lista

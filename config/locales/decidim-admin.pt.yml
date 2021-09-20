@@ -1,0 +1,58 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-admin/config/locales/en.yml
+pt:
+  activemodel:
+    attributes:
+      settings:
+        scope_id: Âmbito
+      organization:
+        admin_terms_of_use_body: Conteúdo dos termos de uso de admninistrador
+  decidim:
+    admin:
+      admin_terms_of_use:
+        actions:
+          accept: Eu concordo com os termos
+      actions:
+        import: Importar
+        user:
+          new: Novo usuário
+      dashboard:
+        show:
+          view_more_logs: Ver mais registros
+      filters:
+        search_placeholder:
+          name_or_nickname_or_email_cont: Pesquisar %{collection} por e-mail, nome ou apelido.
+      impersonatable_users:
+        index:
+          view_logs: Ver registros
+      logs:
+        logs_list:
+          no_logs_yet: Ainda não há registros
+      help_sections:
+        error: Ocorreu um problema ao atualizar as seções de ajuda
+        form:
+          save: Salvar
+        success: Seções de ajuda atualizadas corretamente
+      menu:
+        admin_log: Registro de atividade de administração
+        dashboard: Painel de controle
+        moderation: Moderações globais
+        users: Usuários
+        help_sections: Seções de ajuda
+      titles:
+        admin_log: Registro de administrador
+        dashboard: Painel de Controle
+      imports:
+        import_from_file: Importar de um arquivo
+      components:
+        index:
+          headers:
+            scope: Âmbito do componente
+      officializations:
+        index:
+          nickname: Apelido
+          reports: Relatórios
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: Moderações globais

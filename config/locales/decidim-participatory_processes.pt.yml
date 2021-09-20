@@ -1,0 +1,6 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-participatory_processes/config/locales/en.yml
+pt:
+  decidim:
+    participatory_processes:
+      show:
+        belongs_to_group: Este processo pertence a

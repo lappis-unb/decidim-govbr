@@ -1,0 +1,117 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-core/config/locales/en.yml
+pt:
+  activemodel:
+    attributes:
+      group:
+        nickname: Apelido
+      user:
+        nickname: Apelido
+        email: O seu e-mail
+        password: Senha
+        password_confirmation: Confirme a sua senha
+      invite:
+        nickname: Apelido
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Senha atual
+        email: E-mail
+        name: Nome
+        password: Senha
+        password_confirmation: Confirmação da senha
+        remember_me: Lembrar-me
+  decidim:
+    account:
+      delete:
+        alert: Esta ação não pode ser desfeita. Se você apagar sua conta, não será possível fazer o login com suas credenciais. A exclusão de sua conta resultará na anonimização de suas contribuições. Você ainda poderá criar uma nova conta, mas estas contribuições não serão associadas a ela.
+    devise:
+      registrations:
+        new:
+          nickname_help: Seu apelido em %{organization}. Só pode conter letras, números, '-' e '_'.
+          password_help: "%{minimun_characters} caracteres no mínimo, não deverá ser muito comum (por ex. 123456) e deverá ser diferente de seu apelido e do seu e-mail."
+          newsletter_title: Permissão de contato
+      sessions:
+        user:
+          timed_out: Você esteve inativo por muito tempo e foi automaticamente dispensado do serviço. Se você quiser continuar usando o serviço, por favor, entre novamente.
+      shared:
+        newsletter_modal:
+          buttons:
+            uncheck: Manter desmarcado
+    forms:
+      file_validation:
+        allowed_file_extensions: 'Extensões de arquivo permitidas: %{extensions}'
+        max_file_size: 'Tamanho máximo do arquivo: %{megabytes}MB'
+    pages:
+      home:
+        footer_sub_hero:
+          footer_sub_hero_body: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Inscreva-se, participe e decida.
+          register: Registrar
+        sub_hero:
+          register: Registrar
+      terms_and_conditions:
+        form:
+          agreement: Eu concordo com estes termos
+        required_review:
+          alert: Atualizamos os nossos Termos de Serviço, por favor reveja-os.
+    versions:
+      resource_version:
+        see_other_versions: ver outras versões
+    shared:
+      share_modal:
+        share: Compartilhar
+        share_link: Compartilhar link
+    follows:
+      create:
+        participatory_space: Seguir <span class="show-for-sr">%{resource_name}</span>
+    notifications_settings:
+      show:
+        email_on_moderations: Quero receber um e-mail cada vez que algo é relatado para moderação.
+    data_portability:
+      show:
+        download_data_description: Um arquivo contendo todas as informações associadas à sua conta será enviado para <strong>%{user_email}</strong>. Este e-mail conterá um arquivo .zip e uma senha para abri-lo.<br/><br/>Para descompactar o arquivo, você precisará do <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) ou <a href="https://www.keka.io/">Keka</a> (para MacOS). Se você usa Linux, na maioria das vezes você o terá instalado por padrão. Caso contrário, você pode usar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> ou <a href="https://peazip.github.io">PeaZip</a>).
+    groups:
+      form:
+        nickname_help: Apelido da sua organização, associação, coletivo, grupo, etc. Não use espaços nem acentos.
+      new:
+        subtitle: Crie um grupo e convide outros usuários a aderir para participarem a um nível coletivo.
+  devise:
+    passwords:
+      edit:
+        change_my_password: Modificar a minha senha
+        change_your_password: Modificar a sua senha
+        confirm_new_password: Confirme a nova senha
+        new_password: Nova senha
+      new:
+        forgot_your_password: Esqueceu a sua senha?
+        send_me_reset_password_instructions: Envie-me as instruções de modificação da senha
+      no_token: Não pode acessar esta página sem ter vindo a partir de um e-mail de modificação da senha. Se vier a partir de um e-mail de modificação da senha, verifique se usou o URL completo fornecido.
+      send_instructions: Você receberá um e-mail com instruções sobre como modificar a sua senha dentro de poucos minutos.
+      send_paranoid_instructions: Se o seu endereço de e-mail existir na nossa base de dados, receberá um link de recuperação da senha no seu endereço de e-mail dentro de poucos minutos.
+      updated: A sua senha foi modificada corretamente. Agora tem sessão iniciada.
+      updated_not_active: A sua senha foi modificada corretamente.
+    shared:
+      links:
+        forgot_your_password: Esqueceu a sua senha?
+    mailer:
+      password_change:
+        message: Estamos contatando você para notificá-lo(a) de que a sua palavra-passe foi modificada.
+        subject: Palavra-passe modificada
+      reset_password_instructions:
+        action: Modificar a minha senha
+        instruction: Alguém solicitou um link para alterar a sua senha e pode fazer isso através do link abaixo.
+        instruction_3: A sua senha não será alterada até que acesse o link acima e crie uma nova.
+        subject: Instruções de modificação da senha
+  forms:
+    length_validator:
+      minimum:
+        one: Pelo menos %{count} carácter
+        other: Pelo menos %{count} caracteres
+  layouts:
+    decidim:
+      timeout_modal:
+        body: Você esteve inativo por %{minutes} minutos. Se você continuar inativo, você será automaticamente assinado para sua própria segurança.
+        continue_session: Continuar sessão
+        sign_out: Sair
+        title: Você gostaria de continuar sua sessão?
+      footer:
+        download_open_data: Baixar arquivos Open Data

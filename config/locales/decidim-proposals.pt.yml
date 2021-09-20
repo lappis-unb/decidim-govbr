@@ -1,0 +1,67 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-proposals/config/locales/en.yml
+pt:
+  decidim:
+    admin:
+      filters:
+        proposals:
+          category_id_eq:
+            label: Categoria
+          is_emendation_true:
+            label: Tipo
+            values:
+              'false': Propostas
+              'true': Modificações
+          scope_id_eq:
+            label: Âmbito
+          state_eq:
+            label: Estado
+            values:
+              accepted: Aceites
+              evaluating: Avaliando
+              published: Publicado
+              rejected: Rejeitado
+              validating: Validação teécnica
+              withdrawn: Retirado
+          state_null:
+            label: Estado
+            values:
+              'true': Sem resposta
+    components:
+      proposals:
+        settings:
+          global:
+            scopes_enabled: Âmbitos ativados
+            proposal_edit_time: Edição de propostas
+            proposal_edit_time_choices:
+              infinite: Permitir a edição de propostas por um período infinito de tempo
+              limited: Permitir a edição de propostas dentro de um período de tempo específico
+    proposals:
+      proposals:
+        voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Cada proposta pode acumular mais de %{limit} voto(s)
+          minimum_votes_per_user:
+            description: Deve distribuir um mínimo de %{votes} voto(s) entre diferentes propostas.
+            supports_remaining: Tem que votar em mais %{remaining_votes} proposta(s) para os seus votos serem levados em conta.
+          proposal_limit:
+            description: Pode criar até %{limit} proposta(s).
+          threshold_per_proposal:
+            description: Para serem aceites, as propostas precisam de atingir %{limit} voto(s)
+          vote_limit:
+            description: Pode votar até %{limit} proposta(s).
+        wizard_aside:
+          back: Voltar
+          back_from_step_1: Voltar para as propostas
+          back_from_step_2: Voltar para as propostas
+          back_from_step_3: Voltar à comparação de propostas
+          back_from_step_4: Voltar para a edição do rascunho
+          info: Você está criando uma <strong>proposta</strong>.
+        preview:
+          announcement_body: A sua proposta foi guardada como um rascunho. Ela precisa ser publicada para que apareça no site.
+          announcement_title: A sua proposta ainda não foi publicada
+        show:
+          back_to: Voltar a
+          back_to_list: Voltar para a lista
+      versions:
+        proposals:
+          back_to_resource: Voltar para a proposta
