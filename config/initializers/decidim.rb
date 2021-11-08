@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 
 Decidim.configure do |config|
-  config.application_name = 'Confluências Amazônicas'
-  config.mailer_sender = 'contato@confluencias.amazonia'
+  config.application_name = 'Cosmotécnicas Amazônicas'
+  config.mailer_sender = 'admin@cosmo.tec.br'
 
   # Change these lines to set your preferred locales
   config.default_locale = 'en' #'pt-BR'
   config.available_locales = [:en, :ca, :es, :pt]  #'pt-BR']
+
+  # Inform Decidim about the assets folder
+  # Decidim.register_assets_path File.expand_path('app/packs', Rails.application.root)
 
   # Geocoder configuration
   # config.geocoder = {
