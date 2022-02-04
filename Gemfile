@@ -2,16 +2,20 @@
 
 source "https://rubygems.org"
 
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = "0.25.1"
+DECIDIM_VERSION = "0.25.2"
+
+#CALENDAR_REPO = { path: '../decidim-module-calendar' }
+CALENDAR_REPO = { github: 'luizsanches/decidim-module-calendar' }
 
 gem "decidim", DECIDIM_VERSION
 gem 'decidim-conferences', DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
-
-gem "decidim-calendar", git: "https://github.com/luizsanches/decidim-module-calendar"
+gem "decidim-calendar", CALENDAR_REPO
 
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 

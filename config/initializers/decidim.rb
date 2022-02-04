@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 Decidim.configure do |config|
-  config.application_name = 'Cosmotécnicas Amazônicas'
-  config.mailer_sender = 'admin@cosmo.tec.br'
+  config.application_name = ENV['APPLICATION_NAME']
+  config.mailer_sender = ENV['MAILER_SENDER']
 
   # Change these lines to set your preferred locales
   config.default_locale = 'en' #'pt-BR'
@@ -78,7 +78,7 @@ Decidim.configure do |config|
   # that an organization's administrator injects malicious scripts to spy on or
   # take over user accounts.
   #
-  config.enable_html_header_snippets = false
+  config.enable_html_header_snippets = true
 
   # SMS gateway configuration
   #
