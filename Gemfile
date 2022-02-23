@@ -30,6 +30,8 @@ gem "devise-i18n"
 
 gem 'sidekiq'
 
+gem 'whenever', require: false
+
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
