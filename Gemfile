@@ -19,9 +19,9 @@ gem "decidim-calendar", CALENDAR_REPO
 
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 
-gem "bootsnap", "~> 1.7"
+gem "bootsnap", "~> 1.10"
 
-gem "puma", "~> 5.5.2"
+gem "puma", "~> 5.6.2"
 gem "uglifier", "~> 4.1"
 
 gem "faker", "~> 2.17"
