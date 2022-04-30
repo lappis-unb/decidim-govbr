@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = '0.26.0'
+DECIDIM_VERSION = '0.26.1'
 
 #CALENDAR_REPO = { path: '../decidim-module-calendar' }
 CALENDAR_REPO = { github: 'luizsanches/decidim-module-calendar' }
