@@ -2,6 +2,10 @@
 pt:
   activemodel:
     attributes:
+      agenda:
+        description: Descrição
+        duration: Duração
+        title: Título
       meeting:
         available_slots: Vagas disponíveis para esta reunião
         reserved_slots: Vagas reservadas para esta reunião
@@ -11,6 +15,7 @@ pt:
         registration_form_enabled: Formulário de registro ativado
         registration_terms: Termos de registro
         registrations_enabled: Registros ativados
+        customize_registration_email: Personalizar o e-mail de registro
       validate_registration_code:
         code: Código
     models:
@@ -30,6 +35,8 @@ pt:
           global:
             default_registration_terms: Termos de registro predefinidos
             registration_code_enabled: Código de registro habilitado
+            scopes_enabled: Âmbitos ativados
+            maps_enabled: Mapas ativados
     events:
       meetings:
         meeting_registration_confirmed:
@@ -56,6 +63,12 @@ pt:
             location_hints_help: 'Exemplo: o andar do edifício se for uma reunião presencial, ou a senha da reunião se for uma reunião virtual com acesso restrito.'
             select_a_meeting_type: Por favor, selecione um tipo de reunião
             select_a_registration_type: Por favor, selecione um tipo de inscrição
+        meetings_poll:
+          form:
+            title: Editar questionário da enquete para %{questionnaire_for}
+          update:
+            invalid: Ocorreu um problema ao atualizar a enquete desta reunião
+            success: Enquete da reunião atualizado com sucesso
         exports:
           registrations: Registros
         invite_join_meeting_mailer:
@@ -105,6 +118,11 @@ pt:
             hybrid: Ambas
             in_person: Presencial
             online: Virtual
+        index:
+          click_here: Ver todas as reuniões
+          see_all: Ver todas as reuniões
+          see_all_withdrawn: Ver todas as reuniões retiradas
+          text_banner: Você está vendo a lista de reuniões retiradas por seus autores. %{go_back_link}.
       versions:
         back_to_resource: Voltar para a reunião
       registration_mailer:
@@ -119,6 +137,16 @@ pt:
         on_different_platform: Em uma plataforma diferente
         on_this_platform: Nesta plataforma
         registration_disabled: Inscrição desativada
+      content_blocks:
+        upcoming_meetings:
+          name: Próximas reuniões
+          upcoming_meetings: Próximas reuniões
+          view_all_meetings: Ver todas
+    participatory_spaces:
+      highlighted_meetings:
+        upcoming_meetings: Próximas reuniões
+      upcoming_meeting_for_card:
+        upcoming_meeting: Próxima reunião
   devise:
     mailer:
       join_meeting:

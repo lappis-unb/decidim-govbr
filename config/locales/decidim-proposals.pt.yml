@@ -20,7 +20,7 @@ pt:
               evaluating: Avaliando
               published: Publicado
               rejected: Rejeitado
-              validating: Validação teécnica
+              validating: Validação técnica
               withdrawn: Retirado
           state_null:
             label: Estado
@@ -30,13 +30,35 @@ pt:
       proposals:
         settings:
           global:
-            scopes_enabled: Âmbitos ativados
+            default_sort_order: Ordenamento padrão das propostas
+            default_sort_order_help: Padrão significa que se os apoios estiverem ativos as propostas serão ordenadas aleatóriamente, e se os apoios estiverem bloqueados serão ordenadas do maior para o menor número de apoios.
+            default_sort_order_options:
+              default: Padrão
+              most_voted: Mais votada
+            geocoding_enabled: Geolocalização ativada
+            minimum_votes_per_user: Votos mínimos por usuário
+            proposal_limit: Limite de propostas por usuário
             proposal_edit_time: Edição de propostas
             proposal_edit_time_choices:
               infinite: Permitir a edição de propostas por um período infinito de tempo
               limited: Permitir a edição de propostas dentro de um período de tempo específico
+            scopes_enabled: Âmbitos ativados
+          step:
+            creation_enabled: Participantes podem criar propostas
+            default_sort_order: Ordenamento padrão das propostas
+            default_sort_order_help: Padrão significa que se os apoios estiverem ativos as propostas serão ordenadas aleatóriamente, e se os apoios estiverem bloqueados serão ordenadas do maior para o menor número de apoios.
+            default_sort_order_options:
+              default: Padrão
+              most_voted: Mais votada
     proposals:
       proposals:
+        index:
+          collaborative_drafts_list: Acessar rascunhos colaborativos
+          text_banner: Está vendo a lista de propostas retiradas pelos seus próprios autores. %{go_back_link}
+        new:
+          title: Crie sua proposta
+        edit:
+          add_images: Arquivo
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pode acumular mais de %{limit} voto(s)

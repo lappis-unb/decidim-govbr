@@ -4,8 +4,20 @@ pt:
     attributes:
       initiative:
         area_id: Área
+      initiatives_committee_member:
+        user: Membro do Comitê
+      initiatives_type:
+        child_scope_threshold_enabled: Ativar âmbito descendente de assinaturas
+        promoting_committee_enabled: Permitir comitê promotor
+        signature_type: Tipo de assinatura
   decidim:
     initiatives:
+      admin:
+        initiatives_types:
+          form:
+            authorizations: Configurações de autorização
+            child_scope_threshold_enabled_help: 'Esta opção de configuração não suporta votos off-line, ela permite subescopos e funciona com um manipulador de autorização que associa um escopo ao usuário, certifique-se de selecionar essa autorização, abaixo nas configurações de autorização. Para que funcione, os escopos de trabalho precisam ser configurados de forma hierárquica: 1 Pai - N Descendente. Para mais informações sobre como esta configuração funciona, veja o seguinte <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
+            only_global_scope_enabled_help: Marque esta opção se você ativou "âmbito descendente de assinaturas" e configurou o escopo global como seu escopo pai. Ao ativar isto, a seleção do tipo de iniciativa será pulada no assistente de criação de iniciativa. Para mais informações sobre como esta configuração funciona, veja o seguinte <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.
       create_initiative:
         fill_data:
           fill_data_help: "<ul> <li>Revise o conteúdo de sua iniciativa. Seu título é fácil de entender? O objetivo de sua iniciativa é claro?</li> <li>Você tem que escolher o tipo de assinatura. Pessoalmente, online ou uma combinação de ambos.</li> <li>Qual é o âmbito geográfico da iniciativa?</li> </ul>"

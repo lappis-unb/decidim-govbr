@@ -1,6 +1,28 @@
 # https://github.com/decidim/decidim/blob/develop/decidim-participatory_processes/config/locales/en.yml
 pt:
+  activemodel:
+    attributes:
+      participatory_process:
+        private_space: Espaço privado
+        weight: Posição de ordem
+      participatory_process_group:
+        group_url: Site
+        promoted: Promovido
+      participatory_process_step:
+        cta_text: Texto de Chamada para Ação
+      category:
+        weight: Posição de ordem
+      component:
+        weight: Posição de ordem
   decidim:
+    admin:
+      menu:
+        participatory_processes_submenu:
+          attachment_files: Arquivos
     participatory_processes:
       show:
         belongs_to_group: Este processo pertence a
+      admin:
+        participatory_processes:
+          form:
+            announcement_help: O texto que insere aqui será mostrado ao usuário logo abaixo das informações do processo.

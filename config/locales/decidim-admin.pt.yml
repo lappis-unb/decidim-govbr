@@ -2,12 +2,49 @@
 pt:
   activemodel:
     attributes:
+      area:
+        area_type_id: Tipo de área
       settings:
         scope_id: Âmbito
       organization:
         admin_terms_of_use_body: Conteúdo dos termos de uso de admninistrador
+        default_locale: Idioma padrão
+        enable_participatory_space_filters: Ativar filtros do espaço participativo
+        logo: Logotipo
+        official_img_footer: Logotipo oficial do rodapé
+        official_img_header: Logotipo oficial do cabeçalho
+      external_domain:
+        value: URL
+      attachment_collection:
+        weight: Posição de ordem
+      attachment:
+        weight: Posição de ordem
+    metrics:
+      blocked_users:
+        object: usuários bloqueados
+        title: Usuários bloqueados
+      reported_users:
+        object: usuários denunciados
+        title: Usuários denunciados
+      user_reports:
+        object: relatórios de usuário
+        title: Relatórios de usuário
+  activerecord:
+    models:
+      decidim/event_calendar:
+        other: Calendário
   decidim:
     admin:
+      actions:
+        attachment_collection:
+          new: Nova coleção de anexos
+        export-selection: Exportar seleção
+        manage: Gerenciar
+        share: Compartilhar
+        participatory_space_private_user:
+          new: Novo participante privado do espaço participativo
+        user:
+          new: Novo participante
       admin_terms_of_use:
         actions:
           accept: Eu concordo com os termos
@@ -20,7 +57,7 @@ pt:
           view_more_logs: Ver mais registros
       filters:
         search_placeholder:
-          name_or_nickname_or_email_cont: Pesquisar %{collection} por e-mail, nome ou apelido.
+          name_or_nickname_or_email_cont: Pesquisar %{collection} por e-mail, nome ou nome de usuário.
       impersonatable_users:
         index:
           view_logs: Ver registros
@@ -31,13 +68,36 @@ pt:
         error: Ocorreu um problema ao atualizar as seções de ajuda
         form:
           save: Salvar
-        success: Seções de ajuda atualizadas corretamente
+        success: Seções de ajuda atualizadas com sucesso
       menu:
         admin_log: Registro de atividade de administração
         dashboard: Painel de controle
         moderation: Moderações globais
         users: Usuários
         help_sections: Seções de ajuda
+        newsletters: Boletins informativos
+        reported_users: Usuários denunciados
+        assemblies: Assembléias
+      newsletters:
+        edit:
+          save_and_preview: Salvar e pré-visualizar
+        index:
+          all_users: 'Todos os usuários '
+        new:
+          save: Salvar
+        select_recipients_to_deliver:
+          all_users_help: Envia um boletim informativo para todos os usuários confirmados.
+          confirm_deliver: Tem certeza que deseja enviar este boletim informativo? Esta ação não pode ser desfeita.
+          followers_help: Envia um boletim informativo para todos os usuários confirmados que seguem quaisquer espaços participativos na lista.
+          participants_help: Envia um boletim informativo para todos os usuários confirmados que tenham participado em qualquer um dos espaços participativos selecionados na lista.
+          recipients_count: Este boletim informativo será enviado para <strong id='recipients_count'>%{count}</strong> usuários.
+          scopes_help: Envia um boletim informativo aos usuários que tenham qualquer um dos âmbitos selecionados ativados nas definições "Os meus interesses" das suas contas.
+          select_scopes: Filtro para os usuários que ativaram qualquer âmbito selecionado nas definições "Os meus interesses" das suas contas.
+          select_users: Selecione os usuários para os quais pretende enviar o boletim informativo
+          send_to_all_users: Enviar para todos os usuários
+          send_to_followers: Enviar para os seguidores
+          send_to_participants: Enviar para os participantes
+          warning: "<strong>Atenção:</strong> Este boletim informativo apenas será enviado para os usuários que tenham ativado a opção <em>Pretendo receber boletins informativo</em> nas suas definições de notificações."
       titles:
         admin_log: Registro de administrador
         dashboard: Painel de Controle
@@ -47,10 +107,53 @@ pt:
         index:
           headers:
             scope: Âmbito do componente
+        form:
+          default_step_settings: Configurações da fase padrão
+          step_settings: Configurações da fase
       officializations:
         index:
-          nickname: Apelido
+          nickname: Nome de usuário
           reports: Relatórios
+      organization_appearance:
+        edit:
+          update: Update
+        form:
+          colors:
+            colors_warning_html: Advertência! A mudança destas cores pode quebrar os contrastes de acessibilidade. Você pode verificar o contraste de sua escolha com o <a href="%{link}">Verificador de Contraste WebAIM</a> ou outras ferramentas similares.
+      organization_external_domain_whitelist:
+        edit:
+          update: Atualizar
+        external_domain:
+          down: Para baixo
+          external_domain: Domínio externo
+          remove: Remover
+          up: Para cima
+        form:
+          add: Adicionar à lista
+          title: Lista de domínios externos autorizados
+      organization_homepage:
+        edit:
+          active_content_blocks: Blocos de conteúdo ativos
+          inactive_content_blocks: Blocos de conteúdo inativos
+      moderated_users:
+        index:
+          actions:
+            block: Bloquear usuário
+            title: Ações
+            unblock: Desbloquear usuário
+            unreport: Remover denúncia
+          name: Nome
+          nickname: Nome de usuário
+          reason: Motivo
+          reports: Contagem de denúncias
+          title: Lista de usuários denunciados
+      share_tokens:
+        actions:
+          share: Compartilhar
+        share_tokens:
+          empty: Não existem identificadores ativos
+          help: Estes identificadores são usados para compartilhar publicamente para qualquer usuário este recurso não publicado. Estarão escondidos quando o recurso estiver publicado. Clique no icone de compartilhar do identificador para visitar a URL comparltilhável.
+          title: Compartilhar identificadores
   layouts:
     decidim:
       admin:

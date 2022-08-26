@@ -3,14 +3,16 @@ pt:
   activemodel:
     attributes:
       group:
-        nickname: Apelido
+        nickname: Nome abreviado
       user:
-        nickname: Apelido
+        nickname: Nome de usuário
         email: O seu e-mail
         password: Senha
         password_confirmation: Confirme a sua senha
+        personal_url: Site pessoal
+        locale: Linguagem
       invite:
-        nickname: Apelido
+        nickname: Nome de usuário
   activerecord:
     attributes:
       decidim/user:
@@ -27,7 +29,7 @@ pt:
     devise:
       registrations:
         new:
-          nickname_help: Seu apelido em %{organization}. Só pode conter letras, números, '-' e '_'.
+          nickname_help: Seu nome de usuário em %{organization}. Só pode conter letras, números, '-' e '_'.
           password_help: "%{minimun_characters} caracteres no mínimo, não deverá ser muito comum (por ex. 123456) e deverá ser diferente de seu apelido e do seu e-mail."
           newsletter_title: Permissão de contato
       sessions:
@@ -37,10 +39,25 @@ pt:
         newsletter_modal:
           buttons:
             uncheck: Manter desmarcado
+    editor_images:
+      create:
+        error: Erro ao carregar a imagem
+        success: Imagem carregada com sucesso
+      drag_and_drop_help: Adicione imagens arrastando e soltando-as ou colando-as.
     forms:
+      current_file: Arquivo atual
+      current_image: Imagem atual
+      default_image: Imagem padrão
+      file_help:
+        file:
+          explanation: 'Orientação para o arquivo:'
+          message_2: Para imagens, use de preferência imagens em paisagem, o serviço corta a imagem. Para arquivos CSV, o separador entre colunas deve ser uma vírgula (",")
+        image:
+          message_1: Preferencialmente, uma imagem de paisagem que não tenha nenhum texto.
       file_validation:
         allowed_file_extensions: 'Extensões de arquivo permitidas: %{extensions}'
         max_file_size: 'Tamanho máximo do arquivo: %{megabytes}MB'
+      remove_this_file: Remover este arquivo
     pages:
       home:
         footer_sub_hero:
@@ -66,14 +83,19 @@ pt:
     notifications_settings:
       show:
         email_on_moderations: Quero receber um e-mail cada vez que algo é relatado para moderação.
+        update_notifications_settings: Salvar alterações
     data_portability:
       show:
         download_data_description: Um arquivo contendo todas as informações associadas à sua conta será enviado para <strong>%{user_email}</strong>. Este e-mail conterá um arquivo .zip e uma senha para abri-lo.<br/><br/>Para descompactar o arquivo, você precisará do <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) ou <a href="https://www.keka.io/">Keka</a> (para MacOS). Se você usa Linux, na maioria das vezes você o terá instalado por padrão. Caso contrário, você pode usar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> ou <a href="https://peazip.github.io">PeaZip</a>).
     groups:
       form:
-        nickname_help: Apelido da sua organização, associação, coletivo, grupo, etc. Não use espaços nem acentos.
+        nickname_help: Nome abreviado da sua organização, associação, coletivo, grupo, etc. Não use espaços nem acentos.
       new:
         subtitle: Crie um grupo e convide outros usuários a aderir para participarem a um nível coletivo.
+    messaging:
+      conversations:
+        add_conversation_users:
+          add_max_users: 'Adicionar usuários à conversa: 9 usuários no máximo'
   devise:
     passwords:
       edit:
@@ -87,15 +109,15 @@ pt:
       no_token: Não pode acessar esta página sem ter vindo a partir de um e-mail de modificação da senha. Se vier a partir de um e-mail de modificação da senha, verifique se usou o URL completo fornecido.
       send_instructions: Você receberá um e-mail com instruções sobre como modificar a sua senha dentro de poucos minutos.
       send_paranoid_instructions: Se o seu endereço de e-mail existir na nossa base de dados, receberá um link de recuperação da senha no seu endereço de e-mail dentro de poucos minutos.
-      updated: A sua senha foi modificada corretamente. Agora tem sessão iniciada.
-      updated_not_active: A sua senha foi modificada corretamente.
+      updated: A sua senha foi modificada com sucesso. Agora você tem sua sessão iniciada.
+      updated_not_active: A sua senha foi modificada com sucesso.
     shared:
       links:
         forgot_your_password: Esqueceu a sua senha?
     mailer:
       password_change:
-        message: Estamos contatando você para notificá-lo(a) de que a sua palavra-passe foi modificada.
-        subject: Palavra-passe modificada
+        message: Estamos contatando você para notificá-lo(a) de que a sua senha foi modificada.
+        subject: Senha modificada
       reset_password_instructions:
         action: Modificar a minha senha
         instruction: Alguém solicitou um link para alterar a sua senha e pode fazer isso através do link abaixo.
@@ -104,14 +126,14 @@ pt:
   forms:
     length_validator:
       minimum:
-        one: Pelo menos %{count} carácter
+        one: Pelo menos %{count} caractere
         other: Pelo menos %{count} caracteres
   layouts:
     decidim:
       timeout_modal:
-        body: Você esteve inativo por %{minutes} minutos. Se você continuar inativo, você será automaticamente assinado para sua própria segurança.
+        body: Você esteve inativo por %{minutes} minutos. Se você continuar inativo, você será automaticamente deslogado para sua própria segurança.
         continue_session: Continuar sessão
         sign_out: Sair
         title: Você gostaria de continuar sua sessão?
       footer:
-        download_open_data: Baixar arquivos Open Data
+        download_open_data: Baixar arquivos de Dados Abertos
