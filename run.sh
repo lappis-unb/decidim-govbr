@@ -1,4 +1,4 @@
-docker-compose-v1 up -d
+docker compose up -d
 
 mailcatcher
 
