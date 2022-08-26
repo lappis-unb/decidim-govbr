@@ -6,9 +6,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = '0.26.1'
+DECIDIM_VERSION = '0.26.2'
 
-#CALENDAR_REPO = { path: '../decidim-module-calendar' }
+# CALENDAR_REPO = { path: '../decidim-module-calendar' }
 CALENDAR_REPO = { github: 'luizsanches/decidim-module-calendar' }
 
 gem "decidim", DECIDIM_VERSION
@@ -21,14 +21,15 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 
 gem "bootsnap", "~> 1.10"
 
-gem "puma", "~> 5.6.2"
+gem "puma", "5.6.5"
 gem "uglifier", "~> 4.1"
 
 gem "faker", "~> 2.17"
 
 gem "devise-i18n"
 
-gem 'sidekiq'
+gem 'sidekiq', '6.5.1'
+gem 'redis', '4.7.1'
 
 gem 'whenever', require: false
 
