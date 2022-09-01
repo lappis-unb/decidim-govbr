@@ -49,4 +49,5 @@ end
 
 group :development, :production do
   gem 'exception_notification'
+  gem 'rails_performance'
 end
