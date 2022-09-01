@@ -46,3 +46,7 @@ group :development do
   gem "web-console", "~> 3.5"
   gem "rails-erd"
 end
+
+group :development, :production do
+  gem 'exception_notification'
+end
