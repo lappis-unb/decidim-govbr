@@ -47,8 +47,3 @@ group :development do
   gem "web-console", "~> 3.5"
   gem "rails-erd"
 end
-
-group :production do
-  gem "sentry-ruby"
-  gem "sentry-rails"
-end
