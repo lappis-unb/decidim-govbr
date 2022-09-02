@@ -50,7 +50,17 @@ pt:
             default_sort_order_options:
               default: Padrão
               most_voted: Mais votada
+    events:
+      proposals:
+        proposal_published_for_space:
+          notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi adicionada em %{participatory_space_title} por %{author}
     proposals:
+      collaborative_drafts:
+        show:
+          back: Voltar
+        wizard_aside:
+          back_from_collaborative_draft: Voltar para os rascunhos colaborativos
+          info: Criar um <strong>projeto colaborativo</strong>.
       proposals:
         index:
           collaborative_drafts_list: Acessar rascunhos colaborativos
