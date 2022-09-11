@@ -5,8 +5,8 @@ Decidim.configure do |config|
   config.mailer_sender = ENV['MAILER_SENDER']
 
   # Change these lines to set your preferred locales
-  config.default_locale = 'en'
-  config.available_locales = [:en, :ca, :es, :pt]
+  config.default_locale = :pt
+  config.available_locales = [:pt, :en, :es, :ca]
 
   # Inform Decidim about the assets folder
   # Decidim.register_assets_path File.expand_path('app/packs', Rails.application.root)
