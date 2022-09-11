@@ -23,9 +23,21 @@ pt:
         password_confirmation: Confirmação da senha
         remember_me: Lembrar-me
   decidim:
+    accessibility:
+      front_page_link: Ir para a página principal
     account:
       delete:
         alert: Esta ação não pode ser desfeita. Se você apagar sua conta, não será possível fazer o login com suas credenciais. A exclusão de sua conta resultará na anonimização de suas contribuições. Você ainda poderá criar uma nova conta, mas estas contribuições não serão associadas a ela.
+    authorization_modals:
+      ok:
+        title: Recebeu autorização para esta página. Por favor recarregue a página para executar a sua ação.
+    contact: Contato
+    content_blocks:
+      cta:
+        name: Imagem, texto, botão de convite a ação
+      cta_settings_form:
+        button_text: Texto da chamada a ação
+        button_url: URL da chamada a ação
     devise:
       registrations:
         new:
@@ -96,7 +108,11 @@ pt:
       conversations:
         add_conversation_users:
           add_max_users: 'Adicionar usuários à conversa: 9 usuários no máximo'
+        index:
+          to: Para
   devise:
+    failure:
+      unauthenticated: Você precisa entrar ou se cadastrar antes de continuar.
     passwords:
       edit:
         change_my_password: Modificar a minha senha
@@ -111,8 +127,19 @@ pt:
       send_paranoid_instructions: Se o seu endereço de e-mail existir na nossa base de dados, receberá um link de recuperação da senha no seu endereço de e-mail dentro de poucos minutos.
       updated: A sua senha foi modificada com sucesso. Agora você tem sua sessão iniciada.
       updated_not_active: A sua senha foi modificada com sucesso.
+    registrations:
+      destroyed: A sua conta foi cancelada com sucesso. Esperamos vê-lo(a) novamente em breve.
+      edit:
+        are_you_sure: Você tem certeza?
+        we_need_your_current_password_to_confirm_your_changes: precisamos da sua senha atual para confirmar as suas alterações
+      updated: A sua conta foi atualizada com sucesso.
+    sessions:
+      already_signed_out: Sessão terminada com sucesso.
+      signed_in: Sessão iniciada com sucesso.
+      signed_out: Sessão terminada com sucesso.
     shared:
       links:
+        back: Voltar
         forgot_your_password: Esqueceu a sua senha?
     mailer:
       password_change:
@@ -130,8 +157,10 @@ pt:
         other: Pelo menos %{count} caracteres
   layouts:
     decidim:
+      cookie_warning:
+        description_html: Este site usa cookies. Ao continuar navegando nele, você concorda com o uso desses cookies. Saiba mais sobre isso %{link}.
       timeout_modal:
-        body: Você esteve inativo por %{minutes} minutos. Se você continuar inativo, você será automaticamente deslogado para sua própria segurança.
+        body: Você esteve inativo por %{minutes} minutos. Se você continuar inativo, você será automaticamente desconectado para sua própria segurança.
         continue_session: Continuar sessão
         sign_out: Sair
         title: Você gostaria de continuar sua sessão?

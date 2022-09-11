@@ -9,6 +9,7 @@ pt:
       organization:
         admin_terms_of_use_body: Conteúdo dos termos de uso de admninistrador
         default_locale: Idioma padrão
+        enable_omnipresent_banner: Mostrar faixa onipresente
         enable_participatory_space_filters: Ativar filtros do espaço participativo
         logo: Logotipo
         official_img_footer: Logotipo oficial do rodapé
@@ -18,6 +19,11 @@ pt:
       attachment_collection:
         weight: Posição de ordem
       attachment:
+        weight: Posição de ordem
+      static_page:
+        topic_id: Tópico
+        weight: Posição de ordem
+      static_page_topic:
         weight: Posição de ordem
     metrics:
       blocked_users:
@@ -33,6 +39,7 @@ pt:
     models:
       decidim/event_calendar:
         other: Calendário
+      decidim/moderation: Moderação
   decidim:
     admin:
       actions:
@@ -56,8 +63,15 @@ pt:
         show:
           view_more_logs: Ver mais registros
       filters:
+        moderated_users:
+          reports_reason_eq:
         search_placeholder:
+          label: Motivo do relatório
           name_or_nickname_or_email_cont: Pesquisar %{collection} por e-mail, nome ou nome de usuário.
+          reported_id_string_or_reported_content_cont: Pesquisar %{collection} por identificador de denúncia ou conteúdo.
+          title_cont: Pesquisar %{collection} por título.
+          user_name_or_user_email_cont: Pesquisar %{collection} por nome ou e-mail.
+          user_name_or_user_nickname_or_user_email_cont: Pesquisar %{collection} por e-mail, nome ou nome de usuário.
       impersonatable_users:
         index:
           view_logs: Ver registros
@@ -116,10 +130,12 @@ pt:
           reports: Relatórios
       organization_appearance:
         edit:
-          update: Update
+          update: Atualizar
         form:
           colors:
             colors_warning_html: Advertência! A mudança destas cores pode quebrar os contrastes de acessibilidade. Você pode verificar o contraste de sua escolha com o <a href="%{link}">Verificador de Contraste WebAIM</a> ou outras ferramentas similares.
+            header_snippets_help: Use este campo para adicionar coisas ao cabeçalho HTML. O uso mais comum é integrar serviços de terceiros que exigem algum JavaScript ou CSS extra. Além disso, pode usá-lo para acrescentar meta tags adicionais ao HTML. Observe que isso só será exibido em páginas públicas, não na seção de administração.
+          omnipresent_banner_appearance_title: Editar faixa onipresente
       organization_external_domain_whitelist:
         edit:
           update: Atualizar
@@ -154,6 +170,11 @@ pt:
           empty: Não existem identificadores ativos
           help: Estes identificadores são usados para compartilhar publicamente para qualquer usuário este recurso não publicado. Estarão escondidos quando o recurso estiver publicado. Clique no icone de compartilhar do identificador para visitar a URL comparltilhável.
           title: Compartilhar identificadores
+    moderations:
+      models:
+        moderation:
+          fields:
+            reportable_id: ID
   layouts:
     decidim:
       admin:

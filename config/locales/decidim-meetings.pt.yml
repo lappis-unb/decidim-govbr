@@ -123,6 +123,10 @@ pt:
           see_all: Ver todas as reuniões
           see_all_withdrawn: Ver todas as reuniões retiradas
           text_banner: Você está vendo a lista de reuniões retiradas por seus autores. %{go_back_link}.
+      models:
+        meeting:
+          fields:
+            id: ID
       versions:
         back_to_resource: Voltar para a reunião
       registration_mailer:

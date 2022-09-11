@@ -55,6 +55,9 @@ pt:
         proposal_published_for_space:
           notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi adicionada em %{participatory_space_title} por %{author}
     proposals:
+      create:
+        error: Ocorreu um problema ao salvar a proposta.
+        success: Proposta criada com sucesso. Salva como rascunho.
       collaborative_drafts:
         show:
           back: Voltar

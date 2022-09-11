@@ -16,8 +16,13 @@ pt:
           form:
             add_title_and_description: Adicionar título e descrição
             already_answered_warning: O questionário já foi respondido por alguns usuários, por isso não pode modificar as suas questões.
+            collapse: Recolher todas as questões
+          question:
+            collapse: Recolher
           title_and_description:
+            collapse: Recolher
             description: Descrição
+            expand: Expandir
             title: Título
             remove: Remover
             up: Acima

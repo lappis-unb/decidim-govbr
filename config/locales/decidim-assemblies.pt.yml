@@ -170,6 +170,9 @@ pt:
         assemblies_settings:
           form:
             title: Definições para as assembléias
+      assemblies:
+        show:
+          title: Sobre esta assembléia
       content_blocks:
         highlighted_assemblies:
           name: Assembléias realçadas

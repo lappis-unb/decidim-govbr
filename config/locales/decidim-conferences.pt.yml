@@ -20,6 +20,8 @@ pt:
         user_id: Usuário
         personal_url: Site pessoal
         short_bio: Biografia resumida
+    models:
+      decidim/conferences/conference_registration_notification_event: Inscrição na conferência
   activerecord:
     models:
       decidim/conference_speaker:

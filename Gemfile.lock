@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/luizsanches/decidim-module-calendar.git
-  revision: 7eed833ff18937598e08becc62937d9bb4511716
+  revision: 0b79aa949552739e3b0452c0edd267786ef0e83d
   specs:
     decidim-calendar (0.22.0)
       decidim-admin (>= 0.26.0)
