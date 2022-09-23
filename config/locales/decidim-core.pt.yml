@@ -166,3 +166,7 @@ pt:
         title: Você gostaria de continuar sua sessão?
       footer:
         download_open_data: Baixar arquivos de Dados Abertos
+  time:
+    formats:
+      ddmm: "%d/%m"
+      ddmmyyyy: "%d/%m/%Y"
