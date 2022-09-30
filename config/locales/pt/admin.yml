@@ -55,6 +55,9 @@ pt:
       admin_terms_of_use:
         actions:
           accept: Eu concordo com os termos
+          are_you_sure: Você tem certeza de que quer recusar os termos de uso da administração?
+        required_review:
+          callout: Por favor, reserve um momento para revisar os Termos de Uso do Administrador. Caso contrário, você não será capaz de gerenciar a plataforma.
       actions:
         import: Importar
         user:
@@ -86,6 +89,7 @@ pt:
       menu:
         admin_log: Registro de atividade de administração
         dashboard: Painel de controle
+        external_domain_whitelist: Domínios externos permitidos
         moderation: Moderações globais
         users: Usuários
         help_sections: Seções de ajuda
@@ -97,6 +101,7 @@ pt:
           save_and_preview: Salvar e pré-visualizar
         index:
           all_users: 'Todos os usuários '
+          title: Boletins informativos
         new:
           save: Salvar
         select_recipients_to_deliver:
@@ -170,6 +175,8 @@ pt:
           empty: Não existem identificadores ativos
           help: Estes identificadores são usados para compartilhar publicamente para qualquer usuário este recurso não publicado. Estarão escondidos quando o recurso estiver publicado. Clique no icone de compartilhar do identificador para visitar a URL comparltilhável.
           title: Compartilhar identificadores
+      conflicts:
+        title: Conflitos de verificação
     moderations:
       models:
         moderation:
