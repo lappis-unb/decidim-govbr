@@ -7,7 +7,7 @@ require 'action_cable/engine'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module DecidimAmazonia
+module Decide
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
@@ -19,5 +19,7 @@ module DecidimAmazonia
     config.time_zone = 'Brasilia'
 
     config.active_job.queue_adapter = :sidekiq
+
+    config.i18n.load_path += Dir['config/locales/**/*.yml']
   end
 end
