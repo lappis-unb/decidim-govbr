@@ -2,6 +2,11 @@
 pt:
   decidim:
     blogs:
+      admin_log:
+        post:
+          create: "%{user_name} criou a postagem de blog %{resource_name} em %{space_name}"
+          delete: "%{user_name} deletou a postagem de blog %{resource_name} de %{space_name}"
+          update: "%{user_name} atualizou a postagem de blog %{resource_name} em %{space_name}"
       posts:
         show:
           back: Voltar à lista

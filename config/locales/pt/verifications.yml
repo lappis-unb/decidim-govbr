@@ -1,0 +1,6 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-verifications/config/locales/en.yml
+pt:
+  decidim:
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} atualizou a configuração da autorização de Documentos de Identidade"

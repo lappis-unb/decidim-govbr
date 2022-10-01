@@ -107,6 +107,7 @@ pt:
     log:
       base_presenter:
         publish_with_space: "%{user_name} publicou %{resource_name} em %{space_name}"
+        unpublish_with_space: "%{user_name} removeu a publicação %{resource_name} em %{space_name}"
     pages:
       home:
         footer_sub_hero:
