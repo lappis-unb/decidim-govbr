@@ -28,6 +28,15 @@ pt:
     account:
       delete:
         alert: Esta ação não pode ser desfeita. Se você apagar sua conta, não será possível fazer o login com suas credenciais. A exclusão de sua conta resultará na anonimização de suas contribuições. Você ainda poderá criar uma nova conta, mas estas contribuições não serão associadas a ela.
+    admin_log:
+      attachment:
+        create: "%{user_name} criou o anexo %{resource_name}"
+        delete: "%{user_name} deletou o anexo %{resource_name}"
+        update: "%{user_name} atualizou o anexo %{resource_name}"
+      category:
+        create: "%{user_name} adicionou a categoria %{resource_name} no espaço %{space_name}"
+        delete: "%{user_name} deletou a categoria %{resource_name} do espaço %{space_name}"
+        update: "%{user_name} atualizou a categoria %{resource_name} no espaço %{space_name}"
     authorization_modals:
       ok:
         title: Recebeu autorização para esta página. Por favor recarregue a página para executar a sua ação.
@@ -64,12 +73,40 @@ pt:
         file:
           explanation: 'Orientação para o arquivo:'
           message_2: Para imagens, use de preferência imagens em paisagem, o serviço corta a imagem. Para arquivos CSV, o separador entre colunas deve ser uma vírgula (",")
+        icon:
+          explanation: 'Orientação para o ícone:'
+          message_1: Tem que ser uma imagem quadrada.
+          message_2: O tamanho recomendado para esta imagem é 512x512.
         image:
           message_1: Preferencialmente, uma imagem de paisagem que não tenha nenhum texto.
       file_validation:
         allowed_file_extensions: 'Extensões de arquivo permitidas: %{extensions}'
+        max_file_dimension: 'Dimensões máximas do arquivo: %{resolution} pixels'
         max_file_size: 'Tamanho máximo do arquivo: %{megabytes}MB'
       remove_this_file: Remover este arquivo
+      upload:
+        labels:
+          add_attachment: Adicionar anexo
+          add_file: Adicionar arquivo
+          add_image: Adicionar imagem
+          cancel: Cancelar
+          edit_image: Editar imagem
+          error: Erro!
+          file_size_too_large: 'O tamanho do arquivo é muito grande! Tamanho máximo do arquivo: %{megabytes}MB'
+          remove: Remover
+          replace: Substituir
+          save: Salvar
+          title: Título
+          title_required: Título é obrigatório!
+          uploaded: Carregado
+          validating: Validando...
+          validation_error: Erro de validação!
+      upload_help:
+        dropzone: Solte arquivos aqui ou clique para carregar
+        explanation: Orientação para %{attribute}
+    log:
+      base_presenter:
+        publish_with_space: "%{user_name} publicou %{resource_name} em %{space_name}"
     pages:
       home:
         footer_sub_hero:
@@ -86,12 +123,16 @@ pt:
       resource_version:
         see_other_versions: ver outras versões
     shared:
+      mentions_modal:
+        remove_recipient: Remover o destinatário %{name}
       share_modal:
         share: Compartilhar
         share_link: Compartilhar link
     follows:
       create:
         participatory_space: Seguir <span class="show-for-sr">%{resource_name}</span>
+    menu:
+      home: Início
     notifications_settings:
       show:
         email_on_moderations: Quero receber um e-mail cada vez que algo é relatado para moderação.
@@ -119,6 +160,9 @@ pt:
         change_your_password: Modificar a sua senha
         confirm_new_password: Confirme a nova senha
         new_password: Nova senha
+        password_help: "%{minimun_characters} caracteres mínimos, não devem ser muito comuns (por exemplo, 123456) e devem ser diferentes de seu nome de usuário e de seu e-mail."
+        password_help_admin: "%{minimun_characters} caracteres mínimos, não devem ser muito comuns (por exemplo, 123456), devem ser diferentes de seu nome de usuário e seu e-mail e devem ser diferentes de suas senhas antigas."
+        title: Mudança de senha
       new:
         forgot_your_password: Esqueceu a sua senha?
         send_me_reset_password_instructions: Envie-me as instruções de modificação da senha
@@ -157,15 +201,67 @@ pt:
         other: Pelo menos %{count} caracteres
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Este site usa cookies. Ao continuar navegando nele, você concorda com o uso desses cookies. Saiba mais sobre isso %{link}.
+      data_consent:
+        details:
+          columns:
+            description: Descrição
+            name: Nome
+            service: Serviço
+            type: Tipo
+          items:
+            _session_id:
+              description: Permite que os sites se lembrem do usuário dentro de um site quando ele se move entre páginas.
+              service: Este site
+            decidim-consent:
+              description: Armazena informações sobre os cookies permitidos pelo usuário neste site.
+              service: Este site
+            pwaInstallPromptSeen:
+              description: Armazena o status se a notificação de instalação da aplicação web progressiva (PWA) já tiver sido vista pelo usuário.
+              service: Este site
+          types:
+            cookie: Cookie
+            local_storage: Armazenagem local
+        dialog:
+          accept_all: Aceitar todos
+          accept_only_essential: Aceitar somente o essencial
+          description: Utilizamos cookies para melhorar o desempenho e o conteúdo do site. Os cookies nos permitem fornecer uma experiência de usuário mais individual e canais de mídia social.
+          settings: Configurações
+          title: Informações sobre os cookies utilizados no site
+        modal:
+          accept_all: Aceitar todos
+          accept_only_essential: Aceitar somente o essencial
+          analytics:
+            description: Estes cookies são usados para medir e analisar o público para ajudar a melhorar o site.
+            title: Analítica e estatística
+          description: Utilizamos cookies para garantir as funcionalidades básicas do site e para melhorar sua experiência on-line. Você pode configurar e aceitar o uso dos cookies, e modificar suas opções de consentimento, a qualquer momento.
+          essential:
+            description: Estes cookies permitem a funcionalidade chave do site e ajudam a manter seus usuários seguros. Eles são salvos automaticamente no navegador e não podem ser desativados.
+            title: Essencial
+          marketing:
+            description: Estes cookies coletam informações sobre como você utiliza o site e podem ser utilizados para fornecer-lhe uma publicidade mais personalizada através dos diferentes sites que você utiliza.
+            title: Publicidade
+          preferences:
+            description: Estes cookies permitem que o site lembre as escolhas feitas no passado neste site para proporcionar uma experiência mais personalizada para os usuários do site.
+            title: Preferências
+          save_settings: Salvar configurações
+          title: Configurações de cookies
+          toggle: Alternar %{consent_category}
+        warning:
+          all_categories: Todos os cookies
+          change_settings: Alterar configurações de cookies
+          consent_required: Você precisa habilitar %{categories} para poder ver este conteúdo.
+      footer:
+        data_consent_settings: Configurações de cookies
+        download_open_data: Baixar arquivos de Dados Abertos
+      offline_banner:
+        cache_version_page: Oooops! Sua rede está offline. Esta é uma versão previamente em cache da página que você está visitando, talvez o conteúdo não esteja atualizado.
       timeout_modal:
         body: Você esteve inativo por %{minutes} minutos. Se você continuar inativo, você será automaticamente desconectado para sua própria segurança.
         continue_session: Continuar sessão
         sign_out: Sair
         title: Você gostaria de continuar sua sessão?
-      footer:
-        download_open_data: Baixar arquivos de Dados Abertos
+      upload_modal:
+        close_modal: Fechar modal
   time:
     formats:
       ddmm: "%d/%m"

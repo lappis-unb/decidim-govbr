@@ -1,3 +1,5 @@
+require 'decidim/spring'
+
 %w[
   .ruby-version
   .rbenv-vars

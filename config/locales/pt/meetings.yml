@@ -8,14 +8,15 @@ pt:
         title: Título
       meeting:
         available_slots: Vagas disponíveis para esta reunião
-        reserved_slots: Vagas reservadas para esta reunião
-        type_of_meeting: Tipo
+        customize_registration_email: Personalizar o e-mail de registro
+        iframe_access_level: Nível de acesso do iframe
+        iframe_embed_type: Tipo do iframe embutido
         registration_type: Tipo de inscrição
-        type_of_meeting: Tipo
         registration_form_enabled: Formulário de registro ativado
         registration_terms: Termos de registro
         registrations_enabled: Registros ativados
-        customize_registration_email: Personalizar o e-mail de registro
+        reserved_slots: Vagas reservadas para esta reunião
+        type_of_meeting: Tipo
       validate_registration_code:
         code: Código
     models:
@@ -27,6 +28,15 @@ pt:
         one: Registro
         other: Registros
   decidim:
+    admin:
+      filters:
+        meetings:
+          with_any_origin:
+            label: Origem
+            values:
+              official: Oficial
+              participants: Participante
+              user_group: Grupos de usuários
     components:
       meetings:
         actions:
@@ -63,6 +73,8 @@ pt:
             location_hints_help: 'Exemplo: o andar do edifício se for uma reunião presencial, ou a senha da reunião se for uma reunião virtual com acesso restrito.'
             select_a_meeting_type: Por favor, selecione um tipo de reunião
             select_a_registration_type: Por favor, selecione um tipo de inscrição
+            select_an_iframe_access_level: Por favor selecione um nível de acesso iframe
+            show_embedded_iframe_help: 'Apenas alguns poucos serviços permitem a incorporação em reuniões ou eventos ao vivo dos seguintes domínios: %{domains}'
         meetings_poll:
           form:
             title: Editar questionário da enquete para %{questionnaire_for}
@@ -97,6 +109,25 @@ pt:
       admin_log:
         meeting:
           export_registrations: "%{user_name} exportou os registros da reunião %{resource_name} no espaço %{space_name}"
+      calendar_modal:
+        calendar_url: URL do calendário
+        close_window: Fechar janela
+        copy_calendar_url: Copiar
+        copy_calendar_url_clarification: Copiar URL do calendário para a área de transferência
+        copy_calendar_url_copied: Copiado!
+        copy_calendar_url_description: Você pode ver todas as reuniões publicadas em sua aplicação de calendário ou fornecedor. Copie e cole esta URL em seu calendário usando a opção "Adicionar novo calendário a partir de uma URL".
+        copy_calendar_url_explanation: Observe que você está exportando uma seleção de reuniões, uma vez que existem filtros ativos. Se você deseja exportar todos eles, reinicie todos os filtros primeiro.
+        copy_calendar_url_message: A URL foi copiada com sucesso para a área de transferência.
+        export_calendar: Exportar calendário
+      iframe_access_level:
+        all: Todos os visitantes
+        registered: Participantes registrados para esta reunião
+        signed_in: Somente participantes inscritos
+      iframe_embed_type:
+        embed_in_meeting_page: Embutir na página da reunião
+        none: Nenhum
+        open_in_live_event_page: Abrir na página de eventos ao vivo (com enquetes opcionais)
+        open_in_new_tab: Abrir URL em uma nova aba
       mailer:
         registration_mailer:
           confirmation:

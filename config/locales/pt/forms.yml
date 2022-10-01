@@ -30,15 +30,19 @@ pt:
             title_and_description: Título e descrição
           edit:
             save: Salvar
+      files:
+        extension_allowlist: 'Formatos aceitos:'
+      images:
+        processors:
+          resize_and_pad: Esta imagem será redimensionada e preenchida para %{dimensions}.
+          resize_to_fit: Esta imagem será redimensionada para caber em %{dimensions}.
+      question_types:
+        files: Arquivos
       questionnaires:
         show:
           questionnaire_answered:
             body: Você já respondeu este questionário.
           tos_agreement: Ao participar, você aceita os seus Termos de Serviço
-      files:
-        extension_allowlist: 'Formatos aceitos:'
-      question_types:
-        files: Arquivos
       step_navigation:
         show:
           are_you_sure: Esta ação não poderá ser desfeita e não deixará editar as suas respostas. Você tem certeza?

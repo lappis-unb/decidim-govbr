@@ -7,13 +7,15 @@ pt:
       settings:
         scope_id: Âmbito
       organization:
-        admin_terms_of_use_body: Conteúdo dos termos de uso de admninistrador
+        admin_terms_of_use_body: Conteúdo dos termos de uso de administrador
         default_locale: Idioma padrão
         enable_omnipresent_banner: Mostrar faixa onipresente
         enable_participatory_space_filters: Ativar filtros do espaço participativo
         logo: Logotipo
+        header_snippets: Trechos de cabeçalho
         official_img_footer: Logotipo oficial do rodapé
         official_img_header: Logotipo oficial do cabeçalho
+        theme_color: Cor do tema
       external_domain:
         value: URL
       attachment_collection:
@@ -40,6 +42,7 @@ pt:
       decidim/event_calendar:
         other: Calendário
       decidim/moderation: Moderação
+      decidim/user_moderation: Usuário denunciado
   decidim:
     admin:
       actions:
@@ -50,6 +53,7 @@ pt:
         share: Compartilhar
         participatory_space_private_user:
           new: Novo participante privado do espaço participativo
+        import: Importar
         user:
           new: Novo participante
       admin_terms_of_use:
@@ -58,16 +62,14 @@ pt:
           are_you_sure: Você tem certeza de que quer recusar os termos de uso da administração?
         required_review:
           callout: Por favor, reserve um momento para revisar os Termos de Uso do Administrador. Caso contrário, você não será capaz de gerenciar a plataforma.
-      actions:
-        import: Importar
-        user:
-          new: Novo usuário
       dashboard:
         show:
           view_more_logs: Ver mais registros
+          welcome: Bem-vindo ao Painel de Administração.
       filters:
         moderated_users:
           reports_reason_eq:
+            label: Motivo da denúncia
         search_placeholder:
           label: Motivo do relatório
           name_or_nickname_or_email_cont: Pesquisar %{collection} por e-mail, nome ou nome de usuário.
@@ -120,6 +122,7 @@ pt:
       titles:
         admin_log: Registro de administrador
         dashboard: Painel de Controle
+        users: Usuários
       imports:
         import_from_file: Importar de um arquivo
       components:
