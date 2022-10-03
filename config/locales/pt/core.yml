@@ -5,12 +5,14 @@ pt:
       group:
         nickname: Nome abreviado
       user:
+        avatar: Sua foto
+        name: Nome
         nickname: Nome de usuário
-        email: O seu e-mail
+        email: E-mail
         password: Senha
         password_confirmation: Confirme a sua senha
         personal_url: Site pessoal
-        locale: Linguagem
+        locale: Idioma
       invite:
         nickname: Nome de usuário
   activerecord:
@@ -28,6 +30,8 @@ pt:
     account:
       delete:
         alert: Esta ação não pode ser desfeita. Se você apagar sua conta, não será possível fazer o login com suas credenciais. A exclusão de sua conta resultará na anonimização de suas contribuições. Você ainda poderá criar uma nova conta, mas estas contribuições não serão associadas a ela.
+      show:
+        available_locales_helper: Escolha o idioma que você deseja usar para navegar e receber notificações na plataforma
     admin_log:
       attachment:
         create: "%{user_name} criou o anexo %{resource_name}"
@@ -104,6 +108,9 @@ pt:
       upload_help:
         dropzone: Solte arquivos aqui ou clique para carregar
         explanation: Orientação para %{attribute}
+    help:
+      main_topic:
+        title: Ajuda geral
     log:
       base_presenter:
         publish_with_space: "%{user_name} publicou %{resource_name} em %{space_name}"
@@ -136,8 +143,19 @@ pt:
       home: Início
     notifications_settings:
       show:
+        allow_push_notifications: Receba notificações por impulso para descobrir o que está acontecendo quando você não está na plataforma. Você pode desligá-las a qualquer momento.
         email_on_moderations: Quero receber um e-mail cada vez que algo é relatado para moderação.
         update_notifications_settings: Salvar alterações
+        notification_settings:
+          close_meeting_reminder: Quero receber lembretes por e-mail de relatórios não publicados de reuniões fechadas
+        notifications_sending_frequencies:
+          daily: Diariamente
+          none: Nenhuma
+          real_time: Em tempo real
+          weekly: Semanalmente
+        notifications_sending_frequency: Com que freqüência você deseja receber as notificações por e-mail?
+        push_notifications: Notificações por impulso
+        push_notifications_reminder: Para obter notificações da plataforma, você precisará permitir que elas sejam feitas primeiro nas configurações do seu navegador.
     data_portability:
       show:
         download_data_description: Um arquivo contendo todas as informações associadas à sua conta será enviado para <strong>%{user_email}</strong>. Este e-mail conterá um arquivo .zip e uma senha para abri-lo.<br/><br/>Para descompactar o arquivo, você precisará do <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) ou <a href="https://www.keka.io/">Keka</a> (para MacOS). Se você usa Linux, na maioria das vezes você o terá instalado por padrão. Caso contrário, você pode usar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> ou <a href="https://peazip.github.io">PeaZip</a>).

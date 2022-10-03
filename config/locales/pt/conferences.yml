@@ -120,8 +120,9 @@ pt:
         create: "%{user_name} criou o palestrante %{resource_name} na conferência %{space_name}"
         delete: "%{user_name} removeu o palestrante %{resource_name} da conferência %{space_name}"
         update: "%{user_name} atualizou o palestrante %{resource_name} da conferência %{space_name}"
+      conferences:
         conference_registration:
-          confirm: "%{user_name} confirmou um registro da conferência na conferência %{resource_name}"
+          confirm: "%{user_name} confirmou um registro na conferência %{resource_name}"
         partner:
           update: "%{user_name} atualizou o parceiro %{resource_name} na conferência %{space_name}"
         registration_type:
@@ -129,6 +130,10 @@ pt:
           publish: "%{user_name} publicou o tipo de registro %{resource_name} na conferência %{space_name}"
           unpublish: "%{user_name} removeu a publicação do tipo de registro %{resource_name} na conferência %{space_name}"
           update: "%{user_name} atualizou o tipo de registro %{resource_name} na conferência %{space_name}"
+      media_link:
+        create: "%{user_name} criou o link de multimídia %{resource_name} na conferência %{space_name}"
+        delete: "%{user_name} removeu o link de multimídia %{resource_name} da conferência %{space_name}"
+        update: "%{user_name} atualizou o link de multimídia %{resource_name} da conferência %{space_name}"
     conference_speakers:
       index:
         title: Palestrantes
