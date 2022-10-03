@@ -29,7 +29,7 @@ gem 'faker', '~> 2.17'
 gem 'devise-i18n'
 
 gem 'redis', '4.7.1'
-gem 'sidekiq', '6.5.1'
+gem 'sidekiq', '6.5.7'
 
 gem 'whenever', require: false
 
