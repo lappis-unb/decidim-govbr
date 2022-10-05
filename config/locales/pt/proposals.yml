@@ -52,9 +52,40 @@ pt:
               most_voted: Mais votada
     events:
       proposals:
+        collaborative_draft_access_accepted:
+          email_subject: "%{requester_name} foi aceito para acessar como contribuidor de %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> foi aceito <strong>para acessar como colaborador</strong> do projeto colaborativo <a href="%{resource_path}">%{resource_title}</a>.
+        proposal_accepted:
+          affected_user:
+            email_intro: 'A sua proposta "%{resource_title}" foi aceita. Pode ler a resposta nesta página:'
+            email_subject: A sua proposta foi aceita
+            notification_title: A sua proposta <a href="%{resource_path}">%{resource_title}</a> foi aceita.
+          follower:
+            email_intro: 'A proposta "%{resource_title}" foi aceita. Pode ler a resposta nesta página:'
+            email_subject: Uma proposta que você segue foi aceita
+            notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi aceita.
         proposal_published_for_space:
           notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi adicionada em %{participatory_space_title} por %{author}
     proposals:
+      admin:
+        proposal_answers:
+          form:
+            accepted: Aceita
+            answer_proposal: Resposta
+            evaluating: Avaliando
+            rejected: Rejeitada
+            not_answered: Não respondida
+      answers:
+        accepted: Aceita
+        evaluating: Avaliando
+        not_answered: Não respondida
+        rejected: Rejeitada
+        withdrawn: Retirada
+      application_helper:
+        filter_origin_values:
+          participants: Participantes
+        filter_state_values:
+          accepted: Aceita
       create:
         error: Ocorreu um problema ao salvar a proposta.
         success: Proposta criada com sucesso. Salva como rascunho.
@@ -72,6 +103,10 @@ pt:
           title: Crie sua proposta
         edit:
           add_images: Arquivo
+        requests:
+          accepted_request:
+            error: Não foi possível ser aceito como colaborador, por favor tente novamente mais tarde.
+            success: "@%{user} foi aceito como colaborador corretamente"
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pode acumular mais de %{limit} voto(s)
@@ -97,6 +132,7 @@ pt:
         show:
           back_to: Voltar a
           back_to_list: Voltar para a lista
+          proposal_accepted_reason: 'Esta proposta foi aceita porque:'
       versions:
         proposals:
           back_to_resource: Voltar para a proposta

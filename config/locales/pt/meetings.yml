@@ -119,6 +119,12 @@ pt:
         copy_calendar_url_explanation: Observe que você está exportando uma seleção de reuniões, uma vez que existem filtros ativos. Se você deseja exportar todos eles, reinicie todos os filtros primeiro.
         copy_calendar_url_message: A URL foi copiada com sucesso para a área de transferência.
         export_calendar: Exportar calendário
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          body: A reunião <a href="%{meeting_path}">"%{meeting_title}"</a> está pendente de ser encerrada. Favor acrescentar um relatório da reunião usando o botão "Fechar reunião".
+          greetings: Saudações,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Olá %{username},
+          subject: Agora você pode encerrar sua reunião com um relatório sobre a plataforma %{organization_name}
       iframe_access_level:
         all: Todos os visitantes
         registered: Participantes registrados para esta reunião
