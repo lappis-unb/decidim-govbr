@@ -141,6 +141,17 @@ pt:
         participatory_space: Seguir <span class="show-for-sr">%{resource_name}</span>
     menu:
       home: Início
+    notifications_digest_mailer:
+      header:
+        daily: Boletim de Notificação Diário
+        weekly: Boletim de Notificação Semanal
+      hello: Olá %{name},
+      intro:
+        daily: 'Estas são as notificações do último dia com base na atividade que você está acompanhando:'
+        weekly: 'Estas são as notificações da última semana com base na atividade que você está acompanhando:'
+      outro: Você recebeu estas notificações porque está seguindo este conteúdo ou seus autores. Você pode deixar de segui-los em suas respectivas páginas.
+      see_more: Veja mais notificações
+      subject: Este é o seu e-mail de resumo
     notifications_settings:
       show:
         allow_push_notifications: Receba notificações por impulso para descobrir o que está acontecendo quando você não está na plataforma. Você pode desligá-las a qualquer momento.
@@ -206,7 +217,7 @@ pt:
         forgot_your_password: Esqueceu a sua senha?
     mailer:
       password_change:
-        message: Estamos contatando você para notificá-lo(a) de que a sua senha foi modificada.
+        message: Estamos contatando você para dizer de que a sua senha foi modificada.
         subject: Senha modificada
       reset_password_instructions:
         action: Modificar a minha senha
