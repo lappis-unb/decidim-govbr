@@ -11,11 +11,15 @@ pt:
         default_locale: Idioma padrão
         enable_omnipresent_banner: Mostrar faixa onipresente
         enable_participatory_space_filters: Ativar filtros do espaço participativo
-        logo: Logotipo
+        force_users_to_authenticate_before_access_organization: Forçar usuários a se autenticarem antes de acessar a organização
         header_snippets: Trechos de cabeçalho
+        host: Endereço de internet principal
+        logo: Logotipo
         official_img_footer: Logotipo oficial do rodapé
         official_img_header: Logotipo oficial do cabeçalho
+        secondary_hosts: Endereços de internet secundários
         theme_color: Cor do tema
+        users_registration_mode: Modo de registro dos usuários
       external_domain:
         value: URL
       attachment_collection:
