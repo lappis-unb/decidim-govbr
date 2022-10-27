@@ -39,8 +39,10 @@ group :development, :test do
 end
 
 group :development do
+  gem 'foreman'
   gem 'letter_opener_web', '~> 1.3'
   gem 'listen', '~> 3.1'
+  gem 'mailcatcher'
   gem 'rails-erd'
   gem 'spring', '~> 2.0'
   gem 'spring-watcher-listen', '~> 2.0'
