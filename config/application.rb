@@ -21,5 +21,19 @@ module Decide
     config.active_job.queue_adapter = :sidekiq
 
     config.i18n.load_path += Dir['config/locales/**/*.yml']
+
+    config.to_prepare do
+      list = Dir.glob("#{Rails.root}/lib/extends/**/*.rb")
+      concerns = list.select { |obj| obj.include?('concerns/') }
+      if concerns.any?
+        concerns.each { |concern| puts "Concern: #{concern}" }
+        raise Exception, %(
+        It looks like you're going to add an extension of a decidim concern.
+        Putting it into lib/extends/ will lead to issues.
+        Please override any of decidim concerns through classic monkey-patching and put them in the app/ folder.
+      )
+      end
+      list.each { |override| require_dependency override }
+    end
   end
 end
