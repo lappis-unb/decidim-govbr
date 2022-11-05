@@ -1,5 +1,8 @@
 # https://github.com/decidim/decidim/blob/develop/decidim-proposals/config/locales/en.yml
 pt:
+  activemodel:
+    models:
+      decidim/proposals/accepted_proposal_event: Proposta aceita
   decidim:
     admin:
       filters:
@@ -96,13 +99,18 @@ pt:
           back_from_collaborative_draft: Voltar para os rascunhos colaborativos
           info: Criar um <strong>projeto colaborativo</strong>.
       proposals:
+        compare:
+          no_similars_found: Muito bom! Não foram encontradas propostas semelhantes
         index:
           collaborative_drafts_list: Acessar rascunhos colaborativos
           text_banner: Está vendo a lista de propostas retiradas pelos seus próprios autores. %{go_back_link}
         new:
           title: Crie sua proposta
         edit:
-          add_images: Arquivo
+          add_documents: Adicionar documentos
+          add_image: Adicionar imagem
+          edit_documents: Editar documentos
+          edit_image: Editar imagem
         requests:
           accepted_request:
             error: Não foi possível ser aceito como colaborador, por favor tente novamente mais tarde.

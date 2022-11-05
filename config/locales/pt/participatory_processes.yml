@@ -34,6 +34,9 @@ pt:
           fields:
             created_at: Criado em
             title: Título
+        user:
+          fields:
+            invitation_accepted_at: Convite aceito em
       participatory_process_group_landing_page:
         edit:
           active_content_blocks: Blocos de conteúdo ativos

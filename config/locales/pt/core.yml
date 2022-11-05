@@ -21,6 +21,7 @@ pt:
         current_password: Senha atual
         email: E-mail
         name: Nome
+        nickname: Nome de usuário
         password: Senha
         password_confirmation: Confirmação da senha
         remember_me: Lembrar-me
@@ -64,6 +65,16 @@ pt:
         newsletter_modal:
           buttons:
             uncheck: Manter desmarcado
+    events:
+      gamification:
+        badge_earned:
+          email_intro: Parabéns! Você ganhou o <a href="%{resource_url}">distintivo %{badge_name}</a> (nível %{current_level}).
+          email_outro: Você recebeu esta notificação porque realizou uma atividade em nossa plataforma.
+          email_subject: 'Você ganhou um novo distintivo: %{badge_name}!'
+          notification_title: Parabéns! Você ganhou o <a href="%{resource_path}">distintivo %{badge_name}</a> (nível %{current_level}).
+        level_up:
+          email_intro: Parabéns! Você atingiu o nível %{current_level} no <a href="%{resource_url}">distintivo %{badge_name}</a>!
+          email_outro: Você recebeu esta notificação porque realizou uma atividade em nossa plataforma.
     editor_images:
       create:
         error: Erro ao carregar a imagem
@@ -176,14 +187,67 @@ pt:
       new:
         subtitle: Crie um grupo e convide outros usuários a aderir para participarem a um nível coletivo.
     messaging:
+      conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: Você recebeu isso devido ser um administrador(a) em %{group}.
+          outro: Aproveite o Decidim!
+        comanagers_new_message:
+          admin_in_group: Você recebeu isso devido ser um(a) administrador(a) em %{group}.
+          intro: "%{manager} publicou novas mensagens em uma conversa em nome de %{group}. Clique aqui para vê-las:"
+          outro: Aproveite o Decidim!
+        new_conversation:
+          intro: "%{sender} iniciou uma nova conversa com você. Clique aqui para vê-la:"
+          outro: Aproveite o Decidim!
+          subject: "%{sender} iniciou uma conversa com você"
       conversations:
         add_conversation_users:
           add_max_users: 'Adicionar usuários à conversa: 9 usuários no máximo'
         index:
           to: Para
+    welcome_notification:
+      default_body: <p>Olá {{name}}, agradecemos por se juntar a {{organization}} e seja bem-vindo(a)!</p><ul><li>Se quiser ter uma ideia rápida do que pode fazer aqui, veja a seção <a href="{{help_url}}">Ajuda</a> .</li><li>Depois de lê-la, receberá o seu primeiro distintivo. Aqui está uma <a href="{{badges_url}}">lista de todos os distintivos</a> que pode obter como participante de {{organization}}</li><li>Por último, mas não menos importante, junte-se a outras pessoas, compartilhe com elas a sua experiência de estar envolvido e participar em {{organization}}. Faça propostas, comentários, debata, pense em como contribuir para o bem comum, forneça argumentos para convencer, escute e leia para ser convencido, expresse as suas ideias de maneira concreta e direta, responda com paciência e decisão, defenda as suas ideias e mantenha uma mente aberta para colaborar e juntar-se às ideias de outras pessoas.</li></ul>
   devise:
     failure:
       unauthenticated: Você precisa entrar ou se cadastrar antes de continuar.
+    invitations:
+      updated_not_active: Sua senha foi definida com sucesso.
+      edit:
+        nickname_help: Seu nome de usuário em %{organization}. Só pode conter letras, números, '-' e '_'.
+        subtitle: Se você aceitar o convite, por favor defina seu nome de usuário e senha.
+      updated: A sua senha foi configurada corretamente. Agora você tem sessão iniciada.
+      updated_not_active: A sua senha foi configurada com sucesso.
+    mailer:
+      confirmation_instructions:
+        instruction: 'Você pode confirmar o e-mail da sua conta através do link abaixo:'
+      email_changed:
+        message: Estamos entrando em contato com você para notificar a mudança de seu e-mail para %{email}.
+        subject: E-mail modificado
+      invitation_instructions:
+        accept_until: Este convite irá expirar em %{due_date}.
+        ignore: |-
+          Se você não quiser aceitar o convite, por favor ignore este e-mail.<br />
+          A sua conta não será criada até que acesse o link acima e defina o seu nome de usuário e senha.
+        invited_you_as_admin: "%{invited_by} convidou você como administrador(a) de %{application}. Aceite através do link abaixo."
+        invited_you_as_private_user: "%{invited_by} convidou você como participante privado de %{application}. Aceite através do link abaixo."
+        someone_invited_you: Alguém convidou você para %{application}. Aceite através do link abaixo.
+        someone_invited_you_as_admin: Alguém convidou você como administrador(a) de %{application}. Aceite através do link abaixo.
+        someone_invited_you_as_private_user: Alguém convidou você como participante privado de %{application}. Aceite através do link abaixo.
+      invite_admin:
+        subject: Você recebeu um convite para gerenciar %{organization}
+      invite_collaborator:
+        subject: Você recebeu um convite para colaborar em %{organization}
+      invite_private_user:
+        subject: Você recebeu um convite para um processo participativo privado em %{organization}
+      organization_admin_invitation_instructions:
+        subject: Você recebeu um convite para gerenciar %{organization}
+      password_change:
+        message: Estamos contatando você para dizer de que a sua senha foi modificada.
+        subject: Senha modificada
+      reset_password_instructions:
+        action: Modificar a minha senha
+        instruction: Alguém solicitou um link para alterar a sua senha e pode fazer isso através do link abaixo.
+        instruction_3: A sua senha não será alterada até que acesse o link acima e crie uma nova.
+        subject: Instruções de modificação da senha
     passwords:
       edit:
         change_my_password: Modificar a minha senha
@@ -206,6 +270,8 @@ pt:
       edit:
         are_you_sure: Você tem certeza?
         we_need_your_current_password_to_confirm_your_changes: precisamos da sua senha atual para confirmar as suas alterações
+      signed_up_but_unconfirmed: Uma mensagem com um link de confirmação foi enviada para o seu endereço de e-mail. Por favor, siga o link para ativar sua conta.
+      update_needs_confirmation: Você atualizou sua conta com sucesso, mas precisamos confirmar seu novo endereço de e-mail. Por favor, verifique seu e-mail e siga o link para confirmar seu novo endereço de e-mail.
       updated: A sua conta foi atualizada com sucesso.
     sessions:
       already_signed_out: Sessão terminada com sucesso.
@@ -215,15 +281,6 @@ pt:
       links:
         back: Voltar
         forgot_your_password: Esqueceu a sua senha?
-    mailer:
-      password_change:
-        message: Estamos contatando você para dizer de que a sua senha foi modificada.
-        subject: Senha modificada
-      reset_password_instructions:
-        action: Modificar a minha senha
-        instruction: Alguém solicitou um link para alterar a sua senha e pode fazer isso através do link abaixo.
-        instruction_3: A sua senha não será alterada até que acesse o link acima e crie uma nova.
-        subject: Instruções de modificação da senha
   forms:
     length_validator:
       minimum:
