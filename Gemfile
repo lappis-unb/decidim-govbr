@@ -7,7 +7,7 @@ git_source(:gitlab) { |repo| "https://gitlab.com/#{repo}.git" }
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = '0.27.0'
+DECIDIM_VERSION = '0.27.1'
 
 # CALENDAR_REPO = { path: '../decidim-module-calendar' }.freeze
 CALENDAR_REPO = { gitlab: 'nomadetec/decidim-module-calendar' }.freeze
@@ -40,10 +40,8 @@ group :development, :test do
 end
 
 group :development do
-  gem 'foreman'
   gem 'letter_opener_web', '~> 1.3'
   gem 'listen', '~> 3.1'
-  gem 'mailcatcher'
   gem 'rails-erd'
   gem 'spring', '~> 2.0'
   gem 'spring-watcher-listen', '~> 2.0'
