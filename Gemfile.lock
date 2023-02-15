@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/luizsanches/decidim-module-calendar.git
+  remote: https://gitlab.com/nomadetec/decidim-module-calendar.git
   revision: f389e7a59b2d5a7249ebb5bc6cfe4b2bba7c4103
   specs:
     decidim-calendar (0.23.0)

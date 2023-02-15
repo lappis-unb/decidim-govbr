@@ -3,13 +3,14 @@
 source 'https://rubygems.org'
 
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:gitlab) { |repo| "https://gitlab.com/#{repo}.git" }
 
 ruby RUBY_VERSION
 
 DECIDIM_VERSION = '0.27.0'
 
 # CALENDAR_REPO = { path: '../decidim-module-calendar' }.freeze
-CALENDAR_REPO = { github: 'luizsanches/decidim-module-calendar' }.freeze
+CALENDAR_REPO = { gitlab: 'nomadetec/decidim-module-calendar' }.freeze
 
 gem 'decidim', DECIDIM_VERSION
 gem 'decidim-calendar', CALENDAR_REPO
