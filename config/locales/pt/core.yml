@@ -33,6 +33,12 @@ pt:
         alert: Esta ação não pode ser desfeita. Se você apagar sua conta, não será possível fazer o login com suas credenciais. A exclusão de sua conta resultará na anonimização de suas contribuições. Você ainda poderá criar uma nova conta, mas estas contribuições não serão associadas a ela.
       show:
         available_locales_helper: Escolha o idioma que você deseja usar para navegar e receber notificações na plataforma
+    admin:
+      actions:
+        cancel: Cancelar
+      password_change:
+        alert: Você precisa alterar sua senha para prosseguir
+        notification: Usuários administradores precisam alterar suas senhas a cada %{days} dias.
     admin_log:
       attachment:
         create: "%{user_name} criou o anexo %{resource_name}"
@@ -138,6 +144,10 @@ pt:
           agreement: Eu concordo com estes termos
         required_review:
           alert: Atualizamos os nossos Termos de Serviço, por favor reveja-os.
+    passwords:
+      update:
+        error: Ocorreu um problema ao atualizar a senha
+        success: Senha atualizada com sucesso
     versions:
       resource_version:
         see_other_versions: ver outras versões
@@ -208,6 +218,8 @@ pt:
       default_body: <p>Olá {{name}}, agradecemos por se juntar a {{organization}} e seja bem-vindo(a)!</p><ul><li>Se quiser ter uma ideia rápida do que pode fazer aqui, veja a seção <a href="{{help_url}}">Ajuda</a> .</li><li>Depois de lê-la, receberá o seu primeiro distintivo. Aqui está uma <a href="{{badges_url}}">lista de todos os distintivos</a> que pode obter como participante de {{organization}}</li><li>Por último, mas não menos importante, junte-se a outras pessoas, compartilhe com elas a sua experiência de estar envolvido e participar em {{organization}}. Faça propostas, comentários, debata, pense em como contribuir para o bem comum, forneça argumentos para convencer, escute e leia para ser convencido, expresse as suas ideias de maneira concreta e direta, responda com paciência e decisão, defenda as suas ideias e mantenha uma mente aberta para colaborar e juntar-se às ideias de outras pessoas.</li></ul>
   devise:
     failure:
+      invalid: '%{authentication_keys} ou senha inválidos(as).'
+      not_found_in_database: '%{authentication_keys} ou senha inválidos(as).'
       unauthenticated: Você precisa entrar ou se cadastrar antes de continuar.
     invitations:
       updated_not_active: Sua senha foi definida com sucesso.
@@ -349,6 +361,11 @@ pt:
         title: Você gostaria de continuar sua sessão?
       upload_modal:
         close_modal: Fechar modal
+  password_validator:
+    blacklisted: está na lista de proibições
+    email_included_in_password: é muito semelhante com o seu e-mail
+    nickname_included_in_password: é muito parecido com seu nome de usuário
+    password_repeated: não pode reutilizar a senha antiga
   time:
     formats:
       ddmm: "%d/%m"

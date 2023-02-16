@@ -41,6 +41,9 @@ pt:
         edit:
           active_content_blocks: Blocos de conteúdo ativos
           inactive_content_blocks: Blocos de conteúdo inativos
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Atualizar
       participatory_process_types:
         create:
           error: Havia um problema ao criar um novo tipo de processo.
@@ -79,5 +82,8 @@ pt:
             announcement_help: O texto que insere aqui será mostrado ao usuário logo abaixo das informações do processo.
             select_participatory_process_type: Selecione um tipo de processo
       participatory_processes:
+        filters:
+          all_types: Todos os tipos
+          filter_by: Exibir
         show:
           title: Sobre este processo
