@@ -162,6 +162,10 @@ pt:
         participatory_space: Seguir <span class="show-for-sr">%{resource_name}</span>
     menu:
       home: Início
+    notifications:
+      no_notifications: Ainda não há notificações.
+      show:
+        missing_event: Ops, essa notificação pertence a um item que não está mais disponível. Você pode descartá-lo.
     notifications_digest_mailer:
       header:
         daily: Boletim de Notificação Diário
