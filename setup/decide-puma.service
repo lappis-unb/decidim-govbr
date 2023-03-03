@@ -1,0 +1,18 @@
+[Unit]
+Description=Puma HTTP Server
+After=network.target
+
+[Service]
+Type=simple
+
+# Preferably configure a non-privileged user
+User=decide
+
+WorkingDirectory=/home/decide/decide
+
+ExecStart=/bin/bash -lc 'bundle exec puma -C /home/decide/decide/config/puma.production.rb'
+
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
