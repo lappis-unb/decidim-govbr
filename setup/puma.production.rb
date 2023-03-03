@@ -4,7 +4,7 @@ workers 2
 # Min and Max threads per worker
 threads 1, 1
 
-app_dir = "/home/decide/decide"
+app_dir = "/srv/decide"
 
 # Default to production
 rails_env = ENV['RAILS_ENV'] || "production"

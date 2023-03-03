@@ -36,7 +36,7 @@ Type=notify
 # If your Sidekiq process locks up, systemd's watchdog will restart it within seconds.
 WatchdogSec=10
 
-WorkingDirectory=/home/decide/decide
+WorkingDirectory=/srv/decide
 
 # If you use rbenv:
 # ExecStart=/bin/bash -lc 'exec /home/deploy/.rbenv/shims/bundle exec sidekiq -e production'

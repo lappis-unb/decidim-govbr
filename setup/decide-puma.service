@@ -8,9 +8,9 @@ Type=simple
 # Preferably configure a non-privileged user
 User=decide
 
-WorkingDirectory=/home/decide/decide
+WorkingDirectory=/srv/decide
 
-ExecStart=/bin/bash -lc 'bundle exec puma -C /home/decide/decide/config/puma.production.rb'
+ExecStart=/bin/bash -lc 'bundle exec puma -C /srv/decide/config/puma.production.rb'
 
 Restart=always
 
