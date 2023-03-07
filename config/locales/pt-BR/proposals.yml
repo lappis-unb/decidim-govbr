@@ -1,0 +1,146 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-proposals/config/locales/en.yml
+pt-BR:
+  activemodel:
+    models:
+      decidim/proposals/accepted_proposal_event: Proposta aceita
+  decidim:
+    admin:
+      filters:
+        proposals:
+          category_id_eq:
+            label: Categoria
+          is_emendation_true:
+            label: Tipo
+            values:
+              'false': Propostas
+              'true': Modificações
+          scope_id_eq:
+            label: Âmbito
+          state_eq:
+            label: Estado
+            values:
+              accepted: Aceites
+              evaluating: Avaliando
+              published: Publicado
+              rejected: Rejeitado
+              validating: Validação técnica
+              withdrawn: Retirado
+          state_null:
+            label: Estado
+            values:
+              'true': Sem resposta
+    components:
+      proposals:
+        settings:
+          global:
+            default_sort_order: Ordenamento padrão das propostas
+            default_sort_order_help: Padrão significa que se os apoios estiverem ativos as propostas serão ordenadas aleatóriamente, e se os apoios estiverem bloqueados serão ordenadas do maior para o menor número de apoios.
+            default_sort_order_options:
+              default: Padrão
+              most_voted: Mais votada
+            geocoding_enabled: Geolocalização ativada
+            minimum_votes_per_user: Votos mínimos por usuário
+            proposal_limit: Limite de propostas por usuário
+            proposal_edit_time: Edição de propostas
+            proposal_edit_time_choices:
+              infinite: Permitir a edição de propostas por um período infinito de tempo
+              limited: Permitir a edição de propostas dentro de um período de tempo específico
+            scopes_enabled: Âmbitos ativados
+          step:
+            creation_enabled: Participantes podem criar propostas
+            default_sort_order: Ordenamento padrão das propostas
+            default_sort_order_help: Padrão significa que se os apoios estiverem ativos as propostas serão ordenadas aleatóriamente, e se os apoios estiverem bloqueados serão ordenadas do maior para o menor número de apoios.
+            default_sort_order_options:
+              default: Padrão
+              most_voted: Mais votada
+    events:
+      proposals:
+        collaborative_draft_access_accepted:
+          email_subject: "%{requester_name} foi aceito para acessar como contribuidor de %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> foi aceito <strong>para acessar como colaborador</strong> do projeto colaborativo <a href="%{resource_path}">%{resource_title}</a>.
+        proposal_accepted:
+          affected_user:
+            email_intro: 'A sua proposta "%{resource_title}" foi aceita. Pode ler a resposta nesta página:'
+            email_subject: A sua proposta foi aceita
+            notification_title: A sua proposta <a href="%{resource_path}">%{resource_title}</a> foi aceita.
+          follower:
+            email_intro: 'A proposta "%{resource_title}" foi aceita. Pode ler a resposta nesta página:'
+            email_subject: Uma proposta que você segue foi aceita
+            notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi aceita.
+        proposal_published_for_space:
+          notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi adicionada em %{participatory_space_title} por %{author}
+    proposals:
+      admin:
+        proposal_answers:
+          form:
+            accepted: Aceita
+            answer_proposal: Resposta
+            evaluating: Avaliando
+            rejected: Rejeitada
+            not_answered: Não respondida
+      answers:
+        accepted: Aceita
+        evaluating: Avaliando
+        not_answered: Não respondida
+        rejected: Rejeitada
+        withdrawn: Retirada
+      application_helper:
+        filter_origin_values:
+          participants: Participantes
+        filter_state_values:
+          accepted: Aceita
+      create:
+        error: Ocorreu um problema ao salvar a proposta.
+        success: Proposta criada com sucesso. Salva como rascunho.
+      collaborative_drafts:
+        show:
+          back: Voltar
+        wizard_aside:
+          back_from_collaborative_draft: Voltar para os rascunhos colaborativos
+          info: Criar um <strong>projeto colaborativo</strong>.
+      proposals:
+        compare:
+          no_similars_found: Muito bom! Não foram encontradas propostas semelhantes
+        index:
+          collaborative_drafts_list: Acessar rascunhos colaborativos
+          text_banner: Está vendo a lista de propostas retiradas pelos seus próprios autores. %{go_back_link}
+        new:
+          title: Crie sua proposta
+        edit:
+          add_documents: Adicionar documentos
+          add_image: Adicionar imagem
+          edit_documents: Editar documentos
+          edit_image: Editar imagem
+        requests:
+          accepted_request:
+            error: Não foi possível ser aceito como colaborador, por favor tente novamente mais tarde.
+            success: "@%{user} foi aceito como colaborador corretamente"
+        voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Cada proposta pode acumular mais de %{limit} voto(s)
+          minimum_votes_per_user:
+            description: Deve distribuir um mínimo de %{votes} voto(s) entre diferentes propostas.
+            supports_remaining: Tem que votar em mais %{remaining_votes} proposta(s) para os seus votos serem levados em conta.
+          proposal_limit:
+            description: Pode criar até %{limit} proposta(s).
+          threshold_per_proposal:
+            description: Para serem aceites, as propostas precisam de atingir %{limit} voto(s)
+          vote_limit:
+            description: Pode votar até %{limit} proposta(s).
+        wizard_aside:
+          back: Voltar
+          back_from_step_1: Voltar para as propostas
+          back_from_step_2: Voltar para as propostas
+          back_from_step_3: Voltar à comparação de propostas
+          back_from_step_4: Voltar para a edição do rascunho
+          info: Você está criando uma <strong>proposta</strong>.
+        preview:
+          announcement_body: A sua proposta foi guardada como um rascunho. Ela precisa ser publicada para que apareça no site.
+          announcement_title: A sua proposta ainda não foi publicada
+        show:
+          back_to: Voltar a
+          back_to_list: Voltar para a lista
+          proposal_accepted_reason: 'Esta proposta foi aceita porque:'
+      versions:
+        proposals:
+          back_to_resource: Voltar para a proposta

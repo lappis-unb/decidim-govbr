@@ -1,0 +1,89 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-participatory_processes/config/locales/en.yml
+pt-BR:
+  activemodel:
+    attributes:
+      participatory_process:
+        participatory_process_type_id: Tipo de processo participativo
+        private_space: Espaço privado
+        weight: Posição de ordem
+      participatory_process_group:
+        group_url: Site
+        promoted: Promovido
+      participatory_process_step:
+        cta_text: Texto de Chamada para Ação
+      participatory_process_type:
+        title: Título
+      category:
+        weight: Posição de ordem
+      component:
+        weight: Posição de ordem
+  activerecord:
+    models:
+      decidim/participatory_process_user_role: Usuário
+      decidim/participatory_space_private_user: Usuário
+  decidim:
+    admin:
+      actions:
+        new_process_type: Novo tipo de processo
+      menu:
+        participatory_processes_submenu:
+          attachment_files: Arquivos
+        participatory_process_types: Tipos de processo
+      models:
+        participatory_process_type:
+          fields:
+            created_at: Criado em
+            title: Título
+        user:
+          fields:
+            invitation_accepted_at: Convite aceito em
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Blocos de conteúdo ativos
+          inactive_content_blocks: Blocos de conteúdo inativos
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Atualizar
+      participatory_process_types:
+        create:
+          error: Havia um problema ao criar um novo tipo de processo.
+          success: Tipo de processo criado com sucesso.
+        destroy:
+          success: Tipo de processo excluído com sucesso.
+        edit:
+          title: Tipo de processo de edição
+          update: Atualizar
+        form:
+          title: Título
+        new:
+          create: Criar
+          title: Novo tipo de processo
+      titles:
+        participatory_process_types: Tipos de processo
+    admin_log:
+      participatory_process:
+        create: "%{user_name} criou o processo participativo %{resource_name}"
+        duplicate: "%{user_name} duplicou o processo participativo %{resource_name}"
+        export: "%{user_name} exportou o processo participativo %{resource_name}"
+        import: "%{user_name} importou o processo participativo %{resource_name}"
+        publish: "%{user_name} publicou o processo participativo %{resource_name}"
+        unpublish: "%{user_name} removeu a publicação do processo participativo %{resource_name}"
+        update: "%{user_name} atualizou o processo participativo %{resource_name}"
+      participatory_process_type:
+        create: "%{user_name} criou o tipo de processo participativo %{resource_name}"
+        delete: "%{user_name} deletou o tipo de processo participativo %{resource_name}"
+        update: "%{user_name} atualizou o tipo de processo participativo %{resource_name}"
+    participatory_processes:
+      show:
+        belongs_to_group: Este processo pertence a
+      admin:
+        participatory_processes:
+          form:
+            announcement_help: O texto que insere aqui será mostrado ao usuário logo abaixo das informações do processo.
+            select_participatory_process_type: Selecione um tipo de processo
+      participatory_processes:
+        filters:
+          all_types: Todos os tipos
+          filter_by: Exibir
+        show:
+          title: Sobre este processo
