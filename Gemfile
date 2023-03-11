@@ -48,6 +48,10 @@ group :development do
   gem 'web-console', '~> 3.5'
 end
 
+group :production do
+  gem 'aws-sdk-s3', require: false
+end
+
 group :development, :production do
   gem 'exception_notification'
   gem 'rails_performance'

@@ -24,6 +24,6 @@ You're good to go!
 ## Development
 ```
 mailcatcher
-docker-compose up -d
+docker compose up -d
 foreman start
 ```
