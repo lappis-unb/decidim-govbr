@@ -69,6 +69,10 @@ pt-BR:
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi aceita.
         proposal_published_for_space:
           notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi adicionada em %{participatory_space_title} por %{author}
+    gamification:
+      badges:
+        accepted_proposals:
+          description_another: Este usuário obteve %{score} propostas aceitas.
     proposals:
       admin:
         proposal_answers:

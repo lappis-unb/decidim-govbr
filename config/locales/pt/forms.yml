@@ -38,6 +38,7 @@ pt:
           resize_to_fit: Esta imagem será redimensionada para caber em %{dimensions}.
       question_types:
         files: Arquivos
+        title_and_description: Título e descrição
       questionnaires:
         show:
           questionnaire_answered:

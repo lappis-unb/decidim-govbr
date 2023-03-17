@@ -2,8 +2,13 @@
 pt-BR:
   activemodel:
     attributes:
+      attachment:
+        documents: Documentos
       initiative:
+        answer: Resposta
+        answer_url: URL de resposta
         area_id: Área
+        decidim_scope_id: Âmbito
       initiatives_committee_member:
         user: Membro do Comitê
       initiatives_settings:
@@ -70,3 +75,12 @@ pt-BR:
           publish_helper_text: Lembre-se! Para que sua iniciativa seja publicada, você deve completar as informações necessárias e <strong>enviá-la para validação técnica</strong> para que um administrador a reveja.
         select_initiative_type:
           select_initiative_type_help: As iniciativas são um meio pelo qual os participantes podem intervir para que a organização possa empreender ações em defesa do interesse geral. Que iniciativa você deseja lançar?
+      form:
+        add_attachments: Documentos
+        attachment_legend: "(Opcional) Adicionar um anexo"
+      initiatives:
+        print:
+          members_header: Membros do comitê promotor da iniciativa
+          postal_code: CEP
+        vote_cabin:
+          vote: Assinar

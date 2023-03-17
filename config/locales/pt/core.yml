@@ -15,6 +15,8 @@ pt:
         locale: Idioma
       invite:
         nickname: Nome de usuário
+    models:
+      decidim/welcome_notification_event: Mensagem de boas-vindas
   activerecord:
     attributes:
       decidim/user:
@@ -58,6 +60,10 @@ pt:
       cta_settings_form:
         button_text: Texto da chamada a ação
         button_url: URL da chamada a ação
+    core:
+      actions:
+        login_before_access: Por favor, faça o login com sua conta antes de acessar
+        unauthorized: Você não está autorizado a realizar esta ação
     devise:
       registrations:
         new:
@@ -142,6 +148,8 @@ pt:
       terms_and_conditions:
         form:
           agreement: Eu concordo com estes termos
+        refuse:
+          modal_body: Se você recusar, não poderá usar a plataforma, poderá <a href="%{download_your_data_path}">baixar seus dados</a> e/ou <a href="%{delete_path}">excluir sua conta</a>.
         required_review:
           alert: Atualizamos os nossos Termos de Serviço, por favor reveja-os.
     passwords:
@@ -365,6 +373,9 @@ pt:
         title: Você gostaria de continuar sua sessão?
       upload_modal:
         close_modal: Fechar modal
+  helpers:
+    select:
+      prompt: Por favor selecione
   password_validator:
     blacklisted: está na lista de proibições
     email_included_in_password: é muito semelhante com o seu e-mail

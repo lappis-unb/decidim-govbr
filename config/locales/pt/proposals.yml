@@ -69,6 +69,21 @@ pt:
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi aceita.
         proposal_published_for_space:
           notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi adicionada em %{participatory_space_title} por %{author}
+    gamification:
+      badges:
+        accepted_proposals:
+          conditions:
+            - Tente fazer propostas que possam ser realizadas. Desta forma, estas são mais propensas a serem aceitas.
+          description: Este distintivo é concedido quando participa ativamente em novas propostas e essas são aceitas.
+          description_another: Este participante obteve %{score} propostas aceitas.
+          description_own: Tem %{score} propostas aceitas.
+          name: Propostas aceitas
+          next_level_in: Obtenha mais %{score} propostas aceitas para alcançar o próximo nível!
+          unearned_another: Este participante ainda não obteve nenhuma proposta aceita.
+    metrics:
+      accepted_proposals:
+        description: Número de propostas aceitas
+        title: Propostas aceitas
     proposals:
       admin:
         proposal_answers:
@@ -144,3 +159,5 @@ pt:
       versions:
         proposals:
           back_to_resource: Voltar para a proposta
+    statistics:
+      proposals_accepted: Propostas aceitas

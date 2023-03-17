@@ -6,8 +6,7 @@ pt:
         available_slots: Vagas disponíveis
         registration_terms: Termos de registro
         registrations_enabled: Registros ativados
-      conference_registration_invite:
-        registration_type_id: Tipo de registro
+        signature_name: Nome da assinatura
       conference_media_link:
         link: Link
       conference_partner:
@@ -15,6 +14,10 @@ pt:
         logo: Logotipo
       conference_registration_invite:
         email: E-mail
+        registration_type_id: Tipo de registro
+        user_id: Usuário
+      conference_registration_type:
+        weight: Posição de ordenamento
       conference_speaker:
         affiliation: Instituição
         user_id: Usuário
@@ -22,6 +25,7 @@ pt:
         short_bio: Biografia resumida
     models:
       decidim/conferences/conference_registration_notification_event: Inscrição na conferência
+      decidim/conferences/conference_registrations_enabled_event: Registros ativados na conferência
   activerecord:
     models:
       decidim/conference_speaker:
@@ -66,6 +70,9 @@ pt:
         update:
           error: Ocorreu um problema ao atualizar o palestrante desta conferência.
           success: Palestrante da conferência atualizado corretamente.
+      conference_user_roles:
+        index:
+          conference_admins_title: Administradores da conferência
       menu:
         conferences_submenu:
           attachment_files: Arquivos

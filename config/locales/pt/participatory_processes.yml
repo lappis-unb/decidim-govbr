@@ -3,6 +3,11 @@ pt:
   activemodel:
     attributes:
       participatory_process:
+        document: Documento
+        import_attachments: Importar anexos
+        import_categories: Importar categorias
+        import_components: Importar componentes
+        import_steps: Importar fases
         participatory_process_type_id: Tipo de processo participativo
         private_space: Espaço privado
         weight: Posição de ordem
@@ -17,6 +22,8 @@ pt:
         weight: Posição de ordem
       component:
         weight: Posição de ordem
+    models:
+      decidim/participatory_process_role_assigned_event: Função designada no processo participativo
   activerecord:
     models:
       decidim/participatory_process_user_role: Usuário

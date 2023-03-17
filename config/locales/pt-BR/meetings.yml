@@ -6,6 +6,8 @@ pt-BR:
         description: Descrição
         duration: Duração
         title: Título
+      close_meeting:
+        proposals: Propostas criadas na reunião
       meeting:
         available_slots: Vagas disponíveis para esta reunião
         customize_registration_email: Personalizar o e-mail de registro
@@ -16,7 +18,16 @@ pt-BR:
         registration_terms: Termos de registro
         registrations_enabled: Registros ativados
         reserved_slots: Vagas reservadas para esta reunião
+        start_time: Hora de início
+        end_time: Hora de término
         type_of_meeting: Tipo
+      meeting_agenda:
+        title: Título
+        visible: Visível
+      meeting_agenda_items:
+        description: Descrição
+        duration: Duração
+        title: Título
       validate_registration_code:
         code: Código
     models:
@@ -63,6 +74,7 @@ pt-BR:
           notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> ativou os registros.
     meetings:
       actions:
+        close: Encerrar reunião
         registrations: Registros
       admin:
         meetings:

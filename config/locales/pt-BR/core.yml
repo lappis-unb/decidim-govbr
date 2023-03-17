@@ -15,6 +15,8 @@ pt-BR:
         locale: Idioma
       invite:
         nickname: Nome de usuário
+    models:
+      decidim/welcome_notification_event: Mensagem de boas-vindas
   activerecord:
     attributes:
       decidim/user:
@@ -33,6 +35,10 @@ pt-BR:
         alert: Esta ação não pode ser desfeita. Se você apagar sua conta, não será possível fazer o login com suas credenciais. A exclusão de sua conta resultará na anonimização de suas contribuições. Você ainda poderá criar uma nova conta, mas estas contribuições não serão associadas a ela.
       show:
         available_locales_helper: Escolha o idioma que você deseja usar para navegar e receber notificações na plataforma
+      update:
+        error: Ocorreu um erro ao atualizar a sua conta.
+        success: A sua conta foi atualizada com sucesso.
+        success_with_email_confirmation: A sua conta foi atualizada com sucesso. Irá receber um e-mail de confirmação do seu novo endereço.
     admin:
       actions:
         cancel: Cancelar
@@ -58,6 +64,10 @@ pt-BR:
       cta_settings_form:
         button_text: Texto da chamada a ação
         button_url: URL da chamada a ação
+    core:
+      actions:
+        login_before_access: Por favor, faça o login com sua conta antes de acessar
+        unauthorized: Você não está autorizado a realizar esta ação
     devise:
       registrations:
         new:
@@ -142,6 +152,8 @@ pt-BR:
       terms_and_conditions:
         form:
           agreement: Eu concordo com estes termos
+        refuse:
+          modal_body: Se você recusar, não poderá usar a plataforma, poderá <a href="%{download_your_data_path}">baixar seus dados</a> e/ou <a href="%{delete_path}">excluir sua conta</a>.
         required_review:
           alert: Atualizamos os nossos Termos de Serviço, por favor reveja-os.
     passwords:

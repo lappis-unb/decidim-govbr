@@ -8,10 +8,12 @@ pt:
         weight: Posição de ordem
       attachment_collection:
         weight: Posição de ordem
+      content_block_attachment:
+        background_image: Imagem de fundo
       external_domain:
         value: URL
-      settings:
-        scope_id: Âmbito
+      help_section:
+        content: Conteúdo
       organization:
         admin_terms_of_use_body: Conteúdo dos termos de uso de administrador
         default_locale: Idioma padrão
@@ -29,6 +31,8 @@ pt:
       participatory_space_private_user:
         email: E-mail
         name: Nome
+      settings:
+        scope_id: Âmbito
       static_page:
         topic_id: Tópico
         weight: Posição de ordem
@@ -61,6 +65,7 @@ pt:
         participatory_space_private_user:
           new: Novo participante privado do espaço participativo
         import: Importar
+        unpublish: Cancelar publicação
         user:
           new: Novo participante
       admin_terms_of_use:
