@@ -13,6 +13,7 @@ s3:
   bucket: <%= Rails.application.secrets.dig(:storage, :s3, :bucket) %>
   <%= "region: #{Rails.application.secrets.dig(:storage, :s3, :region)}" if Rails.application.secrets.dig(:storage, :s3, :region) %>
   <%= "endpoint: #{Rails.application.secrets.dig(:storage, :s3, :endpoint)}" if Rails.application.secrets.dig(:storage, :s3, :endpoint) %>
+  <%= "force_path_style: #{Rails.application.secrets.dig(:storage, :s3, :force_path_style)}" if Rails.application.secrets.dig(:storage, :s3, :force_path_style) %>
 
 azure:
   service: AzureStorage
