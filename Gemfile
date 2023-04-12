@@ -30,6 +30,7 @@ gem 'faker', '~> 2.17'
 gem 'devise-i18n'
 
 gem 'redis', '4.7.1'
+gem 'hiredis', '0.6.3'
 gem 'sidekiq', '6.5.7'
 
 gem 'whenever', require: false
