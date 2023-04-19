@@ -10,13 +10,21 @@ services:
     environment:
       - POSTGRES_PASSWORD=postgres
 
-  redis:
+  redis-queue:
     image: redis:6.0.12-alpine
     ports:
       - 6379:6379
     volumes:
-      - redis-data:/data
+      - redis-queue-data:/data
+
+  redis-cache:
+    image: redis:6.0.12-alpine
+    ports:
+      - 6380:6379
+    volumes:
+      - redis-cache-data:/data
 
 volumes:
-  redis-data:
+  redis-queue-data:
+  redis-cache-data:
   postgres-data:
