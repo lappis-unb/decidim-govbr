@@ -51,7 +51,6 @@ end
 
 group :production do
   gem 'aws-sdk-s3', require: false
-  gem 'appdynamics-ruby', require: true
 end
 
 group :development, :production do
