@@ -1,0 +1,11 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-system/config/locales/en.yml
+en:
+  decidim:
+    system:
+      organizations:
+        omniauth_settings:
+          govbr:
+            client_id: Client ID
+            client_secret: Client secret
+            host: Host
+            redirect_uri: Redirect URI

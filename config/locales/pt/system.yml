@@ -166,6 +166,11 @@ pt:
           google_oauth2:
             client_id: ID do cliente
             client_secret: Segredo do Cliente
+          govbr:
+            client_id: ID do cliente
+            client_secret: Segredo do Cliente
+            host: URL do site
+            redirect_uri: URI de redirecionamento
           icon: Ícone
           icon_path: Caminho do ícone
           twitter:
