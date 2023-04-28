@@ -1,4 +1,5 @@
 /srv/decide/log/*.log {
+  su decide decide
   weekly
   missingok
   rotate 8 
