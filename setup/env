@@ -22,7 +22,6 @@ SMTP_DOMAIN=domain
 SIDEKIQ_CONCURRENCY=2
 
 ALLOW_HOSTS=.decide.local
-# EXCEPTION_RECIPIENTS=admin@mail.com
 
 ADMIN_USERNAME=admin-username
 ADMIN_PASSWORD=admin-password
