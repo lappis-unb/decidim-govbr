@@ -8,7 +8,7 @@ DECIDIM_FORCE_SSL=true
 
 MEETINGS_EMBEDDABLE_SERVICES=youtube.com twitch.tv meet.jit.si
 
-DATABASE_URL=postgres://decide:decide@127.0.0.1/decide
+DATABASE_URL=postgres://decide:decide@127.0.0.1/decide?pool=5
 
 REDIS_URL=redis://localhost:6379
 REDIS_CACHE_URL=redis://localhost:6380
@@ -28,6 +28,8 @@ ADMIN_USERNAME=admin-username
 ADMIN_PASSWORD=admin-password
 
 RAILS_SERVE_STATIC_FILES=true
+
+# RAILS_LOG_TO_JSON=true
 
 OMNIAUTH_GOVBR_CLIENT_ID=CLIENT_ID
 OMNIAUTH_GOVBR_SECRET_KEY=SECRET_KEY
