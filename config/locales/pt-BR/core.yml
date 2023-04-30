@@ -2,6 +2,8 @@
 pt-BR:
   activemodel:
     attributes:
+      invite:
+        nickname: Nome de usuário
       group:
         nickname: Nome abreviado
       user:
@@ -13,9 +15,11 @@ pt-BR:
         password_confirmation: Confirme a sua senha
         personal_url: Site pessoal
         locale: Idioma
-      invite:
-        nickname: Nome de usuário
     models:
+      decidim/invited_to_group_event: Convidado para o grupo
+      decidim/join_request_accepted_event: Pedido de adesão aceita
+      decidim/resource_hidden_event: Recurso oculto
+      decidim/user_group_created_event: Grupo de usuários criado
       decidim/welcome_notification_event: Mensagem de boas-vindas
   activerecord:
     attributes:
@@ -36,9 +40,9 @@ pt-BR:
       show:
         available_locales_helper: Escolha o idioma que você deseja usar para navegar e receber notificações na plataforma
       update:
-        error: Ocorreu um erro ao atualizar a sua conta.
+        error: Ocorreu um problema ao atualizar a sua conta.
         success: A sua conta foi atualizada com sucesso.
-        success_with_email_confirmation: A sua conta foi atualizada com sucesso. Irá receber um e-mail de confirmação do seu novo endereço.
+        success_with_email_confirmation: A sua conta foi atualizada com sucesso. Você irá receber um e-mail para confirmar o seu novo endereço de e-mail.
     admin:
       actions:
         cancel: Cancelar
@@ -46,14 +50,84 @@ pt-BR:
         alert: Você precisa alterar sua senha para prosseguir
         notification: Usuários administradores precisam alterar suas senhas a cada %{days} dias.
     admin_log:
+      area_type:
+        create: "%{user_name} criou o tipo de área %{resource_name}"
+        delete: "%{user_name} removeu o tipo de área %{resource_name}"
+        update: "%{user_name} atualizou o tipo de área %{resource_name}"
       attachment:
         create: "%{user_name} criou o anexo %{resource_name}"
-        delete: "%{user_name} deletou o anexo %{resource_name}"
+        delete: "%{user_name} removeu o anexo %{resource_name}"
         update: "%{user_name} atualizou o anexo %{resource_name}"
+      attachment_collection:
+        create: "%{user_name} criou a coleção de anexos %{resource_name}"
+        delete: "%{user_name} removeu a coleção de anexos %{resource_name}"
+        update: "%{user_name} atualizou a coleção de anexos %{resource_name}"
       category:
-        create: "%{user_name} adicionou a categoria %{resource_name} no espaço %{space_name}"
-        delete: "%{user_name} deletou a categoria %{resource_name} do espaço %{space_name}"
+        create: "%{user_name} criou a categoria %{resource_name} no espaço %{space_name}"
+        delete: "%{user_name} removeu a categoria %{resource_name} do espaço %{space_name}"
         update: "%{user_name} atualizou a categoria %{resource_name} no espaço %{space_name}"
+      component:
+        export_component: "%{user_name} exportou %{resource_name} %{component_name} em %{space_name} como %{format_name}"
+        update_permissions_with_space: "%{user_name} atualizou as permissões de %{resource_name} em %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} atualizou a seção de ajuda %{resource_name}"
+      helpers:
+        answers: respostas
+        comments: comentários
+        projects: projetos
+        results: resultados
+      impersonation_log:
+        manage: "%{user_name} gerenciou %{resource_name} porque %{reason}"
+      moderation:
+        hide: "%{user_name} ocultou um recurso de tipo %{resource_type} no %{space_name} espaço"
+        unreport: "%{user_name} não reportou um recurso de tipo %{resource_type} no %{space_name} espaço"
+      newsletter:
+        create: "%{user_name} criou o boletim informativo %{resource_name}"
+        delete: "%{user_name} removeu o boletim informativo %{resource_name}"
+        deliver: "%{user_name} enviou o boletim informativo %{resource_name}"
+        update: "%{user_name} atualizou o boletim informativo %{resource_name}"
+      oauth_application:
+        create: "%{user_name} criou a aplicação OAuth %{resource_name}"
+        delete: "%{user_name} removeu a aplicação OAuth %{resource_name}"
+        update: "%{user_name} atualizou a aplicação OAuth %{resource_name}"
+      organization:
+        update: "%{user_name} atualizou as configurações da organização"
+        update_external_domain: "%{user_name} atualizou os domínios externos da organização"
+      participatory_space_private_user:
+        create: "%{user_name} convidou %{resource_name} para ser um participante privado"
+        create_via_csv: "%{user_name} convidou %{resource_name} via CSV para ser um participante privado"
+        delete: "%{user_name} removeu %{resource_name} como participante privado"
+      scope_type:
+        create: "%{user_name} criou o tipo de âmbito %{resource_name}"
+        delete: "%{user_name} removeu o tipo de âmbito %{resource_name}"
+        update: "%{user_name} atualizou o tipo de âmbito %{resource_name}"
+      static_page:
+        create: "%{user_name} criou a página estática %{resource_name}"
+        delete: "%{user_name} removeu a página estática %{resource_name}"
+        update: "%{user_name} atualizou a página estática %{resource_name}"
+      user:
+        block: "%{user_name} bloqueou o usuário %{resource_name}"
+        invite: "%{user_name} convidou o usuário %{resource_name} com papel: %{role}"
+        officialize: "%{user_name} oficializou o usuário %{resource_name}"
+        promote: "%{user_name} promoveu %{resource_name}"
+        remove_from_admin: "%{user_name} removeu o usuário %{resource_name} com papel: %{role}"
+        show_email: "%{user_name} recuperou o e-mail do usuário %{resource_name}"
+        transfer: "%{user_name} transferiu o usuário %{resource_name}"
+        unblock: "%{user_name} desbloqueou o usuário %{resource_name}"
+        unofficialize: "%{user_name} removeu a oficialização do usuário %{resource_name}"
+      user_group:
+        block: "%{user_name} bloqueou o grupo %{resource_name}"
+        reject: "%{user_name} rejeitou a verificação de grupo %{resource_name}"
+        unblock: "%{user_name} desbloqueou o grupo %{resource_name}"
+        verify: "%{user_name} verificou o grupo %{resource_name}"
+        verify_via_csv: "%{user_name} verificou o grupo %{resource_name} através de um arquivo CSV"
+      user_moderation:
+        unreport: "%{user_name} retirou denuncia %{resource_type} - %{unreported_user_name}"
+    amendments:
+      accepted:
+        success: A modificação foi aceita com sucesso.
+      amendable:
+        help_text: Melhore a(o) %{model_name} modificando os seus %{amendable_fields}
     authorization_modals:
       ok:
         title: Recebeu autorização para esta página. Por favor recarregue a página para executar a sua ação.
@@ -75,6 +149,9 @@ pt-BR:
           password_help: "%{minimun_characters} caracteres no mínimo, não deverá ser muito comum (por ex. 123456) e deverá ser diferente de seu apelido e do seu e-mail."
           newsletter_title: Permissão de contato
       sessions:
+        new:
+          sign_in_disabled: Você pode acessar com uma conta externa
+          sign_up_disabled: Inscrever-se está desabilitado, utilize uma conta de usuário existente para acessar
         user:
           timed_out: Você esteve inativo por muito tempo e foi automaticamente dispensado do serviço. Se você quiser continuar usando o serviço, por favor, entre novamente.
       shared:
@@ -91,6 +168,8 @@ pt-BR:
         level_up:
           email_intro: Parabéns! Você atingiu o nível %{current_level} no <a href="%{resource_url}">distintivo %{badge_name}</a>!
           email_outro: Você recebeu esta notificação porque realizou uma atividade em nossa plataforma.
+          email_subject: Você atingiu o nível %{current_level} no distintivo %{badge_name}!
+          notification_title: Parabéns! Você atingiu o nível %{current_level} no <a href="%{resource_path}">distintivo %{badge_name}</a>!
     editor_images:
       create:
         error: Erro ao carregar a imagem
@@ -164,6 +243,9 @@ pt-BR:
       resource_version:
         see_other_versions: ver outras versões
     shared:
+      floating_help:
+        close: Fechar ajuda
+        help: Ajuda
       mentions_modal:
         remove_recipient: Remover o destinatário %{name}
       share_modal:
@@ -232,6 +314,9 @@ pt-BR:
           to: Para
     welcome_notification:
       default_body: <p>Olá {{name}}, agradecemos por se juntar a {{organization}} e seja bem-vindo(a)!</p><ul><li>Se quiser ter uma ideia rápida do que pode fazer aqui, veja a seção <a href="{{help_url}}">Ajuda</a> .</li><li>Depois de lê-la, receberá o seu primeiro distintivo. Aqui está uma <a href="{{badges_url}}">lista de todos os distintivos</a> que pode obter como participante de {{organization}}</li><li>Por último, mas não menos importante, junte-se a outras pessoas, compartilhe com elas a sua experiência de estar envolvido e participar em {{organization}}. Faça propostas, comentários, debata, pense em como contribuir para o bem comum, forneça argumentos para convencer, escute e leia para ser convencido, expresse as suas ideias de maneira concreta e direta, responda com paciência e decisão, defenda as suas ideias e mantenha uma mente aberta para colaborar e juntar-se às ideias de outras pessoas.</li></ul>
+    wizard_step_form:
+      wizard_aside:
+        back: Voltar
   devise:
     failure:
       invalid: '%{authentication_keys} ou senha inválidos(as).'

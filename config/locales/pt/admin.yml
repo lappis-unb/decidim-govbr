@@ -217,6 +217,8 @@ pt:
         dashboard: Painel de Controle
         users: Usuários
     moderations:
+      actions:
+        unreport: Anular denúncia
       models:
         moderation:
           fields:

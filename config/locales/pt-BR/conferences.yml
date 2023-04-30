@@ -17,7 +17,7 @@ pt-BR:
         registration_type_id: Tipo de registro
         user_id: Usuário
       conference_registration_type:
-        weight: Posição de ordenamento
+        weight: Posição de ordem
       conference_speaker:
         affiliation: Instituição
         user_id: Usuário
@@ -26,6 +26,8 @@ pt-BR:
     models:
       decidim/conferences/conference_registration_notification_event: Inscrição na conferência
       decidim/conferences/conference_registrations_enabled_event: Registros ativados na conferência
+      decidim/conferences/upcoming_conference_event: Próxima conferência
+      decidim/conferences/update_conference_event: Atualização da conferência
   activerecord:
     models:
       decidim/conference_speaker:
@@ -175,6 +177,16 @@ pt-BR:
       conference_program:
         program_meeting:
           speakers: Palestrantes
+      conference_registrations:
+        create:
+          invalid: Houve um problema em participar desta conferência.
+          success: Você ingressou na conferência com sucesso.
+        decline_invitation:
+          invalid: Houve um problema ao recusar o convite.
+          success: Você recusou o convite com sucesso.
+        destroy:
+          invalid: Houve um problema ao sair desta conferência.
+          success: Você saiu da conferência com sucesso.
       conference_speaker:
         personal_website: Site pessoal
       conference_speaker_cell:
@@ -192,6 +204,7 @@ pt-BR:
           pending_html: O seu registro para a conferência <a href="%{url}">%{title}</a> está pendente de confirmação.
       conferences:
         show:
+          login_as: Você está logado como %{name} <%{email}>
           make_conference_registration: 'Realize o seu registro na conferência:'
           register: Registrar
       mailer:
@@ -210,6 +223,7 @@ pt-BR:
       registration_types:
         index:
           choose_an_option: 'Escolha a sua opção de registro:'
+          login_as: Você está logado como %{name} <%{email}>
           no_registrations: Sem registros
           register: Registrar
           title: Tipos de registro
@@ -221,8 +235,10 @@ pt-BR:
     events:
       conferences:
         conference_registration_confirmed:
+          email_intro: O seu registro para a conferência "%{resource_title}" foi confirmado.
           notification_title: O seu registro para a conferência <a href="%{resource_url}">%{resource_title}</a> foi confirmado.
         conference_registration_validation_pending:
+          email_intro: O seu registro para a conferência "%{resource_title}" está pendente de confirmação.
           notification_title: O seu registro para a conferência <a href="%{resource_url}">%{resource_title}</a> está pendente de confirmação.
         conference_registrations_over_percentage:
           email_intro: As vagas ocupadas na conferência "%{resource_title}" são superiores a %{percentage}%.

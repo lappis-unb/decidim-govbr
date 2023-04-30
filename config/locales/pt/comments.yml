@@ -1,5 +1,17 @@
 # https://github.com/decidim/decidim/blob/develop/decidim-comments/config/locales/en.yml
 pt:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Comente
+      decidim/comments/comment_created_event: Comentário
+      decidim/comments/reply_created_event: Resposta
+      decidim/comments/user_group_mentioned_event: Mencionar
+      decidim/comments/user_mentioned_event: Mencionar
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Comentário
+        other: Comentários
   decidim:
     comments:
       admin:

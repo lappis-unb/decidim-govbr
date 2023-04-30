@@ -2,6 +2,8 @@
 pt-BR:
   activemodel:
     attributes:
+      answer:
+        selected_choices: Escolhas selecionadas
       questionnaire:
         title: Título
   decidim:
@@ -30,6 +32,9 @@ pt-BR:
             title_and_description: Título e descrição
           edit:
             save: Salvar
+      admin_log:
+        questionnaire:
+          update: "%{user_name} atualizou o questionário %{resource_name}"
       files:
         extension_allowlist: 'Formatos aceitos:'
       images:

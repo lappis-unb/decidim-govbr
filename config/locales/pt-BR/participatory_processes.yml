@@ -23,7 +23,7 @@ pt-BR:
       component:
         weight: Posição de ordem
     models:
-      decidim/participatory_process_role_assigned_event: Função designada no processo participativo
+      decidim/participatory_process_role_assigned_event: Função atribuída no processo participativo
   activerecord:
     models:
       decidim/participatory_process_user_role: Usuário
@@ -80,6 +80,23 @@ pt-BR:
         create: "%{user_name} criou o tipo de processo participativo %{resource_name}"
         delete: "%{user_name} deletou o tipo de processo participativo %{resource_name}"
         update: "%{user_name} atualizou o tipo de processo participativo %{resource_name}"
+    events:
+      participatory_process:
+        role_assigned:
+          email_intro: Você foi atribuído como %{role} no processo participativo "%{resource_title}".
+          email_outro: Você recebeu esta notificação por ser %{role} do processo participativo "%{resource_title}".
+          email_subject: Você foi atribuído como %{role} para "%{resource_title}".
+          notification_title: Você foi atribuído como %{role} no processo participativo <a href="%{resource_url}">%{resource_title}</a>.
+        step_activated:
+          email_intro: 'A fase %{resource_title} está agora ativa para %{participatory_space_title}. Você pode vê-la a partir desta página:'
+          email_outro: Você recebeu esta notificação porque segue %{participatory_space_title}. Você pode parar de receber notificações seguindo o link anterior.
+          email_subject: Uma atualização para %{participatory_space_title}
+          notification_title: A fase %{resource_title} está agora ativa para <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: 'As datas para a fase %{resource_title} em %{participatory_space_title} foram atualizadas. Você pode vê-las a partir desta página:'
+          email_outro: Você recebeu esta notificação porque segue %{participatory_space_title}. Você pode parar de receber notificações seguindo o link anterior.
+          email_subject: Uma atualização para %{participatory_space_title}
+          notification_title: As datas para a fase <a href="%{resource_path}">%{resource_title}</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a> foram atualizadas.
     participatory_processes:
       show:
         belongs_to_group: Este processo pertence a

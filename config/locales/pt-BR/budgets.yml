@@ -67,8 +67,8 @@ pt-BR:
       budget_information_modal:
         close_modal: Fechar a janela modal
       budget_list_item:
-        voting_finished: Já votou neste orçamento
-        voting_started: Já começou a votação neste orçamento
+        voting_finished: Você já votou neste orçamento
+        voting_started: Você já começou a votar neste orçamento
       budgets_list:
         show: Ver projetos
       limit_announcement:
@@ -99,17 +99,20 @@ pt-BR:
             description: Este projeto excede o orçamento máximo e não pode ser adicionado. Se desejar, você pode apagar um projeto já selecionado, para poder votar novamente de acordo com suas preferências.
         budget_summary:
           are_you_sure: Você tem certeza de que deseja cancelar seu voto?
+          cancel_order: cancele seu voto e comece de novo
+          checked_out:
+            description: Você já votou no orçamento. Se você mudou de idéia, %{cancel_link}.
           minimum_projects_rule:
-            description: Que projetos você acha que devemos atribuir ao orçamento? Selecione pelo menos %{minimum_number} projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.
+            description: Quais projetos você acha que devemos atribuir ao orçamento? Selecione pelo menos %{minimum_number} projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.
             instruction: "<li>Selecione pelo menos %{mínimo_número} projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.</li>"
           projects_rule:
-            description: Que projetos você acha que devemos atribuir ao orçamento? Selecione pelo menos %{minimum_number} e até %{maximum_number} projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.
+            description: Quais projetos você acha que devemos atribuir ao orçamento? Selecione pelo menos %{minimum_number} e até %{maximum_number} projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.
             instruction: "<li>Selecione pelo menos %{mínimo_número} e até %{maximum_number} projetos que deseja e vote de acordo com as suas preferências para definir o orçamento.</li>"
           projects_rule_maximum_only:
-            description: Que projetos você acha que devemos atribuir ao orçamento? Selecione até %{maximum_number} projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.
+            description: Quais projetos você acha que devemos atribuir ao orçamento? Selecione até %{maximum_number} projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.
             instruction: "<li>Selecione até %{maximum_number} projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.</li>"
           vote_threshold_percent_rule:
-            description: Que projetos você acha que devemos atribuir ao orçamento? Atribua pelo menos %{minimum_budget} aos projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.
+            description: Quais projetos você acha que devemos atribuir ao orçamento? Atribua pelo menos %{minimum_budget} aos projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.
             instruction: "<li>Atribua pelo menos %{minimum_budget} aos projetos que deseja e vote de acordo com as suas preferências para definir o orçamento.</li>"
         exit_modal:
           cancel: Voltar à votação
@@ -126,8 +129,19 @@ pt-BR:
           close_modal: Fechar a janela modal
         index:
           view_project: Ver projeto
+        order_progress:
+          vote: Votar
         orders:
           selected: Selecionado
+        project:
+          add: Adicionar projeto %{resource_name} à sua votação
+          remove: Remover projeto %{resource_name} da sua votação
+          selected: Selecionado
+          view: Visualização
+          votes:
+            one: Voto
+            other: Votos
+          you_voted: Você votou nisso
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Áreas onde você tem votação não concluída:'
