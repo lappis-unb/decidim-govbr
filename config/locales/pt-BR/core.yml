@@ -219,8 +219,11 @@ pt-BR:
         title: Ajuda geral
     log:
       base_presenter:
+        publish: "%{user_name} publicou %{resource_name}"
         publish_with_space: "%{user_name} publicou %{resource_name} em %{space_name}"
+        unpublish: "%{user_name} removeu a publicação %{resource_name}"
         unpublish_with_space: "%{user_name} removeu a publicação %{resource_name} em %{space_name}"
+        update_permissions_with_space: "%{user_name} atualizou as permissões de %{resource_name} em %{space_name}"
     pages:
       home:
         footer_sub_hero:

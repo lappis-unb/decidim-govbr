@@ -1,6 +1,9 @@
 # https://github.com/decidim/decidim/blob/develop/decidim-proposals/config/locales/en.yml
 pt:
   activemodel:
+    attributes:
+      proposals_import:
+        origin_component_id: Componente de origem
     models:
       decidim/proposals/accepted_proposal_event: Proposta aceita
       decidim/proposals/collaborative_draft_access_requested_event: Solicitação de acesso a rascunho colaborativo
@@ -8,6 +11,7 @@ pt:
       decidim/proposals/collaborative_draft_access_requester_rejected_event: Solicitação de acesso a rascunho colaborativo rejeitado
       decidim/proposals/collaborative_draft_access_accepted_event: Acesso a rascunho colaborativo aceito
       decidim/proposals/collaborative_draft_access_rejected_event: Acesso a rascunho colaborativo rejeitado
+      decidim/proposals/proposal_note_created_event: Nota de proposta criada
   decidim:
     admin:
       filters:
@@ -104,6 +108,7 @@ pt:
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi aceita.
         proposal_published_for_space:
           notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi adicionada em %{participatory_space_title} por %{author}
+          notification_title_official: A proposta oficial <a href="%{resource_path}">%{resource_title}</a> foi adicionada a %{participatory_space_title}
     gamification:
       badges:
         accepted_proposals:
@@ -123,6 +128,10 @@ pt:
         title: Propostas aceitas
     proposals:
       admin:
+        imports:
+          label:
+            answers: Importar respostas de um arquivo
+            proposals: Importar propostas de um arquivo
         proposal_answers:
           form:
             accepted: Aceita
