@@ -8,6 +8,8 @@ DECIDIM_FORCE_SSL=true
 
 MEETINGS_EMBEDDABLE_SERVICES=youtube.com twitch.tv meet.jit.si
 
+INITIATIVES_DEFAULT_COMPONENTS=meetings
+
 DATABASE_URL=postgres://decide:decide@127.0.0.1/decide?pool=5
 
 REDIS_URL=redis://localhost:6379
