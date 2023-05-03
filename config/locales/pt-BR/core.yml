@@ -216,7 +216,7 @@ pt-BR:
         explanation: Orientação para %{attribute}
     help:
       main_topic:
-        title: Ajuda geral
+        title: Sobre
     log:
       base_presenter:
         publish: "%{user_name} publicou %{resource_name}"
@@ -231,6 +231,8 @@ pt-BR:
           register: Registrar
         sub_hero:
           register: Registrar
+      index:
+        title: Sobre
       terms_and_conditions:
         form:
           agreement: Eu concordo com estes termos
@@ -258,6 +260,7 @@ pt-BR:
       create:
         participatory_space: Seguir <span class="show-for-sr">%{resource_name}</span>
     menu:
+      help: Sobre
       home: Início
     notifications:
       no_notifications: Ainda não há notificações.

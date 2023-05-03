@@ -201,7 +201,9 @@ pt-BR:
         compare:
           no_similars_found: Muito bom! Não foram encontradas propostas semelhantes
         index:
+          click_here: Ver todas as propostas
           collaborative_drafts_list: Acessar rascunhos colaborativos
+          see_all: Ver todas as propostas
           text_banner: Está vendo a lista de propostas retiradas pelos seus próprios autores. %{go_back_link}
         new:
           title: Crie sua proposta
