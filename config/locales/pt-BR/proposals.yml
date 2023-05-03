@@ -2,10 +2,17 @@
 pt-BR:
   activemodel:
     attributes:
+      collaborative_draft:
+        body: Descrição
+        category_id: Tema
+      proposal:
+        body: Descrição
+        category_id: Tema
       proposals_import:
         origin_component_id: Componente de origem
     models:
       decidim/proposals/accepted_proposal_event: Proposta aceita
+      decidim/proposals/admin/update_proposal_category_event: Tema da proposta alterada
       decidim/proposals/collaborative_draft_access_requested_event: Solicitação de acesso a rascunho colaborativo
       decidim/proposals/collaborative_draft_access_requester_accepted_event: Solicitação de acesso a rascunho colaborativo aceito
       decidim/proposals/collaborative_draft_access_requester_rejected_event: Solicitação de acesso a rascunho colaborativo rejeitado
@@ -17,7 +24,7 @@ pt-BR:
       filters:
         proposals:
           category_id_eq:
-            label: Categoria
+            label: Tema
           is_emendation_true:
             label: Tipo
             values:
@@ -109,6 +116,10 @@ pt-BR:
         proposal_published_for_space:
           notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi adicionada em %{participatory_space_title} por %{author}
           notification_title_official: A proposta oficial <a href="%{resource_path}">%{resource_title}</a> foi adicionada a %{participatory_space_title}
+        proposal_update_category:
+          email_intro: 'Um administrador atualizou o tema de sua proposta "%{resource_title}", confira:'
+          email_subject: O tema da proposta %{resource_title} foi atualizado
+          notification_title: O <a href="%{resource_path}">%{resource_title}</a> tema da proposta foi atualizado por um administrador.
     gamification:
       badges:
         accepted_proposals:
@@ -128,6 +139,15 @@ pt-BR:
           label:
             answers: Importar respostas de um arquivo
             proposals: Importar propostas de um arquivo
+        proposals:
+          form:
+            select_a_category: Selecionar um tema
+          index:
+            change_category: Alterar tema
+          update_category:
+            invalid: 'Estas propostas já tinham o tema %{subject_name}: %{proposals}.'
+            select_a_category: Selecione um tema
+            success: 'Propostas atualizadas com sucesso para o tema %{subject_name}: %{proposals}.'
         proposal_answers:
           form:
             accepted: Aceita
@@ -150,6 +170,11 @@ pt-BR:
         error: Ocorreu um problema ao salvar a proposta.
         success: Proposta criada com sucesso. Salva como rascunho.
       collaborative_drafts:
+        edit:
+          back: Voltar
+          select_a_category: Por favor, selecione um tema
+        filters:
+          category: Tema
         new:
           add_file: Adicionar arquivo
           edit_file: Editar arquivo
@@ -168,6 +193,10 @@ pt-BR:
         wizard_aside:
           back_from_collaborative_draft: Voltar para os rascunhos colaborativos
           info: Você está criando um <strong>rascunho colaborativo</strong>.
+      models:
+        proposal:
+          fields:
+            category: Tema
       proposals:
         compare:
           no_similars_found: Muito bom! Não foram encontradas propostas semelhantes
@@ -181,6 +210,9 @@ pt-BR:
           add_image: Adicionar imagem
           edit_documents: Editar documentos
           edit_image: Editar imagem
+          select_a_category: Selecione um tema
+        filters:
+          category: Tema
         requests:
           accepted_request:
             error: Não foi possível ser aceito como colaborador, por favor tente novamente mais tarde.
@@ -206,6 +238,15 @@ pt-BR:
           back_from_step_3: Voltar à comparação de propostas
           back_from_step_4: Voltar para a edição do rascunho
           info: Você está criando uma <strong>proposta</strong>.
+        wizard_steps:
+          current_step: Etapa atual
+          see_steps: ver etapas
+          step_1: Crie sua proposta
+          step_2: Comparar
+          step_3: Concluir
+          step_4: Publique sua proposta
+          step_of: Etapa %{current_step_num} de %{total_steps}
+          title: Etapas de criação da proposta
         preview:
           announcement_body: A sua proposta foi guardada como um rascunho. Ela precisa ser publicada para que apareça no site.
           announcement_title: A sua proposta ainda não foi publicada

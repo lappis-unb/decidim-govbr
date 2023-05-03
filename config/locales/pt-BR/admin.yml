@@ -119,14 +119,22 @@ pt-BR:
           no_logs_yet: Ainda não há registros
       menu:
         admin_log: Registro de atividade de administração
+        admins: Administradores
         dashboard: Painel de controle
         external_domain_whitelist: Domínios externos permitidos
+        impersonations: Personificações
         moderation: Moderações globais
         users: Usuários
         help_sections: Seções de ajuda
         newsletters: Boletins informativos
         reported_users: Usuários denunciados
         assemblies: Assembléias
+      models:
+        user:
+          fields:
+            role: Papel
+            roles:
+              admin: Administrador
       moderated_users:
         index:
           actions:
@@ -162,9 +170,13 @@ pt-BR:
           warning: "<strong>Atenção:</strong> Este boletim informativo apenas será enviado para os usuários que tenham ativado a opção <em>Pretendo receber boletins informativo</em> nas suas definições de notificações."
       officializations:
         index:
+          badge: Distintivo
           block: Bloquear usuário
           nickname: Nome de usuário
           reports: Relatórios
+        show_email_modal:
+          description: Se precisar entrar em contato diretamente com um participante, clique no botão Mostrar para ver o endereço de e-mail dele. Essa ação será registrada.
+          title: Mostrar o endereço de e-mail do participante
       organization_appearance:
         edit:
           update: Atualizar
@@ -188,6 +200,13 @@ pt-BR:
         edit:
           active_content_blocks: Blocos de conteúdo ativos
           inactive_content_blocks: Blocos de conteúdo inativos
+      participatory_space_private_users:
+        destroy:
+          error: Houve um erro ao excluir um usuário privado desse espaço participativo.
+        index:
+          title: Espaço participativo usuário privado
+        new:
+          title: Novo usuário privado do Espaço Participativo.
       participatory_space_private_users_csv_imports:
         new:
           destroy:
@@ -215,7 +234,13 @@ pt-BR:
       titles:
         admin_log: Registro de administrador
         dashboard: Painel de Controle
+        participants: Particiantes
         users: Usuários
+      users:
+        form:
+          role: Papel
+        new:
+          title: Convidar novo administrador
     moderations:
       models:
         moderation:
