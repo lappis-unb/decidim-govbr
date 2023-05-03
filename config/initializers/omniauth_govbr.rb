@@ -2,10 +2,11 @@ module OmniAuth
   module Strategies
     class OpenIDConnect
       info do
-        nickname = user_info.name.split(' ').first.parameterize[0,10]
-        nickname << '_' << rand.to_s[2..10]
+        name = user_info.name.split(' ').first
+        nickname = name.parameterize[0,10] << '_' << rand.to_s[2..10]
+
         {
-          name: user_info.name,
+          name: name,
           email: user_info.email,
           email_verified: user_info.email_verified,
           nickname: nickname,
