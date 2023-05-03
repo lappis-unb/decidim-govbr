@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_01_152247) do
+ActiveRecord::Schema.define(version: 2023_05_03_141718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1902,7 +1902,7 @@ ActiveRecord::Schema.define(version: 2022_10_01_152247) do
     t.boolean "email_on_moderations", default: true
     t.integer "follows_count", default: 0, null: false
     t.jsonb "notification_settings", default: {}
-    t.string "notifications_sending_frequency", default: "daily"
+    t.string "notifications_sending_frequency", default: "none"
     t.datetime "digest_sent_at"
     t.datetime "password_updated_at"
     t.string "previous_passwords", default: [], array: true
