@@ -1,0 +1,6 @@
+en:
+  decidim:
+    core:
+      actions:
+        login_before_access: Faça o login com sua conta antes de acessar
+        unauthorized: Você não está autorizado a realizar essa ação

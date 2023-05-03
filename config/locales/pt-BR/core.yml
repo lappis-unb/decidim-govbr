@@ -140,8 +140,8 @@ pt-BR:
         button_url: URL da chamada a ação
     core:
       actions:
-        login_before_access: Por favor, faça o login com sua conta antes de acessar
-        unauthorized: Você não está autorizado a realizar esta ação
+        login_before_access: Faça o login com sua conta antes de acessar
+        unauthorized: Você não está autorizado a realizar essa ação
     devise:
       registrations:
         new:
