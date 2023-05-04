@@ -244,6 +244,21 @@ pt-BR:
       update:
         error: Ocorreu um problema ao atualizar a senha
         success: Senha atualizada com sucesso
+    reported_mailer:
+      hide:
+        report_html: <p>O seguinte <a href="%{url}">conteúdo</a> foi ocultado automaticamente.</p>
+        subject: Um recurso foi ocultado automaticamente
+      report:
+        content: Conteúdo reportado
+        date: Reportado em
+        details: Detalhes
+        id: código
+        report_html: <p>O seguinte <a href="%{url}">conteúdo</a> foi reportado.</p>
+        subject: Um recurso foi reportado
+    reports:
+      create:
+        error: Ocorreu um erro ao reportar o problema. Por favor, tente novamente.
+        success: O problema foi reportado com sucesso e será revisado por um administrador.
     versions:
       resource_version:
         see_other_versions: ver outras versões
