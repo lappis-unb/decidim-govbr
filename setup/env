@@ -14,9 +14,6 @@ DATABASE_URL=postgres://decide:decide@127.0.0.1/decide?pool=5
 REDIS_URL=redis://localhost:6379
 REDIS_CACHE_URL=redis://localhost:6380
 
-SECRET_KEY_BASE=abc
-SECRET_KEY_JWT=123
-
 SMTP_USERNAME=username
 SMTP_PASSWORD=password
 SMTP_ADDRESS=address

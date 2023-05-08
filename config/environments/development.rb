@@ -22,6 +22,8 @@ Rails.application.configure do
       'Cache-Control' => "public, max-age=#{2.days.to_i}"
     }
   elsif ENV['REDIS_CACHE_URL'].present?
+    config.action_controller.perform_caching = true
+
     config.cache_store = :redis_cache_store, { url: ENV['REDIS_CACHE_URL'].split(',') }
   else
     config.action_controller.perform_caching = false
