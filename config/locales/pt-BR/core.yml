@@ -263,6 +263,25 @@ pt-BR:
       resource_version:
         see_other_versions: ver outras versões
     shared:
+      flag_modal:
+        already_reported: Este conteúdo já foi reportado e será revisado por um administrador.
+        close: Fechar
+        description: Este conteúdo é impróprio?
+        does_not_belong: Contém atividades ilegais, ameaças suicidas, informações pessoais ou qualquer outra coisa que você acha que não pertence ao %{organization_name}.
+        offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
+        reason: Motivo
+        report: Reportar
+        spam: Conteúdo que pode configurar calúnia, ao imputar/divulgar falsamente fato definido como crime; difamação, imputando a alguém fato ofensivo à sua reputação; ou injúria, ao ofender a dignidade ou o decoro de alguém (Código Penal, arts. 138, 139 e 140).
+        title: Reportar um problema
+      flag_user_modal:
+        already_reported: Este conteúdo já foi reportado e será revisado por um administrador.
+        close: Fechar
+        description: O que é inapropriado sobre o usuário?
+        does_not_belong: Contém atividades ilegais, ameaças suicidas, informações pessoais ou outra coisa que você acha que não pertence ao %{organization_name}.
+        offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
+        report: Reportar
+        spam: Conteúdo que pode configurar calúnia, ao imputar/divulgar falsamente fato definido como crime; difamação, imputando a alguém fato ofensivo à sua reputação; ou injúria, ao ofender a dignidade ou o decoro de alguém (Código Penal, arts. 138, 139 e 140).
+        title: Reportar usuário inapropriado
       floating_help:
         close: Fechar ajuda
         help: Ajuda
