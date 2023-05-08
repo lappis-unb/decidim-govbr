@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_04_225042) do
+ActiveRecord::Schema.define(version: 2023_05_08_220402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1893,7 +1893,7 @@ ActiveRecord::Schema.define(version: 2023_05_04_225042) do
     t.jsonb "extended_data", default: {}
     t.integer "following_count", default: 0, null: false
     t.integer "followers_count", default: 0, null: false
-    t.string "notification_types", default: "all", null: false
+    t.string "notification_types", default: "none", null: false
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
@@ -1901,13 +1901,13 @@ ActiveRecord::Schema.define(version: 2023_05_04_225042) do
     t.jsonb "officialized_as"
     t.datetime "admin_terms_accepted_at"
     t.string "session_token"
-    t.string "direct_message_types", default: "all", null: false
+    t.string "direct_message_types", default: "followed-only", null: false
     t.boolean "blocked", default: false, null: false
     t.datetime "blocked_at"
     t.integer "block_id"
-    t.boolean "email_on_moderations", default: true
+    t.boolean "email_on_moderations", default: false
     t.integer "follows_count", default: 0, null: false
-    t.jsonb "notification_settings", default: {}
+    t.jsonb "notification_settings", default: {"close_meeting_reminder"=>"0"}
     t.string "notifications_sending_frequency", default: "none"
     t.datetime "digest_sent_at"
     t.datetime "password_updated_at"
