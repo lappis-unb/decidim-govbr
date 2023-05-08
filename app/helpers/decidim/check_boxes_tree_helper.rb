@@ -73,5 +73,69 @@ module Decidim
         categories_values
       )
     end
+
+    def resource_filter_scope_values(resource)
+      if resource.is_a?(Scope)
+        filter_scopes_values_from([resource])
+      else
+        filter_scopes_values
+      end
+    end
+
+    def filter_scopes_values
+      return filter_scopes_values_from_parent(current_component.scope) if current_component.scope.present?
+
+      main_scopes = current_participatory_space.scopes.top_level
+                                               .includes(:scope_type, :children)
+      filter_scopes_values_from(main_scopes)
+    end
+
+    def filter_scopes_values_from_parent(scope)
+      scopes_values = []
+      scope.children.each do |child|
+        unless child.children
+          scopes_values << TreePoint.new(child.id.to_s, translated_attribute(child.name, current_participatory_space.organization))
+          next
+        end
+        scopes_values << TreeNode.new(
+          TreePoint.new(child.id.to_s, translated_attribute(child.name, current_participatory_space.organization)),
+          scope_children_to_tree(child)
+        )
+      end
+
+      filter_tree_from(scopes_values)
+    end
+
+    def filter_scopes_values_from(scopes)
+      scopes_values = scopes.compact.flat_map do |scope|
+        TreeNode.new(
+          TreePoint.new(scope.id.to_s, translated_attribute(scope.name, current_participatory_space.organization)),
+          scope_children_to_tree(scope)
+        )
+      end
+
+      scopes_values.prepend(TreePoint.new("global", t("decidim.scopes.global"))) if current_participatory_space.scope.blank?
+
+      filter_tree_from(scopes_values)
+    end
+
+    def scope_children_to_tree(scope)
+      return if scope.scope_type && scope.scope_type == current_participatory_space.try(:scope_type_max_depth)
+      return unless scope.children.any?
+
+      scope.children.includes(:scope_type, :children).flat_map do |child|
+        TreeNode.new(
+          TreePoint.new(child.id.to_s, translated_attribute(child.name, current_participatory_space.organization)),
+          scope_children_to_tree(child)
+        )
+      end
+    end
+
+    def filter_tree_from(scopes_values)
+      TreeNode.new(
+        TreePoint.new("", t("decidim.proposals.application_helper.filter_scope_values.all")),
+        scopes_values
+      )
+    end
   end
 end
