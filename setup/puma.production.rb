@@ -1,8 +1,8 @@
 # Change to match your CPU core count
-workers 2
+workers 16
 
 # Min and Max threads per worker
-threads 1, 1
+threads 10, 20
 
 app_dir = "/srv/decide"
 
