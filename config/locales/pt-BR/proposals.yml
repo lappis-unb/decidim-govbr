@@ -6,8 +6,10 @@ pt-BR:
         body: Descrição
         category_id: Tema
       proposal:
+        automatic_hashtags: Iniciativas
         body: Descrição
         category_id: Tema
+        suggested_hashtags: Tipos de propostas
       proposals_import:
         origin_component_id: Componente de origem
     models:
@@ -53,7 +55,13 @@ pt-BR:
             default_sort_order_help: Padrão significa que se os apoios estiverem ativos as propostas serão ordenadas aleatóriamente, e se os apoios estiverem bloqueados serão ordenadas do maior para o menor número de apoios.
             default_sort_order_options:
               default: Padrão
-              most_voted: Mais votada
+              most_commented: Mais comentadas
+              most_endorsed: Mais endossadas
+              most_followed: Mais seguidas
+              most_voted: Mais votadas
+              random: Aleatório
+              recent: Recentes
+              with_more_authors: Com mais autores
             geocoding_enabled: Geolocalização ativada
             minimum_votes_per_user: Votos mínimos por usuário
             proposal_limit: Limite de propostas por usuário
@@ -69,7 +77,13 @@ pt-BR:
             default_sort_order_help: Padrão significa que se os apoios estiverem ativos as propostas serão ordenadas aleatóriamente, e se os apoios estiverem bloqueados serão ordenadas do maior para o menor número de apoios.
             default_sort_order_options:
               default: Padrão
-              most_voted: Mais votada
+              most_commented: Mais comentadas
+              most_endorsed: Mais endossadas
+              most_followed: Mais seguidas
+              most_voted: Mais votadas
+              random: Aleatório
+              recent: Recentes
+              with_more_authors: Com mais autores
             publish_answers_immediately_help_html: Lembre-se de que, se você responder a alguma proposta sem essa opção ativada, precisará publicá-la manualmente, selecionando-a e usando a ação para publicação. Para obter mais informações sobre como isso funciona, consulte a <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">página de documentação das respostas das propostas</a>.
     events:
       proposals:
@@ -203,6 +217,7 @@ pt-BR:
         index:
           click_here: Ver todas as propostas
           collaborative_drafts_list: Acessar rascunhos colaborativos
+          new_proposal: Faça sua Proposta
           see_all: Ver todas as propostas
           text_banner: Está vendo a lista de propostas retiradas pelos seus próprios autores. %{go_back_link}
         new:
@@ -213,13 +228,36 @@ pt-BR:
           edit_documents: Editar documentos
           edit_image: Editar imagem
           select_a_category: Selecione um tema
+        edit_draft:
+          discard: Descartar rascunho
+          send: Continuar
         filters:
           category: Tema
+        orders:
+          label: 'Ordene propostas por:'
+          most_commented: Mais comentadas
+          most_endorsed: Mais endossadas
+          most_followed: Mais seguidas
+          most_voted: Mais votadas
+          random: Aleatório
+          recent: Recentes
+          with_more_authors: Com mais autores
+        preview:
+          announcement_body: A sua proposta foi guardada como um rascunho. Ela precisa ser publicada para que apareça no site.
+          announcement_title: A sua proposta ainda não foi publicada
+          modify: Editar proposta
         requests:
           accepted_request:
             error: Não foi possível ser aceito como colaborador, por favor tente novamente mais tarde.
             success: "@%{user} foi aceito como colaborador com sucesso"
+        show:
+          back_to: Voltar a
+          back_to_list: Voltar para a lista
+          proposal_accepted_reason: 'Esta proposta foi aceita porque:'
+          report: Denunciar
         vote_button:
+          already_voted: Votada!
+          already_voted_hover: Retirar voto
           vote: Votar
         voting_rules:
           can_accumulate_supports_beyond_threshold:
@@ -249,14 +287,6 @@ pt-BR:
           step_4: Publique sua proposta
           step_of: Etapa %{current_step_num} de %{total_steps}
           title: Etapas de criação da proposta
-        preview:
-          announcement_body: A sua proposta foi guardada como um rascunho. Ela precisa ser publicada para que apareça no site.
-          announcement_title: A sua proposta ainda não foi publicada
-        show:
-          back_to: Voltar a
-          back_to_list: Voltar para a lista
-          proposal_accepted_reason: 'Esta proposta foi aceita porque:'
-          report: Denunciar
       versions:
         collaborative_drafts:
           back_to_resource: Voltar para o rascunho colaborativo

@@ -263,6 +263,27 @@ pt-BR:
       resource_version:
         see_other_versions: ver outras versões
     shared:
+      filter_form_help:
+        help: Filtre por temas de interesse.
+      flag_modal:
+        already_reported: Este conteúdo já foi reportado e será revisado por um administrador.
+        close: Fechar
+        description: Este conteúdo é impróprio?
+        does_not_belong: Conteúdo violento ou perigoso (discurso de ódio; discriminação ou preconceito de raça, cor, etnia, religião ou procedência nacional; condutas homofóbicas e transfóbicas; conteúdo perigoso ou nocivo; conteúdo violento ou explícito; organizações extremistas ou criminosas; assédio e bullyng virtual).
+        offensive: Conteúdo sensível (linguagem vulgar ou imprópria; conteúdo sexual ou pornográfico).
+        reason: Motivo
+        report: Reportar
+        spam: Conteúdo que pode configurar calúnia, ao imputar/divulgar falsamente fato definido como crime; difamação, imputando a alguém fato ofensivo à sua reputação;  injúria, ao ofender a dignidade ou o decoro de alguém (Código Penal, arts. 138, 139 e 140) ou desinformação (notícias falsas/fake news).
+        title: Reportar um problema
+      flag_user_modal:
+        already_reported: Este conteúdo já foi reportado e será revisado por um administrador.
+        close: Fechar
+        description: O que é inapropriado sobre o usuário?
+        does_not_belong: Conteúdo violento ou perigoso (discurso de ódio; discriminação ou preconceito de raça, cor, etnia, religião ou procedência nacional; condutas homofóbicas e transfóbicas; conteúdo perigoso ou nocivo; conteúdo violento ou explícito; organizações extremistas ou criminosas; assédio e bullyng virtual).
+        offensive: Conteúdo sensível (linguagem vulgar ou imprópria; conteúdo sexual ou pornográfico).
+        report: Reportar
+        spam: Conteúdo que pode configurar calúnia, ao imputar/divulgar falsamente fato definido como crime; difamação, imputando a alguém fato ofensivo à sua reputação;  injúria, ao ofender a dignidade ou o decoro de alguém (Código Penal, arts. 138, 139 e 140) ou desinformação (notícias falsas/fake news).
+        title: Reportar usuário inapropriado
       floating_help:
         close: Fechar ajuda
         help: Ajuda
