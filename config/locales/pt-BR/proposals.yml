@@ -160,7 +160,7 @@ pt-BR:
           conditions:
             - Escolha o espaço de participação do seu interesse com o envio de propostas ativado
             - Tente fazer propostas que possam ser realizadas. Desta forma, estas são mais propensas a serem enviadas ao governo.
-          description: Este distintivo é concedido quando você participa ativamente com novas novas propostas e estas são enviadas ao governo.
+          description: Este distintivo é concedido quando você participa ativamente com novas propostas e estas são enviadas ao governo.
           description_another: Este participante obteve %{score} propostas enviadas ao governo.
           description_own: Você tem %{score} propostas enviadas ao governo.
           name: Propostas enviadas ao governo
@@ -169,7 +169,7 @@ pt-BR:
           unearned_own: Você não recebeu nenhuma proposta enviada ao governo ainda.
     metrics:
       accepted_proposals:
-        description: Número de propostas enviadas ao governo pelos participantes
+        description: Número de propostas enviadas ao governo
         object: propostas
         title: Propostas enviadas ao governo
     proposals:
