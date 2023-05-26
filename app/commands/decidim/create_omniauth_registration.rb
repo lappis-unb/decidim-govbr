@@ -48,10 +48,16 @@ module Decidim
     def create_or_find_user
       generated_password = SecureRandom.hex
 
-      @user = User.find_or_initialize_by(
-        email: verified_email,
-        organization: organization
-      )
+      identity = Identity.find_by(uid: form.uid, organization: organization)
+
+      if identity
+        @user = User.find_or_initialize_by(
+          id: identity.decidim_user_id,
+          organization: organization
+          )
+      else
+        @user = User.new
+      end
 
       if @user.persisted?
         # If user has left the account unconfirmed and later on decides to sign
