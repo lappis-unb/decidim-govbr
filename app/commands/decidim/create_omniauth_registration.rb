@@ -54,7 +54,7 @@ module Decidim
         @user = User.find_or_initialize_by(
           id: identity.decidim_user_id,
           organization: organization
-          )
+        )
       else
         @user = User.new(organization: organization)
       end
