@@ -56,7 +56,7 @@ module Decidim
           organization: organization
           )
       else
-        @user = User.new
+        @user = User.new(organization: organization)
       end
 
       if @user.persisted?
