@@ -1,0 +1,25 @@
+.title-bar {
+  background: #58a5d2;
+}
+
+.topbar__search input {
+  background: #ffffff;
+  color: #000000;
+}
+
+.navbar {
+  background: #e89c4c;
+}
+
+.main-footer, .mini-footer {
+  background-color: #58a5d2;
+  color: #ffffff;
+}
+
+.main-footer a, .mini-footer a {
+  color: #ffffff;
+}
+
+.main-footer a:hover, .mini-footer a:hover {
+  color: #ffffff;
+}

@@ -1,0 +1,10 @@
+rails decidim:delete_download_your_data_files
+rails decidim:metrics:all
+rails decidim:open_data:export
+rails decidim_meetings:clean_registration_forms
+rails decidim_initiatives:check_published
+rails decidim_initiatives:check_validating
+rails decidim_initiatives:notify_progress
+rails decidim:reminders:all
+rails decidim:mailers:notifications_digest_daily
+rails decidim:mailers:notifications_digest_weekly

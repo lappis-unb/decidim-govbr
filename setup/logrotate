@@ -1,0 +1,11 @@
+/srv/decide/log/*.log {
+  su decide decide
+  weekly
+  missingok
+  rotate 8 
+  compress
+  dateext
+  delaycompress
+  notifempty
+  copytruncate
+}
