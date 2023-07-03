@@ -2,25 +2,55 @@ version: '3.7'
 
 services:
   postgres:
+    container_name: decidim-db
     image: postgres:13.2-alpine
     ports:
       - 5432:5432
+    networks:
+      - decidim-network
     volumes:
       - postgres-data:/var/lib/postgresql/data
     environment:
       - POSTGRES_PASSWORD=postgres
 
+  decidim-service:
+      container_name: decidim-service
+      image: ${RELEASE_IMAGE:-decidim-service}
+      build:
+          context: .
+          dockerfile: Dockerfile
+      env_file: .env.dev
+      command: ["sh", "start.sh"]
+      ports:
+          - 3000:3000
+          - 1080:1080
+      networks:
+          - decidim-network
+      # volumes:
+      #     - .:/sige-master
+      #     - pip_cache:/usr/local/lib/python3.11/site-packages
+      depends_on:
+          - postgres
+          - redis-queue
+          - redis-cache
+
   redis-queue:
+    container_name: redis-queue
     image: redis:6.0.12-alpine
     ports:
       - 6379:6379
+    networks:
+      - decidim-network
     volumes:
       - redis-queue-data:/data
 
   redis-cache:
+    container_name: redis-cache
     image: redis:6.0.12-alpine
     ports:
       - 6380:6379
+    networks:
+      - decidim-network
     volumes:
       - redis-cache-data:/data
 
@@ -28,3 +58,8 @@ volumes:
   redis-queue-data:
   redis-cache-data:
   postgres-data:
+
+networks:
+    decidim-network:
+        driver: bridge
+        name: decidim-network
