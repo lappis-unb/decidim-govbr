@@ -6,7 +6,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     libssl-dev \
     zlib1g-dev \
-    libpq-dev
+    libpq-dev \
+    libicu-dev
 
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
 
@@ -28,10 +29,4 @@ RUN gem install mailcatcher --no-document
 
 COPY .env.dev /decidim-govbr/.env
 
-# RUN mailcatcher --http-ip=0.0.0.0 &
-# RUN bundle exec sidekiq &
-
-# RUN rails db:create db:migrate
-
-# CMD ["rails" "s" "-b 0.0.0.0" "-p 3000"]
 CMD ["/bin/bash -l -c \"chmod +x start.sh && ./start.sh\""]

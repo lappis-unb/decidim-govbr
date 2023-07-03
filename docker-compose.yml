@@ -26,9 +26,6 @@ services:
           - 1080:1080
       networks:
           - decidim-network
-      # volumes:
-      #     - .:/sige-master
-      #     - pip_cache:/usr/local/lib/python3.11/site-packages
       depends_on:
           - postgres
           - redis-queue
