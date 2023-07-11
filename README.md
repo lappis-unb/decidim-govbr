@@ -2,6 +2,9 @@
 
 Brasil Participativo é a nova plataforma digital do governo federal, um espaço para que a população possa contribuir com a criação e melhoria das políticas públicas. 
 
+
+# Como surgiu a plataforma
+
 A Plataforma contou com a parceria do Ministério da Gestão e da Inovação em Serviços Públicos, e foi desenvolvida com o apoio da Dataprev, da Universidade de Brasilia (UnB) da comunidade Decidim-Brasil. Essa versão é uma evolução do fork do projeto desenvolvido pela [Nomade](https://gitlab.com/nomadetec/decide).
 
 O Laboratório Avançado de Pesquisa e Desenvolvimento de Software (LAPPIS) da Faculdade UnB Gama (FGA) estabeleceu um método que facilita a participação de alunos do curso de engenharia de software em projetos cívicos de software livre como instrumento pedagógico. Coordenado por professores com experiência na participação de comunidades, desenvolvimento de softwares livres e métodos ágeis, foi o parceiro de desenvolvimento de projetos importantes do governo federal como o Portal do Software Público, Participa.br, Aplicativo da Conferência da Juventude e Dialoga Brasil.
@@ -12,9 +15,76 @@ Democracia participativa de código aberto, participação cidadã e governo abe
 
 Este é o repositório de código aberto para o decide, baseado no [Decidim](https://github.com/decidim/decidim).
 
+# Espaços participativos
+
+[plantuml]
+----
+@startmindmap
+!theme aws-orange
+
+<style>
+mindmapDiagram {
+  .sem-caixa {
+    FontColor #1351B4
+  }
+  node {
+    BackgroundColor #1351B4
+    FontColor #FFFFFF
+    LineColor #FFFFFF
+    TitleColor #FF0000
+  }
+  arrow {
+    LineColor #FABC19
+  }
+}
+</style>
+
+
+* Brasil Participativo
+
+** Espaços Participativos
+
+*** Processos
+**** Propostas
+
+*** Assembleias
+****_ Componentes <<sem-caixa>>
+**** Subassembleias
+*****_ Componentes <<sem-caixa>>
+***** Subassembleias
+******_ Componentes <<sem-caixa>>
+***** Subassembleias
+******_ Componentes <<sem-caixa>>
+
+*** Iniciativas
+
+*** Conferências
+****_ Componentes <<sem-caixa>>
+****_ Palestrantes <<sem-caixa>>
+****_ Parceiros <<sem-caixa>>
+****_ Locais <<sem-caixa>>
+
+** Administração
+***_ Administrador <<sem-caixa>>
+***_ Colaborador <<sem-caixa>>
+***_ Moderador <<sem-caixa>>
+***_ Avaliador <<sem-caixa>>
+
+** Recursos
+
+** Usuários
+
+** Configurações
+
+@endmindmap
+----
+
 # Getting Started
 
 ## Configurando a aplicação
+
+Caso você queira um tutorial passo a passo, fizemos um bem detalhado na [wiki do repositório](https://gitlab.com/lappis-unb/decidimbr/decidim-govbr/-/wikis/home)
+
 
 Você precisará seguir algumas etapas antes de fazer com que o aplicativo funcione corretamente:
 
@@ -34,29 +104,31 @@ Defina o host padrão correto para a organização, caso contrário, o aplicativ
 
 Agora você está pronto!
 
-Caso você queira um tutorial passo a passo, fizemos um bem detalhado na [wiki do repositório](https://gitlab.com/lappis-unb/decidimbr/decidim-govbr/-/wikis/home)
 
-# Subindo o Sidekiq e o Mailcatcher
+## Subindo o Sidekiq e o Mailcatcher
 Duas ferramentas serão necessárias durante a utilização do ambiente de desenvolvimento: o *sidekiq* e o *mailcatcher*. O *sidekiq* é uma gem ruby que fornece um mecanismo de processamento de jobs ou tarefas em segundo plano.
 
 Suba o mailcatcher com o comando
 
 ```
 mailcatcher
-```
-
-Em seguida, suba o *sidekiq* com o comando:
-
-```
 docker compose up -d
 foreman start
 ```
 
-#  Criando espaços de participação digital
+Em seguida, suba o *sidekiq* com o comando:
+
+```bash
+bundle exec sidekiq
+```
+
+Depois de acessar a URL `localhost:3000/system`, aparecerá na tela uma área de login. Forneça a senha e o e-mail utilizado na criação do usuário _admin_.
+
+##  Criando espaços de participação digital
 
 Se você quiser testar os módulos da plataforma, criando espaços participativos e seus componentes participativos, estamos documentando alguns tutoriais na nossa [wiki](https://gitlab.com/groups/lappis-unb/decidimbr/-/wikis/Documentação).
 
-# Ambientes
+# Como testar a plataforma?
 
 O ambiente de produção do projeto pode ser acessado [aqui](https://brasilparticipativo.presidencia.gov.br).
 
