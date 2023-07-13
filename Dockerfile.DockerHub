@@ -22,3 +22,4 @@ WORKDIR /decidim
 COPY . .
 
 RUN bundle install
+RUN gem install mailcatcher --no-document

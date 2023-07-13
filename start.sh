@@ -13,10 +13,10 @@ set -e
 
 bundle check || bundle install
 
-bundle exec rake db:migrate:reset
-# bundle exec rake db:create
-# bundle exec rake db:migrate
-# bundle exec rake db:seed
+# bundle exec rake db:migrate:reset
+bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec rake db:seed
 
 mailcatcher --http-ip=0.0.0.0 &
 bundle exec sidekiq & 
