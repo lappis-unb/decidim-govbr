@@ -13,10 +13,13 @@ set -e
 
 bundle check || bundle install
 
-# bundle exec rake db:migrate:reset
-bundle exec rake db:create
-bundle exec rake db:migrate
-bundle exec rake db:seed
+if bundle exec rails db:exists; then
+  bundle exec rails db:migrate
+else
+  bundle exec rails db:create
+  bundle exec rails db:migrate
+  bundle exec rails db:seed
+fi
 
 mailcatcher --http-ip=0.0.0.0 &
 bundle exec sidekiq & 
