@@ -2,10 +2,13 @@
 
 Brasil Participativo é a nova plataforma digital do governo federal, um espaço para que a população possa contribuir com a criação e melhoria das políticas públicas. 
 
+A plataforma Brasil Participativo é uma instância adaptada e customizada do software livre  [Decidim](https://github.com/decidim/decidim). No espaço administrador da plataforma, podemos criar diversos espaços de participação democrátrica que seja transparente, aberto e totalmente auditável.
+
+
 
 # Como surgiu a plataforma
 
-A Plataforma contou com a parceria do Ministério da Gestão e da Inovação em Serviços Públicos, e foi desenvolvida com o apoio da Dataprev, da Universidade de Brasilia (UnB) da comunidade Decidim-Brasil. Essa versão é uma evolução do fork do projeto desenvolvido pela [Nomade](https://gitlab.com/nomadetec/decide).
+A Plataforma é uma parceria da Secretaria de Participação Digital, e foi desenvolvida com o apoio da Dataprev, da Universidade de Brasilia (UnB) da comunidade Decidim-Brasil. Essa versão é uma evolução do fork do projeto desenvolvido pela [Nomade](https://gitlab.com/nomadetec/decide).
 
 O Laboratório Avançado de Pesquisa e Desenvolvimento de Software (LAPPIS) da Faculdade UnB Gama (FGA) estabeleceu um método que facilita a participação de alunos do curso de engenharia de software em projetos cívicos de software livre como instrumento pedagógico. Coordenado por professores com experiência na participação de comunidades, desenvolvimento de softwares livres e métodos ágeis, foi o parceiro de desenvolvimento de projetos importantes do governo federal como o Portal do Software Público, Participa.br, Aplicativo da Conferência da Juventude e Dialoga Brasil.
 
@@ -15,78 +18,14 @@ Democracia participativa de código aberto, participação cidadã e governo abe
 
 Este é o repositório de código aberto para o decide, baseado no [Decidim](https://github.com/decidim/decidim).
 
-# Espaços participativos
-
-[plantuml]
-----
-@startmindmap
-!theme aws-orange
-
-<style>
-mindmapDiagram {
-  .sem-caixa {
-    FontColor #1351B4
-  }
-  node {
-    BackgroundColor #1351B4
-    FontColor #FFFFFF
-    LineColor #FFFFFF
-    TitleColor #FF0000
-  }
-  arrow {
-    LineColor #FABC19
-  }
-}
-</style>
-
-
-* Brasil Participativo
-
-** Espaços Participativos
-
-*** Processos
-**** Propostas
-
-*** Assembleias
-****_ Componentes <<sem-caixa>>
-**** Subassembleias
-*****_ Componentes <<sem-caixa>>
-***** Subassembleias
-******_ Componentes <<sem-caixa>>
-***** Subassembleias
-******_ Componentes <<sem-caixa>>
-
-*** Iniciativas
-
-*** Conferências
-****_ Componentes <<sem-caixa>>
-****_ Palestrantes <<sem-caixa>>
-****_ Parceiros <<sem-caixa>>
-****_ Locais <<sem-caixa>>
-
-** Administração
-***_ Administrador <<sem-caixa>>
-***_ Colaborador <<sem-caixa>>
-***_ Moderador <<sem-caixa>>
-***_ Avaliador <<sem-caixa>>
-
-** Recursos
-
-** Usuários
-
-** Configurações
-
-@endmindmap
-----
 
 # Getting Started
 
 ## Configurando a aplicação
 
-Caso você queira um tutorial passo a passo, fizemos um bem detalhado na [wiki do repositório](https://gitlab.com/lappis-unb/decidimbr/decidim-govbr/-/wikis/home)
+Caso você queira um tutorial passo a passo, fizemos um bem detalhado na [wiki do repositório](https://gitlab.com/lappis-unb/decidimbr/decidim-govbr/-/wikis/home).
 
-
-Você precisará seguir algumas etapas antes de fazer com que o aplicativo funcione corretamente:
+Se não aqui vão as especificações gerais para subir o projeto em ambiente dev. Você precisará seguir algumas etapas antes de fazer com que o aplicativo funcione corretamente:
 
 1. Abra um console Rails no servidor:  `bundle exec rails console`
 1. Crie um usuário administrador do sistema:
@@ -106,6 +45,7 @@ Agora você está pronto!
 
 
 ## Subindo o Sidekiq e o Mailcatcher
+
 Duas ferramentas serão necessárias durante a utilização do ambiente de desenvolvimento: o *sidekiq* e o *mailcatcher*. O *sidekiq* é uma gem ruby que fornece um mecanismo de processamento de jobs ou tarefas em segundo plano.
 
 Suba o mailcatcher com o comando
@@ -136,7 +76,17 @@ O ambiente de lab/dev   pode ser acessado [aqui](https://lab-decide.dataprev.gov
 
 Para criar usuário no ambiente dev, entrar em contato com algum dos mantenedores da plataforma.
 
-# Código de conduta
+# Contribuindo para o projeto
+
+
+Achou interessante o projeto? Ta querendo aprender Ruby on Rails? Quer conhecer brasileiros que contribuem para software livre?
+
+Tem várias ``Good first issues`` pensadas em facilitar sua primeira contribuição. 
+
+Leia nosso [Guia de Contribuição](CONTRIBUTING.md) para aprender sobre nosso processo de desenvolvimento, como propor correções de bugs e melhorias, e como construir e testar suas alterações na Plataforma Brasil Participativo.
+
+
+No nosso [Guia de Contribuição] tem o passo a passo em como iniciar sua contribuição na comunidade
 
 Acreditamos firmemente que a diversidade de pessoas contribuindo para um projeto é fundamental para garantir a qualidade do software. Com o objetivo de desenvolver uma plataforma de participação digital acessível a todos os brasileiros, reconhecemos a importância de um cuidadoso processo de desenvolvimento do software, buscando envolver a maior diversidade possível de colaboradores.
 
@@ -148,12 +98,9 @@ Estamos comprometidos em criar um ambiente colaborativo onde todos possam contri
 
 Contamos com você para fazer parte dessa comunidade inclusiva e construir uma plataforma de participação digital verdadeiramente acessível e abrangente. 
 
-# Quer contribuir ?!
 
-Achou interessante o projeto? Ta querendo aprender Ruby on Rails? Quer conhecer brasileiros que contribuem para software livre?
+# Contribuidores
 
-Tem várias ``Good first issues`` pensadas em facilitar sua contribuição. 
-
-No nosso [Guia de Contribuição] tem o passo a passo em como iniciar sua contribuição na comunidade
+Essa plataforma não seria possível se não fosse por esses herois! Além de toda comunidade Decidim
 
 # Licença
