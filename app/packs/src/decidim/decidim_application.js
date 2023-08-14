@@ -3,3 +3,4 @@
 
 // Load images
 require.context("../../images", true)
+import '../govbr-ds/core';
