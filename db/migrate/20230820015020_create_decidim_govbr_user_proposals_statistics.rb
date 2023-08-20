@@ -1,5 +1,6 @@
 class CreateDecidimGovbrUserProposalsStatistics < ActiveRecord::Migration[6.1]
   def change
+    # TODO: adicionar default de 0 nos fields
     create_table :decidim_govbr_user_proposals_statistics do |t|
       t.bigint :decidim_user_id, null: false
       t.string :decidim_user_name
@@ -14,7 +15,7 @@ class CreateDecidimGovbrUserProposalsStatistics < ActiveRecord::Migration[6.1]
       t.timestamps
     end
 
-    add_reference :decidim_govbr_user_proposals_statistics, :decidim_govbr_user_proposals_statistic_settings, index: { name: :user_proposals_statistics_on_settings_idx }
+    add_reference :decidim_govbr_user_proposals_statistics, :user_proposals_statistic_setting, index: { name: :user_proposals_statistics_on_settings_idx }
     add_index :decidim_govbr_user_proposals_statistics, :decidim_user_id, name: :decidim_govbr_user_proposals_statistic_user_idx
   end
 end
