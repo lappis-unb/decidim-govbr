@@ -7,7 +7,9 @@ module Decidim
     # with no big concerns.
     # I.e. with detached it means: no direct relashionship with Decidim tables or constraints.
     class UserProposalsStatistic < ApplicationRecord
-      belongs_to :user_proposals_statistic_setting
+      self.table_name = 'decidim_govbr_user_proposals_statistics'
+
+      belongs_to :user_proposals_statistic_setting, class_name: 'Decidim::Govbr::UserProposalsStatisticSetting'
     end
   end
 end
