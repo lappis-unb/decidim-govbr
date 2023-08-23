@@ -7971,6 +7971,7 @@ class BRHeader {
   _setSticky() {
     if (this.component.hasAttribute('data-sticky')) {
       window.onscroll = () => {
+        console.log('Entrou aqui no on scroll', window.pageYOffset, this.component.offsetHeight)
         if (window.pageYOffset > this.component.offsetHeight) {
           this.component.classList.add('sticky', 'compact')
         } else {
