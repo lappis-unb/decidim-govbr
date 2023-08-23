@@ -24628,6 +24628,9 @@ hr {
   max-height: var(--footer-logo-height);
   max-width: var(--footer-logo-width);
 }
+.br-footer a {  
+  color: var(--color);
+}
 .br-footer .br-list.horizontal {
   display: flex;
   flex-wrap: wrap;
