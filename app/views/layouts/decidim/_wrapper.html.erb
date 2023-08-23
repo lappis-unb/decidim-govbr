@@ -15,17 +15,6 @@ end
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
 <div class="template-base">
-  <%
-=begin%>
- <%= link_to t("skip_button", scope: "decidim.accessibility"), url_for(anchor: "content"), class: "skip" %>
-  <% if current_organization.official_img_header.attached? %>
-    <%= link_to  current_organization.official_url, class: "logo-cityhall" do %>
-      <%= image_tag current_organization.attached_uploader(:official_img_header).path, alt: current_organization.name %>
-    <% end %>
-  <% end %>
-<%
-=end%>
-
   <nav class="br-skiplink">
     <a class="br-item" href="#main-content" accesskey="1">
       Ir para o conteúdo (1/4) <span class="br-tag text ml-1">1</span>
@@ -41,13 +30,13 @@ end
     </a>
   </nav>
   <!-- data-sticky="data-sticky" -->
-  <header class="br-header mb-4" data-sticky="data-sticky" id="header">
+  <header class="br-header mb-4" id="br-header">
     <div class="br-container-lg">
       <div class="header-top">
         <div class="header-logo">
-          <%= link_to current_organization.official_url do %>
+          <a href="/">
             <img src="data:image/png;base64,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" alt="gov.br logo"/>
-          <% end %>
+          </a>
           <!--<div class="header-sign">Assinatura</div>-->
         </div>
         <div class="header-actions">
@@ -71,29 +60,31 @@ end
                 <div class="title">Funcionalidades do Sistema</div>
               </div>
               <% if current_user %>
-                <div class="br-item">
+                <%= link_to decidim.notifications_path, class: "#{current_user.notifications.any? ? "is-active" : ""}" do %>
+                  <div class="br-item">
                     <button class="br-button circle small" type="button" aria-label="Notificações">
-                      <%= link_to decidim.notifications_path, class: "#{current_user.notifications.any? ? "is-active" : ""}" do %>
                         <i class="fas fa-bell" aria-hidden="true"></i>
-                      <% end %>
                       <span class="text">Notificações</span>
                     </button>
-                </div>
+                  </div>
+                <% end %>
+                <%= link_to decidim.conversations_path, class: "#{current_user.unread_conversations.any? ? "is-active" : ""}" do %>
+                  <div class="br-item">
+                    <button class="br-button circle small" type="button" aria-label="Conversas">
+                        <i class="fas fa-message" aria-hidden="true"></i>
+                      <span class="text">Conversas</span>
+                    </button>
+                  </div>
+                <% end %>
+              <% end %>
+              <a href="#" data-open="dc-modal" aria-controls="dc-modal" aria-haspopup="dialog" tabindex="0">
                 <div class="br-item">
-                  <button class="br-button circle small" type="button" aria-label="Conversas">
-                    <%= link_to decidim.conversations_path, class: "#{current_user.unread_conversations.any? ? "is-active" : ""}" do %>
-                      <i class="fas fa-message" aria-hidden="true"></i>
-                    <% end %>
-                    <span class="text">Conversas</span>
+                  <button class="br-button circle small" type="button" aria-label="Redefinir Cookies">
+                    <i class="fas fa-cookie-bite" aria-hidden="true"></i>
+                    <span class="text">Redefinir Cookies</span>
                   </button>
                 </div>
-              <% end %>
-              <div class="br-item">
-                <button class="br-button circle small" type="button" aria-label="Redefinir Cookies">
-                  <i class="fas fa-cookie-bite" aria-hidden="true"></i>
-                  <span class="text">Redefinir Cookies</span>
-                </button>
-              </div>
+              </a>
               <div class="br-item">
                 <button class="br-button circle small" type="button" aria-label="Mudar para o modo de alto contraste">
                   <i class="fas fa-adjust" aria-hidden="true"></i>
@@ -110,9 +101,9 @@ end
           <% if current_user %>
             <div>
               <button class="br-sign-in" type="button" id="avatar-dropdown-trigger" data-toggle="dropdown" data-target="avatar-menu" aria-label="Avatar com dropdown">
-                <span class="br-avatar" title="Fulano da Silva"></span>
-                <span class="ml-2 text-gray-80 text-weight-regular">
-                  Olá, <span class="text-weight-semi-bold">Fulano</span>
+                <span class="br-avatar" title=""></span>
+                <span class="ml-2 text-gray-80 text-weight-regular br-dropdown-text">
+                  Olá, <span class="text-weight-semi-bold current-user-dropdown"><%= current_user.name %></span>
                 </span>
                 <i class="fas fa-caret-down" aria-hidden="true"></i>
               </button>
@@ -145,23 +136,26 @@ end
             <!--<div class="header-subtitle">Subtítulo do Header</div>-->
           </div>
         </div>
-        <div class="header-search" id="main-searchbox">
-          <div class="br-input has-icon">
-            <label for="searchbox">Texto da pesquisa</label>
-            <input id="searchbox" type="text" placeholder="O que você procura?"/>
-            <button class="br-button circle small" type="button" aria-label="Pesquisar"><i class="fas fa-search" aria-hidden="true"></i>
+        <form action="/search" accept-charset="UTF-8" method="get">
+          <div class="header-search" id="main-searchbox">
+            <div class="br-input has-icon">
+              <label for="searchbox">Texto da pesquisa</label>
+              <input name="term" id="searchbox" type="text" placeholder="O que você procura?" />
+              <button class="br-button circle small" type="submit" aria-label="Pesquisar">
+                <i class="fas fa-search" aria-hidden="true"></i>
+              </button>
+            </div>
+            <button class="br-button circle search-close ml-1"
+              type="button" aria-label="Fechar Busca" data-dismiss="search">
+              <i class="fas fa-times" aria-hidden="true"></i>
             </button>
           </div>
-          <button class="br-button circle search-close ml-1" type="button" aria-label="Fechar Busca" data-dismiss="search">
-            <i class="fas fa-times" aria-hidden="true"></i>
-          </button>
-        </div>
+        </form>
       </div>
     </div>
   </header>
   <main class="d-flex flex-fill" id="content">
     <%= display_flash_messages %>
-
     <div class="br-container-lg d-flex">
       <div class="br-row">
         <div class="br-menu" id="main-navigation">
@@ -169,7 +163,7 @@ end
             <div class="menu-panel">
               <div class="menu-header">
                 <div class="menu-title">
-                  <img src="data:image/png;base64,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" alt="Logo gov.br"/>
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGoAAAAmCAYAAAAsuw6AAAAABHNCSVQICAgIfAhkiAAACTxJREFUaEPtW01sY1cVPufazmSKAI9EEySE6hGrAiKeCbShFRO7SZkZMj+JWgmVTT2gLgCROKtK3UxSpErDgjpBLFAX46xgg+oRDQiayM+pCqtJPYKuWNSBgJQMoo4QHTvxuwed5zzn+fne+17idAao3zK+P+ee755zv/PdG4Te1/LAp7JvpSIkizqXbC2M4oNy1wOb+EEt2DRvD6j/RlQUNvWA6gHVtQd6qc/jwl5Edb2f7s8APaDuj5+7nqUHVNcuvD8D/E8CNZBdmwRJQ+wiQogjQRUBy1uL52553fZwtpgkO/JJvysxYu/czaXLJhfvvdmfIqQhRIy3tUOwYk/VSvcHnoNZDgsUtxdSjrojsH/qwr5TzaUrR7WdihBvUP8QEKTcMaICljrIxMB0aQ6QZhB8zmvNTBVCMbudO1fgPw1OlyxAaBl70AxKW4ujrcncvzvgCHgeATOBiyEooLDz0ad2nc2RLKbikQ/gfW0/hKnb37Acu1Tf8BupPCA8r/rNBjiz+eYP40EFbzxbjPdJMQNIWZ2PCKiwizTrBYzXDQKVxXRs7J6DQ2Olb1KieBUBE+020nwLKMcAwiICJgMdyFFGMLe9ODofFihnp9gnbwLCZJjxvW2IoByL0BSma5Xh5RQDcVU5BsHS7UuWdgMML6eqANAR/URwZ/2SlQyKqDrKU2F9REBVQkq7WSUIqMZqf4YAb6p94wFqYNoqI6KT6sJ+EvGakJQJiigqxpINGeXd1J7iwk7UbFcFSVMjeyNxIHhd1ZUAKusT1mnVb8nlVDIC8I6yH8Hs+iUrFwQUAZXDbmSexwuWCaioaJxpyKjSNsdeSWknojjdIcL1w/mtaQiyAztC1bHSSX1U7E80JLIR3YDkmlaNikb6yx88aakigxtxCitPWB1n49nl1ByCeo22gNPli1YlCKjD+qfZnipbC6nTJqCAyALEjmOiNd8BUFYVETtSQnv6oR0+LAkoGdS2aV8TqL2VkwVATapq7roNBMg3Qcc4AU4igDayCajy1XsjJd1ZQ/vR4Xfq2TdSZUTluLduT1hOOj40UEQbgPhIIIASZzevfL2sO6OC+1MaH86uZQSRJjfyWUQ7UkQm/5H7Gu9i5+M+KGXOCBhBafPy+TmTcUS01Dde6zhTdldPZBHEq7oFvGN/7Pp39744r0l/pfUJq213mkgIAVxbn7DyYYEiojtSRLKuP+LZYqJPCs5ISpLiRtXmpQvXwgDlblwkWSYSVRKUjAks4MB0KW+axEaR9oJ0AFYxKUjo8ypB6a9XzlcQUbkANqhvrOZjNweu31vttwCwk002iUx5pP74KQRQ7mb7IThVTltMHJzv7HIqgwDKzehtGxhRRBt1QclqLt0a250jyI8LQzdeeOaR4mum6NFtXO6DWtbmSV+6wY3GcURdOZ8ETUolkLN9Y/WcbmymqoQRJWngPt+pf37hXfr4jLK/j6ZrabmPJQYBxeTpbu6cE33+j1nzCRLa0uHbidd/+vKXfvZ9LVAEt2Lj97SMGAdnSqTrTATz24ujc1qgsmuTSKR2JgN19YIyIng8ZjqY3jMXxKsntbb9ofGJ52Ybj/5caZsPAB0tBx+gQUAxPVdFk2uDadN/67PLSz868xNtegzyhxkoxCm3sFU5xLSwpwd/f+fm4y9rSYFb5JlSwd5Kf1UXkUj21GO1J/hs6JjDS9MNtHzn9oTVxkRN6+GzensxZWSupgxz8dNrb7/22CtPqjcW7cTGa8axjUCZQj3o8D0OoHZX+ysIalblAFV/Iq49e/Zpuo6WE8DC+oSV9TrOHFFNmm3aWAPTpQJqGO6zn/ndL3PDP35G3Z9KsbGanp7zGTUwrafmganPUH+dir3/9h8vPqfeQU7qo9OsNBgjypD6uAj8SnSkrJOUXJquo+Wqeiso9QW9mTh66gsBlJFM7BdrOmcOTlsVbR0RcEYh0LXoWE15MDs8pqlmaFmlC7ROUiKAkhSQiUh4z28/AWysT1gdjDMIqG7IxPc+94sbL30h/2IXEWVWJSRA7u7C6Kx/giA6ygXv5pULVW2xS2TFxmtp3SbYXenPh6H2w79OTWolJYJZROiox3RFcRBQLCHtIqU19Nyo7pjpeYiICjKuydKpgCTyNkE1ghAHlFkAg+SxT+3/dvV8Xi808rhqim4WKJ3B52NjtRYbNYitVWR7fd8///7o0L//9M1ZBEgRS2CEBRaYQ/qiA6zBH6xlQZC2QAeijc3LFzL6gjcEULwGc/oznSKG31wJyVC4Or2JLBQyRyCqCDIuSUwar0CIdqKRWgLTrDE2P9P1hSLtlTZ/Oxf3C9B8HkshLNM1R/tY5Co1CaXW6W0cKCGFBIov/4wqw1GwaomysWTDjrDoaNQSw07BbC86vtt252RSxv3j7rx37sa//jymPCtYhdEBxfQ8lMbZsTOaasbdiYvJriOKxw7S/FSOdK45dDrhPlBhiEFokAwE5OxyqqKTlLzjb66++BLYD72imtMmfCGCpJR5eK2B+qZiUFeCM6rnEDKi3PFDia1OtqIdEiLLcopW2SBY2FocbdUpzOL2ZDRvUsZ1gDlCpYRM7OlaSxj2tzVdY7TaEiz9ZeV6TpU9XPFZF1HscAEUBymZ5ITKDl6WeKxA8YJYDT4hRRaAJv3UmxcDgIVdIef4mtlpS6KD/jaPHrX8xERBAmbDAMYAAVAuJup575mkAjT5m1RCRcXb2u5LRirGyk4lwIoJKBannWNCipzystSdjKBUFzIT9ioeDhtRfgcwEFGIOvVGAxoV/6MNU7oMKpb5QtGWDutKEEECERJAWAUkvvOqxoS0grRAv73JX6WM1X35suW7qqEUX3zaQhQYBBZWoxBVPkVoQKPspeX71xusyjOr5D5lIKzUI3ZB9bjFeYrQ6FeOHY3a1aC1HvmlbFMt5ptb/0OMpvt01yNhz6Neu3YPtIDikEbCmV2k+aDnTvsPYW4ioFaWD1Kae0AczgMtoLzFHlfgXATy1TsXue6QXOxK5HRBGf1zsoNr+MOZ0mtt8oASqG5d1kt73Xqws/+xA0UES9uLo8GPK49/Lf/XI7aAOuqTMa93eiB9eHvFQybMr5FMJvhf5nx45n50R26j524dIaTkeiTp1Aiad+WO6gxQJiELQf8M8NF17/Gt/D+x11S4FmerawAAAABJRU5ErkJggg==" alt="gov.br logo mobile"/>
                   <span>Brasil Participativo</span>
                 </div>
                 <div class="menu-close">
