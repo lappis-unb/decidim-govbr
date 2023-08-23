@@ -14461,39 +14461,29 @@ var globals_class = __webpack_require__("./src/partial/js/globals-class.js");
 /* eslint-disable no-unused-vars */
 
 
+function updateContentMarginTop() {
+  const header = document.querySelector("#br-header");
+  const menu = document.querySelector(".process-nav");
+  const content = document.querySelector("#content");
+  const banner = document.querySelector(".omnipresent-banner");
 
+  let marginTotal = "";
+  if (menu) {
+    marginTotal = header.offsetHeight + menu.offsetHeight;
+    menu.style.top = header.offsetHeight + "px";
+  } else {
+    marginTotal = header.offsetHeight
+  }
 
+  if (banner) {
+    banner.style.marginTop = marginTotal + "px";
+  } else if (content) {
+    content.style.marginTop = marginTotal + "px";
+  }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+updateContentMarginTop();
+window.addEventListener("resize", updateContentMarginTop);
 
 const globals = new globals_class.Globals()
 globals.initInstanceAll()
