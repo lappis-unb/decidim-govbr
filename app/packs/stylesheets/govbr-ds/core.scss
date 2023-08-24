@@ -24631,7 +24631,7 @@ hr {
 .br-footer .footer-nav a {  
   color: var(--color);
   display: inline-block;
-  line-height: var(--font-line-height-high);
+  padding: 10px 0;
 }
 .br-footer .br-list.horizontal {
   display: flex;
