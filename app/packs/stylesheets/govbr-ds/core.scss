@@ -24645,6 +24645,9 @@ hr {
   flex-grow: 0;
   padding: 0;
 }
+.mini-footer {
+  background-color: rgb(7, 29, 65) !important;
+}
 @media (max-width: 991px) {
   .br-footer .br-list.horizontal .br-col,
   .br-footer .br-list.horizontal [class*="col-"] {
