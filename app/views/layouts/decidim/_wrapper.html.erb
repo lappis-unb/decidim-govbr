@@ -59,7 +59,9 @@ end
               <div class="header">
                 <div class="title">Funcionalidades do Sistema</div>
               </div>
-              <% if current_user %>
+              <%
+=begin%>
+ <% if current_user %>
                 <%= link_to decidim.notifications_path, class: "#{current_user.notifications.any? ? "is-active" : ""}" do %>
                   <div class="br-item">
                     <button class="br-button circle small" type="button" aria-label="Notificações">
@@ -76,7 +78,9 @@ end
                     </button>
                   </div>
                 <% end %>
-              <% end %>
+              <% end %> 
+<%
+=end%>
               <a href="#" data-open="dc-modal" aria-controls="dc-modal" aria-haspopup="dialog" tabindex="0">
                 <div class="br-item">
                   <button class="br-button circle small" type="button" aria-label="Redefinir Cookies">
@@ -85,12 +89,16 @@ end
                   </button>
                 </div>
               </a>
-              <div class="br-item">
+              <%
+=begin%>
+ <div class="br-item">
                 <button class="br-button circle small" type="button" aria-label="Mudar para o modo de alto contraste">
                   <i class="fas fa-adjust" aria-hidden="true"></i>
                   <span class="text">Mudar para o modo de alto contraste</span>
                 </button>
-              </div>
+              </div> 
+<%
+=end%>
             </div>
           </div>
           <div class="header-search-trigger">
@@ -176,7 +184,7 @@ end
       </div>
     </div>
   </header>
-  <main class="d-flex flex-fill" id="content">
+  <main id="content">
     <%= display_flash_messages %>
     <div class="br-container-lg d-flex">
       <div class="br-row">
@@ -194,44 +202,35 @@ end
                 </div>
               </div>
               <nav class="menu-body">
-                <div class="menu-folder"><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-bell" aria-hidden="true"></i></span><span class="content">Nível 1</span></a>
+                <a class="menu-item divider" href="javascript: void(0)"><span class="icon"><i class="fas fa-house" aria-hidden="true"></i></span><span class="content">Início</span></a>
+                <div class="menu-folder"><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-bell" aria-hidden="true"></i></span><span class="content">PPA participativo</span></a>
                   <ul>
-                    <li><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-heart" aria-hidden="true"></i></span><span class="content">Nível 2</span></a></li>
-                    <li><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-address-book" aria-hidden="true"></i></span><span class="content">Nível 2</span></a>
+                    <li><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-address-book" aria-hidden="true"></i></span><span class="content">PPA 2023</span></a>
                       <ul>
-                        <li><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-book" aria-hidden="true"></i></span><span class="content">Nível 3</span></a></li>
-                        <li><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-tree" aria-hidden="true"></i></span><span class="content">Nível 3</span></a>
-                          <ul>
-                            <li><a class="menu-item" href="javascript: void(0)"><span class="content">Nível 4</span></a></li>
-                            <li><a class="menu-item" href="javascript: void(0)"><span class="content">Nível 4</span></a></li>
-                            <li><a class="menu-item" href="javascript: void(0)"><span class="content">Nível 4</span></a></li>
-                          </ul>
-                        </li>
-                        <li><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-moon" aria-hidden="true"></i></span><span class="content">Nível 3</span></a></li>
+                        <li><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-book" aria-hidden="true"></i></span><span class="content">Início</span></a></li>
+                        <li><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-tree" aria-hidden="true"></i></span><span class="content">Programas priorizados</span></a></li>
+                        <li><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-moon" aria-hidden="true"></i></span><span class="content">Propostas priorizados</span></a></li>
+                        <li><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-moon" aria-hidden="true"></i></span><span class="content">Sobre</span></a></li>
                       </ul>
                     </li>
-                    <li><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-archive" aria-hidden="true"></i></span><span class="content">Nível 2</span></a></li>
                   </ul>
                 </div>
-                <div class="menu-folder"><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-bell" aria-hidden="true"></i></span><span class="content">Nível 1</span></a>
+                <div class="menu-folder"><a class="menu-item" href="javascript: void(0)"><span class="icon">
+                  <i class="fas fa-house" aria-hidden="true"></i></span><span class="content">Conferências</span></a>
                   <ul>
-                    <li><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-heart" aria-hidden="true"></i></span><span class="content">Nível 2</span></a></li>
-                    <li><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-address-book" aria-hidden="true"></i></span><span class="content">Nível 2</span></a>
+                    <li><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-address-book" aria-hidden="true"></i></span><span class="content">Conferência da Juventude</span></a>
                       <ul>
-                        <li><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-book" aria-hidden="true"></i></span><span class="content">Nível 3</span></a></li>
-                        <li><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-tree" aria-hidden="true"></i></span><span class="content">Nível 3</span></a>
-                          <ul>
-                            <li><a class="menu-item" href="javascript: void(0)"><span class="content">Nível 4</span></a></li>
-                            <li><a class="menu-item" href="javascript: void(0)"><span class="content">Nível 4</span></a></li>
-                            <li><a class="menu-item" href="javascript: void(0)"><span class="content">Nível 4</span></a></li>
-                          </ul>
-                        </li>
-                        <li><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-moon" aria-hidden="true"></i></span><span class="content">Nível 3</span></a></li>
+                        <li><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-book" aria-hidden="true"></i></span><span class="content">Início</span></a></li>
+                        <li><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-book" aria-hidden="true"></i></span><span class="content">Novidades</span></a></li>
+                        <li><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-book" aria-hidden="true"></i></span><span class="content">Propostas</span></a></li>
+                        <li><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-book" aria-hidden="true"></i></span><span class="content">Organize uma etapa</span></a></li>
+                        <li><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-book" aria-hidden="true"></i></span><span class="content">Registre sua reunião</span></a></li>
+                        <li><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-book" aria-hidden="true"></i></span><span class="content">Sobre</span></a></li>
                       </ul>
                     </li>
-                    <li><a class="menu-item" href="javascript: void(0)"><span class="icon"><i class="fas fa-archive" aria-hidden="true"></i></span><span class="content">Nível 2</span></a></li>
                   </ul>
-                </div><a class="menu-item divider" href="javascript: void(0)"><span class="icon"><i class="fas fa-bell" aria-hidden="true"></i></span><span class="content">Item de nível 1</span></a><a class="menu-item divider" href="javascript: void(0)"><span class="icon"><i class="fas fa-bell" aria-hidden="true"></i></span><span class="content">Item de nível 1</span></a>
+                </div>
+                <a class="menu-item divider" href="javascript: void(0)"><span class="icon"><i class="fas fa-bell" aria-hidden="true"></i></span><span class="content">Sobre</span></a>
               </nav>
             </div>
             <div class="menu-scrim" data-dismiss="menu" tabindex="0"></div>
