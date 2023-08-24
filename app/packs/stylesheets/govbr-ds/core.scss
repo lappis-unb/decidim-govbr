@@ -24627,6 +24627,11 @@ hr {
   max-height: var(--footer-logo-height);
   max-width: var(--footer-logo-width);
 }
+.br-footer .footer-nav a {  
+  color: var(--color);
+  display: inline-block;
+  padding: 10px 0;
+}
 .br-footer .br-list.horizontal {
   display: flex;
   flex-wrap: wrap;
@@ -24638,6 +24643,9 @@ hr {
 .br-footer .br-list.horizontal [class*="col-"] {
   flex-grow: 0;
   padding: 0;
+}
+.mini-footer {
+  background-color: rgb(7, 29, 65) !important;
 }
 @media (max-width: 991px) {
   .br-footer .br-list.horizontal .br-col,
