@@ -24628,8 +24628,10 @@ hr {
   max-height: var(--footer-logo-height);
   max-width: var(--footer-logo-width);
 }
-.br-footer a {  
+.br-footer .footer-nav a {  
   color: var(--color);
+  display: inline-block;
+  line-height: var(--font-line-height-high);
 }
 .br-footer .br-list.horizontal {
   display: flex;
