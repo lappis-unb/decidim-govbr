@@ -23614,7 +23614,12 @@ a.br-button {
     display: flex;
   }
   .br-carousel {
-    --carousel-min-height: 480px;
+    --carousel-min-height: 465px;
+  }
+  .br-carousel .carousel-stage,
+  .br-carousel[data-stage="out"] .carousel-stage {
+    left: 0;
+    width: var(--carousel-full-size);
   }
 }
 .br-carousel.dark-mode,
