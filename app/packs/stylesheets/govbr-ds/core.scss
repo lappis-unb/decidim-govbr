@@ -23379,7 +23379,7 @@ a.br-button {
   --carousel-step-height: 40px;
   --carousel-step-progress-min-height: 32px;
   --carousel-full-size: 100%;
-  --carousel-min-height: 400px;
+  --carousel-min-height: 230px;
   --carousel-button-fix-height: 52px;
   --carousel-button-fix-width: 100px;
   --carousel-step-progress-background: transparent;
@@ -23388,6 +23388,9 @@ a.br-button {
   min-height: var(--carousel-min-height);
   position: relative;
   width: var(--carousel-full-size);
+}
+.br-carousel.show-desktop {
+  display: none;
 }
 .br-carousel .carousel-stage {
   display: block;
@@ -23586,6 +23589,32 @@ a.br-button {
   .br-carousel .carousel-step .br-step[data-type="simple"] .step-progress,
   .br-carousel .carousel-step .br-step[data-type="text"] .step-progress {
     padding-top: 0 !important;
+  }
+}
+@media (min-width: 360px) {
+  .br-carousel {
+    --carousel-min-height: 260px;
+  }
+}
+@media (min-width: 400px) {
+  .br-carousel {
+    --carousel-min-height: 280px;
+  }
+}
+@media (min-width: 768px) {
+  .br-carousel {
+    --carousel-min-height: 480px;
+  }
+}
+@media (min-width: 1280px) {
+  .br-carousel.show-mobile {
+    display: none;
+  }
+  .br-carousel.show-desktop {
+    display: flex;
+  }
+  .br-carousel {
+    --carousel-min-height: 480px;
   }
 }
 .br-carousel.dark-mode,
