@@ -25112,13 +25112,13 @@ hr {
   }
 }
 @media (min-width: 1280px) {
-  .process-nav {
-    box-shadow: 0px 1px 6px #00000029;
-    position: fixed;
-    left: 0;
-    width: 100vw;
-    z-index: 1;
-  }
+  // .process-nav {
+  //   box-shadow: 0px 1px 6px #00000029;
+  //   position: fixed;
+  //   left: 0;
+  //   width: 100vw;
+  //   z-index: 1;
+  // }
   .br-header .header-menu {
     --header-title-size: var(--font-size-scale-up-03);
     --header-subtitle-size: var(--font-size-scale-base);
@@ -30975,13 +30975,13 @@ button.br-item:not(:disabled):active {
   z-index: 999;
 }
 
-.process-nav {
-  box-shadow: 0px 1px 6px #00000029;
-  position: fixed;
-  left: 0;
-  width: 100vw;
-  z-index: 1
-}
+// .process-nav {
+//   box-shadow: 0px 1px 6px #00000029;
+//   position: fixed;
+//   left: 0;
+//   width: 100vw;
+//   z-index: 1
+// }
 
 .current-user-dropdown {
   white-space: nowrap;
