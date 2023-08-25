@@ -24661,10 +24661,33 @@ hr {
   max-height: var(--footer-logo-height);
   max-width: var(--footer-logo-width);
 }
-.br-footer .footer-nav a {  
+.br-footer a {  
   color: var(--color);
-  display: inline-block;
+}
+.br-footer .footer-nav {
+  text-align: center;
+}
+.br-footer .footer-nav li {
+  display: block;
   padding: 10px 0;
+}
+.br-footer .footer-nav a {
+  display: block;
+}
+.br-footer .br-decidim-license {
+  text-align: center;
+  border-top: 1px solid #303947;
+  border-bottom: 1px solid #303947;
+  padding: 40px 0;
+  margin: 0 30px;
+}
+.br-footer .cc-badge {
+  display: block;
+  margin-bottom: 10px;
+}
+.br-footer .br-decidim-logo {
+  padding: 40px 0;
+  text-align: center;
 }
 .br-footer .br-list.horizontal {
   display: flex;
@@ -24679,7 +24702,29 @@ hr {
   padding: 0;
 }
 .mini-footer {
-  background-color: rgb(7, 29, 65) !important;
+  display: none;
+}
+@media (min-width: 991px) {
+  .br-footer .br-footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .br-footer .br-decidim-license {
+    text-align: left;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    order: 1;
+  }
+  .br-nav {
+    order: 2;
+  }
+  .br-footer .br-decidim-logo {
+    padding: 0;
+    text-align: right;
+    order: 3;
+  }
 }
 @media (max-width: 991px) {
   .br-footer .br-list.horizontal .br-col,
