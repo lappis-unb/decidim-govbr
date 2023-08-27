@@ -23622,6 +23622,11 @@ a.br-button {
     width: var(--carousel-full-size);
   }
 }
+@media (min-width: 1600px) {
+  .br-carousel {
+    --carousel-min-height: 595px;
+  }
+}
 .br-carousel.dark-mode,
 .br-carousel.dark-mode .br-step,
 .br-carousel.inverted,
