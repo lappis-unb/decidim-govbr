@@ -25082,7 +25082,6 @@ hr {
   align-items: center;
   display: flex;
   flex: 1;
-  justify-content: space-between;
 }
 .br-header .header-menu .header-menu-trigger + .header-info {
   margin-left: var(--spacing-scale-2x);
@@ -31014,4 +31013,8 @@ button.br-item:not(:disabled):active {
 
 .carousel-content img {
   height: 100%;
+}
+
+.menu-title a {
+  color: var(---gray-80);
 }
