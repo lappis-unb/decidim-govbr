@@ -1,8 +1,3 @@
-# Push initial user proposals statistic setting to the database
-Decidim::Govbr::UserProposalsStatisticSetting.upsert(
-  # TODO: insert data to initial row
-)
-
 # Add link to export user statistics in Decidim Admin Menu
 Decidim.menu :admin_user_menu do |menu|
   menu.add_item :export_users_statistic,
