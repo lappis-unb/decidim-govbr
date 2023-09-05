@@ -4,14 +4,14 @@ class CreateDecidimGovbrUserProposalsStatistics < ActiveRecord::Migration[6.1]
     create_table :decidim_govbr_user_proposals_statistics do |t|
       t.bigint :decidim_user_id, null: false
       t.string :decidim_user_name
-      t.integer :proposals_done
-      t.integer :comments_done
-      t.integer :votes_dones
-      t.integer :follows_done
-      t.integer :votes_received
-      t.integer :comments_received
-      t.integer :follows_received
-      t.float :score
+      t.integer :proposals_done, default: 0
+      t.integer :comments_done, default: 0
+      t.integer :votes_dones, default: 0
+      t.integer :follows_done, default: 0
+      t.integer :votes_received, default: 0
+      t.integer :comments_received, default: 0
+      t.integer :follows_received, default: 0
+      t.float :score, default: 0.0
       t.timestamps
     end
 
