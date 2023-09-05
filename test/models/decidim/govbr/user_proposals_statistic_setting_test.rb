@@ -155,7 +155,8 @@ module Decidim
       test 'should only consider proposals data from the registered participatory space' do
         setting = Decidim::Govbr::UserProposalsStatisticSetting.create(
           decidim_participatory_space_type: @participatory_process1.class.to_s,
-          decidim_participatory_space_id: @participatory_process1.id
+          decidim_participatory_space_id: @participatory_process1.id,
+          name: 'relatorio'
         )
         assert_equal 4, Decidim::Proposals::Proposal.count
         assert_equal 8, Decidim::Comments::Comment.count
