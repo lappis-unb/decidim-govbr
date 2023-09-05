@@ -1,6 +1,7 @@
 class CreateDecidimGovbrUserProposalsStatisticSettings < ActiveRecord::Migration[6.1]
   def change
     create_table :decidim_govbr_user_proposals_statistic_settings do |t|
+      t.string :name, null: false, default: ''
       t.string :decidim_participatory_space_type, null: false
       t.integer :decidim_participatory_space_id, null: false
       t.float :proposals_done_weight, default: 1.0
