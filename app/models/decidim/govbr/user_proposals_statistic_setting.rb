@@ -31,13 +31,14 @@ module Decidim
         }
 
         statistic_data.each do |user_id, data|
-          data['proposals_done'] = data['proposals_done'].to_f * proposals_done_weight
-          data['votes_done'] = data['votes_done'].to_f * votes_done_weight
+          data['proposals_done']    = data['proposals_done'].to_f * proposals_done_weight
+          data['votes_done']        = data['votes_done'].to_f * votes_done_weight
           data['comments_received'] = data['comments_received'].to_f * comments_received_weight
-          data['follows_received'] = data['follows_received'].to_f * follows_received_weight
-          data['comments_done'] = data['comments_done'].to_f * comments_done_weight
-          data['votes_done'] = data['votes_done'].to_f * votes_done_weight
-          data['follows_done'] = data['follows_done'].to_f * follows_done_weight
+          data['follows_received']  = data['follows_received'].to_f * follows_received_weight
+          data['comments_done']     = data['comments_done'].to_f * comments_done_weight
+          data['votes_done']        = data['votes_done'].to_f * votes_done_weight
+          data['follows_done']      = data['follows_done'].to_f * follows_done_weight
+
           data['user_proposals_statistic_setting_id'] = id
         end
 
