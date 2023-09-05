@@ -5,11 +5,12 @@ class CreateDecidimGovbrUserProposalsStatisticSettings < ActiveRecord::Migration
       t.integer :decidim_participatory_space_id, null: false
       t.float :proposals_done_weight, default: 1.0
       t.float :comments_done_weight, default: 1.0
-      t.float :votes_dones_weight, default: 1.0
+      t.float :votes_done_weight, default: 1.0
       t.float :follows_done_weight, default: 1.0
       t.float :votes_received_weight, default: 1.0
       t.float :comments_received_weight, default: 1.0
       t.float :follows_received_weight, default: 1.0
+      t.integer :users_to_be_exported, default: 200, null: false
       t.timestamps
     end
 

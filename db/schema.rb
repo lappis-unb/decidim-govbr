@@ -898,11 +898,12 @@ ActiveRecord::Schema.define(version: 2023_08_20_015020) do
     t.integer "decidim_participatory_space_id", null: false
     t.float "proposals_done_weight", default: 1.0
     t.float "comments_done_weight", default: 1.0
-    t.float "votes_dones_weight", default: 1.0
+    t.float "votes_done_weight", default: 1.0
     t.float "follows_done_weight", default: 1.0
     t.float "votes_received_weight", default: 1.0
     t.float "comments_received_weight", default: 1.0
     t.float "follows_received_weight", default: 1.0
+    t.integer "users_to_be_exported", default: 200, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["decidim_participatory_space_type", "decidim_participatory_space_id"], name: "user_proposals_statistic_settings_participatory_space_idx"
@@ -910,10 +911,11 @@ ActiveRecord::Schema.define(version: 2023_08_20_015020) do
 
   create_table "decidim_govbr_user_proposals_statistics", force: :cascade do |t|
     t.bigint "decidim_user_id", null: false
+    t.string "decidim_user_identification_number", default: "", null: false
     t.string "decidim_user_name"
     t.integer "proposals_done", default: 0
     t.integer "comments_done", default: 0
-    t.integer "votes_dones", default: 0
+    t.integer "votes_done", default: 0
     t.integer "follows_done", default: 0
     t.integer "votes_received", default: 0
     t.integer "comments_received", default: 0
