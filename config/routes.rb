@@ -14,5 +14,9 @@ Rails.application.routes.draw do
 
   mount Decidim::Core::Engine => '/'
 
-  get 'admin/user_proposal_statistic', to: 'decidim/govbr/user_proposals_statistic_settings#export_user_data'
+  root 'user_proposals_statistic_settings#index'
+
+  get 'admin/user_proposal_statistic_report', to: 'decidim/govbr/user_proposals_statistic_settings#export_user_data'
+  get 'admin/user_proposal_statistics', to: 'decidim/govbr/user_proposals_statistic_settings#index'
+  get 'admin/user_proposal_statistic/new', to: 'decidim/govbr/user_proposals_statistic_settings#new'
 end
