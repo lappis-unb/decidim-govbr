@@ -3,10 +3,11 @@ class CreateDecidimGovbrUserProposalsStatistics < ActiveRecord::Migration[6.1]
     # TODO: adicionar default de 0 nos fields
     create_table :decidim_govbr_user_proposals_statistics do |t|
       t.bigint :decidim_user_id, null: false
+      t.string :decidim_user_identification_number, null: false, default: ''
       t.string :decidim_user_name
       t.integer :proposals_done, default: 0
       t.integer :comments_done, default: 0
-      t.integer :votes_dones, default: 0
+      t.integer :votes_done, default: 0
       t.integer :follows_done, default: 0
       t.integer :votes_received, default: 0
       t.integer :comments_received, default: 0

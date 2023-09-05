@@ -9,7 +9,7 @@ module Decidim
       has_many :user_proposals_statistics, class_name: 'Decidim::Govbr::UserProposalsStatistic'
 
       # Rebuild entire table from scratch with updated decidim database content for the specified participatory_space
-      def refresh_data
+      def refresh_data!
         user_proposals_statistics.delete_all
 
         statistic_data = {}
@@ -30,16 +30,20 @@ module Decidim
           statistic_data[data['decidim_user_id']] = (statistic_data[data['decidim_user_id']] || {}).merge(data)
         }
 
-        statistic_data.each do |user_id, data|
-          data['proposals_done']    = data['proposals_done'].to_f * proposals_done_weight
-          data['votes_done']        = data['votes_done'].to_f * votes_done_weight
-          data['comments_received'] = data['comments_received'].to_f * comments_received_weight
-          data['follows_received']  = data['follows_received'].to_f * follows_received_weight
-          data['comments_done']     = data['comments_done'].to_f * comments_done_weight
-          data['votes_done']        = data['votes_done'].to_f * votes_done_weight
-          data['follows_done']      = data['follows_done'].to_f * follows_done_weight
+        user_identification_numbers = get_user_identification_numbers(statistic_data.keys)
 
+        statistic_data.each do |user_id, data|
           data['user_proposals_statistic_setting_id'] = id
+          data['score'] = (data['proposals_done'].to_f * proposals_done_weight
+                        + data['votes_done'].to_f * votes_done_weight
+                        + data['comments_received'].to_f * comments_received_weight
+                        + data['follows_received'].to_f * follows_received_weight
+                        + data['comments_done'].to_f * comments_done_weight
+                        + data['votes_done'].to_f * votes_done_weight
+                        + data['follows_done'].to_f * follows_done_weight)
+          data['created_at'] = Time.current
+          data['updated_at'] = Time.current
+          data['decidim_user_identification_number'] = user_identification_numbers[user_id]
         end
 
         Decidim::Govbr::UserProposalsStatistic.insert_all(statistic_data.values)
@@ -117,6 +121,10 @@ module Decidim
           GROUP BY du.id
           SQL
         )
+      end
+
+      def get_user_identification_numbers(user_ids)
+        Decidim::Identity.where(decidim_user_id: user_ids).map { |identity| [identity.decidim_user_id, identity.uid] }.to_h
       end
     end
   end
