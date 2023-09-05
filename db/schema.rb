@@ -894,6 +894,7 @@ ActiveRecord::Schema.define(version: 2023_08_20_015020) do
   end
 
   create_table "decidim_govbr_user_proposals_statistic_settings", force: :cascade do |t|
+    t.string "name", default: "", null: false
     t.string "decidim_participatory_space_type", null: false
     t.integer "decidim_participatory_space_id", null: false
     t.float "proposals_done_weight", default: 1.0
