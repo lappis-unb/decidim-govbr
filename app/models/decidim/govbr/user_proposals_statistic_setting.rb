@@ -9,11 +9,10 @@ module Decidim
       has_many :user_proposals_statistics, class_name: 'Decidim::Govbr::UserProposalsStatistic'
 
       def user_proposals_statistics_as_csv
-        attributes = Decidim::Govbr::UserProposalsStatistic.csv_attributes_header_map.to_h
+        attributes = Decidim::Govbr::UserProposalsStatistic.csv_attributes_header_map
 
         CSV.generate(headers: true) do |csv|
           csv << attributes.values
-
           user_proposals_statistics.each do |data|
             csv << attributes.keys.map{ |attr| data.send(attr) }
           end
@@ -24,8 +23,6 @@ module Decidim
       def refresh_data!
         user_proposals_statistics.delete_all
 
-        statistic_data = {}
-
         compilied_data = [
           get_user_proposals_data,
           get_user_comments_data,
@@ -33,6 +30,7 @@ module Decidim
           get_user_follows_data
         ]
 
+        statistic_data = {}
         compilied_data.each do |data|
           data.to_a.each { |user_data|
             statistic_data[user_data['decidim_user_id']] = (statistic_data[user_data['decidim_user_id']] || {}).merge(user_data)
@@ -42,26 +40,28 @@ module Decidim
         user_identification_numbers = get_user_identification_numbers(statistic_data.keys)
 
         statistic_data.each do |user_id, data|
-          data['user_proposals_statistic_setting_id'] = id
-
-          proposals_done        = data['proposals_done'].to_f * self.proposals_done_weight
-          comments_done_weight  = data['comments_done'].to_f * self.comments_done_weight
-          votes_done            = data['votes_done'].to_f * self.votes_done_weight
-          follows_done          = data['follows_done'].to_f * self.follows_done_weight
-          votes_received        = data['votes_received'].to_f * self.votes_received_weight
-          comments_received     = data['comments_received'].to_f * self.comments_received_weight
-          follows_received      = data['follows_received'].to_f * self.follows_received_weight
-
+          proposals_done        = data['proposals_done'].to_f     * self.proposals_done_weight
+          comments_done_weight  = data['comments_done'].to_f      * self.comments_done_weight
+          votes_done            = data['votes_done'].to_f         * self.votes_done_weight
+          follows_done          = data['follows_done'].to_f       * self.follows_done_weight
+          votes_received        = data['votes_received'].to_f     * self.votes_received_weight
+          comments_received     = data['comments_received'].to_f  * self.comments_received_weight
+          follows_received      = data['follows_received'].to_f   * self.follows_received_weight
 
           data['score'] = (proposals_done + votes_done + comments_received + follows_received + comments_done_weight + follows_done + votes_received)
           data['created_at'] = Time.current
           data['updated_at'] = Time.current
+          data['user_proposals_statistic_setting_id'] = id
           data['decidim_user_identification_number'] = user_identification_numbers[user_id].presence || 'CPF vazio'
         end
 
         Decidim::Govbr::UserProposalsStatistic.insert_all(statistic_data.values)
 
         self.touch
+      end
+
+      def get_user_identification_numbers(user_ids)
+        Decidim::Identity.where(decidim_user_id: user_ids).map { |identity| [identity.decidim_user_id, identity.uid] }.to_h
       end
 
       def get_user_proposals_data
@@ -136,10 +136,6 @@ module Decidim
           GROUP BY du.id
           SQL
         )
-      end
-
-      def get_user_identification_numbers(user_ids)
-        Decidim::Identity.where(decidim_user_id: user_ids).map { |identity| [identity.decidim_user_id, identity.uid] }.to_h
       end
     end
   end
