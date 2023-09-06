@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
   mount Decidim::Core::Engine => '/'
+
+  get '/admin/govbr/export_users_basic_information', to: 'decidim/govbr/export_user_data#export_users_basic_information', as: 'export_users_basic_information'
 end
