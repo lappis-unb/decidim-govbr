@@ -2,6 +2,8 @@ module Decidim
   module Govbr
     class ExportUserDataController < Decidim::Admin::ApplicationController
       def export_users_basic_information
+        enforce_permission_to :read, :admin_user
+
         begin
           csv_content = CSV.generate do |csv|
             csv << %w(Nome CPF E-mail)
