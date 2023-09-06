@@ -63,7 +63,7 @@ module Decidim
 
         @cpf2 = Decidim::Identity.new(
           provider: 'govbr',
-          uid: 'cpf2',
+          uid: '',
           decidim_user_id: @user2.id
         )
         @cpf2.save!(validate: false)
@@ -186,10 +186,62 @@ module Decidim
         assert_equal 2, statistic.votes_received
         assert_equal 2, statistic.comments_received
         assert_equal 1, statistic.follows_received
-        assert_equal @cpf2.uid, statistic.decidim_user_identification_number
+        assert_equal 'CPF vazio', statistic.decidim_user_identification_number
 
         expected_score = statistic.proposals_done + statistic.comments_done + statistic.votes_done + statistic.follows_done + statistic.votes_received + statistic.comments_received + statistic.follows_received
         assert_equal expected_score.to_f, statistic.score
+      end
+
+      test 'should keep data from other participatory space untouched after refreshing' do
+        setting = Decidim::Govbr::UserProposalsStatisticSetting.create!(decidim_participatory_space_type: 'foo', decidim_participatory_space_id: 1)
+        statistics = 5.times.map do |index|
+          Decidim::Govbr::UserProposalsStatistic.create!(user_proposals_statistic_setting: setting, decidim_user_id: index, decidim_user_name: "User #{index}", decidim_user_identification_number: "CPF #{index}")
+        end
+
+        setting = Decidim::Govbr::UserProposalsStatisticSetting.create!(
+          decidim_participatory_space_type: @participatory_process1.class.to_s,
+          decidim_participatory_space_id: @participatory_process1.id,
+          name: 'relatorio'
+        )
+
+        assert_empty setting.user_proposals_statistics
+
+        setting.refresh_data!
+
+        statistics.each do |statistic|
+          assert statistic.persisted?
+        end
+
+        refute_empty setting.reload.user_proposals_statistics
+      end
+
+      test 'should build csv content correctly' do
+        setting = Decidim::Govbr::UserProposalsStatisticSetting.create(
+          decidim_participatory_space_type: @participatory_process1.class.to_s,
+          decidim_participatory_space_id: @participatory_process1.id,
+          name: 'relatorio'
+        )
+        Decidim::Govbr::UserProposalsStatistic.create!(
+          user_proposals_statistic_setting: setting,
+          decidim_user_id: 1,
+          decidim_user_name: "User 1",
+          decidim_user_identification_number: "CPF",
+          proposals_done: 10,
+          comments_done: 17,
+          votes_done: 5,
+          follows_done: 21,
+          votes_received: 58,
+          comments_received: 12,
+          follows_received: 34,
+          score: 105.0
+        )
+
+        expected_header = Decidim::Govbr::UserProposalsStatistic.csv_attributes_header_map.values.join(',')
+        expected_content = [1, 'User 1', 'CPF', 10, 17, 5, 21, 58, 12, 34, 105.0].join(',')
+
+        header, content = setting.user_proposals_statistics_as_csv.split("\n")
+        assert_equal expected_header, header
+        assert_equal expected_content, content
       end
     end
   end
