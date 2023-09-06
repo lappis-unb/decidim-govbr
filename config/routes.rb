@@ -14,9 +14,11 @@ Rails.application.routes.draw do
 
   mount Decidim::Core::Engine => '/'
 
-  root 'user_proposals_statistic_settings#index'
+  get 'admin/user_proposal_statistic_report/:slug', to: 'decidim/govbr/user_proposals_statistic_settings#export_user_data', as: 'user_proposal_statistic_report'
 
-  get 'admin/user_proposal_statistic_report', to: 'decidim/govbr/user_proposals_statistic_settings#export_user_data'
-  get 'admin/user_proposal_statistics', to: 'decidim/govbr/user_proposals_statistic_settings#index'
-  get 'admin/user_proposal_statistic/new', to: 'decidim/govbr/user_proposals_statistic_settings#new'
+  # These two routes are not present anywhere in the product
+  # Instead, it's meant to be used by an advanced admin directly on URL
+  # This is going to be removed once admin front-end is finished
+  get 'admin/user_proposal_statistic_report_force_refresh/:slug', to: 'decidim/govbr/user_proposals_statistic_settings#force_refresh', as: 'user_proposal_statistic_report_force_refresh'
+  get 'admin/user_proposal_statistic_report_create/:slug', to: 'decidim/govbr/user_proposals_statistic_settings#create', as: 'user_proposal_statistic_report_create'
 end
