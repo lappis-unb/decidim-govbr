@@ -8,45 +8,60 @@ module Decidim
 
       has_many :user_proposals_statistics, class_name: 'Decidim::Govbr::UserProposalsStatistic'
 
+      def user_proposals_statistics_as_csv
+        attributes = Decidim::Govbr::UserProposalsStatistic.csv_attributes_header_map.to_h
+
+        CSV.generate(headers: true) do |csv|
+          csv << attributes.values
+
+          user_proposals_statistics.each do |data|
+            csv << attributes.keys.map{ |attr| data.send(attr) }
+          end
+        end
+      end
+
       # Rebuild entire table from scratch with updated decidim database content for the specified participatory_space
       def refresh_data!
         user_proposals_statistics.delete_all
 
         statistic_data = {}
 
-        get_user_proposals_data.to_a.each { |data|
-          statistic_data[data['decidim_user_id']] = data
-        }
+        compilied_data = [
+          get_user_proposals_data,
+          get_user_comments_data,
+          get_user_votes_data,
+          get_user_follows_data
+        ]
 
-        get_user_comments_data.to_a.each { |data|
-          statistic_data[data['decidim_user_id']] = (statistic_data[data['decidim_user_id']] || {}).merge(data)
-        }
-
-        get_user_votes_data.to_a.each { |data|
-          statistic_data[data['decidim_user_id']] = (statistic_data[data['decidim_user_id']] || {}).merge(data)
-        }
-
-        get_user_follows_data.to_a.each { |data|
-          statistic_data[data['decidim_user_id']] = (statistic_data[data['decidim_user_id']] || {}).merge(data)
-        }
+        compilied_data.each do |data|
+          data.to_a.each { |user_data|
+            statistic_data[user_data['decidim_user_id']] = (statistic_data[user_data['decidim_user_id']] || {}).merge(user_data)
+          }
+        end
 
         user_identification_numbers = get_user_identification_numbers(statistic_data.keys)
 
         statistic_data.each do |user_id, data|
           data['user_proposals_statistic_setting_id'] = id
-          data['score'] = (data['proposals_done'].to_f * proposals_done_weight
-                        + data['votes_done'].to_f * votes_done_weight
-                        + data['comments_received'].to_f * comments_received_weight
-                        + data['follows_received'].to_f * follows_received_weight
-                        + data['comments_done'].to_f * comments_done_weight
-                        + data['votes_done'].to_f * votes_done_weight
-                        + data['follows_done'].to_f * follows_done_weight)
+
+          proposals_done        = data['proposals_done'].to_f * self.proposals_done_weight
+          comments_done_weight  = data['comments_done'].to_f * self.comments_done_weight
+          votes_done            = data['votes_done'].to_f * self.votes_done_weight
+          follows_done          = data['follows_done'].to_f * self.follows_done_weight
+          votes_received        = data['votes_received'].to_f * self.votes_received_weight
+          comments_received     = data['comments_received'].to_f * self.comments_received_weight
+          follows_received      = data['follows_received'].to_f * self.follows_received_weight
+
+
+          data['score'] = (proposals_done + votes_done + comments_received + follows_received + comments_done_weight + follows_done + votes_received)
           data['created_at'] = Time.current
           data['updated_at'] = Time.current
-          data['decidim_user_identification_number'] = user_identification_numbers[user_id]
+          data['decidim_user_identification_number'] = user_identification_numbers[user_id].presence || 'CPF vazio'
         end
 
         Decidim::Govbr::UserProposalsStatistic.insert_all(statistic_data.values)
+
+        self.touch
       end
 
       def get_user_proposals_data
