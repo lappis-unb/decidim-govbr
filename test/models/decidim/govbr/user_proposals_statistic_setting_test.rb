@@ -175,14 +175,8 @@ module Decidim
         assert_equal 2, statistic.follows_received
         assert_equal @cpf1.uid, statistic.decidim_user_identification_number
 
-        expected_score = (statistic.proposals_done
-                       + statistic.comments_done
-                       + statistic.votes_done
-                       + statistic.follows_done
-                       + statistic.votes_received
-                       + statistic.comments_received
-                       + statistic.follows_received)
-        assert_equal expected_score, statistic.score
+        expected_score = statistic.proposals_done + statistic.comments_done + statistic.votes_done + statistic.follows_done + statistic.votes_received + statistic.comments_received + statistic.follows_received
+        assert_equal expected_score.to_f, statistic.score
 
         statistic = setting.user_proposals_statistics.where(decidim_user_id: @user2.id).first
         assert_equal 1, statistic.proposals_done
@@ -194,15 +188,8 @@ module Decidim
         assert_equal 1, statistic.follows_received
         assert_equal @cpf2.uid, statistic.decidim_user_identification_number
 
-        expected_score = (statistic.proposals_done
-                      + statistic.comments_done
-                      + statistic.votes_done
-                      + statistic.follows_done
-                      + statistic.votes_received
-                      + statistic.comments_received
-                      + statistic.follows_received)
-
-        assert_equal expected_score, statistic.score
+        expected_score = statistic.proposals_done + statistic.comments_done + statistic.votes_done + statistic.follows_done + statistic.votes_received + statistic.comments_received + statistic.follows_received
+        assert_equal expected_score.to_f, statistic.score
       end
     end
   end
