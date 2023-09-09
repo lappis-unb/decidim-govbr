@@ -173,7 +173,6 @@ module Decidim
         assert_equal 4, statistic.votes_received
         assert_equal 4, statistic.comments_received
         assert_equal 2, statistic.follows_received
-        assert_equal @cpf1.uid, statistic.decidim_user_identification_number
 
         expected_score = statistic.proposals_done + statistic.comments_done + statistic.votes_done + statistic.follows_done + statistic.votes_received + statistic.comments_received + statistic.follows_received
         assert_equal expected_score.to_f, statistic.score
@@ -186,7 +185,6 @@ module Decidim
         assert_equal 2, statistic.votes_received
         assert_equal 2, statistic.comments_received
         assert_equal 1, statistic.follows_received
-        assert_equal 'CPF vazio', statistic.decidim_user_identification_number
 
         expected_score = statistic.proposals_done + statistic.comments_done + statistic.votes_done + statistic.follows_done + statistic.votes_received + statistic.comments_received + statistic.follows_received
         assert_equal expected_score.to_f, statistic.score
@@ -237,7 +235,7 @@ module Decidim
         )
 
         expected_header = Decidim::Govbr::UserProposalsStatistic.csv_attributes_header_map.values.join(',')
-        expected_content = [1, 'User 1', 'CPF', 10, 17, 5, 21, 58, 12, 34, 105.0].join(',')
+        expected_content = [1, 'User 1', 10, 17, 5, 21, 58, 12, 34, 105.0].join(',')
 
         header, content = setting.user_proposals_statistics_as_csv.split("\n")
         assert_equal expected_header, header
