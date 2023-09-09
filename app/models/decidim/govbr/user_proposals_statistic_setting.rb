@@ -37,8 +37,6 @@ module Decidim
           }
         end
 
-        user_identification_numbers = get_user_identification_numbers(statistic_data.keys)
-
         statistic_data.each do |user_id, data|
           proposals_done        = data['proposals_done'].to_f     * self.proposals_done_weight
           comments_done_weight  = data['comments_done'].to_f      * self.comments_done_weight
@@ -52,16 +50,11 @@ module Decidim
           data['created_at'] = Time.current
           data['updated_at'] = Time.current
           data['user_proposals_statistic_setting_id'] = id
-          data['decidim_user_identification_number'] = user_identification_numbers[user_id].presence || 'CPF vazio'
         end
 
         Decidim::Govbr::UserProposalsStatistic.insert_all(statistic_data.values)
 
         self.touch
-      end
-
-      def get_user_identification_numbers(user_ids)
-        Decidim::Identity.where(decidim_user_id: user_ids).map { |identity| [identity.decidim_user_id, identity.uid] }.to_h
       end
 
       def get_user_proposals_data
