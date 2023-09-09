@@ -15,7 +15,6 @@ module Decidim
         {
           'decidim_user_id' => 'ID do Usuário',
           'decidim_user_name' => 'Nome',
-          'decidim_user_identification_number' => 'CPF',
           'proposals_done' => 'Propostas criadas',
           'comments_done' => 'Comentários feitos em propostas',
           'votes_done' => 'Votos dados em propostas',
