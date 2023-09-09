@@ -1,5 +1,5 @@
 class CreateDecidimGovbrUserProposalsStatisticSettings < ActiveRecord::Migration[6.1]
-  def change
+  def up
     create_table :decidim_govbr_user_proposals_statistic_settings do |t|
       t.string :name, null: false, default: ''
       t.string :decidim_participatory_space_type, null: false
@@ -14,7 +14,17 @@ class CreateDecidimGovbrUserProposalsStatisticSettings < ActiveRecord::Migration
       t.integer :users_to_be_exported, default: 200, null: false
       t.timestamps
     end
-
     add_index :decidim_govbr_user_proposals_statistic_settings, [:decidim_participatory_space_type, :decidim_participatory_space_id], name: :user_proposals_statistic_settings_participatory_space_idx
+
+    Decidim::Govbr::UserProposalsStatisticSetting.create(
+      decidim_participatory_space_id: Decidim::Conference.find_by(slug: 'juventude').id,
+      decidim_participatory_space_type: 'Decidim::Conference',
+      name: 'Relatorio Atividade em Propostas - IV Conferência Nacional Da Juventude'
+    ) rescue false
+  end
+
+  def down
+    remove_index :decidim_govbr_user_proposals_statistic_settings, [:decidim_participatory_space_type, :decidim_participatory_space_id], name: :user_proposals_statistic_settings_participatory_space_idx
+    drop_table :decidim_govbr_user_proposals_statistic_settings
   end
 end
