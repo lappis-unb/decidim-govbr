@@ -11,7 +11,7 @@ module Decidim
         enforce_permission_to :read, :admin_user
 
         begin
-          participatory_space = Decidim::ParticipatoryProcess.find_by(slug: params[:slug])
+          participatory_space = find_participatory_space(params[:slug])
           statistic_setting = Decidim::Govbr::UserProposalsStatisticSetting.where(
             decidim_participatory_space_type: participatory_space.class.to_s,
             decidim_participatory_space_id: participatory_space.id
@@ -33,7 +33,7 @@ module Decidim
         enforce_permission_to :read, :admin_user
 
         begin
-          participatory_space = Decidim::ParticipatoryProcess.find_by(slug: params[:slug])
+          participatory_space = find_participatory_space(params[:slug])
           statistic_setting = Decidim::Govbr::UserProposalsStatisticSetting.where(
             decidim_participatory_space_type: participatory_space.class.to_s,
             decidim_participatory_space_id: participatory_space.id
@@ -51,7 +51,7 @@ module Decidim
             }
           else
             render json: {
-              'ERROR' => "Statistic for participatory process #{params[:slug]} already exists."
+              'ERROR' => "Statistic for the participatory space #{params[:slug]} already exists."
             }
           end
 
@@ -67,7 +67,8 @@ module Decidim
         enforce_permission_to :read, :admin_user
 
         begin
-          participatory_space = Decidim::ParticipatoryProcess.find_by(slug: params[:slug])
+          participatory_space = find_participatory_space(params[:slug])
+
           statistic_setting = Decidim::Govbr::UserProposalsStatisticSetting.where(
             decidim_participatory_space_type: participatory_space.class.to_s,
             decidim_participatory_space_id: participatory_space.id
@@ -82,7 +83,7 @@ module Decidim
               render json: {
                 'INFO' =>
                   <<-T.squish
-                  There is no compiled data for participatory process '#{params[:slug]}' yet.
+                  There is no compiled data the participatory space '#{params[:slug]}' yet.
                   Last time updated was: #{statistic_setting.updated_at}
                   T
                 }
@@ -95,7 +96,7 @@ module Decidim
             render json: {
               'ERROR' =>
                 <<-T.squish
-                There is no available reports for participatory process '#{params[:slug]}'.
+                There is no available reports for the participatory space '#{params[:slug]}'.
                 Available reports are: #{available_reports.try(:join, ', ')}
                 T
               }
@@ -106,6 +107,14 @@ module Decidim
             'stacktrace' => e.backtrace
           }
         end
+      end
+
+      private
+
+      def find_participatory_space(slug)
+        Decidim::ParticipatoryProcess.find_by(slug: slug) ||
+        Decidim::Assembly.find_by(slug: slug) ||
+        Decidim::Conference.find_by(slug: slug)
       end
     end
   end
