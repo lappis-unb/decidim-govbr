@@ -17,8 +17,8 @@ class CreateDecidimGovbrUserProposalsStatisticSettings < ActiveRecord::Migration
     add_index :decidim_govbr_user_proposals_statistic_settings, [:decidim_participatory_space_type, :decidim_participatory_space_id], name: :user_proposals_statistic_settings_participatory_space_idx
 
     Decidim::Govbr::UserProposalsStatisticSetting.create(
-      decidim_participatory_space_id: Decidim::Conference.find_by(slug: 'juventude').id,
-      decidim_participatory_space_type: 'Decidim::Conference',
+      decidim_participatory_space_id: Decidim::Assembly.find_by(slug: 'confjuv4').id,
+      decidim_participatory_space_type: 'Decidim::Assembly',
       name: 'Relatorio Atividade em Propostas - IV Conferência Nacional Da Juventude'
     ) rescue false
   end

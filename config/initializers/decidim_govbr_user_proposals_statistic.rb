@@ -3,7 +3,7 @@ begin
   Decidim.menu :admin_menu do |menu|
     menu.add_item :users_proposals_statistics,
     'Relatório de estatísticas de usuários Conf. da Juventude',
-    '/admin/user_proposal_statistic_report/juventude',
+    '/admin/user_proposal_statistic_report/confjuv4',
     active: is_active_link?('user_proposal_statistics'),
     if: allowed_to?(:read, :admin_user),
     icon_name: 'envelope-closed',
