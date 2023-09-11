@@ -11,6 +11,8 @@ set -e
 
 #exec "$@"
 
+rm -f tmp/pids/server.pid
+
 bundle check || bundle install
 
 if bundle exec rails db:exists; then
@@ -23,4 +25,5 @@ fi
 
 mailcatcher --http-ip=0.0.0.0 &
 bundle exec sidekiq & 
+bash scripts/start_webpack_dev.sh & 
 bundle exec rails s -p 3000 -b 0.0.0.0
