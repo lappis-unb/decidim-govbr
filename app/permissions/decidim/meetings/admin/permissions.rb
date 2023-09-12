@@ -5,7 +5,6 @@ module Decidim
     module Admin
       class Permissions < Decidim::DefaultPermissions
         def permissions
-          binding.pry
           return permission_action unless user
           return permission_action unless permission_action.scope == :admin
 
