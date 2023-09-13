@@ -2,8 +2,8 @@
 
 :root {
   --primary: var(---blue-warm-vivid-70);
-  --banner-mobile: url("https://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaVVmIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f36fb771757af1fb904a07246355b3bc7cc5e458/Banner%20Mobile.jpg");
-  --banner-desktop: url("https://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaVlmIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--df3be025ed70a54b7324aed068229ca812244b72/Banner%20Desktop.png");
+  --banner-mobile: url("https://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdmdxIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--3ba97ce1e4e0cd6000149c10d9aa645a24751779/ppa_memorias_mob.jpg");
+  --banner-desktop: url("https://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdmNxIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a0b3ac30a4b6baa1294c0e1bfc3baf29bd62fcaa/ppa_memorias_desk.jpg");
 
   --hover: 0.16;
   --interactive-rgb: 19, 81, 180;
@@ -285,6 +285,14 @@ a:hover,
   padding: 0;
 }
 
+.sign-in-link {
+  background: var(---gray-02);
+  padding: 5px 24px;
+  border-radius: 100rem;
+  color: var(---blue-warm-vivid-70);
+  text-decoration: none;
+}
+
 .button {
   --button-radius: 100em;
   --button-xsmall: 24px;
@@ -332,15 +340,6 @@ form#session_new_user {
   margin-bottom: 2rem;
 }
 
-// .header {
-//   box-shadow: 0px 1px 6px #00000029;
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100vw;
-//   z-index: 999;
-// }
-
 .card--widget .card-data .card-data__item:first-child {
   flex-basis: 32%;
 }
@@ -359,9 +358,6 @@ form#session_new_user {
     flex-direction: row-reverse;
     justify-content: end;
   }
-  // .header {
-  //   box-shadow: none;
-  // }
 
   .logo-wrapper img {
     display: block;
@@ -419,6 +415,37 @@ form#session_new_user {
 }
 
 .main-nav__link--active a {
+  box-shadow: inset 0 -4px 0 0 #e8e8e8;
+  color: var(---white) !important;
+}
+
+.process-nav__link a,
+.process-nav__link a:hover,
+.process-nav__link a:visited,
+.process-nav__link a:link {
+  font-family: var(--unnamed-font-family-rawline);
+  font-style: var(--unnamed-font-style-normal);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--unnamed-font-size-16-799999237060547);
+  line-height: var(--unnamed-line-spacing-23-18400001525879);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(---white);
+  text-decoration: none;
+}
+
+.process-nav__link__color a,
+.process-nav__link__color a:hover,
+.process-nav__link__color a:visited,
+.process-nav__link__color a:link {
+  color: var(---gray-80);
+}
+
+.process-nav__link--active__color a {
+  box-shadow: inset 0 -4px 0 0 var(---blue-warm-vivid-80);
+  color: var(---blue-warm-vivid-80) !important;
+}
+
+.process-nav__link--active a {
   box-shadow: inset 0 -4px 0 0 #e8e8e8;
   color: var(---white) !important;
 }
@@ -569,6 +596,17 @@ form#session_new_user {
   background: rgba(51, 51, 51, var(--hover));
 }
 
+.process-nav ul {
+  display: block;
+  text-align: center;
+  white-space: wrap;
+}
+
+.process-nav ul>li:hover {
+  background: rgba(51, 51, 51, var(--hover));
+}
+
+
 .navbar {
   background: var(---white);
 }
@@ -687,7 +725,6 @@ h6,
 .external-link-container > .external-link-indicator {
   height: 0.75rem;
   width: 0.75rem;
-  /* margin: 0 0 -3px 0.625rem; */
   margin: 0 4px -1px 0.175rem;
 }
 
@@ -1635,10 +1672,6 @@ a.main-footer__badge {
   display: none;
 }
 
-#content .process-header {
-  display: none;
-}
-
 .voting-rules .callout.secondary {
   display: none;
 }
@@ -1680,13 +1713,13 @@ li a[data-order="with_more_authors"] {
   display: none;
 }
 
-div.columns.large-12 div.section.images h3.section-heading,
-div.columns.large-12
-  div.section.images
-  .gallery.row
-  .columns.small-6.medium-4.end {
-  display: none;
-}
+// div.columns.large-12 div.section.images h3.section-heading,
+// div.columns.large-12
+//   div.section.images
+//   .gallery.row
+//   .columns.small-6.medium-4.end {
+//   display: none;
+// }
 
 .tags a {
   display: inline-block;
@@ -1744,10 +1777,13 @@ div.columns.large-12
   color: var(---white);
   text-transform: none;
   border: 10px solid var(---gray-cool-02);
-  padding: 0rem 1rem;
-  box-shadow: 0px 3px 6px #00000029;
-  height: var(--button-small);
-  font-size: 12px;
+  padding: 0.75rem 1.5rem;
+  box-shadow: 0px 1px 6px 0px;
+  height: var(--button-medium);
+  font-size: 20.16px;
+  height: 64px;
+  width: 100%;
+  align-self: center;
 }
 
 .hero__link-vote:hover {
@@ -1984,10 +2020,6 @@ div.columns.large-12
 
   .process-card #first-card {
     width: 210px;
-  }
-
-  .process-nav {
-    display: none;
   }
 
   .new-features-content {
