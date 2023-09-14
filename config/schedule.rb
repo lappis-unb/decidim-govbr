@@ -37,3 +37,7 @@ end
 every :saturday, at: '01:00am' do
   rake 'decidim:mailers:notifications_digest_weekly'
 end
+
+every :day, at: '01:00am' do
+  rake 'decidim:govbr:update_user_proposals_statistics_data'
+end
