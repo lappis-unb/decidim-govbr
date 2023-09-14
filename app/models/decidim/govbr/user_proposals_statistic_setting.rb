@@ -38,7 +38,6 @@ module Decidim
         end
 
         statistic_data.each do |user_id, data|
-          data['decidim_user_name'] = data['decidim_user_name'].presence  || ''
           data['proposals_done'] =    data['proposals_done'].presence     || 0
           data['votes_received'] =    data['votes_received'].presence     || 0
           data['comments_received'] = data['comments_received'].presence  || 0
@@ -87,7 +86,7 @@ module Decidim
       def get_user_comments_data
         ActiveRecord::Base.connection.execute(
           <<~SQL.squish
-          SELECT du.id as decidim_user_id, COUNT(dcc.id) as comments_done
+          SELECT du.id as decidim_user_id, du.name as decidim_user_name, COUNT(dcc.id) as comments_done
             FROM decidim_components as dc
             INNER JOIN decidim_proposals_proposals as dpp
               ON dc.id = dpp.decidim_component_id
@@ -106,7 +105,7 @@ module Decidim
       def get_user_votes_data
         ActiveRecord::Base.connection.execute(
           <<~SQL.squish
-          SELECT du.id as decidim_user_id, COUNT(dppv.id) as votes_done
+          SELECT du.id as decidim_user_id, du.name as decidim_user_name, COUNT(dppv.id) as votes_done
             FROM decidim_components as dc
             INNER JOIN decidim_proposals_proposals as dpp
               ON dc.id = dpp.decidim_component_id
@@ -124,7 +123,7 @@ module Decidim
       def get_user_follows_data
         ActiveRecord::Base.connection.execute(
           <<~SQL.squish
-          SELECT du.id as decidim_user_id, COUNT(df.id) as follows_done
+          SELECT du.id as decidim_user_id, du.name as decidim_user_name, COUNT(df.id) as follows_done
             FROM decidim_components as dc
             INNER JOIN decidim_proposals_proposals as dpp
               ON dc.id = dpp.decidim_component_id
