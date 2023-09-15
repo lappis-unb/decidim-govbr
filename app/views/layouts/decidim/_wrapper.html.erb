@@ -151,8 +151,8 @@ end
       </div>
     </div>
   </header>
+  <%= display_flash_messages %>
   <main id="content">
-    <%= display_flash_messages %>
     <div class="br-container-lg d-flex">
       <div class="br-row">
         <div class="br-menu" id="main-navigation">
@@ -170,111 +170,111 @@ end
                 </div>
               </div>
               <nav class="menu-body">
-                <a class="menu-item divider" href="/">
-                  <span class="content">Início</span>
-                </a>
-                <div class="menu-folder" id="ppa">
-                  <a class="menu-item" href="javascript: void(0)">
-                    <span class="content">PPA Participativo</span>
+                <% menu_items = [
+                  {
+                    label: "Início",
+                    href: "/",
+                    id: "inicio",
+                    sub_items: [],
+                    is_visible: true
+                  },
+                  {
+                    label: "PPA Participativo",
+                    href: "javascript: void(0)",
+                    id: "ppa",
+                    sub_items: [
+                      { label: "Memória", href: "/processes/programas/", id: "ppa-inicio", is_visible: true },
+                      { label: "Relatórios", href: "/pages/relatoriodaplataforma", id: "ppa-relatorios", is_visible: true },
+                      { label: "Programas priorizados", href: "/processes/programas/f/1/", id: "ppa-programas", is_visible: true },
+                      { label: "Propostas priorizadas", href: "/processes/programas/f/2/", id: "ppa-propostas", is_visible: true },
+                      { label: "Entenda o processo", href: "/pages", id: "ppa-sobre", is_visible: true }
+                    ],
+                    is_visible: true
+                  },
+                  {
+                    label: "Conferências",
+                    href: "javascript: void(0)",
+                    id: "conferencias",
+                    sub_items: [
+                      {
+                        label: "Juventude",
+                        href: "javascript: void(0)",
+                        id: "juventude",
+                        sub_items: [
+                          { label: "Início", href: "/assemblies/confjuv4", id: "juventude-inicio", is_visible: true },
+                          { label: "Etapas", href: "/assemblies/confjuv4/f/14/", id: "juventude-etapas", is_visible: true },
+                          { label: "Etapa Digital", href: "/assemblies/confjuv4/f/10/", id: "juventude-etapa-digital", is_visible: true },
+                          { label: "Notícias", href: "/assemblies/confjuv4/f/9/", id: "juventude-noticias", is_visible: true },
+                          { label: "Perguntas Frequentes", href: "/assemblies/confjuv4/f/13/", id: "juventude-perguntas-frequentes", is_visible: true }
+                        ],
+                        is_visible: false
+                      },
+                      {
+                        label: "Segurança alimentar",
+                        href: "javascript: void(0)",
+                        id: "seguranca-alimentar",
+                        sub_items: [
+                          { label: "Início", href: "/assemblies/cnsan6", id: "seguranca-alimentar-inicio", is_visible: true },
+                          { label: "Etapas", href: "/assemblies/cnsan6/f/18", id: "seguranca-alimentar-etapas", is_visible: true },
+                          { label: "Notícias", href: "/assemblies/cnsan6/f/20", id: "seguranca-alimentar-noticias", is_visible: true },
+                          { label: "Perguntas Frequentes", href: "/assemblies/cnsan6/f/21", id: "seguranca-alimentar-frequentes", is_visible: true }
+                        ],
+                        is_visible: true
+                      }
+                    ],
+                    is_visible: true
+                  },
+                  {
+                    label: "Novidades",
+                    href: "/processes/brasilparticipativo/f/26/posts",
+                    id: "novidades",
+                    sub_items: [],
+                    is_visible: true
+                  },
+                  {
+                    label: "Sobre",
+                    href: "/pages/brasil-participativo-sobre",
+                    id: "sobre",
+                    sub_items: [],
+                    is_visible: true
+                  }
+                ]
+                %>
+
+                <% def render_sub_item(item) %>
+                  <a class="menu-item" href="<%= item[:href] %>">
+                    <span class="content"><%= item[:label] %></span>
                   </a>
                   <ul>
-                    <li>
-                      <a class="menu-item" href="/processes/programas/" id="ppa-inicio">
-                        <span class="content">Memória</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="menu-item" href="/pages/relatoriodaplataforma" id="ppa-relatorios">
-                        <span class="content">Relatórios</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="menu-item" href="/processes/programas/f/1/" id="ppa-programas">
-                        <span class="content">Programas priorizados</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="menu-item" href="/processes/programas/f/2/" id="ppa-propostas">
-                        <span class="content">Propostas priorizadas</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="menu-item" href="/pages" id="ppa-sobre">
-                        <span class="content">Entenda o processo</span>
-                      </a>
-                    </li>
+                    <% item[:sub_items].each do |sub_item| %>
+                      <% if sub_item[:is_visible] %>
+                        <% if sub_item[:sub_items] %>
+                          <%= render_sub_item(sub_item).html_safe %>
+                        <% else %>
+                          <li>
+                            <a class="menu-item" href="<%= sub_item[:href] %>"
+                              id="<%= sub_item[:id] %>">
+                              <span class="content"><%= sub_item[:label] %></span>
+                            </a>
+                          </li>
+                        <% end %>
+                      <% end %>
+                    <% end %>
                   </ul>
-                </div>
-                <div class="menu-folder"><a class="menu-item" id="conferencias">
-                  <span class="content">Conferências</span></a>
-                  <ul>
-                    <li  id="juventude-li">
-                      <a class="menu-item" href="javascript: void(0)" id="juventude">
-                        <span class="content">Juventude</span>
+                <% end %>
+                <% menu_items.each do |item| %>
+                  <% if item[:is_visible] %>
+                    <% if item[:sub_items].present? %>
+                      <div class="menu-folder" id="<%= item[:id] %>">
+                        <%= render_sub_item(item).html_safe %>
+                      </div>
+                    <% else %>
+                      <a class="menu-item divider" href="<%= item[:href] %>">
+                        <span class="content"><%= item[:label] %></span>
                       </a>
-                      <ul>
-                        <li>
-                          <a class="menu-item" href="/assemblies/confjuv4" id="juventude-inicio">
-                            <span class="content">Início</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a class="menu-item" href="/assemblies/confjuv4/f/14/" id="juventude-etapas">
-                            <span class="content">Etapas</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a class="menu-item" href="/assemblies/confjuv4/f/10/" id="juventude-etapa-digital">
-                            <span class="content">Etapa Digital</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a class="menu-item" href="/assemblies/confjuv4/f/9/" id="juventude-noticias">
-                            <span class="content">Notícias</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a class="menu-item" href="/assemblies/confjuv4/f/13/" id="juventude-perguntas-frequentes">
-                            <span class="content">Perguntas Frequentes</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li id="seguranca-alimentar-li">
-                      <a class="menu-item" href="javascript: void(0)" id="seguranca-alimentar">
-                        <span class="content">Segurança alimentar</span>
-                      </a>
-                      <ul>
-                        <li>
-                          <a class="menu-item" href="/assemblies/cnsan6" id="seguranca-alimentar-inicio">
-                            <span class="content">Início</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a class="menu-item" href="/assemblies/cnsan6/f/18" id="seguranca-alimentar-etapas">
-                            <span class="content">Etapas</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a class="menu-item" href="/assemblies/cnsan6/f/20" id="seguranca-alimentar-noticias">
-                            <span class="content">Notícias</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a class="menu-item" href="/assemblies/cnsan6/f/21" id="seguranca-alimentar-frequentes">
-                            <span class="content">Perguntas Frequentes</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-                <a class="menu-item divider" href="/processes/brasilparticipativo/f/26/posts">
-                  <span class="content">Novidades</span>
-                </a>
-                <a class="menu-item divider" href="/pages/brasil-participativo-sobre">
-                  <span class="content">Sobre</span>
-                </a>
+                    <% end %>
+                  <% end %>
+                <% end %>
               </nav>
             </div>
             <div class="menu-scrim" data-dismiss="menu" tabindex="0"></div>
