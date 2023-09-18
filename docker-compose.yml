@@ -17,21 +17,21 @@ services:
     container_name: decidim-service
     image: ${RELEASE_IMAGE:-decidim-service}
     build:
-        context: .
-        dockerfile: Dockerfile
+      context: .
+      dockerfile: Dockerfile
     env_file: .env.dev
     command: ["sh", "start.sh"]
     ports:
-        - 3000:3000
-        - 1080:1080
+      - 3000:3000
+      - 1080:1080
     volumes:
-        - .:/decidim-govbr:cached
+      - .:/decidim-govbr:cached
     networks:
-        - decidim-network
+      - decidim-network
     depends_on:
-        - postgres
-        - redis-queue
-        - redis-cache
+      - postgres
+      - redis-queue
+      - redis-cache
 
   redis-queue:
     container_name: redis-queue
@@ -59,6 +59,6 @@ volumes:
   postgres-data:
 
 networks:
-    decidim-network:
-        driver: bridge
-        name: decidim-network
+  decidim-network:
+    driver: bridge
+    name: decidim-network
