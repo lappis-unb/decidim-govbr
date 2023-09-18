@@ -14402,7 +14402,7 @@ class Behavior {
   _initInstanceCollapseExample() {
     const collapseExampleList = []
     window.document
-      .querySelectorAll('.collapse-example')
+      .querySelectorAll('.collapse')
       .forEach((collapseExample) => {
         collapseExampleList.push(new collapse(collapseExample))
       })
