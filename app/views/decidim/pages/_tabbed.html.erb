@@ -12,7 +12,7 @@
         <% pages.each do |sibling| %>
           <div class="collapse-item br-item " role="listitem" data-toggle="collapse" data-target="c-l<%=sibling.id%>">
             <div class="content collapse-item-content">
-              <div class="flex-fill"> <%= translated_attribute(sibling.title) %> </div><i class="fas fa-angle-down small circle" aria-hidden="true"></i>
+              <div class="flex-fill"> <%= translated_attribute(sibling.title) %> </div><i class="fas small circle" aria-hidden="true"></i>
             </div>
           </div>
           <div class="br-list" id="c-l<%=sibling.id%>" role="list" hidden="hidden" data-sub="data-sub">
@@ -26,6 +26,5 @@
         <% end %>
       </div>
     </div>
-    <%# <div class="box"></div> %>
   </section>
 </div>
