@@ -1,0 +1,43 @@
+# This file has been created in order to cover only specific small translations for ALL languages
+# instead of creating a folder and a file for every language.
+
+pt-BR:
+  decidim:
+    admin:
+      filters:
+        search_placeholder:
+          name_or_nickname_or_email_or_identities_uid_cont: Pesquisar %{collection} por e-mail, nome, nome de usuário ou CPF.
+pt:
+  decidim:
+    admin:
+      filters:
+        search_placeholder:
+          name_or_nickname_or_email_or_identities_uid_cont: Pesquisar %{collection} por e-mail, nome, nome de usuário ou CPF.
+
+en:
+  decidim:
+    admin:
+      filters:
+        search_placeholder:
+          name_or_nickname_or_email_or_identities_uid_cont: Search %{collection} by email, name, nickname or identification number.
+
+es-MX:
+  decidim:
+    admin:
+      filters:
+        search_placeholder:
+          name_or_nickname_or_email_or_identities_uid_cont: Buscar %{collection} por correo electrónico, nombre o alias.
+
+es-PY:
+  decidim:
+    admin:
+      filters:
+        search_placeholder:
+          name_or_nickname_or_email_or_identities_uid_cont: Buscar %{collection} por correo electrónico, nombre o alias.
+
+es:
+  decidim:
+    admin:
+      filters:
+        search_placeholder:
+          name_or_nickname_or_email_or_identities_uid_cont: Buscar %{collection} por correo electrónico, nombre o alias.
