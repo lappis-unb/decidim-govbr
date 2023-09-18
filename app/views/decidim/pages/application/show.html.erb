@@ -1,0 +1,12 @@
+<% add_decidim_meta_tags({
+  description: translated_attribute(@page.body),
+}) %>
+
+<%= render partial: "decidim/shared/component_announcement" %>
+
+<% translated_body = translated_attribute(@page.body) %>
+<% if translated_body.present? && (translated_body.start_with?("<p>&lt;section") || translated_body.start_with?("<p>&lt;script")) %>
+  <%= translated_body.html_safe.gsub(/<p>|<\/p>/, '').gsub("&lt;","<").gsub("&gt;",">").html_safe %>
+<% else %>
+  <%= decidim_sanitize_editor_admin translated_body %>
+<% end %>
