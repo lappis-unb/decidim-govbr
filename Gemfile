@@ -17,7 +17,7 @@ gem 'decidim', DECIDIM_VERSION
 gem 'decidim-conferences', DECIDIM_VERSION
 gem 'decidim-consultations', DECIDIM_VERSION
 gem 'decidim-initiatives', DECIDIM_VERSION
-gem 'decidim-apiauth', github: 'mainio/decidim-module-apiauth', branch: 'main'
+gem 'decidim-apiauth', github: 'mainio/decidim-module-apiauth'
 gem 'omniauth_openid_connect', '0.6.1'
 
 gem 'dotenv-rails', require: 'dotenv/rails-now'
@@ -38,17 +38,8 @@ gem 'sidekiq', '6.5.7'
 gem 'whenever', require: false
 
 group :development, :test do
-  gem 'decidim-dev', DECIDIM_VERSION
   gem 'byebug', '11.1.3'
-  gem 'pry-nav'
-end
-
-group :test do
-  gem 'rspec-rails'
-  gem 'capybara'
-  gem 'database_cleaner'
-  gem 'rails'
-  gem 'factory_bot_rails'
+  gem 'decidim-dev', DECIDIM_VERSION
 end
 
 group :development do
