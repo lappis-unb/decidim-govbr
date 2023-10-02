@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <header class="text-center py-10 br-container">
+    <h1 class="h4 text-left collapse-title">
+      <%= title %>
+    </h1>
+    <span class="br-divider"></span>
+  </header>
+  
+  <section class="br-container">
+    <div class="collapse">
+      <div class="br-list" role="list" data-sub="data-sub">
+        <% pages.each do |sibling| %>
+          <div class="collapse-item br-item " role="listitem" data-toggle="collapse" data-target="c-l<%=sibling.id%>">
+            <div class="content collapse-item-content">
+              <div class="flex-fill"> <%= translated_attribute(sibling.title) %> </div><i class="fas small circle" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="br-list" id="c-l<%=sibling.id%>" role="list" hidden="hidden" data-sub="data-sub">
+            <div class="br-item bg-gray-5" role="listitem">
+              <div class="row align-items-center">
+                <div class="col collapse-text"><%= decidim_sanitize_editor_admin translated_attribute sibling.content %></div>
+              </div>
+            </div>
+          </div>
+          <span class="br-divider"></span>
+        <% end %>
+      </div>
+    </div>
+  </section>
+</div>
