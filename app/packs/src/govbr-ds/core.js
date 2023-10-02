@@ -16109,5 +16109,5 @@ reference element's position.
 });
 //# sourceMappingURL=core-init.js.map
 
-import acesibility_widget from "../acesibility_widget";
-acesibility_widget();
+import { contrastButtonFunc } from "../acessibility_widget";
+contrastButtonFunc();
