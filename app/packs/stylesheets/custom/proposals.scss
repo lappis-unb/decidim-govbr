@@ -1,0 +1,27 @@
+.proposals-container {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.proposals-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.proposals-counter {
+    margin-right: 30px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.results-per-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
