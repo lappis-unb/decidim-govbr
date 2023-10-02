@@ -19,10 +19,6 @@
 }
 
 .results-per-page {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
     font-weight: 600;
 }
 
@@ -39,4 +35,15 @@
 
 .dropdown.menu > li.is-dropdown-submenu-parent > a::after {
     display: none;
+}
+
+.title-action-text {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.title-action-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
