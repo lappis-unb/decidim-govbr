@@ -31,10 +31,10 @@ module Decidim
           visible_sub_links = menu_item['sub_items'].filter { |item| item['is_visible'] }
 
           visible_sub_links.map do |sub_link|
-            if sub_link['sub_items'].present?
-              render_menu_link_with_sub_links(sub_link)
-            else
-              content_tag(:li) do
+            content_tag(:li, class: sub_link['sub_items'].present? ? 'side-menu-testea' : '' ) do
+              if sub_link['sub_items'].present?
+                render_menu_link_with_sub_links(sub_link)
+              else
                 content_tag(:a, class: 'menu-item', href: sub_link['href'], id: sub_link['id']) do
                   content_tag(:span, sub_link['label'], class: 'content')
                 end
