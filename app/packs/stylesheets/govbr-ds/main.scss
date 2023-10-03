@@ -1360,9 +1360,9 @@ input[type="text"]:focus:not(.input-group-field) {
 }
 
 .page-title {
-  margin-bottom: 3rem;
-  border-bottom: 1px solid #ccc;
-  padding: 10px;
+  color: var(--blue-warm-vivid-80);
+  font-size: 2.25rem;
+  font-weight: 600;
 }
 
 .page-title-wrapper .heading1 {
