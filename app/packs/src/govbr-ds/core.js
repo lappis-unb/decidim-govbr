@@ -3022,6 +3022,8 @@ class BRCarousel {
       this.setActiveStage(this.step.activeStepNum)
     })
 
+    setInterval(() => {this.shiftPage(1)}, 6000)
+
     // Swipe
     const dispatcher = new _partial_js_behavior_swipe__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z(this.DOMstrings.carouselStage)
     dispatcher.on('SWIPE_LEFT', () => {
