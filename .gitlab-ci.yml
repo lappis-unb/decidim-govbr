@@ -6,7 +6,20 @@ cache:
     - node_modules
 
 services:
-  - postgres:13.2-alpine
+  postgres:
+    image: postgres:13.2-alpine
+    options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    env: 
+      POSTGRES_PASSWORD: postgres
+
+  mailcatcher:
+    image: schickling/mailcatcher
+
+  redis-queue:
+    image: redis:6.0.12-alpine
+
+  redis-cache:
+    image: redis:6.0.12-alpine
 
 variables:
   DATABASE_USERNAME: "postgres"
@@ -42,7 +55,6 @@ Tests:
 System Tests:
   stage: test
   script:
-    - ./bin/setup_chrome
     - bundle exec rails test:system
 
 Pronto:
