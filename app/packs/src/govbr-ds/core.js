@@ -3363,6 +3363,9 @@ reference element's position.
             dispatcher.on("SWIPE_RIGHT", () => {
               this.shiftPage(-1);
             });
+            setInterval(() => {
+              this.shiftPage(1);
+            }, 6000);
             this.disabledBtns();
           }
         }
