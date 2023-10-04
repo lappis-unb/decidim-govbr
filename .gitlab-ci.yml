@@ -11,14 +11,17 @@ before_script:
   - npm install
   - yarn install
 
-.testing:
+stages:
+  - test
+
+Testing:
   stage: test
   variables:
     POSTGRES_HOST: postgres
     POSTGRES_USER: postgres
     POSTGRES_PASSWORD: password
     RAILS_ENV: test
-  script:
+   script:
     - apt-get update -yy && apt-get install build-essential libpq-dev -y
     - bundle install
     - bundle exec rails db:setup                
