@@ -25861,9 +25861,10 @@ button.br-item:not(:disabled):active {
 }
 .br-menu .menu-container {
   display: none;
+  background-color: transparent !important;
 }
 .br-menu .menu-scrim {
-  background: var(--surface-overlay-scrim);
+  background: var(--surface-overlay-scrim) !important;
   bottom: 0;
   left: 0;
   right: 0;
