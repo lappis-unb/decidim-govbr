@@ -54,8 +54,8 @@
               <% end %>
             <% end %>
           </div>
-          <div class="br-card-content" tabindex="0"> 
-            decidim_sanitize_editor post.subtitle
+          <div class="br-card-content" tabindex="0">
+            <%= translated_attribute post.subtitle %>
           </div>
           <div class="card-footer">
             <div class="d-flex">
@@ -86,13 +86,15 @@
                 <span class="news-date">
                   <%= l post.created_at, format: "%d/%m/%Y" %>
                 </span>
-                decidim_sanitize_editor post.subtitle
+                <%= translated_attribute post.subtitle %>
               </span>
             </div>
 
             <div class="news-image-container">
-              <%= link_to post do %>
-                <%= image_tag post.photo.url, class: "news-cover-image" %>
+              <% if post.photo.present? %>
+                <%= link_to post do %>
+                  <%= image_tag post.photo.url, class: "news-cover-image" %>
+                <% end %>
               <% end %>
             </div>
         </div>
