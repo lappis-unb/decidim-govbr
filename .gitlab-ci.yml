@@ -25,7 +25,6 @@ before_script:
   - npm install
   - yarn install
 
-  - cp config/database.yml.ci config/database.yml
   - bundle exec rails db:create RAILS_ENV=test
   - bundle exec rails db:schema:load RAILS_ENV=test
   - bundle exec webpack
