@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_20_015020) do
+ActiveRecord::Schema.define(version: 2023_10_04_032051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -311,6 +311,7 @@ ActiveRecord::Schema.define(version: 2023_08_20_015020) do
     t.integer "endorsements_count", default: 0, null: false
     t.integer "comments_count", default: 0, null: false
     t.integer "follows_count", default: 0, null: false
+    t.jsonb "subtitle"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_blogs_posts_on_decidim_author"
     t.index ["decidim_component_id"], name: "index_decidim_blogs_posts_on_decidim_component_id"
     t.index ["decidim_user_group_id"], name: "index_decidim_blogs_posts_on_decidim_user_group_id"
