@@ -1,45 +1,30 @@
 <div class="wrapper">
-  <div class="row column">
-    <div class="page-title-wrapper">
-      <h1 class="heading1 page-title">
-        <%= title %>
-      </h1>
-      <p class="intro--text subheading1">
-        <%= description %>
-      </p>
-    </div>
-
-    <div class="main-container tabbed-container">
-      <%= cell "decidim/tos_page", :announcement %>
-
-      <div class="row collapse main-container--side-panel">
-        <div class="columns medium-4 large-3">
-          <div class="side-panel">
-            <ul class="tabs vertical side-panel__tabs">
-              <% pages.each do |sibling| %>
-                <li class="tabs-title <%= page == sibling ? "is-active" : nil %>">
-                  <%= link_to translated_attribute(sibling.title), page_path(sibling.slug) %>
-                </li>
-              <% end %>
-            </ul>
+  <header class="text-center py-10 br-container">
+    <h1 class="h4 text-left collapse-title">
+      <%= title %>
+    </h1>
+    <span class="br-divider"></span>
+  </header>
+  
+  <section class="br-container">
+    <div class="collapse">
+      <div class="br-list" role="list" data-sub="data-sub">
+        <% pages.each do |sibling| %>
+          <div class="collapse-item br-item " role="listitem" data-toggle="collapse" data-target="c-l<%=sibling.id%>">
+            <div class="content collapse-item-content">
+              <div class="flex-fill"> <%= translated_attribute(sibling.title) %> </div><i class="fas small circle" aria-hidden="true"></i>
+            </div>
           </div>
-        </div>
-
-        <div class="columns medium-8 large-9">
-          <div class="main-container__content">
-            <div class="tabs-content vertical">
-              <div class="static__content">
-                <h2>
-                  <%= translated_attribute page.title %>
-                </h2>
-                <%= decidim_sanitize_editor_admin translated_attribute page.content %>
+          <div class="br-list" id="c-l<%=sibling.id%>" role="list" hidden="hidden" data-sub="data-sub">
+            <div class="br-item bg-gray-5" role="listitem">
+              <div class="row align-items-center">
+                <div class="col collapse-text"><%= decidim_sanitize_editor_admin translated_attribute sibling.content %></div>
               </div>
             </div>
           </div>
-        </div>
+          <span class="br-divider"></span>
+        <% end %>
       </div>
-
-      <%= cell "decidim/tos_page", :form %>
     </div>
-  </div>
+  </section>
 </div>
