@@ -1,16 +1,59 @@
-# The Docker image that will be used to build your app
-image: python:3.10
-# Functions that should be executed before the build script is run
+image: lappis/decidim-govbr:v1-release
+
+cache:
+  paths:
+    - vendor/bundle
+    - node_modules
+
+variables:
+  ALLOW_HOSTS=/.*/
+  DATABASE_USERNAME=postgres
+  DATABASE_PASSWORD=postgres
+  DATABASE_PORT=5432
+  DATABASE_HOST=decidim-db
+
+  ADMIN_EMAIL=admin@email.com
+  ADMIN_PASSWORD=admin
+
+  REDIS_URL=redis://redis-queue:6379/1
+  REDIS_CACHE_URL=redis://redis-queue:6380
+
+  DECIDIM_ENABLE_HTML_HEADER_SNIPPETS=true
+
+services:
+  - postgres:13.2-alpine
+
 before_script:
-  - pip install mkdocs mkdocs-material
-pages:
+  # Project setup
+  - bundle check || bundle install --jobs $(nproc)
+  - npm install
+  - yarn install
+
+  - cp config/database.yml.ci config/database.yml
+  - bundle exec rails db:create RAILS_ENV=test
+  - bundle exec rails db:schema:load RAILS_ENV=test
+  - bundle exec webpack
+
+stages:
+  - test
+  - lint
+  # - deploy
+
+Tests:
+  stage: test
   script:
-    - mkdocs build --config-file mkdocs.yml --site-dir public
-  artifacts:
-    paths:
-      # The folder that contains the files to be exposed at the Page URL
-      - public
-  rules:
-    # This ensures that only pushes to the default branch will trigger
-    # a pages deploy
-    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+    - bundle exec rails test -d
+
+System Tests:
+  stage: test
+  script:
+    - ./bin/setup_chrome
+    - bundle exec rails test:system
+
+Pronto:
+  stage: lint
+  allow_failure: true
+  except:
+    - master
+  script:
+    - bundle exec pronto run -f gitlab -c origin/master
