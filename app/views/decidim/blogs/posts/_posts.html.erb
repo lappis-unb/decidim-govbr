@@ -1,0 +1,136 @@
+
+<h1 class="page-title">Notícias</h1>
+
+<div class="social-links">
+  <label>Compartilhe: </label>
+  <a href="http://www.facebook.com/sharer.php?u=<%= request.original_url %>" title="Facebook" class="">
+    <span aria-hidden="true" class="fab fa-facebook-f fa-md"></span>
+    <span class="sr-only">Compartilhe por Facebook</span>
+  </a>
+
+  <a href="https://twitter.com/share?text=Not%C3%ADcias&amp;url=https://www.gov.br/secretariageral/resolveuid/1460a8239e394c77aee14a9e75f3c0f0" title="Twitter" class="">
+    <span aria-hidden="true" class="fab fa-twitter fa-md"></span>
+    <span class="sr-only">Compartilhe por Twitter</span>
+  </a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<%= request.original_url %>&amp;title=Not%C3%ADcias" title="LinkedIn" class="">
+    <span aria-hidden="true" class="fab fa-linkedin-in fa-md"></span>
+    <span class="sr-only">Compartilhe por LinkedIn</span>
+  </a>
+
+  <a href="https://api.whatsapp.com/send?text=<%= request.original_url %>" title="WhatsApp" class="link-whatsapp">
+    <span aria-hidden="true" class="fab fa-whatsapp fa-md"></span>
+    <span class="sr-only">Compartilhe por WhatsApp</span>
+  </a>
+
+  <a class="link-clipboard" onclick="event.preventDefault()" title="Copiar para área de transferência" href="<%= request.original_url %>">
+    <span class="fas fa-link" aria-hidden="true"></span>
+    <span class="sr-only">link para Copiar para área de transferência</span>
+  </a>
+</div>
+<script>
+  new ClipboardJS('.link-clipboard', {
+    text: function(trigger) {
+      return trigger.getAttribute('href');
+    }
+  });
+</script>
+
+<% if browser.mobile? %>
+  <ul class="news-list">
+    <% paginate_posts.each do |post| %>
+      <li class="news-item">
+        <div class="br-card h-fixed">
+          <div class="card-header">
+            <%= link_to post, class: "news-title" do %>
+              <%= translated_attribute post.title %>
+            <% end %>
+            <p class="br-card-date">
+              <%= l post.created_at, format: "%d/%m/%Y" %>
+            </p>
+            <% if post.photo.present? %>
+              <%= link_to post do %>
+                <%= image_tag post.photo.url, class: "news-cover-image" %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="br-card-content" tabindex="0">
+            <%= translated_attribute post.subtitle %>
+          </div>
+          <div class="card-footer">
+            <div class="d-flex">
+              <%= link_to post, class: "card__link" do %>
+                <button class="br-button" type="button">Ler mais</button>
+              <% end %>
+              <div class="ml-auto" onclick="navigator.share('<%= post_path(post) %>')">
+                <button class="br-button circle" type="button" aria-label="Ícone de compartilhamento">
+                  <i class="fas fa-share-alt" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  <ul>
+<% else %>
+  <ul class="news-list">
+    <% paginate_posts.each do |post| %>
+      <li class="news-item">
+        <div class="news-card">
+            <div class="news-content">
+              <%= link_to post, class: "news-title" do %>
+                <%= translated_attribute post.title %>
+              <% end %>
+              <span class="news-description">
+                <span class="news-date">
+                  <%= l post.created_at, format: "%d/%m/%Y" %>
+                </span>
+                - <%= translated_attribute post.subtitle %>
+              </span>
+            </div>
+
+            <div class="news-image-container">
+              <% if post.photo.present? %>
+                <%= link_to post do %>
+                  <%= image_tag post.photo.url, class: "news-cover-image" %>
+                <% end %>
+              <% end %>
+            </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class="pagination-container">
+  <%= decidim_paginate paginate_posts %>
+</div>
+
+<div class="social-links">
+  <label>Compartilhe: </label>
+  <a href="http://www.facebook.com/sharer.php?u=<%= request.original_url %>" title="Facebook" class="">
+    <span aria-hidden="true" class="fab fa-facebook-f fa-md"></span>
+    <span class="sr-only">Compartilhe por Facebook</span>
+  </a>
+
+  <a href="https://twitter.com/share?text=Not%C3%ADcias&amp;url=https://www.gov.br/secretariageral/resolveuid/1460a8239e394c77aee14a9e75f3c0f0" title="Twitter" class="">
+    <span aria-hidden="true" class="fab fa-twitter fa-md"></span>
+    <span class="sr-only">Compartilhe por Twitter</span>
+  </a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<%= request.original_url %>&amp;title=Not%C3%ADcias" title="LinkedIn" class="">
+    <span aria-hidden="true" class="fab fa-linkedin-in fa-md"></span>
+    <span class="sr-only">Compartilhe por LinkedIn</span>
+  </a>
+
+  <a href="https://api.whatsapp.com/send?text=<%= request.original_url %>" title="WhatsApp" class="link-whatsapp">
+    <span aria-hidden="true" class="fab fa-whatsapp fa-md"></span>
+    <span class="sr-only">Compartilhe por WhatsApp</span>
+  </a>
+
+  <a class="link-clipboard" onclick="event.preventDefault()" title="Copiar para área de transferência" href="<%= request.original_url %>">
+    <span class="fas fa-link" aria-hidden="true"></span>
+    <span class="sr-only">link para Copiar para área de transferência</span>
+  </a>
+</div>

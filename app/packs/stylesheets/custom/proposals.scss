@@ -1,0 +1,49 @@
+.proposals-container {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.proposals-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.proposals-counter {
+    margin-right: 30px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.results-per-page {
+    font-weight: 600;
+}
+
+.order-text {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.order-by__dropdown-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown.menu > li.is-dropdown-submenu-parent > a::after {
+    display: none;
+}
+
+.title-action-text {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.title-action-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
