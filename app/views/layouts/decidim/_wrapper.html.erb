@@ -64,7 +64,7 @@ end
                     </button>
                   </div>
                 <% end %>
-              <% end %> 
+              <% end %>
 <%
 =end%>
               <div href="#" data-open="dc-modal" aria-controls="dc-modal" aria-haspopup="dialog" tabindex="0">
@@ -82,7 +82,6 @@ end
                   <span class="text">Mudar para o modo de alto contraste</span>
                 </button>
               </div> 
-
             </div>
           </div>
           <div class="header-search-trigger">
@@ -149,8 +148,8 @@ end
       </div>
     </div>
   </header>
+  <%= display_flash_messages %>
   <main id="content">
-    <%= display_flash_messages %>
     <div class="br-container-lg d-flex">
       <div class="br-row">
         <div class="br-menu" id="main-navigation">
@@ -167,113 +166,7 @@ end
                   </button>
                 </div>
               </div>
-              <nav class="menu-body">
-                <a class="menu-item divider" href="/">
-                  <span class="content">Início</span>
-                </a>
-                <div class="menu-folder" id="ppa">
-                  <a class="menu-item" href="javascript: void(0)">
-                    <span class="content">PPA Participativo</span>
-                  </a>
-                  <ul>
-                    <li>
-                      <a class="menu-item" href="/processes/programas/" id="ppa-inicio">
-                        <span class="content">Memória</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="menu-item" href="/pages/relatoriodaplataforma" id="ppa-relatorios">
-                        <span class="content">Relatórios</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="menu-item" href="/processes/programas/f/1/" id="ppa-programas">
-                        <span class="content">Programas priorizados</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="menu-item" href="/processes/programas/f/2/" id="ppa-propostas">
-                        <span class="content">Propostas priorizadas</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="menu-item" href="/pages" id="ppa-sobre">
-                        <span class="content">Entenda o processo</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="menu-folder"><a class="menu-item" id="conferencias">
-                  <span class="content">Conferências</span></a>
-                  <ul>
-                    <li  id="juventude-li">
-                      <a class="menu-item" href="javascript: void(0)" id="juventude">
-                        <span class="content">Juventude</span>
-                      </a>
-                      <ul>
-                        <li>
-                          <a class="menu-item" href="/assemblies/confjuv4" id="juventude-inicio">
-                            <span class="content">Início</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a class="menu-item" href="/assemblies/confjuv4/f/14/" id="juventude-etapas">
-                            <span class="content">Etapas</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a class="menu-item" href="/assemblies/confjuv4/f/10/" id="juventude-etapa-digital">
-                            <span class="content">Etapa Digital</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a class="menu-item" href="/assemblies/confjuv4/f/9/" id="juventude-noticias">
-                            <span class="content">Notícias</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a class="menu-item" href="/assemblies/confjuv4/f/13/" id="juventude-perguntas-frequentes">
-                            <span class="content">Perguntas Frequentes</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li id="seguranca-alimentar-li">
-                      <a class="menu-item" href="javascript: void(0)" id="seguranca-alimentar">
-                        <span class="content">Segurança alimentar</span>
-                      </a>
-                      <ul>
-                        <li>
-                          <a class="menu-item" href="/assemblies/cnsan6" id="seguranca-alimentar-inicio">
-                            <span class="content">Início</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a class="menu-item" href="/assemblies/cnsan6/f/18" id="seguranca-alimentar-etapas">
-                            <span class="content">Etapas</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a class="menu-item" href="/assemblies/cnsan6/f/20" id="seguranca-alimentar-noticias">
-                            <span class="content">Notícias</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a class="menu-item" href="/assemblies/cnsan6/f/21" id="seguranca-alimentar-frequentes">
-                            <span class="content">Perguntas Frequentes</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-                <a class="menu-item divider" href="/processes/brasilparticipativo/f/26/posts">
-                  <span class="content">Novidades</span>
-                </a>
-                <a class="menu-item divider" href="/pages/brasil-participativo-sobre">
-                  <span class="content">Sobre</span>
-                </a>
-              </nav>
+              <%= render_menu_links(current_organization) %>
             </div>
             <div class="menu-scrim" data-dismiss="menu" tabindex="0"></div>
             </div>
