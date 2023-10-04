@@ -6,20 +6,12 @@ cache:
     - node_modules
 
 services:
-  postgres:
-    image: postgres:13.2-alpine
-    options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-    env: 
-      POSTGRES_PASSWORD: postgres
-
-  mailcatcher:
-    image: schickling/mailcatcher
-
-  redis-queue:
-    image: redis:6.0.12-alpine
-
-  redis-cache:
-    image: redis:6.0.12-alpine
+  - name: postgres:13.2-alpine
+    alias: postgres
+  - name: redis:6.0.12-alpine
+    alias: redis-queue
+  - name: redis:6.0.12-alpine
+    alias: redis-cache
 
 variables:
   DATABASE_USERNAME: "postgres"
