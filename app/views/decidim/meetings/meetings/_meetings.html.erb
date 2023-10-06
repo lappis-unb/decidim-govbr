@@ -16,16 +16,20 @@
   </div>
 <% end %>
 
+  <h2 id="meetings-count" class="title-action__title section-heading">
+      <%= render partial: "count" %>
+  </h2>
 <div class="row medium-up-2">
-  
-  <div class="column">
+
+  <%# <div class="column">
     <%= render partial: "decidim/meetings/calendar_modal", locals: {
       path: short_url(
         route_name: "calendar",
         params: { filter: params.fetch(:filter, {}).try(:to_unsafe_hash) }
       )
     } %>
-  </div>
+  <%# </div>  %>
+  
 </div>
 
 <div class="row small-up-1 medium-up-2 card-grid">
