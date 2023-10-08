@@ -1,0 +1,13 @@
+en:
+  decidim:
+    govbr:
+      promoted_to_admin_mailer:
+        notification:
+          subject: "%{organization} - You have been promoted to administrator"
+          greetings: Greetings, %{user}!
+          body: We inform that your <a href="%{url}">user account</a> has been promoted to admin in %{organization}. This is an automatic e-mail and should not be answered.
+      invited_to_private_participatory_space_mailer:
+        notification:
+          subject: "%{organization} - You have been added to a participatory space"
+          greetings: Greetings, %{user}!
+          body: We inform that you have been added as a private participant to the participatory space <a href="%{url}">%{participatory_space}</a>. This is an automatic e-mail and should not be answered.
