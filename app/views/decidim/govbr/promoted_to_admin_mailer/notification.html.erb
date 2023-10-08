@@ -1,0 +1,2 @@
+<p class="email-instructions"><%= t('.greetings', user: @user.name) %></p>
+<p class="email-instruction"><%= t('.body', organization: @organization.name, url: @locator.profile_url).html_safe %></p>
