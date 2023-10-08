@@ -1,0 +1,2 @@
+<p class="email-instructions"><%= t('.greetings', user: present(@user).name) %></p>
+<p class="email-instructions"><%= t('.body', url: @locator.url, participatory_space: translated_attribute(@participatory_space.title)).html_safe %></p>
