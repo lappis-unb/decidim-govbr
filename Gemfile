@@ -40,6 +40,7 @@ gem 'whenever', require: false
 group :development, :test do
   gem 'byebug', '11.1.3'
   gem 'decidim-dev', DECIDIM_VERSION
+  gem 'pry-nav'
 end
 
 group :development do
