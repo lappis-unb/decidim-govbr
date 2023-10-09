@@ -11,3 +11,4 @@ This file keeps the list of all overwritten Decidim files. The main purpose of t
 
 * app/views/decidim/blogs/admin/posts/_form.html.erb
 * app/views/decidim/blogs/posts/_posts.html.erb
+* app/views/decidim/proposals/admin/proposal_answers/_form.html.erb
