@@ -61,19 +61,19 @@ pt-BR:
     events:
       meetings:
         meeting_closed:
-          email_intro: 'O evento encerrou, confira o que aconteceu na página:'
+          email_intro: 'Seu evento "%{resource_title}" foi encerrado. Você pode ler as conclusões em sua página:'
         meeting_registration_confirmed:
           notification_title: A sua inscrição para o evento <a href="%{resource_url}">%{resource_title}</a> foi confirmada. O seu código de inscrição é %{registration_code}.
         registration_code_validated:
           email_intro: O seu código de inscrição "%{registration_code}" para o evento "%{resource_title}" foi validado.
-          email_outro: Você recebeu essa mensagem porque sua inscrição para o evento "%{resource_title}" foi validada.
-          email_subject: Seu número de incrição "%{registration_code}" para o evento "%{resource_title}" foi validado.
-          notification_title: Seu número de incrição "%{registration_code}" para o evento <a href="%{resource_path}">%{resource_title}</a> foi validado.
+          email_outro: Recebeu esta notificação porque o seu código de inscrição para o evento "%{resource_title}" foi validado.
+          email_subject: O seu código de inscrição "%{registration_code}" para o evento "%{resource_title}" foi validado
+          notification_title: O seu código de inscrição "%{registration_code}" para o evento <a href="%{resource_path}">%{resource_title}</a> foi validado.
         registrations_enabled:
-          email_intro: 'O evento "%{resource_title}" abriu inscrições, registre-se em:'
-          email_outro: Agora você segue o evento "%{resource_title}". Para deixar de seguir clique aqui
-          email_subject: O evento "%{resource_title}" abriu inscrições.
-          notification_title: O evento <a href="%{resource_path}">%{resource_title}</a> abriu inscrições.
+          email_intro: 'O evento "%{resource_title}" ativou as inscrições. Pode inscrever-se a partir da sua página:'
+          email_outro: Recebeu esta notificação porque segue o evento "%{resource_title}". Pode deixar de segui-la a partir da hiperligação anterior.
+          email_subject: O evento "%{resource_title}" ativou as inscrições.
+          notification_title: O evento <a href="%{resource_path}">%{resource_title}</a> ativou as inscrições.
     meetings:
       actions:
         close: Encerrar Evento
