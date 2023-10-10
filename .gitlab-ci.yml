@@ -1,16 +1,46 @@
-# The Docker image that will be used to build your app
-image: python:3.10
-# Functions that should be executed before the build script is run
+image: ruby:3.0.4
+
+cache:
+  paths:
+    - vendor/bundle
+    - node_modules
+
+services:
+  - postgres:10.1
+
+variables:
+  BUNDLE_PATH: vendor/bundle
+  DISABLE_SPRING: 1
+  DATABASE_HOST: postgres
+  DATABASE_USERNAME: postgres
+  DATABASE_PASSWORD: postgres
+  database: decide_test
+
 before_script:
-  - pip install mkdocs mkdocs-material
-pages:
+  # Install node and some other deps
+  # - curl -sL https://deb.nodesource.com/setup_8.x | bash -
+  # - apt-get update -yq
+  # - apt-get install -y apt-transport-https build-essential cmake nodejs python-software-properties software-properties-common unzip
+
+  # Install yarn
+  # - wget -q -O - https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+  # - echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list
+  # - apt-get update -yq
+  # - apt-get install -y yarn
+
+  # Project setup
+  - bundle check || bundle install --jobs $(nproc)
+  # - yarn install
+
+  - cp config/database.yml.ci config/database.yml
+  - bundle exec rails db:create RAILS_ENV=test
+  - bundle exec rails db:schema:load RAILS_ENV=test
+  # - bundle exec webpack
+
+stages:
+  - test
+
+Tests:
+  stage: test
   script:
-    - mkdocs build --config-file mkdocs.yml --site-dir public
-  artifacts:
-    paths:
-      # The folder that contains the files to be exposed at the Page URL
-      - public
-  rules:
-    # This ensures that only pushes to the default branch will trigger
-    # a pages deploy
-    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+    - bundle exec rspec
