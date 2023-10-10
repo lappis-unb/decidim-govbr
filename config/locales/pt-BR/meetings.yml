@@ -10,13 +10,13 @@ pt-BR:
         proposals: Propostas criadas na reunião
       meeting:
         available_slots: Vagas disponíveis para esta reunião
-        customize_registration_email: Personalizar o e-mail de registro
+        customize_registration_email: Personalizar o e-mail de inscrição
         iframe_access_level: Nível de acesso do iframe
         iframe_embed_type: Tipo do iframe embutido
         registration_type: Tipo de inscrição
-        registration_form_enabled: Formulário de registro ativado
-        registration_terms: Termos de registro
-        registrations_enabled: Registros ativados
+        registration_form_enabled: Formulário de inscrição ativado
+        registration_terms: Termos de inscrição
+        registrations_enabled: Inscrições ativados
         reserved_slots: Vagas reservadas para esta reunião
         start_time: Hora de início
         end_time: Hora de término
@@ -31,13 +31,13 @@ pt-BR:
       validate_registration_code:
         code: Código
     models:
-      decidim/meetings/meeting_registrations_enabled_event: Registros ativados
-      decidim/meetings/meeting_registrations_over_percentage_event: Registros acima do limite
+      decidim/meetings/meeting_registrations_enabled_event: Inscrições ativadas
+      decidim/meetings/meeting_registrations_over_percentage_event: Inscrições acima do limite
   activerecord:
     models:
       decidim/meetings/registration:
-        one: Registro
-        other: Registros
+        one: Inscrição
+        other: Inscrições
   decidim:
     admin:
       filters:
@@ -54,8 +54,8 @@ pt-BR:
           join: Junte-se à
         settings:
           global:
-            default_registration_terms: Termos de registro predefinidos
-            registration_code_enabled: Código de registro habilitado
+            default_registration_terms: Termos de inscrição predefinidos
+            registration_code_enabled: Código de inscrição habilitado
             scopes_enabled: Âmbitos ativados
             maps_enabled: Mapas ativados
     events:
@@ -63,21 +63,21 @@ pt-BR:
         meeting_closed:
           email_intro: 'Sua reunião "%{resource_title}" foi encerrada. Você pode ler as conclusões em sua página:'
         meeting_registration_confirmed:
-          notification_title: A sua inscrição para a reunião <a href="%{resource_url}">%{resource_title}</a> foi confirmada. O seu código de registro é %{registration_code}.
+          notification_title: A sua inscrição para a reunião <a href="%{resource_url}">%{resource_title}</a> foi confirmada. O seu código de inscrição é %{registration_code}.
         registration_code_validated:
-          email_intro: O seu código de registro "%{registration_code}" para a reunião "%{resource_title}" foi validado.
-          email_outro: Recebeu esta notificação porque o seu código de registro para a reunião "%{resource_title}" foi validado.
-          email_subject: O seu código de registro "%{registration_code}" para a reunião "%{resource_title}" foi validado
-          notification_title: O seu código de registro "%{registration_code}" para a reunião <a href="%{resource_path}">%{resource_title}</a> foi validado.
+          email_intro: O seu código de inscrição "%{registration_code}" para a reunião "%{resource_title}" foi validado.
+          email_outro: Recebeu esta notificação porque o seu código de inscrição para a reunião "%{resource_title}" foi validado.
+          email_subject: O seu código de inscrição "%{registration_code}" para a reunião "%{resource_title}" foi validado
+          notification_title: O seu código de inscrição "%{registration_code}" para a reunião <a href="%{resource_path}">%{resource_title}</a> foi validado.
         registrations_enabled:
-          email_intro: 'A reunião "%{resource_title}" ativou os registros. Pode registar-se a partir da sua página:'
+          email_intro: 'A reunião "%{resource_title}" ativou as inscrições. Pode inscrever-se a partir da sua página:'
           email_outro: Recebeu esta notificação porque segue a reunião "%{resource_title}". Pode deixar de segui-la a partir da hiperligação anterior.
-          email_subject: A reunião "%{resource_title}" ativou os registros.
-          notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> ativou os registros.
+          email_subject: A reunião "%{resource_title}" ativou as inscrições.
+          notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> ativou as inscrições.
     meetings:
       actions:
         close: Encerrar reunião
-        registrations: Registros
+        registrations: Inscrições
       admin:
         meetings:
           edit:
@@ -96,33 +96,33 @@ pt-BR:
             invalid: Ocorreu um problema ao atualizar a enquete desta reunião
             success: Enquete da reunião atualizado com sucesso
         exports:
-          registrations: Registros
+          registrations: Inscrições
         invite_join_meeting_mailer:
           invite:
-            join: Junte-se à reunião '%{meeting_title}'
+            join: Inscreva-se '%{meeting_title}'
         invites:
           index:
-            registrations_disabled: Não pode convidar um participante porque os registros estão desativados.
+            registrations_disabled: Não pode convidar um participante porque as inscrições estão desativadas.
         registrations:
           edit:
             save: Salvar
             validate: Confirmar
-            validate_registration_code: Confirmar código de registro
+            validate_registration_code: Confirmar código de inscrição
           form:
-            registration_form: Formulário de registro
+            registration_form: Formulário de inscrição
             registrations_count:
-              one: Houve %{count} registro.
-              other: Houve %{count} registros.
-            title: Registros
+              one: Houve %{count} inscrito.
+              other: Houve %{count} inscritos.
+            title: Inscrições
           update:
-            invalid: Ocorreu um problema ao guardar as configurações de registro.
+            invalid: Ocorreu um problema ao guardar as configurações de inscrição.
             success: Configurações de registro de reunião guardadas corretamente.
           validate_registration_code:
-            invalid: Este código de registro é inválido.
-            success: Código de registro validado corretamente.
+            invalid: Este código de inscrição é inválido.
+            success: Código de inscrição validado corretamente.
       admin_log:
         meeting:
-          export_registrations: "%{user_name} exportou os registros da reunião %{resource_name} no espaço %{space_name}"
+          export_registrations: "%{user_name} exportou as inscrições da reunião %{resource_name} no espaço %{space_name}"
       calendar_modal:
         calendar_url: URL do calendário
         close_window: Fechar janela
@@ -151,11 +151,11 @@ pt-BR:
       mailer:
         registration_mailer:
           confirmation:
-            subject: O seu registro da reunião foi confirmado
+            subject: A sua inscrição da reunião foi confirmada
       meetings:
         show:
-          join: Junte-se à reunião
-          registration_code_help_text: O seu código de registro
+          join: Inscreva-se
+          registration_code_help_text: O seu código de inscrição
           back: Voltar à lista
         filters:
           activity: Minha atividade
@@ -183,7 +183,7 @@ pt-BR:
       registration_mailer:
         confirmation:
           confirmed_html: O seu registro para a reunião <a href="%{url}">%{title}</a> foi confirmado.
-          registration_code: O seu código de registro é %{code}.
+          registration_code: O seu código de inscrição é %{code}.
       type_of_meeting:
         hybrid: Ambas
         in_person: Presencial
@@ -206,3 +206,4 @@ pt-BR:
     mailer:
       join_meeting:
         subject: Convite para juntar-se a uma reunião
+  
