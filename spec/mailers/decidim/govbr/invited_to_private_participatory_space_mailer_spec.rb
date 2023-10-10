@@ -10,8 +10,16 @@ module Decidim::Govbr
     let(:mail) { described_class.notification(user, participatory_process) }
 
     describe '.notification' do
-      context 'when it is called with a valid user and participatory space' do
-        it 'sends an email containing information about the participatory space' do
+      context 'when it is called with a valid user and participatory space sends email' do
+        it 'to the user email address' do
+          expect(mail.to).to eq([user.email])
+        end
+
+        it 'with the correct subject' do
+          expect(mail.subject).to eq("#{organization.name} - Você foi adicionado(a) a um espaço participativo")
+        end
+
+        it 'containing information about the participatory space' do
           I18n.with_locale(:'pt-BR') do
             participatory_space_name = participatory_process.title[:'pt-BR'] = 'Organizacao de Teste'
             expect(email_body(mail)).to have_tag('p', :seen => "Olá, #{user.name}!")
