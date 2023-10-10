@@ -18,7 +18,7 @@ variables:
 
 before_script:
   # Install node and some other deps
-  - curl -sL https://deb.nodesource.com/setup_8.x | bash -
+  - curl -sL https://deb.nodesource.com/setup_18.x | bash -
   - apt-get update -yq
   - apt-get install -y apt-transport-https build-essential cmake nodejs python-software-properties software-properties-common unzip
 
