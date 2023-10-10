@@ -10,3 +10,18 @@
     font-weight: bold !important;
     font-size: 16px;
 }
+.br-pagination-meetings{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+.meetings-pagination-button{
+    margin: 0;
+}
+.meetings-pagination-text{
+    margin: 0;
+    font-weight: 600;
+    color: #1351b4;
+    font-size: 20px;
+}
