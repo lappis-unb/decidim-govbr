@@ -16,9 +16,26 @@
   </div>
 <% end %>
 
-  <h2 id="meetings-count" class="title-action__title section-heading">
+  <h2>Agenda</h2>
+
+ <nav class="br-pagination" aria-label="Paginação de resultados" data-current="1">
+  <ul>
+    <li>
+      <button class="br-button circle" type="button" data-previous-page="data-previous-page" aria-label="Página anterior"><i class="fas fa-angle-left" aria-hidden="true"></i>
+      </button>
+    </li>
+    <li><a><h4>mes e ano</h4></a></li>
+   
+    <li>
+      <button class="br-button circle" type="button" data-next-page="data-next-page" aria-label="Página seguinte"><i class="fas fa-angle-right" aria-hidden="true"></i>
+      </button>
+    </li>
+  </ul>
+</nav>
+
+  <p id="meetings-count" class="title-action__title section-heading" style="font-size: 14px">
       <%= render partial: "count" %>
-  </h2>
+  </p>
 <div class="row medium-up-2">
 
   <%# <div class="column">
