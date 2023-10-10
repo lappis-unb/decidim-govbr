@@ -15,7 +15,7 @@
 .proposals-counter {
     margin-right: 30px;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .results-per-page {
@@ -35,6 +35,8 @@
 
 .dropdown.menu > li.is-dropdown-submenu-parent > a::after {
     display: none;
+    font-style: italic;
+    font-weight: 700;
 }
 
 .title-action-text {
@@ -54,4 +56,15 @@
 
 .user-name-title-h1 {
     display: inline-block;
+}
+
+.order__by-text {
+    font-size: 14px;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.order__by-content-text {
+    font-size: 17px;
+    font-weight: 600;
 }

@@ -46,13 +46,10 @@ TODO: Remover esses comentarios depois da estilização
 </div>
 <% end %>
 
-<div class="row filter-container">
+<div class="filter-container">
   <h1 class="text-left user-name-title-h1 h1-4col">Olá, <%= current_user.name %></h2>
   <div class="filter-button__container">
     <%= render partial: "filters_small_view" %>
-    <div class="card card--secondary show-for-mediumlarge">
-      <%= render partial: "filters" %>
-    </div>
   </div>
 </div>
 
