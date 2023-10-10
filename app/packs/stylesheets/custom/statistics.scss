@@ -1,0 +1,50 @@
+.statistics-controls {
+    @include clearfix;
+  
+    margin: 1rem 0 2rem;
+}
+
+.statistics {
+    display: none;
+    min-height: 100%;
+  
+    @include breakpoint(medium) {
+      display: block;
+      padding: 0;
+      margin: 0;
+    }
+  
+    .reveal & {
+      display: block;
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+}
+
+.statistics__list-item {
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.lt-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.statistics__count {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.fa-chart-bar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}

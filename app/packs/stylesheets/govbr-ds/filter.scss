@@ -24,17 +24,6 @@
     font-size: 1rem;
 }
   
-.circle {
-    display: inline-flex;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: transparent;
-    border: 1px solid #1451b4;
-    position: relative;
-}
-  
-  
 .fa-sliders-h {
     position: absolute;
     top: 50%;
@@ -49,10 +38,7 @@
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    padding-left: 16px;
-    padding-right: 16px;
 }
-
 
 @include breakpoint(small down){
     .reveal{
