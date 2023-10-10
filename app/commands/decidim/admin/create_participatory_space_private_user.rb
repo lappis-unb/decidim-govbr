@@ -28,6 +28,7 @@ module Decidim
 
         ActiveRecord::Base.transaction do
           @user ||= existing_user || new_user
+          send_notification_email
           create_private_user
         end
 
@@ -66,17 +67,13 @@ module Decidim
           organization: private_user_to.organization
         )
 
-        if @existing_user&.invitation_pending?
-          InviteUserAgain.call(@existing_user, invitation_instructions)
-        else
-          send_notification_email_to_existing_user
-        end
+        InviteUserAgain.call(@existing_user, invitation_instructions) if @existing_user&.invitation_pending?
 
         @existing_user
       end
 
-      def send_notification_email_to_existing_user
-        return unless @existing_user
+      def send_notification_email
+        return unless @existing_user && !@existing_user&.invitation_pending?
         Decidim::Govbr::InvitedToPrivateParticipatorySpaceMailer.notification(@existing_user, @private_user_to).deliver_later
       end
 
