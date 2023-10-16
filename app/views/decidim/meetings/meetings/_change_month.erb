@@ -1,0 +1,41 @@
+<div class="br-pagination-meetings" aria-label="Paginação de resultados" data-current="1">
+  <button class="br-button circle meetings-pagination-button" type="button" id="prev-button">
+    <i class="fa-solid fa-caret-left fa-xl" style="color: #1351b4;"></i>
+  </button>
+  <p class="meetings-pagination-text"></p>
+  <button class="br-button circle meetings-pagination-button" type="button" id="next-button">
+    <i class="fa-solid fa-caret-right fa-xl" style="color: #1351b4;"></i>
+  </button>
+</div>
+
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function() {
+    
+    var currentIndex = new Date().getMonth();
+    var months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maior", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+
+    var prevButton = document.getElementById("prev-button");
+    var nextButton = document.getElementById("next-button");
+
+    var currentMonthText = document.querySelector(".meetings-pagination-text");
+
+    function updateCurrentMonth() {
+      currentMonthText.textContent = months[currentIndex];
+    }
+
+    prevButton.addEventListener("click", function() {
+      currentIndex = (currentIndex - 1 + 12) % 12;
+      updateCurrentMonth();
+    });
+
+    nextButton.addEventListener("click", function() {
+      currentIndex = (currentIndex + 1) % 12;
+      updateCurrentMonth();
+    });
+
+    updateCurrentMonth();
+
+  });
+</script>
+
+

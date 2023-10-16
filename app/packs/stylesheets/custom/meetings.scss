@@ -15,10 +15,21 @@
     align-items: center;
     justify-content: center;
     gap: 16px;
+    margin-bottom: 19px;
 }
+
+@media screen and (max-width: 600px) {
+    .br-pagination-meetings {
+        display: flex !important;
+        justify-content: space-between !important;
+    }
+}
+
 .meetings-pagination-button {
     margin: 0;
+    background-color: #e6e6e6;
 }
+
 .meetings-pagination-text {
     margin: 0;
     font-weight: 600;
@@ -34,4 +45,32 @@
 .card__support {
     display: flex;
     align-items: center;
+}
+
+.header-schedule-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-schedule-container > h2 {
+    display: flex;
+}
+
+.filter-button {
+    border: 1px solid #1351b4;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    border-radius: 50%;
+    margin: 0;
+    margin-right: 8px;
+}
+.filter-button:hover {
+    background-color: #f8f8f8;
+}
+
+.count-schedule-text {
+    font-weight: 600;
+    color: #1b1b1b;
+    font-size: 18px;
 }

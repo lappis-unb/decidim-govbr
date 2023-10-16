@@ -1,3 +1,4 @@
+
 <% if params.dig("filter", "with_availability").present? && params["filter"]["with_availability"] == "withdrawn" %>
   <div class="callout warning">
     <%= t("decidim.meetings.meetings.index.text_banner",
@@ -16,22 +17,28 @@
   </div>
 <% end %>
 
+<div class="header-schedule-container">
   <h2>Agenda</h2>
-
- <div class="br-pagination-meetings" aria-label="Paginação de resultados" data-current="1">
-  
-      <button  class="br-button circle meetings-pagination-button" type="button"><i class="fa-solid fa-caret-left fa-xl" style="color: #1351b4;"></i></button>
-
-    <p class="meetings-pagination-text">Setembro de 2023</p>
-   
-      <button class="br-button circle meetings-pagination-button" type="button"><i class="fa-solid fa-caret-right fa-xl" style="color: #1351b4;"></i></button>
-   
+  <div>
+    <button class="filter-button">
+      <i class="fa-solid fa-share fa-xl" style="color: #1351b4;"></i>
+    </button>
+    <button class="filter-button">
+      <i class="fa-solid fa-sliders fa-xl" style="color: #1351b4;"></i>
+    </button>
+  </div>
 </div>
 
-  <p id="meetings-count" class="title-action__title section-heading" style="font-size: 14px">
-      <%= render partial: "count" %>
-  </p>
-<div class="row medium-up-2">
+<% ($currentMonth = Time.now.month) %>
+
+<%= render partial: "change_month" %>
+ 
+
+<p id="meetings-count" class="count-schedule-text">
+  <%= render partial: "count" %>
+</p>
+
+<%# <div class="row medium-up-2">
 
   <%# <div class="column">
     <%= render partial: "decidim/meetings/calendar_modal", locals: {
@@ -42,14 +49,17 @@
     } %>
   <%# </div>  %>
   
-</div>
+<%# </div> %> 
 
 <div class="row small-up-1 medium-up-2 card-grid">
   <% meetings.each do |meeting| %>
+  <% if meeting.start_time.month == $currentMonth  %>
     <%= card_for meeting %>
   <% end %>
+<% end %>
 </div>
-<%= decidim_paginate meetings, order_start_time: params[:order_start_time], with_any_scope: params[:with_any_scope] %>
+
+<%# <%= decidim_paginate meetings, order_start_time: params[:order_start_time], with_any_scope: params[:with_any_scope] %> 
 
 <div class="column">
     <%= render partial: "decidim/shared/results_per_page" %>
@@ -64,5 +74,4 @@
     <% end %>
   </div>
 </div>
-
 

@@ -1,5 +1,5 @@
 require_relative 'boot'
-
+require 'date'
 require 'decidim/rails'
 require 'action_cable/engine'
 
