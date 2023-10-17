@@ -1,0 +1,13 @@
+pt-BR:
+  decidim:
+    govbr:
+      promoted_to_admin_mailer:
+        notification:
+          subject: "%{organization} - Você foi promovido(a) a administrador(a)"
+          greetings: Olá, %{user}!
+          body: Informamos que seu <a href="%{url}">usuário</a> foi promovido a administrador da plataforma %{organization}. Este é um e-mail automático e não deve ser respondido.
+      invited_to_private_participatory_space_mailer:
+        notification:
+          subject: "%{organization} - Você foi adicionado(a) a um espaço participativo"
+          greetings: Olá, %{user}!
+          body: Informamos que você foi adicionado(a) como participante privado no espaço participativo <a href="%{url}">%{participatory_space}</a>. Este é um e-mail automático e não deve ser respondido.
