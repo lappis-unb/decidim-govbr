@@ -51,11 +51,9 @@ TODO: Remover esses comentarios depois da estilização
     <h1 class="user-name-title-h1">Olá, <%= current_user.name %></h2>
   <% end %>
   <div class="proposals__buttons-container">
-    <% if !@user_proposals_statistic %>
-      <div class="proposals-button__container">
-        <%= render partial: "statistics_small_view", statistics: @user_proposals_statistic %>
-      </div>
-    <% end %>
+    <div class="proposals-button__container">
+      <%= render partial: "statistics_small_view", locals: {statistics: @user_proposals_statistic}%>
+    </div>
     <div class="proposals-button__container">
       <%= render partial: "filters_small_view" %>
     </div>
