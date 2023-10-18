@@ -29,9 +29,17 @@
   </div>
 </div>
 
-<% ($currentMonth = Time.now.month) %>
-
-<%= render partial: "change_month" %>
+<div class="br-pagination-meetings" aria-label="Paginação de resultados" data-current="1">
+  <%= button_tag(remote: true, class: 'br-button circle meetings-pagination-button', id: "prev-button", type: "button") do %>
+    <i class="fa-solid fa-caret-left fa-xl"></i>
+    <%= prev_month %>
+  <% end %>
+  <p class="meetings-pagination-text"></p>
+  <%= button_tag(remote: true, class: 'br-button circle meetings-pagination-button', id: "next-button", type: "button") do %>
+    <i class="fa-solid fa-caret-right fa-xl"></i>
+    <%= next_month %>
+  <% end %>
+</div>
  
 
 <p id="meetings-count" class="count-schedule-text">
@@ -53,7 +61,7 @@
 
 <div class="row small-up-1 medium-up-2 card-grid">
   <% meetings.each do |meeting| %>
-  <% if meeting.start_time.month == $currentMonth  %>
+  <% if meeting.start_time.month == 10  %>
     <%= card_for meeting %>
   <% end %>
 <% end %>

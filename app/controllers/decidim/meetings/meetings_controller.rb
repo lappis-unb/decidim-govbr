@@ -11,7 +11,6 @@ module Decidim
       include Withdrawable
       include FormFactory
       include Paginable
-
       helper Decidim::WidgetUrlsHelper
       helper Decidim::ResourceVersionsHelper
       helper Decidim::ShortLinkHelper
@@ -43,6 +42,8 @@ module Decidim
       end
 
       def index
+        currentMonth = Time.now.month
+
         return unless search.result.blank? && params.dig("filter", "date") != %w(past)
 
         @past_meetings ||= search_with(filter_params.merge(with_any_date: %w(past)))
@@ -130,6 +131,20 @@ module Decidim
       def meeting_form
         form(Decidim::Meetings::MeetingForm)
       end
+
+      def current_month
+        @currentMonth ||= Time.now.month
+      end
+
+      def next_month
+        @current_month = (current_month + 1) % 12
+      end
+
+      def prev_month
+        @current_month = (current_month - 1) % 12
+      end
+
+      helper_method :next_month, :prev_month
     end
   end
 end

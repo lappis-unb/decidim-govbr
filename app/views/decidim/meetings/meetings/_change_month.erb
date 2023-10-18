@@ -1,11 +1,7 @@
 <div class="br-pagination-meetings" aria-label="Paginação de resultados" data-current="1">
-  <button class="br-button circle meetings-pagination-button" type="button" id="prev-button">
-    <i class="fa-solid fa-caret-left fa-xl" style="color: #1351b4;"></i>
-  </button>
+  <%= button_to "<i class=\"fa-solid fa-caret-left fa-xl\"></i>".html_safe, { remote: true}, {class: 'br-button circle meetings-pagination-button', id: "prev-button", type: "button"} %>
   <p class="meetings-pagination-text"></p>
-  <button class="br-button circle meetings-pagination-button" type="button" id="next-button">
-    <i class="fa-solid fa-caret-right fa-xl" style="color: #1351b4;"></i>
-  </button>
+  <%= button_to "<i class=\"fa-solid fa-caret-right fa-xl\"></i>".html_safe, { remote: true}, {class: 'br-button circle meetings-pagination-button', id: "next-button", type: "button"} %>
 </div>
 
 <script type="text/javascript">
