@@ -11,17 +11,9 @@ colors = {
 
 # Snippets do Cabeçalho
 
-# arquivo = Rails.root.join(__dir__, 'seeds', 'snippet.html')
-
-# Verifique se o arquivo existe
-# if File.exist?(arquivo)
-#   header_snippets = File.read(arquivo)
-
-#   puts "Header Snnipet criado com sucesso"
-# else
-#   header_snippets = "Arquivo HTML não encontrado"
-#   puts "Header Snnipet não foi criado"
-# end
+arquivo = Rails.root.join(__dir__, 'seeds', 'snippet.html')
+header_snippets = File.read(arquivo)
+puts "Header Snnipet criado com sucesso"
 
 # Cria a organização Brasil Participativo
 organization = Decidim::Organization.find_by(name: 'Brasil Participativo')
@@ -42,7 +34,7 @@ if !organization
         file_upload_settings: Decidim::OrganizationSettings.default(:upload),
         external_domain_whitelist: ["decidim.org", "github.com"],
         colors: colors,
-    
+        header_snippets: header_snippets,
     )
     brasil_participativo.save!
     puts "Organização 'Brasil Participativo' criada."
@@ -82,26 +74,36 @@ puts "Processo de administrador do sistema concluído com sucesso"
 # Criando Blocos de Conteúdo ativo da organização
 
 # Decidim::System::CreateDefaultContentBlocks.call(organization)
+home_arquivo = Rails.root.join(__dir__, 'seeds', 'home-page.html') 
+home_snippets = File.read(home_arquivo)
+puts "Home Snnipet criado com sucesso"
 
-# html_content_block = Decidim::ContentBlock.find_by(organization: organization, manifest_name: :html, scope_name: :homepage)
+# Cria a organização Brasil Participativo
+content_block = Decidim::ContentBlock.find_by(manifest_name: "html")
 
-# # Snippets da home page
+content_block = Decidim::ContentBlock.create!(
+    id: 1, 
+    decidim_organization_id: 1,
+    manifest_name: "html",
+    scope_name: "homepage",
+    settings: { 
+        html_content_pt: home_snippets,
+    },
+    published_at: Time.current,
+    weight: 1,
+    images: {},
+    scoped_resource_id: nil,
+    created_at: Time.current,
+    updated_at: Time.current   
+)
+    content_block.save!
+    puts "Bloco 'Bloco HTML' ativo"
 
-# home_arquivo = Rails.root.join(__dir__, 'seeds', 'home-page.html')
+html_content_block = Decidim::ContentBlock.find_by(organization: organization, manifest_name: :html, scope_name: :homepage)
 
-# # Verifique se o arquivo existe
-# if File.exist?(home_arquivo)
-#   home_snippets = File.read(home_arquivo)
-#   puts "Home Snnipet criado com sucesso"
-# else
-#   home_snippets = "Arquivo HTML não encontrado"
-#   puts "Home Snnipet não foi criado"
-# end
+# Snippets da home page
 
-# settings.merge!(html_content_pt: home_snippets)
-
-# html_content_block.(settings)
-# html_content_block.save!
+html_content_block.save!
 
 # Adicionando processos
 
