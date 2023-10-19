@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'date'
 
 module Decidim
   module Meetings
@@ -11,11 +12,13 @@ module Decidim
       include Withdrawable
       include FormFactory
       include Paginable
+
       helper Decidim::WidgetUrlsHelper
       helper Decidim::ResourceVersionsHelper
       helper Decidim::ShortLinkHelper
-
+      before_action :current_month
       helper_method :meetings, :meeting, :registration, :search
+
 
       def new
         enforce_permission_to :create, :meeting
@@ -42,7 +45,6 @@ module Decidim
       end
 
       def index
-        currentMonth = Time.now.month
 
         return unless search.result.blank? && params.dig("filter", "date") != %w(past)
 
@@ -133,16 +135,24 @@ module Decidim
       end
 
       def current_month
-        @currentMonth ||= Time.now.month
+        @current_month = Date.today
       end
 
-      def next_month
-        @current_month = (current_month + 1) % 12
+      def post
       end
 
       def prev_month
-        @current_month = (current_month - 1) % 12
+        Rails.logger.debug("OIAAAAAAAAA")
+        @current_month = (@current_month << 1)
+        @current_month.month
       end
+
+      def next_month
+        Rails.logger.debug("OIAAAAAAAAA")
+        @current_month = (@current_month >> 1)
+        @current_month.month
+      end
+
 
       helper_method :next_month, :prev_month
     end

@@ -30,14 +30,17 @@
 </div>
 
 <div class="br-pagination-meetings" aria-label="Paginação de resultados" data-current="1">
-  <%= button_tag(remote: true, class: 'br-button circle meetings-pagination-button', id: "prev-button", type: "button") do %>
+  <%= button_tag(remote: true, class: 'br-button circle meetings-pagination-button', id: "prev-button", type: "button" , :action => "prev_month")do %>
     <i class="fa-solid fa-caret-left fa-xl"></i>
-    <%= prev_month %>
+        <%# <%= (@current_month << 1).month %> 
+        <%= prev_month %>
   <% end %>
-  <p class="meetings-pagination-text"></p>
+  <p class="meetings-pagination-text">
+    <%= @current_month.month %>
+  </p>
   <%= button_tag(remote: true, class: 'br-button circle meetings-pagination-button', id: "next-button", type: "button") do %>
     <i class="fa-solid fa-caret-right fa-xl"></i>
-    <%= next_month %>
+    <%= (@current_month >> 1).month %>
   <% end %>
 </div>
  
