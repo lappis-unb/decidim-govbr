@@ -1,5 +1,15 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+# You can remove the 'faker' gem if you don't want Decidim seeds.
+# Decidim.seed!
+
 # Cria o administrador do sistema
-Decidim::System::Admin.new(email: 'brasil@participativo.com', password: 'decidim123456789', password_confirmation: 'decidim123456789').save!(validate: false)
+Decidim::System::Admin.new(email: ENV['ADMIN_EMAIL'], password: ENV['ADMIN_PASSWORD'], password_confirmation: ENV['ADMIN_PASSWORD']).save!(validate: false)
 
 # Define cores padrões do Brasil Participativo
 colors = {
