@@ -1,28 +1,9 @@
+stages:
+  - test
+
 image: lappis/decidim-govbr:v1-release
-
-cache:
-  paths:
-    - vendor/bundle
-    - node_modules
-
 services:
-  - name: postgres:13.2-alpine
-    alias: postgres
-  - name: redis:6.0.12-alpine
-    alias: redis-queue
-  - name: redis:6.0.12-alpine
-    alias: redis-cache
-
-variables:
-  DATABASE_USERNAME: "postgres"
-  DATABASE_PASSWORD: "postgres"
-  DATABASE_PORT: "5432"
-  DATABASE_HOST: "postgres"
-  ADMIN_EMAIL: "admin@email.com"
-  ADMIN_PASSWORD: "admin"
-  REDIS_URL: "redis://redis-queue:6379/1"
-  REDIS_CACHE_URL: "redis://redis-queue:6380"
-  DECIDIM_ENABLE_HTML_HEADER_SNIPPETS: "true"
+  - postgres:13.2-alpine
 
 before_script:
   # Project setup
@@ -30,29 +11,18 @@ before_script:
   - npm install
   - yarn install
 
-  - bundle exec rails db:create RAILS_ENV=test
-  - bundle exec rails db:schema:load RAILS_ENV=test
-  - bundle exec webpack
-
 stages:
   - test
-  - lint
-  # - deploy
 
-Tests:
+Testing:
   stage: test
-  script:
-    - bundle exec rails test -d
-
-System Tests:
-  stage: test
-  script:
-    - bundle exec rails test:system
-
-Pronto:
-  stage: lint
-  allow_failure: true
-  except:
-    - master
-  script:
-    - bundle exec pronto run -f gitlab -c origin/master
+  variables:
+    POSTGRES_HOST: postgres
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: password
+    RAILS_ENV: test
+   script:
+    - apt-get update -yy && apt-get install build-essential libpq-dev -y
+    - bundle install
+    - bundle exec rails db:setup
+    - bundle exec rspec
