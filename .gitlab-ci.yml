@@ -1,16 +1,50 @@
-# The Docker image that will be used to build your app
-image: python:3.10
-# Functions that should be executed before the build script is run
+stages:
+  - lint
+  - security
+  - quality
+  - test
+
+image: lappis/decidim-govbr:v1-release
+services:
+  - postgres:13.2-alpine
+  - redis:latest
+
 before_script:
-  - pip install mkdocs mkdocs-material
-pages:
+  # Project setup
+  - apt install -y build-essential curl git libssl-dev zlib1g-dev libicu-dev g++ gcc openssl libgit2-dev cmake pkg-config libpq-dev
+  - bundle check || bundle install --jobs $(nproc)
+  - npm install
+  - yarn install
+
+Lint:
+  stage: lint
   script:
-    - mkdocs build --config-file mkdocs.yml --site-dir public
-  artifacts:
-    paths:
-      # The folder that contains the files to be exposed at the Page URL
-      - public
+    - bundle exec rubocop
+
+Security:
+  stage: security
+  script:
+    - bundle exec brakeman --no-pager
+
+Quality:
+  stage: quality
+  script:
+    - gem install rubycritic
+    - rubycritic -m -s 95 app/
   rules:
-    # This ensures that only pushes to the default branch will trigger
-    # a pages deploy
-    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+    - allow_failure: true
+
+Testing:
+  stage: test
+  variables:
+    POSTGRES_HOST: postgres
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: password
+    RAILS_ENV: test
+    REDIS_URL: redis://localhost:6379
+    REDIS_CACHE_URL: redis://localhost:6380
+  script:
+    - apt-get update -yy && apt-get install build-essential libpq-dev -y
+    - bundle install
+    - bundle exec rails db:setup                
+    - bundle exec rails test && bundle exec rspec
