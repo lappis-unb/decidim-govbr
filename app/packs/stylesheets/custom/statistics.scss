@@ -1,7 +1,5 @@
 .statistics-controls {
     @include clearfix;
-  
-    margin: 1rem 0 2rem;
 }
 
 .statistics {
@@ -25,8 +23,6 @@
 
 .statistics__list-item {
     font-size: 1rem;
-    font-style: italic;
-    font-weight: 600;
 }
 
 .lt-row {
@@ -34,6 +30,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
+    justify-content: space-between;
 }
 
 .statistics__count {

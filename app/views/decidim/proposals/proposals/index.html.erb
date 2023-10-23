@@ -23,32 +23,12 @@
     </template>
   <% end %>
 <% end %>
+
 <%= render partial: "voting_rules" %>
 
-<!--
-Aqui é onde renderiza o conteúdo das estatísticas do usuário
-Se o usuário n tiver estatísticas, ou se nao tiver estatísticas configuradas
-para esse espaço participativo, nada será exibido
-TODO: Remover esses comentarios depois da estilização
--->
-<% if @user_proposals_statistic %>
-<div class="row" style="display: none;">
-  <h3>Minhas estatísticas</h3>
-  <ul>
-    <li>Número de propostas criadas <%= @user_proposals_statistic.proposals_done %></li>
-    <li>Número de comentários feitos <%= @user_proposals_statistic.comments_done %></li>
-    <li>Número de comentários recebidos <%= @user_proposals_statistic.comments_received %></li>
-    <li>Número de votos dados <%= @user_proposals_statistic.votes_done %></li>
-    <li>Número de votos recebidos <%= @user_proposals_statistic.votes_received %></li>
-    <li>Número de propostas que segue <%= @user_proposals_statistic.follows_done %></li>
-    <li>Número de seguidores em minhas propostas <%= @user_proposals_statistic.follows_received %></li>
-  </ul>
-</div>
-<% end %>
-
 <div class="filter-container">
-  <% if current_user.name %>
-    <h1 class="user-name-title-h1">Olá, <%= current_user.name %></h2>
+  <% if current_user %>
+    <h2 class="user-name-title-h1">Olá, <%= current_user.name %></h2>
   <% end %>
   <div class="proposals__buttons-container">
     <div class="proposals-button__container">
@@ -62,11 +42,12 @@ TODO: Remover esses comentarios depois da estilização
 
 <%= render partial: "decidim/shared/component_announcement" %>
 
-<div class="row columns">
+<div class="br-row">
   <div class="title-action title-action-button">
     <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) %>
-      <%= action_authorized_link_to :create, new_proposal_path, class: "title-action__action button small", data: { "redirect_url" => new_proposal_path } do %>
-        <i class="fa-solid fa-plus fa-xl"></i>
+      <%= action_authorized_link_to :create, new_proposal_path,
+        class: "title-action__action br-button block primary mb-3", data: { "redirect_url" => new_proposal_path } do %>
+        <i class="fa-solid fa-plus fa-sl"></i>
         <span class="title-action-text">Faça sua proposta</span>
       <% end %>
     <% end %>
@@ -75,9 +56,7 @@ TODO: Remover esses comentarios depois da estilização
       <%= link_to t(".collaborative_drafts_list"), collaborative_drafts_path, class: "title-action__action button small hollow ml-s" %>
     <% end %>
   </div>
-</div>
-<div class="row">
-  <div id="proposals" class="columns mediumlarge-8 large-9" aria-live="polite">
+  <div id="proposals" aria-live="polite">
     <%= render partial: "proposals" %>
   </div>
 </div>
