@@ -34,6 +34,11 @@
       return trigger.getAttribute('href');
     }
   });
+
+  function shareNews(news) {
+    console.log('NEWS', news);
+    navigator.share(news);
+  }
 </script>
 
 <% if browser.mobile? %>
@@ -62,8 +67,9 @@
               <%= link_to post, class: "card__link" do %>
                 <button class="br-button" type="button">Ler mais</button>
               <% end %>
-              <div class="ml-auto" onclick="navigator.share('<%= post_path(post) %>')">
-                <button class="br-button circle" type="button" aria-label="Ícone de compartilhamento">
+              <div class="ml-auto">
+                <button class="br-button circle" type="button" aria-label="Ícone de compartilhamento"
+                onclick="shareNews(<%= post_path(post) %>)">
                   <i class="fas fa-share-alt" aria-hidden="true"></i>
                 </button>
               </div>
