@@ -1,0 +1,19 @@
+<div class="statistics-controls">
+  <button data-open="statistics-box" aria-controls="statistics-box" aria-haspopup="dialog">
+    <span class="proposals__button-circle button-container-style">
+      <i class="fas fa-chart-bar size-icon-filter"></i>
+    </span> 
+  </button>
+</div>
+
+<div class="reveal" id="statistics-box" data-reveal role="dialog" aria-modal="true" aria-labelledby="filter-box-label">
+  <div class="reveal__header">
+    <h3 id="filter-box-label" class="reveal__title">Minhas estatísticas <%=@statistics%></h3>
+    <button class="close-button" data-close type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="statistics">
+    <%= render partial: "statistics", :locals => {:statistics => statistics} %>
+  </div>
+</div>
