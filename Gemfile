@@ -22,6 +22,8 @@ gem 'omniauth_openid_connect', '0.6.1'
 
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 
+gem 'decidim-users_activity_report', path: 'vendor/decidim-users_activity_report'
+
 gem 'bootsnap', '1.13.0'
 
 gem 'puma', '5.6.5'

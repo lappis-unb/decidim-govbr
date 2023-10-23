@@ -7,6 +7,13 @@ GIT
       decidim-core (~> 0.27.0)
       devise-jwt (~> 0.9.0)
 
+PATH
+  remote: vendor/decidim-users_activity_report
+  specs:
+    decidim-users_activity_report (0.1.0)
+      decidim-admin (>= 0.26.0, < 0.28)
+      decidim-core (>= 0.26.0, < 0.28)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -934,6 +941,7 @@ DEPENDENCIES
   decidim-consultations (= 0.27.2)
   decidim-dev (= 0.27.2)
   decidim-initiatives (= 0.27.2)
+  decidim-users_activity_report!
   devise-i18n
   dotenv-rails
   faker (~> 2.17)

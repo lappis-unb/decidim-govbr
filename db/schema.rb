@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_04_032051) do
+ActiveRecord::Schema.define(version: 2023_10_23_195647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1965,6 +1965,24 @@ ActiveRecord::Schema.define(version: 2023_10_04_032051) do
     t.index ["unlock_token"], name: "index_decidim_users_on_unlock_token", unique: true
   end
 
+  create_table "decidim_users_activity_report_component_report_configs", force: :cascade do |t|
+    t.text "used_fields"
+    t.string "type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "component_id"
+    t.bigint "report_config_id"
+    t.index ["component_id"], name: "decidim_component_report_config_idx"
+    t.index ["report_config_id"], name: "report_config_component_report_config_idx"
+  end
+
+  create_table "decidim_users_activity_report_report_configs", force: :cascade do |t|
+    t.string "name"
+    t.integer "recurrence"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "decidim_verifications_conflicts", force: :cascade do |t|
     t.bigint "current_user_id"
     t.bigint "managed_user_id"
@@ -2054,6 +2072,9 @@ ActiveRecord::Schema.define(version: 2023_10_04_032051) do
   add_foreign_key "decidim_assemblies_settings", "decidim_organizations"
   add_foreign_key "decidim_attachments", "decidim_attachment_collections", column: "attachment_collection_id", name: "fk_decidim_attachments_attachment_collection_id", on_delete: :nullify
   add_foreign_key "decidim_authorizations", "decidim_users"
+  add_foreign_key "decidim_awesome_config_constraints", "decidim_awesome_config"
+  add_foreign_key "decidim_awesome_editor_images", "decidim_organizations"
+  add_foreign_key "decidim_awesome_editor_images", "decidim_users", column: "decidim_author_id"
   add_foreign_key "decidim_budgets_budgets", "decidim_scopes"
   add_foreign_key "decidim_budgets_orders", "decidim_budgets_budgets"
   add_foreign_key "decidim_budgets_projects", "decidim_budgets_budgets"
