@@ -11,6 +11,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 1.5rem;
 }
 
 .proposals-container p {
@@ -24,7 +25,7 @@
 
 .proposals-counter {
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .results-per-page {
@@ -35,7 +36,7 @@
 }
 
 .order-text {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
 }
 
@@ -114,7 +115,7 @@
   }
 }
 
-.dropdown.menu > li > a {
+#proposals .dropdown.menu > li > a {
   padding: 0.7rem 0.3rem;
 }
 
