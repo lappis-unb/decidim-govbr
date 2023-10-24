@@ -61,7 +61,7 @@ module Decidim
 
       def menu_links_json_format
         begin
-          JSON.parse(menu_links)
+          JSON.parse(menu_links.gsub('=>', ':'))
         rescue
           self.errors.add(:menu_links, :invalid)
         end
