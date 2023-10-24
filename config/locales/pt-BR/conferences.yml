@@ -120,6 +120,10 @@ pt-BR:
         update:
           error: Ocorreu um problema ao atualizar um tipo de registro para esta conferência.
           success: Tipo de registro da conferência atualizado com sucesso.
+      partners:
+        new:
+          create: Criar
+          title: qual foi parceiro     
       media_link:
         create: "%{user_name} criou o link de multimídia %{resource_name} na conferência %{space_name}"
         delete: "%{user_name} removeu o link de multimídia %{resource_name} da conferência %{space_name}"
