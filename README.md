@@ -21,6 +21,88 @@ Este é o repositório de código aberto para o decide, baseado no [Decidim](htt
 
 # Getting Started
 
+## Configurando a aplicação via Docker
+
+### Configurando e Subindo o ambiente   o ambiente pela primeira vez
+
+Para subir o ambiente corretamente são necessarias as seguintes ferramentas:
+
+* Docker
+* Docker Compose
+
+### Instalando o Docker e o Docker Compose
+
+* Para instalar o Docker, recomenda-se seguir o tutorial oficial disponível [aqui](https://docs.docker.com/engine/install/ubuntu/).
+* Após instalar o Docker, também é recomendado seguir os passos pós-instalação disponíveis [aqui](https://docs.docker.com/engine/install/linux-postinstall/).
+* Feita a instalação do Docker e as configurações pós-instalação, instale o plugin _compose_ seguindo o tutorial oficial disponível [aqui](https://docs.docker.com/compose/install/linux/).
+
+### Executando serviços
+O ambiente do projeto depende de 4 containers especificados no arquivo `docker-compose.yml`.
+O projeto está configurado para ser executado automaticamente via `docker compose` à partir do comando:
+```
+docker compose up
+```
+Quando executado pela primeira vez, o sistema faz o donwload das imagens dos containers e configura o ambiente automaticamente à partir do arquivo `.env.dev.`. 
+
+> **Obs**.: Estes containers foram configurados somente para ambiente de desenvolvimento e, por enquanto, não devem ser utilizados em ambiente de produção.
+
+
+Após todos os serviços serem iniciados, a aplicação Decidim estará disponível pelo endereço `localhost:3000`.Além disso, há um serviço do `mailcatcher` que auxilia na captura de e-mails para testes de validação de contas de usuário disponível pelo endereço `localhost:1080`.
+
+Ao finalizar a configuração do ambiente, o script `start.sh` é executado automaticamente onde o banco postgres é criado e configurado (pelos comandos `rake db:create` e `rake db:migrate`). Por fim, um `seed` é executado contendo a conta de administrador do sistema, cujas credenciais estão definidas no arquivo de ambiente `.env.dev` conforme o exemplo abaixo:
+
+```
+ADMIN_EMAIL=admin@email.com
+ADMIN_PASSWORD=admin
+```
+
+### Acessando a aplicação
+
+Depois de acessar a URL `localhost:3000/system`, aparecerá na tela uma área de login. Forneça a senha e o e-mail utilizado na criação do usuário _admin_.
+
+![Captura_de_Tela_2023-07-12_às_21.22.04](imagens/Captura_de_Tela_2023-07-12_às_21.22.04.png)
+
+### Preenchendo cadastro inicial de organização
+
+No primeiro _login_ você será direcionado para uma página para criar a primeira organização dentro da aplicação.
+
+* No campo _Name_ preencha o nome da organização que você deseja criar. Por exemplo: `Organization 1`
+* No campo _Reference prefix_ preencha o prefixo de identificacao da organização em minúsculo. Por exemplo `org1`
+* No campo _Host_ preencha com o domínio que será utilizado na URL da organização. Nesse caso, preencha com `localhost`
+* No campo _Secondary host_ não é necessário preencher nada.
+* No campo _Organization admin name_ preencha o nome do administrador da organização. Por exemplo: `Decidim Admin`
+* No campo _Organization admin email_  preencha o e-mail que será utilizado pelo administrador da organização. Por exemplo: `admin@example.com`
+* Na seção _Organization locales_  selecione quais os idiomas estarão habilitados na organização, e a linguagem padrão. Por exemplo: `enabled: English, Português`, `default: Português`
+* No campo _User registration mode_ selecione a opção `allow participants to register and login`
+* Na seção _available authorizations_ selecione todos as opções.
+
+Clique em `Create organization & invite admin`
+
+![Captura_de_Tela_2023-07-12_às_21.19.41](imagens/Captura_de_Tela_2023-07-12_às_21.19.41.png)
+
+![Captura_de_Tela_2023-07-12_às_21.18.57](imagens/Captura_de_Tela_2023-07-12_às_21.18.57.png)
+
+### Acessando a organização com _admin_
+
+Depois de finalizar o cadastro da organização, abra o _mailcatcher_ no navegador acessando o endereço `http://localhost:1080`. Clique no e-mail enviado, e no conteúdo do e-mail clique em `Aceitar convite`.
+
+![Captura_de_Tela_2023-07-12_às_21.16.12](imagens/Captura_de_Tela_2023-07-12_às_21.16.12.png)
+
+---
+
+Ao clicar na confirmação do e-mail, será aberta uma página para finalizar a criação do admin da organização.
+
+* Preencha o _nickname_ com o apelido do administrador da organização. Por exemplo: `admin`
+* Preencha os campos de senha com uma senha forte. Por exemplo: `dBzJR2TVF4Ns&Wf&VashYqU#gG8^TC!B4sb$BiNS` <small>(Não discuta, apenas copie e cole essa senha :clown:)</small>
+* Marque os check-boxes e depois clique em `Salvar`
+* No modal amarelo que aparece na tela, clique em `Reveja-os agora`.
+* Em seguida clique em `I agree with the terms`
+
+---
+
+
+
+
 ## Configurando a aplicação
 
 Caso você queira um tutorial passo a passo, fizemos um bem detalhado na [wiki do repositório](https://gitlab.com/lappis-unb/decidimbr/decidim-govbr/-/wikis/home).
