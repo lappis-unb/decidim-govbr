@@ -1241,13 +1241,12 @@ svg.icon--flag.icon.icon--small {
 }
 
 .pagination .current {
-  padding: 9px;
+  padding: 0.1875rem 0.625rem;
   background: var(---blue-warm-vivid-80);
   color: var(---white);
   cursor: default;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  border-radius: 100rem;
+  min-width: 30px;
 }
 
 textarea,
@@ -1290,18 +1289,6 @@ input[type="text"]:focus:not(.input-group-field) {
   gap: 10px;
   margin-bottom: 1rem;
 }
-
-/*
-.pagination a, .pagination button {}
-
-.pagination a:hover, .pagination button:hover {
-  background-color: var(---blue-10);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  padding: 9px;
-}
-*/
 
 /* AJUDA */
 

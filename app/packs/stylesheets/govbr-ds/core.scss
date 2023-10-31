@@ -27126,9 +27126,6 @@ button.br-item:not(:disabled):active {
     margin-left: unset !important;
     margin-right: unset !important;
   }
-  .br-modal-header .close {
-    top: 0;
-  }
 }
 .br-notification {
   --notification-padding: var(--spacing-scale-2x) var(--spacing-scale-4x);
