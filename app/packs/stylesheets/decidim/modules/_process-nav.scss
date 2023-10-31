@@ -1,27 +1,26 @@
 $nav-border-width: 3px;
 
-.process-nav{
+.process-nav {
   background-color: $white;
-  padding: .75rem $container-padding-y;
+  padding: 0.75rem $container-padding-y;
   box-shadow: inset 0 (-1 * $nav-border-width) 0 0 $medium-gray;
   display: flex;
   justify-content: center;
 
-
-  .about-link{
+  .about-link {
     font-size: 80%;
   }
-  
+
   padding: 0;
 
-  .hidden{
+  .hidden {
     display: none;
   }
-  
-  ul{
+
+  ul {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: row;
     flex-grow: 1;
     height: 100%;
@@ -32,42 +31,37 @@ $nav-border-width: 3px;
     scrollbar-width: none;
     -ms-overflow-style: none;
     -webkit-overflow-scrolling: touch;
-    
   }
 
-  ul::-webkit-scrollbar{
+  ul::-webkit-scrollbar {
     display: none;
     width: 0;
     margin: 0;
   }
 
-  .about-link{
+  .about-link {
     float: right;
     margin-right: 0;
     margin-left: auto;
   }
 }
 
-.process-nav__content{
+.process-nav__content {
   overflow-x: auto;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
 
-  li{
-  
-   display: flex;
-   padding: 16px 24px;
-   height: 100%;
-   white-space: nowrap;
-   
-   &.is-active{
-     box-shadow: inset 0 (-1 * ($nav-border-width + 1px)) 0 0 var(---blue-warm-vivid-70);
-   }
-   
-  }
+  li {
+    display: flex;
+    height: 100%;
+    white-space: nowrap;
 
-  
+    &.is-active {
+      box-shadow: inset 0 (-1 * ($nav-border-width + 1px)) 0 0
+        var(---blue-warm-vivid-70);
+    }
+  }
 }
 
 .process-nav__link {
@@ -78,16 +72,13 @@ $nav-border-width: 3px;
   display: flex;
   align-items: center;
   gap: 8px;
-  
-  &:hover, &.active {
+
+  &:hover,
+  &.active {
     color: var(---blue-warm-vivid-70);
     text-decoration: none;
     i {
-      color: var(---blue-warm-vivid-70) ;
+      color: var(---blue-warm-vivid-70);
     }
   }
-  
 }
-
-
-
