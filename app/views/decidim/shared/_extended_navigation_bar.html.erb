@@ -1,14 +1,16 @@
-  <div class="process-nav">
-      <div class="row process-nav__content <%= browser.mobile? ? "is-active" : "" %>" id="process-nav-content" data-toggler=".is-active">
-        <ul>
+  <div class="br-tab process-nav">
+      <nav class="tab-nav row process-nav__content <%= browser.mobile? ? "is-active" : "" %>" id="process-nav-content" data-toggler=".is-active">
+        <ul class="space-menu">
           <% items.each_with_index do |item, index| %>
-            <li class="<%= "is-active" if item[:active] %>  <%=  "hidden" if false %>">
-              <%= link_to item[:url], class: "process-nav__link #{item[:active] ? 'active' : nil}" do %>
-                <i class="fa-solid <%= icons[item[:name]] || icons["Sobre"] %>"></i>
-                <%= item[:name] %>
+            <li class="tab-item <%= "active" if item[:active] %> <%= "hidden" if false %>">
+              <%= link_to item[:url] do %>
+                <i class="fa-solid <%= icons[item[:name]] || 'fa-image' %>"></i>
+                <span class="name">
+                  <%= item[:name] %>
+                </span>
               <% end %>
             </li>
           <% end %>
         </ul>
-      </div>
+      </nav>
   </div>
