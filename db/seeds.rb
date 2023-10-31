@@ -102,8 +102,8 @@ puts 'Bloco "Bloco HTML" ativo.'
 html_content_block = Decidim::ContentBlock.find_by(organization: organization, manifest_name: :html, scope_name: :homepage)
 html_content_block.save!
 
-#bp_arquivo = Rails.root.join(__dir__, 'seeds', 'bp_components.json') 
-#bp_components = File.read(bp_arquivo)
+bp_arquivo = Rails.root.join(__dir__, 'seeds', 'bp_components.json') 
+bp_components = File.read(bp_arquivo)
 
 # Adicionando processos
 processes = Decidim::ParticipatoryProcess.create!(
@@ -163,20 +163,68 @@ processes = Decidim::ParticipatoryProcess.create!(
     scopes_enabled: false,
     show_metrics: false,
     show_statistics: false,
-    participatory_process_steps: [{
-        id: 7,
-        title: {
-          'pt-BR': 'Introdução'
-        },
-        description: nil,
-        start_date: nil,
-        end_date: nil,
-        cta_path: nil,
-        cta_text: {
-        },
-        active: true,
-        position: 0
-    }],
-    # components: bp_components
 )
 processes.save!
+
+# process_step = Decidim::ParticipatoryProcessStep.create!(
+#     decidim_participatory_process_id: 1,
+#     id: 7,
+#     title: {
+#         'pt-BR': 'Introdução'
+#     },
+#     description: nil,
+#     start_date: nil,
+#     end_date: nil,
+#     cta_path: nil,
+#     cta_text: {
+#     },
+#     active: true,
+#     position: 0
+# )
+# process_step.save!
+
+# component = Decidim::Component.create!(
+#     manifest_name: 'blogs',
+#     id: 26,
+#     name: {
+#         'pt-BR': 'Notícias'
+#     },
+#     participatory_space_id: 3,
+#     participatory_space_type: Decidim::ParticipatoryProcess,
+#     settings: {
+#     steps: {
+#         '7': {
+#             announcement: {
+#                 'pt-BR': ''
+#             },
+#             announcement_en: nil,
+#             comments_blocked: false,
+#             announcement_pt__BR: '',
+#             endorsements_blocked: true,
+#             endorsements_enabled: false
+#         }
+#     },
+#     global: {
+#         announcement: {
+#             'pt-BR': ''
+#         },
+#         announcement_en: nil,
+#         comments_enabled: false,
+#         announcement_pt__BR: '',
+#         comments_max_length: 0
+#     },
+#     default_step: {
+#         announcement: {
+#         },
+#         announcement_en: nil,
+#         comments_blocked: false,
+#         announcement_pt__BR: nil,
+#         endorsements_blocked: false,
+#         endorsements_enabled: true
+#     }
+#     },
+#     weight: 0,
+#     permissions: nil,
+#     published_at: '2023-09-06 18:04:47 -0300'
+# )
+# component.save!
