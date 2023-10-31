@@ -33,8 +33,8 @@ if !organization
     organization = Decidim::Organization.create!(
         name: 'Brasil Participativo',
         host: 'localhost',
-        default_locale: 'pt',
-        available_locales: ['en', 'pt'],
+        default_locale: 'pt-BR',
+        available_locales: ['en', 'pt-BR'],
         reference_prefix: 'brasil_participativo',
         available_authorizations: Decidim.authorization_workflows.map(&:name),
         users_registration_mode: :enabled,
@@ -102,5 +102,81 @@ puts 'Bloco "Bloco HTML" ativo.'
 html_content_block = Decidim::ContentBlock.find_by(organization: organization, manifest_name: :html, scope_name: :homepage)
 html_content_block.save!
 
-# Adicionando processos
+#bp_arquivo = Rails.root.join(__dir__, 'seeds', 'bp_components.json') 
+#bp_components = File.read(bp_arquivo)
 
+# Adicionando processos
+processes = Decidim::ParticipatoryProcess.create!(
+    id: 1,
+    slug: 'brasilparticipativo',
+    hashtag: '',
+    decidim_organization_id: 1,
+    created_at: Time.current,
+    updated_at: Time.current,
+    title: {
+        'pt-BR': 'Brasil Participativo'
+    },
+    subtitle: {
+        'pt-BR': 'Presidencia'
+    },
+    short_description: {
+        'pt-BR': '<p>brasil participativo</p>'
+    },
+    description: {
+        'pt-BR': '<p>brasil participativo</p>'
+    },
+    hero_image: nil,
+    banner_image: nil,
+    published_at: nil,
+    developer_group: {
+        'pt-BR': ''
+    },
+    end_date: nil,
+    meta_scope: {
+        'pt-BR': ''
+    },
+    local_area: {
+        'pt-BR': ''
+    },
+    target: {
+        'pt-BR': ''
+    },
+    participatory_scope: {
+        'pt-BR': ''
+    },
+    participatory_structure: {
+        'pt-BR': ''
+    },
+    decidim_scope_id: nil,
+    decidim_participatory_process_group_id: 1,
+    show_statistics: true,
+    announcement: {
+        'pt-BR': ''
+    },
+    start_date: nil,
+    decidim_area_id: nil,
+    decidim_scope_type_id: nil,
+    weight: 1,
+    follows_count: 1,
+    private_space: false,
+    promoted: false,
+    scopes_enabled: false,
+    show_metrics: false,
+    show_statistics: false,
+    participatory_process_steps: [{
+        id: 7,
+        title: {
+          'pt-BR': 'Introdução'
+        },
+        description: nil,
+        start_date: nil,
+        end_date: nil,
+        cta_path: nil,
+        cta_text: {
+        },
+        active: true,
+        position: 0
+    }],
+    # components: bp_components
+)
+processes.save!
