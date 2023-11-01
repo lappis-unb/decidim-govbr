@@ -99,6 +99,10 @@
   position: relative;
 }
 
+.proposals__button-circle:hover {
+  background-color: rgba(var(--interactive-rgb), var(--hover));
+}
+
 @media (min-width: 640px) {
   .title-action-button {
     display: flex;
@@ -124,4 +128,14 @@
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+.results-per-page__dropdown {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.new_filter .br-input .br-button {
+  margin-top: calc((52px + var(--spacing-scale-half)) * -1) !important;
 }
