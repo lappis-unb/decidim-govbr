@@ -2,17 +2,6 @@
 
 <%= render partial: "medias-section" %>
 
-<script>
-  const copyContent = async (text) => {
-    event.preventDefault();
-    try {
-      await navigator.clipboard.writeText(window.location.href);
-    } catch (err) {
-      console.error('Failed to copy: ', err);
-    }
-  }
-</script>
-
 <% if browser.mobile? %>
   <ul class="news-list">
     <% paginate_posts.each do |post| %>
