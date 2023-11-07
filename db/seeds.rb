@@ -9,7 +9,7 @@
 # Decidim.seed!
 
 # Cria o administrador do sistema
-Decidim::System::Admin.new(email: ENV['ADMIN_EMAIL'], password: ENV['ADMIN_PASSWORD'], password_confirmation: ENV['ADMIN_PASSWORD']).save!(validate: false)
+# Decidim::System::Admin.new(email: ENV['ADMIN_EMAIL'], password: ENV['ADMIN_PASSWORD'], password_confirmation: ENV['ADMIN_PASSWORD']).save!(validate: false)
 
 # Define cores padrões do Brasil Participativo
 colors = {
@@ -102,8 +102,8 @@ puts 'Bloco "Bloco HTML" ativo.'
 html_content_block = Decidim::ContentBlock.find_by(organization: organization, manifest_name: :html, scope_name: :homepage)
 html_content_block.save!
 
-bp_arquivo = Rails.root.join(__dir__, 'seeds', 'bp_components.json') 
-bp_components = File.read(bp_arquivo)
+# bp_arquivo = Rails.root.join(__dir__, 'seeds', 'bp_components.json') 
+# bp_components = File.read(bp_arquivo)
 
 # Adicionando processos
 processes = Decidim::ParticipatoryProcess.create!(
@@ -148,7 +148,7 @@ processes = Decidim::ParticipatoryProcess.create!(
         'pt-BR': ''
     },
     decidim_scope_id: nil,
-    decidim_participatory_process_group_id: 1,
+    decidim_participatory_process_group_id: 7,
     show_statistics: true,
     announcement: {
         'pt-BR': ''
@@ -163,6 +163,66 @@ processes = Decidim::ParticipatoryProcess.create!(
     scopes_enabled: false,
     show_metrics: false,
     show_statistics: false,
+)
+processes.save!
+
+processes = Decidim::ParticipatoryProcess.create!(
+    id: 2,
+    slug: 'programas',
+    hashtag: '',
+    decidim_organization_id: 1,
+    created_at: Time.current,
+    updated_at: Time.current,
+    title: {
+        'pt-BR': 'PPA Participativo'
+    },
+    subtitle: {
+        'pt-BR': 'Escolha seus programas prioritários e Envie propostas'
+    },
+    short_description: {
+        'pt-BR': '<p>Neste processo as pessoas vão poder votar em até 3 programas prioritários que levarão ações estruturantes para os seus territórios. Além de poderem enviar uma proposta de implementação de política pública para sua região ou município. </p>'
+    },
+    description: {
+        'pt-BR': '<p>Após escolher os três programas estruturantes de sua preferência clique na aba lateral <strong>\"Envie uma proposta para o PPA\"</strong> para enviar uma proposta para o PPA 2023.</p>'
+    },
+    hero_image: nil,
+    banner_image: nil,
+    published_at: nil,
+    developer_group: {
+        'pt-BR': ''
+    },
+    end_date: nil,
+    meta_scope: {
+        'pt-BR': ''
+    },
+    local_area: {
+        'pt-BR': ''
+    },
+    target: {
+        'pt-BR': ''
+    },
+    participatory_scope: {
+        'pt-BR': ''
+    },
+    participatory_structure: {
+        'pt-BR': ''
+    },
+    decidim_scope_id: nil,
+    decidim_participatory_process_group_id: 7,
+    show_statistics: true,
+    announcement: {
+        'pt-BR': ''
+    },
+    start_date: nil,
+    decidim_area_id: nil,
+    decidim_scope_type_id: nil,
+    weight: 1,
+    follows_count: 1,
+    private_space: false,
+    promoted: false,
+    scopes_enabled: false,
+    show_metrics: true,
+    show_statistics: true,
 )
 processes.save!
 
