@@ -226,65 +226,71 @@ processes = Decidim::ParticipatoryProcess.create!(
 )
 processes.save!
 
-# process_step = Decidim::ParticipatoryProcessStep.create!(
-#     decidim_participatory_process_id: 1,
-#     id: 7,
-#     title: {
-#         'pt-BR': 'Introdução'
-#     },
-#     description: nil,
-#     start_date: nil,
-#     end_date: nil,
-#     cta_path: nil,
-#     cta_text: {
-#     },
-#     active: true,
-#     position: 0
-# )
-# process_step.save!
+process_step = Decidim::ParticipatoryProcessStep.create!(
+    decidim_participatory_process_id: 1,
+    id: 7,
+    title: {
+        'pt-BR': 'Introdução'
+    },
+    description: nil,
+    start_date: nil,
+    end_date: nil,
+    cta_path: nil,
+    cta_text: {
+    },
+    active: true,
+    position: 0
+)
+process_step.save!
 
-# component = Decidim::Component.create!(
-#     manifest_name: 'blogs',
-#     id: 26,
-#     name: {
-#         'pt-BR': 'Notícias'
-#     },
-#     participatory_space_id: 3,
-#     participatory_space_type: Decidim::ParticipatoryProcess,
-#     settings: {
-#     steps: {
-#         '7': {
-#             announcement: {
-#                 'pt-BR': ''
-#             },
-#             announcement_en: nil,
-#             comments_blocked: false,
-#             announcement_pt__BR: '',
-#             endorsements_blocked: true,
-#             endorsements_enabled: false
-#         }
-#     },
-#     global: {
-#         announcement: {
-#             'pt-BR': ''
-#         },
-#         announcement_en: nil,
-#         comments_enabled: false,
-#         announcement_pt__BR: '',
-#         comments_max_length: 0
-#     },
-#     default_step: {
-#         announcement: {
-#         },
-#         announcement_en: nil,
-#         comments_blocked: false,
-#         announcement_pt__BR: nil,
-#         endorsements_blocked: false,
-#         endorsements_enabled: true
-#     }
-#     },
-#     weight: 0,
-#     permissions: nil,
-#     published_at: '2023-09-06 18:04:47 -0300'
-# )
-# component.save!
+component = Decidim::Component.create!(
+    id: 1,
+    manifest_name: 'blogs',
+    name: {
+        'pt-BR': 'Notícias'
+    },
+    participatory_space_id: 1,
+    settings: {
+        steps: {},
+        global: {
+            announcement: {
+                'pt-BR': ''
+            },
+            announcement_en: nil,
+            comments_enabled: false,
+            announcement_pt__BR: '',
+            comments_max_length: 0
+        },
+        default_step: {
+            announcement: {
+                'pt-BR': ''
+            },
+            announcement_en: nil,
+            comments_blocked: false,
+            announcement_pt__BR: nil,
+            endorsements_blocked: false,
+            endorsements_enabled: true
+        }
+    },
+    weight: 0,
+    permissions: nil,
+    published_at: Time.current,
+    created_at: Time.current,
+    updated_at: Time.current,
+    participatory_space_type: Decidim::ParticipatoryProcess,
+)
+component.save!
+
+
+# ---------------------------------------------------- Criar componentes iterando o JSON
+# require 'json'
+
+# path = Rails.root.join(__dir__, 'seeds', 'a.json')
+# json_data = File.read(path)
+# data = JSON.parse(json_data)
+
+# components = data['components']
+
+# components.each do |component_data|
+#   Decidim::Component.new(component_data).save!
+# end
