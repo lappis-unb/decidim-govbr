@@ -24,13 +24,6 @@ extra_admin_link(
 %>
 
 <%= render partial: "voting_rules" %>
-<% if component_settings.participatory_texts_enabled? %>
-  <div class="row column">
-    <div class="section text-medium">
-      <%= t(".back_to") %> <u><%= link_to translated_attribute(@participatory_text.title), main_component_path(current_component) %></u>
-    </div>
-  </div>
-<% end %>
 <%= emendation_announcement_for @proposal %>
 <div class="row column view-header">
 
@@ -42,9 +35,13 @@ extra_admin_link(
   </div>
 
   <% if @proposal.emendation? %>
-    <h2 class="heading3"><%= t(".changes_at_title", title: present(@proposal.amendable).title(links: true, html_escape: true)) %></h2>
+    <h2 class="heading3">
+      <%= t(".changes_at_title", title: present(@proposal.amendable).title(links: true, html_escape: true)) %>
+    </h2>
   <% else %>
-    <h2 class="heading3"><%= present(@proposal).title(links: true, html_escape: true) %></h2>
+    <h2 class="heading3">
+      <%= present(@proposal).title(links: true, html_escape: true) %>
+    </h2>
   <% end %>
   <% unless component_settings.participatory_texts_enabled? %>
     <%= cell("decidim/coauthorships", @proposal, has_actions: true, size: 3, context: { current_user: current_user }) %>
@@ -104,20 +101,16 @@ extra_admin_link(
               <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
             <% end %>
             <div class="row collapse buttons__row">
-              <% if endorsements_enabled? %>
-                <div class="column small-9 collapse">
-                  <%= endorsement_buttons_cell(@proposal) %>
-                </div>
-              <% end %>
               <div class="column collapse <%= endorsements_enabled? ? "small-3" : "" %>">
                 <%= link_to "#comments", class: "button small compact hollow secondary button--nomargin expanded" do %>
-                    <span class="show-for-sr"><%= present(@proposal).title(html_escape: true) %></span>
-                    <%= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %> <%= @proposal.comments_count %>
+                    <span class="show-for-sr">
+                      <%= present(@proposal).title(html_escape: true) %>
+                    </span>
+                    <%= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %>
+                    <%= @proposal.comments_count %>
                 <% end %>
               </div>
             </div>
-            <br>
-            <%= follow_button_for(@proposal) %>
           </div>
         </div>
       <% end %>
