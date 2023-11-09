@@ -1,0 +1,16 @@
+<div class="p-s">
+  <% @proposals.each do |proposal| %>
+    <div class="mb-s">
+      <p>
+        <%= link_to resource_locator(proposal).path, class: "default-link" do %>
+          <% if proposal.participatory_text_level == "article" %>
+            <%= decidim_html_escape(present(proposal).title) %>
+          <% else %>
+            <%= decidim_html_escape(present(proposal).title) %>
+          <% end %>
+          <br>
+        <% end %>
+      </p>
+    </div>
+  <% end %>
+</div>
