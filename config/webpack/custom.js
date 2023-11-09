@@ -84,7 +84,8 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".gql", ".graphql"],
     fallback: {
-      crypto: false
+      crypto: false,
+      fs: false,
     }
   },
   // https://github.com/rails/webpacker/issues/2932
