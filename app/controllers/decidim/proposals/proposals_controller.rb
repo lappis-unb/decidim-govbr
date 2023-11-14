@@ -61,7 +61,7 @@ module Decidim
                              end
 
           @user_proposals_statistic = current_user ? Decidim::Govbr::UserProposalsStatistic.by_component(current_component).by_user(current_user).take : nil rescue nil
-
+          # @user_proposals_statistic = Decidim::Govbr::UserProposalsStatistic.new()
           @proposals = reorder(@proposals)
           @proposals = paginate(@proposals)
         end
