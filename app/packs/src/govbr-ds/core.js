@@ -16114,3 +16114,6 @@ reference element's position.
 
 import { contrastButtonFunc } from "../acessibility_widget";
 contrastButtonFunc();
+
+import navBarButtonsListeners from "../navBar";
+navBarButtonsListeners();

@@ -20,7 +20,7 @@ $nav-border-width: 3px;
   ul {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: row;
     flex-grow: 1;
     height: 100%;
@@ -47,7 +47,6 @@ $nav-border-width: 3px;
 }
 
 .process-nav__content {
-  overflow-x: auto;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -62,6 +61,9 @@ $nav-border-width: 3px;
         var(---blue-warm-vivid-70);
     }
   }
+}
+.scroll-button{
+  margin: 10px;
 }
 
 .process-nav__link {
