@@ -1,0 +1,13 @@
+.icon {
+    size: 16px;
+    gap: 5px;
+}
+
+.pagination-link {
+    display: flex;
+    align-items: center;
+}
+
+.pagination a:hover, .pagination button:hover {
+    border-radius: 100rem;
+}

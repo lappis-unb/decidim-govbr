@@ -1,0 +1,77 @@
+<h1 class="page-title">Notícias</h1>
+
+<%= render partial: "medias-section" %>
+
+<% if browser.mobile? %>
+  <ul class="news-list">
+    <% paginate_posts.each do |post| %>
+      <li class="news-item">
+        <div class="br-card h-fixed">
+          <div class="card-header">
+            <%= link_to post, class: "news-title" do %>
+              <%= translated_attribute post.title %>
+            <% end %>
+            <p class="br-card-date">
+              <%= l post.created_at, format: "%d/%m/%Y" %>
+            </p>
+            <% if post.photo.present? %>
+              <%= link_to post do %>
+                <%= image_tag post.photo.url, class: "news-cover-image" %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="br-card-content" tabindex="0">
+            <%= translated_attribute post.subtitle %>
+          </div>
+          <div class="card-footer">
+            <div class="d-flex">
+              <%= link_to post, class: "card__link" do %>
+                <button class="br-button" type="button">Ler mais</button>
+              <% end %>
+              <div class="ml-auto">
+                <button class="br-button circle" type="button" aria-label="Ícone de compartilhamento"
+                onclick="navigator.share({title: '<%= translated_attribute post.title %>', url: '<%= post_path(post) %>'})">
+                  <i class="fas fa-share-alt" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  <ul>
+<% else %>
+  <ul class="news-list">
+    <% paginate_posts.each do |post| %>
+      <li class="news-item">
+        <div class="news-card">
+            <div class="news-content">
+              <%= link_to post, class: "news-title" do %>
+                <%= translated_attribute post.title %>
+              <% end %>
+              <span class="news-description">
+                <span class="news-date">
+                  <%= l post.created_at, format: "%d/%m/%Y" %>
+                </span>
+                - <%= translated_attribute post.subtitle %>
+              </span>
+            </div>
+
+            <div class="news-image-container">
+              <% if post.photo.present? %>
+                <%= link_to post do %>
+                  <%= image_tag post.photo.url, class: "news-cover-image" %>
+                <% end %>
+              <% end %>
+            </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class="pagination-container">
+  <%= decidim_paginate paginate_posts %>
+</div>
+
+<%= render partial: "medias-section" %>
