@@ -9,7 +9,7 @@
 # Decidim.seed!
 
 # Cria o administrador do sistema
-# Decidim::System::Admin.new(email: ENV['ADMIN_EMAIL'], password: ENV['ADMIN_PASSWORD'], password_confirmation: ENV['ADMIN_PASSWORD']).save!(validate: false)
+Decidim::System::Admin.new(email: ENV['ADMIN_EMAIL'], password: ENV['ADMIN_PASSWORD'], password_confirmation: ENV['ADMIN_PASSWORD']).save!(validate: false)
 
 # Define cores padrões do Brasil Participativo
 colors = {
@@ -106,13 +106,209 @@ html_content_block.save!
 # bp_components = File.read(bp_arquivo)
 
 # Adicionando processos
-processes = Decidim::ParticipatoryProcess.create!(
-    id: 1,
+# processes = Decidim::ParticipatoryProcess.create!(
+#     id: 1,
+#     slug: 'brasilparticipativo',
+#     hashtag: '',
+#     decidim_organization_id: 1,
+#     created_at: Time.current,
+#     updated_at: Time.current,
+#     title: {
+#         'pt-BR': 'Brasil Participativo'
+#     },
+#     subtitle: {
+#         'pt-BR': 'Presidencia'
+#     },
+#     short_description: {
+#         'pt-BR': '<p>brasil participativo</p>'
+#     },
+#     description: {
+#         'pt-BR': '<p>brasil participativo</p>'
+#     },
+#     hero_image: nil,
+#     banner_image: nil,
+#     published_at: nil,
+#     developer_group: {
+#         'pt-BR': ''
+#     },
+#     end_date: nil,
+#     meta_scope: {
+#         'pt-BR': ''
+#     },
+#     local_area: {
+#         'pt-BR': ''
+#     },
+#     target: {
+#         'pt-BR': ''
+#     },
+#     participatory_scope: {
+#         'pt-BR': ''
+#     },
+#     participatory_structure: {
+#         'pt-BR': ''
+#     },
+#     decidim_scope_id: nil,
+#     decidim_participatory_process_group_id: 7,
+#     show_statistics: true,
+#     announcement: {
+#         'pt-BR': ''
+#     },
+#     start_date: nil,
+#     decidim_area_id: nil,
+#     decidim_scope_type_id: nil,
+#     weight: 1,
+#     follows_count: 1,
+#     private_space: false,
+#     promoted: false,
+#     scopes_enabled: false,
+#     show_metrics: false,
+#     show_statistics: false,
+# )
+# processes.save!
+
+# processes = Decidim::ParticipatoryProcess.create!(
+#     id: 2,
+#     slug: 'programas',
+#     hashtag: '',
+#     decidim_organization_id: 1,
+#     created_at: Time.current,
+#     updated_at: Time.current,
+#     title: {
+#         'pt-BR': 'PPA Participativo'
+#     },
+#     subtitle: {
+#         'pt-BR': 'Escolha seus programas prioritários e Envie propostas'
+#     },
+#     short_description: {
+#         'pt-BR': '<p>Neste processo as pessoas vão poder votar em até 3 programas prioritários que levarão ações estruturantes para os seus territórios. Além de poderem enviar uma proposta de implementação de política pública para sua região ou município. </p>'
+#     },
+#     description: {
+#         'pt-BR': '<p>Após escolher os três programas estruturantes de sua preferência clique na aba lateral <strong>\"Envie uma proposta para o PPA\"</strong> para enviar uma proposta para o PPA 2023.</p>'
+#     },
+#     hero_image: nil,
+#     banner_image: nil,
+#     published_at: nil,
+#     developer_group: {
+#         'pt-BR': ''
+#     },
+#     end_date: nil,
+#     meta_scope: {
+#         'pt-BR': ''
+#     },
+#     local_area: {
+#         'pt-BR': ''
+#     },
+#     target: {
+#         'pt-BR': ''
+#     },
+#     participatory_scope: {
+#         'pt-BR': ''
+#     },
+#     participatory_structure: {
+#         'pt-BR': ''
+#     },
+#     decidim_scope_id: nil,
+#     decidim_participatory_process_group_id: 7,
+#     show_statistics: true,
+#     announcement: {
+#         'pt-BR': ''
+#     },
+#     start_date: nil,
+#     decidim_area_id: nil,
+#     decidim_scope_type_id: nil,
+#     weight: 1,
+#     follows_count: 1,
+#     private_space: false,
+#     promoted: false,
+#     scopes_enabled: false,
+#     show_metrics: true,
+#     show_statistics: true,
+# )
+# processes.save!
+
+# component = Decidim::Component.create!(
+#     id: 1,
+#     manifest_name: 'blogs',
+#     name: {
+#         'pt-BR': 'Notícias'
+#     },
+#     participatory_space_id: 1,
+#     settings: {
+#         steps: {},
+#         global: {
+#             announcement: {
+#                 'pt-BR': ''
+#             },
+#             announcement_en: nil,
+#             comments_enabled: false,
+#             announcement_pt__BR: '',
+#             comments_max_length: 0
+#         },
+#         default_step: {
+#             announcement: {
+#                 'pt-BR': ''
+#             },
+#             announcement_en: nil,
+#             comments_blocked: false,
+#             announcement_pt__BR: nil,
+#             endorsements_blocked: false,
+#             endorsements_enabled: true
+#         }
+#     },
+#     weight: 0,
+#     permissions: nil,
+#     published_at: Time.current,
+#     created_at: Time.current,
+#     updated_at: Time.current,
+#     participatory_space_type: Decidim::ParticipatoryProcess,
+# )
+# component.save!
+
+# component = Decidim::Component.create!(
+#     id: 2,
+#     manifest_name: 'pages',
+#     name: {
+#         'pt-BR': 'Início'
+#     },
+#     participatory_space_id: 1,
+#     settings: {
+#         steps: {},
+#         global: {
+#             announcement: {
+#                 'pt-BR': ''
+#             },
+#             announcement_en: nil,
+#             comments_enabled: false,
+#             announcement_pt__BR: '',
+#             comments_max_length: 0
+#         },
+#         default_step: {
+#             announcement: {
+#                 'pt-BR': ''
+#             },
+#             announcement_en: nil,
+#             comments_blocked: false,
+#             announcement_pt__BR: nil,
+#             endorsements_blocked: false,
+#             endorsements_enabled: true
+#         }
+#     },
+#     weight: 0,
+#     permissions: nil,
+#     published_at: Time.current,
+#     created_at: Time.current,
+#     updated_at: Time.current,
+#     participatory_space_type: Decidim::ParticipatoryProcess,
+# )
+# component.save!
+
+# Decidim::Pages::Page.create()
+
+# Cria processos ---------------------------------------------------------------
+bp_process = Decidim::ParticipatoryProcess.create!(
+    id: 2,
     slug: 'brasilparticipativo',
-    hashtag: '',
     decidim_organization_id: 1,
-    created_at: Time.current,
-    updated_at: Time.current,
     title: {
         'pt-BR': 'Brasil Participativo'
     },
@@ -124,55 +320,14 @@ processes = Decidim::ParticipatoryProcess.create!(
     },
     description: {
         'pt-BR': '<p>brasil participativo</p>'
-    },
-    hero_image: nil,
-    banner_image: nil,
-    published_at: nil,
-    developer_group: {
-        'pt-BR': ''
-    },
-    end_date: nil,
-    meta_scope: {
-        'pt-BR': ''
-    },
-    local_area: {
-        'pt-BR': ''
-    },
-    target: {
-        'pt-BR': ''
-    },
-    participatory_scope: {
-        'pt-BR': ''
-    },
-    participatory_structure: {
-        'pt-BR': ''
-    },
-    decidim_scope_id: nil,
-    decidim_participatory_process_group_id: 7,
-    show_statistics: true,
-    announcement: {
-        'pt-BR': ''
-    },
-    start_date: nil,
-    decidim_area_id: nil,
-    decidim_scope_type_id: nil,
-    weight: 1,
-    follows_count: 1,
-    private_space: false,
-    promoted: false,
-    scopes_enabled: false,
-    show_metrics: false,
-    show_statistics: false,
+    }
 )
-processes.save!
+bp_process.save!
 
-processes = Decidim::ParticipatoryProcess.create!(
-    id: 2,
+ppa_process = Decidim::ParticipatoryProcess.create!(
+    id: 1,
     slug: 'programas',
-    hashtag: '',
     decidim_organization_id: 1,
-    created_at: Time.current,
-    updated_at: Time.current,
     title: {
         'pt-BR': 'PPA Participativo'
     },
@@ -185,47 +340,22 @@ processes = Decidim::ParticipatoryProcess.create!(
     description: {
         'pt-BR': '<p>Após escolher os três programas estruturantes de sua preferência clique na aba lateral <strong>\"Envie uma proposta para o PPA\"</strong> para enviar uma proposta para o PPA 2023.</p>'
     },
-    hero_image: nil,
-    banner_image: nil,
-    published_at: nil,
-    developer_group: {
-        'pt-BR': ''
-    },
-    end_date: nil,
-    meta_scope: {
-        'pt-BR': ''
-    },
-    local_area: {
-        'pt-BR': ''
-    },
-    target: {
-        'pt-BR': ''
-    },
-    participatory_scope: {
-        'pt-BR': ''
-    },
-    participatory_structure: {
-        'pt-BR': ''
-    },
-    decidim_scope_id: nil,
-    decidim_participatory_process_group_id: 7,
-    show_statistics: true,
-    announcement: {
-        'pt-BR': ''
-    },
-    start_date: nil,
-    decidim_area_id: nil,
-    decidim_scope_type_id: nil,
-    weight: 1,
-    follows_count: 1,
-    private_space: false,
-    promoted: false,
-    scopes_enabled: false,
-    show_metrics: true,
-    show_statistics: true,
 )
-processes.save!
+ppa_process.save!
 
+# Cria componentes -------------------------------------------------------------
+component = Decidim::Component.create!(
+    id: 1,
+    manifest_name: 'blogs',
+    name: {
+        'pt-BR': 'Notícias'
+    },
+    participatory_space_id: 2,
+    participatory_space_type: Decidim::ParticipatoryProcess,
+)
+component.save!
+
+# Cria steps ---------------------------------------------------------------
 process_step = Decidim::ParticipatoryProcessStep.create!(
     decidim_participatory_process_id: 1,
     id: 7,
@@ -243,44 +373,22 @@ process_step = Decidim::ParticipatoryProcessStep.create!(
 )
 process_step.save!
 
-component = Decidim::Component.create!(
-    id: 1,
-    manifest_name: 'blogs',
-    name: {
-        'pt-BR': 'Notícias'
+process_step = Decidim::ParticipatoryProcessStep.create!(
+    decidim_participatory_process_id: 2,
+    id: 8,
+    title: {
+        'pt-BR': 'Introdução'
     },
-    participatory_space_id: 1,
-    settings: {
-        steps: {},
-        global: {
-            announcement: {
-                'pt-BR': ''
-            },
-            announcement_en: nil,
-            comments_enabled: false,
-            announcement_pt__BR: '',
-            comments_max_length: 0
-        },
-        default_step: {
-            announcement: {
-                'pt-BR': ''
-            },
-            announcement_en: nil,
-            comments_blocked: false,
-            announcement_pt__BR: nil,
-            endorsements_blocked: false,
-            endorsements_enabled: true
-        }
+    description: nil,
+    start_date: nil,
+    end_date: nil,
+    cta_path: nil,
+    cta_text: {
     },
-    weight: 0,
-    permissions: nil,
-    published_at: Time.current,
-    created_at: Time.current,
-    updated_at: Time.current,
-    participatory_space_type: Decidim::ParticipatoryProcess,
+    active: true,
+    position: 0
 )
-component.save!
-
+process_step.save!
 
 # ---------------------------------------------------- Criar componentes iterando o JSON
 # require 'json'
