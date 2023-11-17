@@ -265,6 +265,14 @@ p {
   color: var(---gray-80);
 }
 
+.blog-content p,
+.blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.blog-content strong {
+  color: var(--gray-70) !important;
+}
+
 a,
 a:hover,
 .card__link {
@@ -602,10 +610,9 @@ form#session_new_user {
   white-space: wrap;
 }
 
-.process-nav ul>li:hover {
+.process-nav ul > li:hover {
   background: rgba(51, 51, 51, var(--hover));
 }
-
 
 .navbar {
   background: var(---white);
@@ -862,7 +869,7 @@ h6,
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 1.5rem;
+  margin: 1rem 0;
 }
 
 .title-action__action .icon {
@@ -1241,13 +1248,12 @@ svg.icon--flag.icon.icon--small {
 }
 
 .pagination .current {
-  padding: 9px;
+  padding: 0.1875rem 0.625rem;
   background: var(---blue-warm-vivid-80);
   color: var(---white);
   cursor: default;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  border-radius: 100rem;
+  min-width: 30px;
 }
 
 textarea,
@@ -1290,18 +1296,6 @@ input[type="text"]:focus:not(.input-group-field) {
   gap: 10px;
   margin-bottom: 1rem;
 }
-
-/*
-.pagination a, .pagination button {}
-
-.pagination a:hover, .pagination button:hover {
-  background-color: var(---blue-10);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  padding: 9px;
-}
-*/
 
 /* AJUDA */
 
@@ -2512,7 +2506,34 @@ img#dataprev-logo {
   display: none;
 }
 
+.blog-title {
+  font-size: 1.25rem !important;
+  line-height: 1.65rem;
+  font-weight: 600;
+  color: var(--blue-warm-vivid-80);
+  padding-bottom: 10px;
+  margin: 0;
+}
+
+.blog-subtitle {
+  font-size: 0.925rem !important;
+  font-weight: 400;
+  color: #555;
+  line-height: normal;
+  margin: 0;
+  padding: 0.5rem 0 2rem;
+}
+
 @media (min-width: 768px) {
+  .blog-title {
+    font-size: 2.25rem !important;
+    line-height: 2.65rem;
+  }
+
+  .blog-subtitle {
+    font-size: 1.125rem !important;
+  }
+
   .ppa-process {
     display: flex;
     flex-direction: row;
@@ -2592,7 +2613,7 @@ img#dataprev-logo {
 }
 
 #statistics {
-  background: var(---gray-cool-05);
+  background: var(--gray-2);
   padding: 1.5rem 1rem;
 }
 

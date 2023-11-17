@@ -16309,9 +16309,6 @@ p {
   margin-bottom: var(--spacing-scale-2x);
   margin-top: 0;
 }
-p a {
-  text-decoration: underline;
-}
 @media (min-width: 576px) {
   p {
     font-size: var(--font-size-scale-up-01);
@@ -27126,9 +27123,6 @@ button.br-item:not(:disabled):active {
     margin-left: unset !important;
     margin-right: unset !important;
   }
-  .br-modal-header .close {
-    top: 0;
-  }
 }
 .br-notification {
   --notification-padding: var(--spacing-scale-2x) var(--spacing-scale-4x);
@@ -27430,6 +27424,7 @@ button.br-item:not(:disabled):active {
 }
 .br-scrim-util.foco .br-modal {
   left: 50%;
+  width: 80%;
   max-height: 90%;
   overflow: auto;
   position: absolute;
@@ -31018,4 +31013,8 @@ button.br-item:not(:disabled):active {
 
 .menu-title a {
   color: var(---gray-80);
+}
+
+.default-link u {
+  text-decoration: none;
 }
