@@ -1,36 +1,41 @@
 export default $(document).ready(function () {
-  var scrollInterval;
+  const itemWidth = $("#process-nav-content ul li").outerWidth(true);
 
   var isMobile = window.innerWidth <= 820;
+
+  function scrollToSelected() {
+    const selectedLi = $("#process-nav-content ul li.active");
+    if (selectedLi.length) {
+      const scrollPosition = selectedLi.position().left - itemWidth;
+      $("#process-nav-content ul").animate(
+        {
+          scrollLeft: scrollPosition,
+        },
+        "slow"
+      );
+    }
+  }
+
+  scrollToSelected();
 
   if (isMobile) {
     $(".scroll-button").addClass("hidden");
   }
+  $(".scroll-right").click(function () {
+    $("#process-nav-content ul").animate(
+      {
+        scrollLeft: `+=${itemWidth * 3}`,
+      },
+      400
+    );
+  });
 
-  $(".scroll-right").mousedown(function () {
-    scrollInterval = setInterval(function () {
-      $("#process-nav-content ul").animate(
-        {
-          scrollLeft: "+=20",
-        },
-        50
-      );
-    }, 50);
-  });
-  $(".scroll-left").mousedown(function () {
-    scrollInterval = setInterval(function () {
-      $("#process-nav-content ul").animate(
-        {
-          scrollLeft: "-=20",
-        },
-        50
-      );
-    }, 50);
-  });
-  $(".scroll-right, .scroll-left").mouseup(function () {
-    clearInterval(scrollInterval);
-  });
-  $(".scroll-right, .scroll-left").mouseleave(function () {
-    clearInterval(scrollInterval);
+  $(".scroll-left").click(function () {
+    $("#process-nav-content ul").animate(
+      {
+        scrollLeft: `-=${itemWidth * 3}`,
+      },
+      400
+    );
   });
 });
