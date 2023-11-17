@@ -7,6 +7,7 @@ $nav-border-width: 3px;
   display: flex;
   justify-content: center;
 
+
   .about-link {
     font-size: 80%;
   }
@@ -53,7 +54,6 @@ $nav-border-width: 3px;
 
   li {
     display: flex;
-    height: 100%;
     white-space: nowrap;
 
     &.is-active {
@@ -63,7 +63,24 @@ $nav-border-width: 3px;
   }
 }
 .scroll-button{
+  width: 24px;
+  height: 24px;
+  color: var(---blue-warm-vivid-70);
+  border-radius: 100%;
   margin: 10px;
+  border: none; 
+  outline: none; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scroll-button:hover{
+  background-color: var(--blue-vivid-10);
+}
+.scroll-button:focus{
+  border: none; 
+  outline: none; 
 }
 
 .process-nav__link {
