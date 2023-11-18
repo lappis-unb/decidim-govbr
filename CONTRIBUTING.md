@@ -21,11 +21,11 @@ E.g `bundle exec rubocop -a /meu_diretorio/meu_arquivo.rb`
 
 ## Reportando Problemas
 
-Se você encontrar problemas ou bugs, por favor, abra uma [issue](../../issues) descrevendo o problema. Inclua informações detalhadas sobre como reproduzir o problema e o ambiente em que ele ocorreu.
+Se você encontrar problemas ou bugs, por favor, abra uma [issue](https://gitlab.com/lappis-unb/decidimbr/ecossistemasl/-/issues/) descrevendo o problema. Inclua informações detalhadas sobre como reproduzir o problema e o ambiente em que ele ocorreu.
 
 ## Sugestões e Melhorias
 
-Adoramos receber sugestões e melhorias! Sinta-se à vontade para abrir uma [issue](../../issues) para discutir novas ideias ou melhorias para o projeto.
+Adoramos receber sugestões e melhorias! Sinta-se à vontade para abrir uma [issue](https://gitlab.com/lappis-unb/decidimbr/ecossistemasl/-/issues/) para discutir novas ideias ou melhorias para o projeto.
 
 ## Licença
 
