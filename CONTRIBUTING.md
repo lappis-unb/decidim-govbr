@@ -17,7 +17,7 @@ Antes de começar, sugerimos que você leia nosso [código de conduta](CODE_OF_C
 Por favor, siga os padrões de codificação e estilo estabelecidos neste projeto. Certifique-se de que seu código está formatado corretamente.
 
 Obs: Você pode executar o [Rubocop](https://github.com/rubocop/rubocop) para auxiliar a manter o padrão de qualidade do projeto.
-`bundle exec rubocop -a /meu_diretorio/meu_arquivo.rb`
+E.g `bundle exec rubocop -a /meu_diretorio/meu_arquivo.rb`
 
 ## Reportando Problemas
 
@@ -34,5 +34,7 @@ Ao contribuir, você concorda que suas contribuições serão licenciadas sob a 
 ---
 
 Agradecemos suas contribuições!
+
 Equipe [Decidim Br](https://t.me/DecidimBR)/[Brasil Participativo](https://brasilparticipativo.presidencia.gov.br/)
+
 Contato: decidim@unb.br
