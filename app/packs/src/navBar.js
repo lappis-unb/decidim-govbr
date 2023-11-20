@@ -1,7 +1,20 @@
 export default $(document).ready(function () {
   const itemWidth = $("#process-nav-content ul li").outerWidth(true);
 
-  var isMobile = window.innerWidth <= 820;
+  const ul = $("#process-nav-content ul");
+
+  const isOverflowing = ul[0].scrollWidth > ul[0].clientWidth;
+
+  const isMobile = window.innerWidth <= 820;
+
+  if (isOverflowing) {
+    ul.css("justify-content", isOverflowing ? "flex-start" : "space-between");
+
+    if (!isMobile) {
+      $("#process-nav-content .scroll-right").show();
+      $("#process-nav-content .scroll-left").show();
+    }
+  }
 
   function scrollToSelected() {
     const selectedLi = $("#process-nav-content ul li.active");
@@ -18,9 +31,6 @@ export default $(document).ready(function () {
 
   scrollToSelected();
 
-  if (isMobile) {
-    $(".scroll-button").addClass("hidden");
-  }
   $(".scroll-right").click(function () {
     $("#process-nav-content ul").animate(
       {
