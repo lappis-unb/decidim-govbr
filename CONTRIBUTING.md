@@ -2,7 +2,7 @@
 
 Obrigado(a) por considerar contribuir para este projeto! Valorizamos o envolvimento da comunidade para melhorar continuamente.
 
-Antes de começar, sugerimos que você leia nosso [código de conduta](CODE_OF_CONDUCT.md) para garantir um ambiente respeitoso e colaborativo.
+Antes de começar, sugerimos que você leia nosso [código de conduta](CODE-OF-CONDUCT.md) para garantir um ambiente respeitoso e colaborativo.
 
 ## Como Contribuir
 
