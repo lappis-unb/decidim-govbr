@@ -8,7 +8,7 @@ export default $(document).ready(function () {
   const isMobile = window.innerWidth <= 820;
 
   if (isOverflowing) {
-    ul.css("justify-content", isOverflowing ? "flex-start" : "space-between");
+    ul.css("justify-content", isOverflowing ? "space-between" : "center");
 
     if (!isMobile) {
       $("#process-nav-content .scroll-right").show();
