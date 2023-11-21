@@ -21,7 +21,7 @@ $nav-border-width: 3px;
   ul {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: row;
     flex-grow: 1;
     height: 100%;
