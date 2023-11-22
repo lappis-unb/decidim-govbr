@@ -11,30 +11,14 @@
       <% end %>
     </div>
   <% end %>
-  
-
   <% if component_settings.comments_enabled? %>
     <%= link_to resource_comments_path do %>
       <button class="br-sign-in secondary small" type="button" data-trigger="login">
         <i class="fa-solid fa-message"></i>
         <span class="d-sm-inline">
-          <%= visible_emendations.count %>
+          <%= model.comments_count %>
         </span>
       </button>
-    <% end %>
-    <% if current_settings.comments_blocked? %>
-      <div>
-        <%= content_tag :button, class: "column medium-4 button light secondary" do %>
-          <%= icon "comment-square", class: "icon--small",
-            aria_label: t("comments", scope: "decidim.proposals.participatory_text_proposal.buttons"),
-            role: "img" %>
-           <%= model.comments_count %>
-        <% end %>
-        <%= content_tag :button,
-          t("comment", scope: "decidim.proposals.participatory_text_proposal.buttons"),
-          class: "column button hollow secondary button--sc disabled", disabled: true,
-          title: t("comment", scope: "decidim.proposals.participatory_text_proposal.buttons") %>
-      </div>
     <% end %>
   <% end %>
 </div>

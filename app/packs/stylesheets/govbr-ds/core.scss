@@ -25113,13 +25113,6 @@ hr {
   }
 }
 @media (min-width: 1280px) {
-  // .process-nav {
-  //   box-shadow: 0px 1px 6px #00000029;
-  //   position: fixed;
-  //   left: 0;
-  //   width: 100vw;
-  //   z-index: 1;
-  // }
   .br-header .header-menu {
     --header-title-size: var(--font-size-scale-up-03);
     --header-subtitle-size: var(--font-size-scale-base);
@@ -29054,6 +29047,12 @@ button.br-item:not(:disabled):active {
     display: flex;
     overflow-x: auto;
     width: 100%;
+    width: 100%; /* Ajuste a largura de acordo com a sua necessidade */
+    display: flex;
+    overflow: hidden; /* Oculta a parte das guias que não está visível */
+    cursor: grab; /* Mude o cursor para uma "mãozinha" ao passar o mouse */
+    white-space: nowrap; /* Evita que as guias quebrem para a próxima linha */
+    user-drag: none; /* Evita a seleção acidental de texto ao arrastar */
   }
   .br-tab .tab-nav::-webkit-scrollbar {
     height: var(--spacing-scale-base);
@@ -29070,12 +29069,9 @@ button.br-item:not(:disabled):active {
   }
 }
 .br-tab .tab-nav ul {
-  border-bottom: 1px solid var(--border-color);
   display: flex;
-  margin-bottom: 0;
-  margin-top: 0;
+  margin: 0;
   padding: 0;
-  width: 100%;
 }
 .br-tab .tab-item {
   align-items: center;
@@ -29089,6 +29085,7 @@ button.br-item:not(:disabled):active {
   --focus-offset: calc(var(--spacing-scale-half) * -1);
   background-color: transparent;
   border: 0;
+  border-radius: 0;
   border-bottom: 4px solid transparent;
   color: var(--color);
   display: inline-block;
@@ -29126,7 +29123,9 @@ button.br-item:not(:disabled):active {
   padding-right: 0;
 }
 .br-tab .tab-item.active button,
-.br-tab .tab-item.is-active button {
+.br-tab .tab-item.is-active button,
+.br-tab .tab-item.active a,
+.br-tab .tab-item.is-active a {
   border-bottom: 4px solid var(--active);
   color: var(--active);
 }
@@ -30974,14 +30973,6 @@ button.br-item:not(:disabled):active {
   width: 100vw;
   z-index: 999;
 }
-
-// .process-nav {
-//   box-shadow: 0px 1px 6px #00000029;
-//   position: fixed;
-//   left: 0;
-//   width: 100vw;
-//   z-index: 1
-// }
 
 .current-user-dropdown {
   white-space: nowrap;
