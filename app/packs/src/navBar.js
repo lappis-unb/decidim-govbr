@@ -1,51 +1,55 @@
-export default $(document).ready(function () {
-  const itemWidth = $("#process-nav-content ul li").outerWidth(true);
+$(document).ready(function () {
+  const processNavContent = $("#process-nav-content");
 
-  const ul = $("#process-nav-content ul");
+  if (processNavContent.length > 0) {
+    const ul = processNavContent.find("ul");
 
-  const isOverflowing = ul[0].scrollWidth > ul[0].clientWidth;
+    if (ul.length > 0) {
+      const itemWidth = ul.find("li").outerWidth(true);
+      const isOverflowing = ul[0].scrollWidth > ul[0].clientWidth;
+      const isMobile = window.innerWidth <= 820;
 
-  const isMobile = window.innerWidth <= 820;
+      if (isOverflowing) {
+        ul.css("justify-content", isOverflowing ? "space-between" : "center");
 
-  if (isOverflowing) {
-    ul.css("justify-content", isOverflowing ? "space-between" : "center");
+        if (!isMobile) {
+          processNavContent.find(".scroll-right").show();
+          processNavContent.find(".scroll-left").show();
+        }
+      }
 
-    if (!isMobile) {
-      $("#process-nav-content .scroll-right").show();
-      $("#process-nav-content .scroll-left").show();
+      function scrollToSelected() {
+        const selectedLi = ul.find("li.active");
+        if (selectedLi.length) {
+          const scrollPosition = selectedLi.position().left - itemWidth;
+          ul.animate(
+            {
+              scrollLeft: scrollPosition,
+            },
+            "slow"
+          );
+        }
+      }
+
+      scrollToSelected();
+
+      processNavContent.find(".scroll-right").click(function () {
+        ul.animate(
+          {
+            scrollLeft: `+=${itemWidth * 3}`,
+          },
+          400
+        );
+      });
+
+      processNavContent.find(".scroll-left").click(function () {
+        ul.animate(
+          {
+            scrollLeft: `-=${itemWidth * 3}`,
+          },
+          400
+        );
+      });
     }
   }
-
-  function scrollToSelected() {
-    const selectedLi = $("#process-nav-content ul li.active");
-    if (selectedLi.length) {
-      const scrollPosition = selectedLi.position().left - itemWidth;
-      $("#process-nav-content ul").animate(
-        {
-          scrollLeft: scrollPosition,
-        },
-        "slow"
-      );
-    }
-  }
-
-  scrollToSelected();
-
-  $(".scroll-right").click(function () {
-    $("#process-nav-content ul").animate(
-      {
-        scrollLeft: `+=${itemWidth * 3}`,
-      },
-      400
-    );
-  });
-
-  $(".scroll-left").click(function () {
-    $("#process-nav-content ul").animate(
-      {
-        scrollLeft: `-=${itemWidth * 3}`,
-      },
-      400
-    );
-  });
 });
