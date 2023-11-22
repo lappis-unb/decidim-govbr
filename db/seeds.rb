@@ -8,7 +8,7 @@
 # You can remove the 'faker' gem if you don't want Decidim seeds.
 # Decidim.seed!
 
-# Cria o administrador do sistema
+Cria o administrador do sistema
 Decidim::System::Admin.new(email: ENV['ADMIN_EMAIL'], password: ENV['ADMIN_PASSWORD'], password_confirmation: ENV['ADMIN_PASSWORD']).save!(validate: false)
 
 # Define cores padrões do Brasil Participativo
@@ -102,293 +102,96 @@ puts 'Bloco "Bloco HTML" ativo.'
 html_content_block = Decidim::ContentBlock.find_by(organization: organization, manifest_name: :html, scope_name: :homepage)
 html_content_block.save!
 
-# bp_arquivo = Rails.root.join(__dir__, 'seeds', 'bp_components.json') 
-# bp_components = File.read(bp_arquivo)
-
 # Adicionando processos
-# processes = Decidim::ParticipatoryProcess.create!(
-#     id: 1,
-#     slug: 'brasilparticipativo',
-#     hashtag: '',
-#     decidim_organization_id: 1,
-#     created_at: Time.current,
-#     updated_at: Time.current,
-#     title: {
-#         'pt-BR': 'Brasil Participativo'
-#     },
-#     subtitle: {
-#         'pt-BR': 'Presidencia'
-#     },
-#     short_description: {
-#         'pt-BR': '<p>brasil participativo</p>'
-#     },
-#     description: {
-#         'pt-BR': '<p>brasil participativo</p>'
-#     },
-#     hero_image: nil,
-#     banner_image: nil,
-#     published_at: nil,
-#     developer_group: {
-#         'pt-BR': ''
-#     },
-#     end_date: nil,
-#     meta_scope: {
-#         'pt-BR': ''
-#     },
-#     local_area: {
-#         'pt-BR': ''
-#     },
-#     target: {
-#         'pt-BR': ''
-#     },
-#     participatory_scope: {
-#         'pt-BR': ''
-#     },
-#     participatory_structure: {
-#         'pt-BR': ''
-#     },
-#     decidim_scope_id: nil,
-#     decidim_participatory_process_group_id: 7,
-#     show_statistics: true,
-#     announcement: {
-#         'pt-BR': ''
-#     },
-#     start_date: nil,
-#     decidim_area_id: nil,
-#     decidim_scope_type_id: nil,
-#     weight: 1,
-#     follows_count: 1,
-#     private_space: false,
-#     promoted: false,
-#     scopes_enabled: false,
-#     show_metrics: false,
-#     show_statistics: false,
-# )
-# processes.save!
 
-# processes = Decidim::ParticipatoryProcess.create!(
-#     id: 2,
-#     slug: 'programas',
-#     hashtag: '',
-#     decidim_organization_id: 1,
-#     created_at: Time.current,
-#     updated_at: Time.current,
-#     title: {
-#         'pt-BR': 'PPA Participativo'
-#     },
-#     subtitle: {
-#         'pt-BR': 'Escolha seus programas prioritários e Envie propostas'
-#     },
-#     short_description: {
-#         'pt-BR': '<p>Neste processo as pessoas vão poder votar em até 3 programas prioritários que levarão ações estruturantes para os seus territórios. Além de poderem enviar uma proposta de implementação de política pública para sua região ou município. </p>'
-#     },
-#     description: {
-#         'pt-BR': '<p>Após escolher os três programas estruturantes de sua preferência clique na aba lateral <strong>\"Envie uma proposta para o PPA\"</strong> para enviar uma proposta para o PPA 2023.</p>'
-#     },
-#     hero_image: nil,
-#     banner_image: nil,
-#     published_at: nil,
-#     developer_group: {
-#         'pt-BR': ''
-#     },
-#     end_date: nil,
-#     meta_scope: {
-#         'pt-BR': ''
-#     },
-#     local_area: {
-#         'pt-BR': ''
-#     },
-#     target: {
-#         'pt-BR': ''
-#     },
-#     participatory_scope: {
-#         'pt-BR': ''
-#     },
-#     participatory_structure: {
-#         'pt-BR': ''
-#     },
-#     decidim_scope_id: nil,
-#     decidim_participatory_process_group_id: 7,
-#     show_statistics: true,
-#     announcement: {
-#         'pt-BR': ''
-#     },
-#     start_date: nil,
-#     decidim_area_id: nil,
-#     decidim_scope_type_id: nil,
-#     weight: 1,
-#     follows_count: 1,
-#     private_space: false,
-#     promoted: false,
-#     scopes_enabled: false,
-#     show_metrics: true,
-#     show_statistics: true,
-# )
-# processes.save!
+file = File.open(Rails.root.join('db', 'seeds', 'process_ppa.json'))
+blob = ActiveStorage::Blob.create_and_upload!(io: file, filename: 'process_ppa.json')
 
-# component = Decidim::Component.create!(
-#     id: 1,
-#     manifest_name: 'blogs',
-#     name: {
-#         'pt-BR': 'Notícias'
-#     },
-#     participatory_space_id: 1,
-#     settings: {
-#         steps: {},
-#         global: {
-#             announcement: {
-#                 'pt-BR': ''
-#             },
-#             announcement_en: nil,
-#             comments_enabled: false,
-#             announcement_pt__BR: '',
-#             comments_max_length: 0
-#         },
-#         default_step: {
-#             announcement: {
-#                 'pt-BR': ''
-#             },
-#             announcement_en: nil,
-#             comments_blocked: false,
-#             announcement_pt__BR: nil,
-#             endorsements_blocked: false,
-#             endorsements_enabled: true
-#         }
-#     },
-#     weight: 0,
-#     permissions: nil,
-#     published_at: Time.current,
-#     created_at: Time.current,
-#     updated_at: Time.current,
-#     participatory_space_type: Decidim::ParticipatoryProcess,
-# )
-# component.save!
+class DummyImporter
+  include Decidim::FormFactory
+  def current_organization
+    Decidim::Organization.first
+  end
 
-# component = Decidim::Component.create!(
-#     id: 2,
-#     manifest_name: 'pages',
-#     name: {
-#         'pt-BR': 'Início'
-#     },
-#     participatory_space_id: 1,
-#     settings: {
-#         steps: {},
-#         global: {
-#             announcement: {
-#                 'pt-BR': ''
-#             },
-#             announcement_en: nil,
-#             comments_enabled: false,
-#             announcement_pt__BR: '',
-#             comments_max_length: 0
-#         },
-#         default_step: {
-#             announcement: {
-#                 'pt-BR': ''
-#             },
-#             announcement_en: nil,
-#             comments_blocked: false,
-#             announcement_pt__BR: nil,
-#             endorsements_blocked: false,
-#             endorsements_enabled: true
-#         }
-#     },
-#     weight: 0,
-#     permissions: nil,
-#     published_at: Time.current,
-#     created_at: Time.current,
-#     updated_at: Time.current,
-#     participatory_space_type: Decidim::ParticipatoryProcess,
-# )
-# component.save!
+  def current_user
+    Decidim::User.first
+  end
+end
 
-# Decidim::Pages::Page.create()
+hash_to_import = {"participatory_process"=>{"title_pt"=>"PPA Participativo", "title_pt__BR" => "PPA", "slug"=>"programas", "document"=>blob, "document_validation"=>"1", "import_steps"=>"1", "import_categories"=>"1", "import_attachments"=>"0", "import_components"=>"1", 'current_organization' => Decidim::Organization.first, 'organization_id' => 1, 'organization' => Decidim::Organization.first}}
+form = DummyImporter.new.form(Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessImportForm).from_params(hash_to_import)
 
-# Cria processos ---------------------------------------------------------------
-bp_process = Decidim::ParticipatoryProcess.create!(
-    id: 2,
-    slug: 'brasilparticipativo',
-    decidim_organization_id: 1,
-    title: {
-        'pt-BR': 'Brasil Participativo'
-    },
-    subtitle: {
-        'pt-BR': 'Presidencia'
-    },
-    short_description: {
-        'pt-BR': '<p>brasil participativo</p>'
-    },
-    description: {
-        'pt-BR': '<p>brasil participativo</p>'
-    }
-)
-bp_process.save!
+puts form.invalid?
+puts form.errors.details
 
-ppa_process = Decidim::ParticipatoryProcess.create!(
-    id: 1,
-    slug: 'programas',
-    decidim_organization_id: 1,
-    title: {
-        'pt-BR': 'PPA Participativo'
-    },
-    subtitle: {
-        'pt-BR': 'Escolha seus programas prioritários e Envie propostas'
-    },
-    short_description: {
-        'pt-BR': '<p>Neste processo as pessoas vão poder votar em até 3 programas prioritários que levarão ações estruturantes para os seus territórios. Além de poderem enviar uma proposta de implementação de política pública para sua região ou município. </p>'
-    },
-    description: {
-        'pt-BR': '<p>Após escolher os três programas estruturantes de sua preferência clique na aba lateral <strong>\"Envie uma proposta para o PPA\"</strong> para enviar uma proposta para o PPA 2023.</p>'
-    },
-)
-ppa_process.save!
+Decidim::ParticipatoryProcesses::Admin::ImportParticipatoryProcess.call(form) do
+  on(:ok) do
+    puts 'Success'
+end
+on(:invalid) do
+    puts 'invalid'
+  end
+end
 
-# Cria componentes -------------------------------------------------------------
-component = Decidim::Component.create!(
-    id: 1,
-    manifest_name: 'blogs',
-    name: {
-        'pt-BR': 'Notícias'
-    },
-    participatory_space_id: 2,
-    participatory_space_type: Decidim::ParticipatoryProcess,
-)
-component.save!
+file2 = File.open(Rails.root.join('db', 'seeds', 'process_bp.json'))
+blob2 = ActiveStorage::Blob.create_and_upload!(io: file2, filename: 'process_bp.json')
 
-# Cria steps ---------------------------------------------------------------
-process_step = Decidim::ParticipatoryProcessStep.create!(
-    decidim_participatory_process_id: 1,
-    id: 7,
-    title: {
-        'pt-BR': 'Introdução'
-    },
-    description: nil,
-    start_date: nil,
-    end_date: nil,
-    cta_path: nil,
-    cta_text: {
-    },
-    active: true,
-    position: 0
-)
-process_step.save!
+class DummyImporter
+  include Decidim::FormFactory
+  def current_organization
+    Decidim::Organization.first
+  end
 
-process_step = Decidim::ParticipatoryProcessStep.create!(
-    decidim_participatory_process_id: 2,
-    id: 8,
-    title: {
-        'pt-BR': 'Introdução'
-    },
-    description: nil,
-    start_date: nil,
-    end_date: nil,
-    cta_path: nil,
-    cta_text: {
-    },
-    active: true,
-    position: 0
-)
-process_step.save!
+  def current_user
+    Decidim::User.first
+  end
+end
+
+hash_to_import = {"participatory_process"=>{"title_pt__BR" => "Brasil Participativo", "slug"=>"brasilparticipativo", "document"=>blob2, "document_validation"=>"1", "import_steps"=>"1", "import_categories"=>"1", "import_attachments"=>"0", "import_components"=>"1", 'current_organization' => Decidim::Organization.first, 'organization_id' => 1, 'organization' => Decidim::Organization.first}}
+form = DummyImporter.new.form(Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessImportForm).from_params(hash_to_import)
+
+puts form.invalid?
+puts form.errors.details
+
+Decidim::ParticipatoryProcesses::Admin::ImportParticipatoryProcess.call(form) do
+  on(:ok) do
+    puts 'Success'
+end
+on(:invalid) do
+    puts 'invalid'
+  end
+end
+
+# Importando as assembleias
+
+file3 = File.open(Rails.root.join('db', 'seeds', 'assemblies-confjuv4.json'))
+blob3 = ActiveStorage::Blob.create_and_upload!(io: file3, filename: 'assemblies-confjuv4.json')
+
+class DummyImporter
+  include Decidim::FormFactory
+  def current_organization
+    Decidim::Organization.first
+  end
+
+  def current_user
+    Decidim::User.first
+  end
+end
+
+hash_to_import = {"assembly"=>{"title_pt__BR" => "4confjuv", "slug"=> "confjuv4", "document"=>blob3, "document_validation"=>"1", "import_steps"=>"1", "import_categories"=>"1", "import_components"=>"1", 'current_organization' => Decidim::Organization.first, 'organization_id' => 1, 'organization' => Decidim::Organization.first}}
+form = DummyImporter.new.form(Decidim::Assemblies::Admin::AssemblyImportForm).from_params(hash_to_import)
+
+puts form.invalid?
+puts form.errors.details
+
+Decidim::Assemblies::Admin::AssemblyImportForm.call(form, Decidim::User.first) do
+  on(:ok) do
+    puts 'Success'
+end
+on(:invalid) do
+    puts 'invalid'
+  end
+end
 
 # ---------------------------------------------------- Criar componentes iterando o JSON
 # require 'json'
