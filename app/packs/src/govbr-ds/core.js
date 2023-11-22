@@ -16112,3 +16112,6 @@ contrastButtonFunc();
 
 import navBarButtonsListeners from "../navBar";
 navBarButtonsListeners();
+
+import { textToSpeechFunc } from "../tts_widget";
+textToSpeechFunc();
