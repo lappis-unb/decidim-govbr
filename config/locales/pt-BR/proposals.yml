@@ -274,8 +274,7 @@ pt-BR:
           recent: Recentes
           with_more_authors: Com mais autores
         preview:
-          announcement_body: Este é um rascunho para revisão. Clique em editar para modificar ou em publicar se não desejar alterar.
-Após a publicação você terá 15 minutos para editar e depois não será possível modificar o conteúdo.
+          announcement_body: Este é um rascunho para revisão. Clique em editar para modificar ou em publicar se não desejar alterar. Após a publicação você terá 15 minutos para editar e depois não será possível modificar o conteúdo.
           announcement_title: A sua proposta ainda não foi publicada
           modify: Editar proposta
         requests:
