@@ -8,8 +8,21 @@
 # You can remove the 'faker' gem if you don't want Decidim seeds.
 # Decidim.seed!
 
-Cria o administrador do sistema
-Decidim::System::Admin.new(email: ENV['ADMIN_EMAIL'], password: ENV['ADMIN_PASSWORD'], password_confirmation: ENV['ADMIN_PASSWORD']).save!(validate: false)
+# Cria o administrador do sistema
+email = ENV['ADMIN_EMAIL']
+password = ENV['ADMIN_PASSWORD']
+
+if !email
+    email = 'bpadmin@example.com'
+    puts "Não foi encontrada a variável de ambiente $ADMIN_EMAIL, usuário criado com e-mail padrão 'bpadmin@example.com'"
+end
+
+if !password
+    password = 'bpadmin123'
+    puts "Não foi encontrada a variável de ambiente $ADMIN_PASSWORD, usuário criado com senha padrão 'bpadmin123'"
+end
+
+Decidim::System::Admin.new(email: email, password: password, password_confirmation: password).save!(validate: false)
 
 # Define cores padrões do Brasil Participativo
 colors = {
@@ -108,14 +121,14 @@ file = File.open(Rails.root.join('db', 'seeds', 'process_ppa.json'))
 blob = ActiveStorage::Blob.create_and_upload!(io: file, filename: 'process_ppa.json')
 
 class DummyImporter
-  include Decidim::FormFactory
-  def current_organization
+    include Decidim::FormFactory
+    def current_organization
     Decidim::Organization.first
-  end
+    end
 
-  def current_user
+    def current_user
     Decidim::User.first
-  end
+    end
 end
 
 hash_to_import = {"participatory_process"=>{"title_pt"=>"PPA Participativo", "title_pt__BR" => "PPA", "slug"=>"programas", "document"=>blob, "document_validation"=>"1", "import_steps"=>"1", "import_categories"=>"1", "import_attachments"=>"0", "import_components"=>"1", 'current_organization' => Decidim::Organization.first, 'organization_id' => 1, 'organization' => Decidim::Organization.first}}
@@ -125,26 +138,26 @@ puts form.invalid?
 puts form.errors.details
 
 Decidim::ParticipatoryProcesses::Admin::ImportParticipatoryProcess.call(form) do
-  on(:ok) do
+    on(:ok) do
     puts 'Success'
 end
 on(:invalid) do
     puts 'invalid'
-  end
+    end
 end
 
 file2 = File.open(Rails.root.join('db', 'seeds', 'process_bp.json'))
 blob2 = ActiveStorage::Blob.create_and_upload!(io: file2, filename: 'process_bp.json')
 
 class DummyImporter
-  include Decidim::FormFactory
-  def current_organization
+    include Decidim::FormFactory
+    def current_organization
     Decidim::Organization.first
-  end
+    end
 
-  def current_user
+    def current_user
     Decidim::User.first
-  end
+    end
 end
 
 hash_to_import = {"participatory_process"=>{"title_pt__BR" => "Brasil Participativo", "slug"=>"brasilparticipativo", "document"=>blob2, "document_validation"=>"1", "import_steps"=>"1", "import_categories"=>"1", "import_attachments"=>"0", "import_components"=>"1", 'current_organization' => Decidim::Organization.first, 'organization_id' => 1, 'organization' => Decidim::Organization.first}}
@@ -154,12 +167,12 @@ puts form.invalid?
 puts form.errors.details
 
 Decidim::ParticipatoryProcesses::Admin::ImportParticipatoryProcess.call(form) do
-  on(:ok) do
+    on(:ok) do
     puts 'Success'
 end
 on(:invalid) do
     puts 'invalid'
-  end
+    end
 end
 
 # Importando as assembleias
@@ -168,14 +181,14 @@ file3 = File.open(Rails.root.join('db', 'seeds', 'assemblies-confjuv4.json'))
 blob3 = ActiveStorage::Blob.create_and_upload!(io: file3, filename: 'assemblies-confjuv4.json')
 
 class DummyImporter
-  include Decidim::FormFactory
-  def current_organization
+    include Decidim::FormFactory
+    def current_organization
     Decidim::Organization.first
-  end
+    end
 
-  def current_user
+    def current_user
     Decidim::User.first
-  end
+    end
 end
 
 hash_to_import = {"assembly"=>{"title_pt__BR" => "4confjuv", "slug"=> "confjuv4", "document"=>blob3, "document_validation"=>"1", "import_steps"=>"1", "import_categories"=>"1", "import_components"=>"1", 'current_organization' => Decidim::Organization.first, 'organization_id' => 1, 'organization' => Decidim::Organization.first}}
@@ -185,12 +198,12 @@ puts form.invalid?
 puts form.errors.details
 
 Decidim::Assemblies::Admin::AssemblyImportForm.call(form, Decidim::User.first) do
-  on(:ok) do
+    on(:ok) do
     puts 'Success'
 end
 on(:invalid) do
     puts 'invalid'
-  end
+    end
 end
 
 # ---------------------------------------------------- Criar componentes iterando o JSON
