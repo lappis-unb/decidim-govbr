@@ -123,11 +123,11 @@ blob = ActiveStorage::Blob.create_and_upload!(io: file, filename: 'process_ppa.j
 class DummyImporter
     include Decidim::FormFactory
     def current_organization
-    Decidim::Organization.first
+        Decidim::Organization.first
     end
 
     def current_user
-    Decidim::User.first
+        Decidim::User.first
     end
 end
 
@@ -139,10 +139,10 @@ puts form.errors.details
 
 Decidim::ParticipatoryProcesses::Admin::ImportParticipatoryProcess.call(form) do
     on(:ok) do
-    puts 'Success'
-end
-on(:invalid) do
-    puts 'invalid'
+        puts 'Success'
+    end
+    on(:invalid) do
+        puts 'invalid'
     end
 end
 
@@ -152,11 +152,11 @@ blob2 = ActiveStorage::Blob.create_and_upload!(io: file2, filename: 'process_bp.
 class DummyImporter
     include Decidim::FormFactory
     def current_organization
-    Decidim::Organization.first
+        Decidim::Organization.first
     end
 
     def current_user
-    Decidim::User.first
+        Decidim::User.first
     end
 end
 
@@ -168,10 +168,10 @@ puts form.errors.details
 
 Decidim::ParticipatoryProcesses::Admin::ImportParticipatoryProcess.call(form) do
     on(:ok) do
-    puts 'Success'
-end
-on(:invalid) do
-    puts 'invalid'
+        puts 'Success'
+    end
+    on(:invalid) do
+        puts 'invalid'
     end
 end
 
@@ -183,11 +183,11 @@ blob3 = ActiveStorage::Blob.create_and_upload!(io: file3, filename: 'assemblies-
 class DummyImporter
     include Decidim::FormFactory
     def current_organization
-    Decidim::Organization.first
+        Decidim::Organization.first
     end
 
     def current_user
-    Decidim::User.first
+        Decidim::User.first
     end
 end
 
@@ -199,10 +199,10 @@ puts form.errors.details
 
 Decidim::Assemblies::Admin::AssemblyImportForm.call(form, Decidim::User.first) do
     on(:ok) do
-    puts 'Success'
-end
-on(:invalid) do
-    puts 'invalid'
+        puts 'Success'
+    end
+    on(:invalid) do
+        puts 'invalid'
     end
 end
 
