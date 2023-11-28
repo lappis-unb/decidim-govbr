@@ -3,12 +3,20 @@
 
 pt-BR:
   decidim:
+    forms:
+      user_answers_serializer:
+        email: E-mail
+        uid: CPF
     admin:
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Pesquisar %{collection} por e-mail, nome, nome de usuário ou CPF.
 pt:
   decidim:
+    forms:
+      user_answers_serializer:
+        email: E-mail
+        uid: CPF
     admin:
       filters:
         search_placeholder:
@@ -16,6 +24,10 @@ pt:
 
 en:
   decidim:
+    forms:
+      user_answers_serializer:
+        email: E-mail
+        uid: Identification number
     admin:
       filters:
         search_placeholder:
@@ -23,6 +35,10 @@ en:
 
 es-MX:
   decidim:
+    forms:
+      user_answers_serializer:
+        email: E-mail
+        uid: Número de identificación
     admin:
       filters:
         search_placeholder:
@@ -30,6 +46,10 @@ es-MX:
 
 es-PY:
   decidim:
+    forms:
+      user_answers_serializer:
+        email: E-mail
+        uid: Número de identificación
     admin:
       filters:
         search_placeholder:
@@ -37,6 +57,10 @@ es-PY:
 
 es:
   decidim:
+    forms:
+      user_answers_serializer:
+        email: E-mail
+        uid: Número de identificación
     admin:
       filters:
         search_placeholder:
