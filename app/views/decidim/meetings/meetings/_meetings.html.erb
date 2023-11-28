@@ -62,9 +62,9 @@
   
 <%# </div> %> 
 
-<div class="row small-up-1 medium-up-2 card-grid">
+<div class="meetings-content">
   <% meetings.each do |meeting| %>
-  <% if meeting.start_time.month == 10  %>
+  <% if meeting.start_time.month == 11  %>
     <%= card_for meeting %>
   <% end %>
 <% end %>

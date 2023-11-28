@@ -1,5 +1,5 @@
-<div class="column" id="<%= dom_id(model) %>">
-  <div class="card <%= card_classes %>">
+<div id="<%= dom_id(model) %>">
+  <div class="card <%= card_classes %> primary">
     <%= render :label if has_label? %>
     <%= render :top if render_top? %>
     <%= render :image if has_image? %>
