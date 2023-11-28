@@ -34,17 +34,10 @@ module Decidim
           answer_translated_attribute_name(:id) => answer&.session_token,
           answer_translated_attribute_name(:created_at) => answer&.created_at&.to_s(:db),
           answer_translated_attribute_name(:ip_hash) => answer&.ip_hash,
-          answer_translated_attribute_name(:user_status) => answer_translated_attribute_name(answer&.decidim_user_id.present? ? "registered" : "unregistered")
+          answer_translated_attribute_name(:user_status) => answer_translated_attribute_name(answer&.decidim_user_id.present? ? "registered" : "unregistered"),
+          answer_translated_attribute_name(:email) => answer&.anonymous_answer ? answer_translated_attribute_name('anonymous_answer') : answer.try(:user).try(:email),
+          answer_translated_attribute_name(:uid) => answer&.anonymous_answer ? answer_translated_attribute_name('anonymous_answer') : answer.try(:user).try(:identities).try(:first).try(:uid)
         }
-
-        if true
-          basic_information.merge({
-            answer_translated_attribute_name(:email) => answer.try(:user).try(:email),
-            answer_translated_attribute_name(:uid) => answer.try(:user).try(:identities).try(:first).try(:uid)
-          })
-        else
-          basic_information
-        end
       end
 
       def questions_hash
