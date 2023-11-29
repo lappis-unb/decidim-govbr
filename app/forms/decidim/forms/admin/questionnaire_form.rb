@@ -18,6 +18,7 @@ module Decidim
         attribute :questions, Array[QuestionForm]
 
         validates :title, :tos, translatable_presence: true
+        validates :topp, translatable_presence: true, if: -> (form) { form.collect_user_data.present? }
 
         def map_model(model)
           self.questions = model.questions.map do |question|
