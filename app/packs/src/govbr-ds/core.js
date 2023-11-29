@@ -16072,22 +16072,18 @@ reference element's position.
 
       function updateContentMarginTop() {
         const header = document.querySelector("#br-header");
-        const menu = document.querySelector(".process-nav");
+        const menu = document.querySelector("#process-nav-content");
         const content = document.querySelector("#content");
-        const banner = document.querySelector(".omnipresent-banner");
+        const wrapper = document.querySelector("#content > .wrapper");
 
-        let marginTotal = "";
-        if (menu) {
-          marginTotal = header.offsetHeight + menu.offsetHeight;
+        content.style.marginTop = header.offsetHeight + "px";
+
+        if (menu && content) {
           menu.style.top = header.offsetHeight + "px";
-        } else {
-          marginTotal = header.offsetHeight;
+          wrapper.style.top = menu.offsetHeight + "px";
         }
-
-        if (banner) {
-          banner.style.marginTop = marginTotal + "px";
-        } else if (content) {
-          content.style.marginTop = marginTotal + "px";
+        else {
+          wrapper.style.top = header.offsetHeight + "px";
         }
       }
 
@@ -16113,5 +16109,5 @@ contrastButtonFunc();
 import { textToSpeechFunc } from "../tts_widget";
 textToSpeechFunc();
 
-import navBarButtonsListeners from "../navBar";
-navBarButtonsListeners();
+import { getNavBar } from "../submenu_navbar";
+getNavBar();
