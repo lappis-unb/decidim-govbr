@@ -12,7 +12,7 @@ module Decidim
         translatable_attribute :tos, String
         translatable_attribute :topp, String
 
-        attribute :collect_user_data
+        attribute :collect_user_data, Boolean
 
         attribute :published_at, Decidim::Attributes::TimeWithZone
         attribute :questions, Array[QuestionForm]
