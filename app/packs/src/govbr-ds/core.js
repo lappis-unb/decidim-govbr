@@ -16080,10 +16080,10 @@ reference element's position.
 
         if (menu && content) {
           menu.style.top = header.offsetHeight + "px";
-          wrapper.style.top = menu.offsetHeight + "px";
+          wrapper.style.marginTop = menu.offsetHeight + "px";
         }
         else {
-          wrapper.style.top = header.offsetHeight + "px";
+          wrapper.style.marginTop = header.offsetHeight + "px";
         }
       }
 
