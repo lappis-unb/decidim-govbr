@@ -16076,14 +16076,14 @@ reference element's position.
         const content = document.querySelector("#content");
         const wrapper = document.querySelector("#content > .wrapper");
 
-        content.style.marginTop = header.offsetHeight + "px";
+        content.style.marginTop = (header.offsetHeight - 2) + "px";
 
         if (menu && content) {
-          menu.style.top = header.offsetHeight + "px";
+          menu.style.top = (header.offsetHeight - 2) + "px";
           wrapper.style.marginTop = menu.offsetHeight + "px";
         }
         else {
-          wrapper.style.marginTop = header.offsetHeight + "px";
+          wrapper.style.marginTop = (header.offsetHeight - 2) + "px";
         }
       }
 
