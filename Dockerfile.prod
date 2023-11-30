@@ -1,0 +1,14 @@
+FROM lappis/decidim-govbr:v1-release
+
+RUN apt install vim telnet -y
+
+RUN git clone https://gitlab.com/lappis-unb/decidimbr/decidim-govbr.git /decidim-govbr
+WORKDIR /decidim-govbr
+RUN bundle install
+RUN npm install
+RUN yarn
+COPY .env.prod .env
+RUN mkdir config/puma
+RUN mkdir /tmp/sockets
+RUN mkdir /tmp/pids
+COPY setup/puma.production.rb config/puma/production.rb
