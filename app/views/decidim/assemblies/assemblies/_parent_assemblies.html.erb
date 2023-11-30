@@ -1,0 +1,18 @@
+<section id="parent-assemblies" class="br-container-lg">
+  <div>
+    <div>
+      <h3 id="assemblies-count" class="section-heading collapse">
+        <%= render partial: "count" %>
+      </h3>
+      <%= render partial: "decidim/assemblies/filter_by_type" %>
+    </div>
+    <%
+=begin%>
+ <%= render partial: "decidim/shared/participatory_space_filters/show" %> 
+<%
+=end%>
+  </div>
+  <div class="card-grid proposals-content">
+    <%= render(parent_assemblies) %>
+  </div>
+</section>

@@ -577,29 +577,29 @@ form#session_new_user {
   background: var(---white);
 }
 
-.process-header {
-  background-image: none;
-  border-bottom: 1px solid var(--border-color);
-}
+// .process-header {
+//   background-image: none;
+//   border-bottom: 1px solid var(--border-color);
+// }
 
-.process-header__main {
-  background-size: none;
-  position: absolute;
-  z-index: 0;
-  width: 0;
-  height: 0;
-  max-width: 0;
-  margin: 0;
-  background: var(---gray-03) 0% 0% no-repeat padding-box;
-}
+// .process-header__main {
+//   background-size: none;
+//   position: absolute;
+//   z-index: 0;
+//   width: 0;
+//   height: 0;
+//   max-width: 0;
+//   margin: 0;
+//   background: var(---gray-03) 0% 0% no-repeat padding-box;
+// }
 
-.process-header__phase,
-.process-phase {
-  background: var(---white) 0% 0% no-repeat padding-box;
-  box-shadow: 0px 1px 6px #00000029;
-  border-radius: 4px;
-  opacity: 1;
-}
+// .process-header__phase,
+// .process-phase {
+//   background: var(---white) 0% 0% no-repeat padding-box;
+//   box-shadow: 0px 1px 6px #00000029;
+//   border-radius: 4px;
+//   opacity: 1;
+// }
 
 body {
   font-family: "rawline", sans-serif !important;
@@ -621,10 +621,10 @@ h6,
   font-family: "rawline", sans-serif !important;
 }
 
-.process-header__phase,
-.process-phase {
-  margin: 1.25rem 0;
-}
+// .process-header__phase,
+// .process-phase {
+//   margin: 1.25rem 0;
+// }
 
 .phase-current {
   font: var(--unnamed-font-style-normal) normal
@@ -661,17 +661,17 @@ h6,
   opacity: 1;
 }
 
-.process-header__phase > a {
-  font-family: "rawline", sans-serif;
-  font-style: italic;
-  font-weight: var(--unnamed-font-weight-normal);
-  font-size: var(--unnamed-font-size-11-670000076293945);
-  line-height: var(--unnamed-line-spacing-16-18000030517578);
-  letter-spacing: var(--unnamed-character-spacing-0);
-  color: var(---blue-vivid-50);
-  text-align: left;
-  opacity: 1;
-}
+// .process-header__phase > a {
+//   font-family: "rawline", sans-serif;
+//   font-style: italic;
+//   font-weight: var(--unnamed-font-weight-normal);
+//   font-size: var(--unnamed-font-size-11-670000076293945);
+//   line-height: var(--unnamed-line-spacing-16-18000030517578);
+//   letter-spacing: var(--unnamed-character-spacing-0);
+//   color: var(---blue-vivid-50);
+//   text-align: left;
+//   opacity: 1;
+// }
 
 .heading-small {
   font-family: "rawline", sans-serif;
@@ -746,9 +746,9 @@ h6,
   margin: none;
 }
 
-.process-header__info .heading2 {
-  margin-bottom: 0.938rem;
-}
+// .process-header__info .heading2 {
+//   margin-bottom: 0.938rem;
+// }
 
 .columns .heading3 {
   font-family: var(--unnamed-font-family-rawline);
