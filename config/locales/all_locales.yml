@@ -3,6 +3,8 @@
 
 pt-BR:
   decidim:
+    map:
+      map_link_hint: Confira no mapa o endereço %{address}
     forms:
       admin:
         models:
@@ -22,6 +24,8 @@ pt-BR:
           name_or_nickname_or_email_or_identities_uid_cont: Pesquisar %{collection} por e-mail, nome, nome de usuário ou CPF.
 pt:
   decidim:
+    map:
+      map_link_hint: Confira no mapa o endereço %{address}
     forms:
       admin:
         models:
@@ -42,6 +46,8 @@ pt:
 
 en:
   decidim:
+    map:
+      map_link_hint: Check out %{address} in the map
     forms:
       admin:
         models:
@@ -62,6 +68,8 @@ en:
 
 es-MX:
   decidim:
+    map:
+      map_link_hint: Mira %{address} en el mapa
     forms:
       admin:
         models:
@@ -82,6 +90,8 @@ es-MX:
 
 es-PY:
   decidim:
+    map:
+      map_link_hint: Mira %{address} en el mapa
     forms:
       admin:
         models:
@@ -102,6 +112,8 @@ es-PY:
 
 es:
   decidim:
+    map:
+      map_link_hint: Mira %{address} en el mapa
     forms:
       admin:
         models:
