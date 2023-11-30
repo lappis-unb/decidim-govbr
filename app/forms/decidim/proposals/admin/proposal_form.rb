@@ -8,11 +8,11 @@ module Decidim
         include Decidim::HasUploadValidations
 
         translatable_attribute :title, String do |field, _locale|
-          validates field, length: { in: 15..300 }, if: proc { |resource| resource.send(field).present? }
+          validates field, length: { in: 0..300 }, if: proc { |resource| resource.send(field).present? }
         end
         translatable_attribute :body, String
 
-        validates :title, :body, translatable_presence: true
+        validates :title, :body, translatable_presence: false
 
         validate :notify_missing_attachment_if_errored
 
