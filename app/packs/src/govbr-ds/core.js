@@ -16070,26 +16070,6 @@ reference element's position.
       ); // CONCATENATED MODULE: ./src/partial/js/core-init.js
       /* eslint-disable no-unused-vars */
 
-      function updateContentMarginTop() {
-        const header = document.querySelector("#br-header");
-        const menu = document.querySelector("#process-nav-content");
-        const content = document.querySelector("#content");
-        const wrapper = document.querySelector("#content > .wrapper");
-
-        content.style.marginTop = (header.offsetHeight - 2) + "px";
-
-        if (menu && content) {
-          menu.style.top = (header.offsetHeight - 2) + "px";
-          wrapper.style.marginTop = menu.offsetHeight + "px";
-        }
-        else {
-          wrapper.style.marginTop = (header.offsetHeight - 2) + "px";
-        }
-      }
-
-      updateContentMarginTop();
-      window.addEventListener("resize", updateContentMarginTop);
-
       const globals = new globals_class.Globals();
       globals.initInstanceAll();
 
@@ -16111,3 +16091,6 @@ textToSpeechFunc();
 
 import { getNavBar } from "../submenu_navbar";
 getNavBar();
+
+import { copyLinkToClipboard } from "../copy_link_to_clipboard";
+copyLinkToClipboard();
