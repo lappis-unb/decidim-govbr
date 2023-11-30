@@ -18,23 +18,19 @@
 
 <div class="card-grid proposals-content">
   <%= render @proposals %>
-</div>
 
-<%= render partial: "decidim/shared/results_per_page" %>
-
-<div class="row">
-  <div class="columns mediumlarge-8 large-9">
+  <div class="br-row">
     <% if @proposals.empty? %>
-      <div class="callout secondary">
-        <% if params[:filter].present? %>
-          <p><%= t(".empty_filters") %></p>
-        <% else %>
-          <p><%= t(".empty") %></p>
-        <% end %>
-      </div>
+      <% if params[:filter].present? %>
+        <p><%= t(".empty_filters") %></p>
+      <% else %>
+        <p><%= t(".empty") %></p>
+      <% end %>
     <% end %>
   </div>
 </div>
+
+<%= render partial: "decidim/shared/results_per_page" %>
 
 <%= decidim_paginate @proposals %>
 

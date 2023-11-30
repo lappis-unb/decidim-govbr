@@ -4,7 +4,7 @@
     letter-spacing: .01em;
     text-transform: uppercase;
     font-weight: 600;
-    margin-bottom: 0;
+    margin-bottom: 1rem;
   
     &__strong{
       font-size: 1.2rem;
@@ -52,5 +52,6 @@
 }
 
 .filters {
-  padding: 1rem 0;
+  padding: 0;
+  min-height: auto;
 }
