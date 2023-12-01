@@ -1,0 +1,18 @@
+.meetings-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
+}
+@media (min-width: 640px) {
+  .meetings-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 2rem;
+  }
+}
+
+.card-grid > div {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
