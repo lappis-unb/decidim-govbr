@@ -7,18 +7,14 @@
 
 <%= render partial: "decidim/shared/component_announcement" if current_component.manifest_name == "surveys" %>
 
-<div class="row columns">
-  <h2 class="section-heading"><%= translated_attribute questionnaire.title %></h2>
-  <div class="row">
-    <div class="columns large-<%= columns %> medium-centered lead">
-      <%= decidim_sanitize_editor_admin translated_attribute questionnaire.description %>
-    </div>
+  <div class="columns br-container-lg medium-centered lead">
+    <%= decidim_sanitize_editor_admin translated_attribute questionnaire.description %>
   </div>
-</div>
 
-<div class="row">
-  <div class="columns large-<%= columns %> medium-centered">
-    <div class="card">
+  <div class="columns br-container-lg medium-centered">
+    <h2 class="section-heading"><%= translated_attribute questionnaire.title %></h2>
+
+    <div class="card form-container">
       <div class="card__content">
         <% unless questionnaire_for.try(:component)&.try(:published?) %>
           <div class="section">
@@ -62,16 +58,16 @@
                   <% answer_idx = 0 %>
                   <% cleaned_answer_idx = 0 %>
                   <% @form.responses_by_step.each_with_index do |step_answers, step_index| %>
-                    <div id="step-<%= step_index %>" class="<%= step_index.zero? ? "questionnaire-step" : "questionnaire-step hide" %>" data-toggler=".hide">
+                    <div id="step-<%= step_index %>" class="<%= step_index.zero? ? "questionnaire-step" : "questionnaire-step hide" %> steps" data-toggler=".hide">
                       <% if @form.total_steps > 1 %>
                         <h3 class="section-heading">
                           <%= t(".current_step", step: step_index + 1) %>
                           <span class="answer-questionnaire__steps"><%= t(".of_total_steps", total_steps: @form.total_steps) %></span>
                         </h3>
                       <% end %>
-
+                      <div class="question-grid">
                       <% step_answers.each do |answer| %>
-                        <div class="row column answer question" data-max-choices="<%= answer.question.max_choices %>" data-conditioned="<%= answer.question.display_conditions.any? %>" data-question-id="<%= answer.question.id %>">
+                        <div class=" answer question" data-max-choices="<%= answer.question.max_choices %>" data-conditioned="<%= answer.question.display_conditions.any? %>" data-question-id="<%= answer.question.id %>">
                           <% answer.question.display_conditions.each do |display_condition| %>
                             <%= content_tag :div, nil, class: "display-condition", data: display_condition.to_html_data %>
                           <% end %>
@@ -92,21 +88,22 @@
                         <% end %>
                         <% answer_idx += 1 %>
                       <% end %>
+                      </div>
 
                       <% if step_index + 1 == @form.total_steps %>
                         <% if show_represent_user_group? %>
-                          <div class="row column represent-user-group">
+                          <div class="represent-user-group">
                             <%= cell("decidim/represent_user_group", form) %>
                           </div>
                         <% end %>
 
                         <% if show_public_participation? %>
-                          <div class="row column public-participation">
+                          <div class="public-participation">
                             <%= cell("decidim/public_participation", form) %>
                           </div>
                         <% end %>
 
-                        <div class="row column tos-agreement">
+                        <div class="tos-agreement">
                           <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "questionnaire_tos_agreement", disabled: !current_participatory_space.can_participate?(current_user) %>
                           <div class="help-text">
                             <%= decidim_sanitize_editor translated_attribute questionnaire.tos %>
@@ -114,7 +111,7 @@
                         </div>
 
                         <% if questionnaire.collect_user_data %>
-                          <div class="row column topp-agreement">
+                          <div class="topp-agreement">
                             <%= form.check_box :topp_agreement, label: t(".topp_agreement"), id: "questionnaire_topp_agreement", disabled: !current_participatory_space.can_participate?(current_user) %>
                             <div class="help-text">
                               <%= decidim_sanitize_editor translated_attribute questionnaire.topp %>
@@ -158,7 +155,6 @@
       </div>
     </div>
   </div>
-</div>
 
 <% content_for :js_content do %>
   <%= javascript_pack_tag "decidim_forms" %>
