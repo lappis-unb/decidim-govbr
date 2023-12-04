@@ -2,7 +2,47 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 2rem;
+
+
+  .column > .card {
+    border-top-width: 8px;
+    border-top-color: var(--blue-vivid-10);
+  }
 }
+
+.meeting-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & > button {
+    margin: 0;
+  }
+
+  padding: 1rem 0;
+}
+
+.meetings-button__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.meetings__button-circle {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid var(--blue-warm-vivid-70);
+  position: relative;
+  z-index: 10;
+}
+
+.meetings__button-circle:hover {
+  background-color: rgba(var(--interactive-rgb), var(--hover));
+}
+
 @media (min-width: 640px) {
   .meetings-content {
     display: grid;
@@ -15,4 +55,8 @@
   height: 100%;
   margin: 0;
   padding: 0;
+}
+.meeting-counter-text{
+  font-size: 14px;
+  font-weight: 600;
 }
