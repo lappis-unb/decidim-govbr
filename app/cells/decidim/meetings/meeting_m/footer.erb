@@ -1,9 +1,12 @@
 <div class="card__footer">
   <div class="card__support">
+  <div class="meetings-count-container">
     <p class="meetings-count-text">
       <%= render partial: "/decidim/meetings/meeting_m/count" %>
-      inscritos
     </p>
+      inscritos  
+  </div>
+  
     <% if can_join? && show_footer_actions? %>
       <%= cell "decidim/meetings/join_meeting_button", model %>
     <% else %>

@@ -3,14 +3,28 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 2rem;
 
-
   .column > .card {
     border-top-width: 8px;
     border-top-color: var(--blue-vivid-10);
   }
 }
 
-.meeting-container{
+.meetings-count-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  gap: 6px;
+}
+
+.meetings-count-text {
+  font-size: 20px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.meeting-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -56,7 +70,7 @@
   margin: 0;
   padding: 0;
 }
-.meeting-counter-text{
+.meeting-counter-text {
   font-size: 14px;
   font-weight: 600;
 }
