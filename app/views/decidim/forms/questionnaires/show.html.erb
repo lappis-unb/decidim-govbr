@@ -65,7 +65,7 @@
                           <span class="answer-questionnaire__steps"><%= t(".of_total_steps", total_steps: @form.total_steps) %></span>
                         </h3>
                       <% end %>
-                      <div class="question-grid">
+                      <div class="<%= browser.mobile? ? "question-conainer" : "question-grid"%>">
                       <% step_answers.each do |answer| %>
                         <div class=" answer question" data-max-choices="<%= answer.question.max_choices %>" data-conditioned="<%= answer.question.display_conditions.any? %>" data-question-id="<%= answer.question.id %>">
                           <% answer.question.display_conditions.each do |display_condition| %>
@@ -90,43 +90,49 @@
                       <% end %>
                       </div>
 
-                      <% if step_index + 1 == @form.total_steps %>
-                        <% if show_represent_user_group? %>
-                          <div class="represent-user-group">
-                            <%= cell("decidim/represent_user_group", form) %>
-                          </div>
-                        <% end %>
 
-                        <% if show_public_participation? %>
-                          <div class="public-participation">
-                            <%= cell("decidim/public_participation", form) %>
-                          </div>
-                        <% end %>
+                      
+                        <% if step_index + 1 == @form.total_steps %>
+                          <% if show_represent_user_group? %>
+                            <div class="represent-user-group">
+                              <%= cell("decidim/represent_user_group", form) %>
+                            </div>
+                          <% end %>
 
-                        <div class="tos-agreement">
-                          <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "questionnaire_tos_agreement", disabled: !current_participatory_space.can_participate?(current_user) %>
-                          <div class="help-text">
-                            <%= decidim_sanitize_editor translated_attribute questionnaire.tos %>
-                          </div>
-                        </div>
+                          <% if show_public_participation? %>
+                            <div class="public-participation">
+                              <%= cell("decidim/public_participation", form) %>
+                            </div>
+                          <% end %>
 
-                        <% if questionnaire.collect_user_data %>
-                          <div class="topp-agreement">
-                            <%= form.check_box :topp_agreement, label: t(".topp_agreement"), id: "questionnaire_topp_agreement", disabled: !current_participatory_space.can_participate?(current_user) %>
+                          <div class="tos-agreement">
+                            <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "questionnaire_tos_agreement", disabled: !current_participatory_space.can_participate?(current_user) %>
                             <div class="help-text">
-                              <%= decidim_sanitize_editor translated_attribute questionnaire.topp %>
+                              <%= decidim_sanitize_editor translated_attribute questionnaire.tos %>
                             </div>
                           </div>
-                        <% end %>
-                      <% end %>
 
-                      <%= cell(
-                        "decidim/forms/step_navigation",
-                        step_index,
-                        total_steps: @form.total_steps,
-                        button_disabled: !current_participatory_space.can_participate?(current_user),
-                        form: form
-                      ) %>
+                          <% if questionnaire.collect_user_data %>
+                            <div class="topp-agreement">
+                              <%= form.check_box :topp_agreement, label: t(".topp_agreement"), id: "questionnaire_topp_agreement", disabled: !current_participatory_space.can_participate?(current_user) %>
+                              <div class="help-text">
+                                <%= decidim_sanitize_editor translated_attribute questionnaire.topp %>
+                              </div>
+                            </div>
+                          <% end %>
+                        <% end %>
+                        <div class="submit-container">
+                          <div class="submit-content">
+
+                        <%= cell(
+                          "decidim/forms/step_navigation",
+                          step_index,
+                          total_steps: @form.total_steps,
+                          button_disabled: !current_participatory_space.can_participate?(current_user),
+                          form: form
+                        ) %>
+                        </div>
+                      </div>
                     </div>
                   <% end %>
                 <% end %>
