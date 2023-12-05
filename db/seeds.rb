@@ -9,20 +9,20 @@
 # Decidim.seed!
 
 # Cria o administrador do sistema
-email = ENV['ADMIN_EMAIL']
-password = ENV['ADMIN_PASSWORD']
+# email = ENV['ADMIN_EMAIL']
+# password = ENV['ADMIN_PASSWORD']
 
-if !email
-    email = 'bpadmin@example.com'
-    puts "Não foi encontrada a variável de ambiente $ADMIN_EMAIL, usuário criado com e-mail padrão 'bpadmin@example.com'"
-end
+# if !email
+#     email = 'bpadmin@example.com'
+#     puts "Não foi encontrada a variável de ambiente $ADMIN_EMAIL, usuário criado com e-mail padrão 'bpadmin@example.com'"
+# end
 
-if !password
-    password = 'bpadmin123'
-    puts "Não foi encontrada a variável de ambiente $ADMIN_PASSWORD, usuário criado com senha padrão 'bpadmin123'"
-end
+# if !password
+#     password = 'bpadmin123'
+#     puts "Não foi encontrada a variável de ambiente $ADMIN_PASSWORD, usuário criado com senha padrão 'bpadmin123'"
+# end
 
-Decidim::System::Admin.new(email: email, password: password, password_confirmation: password).save!(validate: false)
+# Decidim::System::Admin.new(email: email, password: password, password_confirmation: password).save!(validate: false)
 
 # Define cores padrões do Brasil Participativo
 colors = {
@@ -197,7 +197,7 @@ form = DummyImporter.new.form(Decidim::Assemblies::Admin::AssemblyImportForm).fr
 puts form.invalid?
 puts form.errors.details
 
-Decidim::Assemblies::Admin::AssemblyImportForm.call(form, Decidim::User.first) do
+Decidim::Assemblies::Admin::ImportAssembly.call(form, Decidim::User.first) do
     on(:ok) do
         puts 'Success'
     end
