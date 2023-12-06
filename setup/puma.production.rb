@@ -1,8 +1,8 @@
 # Change to match your CPU core count
-workers 3
+workers 0
 
 # Min and Max threads per worker
-threads 5, 10
+threads 0, 16
 
 # Default to production
 rails_env = ENV['RAILS_ENV'] || 'production'
@@ -10,7 +10,7 @@ environment rails_env
 
 # Set up socket location
 # bind "unix:///tmp/sockets/puma.sock"
-bind 'tcp://0.0.0.0:9292'
+bind 'tcp://0.0.0.0:3000'
 
 # Logging
 stdout_redirect '/var/log/puma.stdout.log', '/var/log/puma.stderr.log', true
