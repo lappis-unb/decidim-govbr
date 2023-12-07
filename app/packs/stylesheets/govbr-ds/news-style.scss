@@ -57,15 +57,27 @@
 .br-card-date {
   font-size: var(--font-size-scale-down-01);
 }
+
 .social-links {
+  justify-content: center;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.social-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
   padding: 12px 14px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   margin-bottom: 2.5rem;
-  gap: 4px;
+}
+
+.date-post {
+  justify-content: flex-start;
 }
 .social-links label {
   font-size: 12px;

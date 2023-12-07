@@ -32,7 +32,8 @@
  <%= cell "decidim/author", post_presenter.author, from: post %> 
 <%
 =end%>
-        <%= render partial: "medias-section" %>
+        <%= render partial: 'medias-section', :locals=>{ :post_date => post.created_at} %>
+      <%= post.created_at %>
     </div>
     <%
 =begin%>
@@ -67,7 +68,7 @@
         <%= cell "decidim/endorsers_list", post %>
     </div>
     <%= attachments_for post %>
-    <%= render partial: "medias-section" %>
+    <%= render partial: 'medias-section', :locals=>{ :post_date => post.created_at} %>
     <%= comments_for post %>
 <%
 =begin%>
