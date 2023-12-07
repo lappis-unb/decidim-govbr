@@ -784,6 +784,7 @@ span.flatpickr-weekday {
   --blue-20: #aacdec;
   --blue-10: #dbe8fb;
   --blue-5: #eff6fb;
+  --blue-3: #F3F7FB;
   --blue-cool-90: #0f191c;
   --blue-cool-80: #14333d;
   --blue-cool-70: #224a58;
@@ -24716,7 +24717,7 @@ hr {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 4rem 0;
+    padding: 4rem 2rem;
   }
   .br-footer .br-decidim-license {
     text-align: left;
