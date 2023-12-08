@@ -1,0 +1,12 @@
+<div class="br-container-lg">
+  <%= render partial: "decidim/shared/component_announcement" %>
+  <h1>
+    <%= render_participatory_text_title(@participatory_text) %>
+  </h1>
+  <%= render partial: "decidim/proposals/proposals/participatory_texts/view_index" %>
+  <ul class="participatory-text-list" id="proposals-text">
+    <% @proposals.each do |proposal| %>
+      <%= cell("decidim/proposals/participatory_text_proposal", proposal, context: { current_user: current_user }) %>
+    <% end %>
+  </ul>
+</div>

@@ -1,0 +1,46 @@
+.participatory-text-list {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+.participatory-text-item {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.participatory-text-item:nth-child(odd) {
+    background-color: var(--gray-3);
+}
+.participatory-text-item:hover {
+    background: linear-gradient(rgba(var(--interactive-rgb), var(--hover)), rgba(var(--interactive-rgb), var(--hover)));
+}
+
+.see-index-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+}
+
+.participatory-text-item a h6 {
+    margin: 0 0 1rem 0;
+    padding: 0;
+    font-size: 1.1rem;
+    color: var(--blue-warm-vivid-70);
+    font-weight: 400;
+}
+
+.participatory-text-item button, .see-index-container button {
+    color: var(--interactive);
+    gap: 1rem;
+}
+
+.participatory-text-item .item-actions {
+    display: flex;
+    gap: 0.7rem;
+    flex-direction: row;
+    justify-content: flex-end;
+}

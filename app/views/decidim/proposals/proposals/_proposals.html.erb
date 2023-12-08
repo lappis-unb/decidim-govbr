@@ -7,43 +7,32 @@
 <% end %>
 
 <div class="proposals-container">
-  
   <p id="proposals-count" class="proposals-counter">
       <%= render partial: "count" %>
   </p>
 
-  <div class="">
+  <div class="order__by-text">
     <%= order_selector available_orders, i18n_scope: "decidim.proposals.proposals.orders" %>
-  </div>
-
-  
+  </div>  
 </div>
 
-<div class="row small-up-1 medium-up-2 card-grid proposals-content">
+<div class="card-grid proposals-content">
   <%= render @proposals %>
-</div>
 
-<div class="results-per-page">
-  <%= render partial: "decidim/shared/results_per_page" %>
-</div>
-
-
-<div class="row">
-  <div class="columns mediumlarge-8 large-9">
+  <div class="br-row">
     <% if @proposals.empty? %>
-      <div class="callout secondary">
-        <% if params[:filter].present? %>
-          <p><%= t(".empty_filters") %></p>
-        <% else %>
-          <p><%= t(".empty") %></p>
-        <% end %>
-      </div>
+      <% if params[:filter].present? %>
+        <p><%= t(".empty_filters") %></p>
+      <% else %>
+        <p><%= t(".empty") %></p>
+      <% end %>
     <% end %>
   </div>
 </div>
+
+<%= render partial: "decidim/shared/results_per_page" %>
+
 <%= decidim_paginate @proposals %>
-
-
 
 <div class="row">
   <div class="text-right">
