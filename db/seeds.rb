@@ -136,10 +136,10 @@ form = DummyImporter.new.form(Decidim::ParticipatoryProcesses::Admin::Participat
 
 Decidim::ParticipatoryProcesses::Admin::ImportParticipatoryProcess.call(form) do
     on(:ok) do
-        puts 'Success'
+        puts 'Processo "PPA Participativo" importado com sucesso.'
     end
     on(:invalid) do
-        puts 'invalid'
+        puts 'Ocorreu um erro ao importar o processo "PPA Participativo".'
     end
 end
 
@@ -162,10 +162,10 @@ form = DummyImporter.new.form(Decidim::ParticipatoryProcesses::Admin::Participat
 
 Decidim::ParticipatoryProcesses::Admin::ImportParticipatoryProcess.call(form) do
     on(:ok) do
-        puts 'Success'
+        puts 'Processo "Brasil Participativo" importado com sucesso.'
     end
     on(:invalid) do
-        puts 'invalid'
+        puts 'Ocorreu um erro ao importar o processo "Brasil Participativo".'
     end
 end
 
@@ -190,10 +190,10 @@ form = DummyImporter.new.form(Decidim::Assemblies::Admin::AssemblyImportForm).fr
 
 Decidim::Assemblies::Admin::ImportAssembly.call(form, Decidim::User.first) do
     on(:ok) do
-        puts 'Success'
+        puts 'Assembleia "4confjuv" importada com sucesso.'
     end
     on(:invalid) do
-        puts 'invalid'
+        puts 'Ocorreu um erro ao importar a assembleia "4confjuv.""'
     end
 end
 
@@ -211,15 +211,15 @@ class DummyImporter
     end
 end
 
-hash_to_import = {"assembly"=>{"title_pt__BR" => "4confjuv", "slug"=> "confjuv4", "document"=>blob4, "document_validation"=>"1", "import_steps"=>"1", "import_categories"=>"1", "import_attachments"=>"0", "import_components"=>"1", 'current_organization' => Decidim::Organization.first, 'organization_id' => 1, 'organization' => Decidim::Organization.first}}
+hash_to_import = {"assembly"=>{"title_pt__BR" => "6ª Conferência Nacional da Segurança Alimentar", "slug"=> "cnsan6", "document"=>blob4, "document_validation"=>"1", "import_steps"=>"1", "import_categories"=>"1", "import_attachments"=>"0", "import_components"=>"1", 'current_organization' => Decidim::Organization.first, 'organization_id' => 1, 'organization' => Decidim::Organization.first}}
 form = DummyImporter.new.form(Decidim::Assemblies::Admin::AssemblyImportForm).from_params(hash_to_import)
 
 Decidim::Assemblies::Admin::ImportAssembly.call(form, Decidim::User.first) do
     on(:ok) do
-        puts 'Success'
+        puts 'Assembleia "6a Conferencia Nacional da Segurança Alimentar" importada com sucesso.'
     end
     on(:invalid) do
-        puts 'invalid'
+        puts 'Ocorreu um erro ao importar a assembleia "6a Conferencia Nacional da Segurança Alimentar"".'
     end
 end
 
