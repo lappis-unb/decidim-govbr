@@ -7,3 +7,7 @@
     display: flex;
     align-items: center;
 }
+
+.pagination a:hover, .pagination button:hover {
+    border-radius: 100rem;
+}

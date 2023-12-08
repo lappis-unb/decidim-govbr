@@ -1,0 +1,27 @@
+<div class="social-links">
+  <label>Compartilhe: </label>
+  <a href="http://www.facebook.com/sharer.php?u=<%= request.original_url %>" title="Facebook">
+    <span aria-hidden="true" class="fab fa-facebook-f fa-md"></span>
+    <span class="sr-only">Compartilhe por Facebook</span>
+  </a>
+
+  <a href="https://twitter.com/share?text=Not%C3%ADcias&amp;url=https://www.gov.br/secretariageral/resolveuid/1460a8239e394c77aee14a9e75f3c0f0" title="Twitter">
+    <span aria-hidden="true" class="fab fa-x-twitter fa-md"></span>
+    <span class="sr-only">Compartilhe por Twitter</span>
+  </a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<%= request.original_url %>&amp;title=Not%C3%ADcias" title="LinkedIn">
+    <span aria-hidden="true" class="fab fa-linkedin-in fa-md"></span>
+    <span class="sr-only">Compartilhe por LinkedIn</span>
+  </a>
+
+  <a href="https://api.whatsapp.com/send?text=<%= request.original_url %>" title="WhatsApp" class="link-whatsapp">
+    <span aria-hidden="true" class="fab fa-whatsapp fa-md"></span>
+    <span class="sr-only">Compartilhe por WhatsApp</span>
+  </a>
+
+  <a class="link-clipboard" title="Copiar para área de transferência" href="<%= request.original_url %>">
+    <span class="fas fa-link" aria-hidden="true"></span>
+    <span class="sr-only">link para Copiar para área de transferência</span>
+  </a>
+</div>

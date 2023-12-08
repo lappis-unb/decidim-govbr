@@ -1,0 +1,57 @@
+.mini-title { 
+    color: #636363;
+    font-size: .875rem;
+    letter-spacing: .01em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  
+    &__strong{
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+  
+    &__strong--highlight{
+      font-size: 1.4rem;
+    }
+}
+
+.button-container-style {
+    color: #1451b4;
+}
+  
+.size-icon-filter {
+    font-size: 1rem;
+}
+  
+.fa-sliders-h {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+.filter-container {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: left;
+}
+
+@include breakpoint(small down){
+    .reveal{
+      width: 100%;
+      height: 100%;
+    }
+}
+
+.announcement-card {
+  padding: 1rem;
+}
+
+.filters {
+  padding: 0;
+  min-height: auto;
+}
