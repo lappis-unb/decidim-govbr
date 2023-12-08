@@ -134,9 +134,6 @@ end
 hash_to_import = {"participatory_process"=>{"title_pt"=>"PPA Participativo", "title_pt__BR" => "PPA", "slug"=>"programas", "document"=>blob, "document_validation"=>"1", "import_steps"=>"1", "import_categories"=>"1", "import_attachments"=>"0", "import_components"=>"1", 'current_organization' => Decidim::Organization.first, 'organization_id' => 1, 'organization' => Decidim::Organization.first}}
 form = DummyImporter.new.form(Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessImportForm).from_params(hash_to_import)
 
-puts form.invalid?
-puts form.errors.details
-
 Decidim::ParticipatoryProcesses::Admin::ImportParticipatoryProcess.call(form) do
     on(:ok) do
         puts 'Success'
@@ -163,9 +160,6 @@ end
 hash_to_import = {"participatory_process"=>{"title_pt__BR" => "Brasil Participativo", "slug"=>"brasilparticipativo", "document"=>blob2, "document_validation"=>"1", "import_steps"=>"1", "import_categories"=>"1", "import_attachments"=>"0", "import_components"=>"1", 'current_organization' => Decidim::Organization.first, 'organization_id' => 1, 'organization' => Decidim::Organization.first}}
 form = DummyImporter.new.form(Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessImportForm).from_params(hash_to_import)
 
-puts form.invalid?
-puts form.errors.details
-
 Decidim::ParticipatoryProcesses::Admin::ImportParticipatoryProcess.call(form) do
     on(:ok) do
         puts 'Success'
@@ -191,11 +185,8 @@ class DummyImporter
     end
 end
 
-hash_to_import = {"assembly"=>{"title_pt__BR" => "4confjuv", "slug"=> "confjuv4", "document"=>blob3, "document_validation"=>"1", "import_steps"=>"1", "import_categories"=>"1", "import_components"=>"1", 'current_organization' => Decidim::Organization.first, 'organization_id' => 1, 'organization' => Decidim::Organization.first}}
+hash_to_import = {"assembly"=>{"title_pt__BR" => "4confjuv", "slug"=> "confjuv4", "document"=>blob3, "document_validation"=>"1", "import_steps"=>"1", "import_categories"=>"1", "import_attachments"=>"0", "import_components"=>"1", 'current_organization' => Decidim::Organization.first, 'organization_id' => 1, 'organization' => Decidim::Organization.first}}
 form = DummyImporter.new.form(Decidim::Assemblies::Admin::AssemblyImportForm).from_params(hash_to_import)
-
-puts form.invalid?
-puts form.errors.details
 
 Decidim::Assemblies::Admin::ImportAssembly.call(form, Decidim::User.first) do
     on(:ok) do
@@ -206,15 +197,29 @@ Decidim::Assemblies::Admin::ImportAssembly.call(form, Decidim::User.first) do
     end
 end
 
-# ---------------------------------------------------- Criar componentes iterando o JSON
-# require 'json'
+file4 = File.open(Rails.root.join('db', 'seeds', 'assemblies-cnsan6.json'))
+blob4 = ActiveStorage::Blob.create_and_upload!(io: file4, filename: 'assemblies-cnsan6.json')
 
-# path = Rails.root.join(__dir__, 'seeds', 'a.json')
-# json_data = File.read(path)
-# data = JSON.parse(json_data)
+class DummyImporter
+    include Decidim::FormFactory
+    def current_organization
+        Decidim::Organization.first
+    end
 
-# components = data['components']
+    def current_user
+        Decidim::User.first
+    end
+end
 
-# components.each do |component_data|
-#   Decidim::Component.new(component_data).save!
-# end
+hash_to_import = {"assembly"=>{"title_pt__BR" => "4confjuv", "slug"=> "confjuv4", "document"=>blob4, "document_validation"=>"1", "import_steps"=>"1", "import_categories"=>"1", "import_attachments"=>"0", "import_components"=>"1", 'current_organization' => Decidim::Organization.first, 'organization_id' => 1, 'organization' => Decidim::Organization.first}}
+form = DummyImporter.new.form(Decidim::Assemblies::Admin::AssemblyImportForm).from_params(hash_to_import)
+
+Decidim::Assemblies::Admin::ImportAssembly.call(form, Decidim::User.first) do
+    on(:ok) do
+        puts 'Success'
+    end
+    on(:invalid) do
+        puts 'invalid'
+    end
+end
+
