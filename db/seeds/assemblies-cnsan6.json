@@ -123,7 +123,7 @@
               "pt-BR": "Banners para a tela inicial"
             }
           },
-          "remote_file_url": "http://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaHN1IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c40d03d976937d446b48cf0007f2e95b38f96a6b/logo-consea.jpg"
+          "remote_file_url": null
         },
         {
           "id": 483,
@@ -139,7 +139,7 @@
             "weight": null,
             "description": null
           },
-          "remote_file_url": "http://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBc1V6IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6c2823b147fe299162b4c9a994064d830544a189/34fd8398-f19f-4f1e-9306-fddfd15eb8d5.jfif"
+          "remote_file_url": null
         },
         {
           "id": 541,
@@ -155,7 +155,7 @@
             "weight": null,
             "description": null
           },
-          "remote_file_url": "http://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaGswIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--df71523b56718964ede41e9faabefa1c8399d8f8/caisan.png"
+          "remote_file_url": null
         },
         {
           "id": 580,
@@ -171,7 +171,7 @@
             "weight": null,
             "description": null
           },
-          "remote_file_url": "http://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbEEwIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--528ef39bc15ebe1a2e5cffbfc8498d218c205286/Banner%206%C2%AA%20CNSAN%20-%20Desktop.png"
+          "remote_file_url": null
         },
         {
           "id": 581,
@@ -187,7 +187,7 @@
             "weight": null,
             "description": null
           },
-          "remote_file_url": "http://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbEUwIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8ff80e6cbfb602b366ba0875200447d153741c23/Banner%206%C2%AA%20CNSAN%20-%20Mobile.png"
+          "remote_file_url": null
         },
         {
           "id": 884,
@@ -203,7 +203,7 @@
             "weight": null,
             "description": null
           },
-          "remote_file_url": "http://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBc3cxIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--50d9bdf90bc2eb01e1fd150af7a875773c408ebf/photo1696026990.jpeg"
+          "remote_file_url": null
         },
         {
           "id": 885,
@@ -219,7 +219,7 @@
             "weight": null,
             "description": null
           },
-          "remote_file_url": "http://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBc2sxIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a415d10728ed11e012cafcd9390a1e789fafeadd/desktop.jpeg"
+          "remote_file_url": null
         },
         {
           "id": 1270,
@@ -235,7 +235,7 @@
             "weight": null,
             "description": null
           },
-          "remote_file_url": "http://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcTgzIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--73a88e72dc3e792610878eb578980acdc3d8c719/CONSEA.png"
+          "remote_file_url": null
         },
         {
           "id": 1271,
@@ -251,7 +251,7 @@
             "weight": null,
             "description": null
           },
-          "remote_file_url": "http://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBckEzIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--84764a8429f2e64a42b6c4e64ab895449eba1f4f/Secretaria-Geral.png"
+          "remote_file_url": null
         },
         {
           "id": 1272,
@@ -267,7 +267,7 @@
             "weight": null,
             "description": null
           },
-          "remote_file_url": "http://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBckUzIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--63d9e7b85115be24a88c188e11f71c028468046a/CAISAN.png"
+          "remote_file_url": null
         },
         {
           "id": 1273,
@@ -283,7 +283,7 @@
             "weight": null,
             "description": null
           },
-          "remote_file_url": "http://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBckkzIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ab40ee7e7ada791706dd5689e24e11fe733ad381/Minist%C3%A9rio-do-desenvolvimento.png"
+          "remote_file_url": null
         },
         {
           "id": 1274,
@@ -299,7 +299,7 @@
             "weight": null,
             "description": null
           },
-          "remote_file_url": "http://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBck0zIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--4443a44aedeb7f6fe6681de032c255dd4cd64819/Minist%C3%A9rio-da-Sa%C3%BAde.png"
+          "remote_file_url": null
         },
         {
           "id": 1275,
@@ -315,7 +315,7 @@
             "weight": null,
             "description": null
           },
-          "remote_file_url": "http://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBc1EzIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--4429b92c3cc852f48ae06750d23ffb464b51c705/FNDE.png"
+          "remote_file_url": null
         },
         {
           "id": 1284,
@@ -331,7 +331,7 @@
             "weight": null,
             "description": null
           },
-          "remote_file_url": "http://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBc2czIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b1fc2595384b2e27b96a5c65e44de07be7ec1319/Brasil%20Participativo.png"
+          "remote_file_url": null
         },
         {
           "id": 1285,
@@ -347,7 +347,7 @@
             "weight": null,
             "description": null
           },
-          "remote_file_url": "http://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdEEzIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--52bbb16a076ab2776fd311d2496acbcf0a7c7530/GovernoFederal.png"
+          "remote_file_url": null
         }
       ]
     },
