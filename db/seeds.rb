@@ -22,7 +22,9 @@ if !password
     puts "Não foi encontrada a variável de ambiente $ADMIN_PASSWORD, usuário criado com senha padrão 'bpadmin123'"
 end
 
-Decidim::System::Admin.new(email: email, password: password, password_confirmation: password).save!(validate: false)
+if !Decidim::System::Admin.find_or_initialize_by(email: email)
+    Decidim::System::Admin.new(email: email, password: password, password_confirmation: password).save!(validate: false)
+end
 
 # Define cores padrões do Brasil Participativo
 colors = {
@@ -90,30 +92,31 @@ puts 'Processo de administrador do sistema concluído com sucesso.'
 # Cria Blocos de Conteúdo ativo da organização
 home_arquivo = Rails.root.join(__dir__, 'seeds', 'home-page.html') 
 home_snippets = File.read(home_arquivo)
-puts 'Home Snippet criado com sucesso.'
 
 content_block = Decidim::ContentBlock.find_by(manifest_name: 'html')
-content_block = Decidim::ContentBlock.create!(
-    id: 1, 
-    decidim_organization_id: 1,
-    manifest_name: 'html',
-    scope_name: 'homepage',
-    settings: { 
-        html_content_pt: home_snippets,
-    },
-    published_at: Time.current,
-    weight: 1,
-    images: {},
-    scoped_resource_id: nil,
-    created_at: Time.current,
-    updated_at: Time.current   
-)
-content_block.save!
-puts 'Bloco "Bloco HTML" ativo.'
+if !content_block
+    content_block = Decidim::ContentBlock.create!(
+        id: 1, 
+        decidim_organization_id: 1,
+        manifest_name: 'html',
+        scope_name: 'homepage',
+        settings: { 
+            html_content_pt: home_snippets,
+        },
+        published_at: Time.current,
+        weight: 1,
+        images: {},
+        scoped_resource_id: nil,
+        created_at: Time.current,
+        updated_at: Time.current   
+    )
+    content_block.save!
+    puts 'Bloco "Bloco HTML" ativo.'
 
-# Snippets da home page
-html_content_block = Decidim::ContentBlock.find_by(organization: organization, manifest_name: :html, scope_name: :homepage)
-html_content_block.save!
+    # Snippets da home page
+    html_content_block = Decidim::ContentBlock.find_by(organization: organization, manifest_name: :html, scope_name: :homepage)
+    html_content_block.save!
+end
 
 # Adicionando processos
 
@@ -193,7 +196,7 @@ Decidim::Assemblies::Admin::ImportAssembly.call(form, Decidim::User.first) do
         puts 'Assembleia "4confjuv" importada com sucesso.'
     end
     on(:invalid) do
-        puts 'Ocorreu um erro ao importar a assembleia "4confjuv.""'
+        puts 'Ocorreu um erro ao importar a assembleia "4confjuv".'
     end
 end
 
@@ -219,7 +222,7 @@ Decidim::Assemblies::Admin::ImportAssembly.call(form, Decidim::User.first) do
         puts 'Assembleia "6a Conferencia Nacional da Segurança Alimentar" importada com sucesso.'
     end
     on(:invalid) do
-        puts 'Ocorreu um erro ao importar a assembleia "6a Conferencia Nacional da Segurança Alimentar"".'
+        puts 'Ocorreu um erro ao importar a assembleia "6a Conferencia Nacional da Segurança Alimentar".'
     end
 end
 
