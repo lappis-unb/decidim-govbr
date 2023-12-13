@@ -234,5 +234,5 @@ pt-BR:
           promoted_assemblies: Assembléias realçadas
         order_by_assemblies:
           assemblies:
-            one: "%{count} assembléia"
-            other: "%{count} assembléias"
+            one: "%{count} conferência"
+            other: "%{count} conferências"
