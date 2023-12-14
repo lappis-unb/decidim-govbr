@@ -22,7 +22,7 @@
 
 .ql-editor-display p img {
   display: flex;
-  max-width: 648px;
+  max-width: 250px;
   margin: 0 auto;
 }
 
@@ -143,6 +143,12 @@
   .blog-content .section .ql-editor-display p:first-child:first-letter {
     font-size: 5rem;
     line-height: 4rem;
+  }
+
+  .ql-editor-display p img {
+    display: flex;
+    max-width: 648px;
+    margin: 0 auto;
   }
   
   .news-cover-image {
