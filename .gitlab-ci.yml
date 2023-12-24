@@ -1,8 +1,8 @@
 # Definição da versão do docker-compose
 stages:
-  - lint # Estágio de análise estática do código
   - build # Estágio para construir o container da aplicação
   - test # Estágio de testes
+  - lint # Estágio de análise estática do código
   - deploy # Estágio de deploy
 
 # Define a imagem Docker que será usada nos jobs do CI
