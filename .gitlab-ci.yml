@@ -20,13 +20,6 @@ variables:
   REDIS_URL: redis://localhost:6379
   REDIS_CACHE_URL: redis://localhost:6380
 
-# Job para análise estática do código com Rubocop, ignorando determinadas regras
-Lint:
-  stage: lint
-  script:
-    - bundle install
-    - bundle exec rubocop --except Style/ClassAndModuleChildren,Style/FrozenStringLiteralComment,Layout/TrailingEmptyLines,Layout/LineLength,Style/StringLiterals,Metrics/BlockLength,Layout/SpaceInsideHashLiteralBraces,Style/TrailingCommaInArguments,Style/WordArray,Metrics/ClassLength,Style/BlockComments,Style/HashSyntax,Lint/ConstantDefinitionInBlock,Layout/EmptyLinesAroundBlockBody,Metrics/ModuleLength,Layout/LeadingCommentSpace,Style/RescueModifier,Lint/ScriptPermission,Style/SymbolProc,Style/RescueStandardError,Style/RedundantBegin,Style/StringConcatenation,Style/Documentation,Lint/UselessAssignment,Metrics/AbcSize,Lint/MissingSuper,Metrics/MethodLength,Metrics/ParameterLists,Style/PercentLiteralDelimiters,Style/SymbolArray,Layout/SpaceAfterComma,Layout/ArgumentAlignment,Style/IfUnlessModifier,Layout/TrailingWhitespace,Lint/RaiseException,Layout/HeredocIndentation,Naming/AccessorMethodName,Style/RedundantSelf,Lint/UnusedBlockArgument,Style/BlockDelimiters,Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity,Layout/SpaceBeforeBlockBraces,Layout/SpaceInLambdaLiteral,Style/Lambda,Layout/FirstArgumentIndentation,Layout/SpaceInsideParens,Style/GuardClause,Layout/MultilineOperationIndentation,Layout/FirstHashElementIndentation,Style/UnlessElse,Layout/EmptyLineAfterGuardClause,Layout/MultilineMethodCallBraceLayout,Style/ConditionalAssignment,Bundler/OrderedGems,Layout/EmptyLinesAroundExceptionHandlingKeywords,Layout/SpaceAroundOperators,Style/NumericLiterals
-
 # Job para construir a imagem Docker da aplicação
 Build:
   stage: build
@@ -57,6 +50,13 @@ Testing:
     # - yarn install 
     - bundle exec rails test && bundle exec rspec # Executa testes do Rails e RSpec
     - echo "Finalizando."
+
+# Job para análise estática do código com Rubocop, ignorando determinadas regras
+Lint:
+  stage: lint
+  script:
+    - bundle install
+    - bundle exec rubocop --except Style/ClassAndModuleChildren,Style/FrozenStringLiteralComment,Layout/TrailingEmptyLines,Layout/LineLength,Style/StringLiterals,Metrics/BlockLength,Layout/SpaceInsideHashLiteralBraces,Style/TrailingCommaInArguments,Style/WordArray,Metrics/ClassLength,Style/BlockComments,Style/HashSyntax,Lint/ConstantDefinitionInBlock,Layout/EmptyLinesAroundBlockBody,Metrics/ModuleLength,Layout/LeadingCommentSpace,Style/RescueModifier,Lint/ScriptPermission,Style/SymbolProc,Style/RescueStandardError,Style/RedundantBegin,Style/StringConcatenation,Style/Documentation,Lint/UselessAssignment,Metrics/AbcSize,Lint/MissingSuper,Metrics/MethodLength,Metrics/ParameterLists,Style/PercentLiteralDelimiters,Style/SymbolArray,Layout/SpaceAfterComma,Layout/ArgumentAlignment,Style/IfUnlessModifier,Layout/TrailingWhitespace,Lint/RaiseException,Layout/HeredocIndentation,Naming/AccessorMethodName,Style/RedundantSelf,Lint/UnusedBlockArgument,Style/BlockDelimiters,Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity,Layout/SpaceBeforeBlockBraces,Layout/SpaceInLambdaLiteral,Style/Lambda,Layout/FirstArgumentIndentation,Layout/SpaceInsideParens,Style/GuardClause,Layout/MultilineOperationIndentation,Layout/FirstHashElementIndentation,Style/UnlessElse,Layout/EmptyLineAfterGuardClause,Layout/MultilineMethodCallBraceLayout,Style/ConditionalAssignment,Bundler/OrderedGems,Layout/EmptyLinesAroundExceptionHandlingKeywords,Layout/SpaceAroundOperators,Style/NumericLiterals
 
 
 # Job para deploy
