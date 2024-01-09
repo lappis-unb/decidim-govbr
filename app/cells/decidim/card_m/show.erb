@@ -1,4 +1,4 @@
-<div class="column" id="<%= dom_id(model) %>">
+<div class="column card__animation" id="<%= dom_id(model) %>">
   <div class="card <%= card_classes %>">
     <%= render :label if has_label? %>
     <%= render :top if render_top? %>
@@ -20,3 +20,21 @@
     <%= render :footer %>
   </div>
 </div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var observer = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+        } 
+      });
+    }, { threshold: 0.5 }); 
+
+    var cardAnimations = document.querySelectorAll(".card__animation");
+    cardAnimations.forEach(function(cardAnimation) {
+      observer.observe(cardAnimation);
+    });
+  });
+</script>
