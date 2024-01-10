@@ -204,9 +204,17 @@ end
       }
       
     });
-    setTimeout(function() {
-        userMenu.classList.toggle("br-list-dropdown-in-view");
+
+    if (userMenu.classList.contains("br-list-dropdown-in-view")) {
+      userMenu.classList.remove("br-list-dropdown-in-view");
+    } 
+    else {
+      setTimeout(function() {
+        userMenu.classList.add("br-list-dropdown-in-view");
       }, 100 * userMenuLinks.length);
+    }
+
+   
     });
 
   
