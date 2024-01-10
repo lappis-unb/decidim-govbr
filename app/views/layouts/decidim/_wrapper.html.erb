@@ -92,7 +92,7 @@ end
           </div>
           <% if current_user %>
             <div>
-              <button class="br-sign-in" type="button" id="avatar-dropdown-trigger"
+              <button class="br-sign-in sign__button_animation" type="button" id="avatar-dropdown-trigger"
                 data-toggle="dropdown" data-target="avatar-menu" aria-label="Avatar com dropdown">
                 <span class="br-avatar" title=""></span>
                 <span class="ml-2 text-gray-80 text-weight-regular br-dropdown-text">
@@ -183,3 +183,32 @@ end
     <%= render partial: "layouts/decidim/mini_footer" %>
   </div>
 </div>
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  var avatarButton = document.getElementById("avatar-dropdown-trigger");
+  var userMenuLinks = document.querySelectorAll(".br-list-dropdown a");
+  var userMenu = document.getElementById("avatar-menu")
+
+  avatarButton.addEventListener("click", function() {
+    userMenuLinks.forEach(function(link, i) {
+      if (link.classList.contains("show-br-list-dropdown")) {
+        link.classList.remove("show-br-list-dropdown");
+      } 
+      else {
+        setTimeout(function() {
+          link.classList.add("show-br-list-dropdown");
+        }, 100 * i);
+      }
+      
+    });
+    setTimeout(function() {
+        userMenu.classList.toggle("br-list-dropdown-in-view");
+      }, 100 * userMenuLinks.length);
+    });
+
+  
+});
+</script>
