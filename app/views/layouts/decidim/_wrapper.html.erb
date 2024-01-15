@@ -168,7 +168,7 @@ end
               </div>
               <%= render_menu_links(current_organization) %>
             </div>
-            <div class="menu-scrim" data-dismiss="menu" tabindex="0" id="close-menu-lateral"></div>
+            <div class="menu-scrim" data-dismiss="menu" tabindex="0"></div>
             </div>
           </div>
         </div>
@@ -214,13 +214,8 @@ end
         }, 100 * userMenuLinks.length);
       }
     });
-
-  
-  
-
-  var menuButtonLateral = document.getElementById("navigation");
+    
   var menuLateral = document.getElementById("lateral-menu");
-  var closeMenuLateral = document.getElementById("close-menu-lateral");
 
   var observer = new IntersectionObserver(function(entries, observer) {
     entries.forEach(function(entry) {
