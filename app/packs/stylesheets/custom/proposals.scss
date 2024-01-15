@@ -6,6 +6,17 @@
   align-items: center;
 }
 
+.proposals-content-container {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.proposals-filters {
+  min-width: 300px;
+  height: fit-content;
+}
+
 .proposals-content {
   display: flex;
   justify-content: center;
@@ -29,7 +40,7 @@
 }
 
 .results-per-page {
-  padding: 1.5rem 0;
+  padding: 0;
   font-weight: 600;
   align-items: center;
   justify-content: right;
@@ -97,6 +108,7 @@
   background-color: transparent;
   border: 1px solid var(--blue-warm-vivid-70);
   position: relative;
+  z-index: 10;
 }
 
 .proposals__button-circle:hover {
@@ -119,6 +131,11 @@
   }
 }
 
+#proposals {
+  width: 100%;
+  margin: 1rem 0;
+}
+
 #proposals .dropdown.menu > li > a {
   padding: 0.7rem 0.3rem;
 }
@@ -138,4 +155,10 @@
 
 .new_filter .br-input .br-button {
   margin-top: calc((52px + var(--spacing-scale-half)) * -1) !important;
+}
+
+#parent-assemblies .card-grid .column {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }

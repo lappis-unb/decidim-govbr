@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_10_002342) do
+ActiveRecord::Schema.define(version: 2023_11_28_211231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -860,6 +860,7 @@ ActiveRecord::Schema.define(version: 2023_10_10_002342) do
     t.datetime "updated_at", null: false
     t.string "session_token", default: "", null: false
     t.string "ip_hash"
+    t.boolean "anonymous_answer", default: true
     t.index ["decidim_question_id"], name: "index_decidim_forms_answers_question_id"
     t.index ["decidim_questionnaire_id"], name: "index_decidim_forms_answers_on_decidim_questionnaire_id"
     t.index ["decidim_user_id"], name: "index_decidim_forms_answers_on_decidim_user_id"
@@ -899,6 +900,8 @@ ActiveRecord::Schema.define(version: 2023_10_10_002342) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "salt"
+    t.jsonb "topp"
+    t.boolean "collect_user_data", default: false
     t.index ["questionnaire_for_type", "questionnaire_for_id"], name: "index_decidim_forms_questionnaires_questionnaire_for"
   end
 

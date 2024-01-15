@@ -1,0 +1,26 @@
+<div class="br-tab process-nav">
+    <nav class="br-container-lg process-nav__content <%= browser.mobile? ? "is-active" : "" %>" id="process-nav-content" data-toggler=".is-active">
+        <button class=" scroll-button scroll-left <%= "hidden" if browser.mobile? %> ">
+          <i class="fa-solid fa-chevron-left "></i>
+        </button>
+        <ul class="space-menu">
+          <% items.each_with_index do |item, index| %>
+            <li class="tab-item <%= "active" if item[:active] %> <%= "hidden" if false %>">
+              <%= link_to item[:url] do %>
+                <%
+=begin%>
+ <i class="fa-solid <%= icons[item[:name]] || 'fa-image' %>"></i> 
+<%
+=end%>
+                <span class="name">
+                  <%= item[:name] %>
+                </span>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+        <button class=" scroll-button scroll-right <%= "hidden" if browser.mobile? %> ">
+          <i class="fa-solid fa-chevron-right "></i>
+        </button>
+    </nav>
+</div>
