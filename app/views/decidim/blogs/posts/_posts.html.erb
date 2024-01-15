@@ -42,32 +42,39 @@
   <ul>
 <% else %>
   <ul class="news-list">
-    <% paginate_posts.each do |post| %>
-      <li class="news-item">
-        <div class="news-card">
-            <div class="news-content">
-              <%= link_to post, class: "news-title" do %>
-                <%= translated_attribute post.title %>
-              <% end %>
-              <span class="news-description">
-                <span class="news-date">
-                  <%= l post.created_at, format: "%d/%m/%Y" %>
-                </span>
-                - <%= translated_attribute post.subtitle %>
-              </span>
-            </div>
-
-            <div class="news-image-container">
-              <% if post.photo.present? %>
-                <%= link_to post do %>
-                  <%= image_tag post.photo.url, class: "news-cover-image" %>
+  <% if paginate_posts.empty? %>
+  <div class="br-message info" role="alert">
+    <div class="icon"><i class="fas fa-info-circle fa-lg" aria-hidden="true"></i></div>
+    <div class="content"><span class="message-title">A página não possui publicação.</span></div>
+   </div>
+  <% else %>
+      <% paginate_posts.each do |post| %>
+        <li class="news-item">
+          <div class="news-card">
+              <div class="news-content">
+                <%= link_to post, class: "news-title" do %>
+                  <%= translated_attribute post.title %>
                 <% end %>
-              <% end %>
-            </div>
-        </div>
-      </li>
+                <span class="news-description">
+                  <span class="news-date">
+                    <%= l post.created_at, format: "%d/%m/%Y" %>
+                  </span>
+                  - <%= translated_attribute post.subtitle %>
+                </span>
+              </div>
+
+              <div class="news-image-container">
+                <% if post.photo.present? %>
+                  <%= link_to post do %>
+                    <%= image_tag post.photo.url, class: "news-cover-image" %>
+                  <% end %>
+                <% end %>
+              </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
     <% end %>
-  </ul>
 <% end %>
 
 <div class="pagination-container">
