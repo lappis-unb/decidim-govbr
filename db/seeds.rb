@@ -9,8 +9,8 @@
 # Decidim.seed!
 
 # Cria o administrador do sistema
-email = ENV['ADMIN_EMAIL']
-password = ENV['ADMIN_PASSWORD']
+email = ENV['SYS_ADMIN_EMAIL']
+password = ENV['SYS_ADMIN_PASSWORD']
 
 if !email
     email = 'bpadmin@example.com'
@@ -22,8 +22,11 @@ if !password
     puts "Não foi encontrada a variável de ambiente $ADMIN_PASSWORD, usuário criado com senha padrão 'bpadmin123'"
 end
 
-if !Decidim::System::Admin.find_or_initialize_by(email: email)
+if !Decidim::System::Admin.find_by(email: email)
     Decidim::System::Admin.new(email: email, password: password, password_confirmation: password).save!(validate: false)
+    puts "Usuário sysadmin criado com as credenciais:" 
+    puts "Email: "+ email 
+    puts "Senha: " + password
 end
 
 # Define cores padrões do Brasil Participativo
@@ -38,19 +41,27 @@ colors = {
 }
 
 # Snippets do Cabeçalho
-arquivo = Rails.root.join(__dir__, 'seeds', 'snippet.html')
-header_snippets = File.read(arquivo)
+header_snippets_file = URI.open(ENV['CUSTOMIZED_CODE_SNIPPET_URL'])
+header_snippets_io = StringIO.new(header_snippets_file.read)
+header_snippets = header_snippets_io.read
+#arquivo = Rails.root.join(__dir__, 'seeds', 'snippet.html')
+#header_snippets = File.read(arquivo)
 puts 'Header Snippet criado com sucesso.'
 
+main_menu_file = URI.open(ENV['CUSTOMIZED_MAIN_MENU_URL'])
+main_menu_io = StringIO.new(main_menu_file.read)
+main_menu = main_menu_io.read
+puts 'Menu links importados com sucesso.'
 # Cria a organização Brasil Participativo
-organization = Decidim::Organization.find_by(name: 'Brasil Participativo')
+organization_name = ENV['ORG_NAME']
+organization = Decidim::Organization.find_by(name: organization_name)
 if !organization
     organization = Decidim::Organization.create!(
-        name: 'Brasil Participativo',
+        name: organization_name,
         host: 'localhost',
         default_locale: 'pt-BR',
         available_locales: ['en', 'pt-BR'],
-        reference_prefix: 'brasil_participativo',
+        reference_prefix: ENV['ORG_NAME_PREFIX'],
         available_authorizations: Decidim.authorization_workflows.map(&:name),
         users_registration_mode: :enabled,
         tos_version: Time.current,
@@ -61,9 +72,10 @@ if !organization
         external_domain_whitelist: ['decidim.org', 'github.com'],
         colors: colors,
         header_snippets: header_snippets,
+        # menu_links: main_menu,
     )
     organization.save!
-    puts 'Organização "Brasil Participativo" criada.'
+    puts 'Organização ' + organization_name + ' criada com sucesso.'
 end
 
 # Cria um admin e relaciona com a organização 
