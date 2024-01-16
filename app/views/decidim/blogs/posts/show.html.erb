@@ -16,24 +16,22 @@
 %>
 
 <div class="br-container-lg">
-    <div>
-        <div class="m-bottom">
-            <%= link_to :posts, class: "small hollow" do %>
-            <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-            <%= t(".back") %>
-            <% end %>
-        </div>
-        <h2 class="blog-title"><%= translated_attribute post.title %></h2>
-        <h2 class="blog-subtitle"><%= translated_attribute post.subtitle %></h2>
+    <div class="m-bottom">
+        <%= link_to :posts, class: "small hollow" do %>
+        <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+        <%= t(".back") %>
+        <% end %>
+    </div>
+    <h2 class="blog-title"><%= translated_attribute post.title %></h2>
+    <h2 class="blog-subtitle"><%= translated_attribute post.subtitle %></h2>
 
-        <% post_presenter = Decidim::Blogs::PostPresenter.new(post) %>
-        <%
+    <% post_presenter = Decidim::Blogs::PostPresenter.new(post) %>
+    <%
 =begin%>
- <%= cell "decidim/author", post_presenter.author, from: post %> 
+<%= cell "decidim/author", post_presenter.author, from: post %>
 <%
 =end%>
-        <%= render partial: "medias-section" %>
-    </div>
+    <%= render partial: 'medias-section', :locals=>{ :post_date => post.created_at} %>
     <%
 =begin%>
     <% if show_endorsements_card? %>
@@ -61,13 +59,20 @@
     <%
 =end%>
     <div class="blog-content">
+        <% if post.photos.size > 0 %>
+            <div class="blog-image-cover-container">
+                <img src="<%= post.photos.first.big_url %>" height="510" width="768">
+            </div>
+        <% end %>
         <div class="section">
             <%= decidim_sanitize_editor_admin translated_attribute(post.body) %>
         </div>
         <%= cell "decidim/endorsers_list", post %>
     </div>
-    <%= attachments_for post %>
-    <%= render partial: "medias-section" %>
+    <% if post.photos.size > 1 %>
+        <%= attachments_for post %>
+    <% end %>
+    <%= render partial: 'medias-section' %>
     <%= comments_for post %>
 <%
 =begin%>

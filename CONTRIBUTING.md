@@ -35,6 +35,8 @@ Ao contribuir, você concorda que suas contribuições serão licenciadas sob a 
 
 Agradecemos suas contribuições!
 
-Equipe [Decidim Br](https://t.me/DecidimBR)/[Brasil Participativo](https://brasilparticipativo.presidencia.gov.br/)
+Equipe [Brasil Participativo](https://brasilparticipativo.presidencia.gov.br/)
 
 Contato: decidim@unb.br
+
+Entre no grupo: [Comunidade Brasil Participativo](https://t.me/+nm4bkXxYukFlOWZh)
