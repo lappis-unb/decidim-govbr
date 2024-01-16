@@ -79,11 +79,15 @@ if !organization
 end
 
 # Cria um admin e relaciona com a organização 
-admin = Decidim::User.find_or_initialize_by(email: 'brasil@participativo.com')
-puts 'Usuário com o e-mail brasil@participativo criado ou encontrado.'
+organization_admin_name = ENV['ORG_ADMIN_NAME']
+organization_admin_email = ENV['ORG_ADMIN_EMAIL']
+organizarion_admin_password = ENV['ORG_ADMIN_PASSWORD']
+
+admin = Decidim::User.find_or_initialize_by(email: organization_admin_email)
+puts "Usuário com o e-mail " + organization_admin_email + " criado ou encontrado."
 
 admin_hash = {
-    name: 'Admin Brasil Participativo',
+    name: organization_admin_name,
     nickname: 'admin_bp',
     organization: organization,
     confirmed_at: Time.current,
@@ -97,7 +101,7 @@ admin_hash = {
     admin_terms_accepted_at: Time.current,
 }
 
-admin_hash.merge!(password: 'decidim123456789') if admin.encrypted_password.blank?
+admin_hash.merge!(password: organizarion_admin_password) if admin.encrypted_password.blank?
 admin.update!(admin_hash)
 puts 'Processo de administrador do sistema concluído com sucesso.'
 
