@@ -65,3 +65,50 @@
   padding: 0;
   min-height: auto;
 }
+
+.filters__title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.resullts-per-page-item {
+  padding: 4px;
+  display: flex;
+  text-decoration: none;
+}
+
+.results-per-page__link {
+  text-decoration: none !important;
+}
+
+.results-per-page__link:hover {
+  background-color: #e8e8e8;
+}
+
+.results-per-page-button {
+  display: flex !important;
+  flex-direction: row !important;
+  text-decoration: none !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.filters-per-page-button {
+  padding: 5px !important;
+  border-radius: 50% !important;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  -ms-border-radius: 50% !important;
+  -o-border-radius: 50% !important;
+  display: flex;
+  margin-left: 4px;
+}
+
+.filters-per-page-button:hover {
+  background-color: var(--blue-warm-20);
+}
+
+.pagination-br-container {
+  margin-top: 16px;
+}
