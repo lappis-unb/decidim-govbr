@@ -26843,7 +26843,7 @@ button.br-item:not(:disabled):active {
 .br-message .content :last-child {
   margin-bottom: 0;
 }
-.br-message .icon {
+.br-message .message-icon {
   align-items: center;
   color: var(--message-color-icon);
   display: flex;
@@ -26852,7 +26852,7 @@ button.br-item:not(:disabled):active {
   padding-left: var(--spacing-scale-2x);
   padding-right: var(--spacing-scale-2x);
 }
-.br-message .icon + .content {
+.br-message .message-icon + .content {
   padding-left: 0;
 }
 .br-message .close {
