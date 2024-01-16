@@ -2127,6 +2127,7 @@ body {
 }
 main {
   display: block;
+  margin-top: 115px;
 }
 hr {
   box-sizing: content-box;
@@ -24683,15 +24684,36 @@ hr {
   display: block;
 }
 .br-footer .br-decidim-license {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
   text-align: center;
   border-top: 1px solid #303947;
   border-bottom: 1px solid #303947;
   padding: 40px 0;
   margin: 0 30px;
 }
+
 .br-footer .cc-badge {
-  display: block;
-  margin-bottom: 10px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.br-footer .cclIcon {
+  height: 16px;
+}
+
+.br-footer-url:hover {
+  text-decoration: underline;
+  color: var(--color-secondary-01)
+}
+.p-footer {
+  color: var(--color-secondary-01);
+  padding: 0;
+  margin: 0;
 }
 .br-footer .br-decidim-logo {
   padding: 40px 0;
@@ -24712,29 +24734,27 @@ hr {
 .mini-footer {
   display: none;
 }
-@media (min-width: 991px) {
+
   .br-footer .br-footer-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
     align-items: center;
-    padding: 4rem 2rem;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    border-top: 1px solid #303947;
+    border-bottom: 1px solid #303947;
+    padding: 16px 0;
+    margin: 0 30px;
+    width: 100%;
   }
-  .br-footer .br-decidim-license {
-    text-align: left;
-    border: 0;
-    padding: 0;
-    margin: 0;
-    order: 1;
-  }
-  .br-nav {
-    order: 2;
-  }
+
+
   .br-footer .br-decidim-logo {
     padding: 0;
     text-align: right;
-    order: 3;
   }
-}
+
 @media (max-width: 991px) {
   .br-footer .br-list.horizontal .br-col,
   .br-footer .br-list.horizontal [class*="col-"] {
@@ -31031,8 +31051,13 @@ button.br-item:not(:disabled):active {
   text-decoration: none;
 }
 
-.br-decidim-logo a img {
-  width: 150px !important;
+.br-decidim-logo img {
+  height: 16px !important;
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0) hue-rotate(243deg) brightness(100%) contrast(105%)
+}
+.br-decidim-logo  {
+display: flex;
+align-items: center;
 }
 
 .flash.callout.success,
