@@ -2,12 +2,13 @@ const copyLinkToClipboard = async (event) => {
   if (event) {
     event.preventDefault();
   }
-  try {
-    await new Promise(resolve => setTimeout(resolve, 50));
-    await navigator.clipboard.writeText(window.location.href);
-  } catch (err) {
-    console.error("Failed to copy: ", err);
-  }
+  // TODO: Consertar mensagem de alerta que aparece nos navegadores
+  // try {
+  //   await new Promise(resolve => setTimeout(resolve, 50));
+  //   await navigator.clipboard.writeText(window.location.href);
+  // } catch (err) {
+  //   console.error("Failed to copy: ", err);
+  // }
 };
 
 document.addEventListener("DOMContentLoaded", () => {
