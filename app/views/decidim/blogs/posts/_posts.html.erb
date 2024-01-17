@@ -4,6 +4,12 @@
 
 <% if browser.mobile? %>
   <ul class="news-list">
+  <% if paginate_posts.empty? %>
+  <div class="br-message info" role="alert">
+    <div class="message-icon"><i class="fas fa-info-circle fa-lg" aria-hidden="true"></i></div>
+    <div class="content"><span class="message-title">A página não possui publicação.</span></div>
+   </div>
+  <% else %> 
     <% paginate_posts.each do |post| %>
       <li class="news-item">
         <div class="br-card h-fixed">
@@ -40,8 +46,15 @@
       </li>
     <% end %>
   <ul>
+<% end %>
 <% else %>
   <ul class="news-list">
+  <% if paginate_posts.empty? %>
+  <div class="br-message info" role="alert">
+    <div class="message-icon"><i class="fas fa-info-circle fa-lg" aria-hidden="true"></i></div>
+    <div class="content"><span class="message-title">A página não possui publicação.</span></div>
+   </div>
+  <% else %>
     <% paginate_posts.each do |post| %>
       <li class="news-item">
         <div class="news-card">
@@ -68,6 +81,7 @@
       </li>
     <% end %>
   </ul>
+<% end %>
 <% end %>
 
 <div class="pagination-container">
