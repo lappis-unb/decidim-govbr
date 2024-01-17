@@ -26,7 +26,7 @@ edit_link(
 
 <div >
   <% if current_participatory_space.parent.present? %>
-    <div >
+    <div>
       <div class="small-12 columns">
         <%= render partial: "decidim/assemblies/assemblies/nav_breadcumb",
                    locals: { assemblies: current_participatory_space.ancestors.to_a } %>
@@ -39,9 +39,6 @@ edit_link(
         <h2 class="show-for-sr"><%= t(".title") %></h2>
         <div class="lead">
           <%= decidim_sanitize_editor_admin translated_attribute(current_participatory_space.short_description) %>
-          <div class="assemblie-props">
-          DETALHES DA ASSEMBLEIA
-          </div>
         </div>
         <%= decidim_sanitize_editor_admin translated_attribute(current_participatory_space.description) %>
 
