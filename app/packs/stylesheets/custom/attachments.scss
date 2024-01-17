@@ -64,6 +64,7 @@
     line-height: normal;
     overflow: hidden;
     text-overflow: ellipsis;
+    max-width: 80%;
     white-space: nowrap;
 
     @media (max-width: 400px) {
@@ -80,7 +81,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    border: 2px solid var(--blue-warm-vivid-80);
+    border: 1px solid var(--blue-warm-vivid-80);
     gap: 12px;
 }
 
@@ -105,12 +106,25 @@
     align-items: center;
 }
 
+.br-message.info {
+    margin-top: 20px;
+}
+
 .card__link{
     display: flex;
+    align-items: center;
 }
 
 small {
-    margin-top: 5px;
     text-transform: lowercase;
     text-align: left;
+}
+
+.grid.attachments.images {
+    background-color: white;
+}
+
+.section.images h3 {
+    font-style: normal;
+    font-weight: 600;
 }
