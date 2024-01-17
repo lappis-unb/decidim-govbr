@@ -1,0 +1,19 @@
+.hide-menu-links {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.3s, transform 0.3s, box-shadow 0.2s;
+  -webkit-transform: translateX(-50px);
+  -moz-transform: translateX(-50px);
+  -ms-transform: translateX(-50px);
+  -o-transform: translateX(-50px);
+}
+
+.show-menu-links {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.5s, transform 0.4s, box-shadow 0.3s;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+}
