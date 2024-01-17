@@ -16,7 +16,6 @@ module Decidim
       helper Decidim::WidgetUrlsHelper
       helper Decidim::ResourceVersionsHelper
       helper Decidim::ShortLinkHelper
-      before_action :current_month
       helper_method :meetings, :meeting, :registration, :search
 
 
@@ -134,27 +133,7 @@ module Decidim
         form(Decidim::Meetings::MeetingForm)
       end
 
-      def current_month
-        @current_month = Date.today
-      end
 
-      def post
-      end
-
-      def prev_month
-        Rails.logger.debug("OIAAAAAAAAA")
-        @current_month = (@current_month << 1)
-        @current_month.month
-      end
-
-      def next_month
-        Rails.logger.debug("OIAAAAAAAAA")
-        @current_month = (@current_month >> 1)
-        @current_month.month
-      end
-
-
-      helper_method :next_month, :prev_month
     end
   end
 end
