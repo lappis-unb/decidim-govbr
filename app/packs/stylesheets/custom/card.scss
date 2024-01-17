@@ -1,0 +1,16 @@
+.card__animation {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card__animation.in-view {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s, transform 0.4s, box-shadow 0.3s;
+}
+
+.card__animation:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
