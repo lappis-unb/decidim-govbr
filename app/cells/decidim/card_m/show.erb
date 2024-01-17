@@ -22,19 +22,3 @@
 </div>
 
 
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var observer = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in-view");
-        } 
-      });
-    }, { threshold: 0.5 }); 
-
-    var cardAnimations = document.querySelectorAll(".card__animation");
-    cardAnimations.forEach(function(cardAnimation) {
-      observer.observe(cardAnimation);
-    });
-  });
-</script>
