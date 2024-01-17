@@ -1,0 +1,4534 @@
+[
+  {
+    "id": 1,
+    "slug": "confjuv4",
+    "hashtag": "4confjuv",
+    "decidim_organization_id": 1,
+    "title": {
+      "pt-BR": "4confjuv"
+    },
+    "subtitle": {
+      "pt-BR": "4 Conferência da Juventude"
+    },
+    "weight": 0,
+    "short_description": {
+      "pt-BR": "<p>4confjuv</p>"
+    },
+    "description": {
+      "pt-BR": "<p>4confjuv</p>"
+    },
+    "remote_hero_image_url": null,
+    "remote_banner_image_url": null,
+    "promoted": false,
+    "developer_group": {
+      "pt-BR": ""
+    },
+    "meta_scope": {
+      "pt-BR": ""
+    },
+    "local_area": {
+      "pt-BR": ""
+    },
+    "target": {
+      "pt-BR": ""
+    },
+    "decidim_scope_id": 1,
+    "paticipatory_scope": {
+      "pt-BR": ""
+    },
+    "participatory_structure": {
+      "pt-BR": ""
+    },
+    "show_statistics": false,
+    "scopes_enabled": true,
+    "private_space": false,
+    "reference": "brasilpartipativo-ASSE-2023-08-1",
+    "purpose_of_action": {
+      "pt-BR": "<p>4confjuv</p>"
+    },
+    "composition": {
+      "pt-BR": "<p>4confjuv</p>"
+    },
+    "duration": "2023-12-17",
+    "participatory_scope": {
+      "pt-BR": ""
+    },
+    "included_at": "2023-08-28",
+    "closing_date": "2023-12-17",
+    "created_by": "",
+    "creation_date": "2023-08-28",
+    "closing_date_reason": {
+      "pt-BR": ""
+    },
+    "internal_organisation": {
+      "pt-BR": ""
+    },
+    "is_transparent": false,
+    "special_features": {
+      "pt-BR": ""
+    },
+    "twitter_handler": "",
+    "instagram_handler": "",
+    "facebook_handler": "",
+    "youtube_handler": "",
+    "github_handler": "",
+    "created_by_other": {
+      "pt-BR": ""
+    },
+    "decidim_assemblies_type_id": null,
+    "area": {
+      "id": null,
+      "name": {
+        "en": "",
+        "pt-BR": ""
+      }
+    },
+    "scope": {
+      "id": 1,
+      "name": {
+        "pt-BR": "Brasil"
+      }
+    },
+    "assembly_categories": [
+      {
+        "id": 62,
+        "name": {
+          "pt-BR": "I - Direito à Cidadania, à Participação Social e Política e à Representação Juvenil"
+        },
+        "description": null,
+        "parent_id": null,
+        "subcategories": null
+      },
+      {
+        "id": 64,
+        "name": {
+          "pt-BR": "II - Direito à Educação"
+        },
+        "description": null,
+        "parent_id": null,
+        "subcategories": null
+      },
+      {
+        "id": 67,
+        "name": {
+          "pt-BR": "III - Direito à Profissionalização, ao Trabalho e à Renda"
+        },
+        "description": null,
+        "parent_id": null,
+        "subcategories": null
+      },
+      {
+        "id": 65,
+        "name": {
+          "pt-BR": "IV - Direito à Diversidade e à Igualdade"
+        },
+        "description": null,
+        "parent_id": null,
+        "subcategories": null
+      },
+      {
+        "id": 68,
+        "name": {
+          "pt-BR": "V - Direito à Saúde"
+        },
+        "description": null,
+        "parent_id": null,
+        "subcategories": null
+      },
+      {
+        "id": 69,
+        "name": {
+          "pt-BR": "VI - Direito à Cultura"
+        },
+        "description": null,
+        "parent_id": null,
+        "subcategories": null
+      },
+      {
+        "id": 70,
+        "name": {
+          "pt-BR": "VII - Direito à Comunicação e à Liberdade de Expressão"
+        },
+        "description": null,
+        "parent_id": null,
+        "subcategories": null
+      },
+      {
+        "id": 71,
+        "name": {
+          "pt-BR": "VIII - Direito ao Desporto e ao Lazer"
+        },
+        "description": null,
+        "parent_id": null,
+        "subcategories": null
+      },
+      {
+        "id": 72,
+        "name": {
+          "pt-BR": "IX - Direito à Sustentabilidade e ao Meio Ambiente"
+        },
+        "description": null,
+        "parent_id": null,
+        "subcategories": null
+      },
+      {
+        "id": 73,
+        "name": {
+          "pt-BR": "X - Direito ao Território e à Mobilidade"
+        },
+        "description": null,
+        "parent_id": null,
+        "subcategories": null
+      },
+      {
+        "id": 66,
+        "name": {
+          "pt-BR": "XI - Direito à Segurança Pública e ao Acesso à Justiça"
+        },
+        "description": null,
+        "parent_id": null,
+        "subcategories": null
+      },
+      {
+        "id": 63,
+        "name": {
+          "pt-BR": "XII - Sistema Nacional de Juventude - SINAJUVE"
+        },
+        "description": null,
+        "parent_id": null,
+        "subcategories": null
+      }
+    ],
+    "components": [
+      {
+        "manifest_name": "blogs",
+        "id": 42,
+        "name": {
+          "pt-BR": "Mobilização"
+        },
+        "participatory_space_id": 1,
+        "participatory_space_type": "Decidim::Assembly",
+        "settings": {
+          "steps": {
+          },
+          "global": {
+            "announcement": {
+              "pt-BR": ""
+            },
+            "announcement_en": null,
+            "comments_enabled": false,
+            "announcement_pt__BR": "",
+            "comments_max_length": 0
+          },
+          "default_step": {
+            "announcement": {
+              "pt-BR": ""
+            },
+            "announcement_en": null,
+            "comments_blocked": true,
+            "announcement_pt__BR": "",
+            "endorsements_blocked": true,
+            "endorsements_enabled": false
+          }
+        },
+        "weight": 0,
+        "permissions": null,
+        "published_at": "2023-09-28 14:12:50 -0300"
+      },
+      {
+        "manifest_name": "meetings",
+        "id": 31,
+        "name": {
+          "pt-BR": "Reuniões renat"
+        },
+        "participatory_space_id": 1,
+        "participatory_space_type": "Decidim::Assembly",
+        "settings": {
+          "steps": {
+          },
+          "global": {
+            "scope_id": 1,
+            "announcement": {
+              "pt-BR": ""
+            },
+            "maps_enabled": true,
+            "scopes_enabled": false,
+            "announcement_en": null,
+            "comments_enabled": true,
+            "announcement_pt__BR": "",
+            "comments_max_length": 0,
+            "enable_pads_creation": false,
+            "registration_code_enabled": true,
+            "default_registration_terms": {
+              "pt-BR": ""
+            },
+            "default_registration_terms_en": null,
+            "resources_permissions_enabled": true,
+            "creation_enabled_for_participants": true,
+            "default_registration_terms_pt__BR": ""
+          },
+          "default_step": {
+            "announcement": {
+              "pt-BR": ""
+            },
+            "announcement_en": null,
+            "comments_blocked": false,
+            "announcement_pt__BR": ""
+          }
+        },
+        "weight": 0,
+        "permissions": null,
+        "published_at": "2023-09-04 16:56:26 -0300"
+      },
+      {
+        "manifest_name": "meetings",
+        "id": 11,
+        "name": {
+          "pt-BR": "Organize uma etapa"
+        },
+        "participatory_space_id": 1,
+        "participatory_space_type": "Decidim::Assembly",
+        "settings": {
+          "steps": {
+          },
+          "global": {
+            "scope_id": null,
+            "announcement": {
+              "pt-BR": ""
+            },
+            "maps_enabled": false,
+            "scopes_enabled": false,
+            "announcement_en": null,
+            "comments_enabled": true,
+            "announcement_pt__BR": "",
+            "comments_max_length": 0,
+            "enable_pads_creation": false,
+            "registration_code_enabled": true,
+            "default_registration_terms": {
+              "pt-BR": ""
+            },
+            "default_registration_terms_en": null,
+            "resources_permissions_enabled": true,
+            "creation_enabled_for_participants": true,
+            "default_registration_terms_pt__BR": ""
+          },
+          "default_step": {
+            "announcement": {
+              "pt-BR": ""
+            },
+            "announcement_en": null,
+            "comments_blocked": false,
+            "announcement_pt__BR": ""
+          }
+        },
+        "weight": 0,
+        "permissions": null,
+        "published_at": "2023-08-28 17:08:41 -0300"
+      },
+      {
+        "manifest_name": "pages",
+        "id": 34,
+        "name": {
+          "pt-BR": "Início"
+        },
+        "participatory_space_id": 1,
+        "participatory_space_type": "Decidim::Assembly",
+        "settings": {
+          "steps": {
+          },
+          "global": {
+            "announcement": {
+              "pt-BR": ""
+            },
+            "announcement_en": null,
+            "announcement_pt__BR": ""
+          },
+          "default_step": {
+            "announcement": {
+              "pt-BR": ""
+            },
+            "announcement_en": null,
+            "announcement_pt__BR": ""
+          }
+        },
+        "weight": 0,
+        "permissions": null,
+        "published_at": "2023-09-21 02:52:03 -0300",
+        "specific_data": {
+          "body": {
+            "pt-BR": ""
+          }
+        }
+      },
+      {
+        "manifest_name": "surveys",
+        "id": 29,
+        "name": {
+          "pt-BR": "Organize uma etapa"
+        },
+        "participatory_space_id": 1,
+        "participatory_space_type": "Decidim::Assembly",
+        "settings": {
+          "steps": {
+          },
+          "global": {
+            "ends_at": "2023-11-30T21:00:00.000-03:00",
+            "scope_id": 1,
+            "starts_at": "2023-08-30T21:00:00.000-03:00",
+            "announcement": {
+              "pt-BR": ""
+            },
+            "scopes_enabled": false,
+            "announcement_en": null,
+            "announcement_pt__BR": "",
+            "clean_after_publish": false
+          },
+          "default_step": {
+            "announcement": {
+              "pt-BR": ""
+            },
+            "allow_answers": true,
+            "announcement_en": null,
+            "allow_unregistered": false,
+            "announcement_pt__BR": ""
+          }
+        },
+        "weight": 0,
+        "permissions": null,
+        "published_at": "2023-09-01 15:29:28 -0300",
+        "specific_data": [
+          {
+            "id": 7,
+            "decidim_component_id": 29,
+            "created_at": "2023-09-01T15:29:20.198-03:00",
+            "updated_at": "2023-09-01T15:29:20.198-03:00",
+            "questionnaire": {
+              "id": 7,
+              "title": {
+                "pt-BR": "Organize uma etapa"
+              },
+              "description": {
+                "pt-BR": ""
+              },
+              "tos": {
+                "pt-BR": "<p>Autorizo o uso das informações em todo e qualquer material relativo à divulgação das etapas da conferência da Juventude</p>"
+              },
+              "questionnaire_for_type": "Decidim::Surveys::Survey",
+              "questionnaire_for_id": 7,
+              "published_at": null,
+              "created_at": "2023-09-01T15:29:20.200-03:00",
+              "updated_at": "2023-09-01T15:35:21.687-03:00",
+              "salt": "888e218790f71761930e29e0668587d5cad735f485a908d66c7c008786c8ced3",
+              "questions": [
+                {
+                  "id": 22,
+                  "decidim_questionnaire_id": 7,
+                  "position": 0,
+                  "question_type": "short_answer",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Nome da Etapa"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-01T15:35:21.644-03:00",
+                  "updated_at": "2023-09-01T15:35:21.644-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 23,
+                  "decidim_questionnaire_id": 7,
+                  "position": 1,
+                  "question_type": "long_answer",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Descrição"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-01T15:35:21.648-03:00",
+                  "updated_at": "2023-09-01T15:35:21.648-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 24,
+                  "decidim_questionnaire_id": 7,
+                  "position": 2,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Formato"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-01T15:35:21.661-03:00",
+                  "updated_at": "2023-09-01T15:41:56.329-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 26,
+                      "decidim_question_id": 24,
+                      "body": {
+                        "pt-BR": "Virtual"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 27,
+                      "decidim_question_id": 24,
+                      "body": {
+                        "pt-BR": "Presencial"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 28,
+                      "decidim_question_id": 24,
+                      "body": {
+                        "pt-BR": "Ambas"
+                      },
+                      "free_text": false
+                    }
+                  ]
+                },
+                {
+                  "id": 25,
+                  "decidim_questionnaire_id": 7,
+                  "position": 3,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Tipo"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-01T15:35:21.673-03:00",
+                  "updated_at": "2023-09-01T15:35:21.673-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 29,
+                      "decidim_question_id": 25,
+                      "body": {
+                        "pt-BR": "Municipal ou Regional"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 30,
+                      "decidim_question_id": 25,
+                      "body": {
+                        "pt-BR": "Estadual ou DF"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 31,
+                      "decidim_question_id": 25,
+                      "body": {
+                        "pt-BR": "Livre"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 32,
+                      "decidim_question_id": 25,
+                      "body": {
+                        "pt-BR": "Povos e Comunidades"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 33,
+                      "decidim_question_id": 25,
+                      "body": {
+                        "pt-BR": "Temáticas"
+                      },
+                      "free_text": false
+                    }
+                  ]
+                },
+                {
+                  "id": 26,
+                  "decidim_questionnaire_id": 7,
+                  "position": 4,
+                  "question_type": "short_answer",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Endereço/Localização"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-01T15:41:56.342-03:00",
+                  "updated_at": "2023-09-01T15:41:56.342-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 27,
+                  "decidim_questionnaire_id": 7,
+                  "position": 5,
+                  "question_type": "short_answer",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Data e hora de início"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-01T15:41:56.346-03:00",
+                  "updated_at": "2023-09-01T15:41:56.346-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 28,
+                  "decidim_questionnaire_id": 7,
+                  "position": 6,
+                  "question_type": "short_answer",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Data e hora de término"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-01T15:41:56.349-03:00",
+                  "updated_at": "2023-09-01T15:41:56.349-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 29,
+                  "decidim_questionnaire_id": 7,
+                  "position": 7,
+                  "question_type": "short_answer",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "UF"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-01T15:41:56.352-03:00",
+                  "updated_at": "2023-09-01T15:47:17.669-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 32,
+                  "decidim_questionnaire_id": 7,
+                  "position": 8,
+                  "question_type": "short_answer",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Cidade"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-01T15:47:58.518-03:00",
+                  "updated_at": "2023-09-01T15:47:58.518-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 30,
+                  "decidim_questionnaire_id": 7,
+                  "position": 9,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Tipo de inscrição "
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-01T15:41:56.357-03:00",
+                  "updated_at": "2023-09-01T15:47:58.528-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 34,
+                      "decidim_question_id": 30,
+                      "body": {
+                        "pt-BR": "Nesta plataforma"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 35,
+                      "decidim_question_id": 30,
+                      "body": {
+                        "pt-BR": "Em outra plataforma"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 36,
+                      "decidim_question_id": 30,
+                      "body": {
+                        "pt-BR": "Inscrição manual"
+                      },
+                      "free_text": false
+                    }
+                  ]
+                },
+                {
+                  "id": 31,
+                  "decidim_questionnaire_id": 7,
+                  "position": 10,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Tema"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-01T15:41:56.368-03:00",
+                  "updated_at": "2023-09-01T15:47:58.551-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 37,
+                      "decidim_question_id": 31,
+                      "body": {
+                        "pt-BR": "Todos"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 38,
+                      "decidim_question_id": 31,
+                      "body": {
+                        "pt-BR": "Direito à Educação"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 39,
+                      "decidim_question_id": 31,
+                      "body": {
+                        "pt-BR": "Direito à Profissionalização, ao Trabalho e à Renda"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 40,
+                      "decidim_question_id": 31,
+                      "body": {
+                        "pt-BR": "Direito à Diversidade e à Igualdade"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 41,
+                      "decidim_question_id": 31,
+                      "body": {
+                        "pt-BR": "Direito à Saúde"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 42,
+                      "decidim_question_id": 31,
+                      "body": {
+                        "pt-BR": "Direito à Cultura"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 43,
+                      "decidim_question_id": 31,
+                      "body": {
+                        "pt-BR": "Direito à Comunicação e à Liberdade de Expressão"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 44,
+                      "decidim_question_id": 31,
+                      "body": {
+                        "pt-BR": "Direito ao Desporto e ao Lazer"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 45,
+                      "decidim_question_id": 31,
+                      "body": {
+                        "pt-BR": "Direito à Sustentabilidade e ao Meio Ambiente"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 46,
+                      "decidim_question_id": 31,
+                      "body": {
+                        "pt-BR": "Direito ao Território e à Mobilidade"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 47,
+                      "decidim_question_id": 31,
+                      "body": {
+                        "pt-BR": "Direito à Segurança Pública e ao Acesso à Justiça"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 48,
+                      "decidim_question_id": 31,
+                      "body": {
+                        "pt-BR": "Sistema Nacional de Juventude - SINAJUVE"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 49,
+                      "decidim_question_id": 31,
+                      "body": {
+                        "pt-BR": "Direito à Cidadania, à Participação Social e Política e à Representação Juvenil"
+                      },
+                      "free_text": false
+                    }
+                  ]
+                }
+              ]
+            },
+            "survey_id": 7
+          }
+        ]
+      },
+      {
+        "manifest_name": "surveys",
+        "id": 12,
+        "name": {
+          "pt-BR": "Registre sua reunião"
+        },
+        "participatory_space_id": 1,
+        "participatory_space_type": "Decidim::Assembly",
+        "settings": {
+          "steps": {
+          },
+          "global": {
+            "ends_at": null,
+            "scope_id": null,
+            "starts_at": null,
+            "announcement": {
+              "pt-BR": ""
+            },
+            "scopes_enabled": false,
+            "announcement_en": null,
+            "announcement_pt__BR": "",
+            "clean_after_publish": true
+          },
+          "default_step": {
+            "announcement": {
+              "pt-BR": ""
+            },
+            "allow_answers": true,
+            "announcement_en": null,
+            "allow_unregistered": false,
+            "announcement_pt__BR": ""
+          }
+        },
+        "weight": 0,
+        "permissions": null,
+        "published_at": "2023-08-28 17:08:40 -0300",
+        "specific_data": [
+          {
+            "id": 1,
+            "decidim_component_id": 12,
+            "created_at": "2023-08-28T15:31:38.160-03:00",
+            "updated_at": "2023-08-28T15:31:38.160-03:00",
+            "questionnaire": {
+              "id": 1,
+              "title": {
+                "pt-BR": "Registre o que ocorreu"
+              },
+              "description": {
+                "pt-BR": ""
+              },
+              "tos": {
+                "pt-BR": "<p>Autorizo o uso das imagens em todo e qualquer material relativo à divulgação das etapas da conferência da Juventude</p>"
+              },
+              "questionnaire_for_type": "Decidim::Surveys::Survey",
+              "questionnaire_for_id": 1,
+              "published_at": null,
+              "created_at": "2023-08-28T15:31:38.164-03:00",
+              "updated_at": "2023-08-31T15:04:44.791-03:00",
+              "salt": "dd4b88efc83490d15553cd1d077a86cda8cb8d396b852e2ab17e49741785000a",
+              "questions": [
+                {
+                  "id": 1,
+                  "decidim_questionnaire_id": 1,
+                  "position": 0,
+                  "question_type": "short_answer",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Escreva seu nome"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-08-29T15:53:20.523-03:00",
+                  "updated_at": "2023-09-12T11:01:35.453-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 2,
+                  "decidim_questionnaire_id": 1,
+                  "position": 1,
+                  "question_type": "short_answer",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Telefone com DDD"
+                  },
+                  "description": {
+                    "pt-BR": "<p>Forneça seu número de whastapp</p>"
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-08-29T15:53:20.533-03:00",
+                  "updated_at": "2023-08-31T10:16:17.811-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 3,
+                  "decidim_questionnaire_id": 1,
+                  "position": 2,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Tipo da Etapa"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-08-29T15:53:20.557-03:00",
+                  "updated_at": "2023-08-29T15:53:20.557-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 1,
+                      "decidim_question_id": 3,
+                      "body": {
+                        "pt-BR": "Municipal ou Regional"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 2,
+                      "decidim_question_id": 3,
+                      "body": {
+                        "pt-BR": "Estadual ou DF"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 3,
+                      "decidim_question_id": 3,
+                      "body": {
+                        "pt-BR": "Livre"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 4,
+                      "decidim_question_id": 3,
+                      "body": {
+                        "pt-BR": "Povos e Comunidades"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 5,
+                      "decidim_question_id": 3,
+                      "body": {
+                        "pt-BR": "Temáticas"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 9,
+                      "decidim_question_id": 3,
+                      "body": {
+                        "pt-BR": "Territorial"
+                      },
+                      "free_text": false
+                    }
+                  ]
+                },
+                {
+                  "id": 4,
+                  "decidim_questionnaire_id": 1,
+                  "position": 3,
+                  "question_type": "short_answer",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Data de realização da sua etapa"
+                  },
+                  "description": {
+                    "pt-BR": "<p>(dia/mês/ano)</p>"
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-08-29T15:53:20.592-03:00",
+                  "updated_at": "2023-09-12T11:06:40.595-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 5,
+                  "decidim_questionnaire_id": 1,
+                  "position": 4,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Formato"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-08-29T15:53:20.601-03:00",
+                  "updated_at": "2023-08-29T15:53:20.601-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 6,
+                      "decidim_question_id": 5,
+                      "body": {
+                        "pt-BR": "online"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 7,
+                      "decidim_question_id": 5,
+                      "body": {
+                        "pt-BR": "presencial"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 8,
+                      "decidim_question_id": 5,
+                      "body": {
+                        "pt-BR": "híbrido"
+                      },
+                      "free_text": false
+                    }
+                  ]
+                },
+                {
+                  "id": 6,
+                  "decidim_questionnaire_id": 1,
+                  "position": 5,
+                  "question_type": "short_answer",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Município/Local de realização da sua etapa "
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-08-29T15:53:20.623-03:00",
+                  "updated_at": "2023-09-12T11:09:11.280-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 8,
+                  "decidim_questionnaire_id": 1,
+                  "position": 6,
+                  "question_type": "files",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Delegadas(os) Eleitas(os)"
+                  },
+                  "description": {
+                    "pt-BR": "<p>Registre sua ata. Documento preenchido de acordo com o modelo disponibilizado <a href=\"https://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaTh3IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a2690d74314106cdbd421ea0744ea8fae751bc64/Modelo%20de%20Formulário%20de%20Delegados%20Credenciados%20(pós%20reunião).xlsx\" rel=\"noopener noreferrer\" target=\"_blank\">aqui</a>.</p>"
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-08-29T15:53:20.637-03:00",
+                  "updated_at": "2023-09-18T14:49:48.278-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 9,
+                  "decidim_questionnaire_id": 1,
+                  "position": 7,
+                  "question_type": "files",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": " Lista de presença"
+                  },
+                  "description": {
+                    "pt-BR": "<p>Arquivo pdf, organizado em excel com a lista de pessoas votantes.</p>"
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-08-29T15:53:20.644-03:00",
+                  "updated_at": "2023-09-12T11:06:40.635-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 10,
+                  "decidim_questionnaire_id": 1,
+                  "position": 8,
+                  "question_type": "files",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Ata da realização da sua etapa"
+                  },
+                  "description": {
+                    "pt-BR": "<p>Arquivo pdf, organizado em word com a ata de resultados da conferência.</p>"
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-08-29T15:53:20.651-03:00",
+                  "updated_at": "2023-09-12T11:06:40.639-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 11,
+                  "decidim_questionnaire_id": 1,
+                  "position": 9,
+                  "question_type": "files",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Resoluções eleitas na sua etapa"
+                  },
+                  "description": {
+                    "pt-BR": "<p>Registre sua ata. Documento excel (xls) com as propostas eleitas de acordo com o modelo disponibilizado <a href=\"https://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaTR3IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--1fd298b1e948cbca8f920811aaee8de5ddfff93d/Modelo%20das%20propostas%20eleitas%20(pós%20reunião).xlsx\" rel=\"noopener noreferrer\" target=\"_blank\">aqui</a>.</p>"
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-08-29T15:53:20.658-03:00",
+                  "updated_at": "2023-09-18T14:49:48.287-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 12,
+                  "decidim_questionnaire_id": 1,
+                  "position": 10,
+                  "question_type": "files",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Fotos ou prints da sua etapa"
+                  },
+                  "description": {
+                    "pt-BR": "<p>Foto do evento (jpg, png), ou pasta comprimida (.zip) com as fotos</p>"
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-08-29T15:53:20.665-03:00",
+                  "updated_at": "2023-09-12T11:06:40.647-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 14,
+                  "decidim_questionnaire_id": 1,
+                  "position": 11,
+                  "question_type": "short_answer",
+                  "mandatory": false,
+                  "body": {
+                    "pt-BR": "Fotos - Link Público"
+                  },
+                  "description": {
+                    "pt-BR": "<p>Link público da pasta com as fotos do evento e documento em word com crédito de cada foto</p>"
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-08-30T15:56:14.721-03:00",
+                  "updated_at": "2023-08-31T10:59:32.109-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 15,
+                  "decidim_questionnaire_id": 1,
+                  "position": 12,
+                  "question_type": "short_answer",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Crédito da(o) fotógrafa(o)"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-08-30T15:56:14.725-03:00",
+                  "updated_at": "2023-09-12T11:06:40.653-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                }
+              ]
+            },
+            "survey_id": 1
+          }
+        ]
+      },
+      {
+        "manifest_name": "surveys",
+        "id": 32,
+        "name": {
+          "pt-BR": "Perfil"
+        },
+        "participatory_space_id": 1,
+        "participatory_space_type": "Decidim::Assembly",
+        "settings": {
+          "steps": {
+          },
+          "global": {
+            "ends_at": null,
+            "scope_id": 1,
+            "starts_at": null,
+            "announcement": {
+              "pt-BR": ""
+            },
+            "scopes_enabled": false,
+            "announcement_en": null,
+            "announcement_pt__BR": "",
+            "clean_after_publish": true
+          },
+          "default_step": {
+            "announcement": {
+              "pt-BR": ""
+            },
+            "allow_answers": true,
+            "announcement_en": null,
+            "allow_unregistered": false,
+            "announcement_pt__BR": ""
+          }
+        },
+        "weight": 0,
+        "permissions": null,
+        "published_at": "2023-09-18 15:20:38 -0300",
+        "specific_data": [
+          {
+            "id": 8,
+            "decidim_component_id": 32,
+            "created_at": "2023-09-18T14:59:43.555-03:00",
+            "updated_at": "2023-09-18T14:59:43.555-03:00",
+            "questionnaire": {
+              "id": 8,
+              "title": {
+                "pt-BR": "Reconstruir no Presente, Construir o Futuro: Desenvolvimento, Direitos, Participação e Bem Viver"
+              },
+              "description": {
+                "pt-BR": "<p>Questionário da etapa digital</p>"
+              },
+              "tos": {
+                "pt-BR": "<p>Autorizo o uso das imagens em todo e qualquer material relativo à divulgação das etapas da conferência da Juventude</p>"
+              },
+              "questionnaire_for_type": "Decidim::Surveys::Survey",
+              "questionnaire_for_id": 8,
+              "published_at": null,
+              "created_at": "2023-09-18T14:59:43.556-03:00",
+              "updated_at": "2023-09-18T15:03:16.363-03:00",
+              "salt": "44e8ca4817b08d2256c523ec8b67248bebc1b9c8cdd952add779d01dfe514173",
+              "questions": [
+                {
+                  "id": 45,
+                  "decidim_questionnaire_id": 8,
+                  "position": 0,
+                  "question_type": "title_and_description",
+                  "mandatory": false,
+                  "body": {
+                    "pt-BR": "PARTE I – IDENTIFICAÇÃO"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:03:16.337-03:00",
+                  "updated_at": "2023-09-18T15:03:16.337-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 46,
+                  "decidim_questionnaire_id": 8,
+                  "position": 1,
+                  "question_type": "single_option",
+                  "mandatory": false,
+                  "body": {
+                    "pt-BR": "Qual a sua forma de participação nesta IV Conferência"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:03:16.346-03:00",
+                  "updated_at": "2023-09-18T15:03:16.346-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 54,
+                      "decidim_question_id": 46,
+                      "body": {
+                        "pt-BR": "Delegado"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 55,
+                      "decidim_question_id": 46,
+                      "body": {
+                        "pt-BR": "Observador"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 56,
+                      "decidim_question_id": 46,
+                      "body": {
+                        "pt-BR": "Convidado"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 57,
+                      "decidim_question_id": 46,
+                      "body": {
+                        "pt-BR": "Outro. Qual?"
+                      },
+                      "free_text": true
+                    }
+                  ]
+                },
+                {
+                  "id": 47,
+                  "decidim_questionnaire_id": 8,
+                  "position": 2,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Quais os tipos de organização, redes e fóruns você participa atualmente"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:05:16.598-03:00",
+                  "updated_at": "2023-09-18T15:05:16.598-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 58,
+                      "decidim_question_id": 47,
+                      "body": {
+                        "pt-BR": "Partido político"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 59,
+                      "decidim_question_id": 47,
+                      "body": {
+                        "pt-BR": "Movimentos sociais, coletivos, grupos juvenis, grupos culturais"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 60,
+                      "decidim_question_id": 47,
+                      "body": {
+                        "pt-BR": "Movimento estudantil"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 61,
+                      "decidim_question_id": 47,
+                      "body": {
+                        "pt-BR": "Sindicato"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 62,
+                      "decidim_question_id": 47,
+                      "body": {
+                        "pt-BR": "Conselho de juventude"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 63,
+                      "decidim_question_id": 47,
+                      "body": {
+                        "pt-BR": "Não participo de nenhum grupo ou organização"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 64,
+                      "decidim_question_id": 47,
+                      "body": {
+                        "pt-BR": "Outras. Quais?"
+                      },
+                      "free_text": true
+                    }
+                  ]
+                },
+                {
+                  "id": 48,
+                  "decidim_questionnaire_id": 8,
+                  "position": 3,
+                  "question_type": "short_answer",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Idade"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:05:16.620-03:00",
+                  "updated_at": "2023-09-18T15:05:16.620-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 49,
+                  "decidim_questionnaire_id": 8,
+                  "position": 4,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Marque o estado em que você vive"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:09:48.198-03:00",
+                  "updated_at": "2023-09-18T15:09:48.198-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 65,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Acre"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 66,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Alagoas"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 67,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Amapá"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 68,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Amazonas"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 69,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Bahia"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 70,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Ceará"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 71,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Distrito Federal"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 72,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Espírito Santo"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 73,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Goiás"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 74,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Maranhão"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 75,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Mato Grosso"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 76,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Mato Grosso do Sul"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 77,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Maranhão"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 78,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Minas Gerais"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 79,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Pará"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 80,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Paraíba"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 81,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Paraná"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 82,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Pernambuco"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 83,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Piauí"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 84,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Rio de Janeiro"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 85,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Rio Grande do Norte"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 86,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Rio Grande do Sul"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 87,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Rondônia"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 88,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Roraima"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 89,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Santa Catarina"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 90,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "São Paulo"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 91,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Sergipe"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 92,
+                      "decidim_question_id": 49,
+                      "body": {
+                        "pt-BR": "Tocantis"
+                      },
+                      "free_text": false
+                    }
+                  ]
+                },
+                {
+                  "id": 50,
+                  "decidim_questionnaire_id": 8,
+                  "position": 5,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Você vive"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:13:05.651-03:00",
+                  "updated_at": "2023-09-18T15:13:05.651-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 93,
+                      "decidim_question_id": 50,
+                      "body": {
+                        "pt-BR": "Zona urbana"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 94,
+                      "decidim_question_id": 50,
+                      "body": {
+                        "pt-BR": "Zona rural"
+                      },
+                      "free_text": false
+                    }
+                  ]
+                },
+                {
+                  "id": 51,
+                  "decidim_questionnaire_id": 8,
+                  "position": 6,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Você mora"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:13:05.664-03:00",
+                  "updated_at": "2023-09-18T15:13:05.664-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 95,
+                      "decidim_question_id": 51,
+                      "body": {
+                        "pt-BR": "Região metropolitana"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 96,
+                      "decidim_question_id": 51,
+                      "body": {
+                        "pt-BR": "Cidade do interior"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 97,
+                      "decidim_question_id": 51,
+                      "body": {
+                        "pt-BR": "Capital"
+                      },
+                      "free_text": false
+                    }
+                  ]
+                },
+                {
+                  "id": 52,
+                  "decidim_questionnaire_id": 8,
+                  "position": 7,
+                  "question_type": "single_option",
+                  "mandatory": false,
+                  "body": {
+                    "pt-BR": "- Cor/raça"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:13:05.679-03:00",
+                  "updated_at": "2023-09-18T15:13:05.679-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 98,
+                      "decidim_question_id": 52,
+                      "body": {
+                        "pt-BR": "Branca"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 99,
+                      "decidim_question_id": 52,
+                      "body": {
+                        "pt-BR": "Parda"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 100,
+                      "decidim_question_id": 52,
+                      "body": {
+                        "pt-BR": "Preta"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 101,
+                      "decidim_question_id": 52,
+                      "body": {
+                        "pt-BR": "Amarela"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 102,
+                      "decidim_question_id": 52,
+                      "body": {
+                        "pt-BR": "Indígena. Qual etnia"
+                      },
+                      "free_text": true
+                    }
+                  ]
+                },
+                {
+                  "id": 53,
+                  "decidim_questionnaire_id": 8,
+                  "position": 8,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Você tem diagnóstico para alguma deficiência"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:19:01.050-03:00",
+                  "updated_at": "2023-09-18T15:19:01.050-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 103,
+                      "decidim_question_id": 53,
+                      "body": {
+                        "pt-BR": "Não"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 104,
+                      "decidim_question_id": 53,
+                      "body": {
+                        "pt-BR": "Sim. Qual?"
+                      },
+                      "free_text": true
+                    }
+                  ]
+                },
+                {
+                  "id": 54,
+                  "decidim_questionnaire_id": 8,
+                  "position": 9,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Identidade de gênero"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:19:01.061-03:00",
+                  "updated_at": "2023-09-18T15:19:01.061-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 105,
+                      "decidim_question_id": 54,
+                      "body": {
+                        "pt-BR": "Feminino"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 106,
+                      "decidim_question_id": 54,
+                      "body": {
+                        "pt-BR": "Masculino"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 107,
+                      "decidim_question_id": 54,
+                      "body": {
+                        "pt-BR": "Não binárie"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 108,
+                      "decidim_question_id": 54,
+                      "body": {
+                        "pt-BR": "Outros. Qual?"
+                      },
+                      "free_text": true
+                    }
+                  ]
+                },
+                {
+                  "id": 55,
+                  "decidim_questionnaire_id": 8,
+                  "position": 10,
+                  "question_type": "short_answer",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Qual sua orientação sexua"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:19:01.077-03:00",
+                  "updated_at": "2023-09-18T15:19:01.077-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 56,
+                  "decidim_questionnaire_id": 8,
+                  "position": 11,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Estado civil"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:19:01.082-03:00",
+                  "updated_at": "2023-09-18T15:19:01.082-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 109,
+                      "decidim_question_id": 56,
+                      "body": {
+                        "pt-BR": "Solteira(o)"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 110,
+                      "decidim_question_id": 56,
+                      "body": {
+                        "pt-BR": "Casada(o)/ mora junto"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 111,
+                      "decidim_question_id": 56,
+                      "body": {
+                        "pt-BR": "Divorciada(o)/ separada(o)"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 112,
+                      "decidim_question_id": 56,
+                      "body": {
+                        "pt-BR": "Viúva(o)"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 113,
+                      "decidim_question_id": 56,
+                      "body": {
+                        "pt-BR": "Outro. Qual?"
+                      },
+                      "free_text": true
+                    }
+                  ]
+                },
+                {
+                  "id": 57,
+                  "decidim_questionnaire_id": 8,
+                  "position": 12,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Quantos filhos você tem?"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:19:01.101-03:00",
+                  "updated_at": "2023-09-18T15:19:01.101-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 114,
+                      "decidim_question_id": 57,
+                      "body": {
+                        "pt-BR": "Nenhum"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 115,
+                      "decidim_question_id": 57,
+                      "body": {
+                        "pt-BR": "Uma filha(o)"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 116,
+                      "decidim_question_id": 57,
+                      "body": {
+                        "pt-BR": "Duas filhas (os)"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 117,
+                      "decidim_question_id": 57,
+                      "body": {
+                        "pt-BR": "Três filhas (os)"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 118,
+                      "decidim_question_id": 57,
+                      "body": {
+                        "pt-BR": "Mais de 3 filhas(os)"
+                      },
+                      "free_text": false
+                    }
+                  ]
+                },
+                {
+                  "id": 58,
+                  "decidim_questionnaire_id": 8,
+                  "position": 13,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Qual a sua religião?"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:19:01.123-03:00",
+                  "updated_at": "2023-09-18T15:19:01.123-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 119,
+                      "decidim_question_id": 58,
+                      "body": {
+                        "pt-BR": "Católica"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 120,
+                      "decidim_question_id": 58,
+                      "body": {
+                        "pt-BR": "Espírita"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 121,
+                      "decidim_question_id": 58,
+                      "body": {
+                        "pt-BR": "Umbanda, candomblé ou outras religiões afro-brasileiras"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 122,
+                      "decidim_question_id": 58,
+                      "body": {
+                        "pt-BR": "Tenho fé, mas não tenho religião"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 123,
+                      "decidim_question_id": 58,
+                      "body": {
+                        "pt-BR": "Ateu ou Agnóstico"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 124,
+                      "decidim_question_id": 58,
+                      "body": {
+                        "pt-BR": "Evangélica. Qual denominação"
+                      },
+                      "free_text": true
+                    },
+                    {
+                      "id": 125,
+                      "decidim_question_id": 58,
+                      "body": {
+                        "pt-BR": "Outra. Qual?"
+                      },
+                      "free_text": true
+                    }
+                  ]
+                },
+                {
+                  "id": 59,
+                  "decidim_questionnaire_id": 8,
+                  "position": 14,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Qual o seu grau de escolaridade?"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:20:25.888-03:00",
+                  "updated_at": "2023-09-18T15:32:07.929-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 126,
+                      "decidim_question_id": 59,
+                      "body": {
+                        "pt-BR": "Nunca estudou"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 127,
+                      "decidim_question_id": 59,
+                      "body": {
+                        "pt-BR": "Ensino fundamental I incompleto ou cursando"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 128,
+                      "decidim_question_id": 59,
+                      "body": {
+                        "pt-BR": "Ensino fundamental I (1 ao 5 ano) completo"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 129,
+                      "decidim_question_id": 59,
+                      "body": {
+                        "pt-BR": "Ensino fundamental II (6 ao 9 ano) incompleto ou cursando"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 130,
+                      "decidim_question_id": 59,
+                      "body": {
+                        "pt-BR": "Ensino fundamental II (6 ao 9 ano) completo"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 131,
+                      "decidim_question_id": 59,
+                      "body": {
+                        "pt-BR": "Ensino médio incompleto ou cursando"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 132,
+                      "decidim_question_id": 59,
+                      "body": {
+                        "pt-BR": "Ensino médio completo"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 133,
+                      "decidim_question_id": 59,
+                      "body": {
+                        "pt-BR": "Superior incompleto ou cursando"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 134,
+                      "decidim_question_id": 59,
+                      "body": {
+                        "pt-BR": "Superior completo"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 135,
+                      "decidim_question_id": 59,
+                      "body": {
+                        "pt-BR": "Pós-graduação lato sensu - completa ou cursando"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 136,
+                      "decidim_question_id": 59,
+                      "body": {
+                        "pt-BR": "Mestrado completo ou cursando"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 137,
+                      "decidim_question_id": 59,
+                      "body": {
+                        "pt-BR": "Doutorado completo ou cursando"
+                      },
+                      "free_text": false
+                    }
+                  ]
+                },
+                {
+                  "id": 60,
+                  "decidim_questionnaire_id": 8,
+                  "position": 15,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Sobre estudo e trabalho você"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:32:07.935-03:00",
+                  "updated_at": "2023-09-18T15:32:07.935-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 138,
+                      "decidim_question_id": 60,
+                      "body": {
+                        "pt-BR": "Estuda e trabalha"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 139,
+                      "decidim_question_id": 60,
+                      "body": {
+                        "pt-BR": "Só trabalha"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 140,
+                      "decidim_question_id": 60,
+                      "body": {
+                        "pt-BR": "Só estuda"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 141,
+                      "decidim_question_id": 60,
+                      "body": {
+                        "pt-BR": "Não estuda /não trabalha"
+                      },
+                      "free_text": false
+                    }
+                  ]
+                },
+                {
+                  "id": 61,
+                  "decidim_questionnaire_id": 8,
+                  "position": 16,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Se você trabalha, em que setor atua"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:32:07.950-03:00",
+                  "updated_at": "2023-09-18T15:32:07.950-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 142,
+                      "decidim_question_id": 61,
+                      "body": {
+                        "pt-BR": "Agricultura, pecuária ou extrativismo"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 143,
+                      "decidim_question_id": 61,
+                      "body": {
+                        "pt-BR": "Indústria"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 144,
+                      "decidim_question_id": 61,
+                      "body": {
+                        "pt-BR": "Serviços"
+                      },
+                      "free_text": false
+                    }
+                  ]
+                },
+                {
+                  "id": 62,
+                  "decidim_questionnaire_id": 8,
+                  "position": 17,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Caso esteja trabalhando, é o seu primeiro emprego?"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:32:07.963-03:00",
+                  "updated_at": "2023-09-18T15:32:07.963-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 145,
+                      "decidim_question_id": 62,
+                      "body": {
+                        "pt-BR": "Sim"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 146,
+                      "decidim_question_id": 62,
+                      "body": {
+                        "pt-BR": "Não"
+                      },
+                      "free_text": false
+                    }
+                  ]
+                },
+                {
+                  "id": 63,
+                  "decidim_questionnaire_id": 8,
+                  "position": 18,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Caso esteja trabalhando, qual sua condição de vínculo"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:32:07.973-03:00",
+                  "updated_at": "2023-09-18T15:32:07.973-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 147,
+                      "decidim_question_id": 63,
+                      "body": {
+                        "pt-BR": "Carteira assinada setor público"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 148,
+                      "decidim_question_id": 63,
+                      "body": {
+                        "pt-BR": "Carteira assinada setor privada"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 149,
+                      "decidim_question_id": 63,
+                      "body": {
+                        "pt-BR": "Jovem aprendiz"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 150,
+                      "decidim_question_id": 63,
+                      "body": {
+                        "pt-BR": "Por conta própria (autônomo, mei, freelancer)"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 151,
+                      "decidim_question_id": 63,
+                      "body": {
+                        "pt-BR": "Faço bicos ou trabalhos sem carteira assinada"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 152,
+                      "decidim_question_id": 63,
+                      "body": {
+                        "pt-BR": "Plataforma digital"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 153,
+                      "decidim_question_id": 63,
+                      "body": {
+                        "pt-BR": "Meu próprio negócio/empreendedorismo"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 154,
+                      "decidim_question_id": 63,
+                      "body": {
+                        "pt-BR": "Ajudo pais/familiares no trabalho deles"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 155,
+                      "decidim_question_id": 63,
+                      "body": {
+                        "pt-BR": "Sou bolsista"
+                      },
+                      "free_text": false
+                    }
+                  ]
+                },
+                {
+                  "id": 64,
+                  "decidim_questionnaire_id": 8,
+                  "position": 19,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Com quantos anos você ingressou no mercado de trabalho?"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:39:51.046-03:00",
+                  "updated_at": "2023-09-18T15:39:51.046-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 156,
+                      "decidim_question_id": 64,
+                      "body": {
+                        "pt-BR": "Menos de 14 anos"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 157,
+                      "decidim_question_id": 64,
+                      "body": {
+                        "pt-BR": "De 15 a 18 anos"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 158,
+                      "decidim_question_id": 64,
+                      "body": {
+                        "pt-BR": "DE 19 a 24"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 159,
+                      "decidim_question_id": 64,
+                      "body": {
+                        "pt-BR": "DE 25 a 29"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 160,
+                      "decidim_question_id": 64,
+                      "body": {
+                        "pt-BR": "Nuca trabalhei"
+                      },
+                      "free_text": false
+                    }
+                  ]
+                },
+                {
+                  "id": 65,
+                  "decidim_questionnaire_id": 8,
+                  "position": 20,
+                  "question_type": "single_option",
+                  "mandatory": false,
+                  "body": {
+                    "pt-BR": "Se não trabalha: Está procurando trabalho?"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:39:51.065-03:00",
+                  "updated_at": "2023-09-18T15:39:51.065-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 161,
+                      "decidim_question_id": 65,
+                      "body": {
+                        "pt-BR": "Não"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 162,
+                      "decidim_question_id": 65,
+                      "body": {
+                        "pt-BR": "Sim. Há quanto tempo?"
+                      },
+                      "free_text": true
+                    }
+                  ]
+                },
+                {
+                  "id": 66,
+                  "decidim_questionnaire_id": 8,
+                  "position": 21,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Você recebe algum tipo de bolsa?"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:39:51.074-03:00",
+                  "updated_at": "2023-09-18T15:39:51.074-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 163,
+                      "decidim_question_id": 66,
+                      "body": {
+                        "pt-BR": "Sim"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 164,
+                      "decidim_question_id": 66,
+                      "body": {
+                        "pt-BR": "Não"
+                      },
+                      "free_text": false
+                    }
+                  ]
+                },
+                {
+                  "id": 67,
+                  "decidim_questionnaire_id": 8,
+                  "position": 22,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Se sim, qual?"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:39:51.085-03:00",
+                  "updated_at": "2023-09-18T15:39:51.085-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 165,
+                      "decidim_question_id": 67,
+                      "body": {
+                        "pt-BR": "Programa Governamental"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 166,
+                      "decidim_question_id": 67,
+                      "body": {
+                        "pt-BR": "Bolsa atrelada ao ensino (graduação, Mestrado ou doutorado)"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 167,
+                      "decidim_question_id": 67,
+                      "body": {
+                        "pt-BR": "Outra. Qual?"
+                      },
+                      "free_text": true
+                    }
+                  ]
+                },
+                {
+                  "id": 68,
+                  "decidim_questionnaire_id": 8,
+                  "position": 23,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Qual a renda mensal da sua família (aproximadamente)?"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:39:51.097-03:00",
+                  "updated_at": "2023-09-18T15:39:51.097-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 168,
+                      "decidim_question_id": 68,
+                      "body": {
+                        "pt-BR": "De R$ 1.321 até R$ 3.960 (1 a 3 SM)"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 169,
+                      "decidim_question_id": 68,
+                      "body": {
+                        "pt-BR": "De R$ 3.960 até R$ 6.600 (3 a 5 SM)"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 170,
+                      "decidim_question_id": 68,
+                      "body": {
+                        "pt-BR": "De$ 6.600 até R$ 10.500 (5 a 7 SM)"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 171,
+                      "decidim_question_id": 68,
+                      "body": {
+                        "pt-BR": "Acima de R% 10.500 (Acima de 7 SM)"
+                      },
+                      "free_text": false
+                    }
+                  ]
+                },
+                {
+                  "id": 69,
+                  "decidim_questionnaire_id": 8,
+                  "position": 24,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Em relação à sua classe econômica, você se considera: (resposta única)"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:39:51.113-03:00",
+                  "updated_at": "2023-09-18T15:39:51.113-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 172,
+                      "decidim_question_id": 69,
+                      "body": {
+                        "pt-BR": "Rico"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 173,
+                      "decidim_question_id": 69,
+                      "body": {
+                        "pt-BR": "Classe média alta"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 174,
+                      "decidim_question_id": 69,
+                      "body": {
+                        "pt-BR": "Classe média"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 175,
+                      "decidim_question_id": 69,
+                      "body": {
+                        "pt-BR": "Classe média baixa"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 176,
+                      "decidim_question_id": 69,
+                      "body": {
+                        "pt-BR": "Pobre"
+                      },
+                      "free_text": false
+                    }
+                  ]
+                },
+                {
+                  "id": 70,
+                  "decidim_questionnaire_id": 8,
+                  "position": 25,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Quem mantém financeiramente sua casa? (resposta única)"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:39:51.131-03:00",
+                  "updated_at": "2023-09-18T15:39:51.131-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 177,
+                      "decidim_question_id": 70,
+                      "body": {
+                        "pt-BR": "Seus pais"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 178,
+                      "decidim_question_id": 70,
+                      "body": {
+                        "pt-BR": "Seus pais e seus irmãos"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 179,
+                      "decidim_question_id": 70,
+                      "body": {
+                        "pt-BR": "Seus pais e você"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 180,
+                      "decidim_question_id": 70,
+                      "body": {
+                        "pt-BR": "Seus pais, você e seus irmãos"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 181,
+                      "decidim_question_id": 70,
+                      "body": {
+                        "pt-BR": "Só você"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 182,
+                      "decidim_question_id": 70,
+                      "body": {
+                        "pt-BR": "Você e seus/suas colegas"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 183,
+                      "decidim_question_id": 70,
+                      "body": {
+                        "pt-BR": "Você e sua/seu companheira(o)"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 184,
+                      "decidim_question_id": 70,
+                      "body": {
+                        "pt-BR": "Só a/o companheira(o)"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 185,
+                      "decidim_question_id": 70,
+                      "body": {
+                        "pt-BR": "Outros adultos"
+                      },
+                      "free_text": false
+                    }
+                  ]
+                },
+                {
+                  "id": 71,
+                  "decidim_questionnaire_id": 8,
+                  "position": 26,
+                  "question_type": "separator",
+                  "mandatory": false,
+                  "body": {
+                  },
+                  "description": {
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:39:51.158-03:00",
+                  "updated_at": "2023-09-18T15:39:51.158-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 72,
+                  "decidim_questionnaire_id": 8,
+                  "position": 27,
+                  "question_type": "title_and_description",
+                  "mandatory": false,
+                  "body": {
+                    "pt-BR": "PARTE II - CONEXÕES"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:42:38.696-03:00",
+                  "updated_at": "2023-09-18T15:42:38.696-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 73,
+                  "decidim_questionnaire_id": 8,
+                  "position": 28,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "você tem acesso a internet"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:42:38.708-03:00",
+                  "updated_at": "2023-09-18T15:42:38.708-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 186,
+                      "decidim_question_id": 73,
+                      "body": {
+                        "pt-BR": "Sim"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 187,
+                      "decidim_question_id": 73,
+                      "body": {
+                        "pt-BR": "Não"
+                      },
+                      "free_text": false
+                    }
+                  ]
+                },
+                {
+                  "id": 74,
+                  "decidim_questionnaire_id": 8,
+                  "position": 29,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Sobre uso de internet, o que tem sido mais importante para você no último ano? Enumere em ordem de prioridade"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:42:38.725-03:00",
+                  "updated_at": "2023-09-18T15:42:38.725-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 188,
+                      "decidim_question_id": 74,
+                      "body": {
+                        "pt-BR": "Estudo"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 189,
+                      "decidim_question_id": 74,
+                      "body": {
+                        "pt-BR": "Trabalho"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 190,
+                      "decidim_question_id": 74,
+                      "body": {
+                        "pt-BR": "Manter contato"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 191,
+                      "decidim_question_id": 74,
+                      "body": {
+                        "pt-BR": "Buscar informações"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 192,
+                      "decidim_question_id": 74,
+                      "body": {
+                        "pt-BR": "Lazer"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 193,
+                      "decidim_question_id": 74,
+                      "body": {
+                        "pt-BR": "Militância"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 194,
+                      "decidim_question_id": 74,
+                      "body": {
+                        "pt-BR": "Outro. Qual?"
+                      },
+                      "free_text": true
+                    }
+                  ]
+                },
+                {
+                  "id": 75,
+                  "decidim_questionnaire_id": 8,
+                  "position": 30,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Você já sofreu algum tipo de violência pela internet (cyberbullying)"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:44:56.067-03:00",
+                  "updated_at": "2023-09-18T15:44:56.067-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 195,
+                      "decidim_question_id": 75,
+                      "body": {
+                        "pt-BR": "Sim"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 196,
+                      "decidim_question_id": 75,
+                      "body": {
+                        "pt-BR": "Não"
+                      },
+                      "free_text": false
+                    }
+                  ]
+                },
+                {
+                  "id": 76,
+                  "decidim_questionnaire_id": 8,
+                  "position": 31,
+                  "question_type": "single_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Se você tem algum tipo de participação política, ela é predominantemente:"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:44:56.078-03:00",
+                  "updated_at": "2023-09-18T15:44:56.078-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 197,
+                      "decidim_question_id": 76,
+                      "body": {
+                        "pt-BR": "Online"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 198,
+                      "decidim_question_id": 76,
+                      "body": {
+                        "pt-BR": "presencial"
+                      },
+                      "free_text": false
+                    }
+                  ]
+                },
+                {
+                  "id": 77,
+                  "decidim_questionnaire_id": 8,
+                  "position": 32,
+                  "question_type": "separator",
+                  "mandatory": false,
+                  "body": {
+                  },
+                  "description": {
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:44:56.087-03:00",
+                  "updated_at": "2023-09-18T15:44:56.087-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 78,
+                  "decidim_questionnaire_id": 8,
+                  "position": 33,
+                  "question_type": "title_and_description",
+                  "mandatory": false,
+                  "body": {
+                    "pt-BR": "PARTE III - SOCIEDADE BRASILEIRA E FUTURO"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-18T15:44:56.091-03:00",
+                  "updated_at": "2023-09-18T15:44:56.091-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 79,
+                  "decidim_questionnaire_id": 8,
+                  "position": 34,
+                  "question_type": "multiple_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Do seu ponto de vista, assinale os três problemas mais graves hoje, no Brasil"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": 3,
+                  "created_at": "2023-09-20T09:00:21.621-03:00",
+                  "updated_at": "2023-09-20T09:09:31.175-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 199,
+                      "decidim_question_id": 79,
+                      "body": {
+                        "pt-BR": "Racismo"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 200,
+                      "decidim_question_id": 79,
+                      "body": {
+                        "pt-BR": "Violência"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 201,
+                      "decidim_question_id": 79,
+                      "body": {
+                        "pt-BR": "Pobreza"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 202,
+                      "decidim_question_id": 79,
+                      "body": {
+                        "pt-BR": "Corrupção"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 203,
+                      "decidim_question_id": 79,
+                      "body": {
+                        "pt-BR": "Desigualdades"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 204,
+                      "decidim_question_id": 79,
+                      "body": {
+                        "pt-BR": "Desemprego"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 205,
+                      "decidim_question_id": 79,
+                      "body": {
+                        "pt-BR": "Meio Ambiente"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 206,
+                      "decidim_question_id": 79,
+                      "body": {
+                        "pt-BR": "Inflação"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 207,
+                      "decidim_question_id": 79,
+                      "body": {
+                        "pt-BR": "Transporte"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 208,
+                      "decidim_question_id": 79,
+                      "body": {
+                        "pt-BR": "Salário"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 209,
+                      "decidim_question_id": 79,
+                      "body": {
+                        "pt-BR": "Habitação"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 210,
+                      "decidim_question_id": 79,
+                      "body": {
+                        "pt-BR": "Educação"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 211,
+                      "decidim_question_id": 79,
+                      "body": {
+                        "pt-BR": "Saúde"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 212,
+                      "decidim_question_id": 79,
+                      "body": {
+                        "pt-BR": "Segurança pública"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 213,
+                      "decidim_question_id": 79,
+                      "body": {
+                        "pt-BR": "Mobilidade urbano / rural"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 214,
+                      "decidim_question_id": 79,
+                      "body": {
+                        "pt-BR": "Ataques à democracia"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 215,
+                      "decidim_question_id": 79,
+                      "body": {
+                        "pt-BR": "Outros. Quais? "
+                      },
+                      "free_text": true
+                    }
+                  ]
+                },
+                {
+                  "id": 80,
+                  "decidim_questionnaire_id": 8,
+                  "position": 35,
+                  "question_type": "separator",
+                  "mandatory": false,
+                  "body": {
+                  },
+                  "description": {
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-20T09:13:22.516-03:00",
+                  "updated_at": "2023-09-20T09:13:22.516-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 81,
+                  "decidim_questionnaire_id": 8,
+                  "position": 36,
+                  "question_type": "title_and_description",
+                  "mandatory": false,
+                  "body": {
+                    "pt-BR": "PARTE IV - CONFERÊNCIA"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-20T09:13:22.522-03:00",
+                  "updated_at": "2023-09-20T09:13:22.522-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                }
+              ]
+            },
+            "survey_id": 8
+          }
+        ]
+      },
+      {
+        "manifest_name": "surveys",
+        "id": 44,
+        "name": {
+          "pt-BR": "Perfil - Parte 2"
+        },
+        "participatory_space_id": 1,
+        "participatory_space_type": "Decidim::Assembly",
+        "settings": {
+          "steps": {
+          },
+          "global": {
+            "ends_at": null,
+            "scope_id": 1,
+            "starts_at": null,
+            "announcement": {
+              "pt-BR": ""
+            },
+            "scopes_enabled": false,
+            "announcement_en": null,
+            "announcement_pt__BR": "",
+            "clean_after_publish": true
+          },
+          "default_step": {
+            "announcement": {
+              "pt-BR": ""
+            },
+            "allow_answers": false,
+            "announcement_en": null,
+            "allow_unregistered": false,
+            "announcement_pt__BR": ""
+          }
+        },
+        "weight": 0,
+        "permissions": null,
+        "published_at": null,
+        "specific_data": [
+          {
+            "id": 9,
+            "decidim_component_id": 44,
+            "created_at": "2023-09-29T15:28:19.420-03:00",
+            "updated_at": "2023-09-29T15:28:19.420-03:00",
+            "questionnaire": {
+              "id": 9,
+              "title": {
+                "pt-BR": "Perfil - Parte 2"
+              },
+              "description": {
+                "pt-BR": ""
+              },
+              "tos": {
+                "pt-BR": "<p>Permite o uso das informações para a Conferência Nacional da Juventude</p>"
+              },
+              "questionnaire_for_type": "Decidim::Surveys::Survey",
+              "questionnaire_for_id": 9,
+              "published_at": null,
+              "created_at": "2023-09-29T15:28:19.422-03:00",
+              "updated_at": "2023-09-29T15:31:09.710-03:00",
+              "salt": "f80c350855b121193deb25ab330e6ec6dc5548aef74698a687205a4f7e494545",
+              "questions": [
+                {
+                  "id": 82,
+                  "decidim_questionnaire_id": 9,
+                  "position": 0,
+                  "question_type": "title_and_description",
+                  "mandatory": false,
+                  "body": {
+                    "pt-BR": "PARTE III - SOCIEDADE BRASILEIRA E FUTURO"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-29T15:31:09.647-03:00",
+                  "updated_at": "2023-09-29T15:31:09.647-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 83,
+                  "decidim_questionnaire_id": 9,
+                  "position": 1,
+                  "question_type": "multiple_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Do seu ponto de vista, assinale os três problemas mais graves hoje, no Brasil"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": 3,
+                  "created_at": "2023-09-29T15:31:09.656-03:00",
+                  "updated_at": "2023-09-29T15:45:56.714-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 216,
+                      "decidim_question_id": 83,
+                      "body": {
+                        "pt-BR": "Racismo"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 217,
+                      "decidim_question_id": 83,
+                      "body": {
+                        "pt-BR": "Violência"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 218,
+                      "decidim_question_id": 83,
+                      "body": {
+                        "pt-BR": "Pobreza"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 219,
+                      "decidim_question_id": 83,
+                      "body": {
+                        "pt-BR": "Corrupção"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 220,
+                      "decidim_question_id": 83,
+                      "body": {
+                        "pt-BR": "Desigualdades"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 221,
+                      "decidim_question_id": 83,
+                      "body": {
+                        "pt-BR": "Desemprego"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 222,
+                      "decidim_question_id": 83,
+                      "body": {
+                        "pt-BR": "Meio Ambiente"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 223,
+                      "decidim_question_id": 83,
+                      "body": {
+                        "pt-BR": "Inflação"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 224,
+                      "decidim_question_id": 83,
+                      "body": {
+                        "pt-BR": "Transporte"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 225,
+                      "decidim_question_id": 83,
+                      "body": {
+                        "pt-BR": "Salário"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 226,
+                      "decidim_question_id": 83,
+                      "body": {
+                        "pt-BR": "Habitação"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 227,
+                      "decidim_question_id": 83,
+                      "body": {
+                        "pt-BR": "Educação"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 228,
+                      "decidim_question_id": 83,
+                      "body": {
+                        "pt-BR": "Saúde"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 229,
+                      "decidim_question_id": 83,
+                      "body": {
+                        "pt-BR": "Segurança pública"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 230,
+                      "decidim_question_id": 83,
+                      "body": {
+                        "pt-BR": "Mobilidade urbano / rural"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 231,
+                      "decidim_question_id": 83,
+                      "body": {
+                        "pt-BR": "Ataques à democracia"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 232,
+                      "decidim_question_id": 83,
+                      "body": {
+                        "pt-BR": "Outros. Quais?"
+                      },
+                      "free_text": true
+                    }
+                  ]
+                },
+                {
+                  "id": 85,
+                  "decidim_questionnaire_id": 9,
+                  "position": 2,
+                  "question_type": "multiple_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Do seu ponto de vista, marque as três questões que mais interferem para o bem viver da juventude brasileira:"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": 3,
+                  "created_at": "2023-09-29T15:37:36.242-03:00",
+                  "updated_at": "2023-09-29T15:45:56.749-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 250,
+                      "decidim_question_id": 85,
+                      "body": {
+                        "pt-BR": "Educação de qualidade, garantia de acesso e permanência"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 251,
+                      "decidim_question_id": 85,
+                      "body": {
+                        "pt-BR": "Violência contra a juventude negra (Racismo)"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 252,
+                      "decidim_question_id": 85,
+                      "body": {
+                        "pt-BR": "Dificuldade de viver em um ambiente seguro, sem violência"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 253,
+                      "decidim_question_id": 85,
+                      "body": {
+                        "pt-BR": "Violência contra a mulher"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 254,
+                      "decidim_question_id": 85,
+                      "body": {
+                        "pt-BR": "Destruição do meio ambiente"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 255,
+                      "decidim_question_id": 85,
+                      "body": {
+                        "pt-BR": "Desigualdades"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 256,
+                      "decidim_question_id": 85,
+                      "body": {
+                        "pt-BR": "Falta de emprego decente"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 257,
+                      "decidim_question_id": 85,
+                      "body": {
+                        "pt-BR": "Exclusão digital"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 258,
+                      "decidim_question_id": 85,
+                      "body": {
+                        "pt-BR": "Falta de opções de esporte, cultura e lazer"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 259,
+                      "decidim_question_id": 85,
+                      "body": {
+                        "pt-BR": "Dependência virtual (adição à internet)"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 260,
+                      "decidim_question_id": 85,
+                      "body": {
+                        "pt-BR": "Saúde Mental"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 261,
+                      "decidim_question_id": 85,
+                      "body": {
+                        "pt-BR": "Consumo / tráfico de drogas"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 262,
+                      "decidim_question_id": 85,
+                      "body": {
+                        "pt-BR": "Criminalização das drogas"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 263,
+                      "decidim_question_id": 85,
+                      "body": {
+                        "pt-BR": "Transporte / mobilidade"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 264,
+                      "decidim_question_id": 85,
+                      "body": {
+                        "pt-BR": "Disseminação do uso de armas de fogo no Brasil"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 265,
+                      "decidim_question_id": 85,
+                      "body": {
+                        "pt-BR": " Imposição de padrões estéticos"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 266,
+                      "decidim_question_id": 85,
+                      "body": {
+                        "pt-BR": "Incertezas em relação ao futuro"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 267,
+                      "decidim_question_id": 85,
+                      "body": {
+                        "pt-BR": "Outras. Quais?"
+                      },
+                      "free_text": true
+                    }
+                  ]
+                },
+                {
+                  "id": 84,
+                  "decidim_questionnaire_id": 9,
+                  "position": 3,
+                  "question_type": "multiple_option",
+                  "mandatory": false,
+                  "body": {
+                    "pt-BR": "Marque as três instituições/entidades em que você menos confia"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": 3,
+                  "created_at": "2023-09-29T15:33:48.552-03:00",
+                  "updated_at": "2023-09-29T15:45:56.782-03:00",
+                  "max_characters": 3,
+                  "answer_options": [
+                    {
+                      "id": 233,
+                      "decidim_question_id": 84,
+                      "body": {
+                        "pt-BR": "ONGs / associações"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 234,
+                      "decidim_question_id": 84,
+                      "body": {
+                        "pt-BR": "Movimentos sociais"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 235,
+                      "decidim_question_id": 84,
+                      "body": {
+                        "pt-BR": "Movimentos / grupos / coletivos juvenis"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 236,
+                      "decidim_question_id": 84,
+                      "body": {
+                        "pt-BR": "Escola / universidade"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 237,
+                      "decidim_question_id": 84,
+                      "body": {
+                        "pt-BR": "Meios de comunicação"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 238,
+                      "decidim_question_id": 84,
+                      "body": {
+                        "pt-BR": "Justiça"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 239,
+                      "decidim_question_id": 84,
+                      "body": {
+                        "pt-BR": "Partidos políticos"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 240,
+                      "decidim_question_id": 84,
+                      "body": {
+                        "pt-BR": "Polícias"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 241,
+                      "decidim_question_id": 84,
+                      "body": {
+                        "pt-BR": "Governos"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 242,
+                      "decidim_question_id": 84,
+                      "body": {
+                        "pt-BR": "Instituições religiosas"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 243,
+                      "decidim_question_id": 84,
+                      "body": {
+                        "pt-BR": "Congresso Nacional"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 244,
+                      "decidim_question_id": 84,
+                      "body": {
+                        "pt-BR": "Forças Armadas"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 245,
+                      "decidim_question_id": 84,
+                      "body": {
+                        "pt-BR": "Sindicato"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 246,
+                      "decidim_question_id": 84,
+                      "body": {
+                        "pt-BR": "Redes sociais"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 247,
+                      "decidim_question_id": 84,
+                      "body": {
+                        "pt-BR": "Empresas privadas"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 248,
+                      "decidim_question_id": 84,
+                      "body": {
+                        "pt-BR": "Família"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 249,
+                      "decidim_question_id": 84,
+                      "body": {
+                        "pt-BR": "Outras. Quais?"
+                      },
+                      "free_text": true
+                    }
+                  ]
+                },
+                {
+                  "id": 86,
+                  "decidim_questionnaire_id": 9,
+                  "position": 4,
+                  "question_type": "multiple_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Marque as três instituições / entidades em que você mais confia"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": 3,
+                  "created_at": "2023-09-29T15:43:52.264-03:00",
+                  "updated_at": "2023-09-29T15:43:52.264-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 268,
+                      "decidim_question_id": 86,
+                      "body": {
+                        "pt-BR": "ONGs / associações"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 269,
+                      "decidim_question_id": 86,
+                      "body": {
+                        "pt-BR": "Movimentos sociais"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 270,
+                      "decidim_question_id": 86,
+                      "body": {
+                        "pt-BR": "Movimentos / grupos / coletivos juvenis"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 271,
+                      "decidim_question_id": 86,
+                      "body": {
+                        "pt-BR": "Escola / universidade"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 272,
+                      "decidim_question_id": 86,
+                      "body": {
+                        "pt-BR": "Meios de comunicação"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 273,
+                      "decidim_question_id": 86,
+                      "body": {
+                        "pt-BR": "Justiça"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 274,
+                      "decidim_question_id": 86,
+                      "body": {
+                        "pt-BR": "Partidos políticos"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 275,
+                      "decidim_question_id": 86,
+                      "body": {
+                        "pt-BR": "Polícias"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 276,
+                      "decidim_question_id": 86,
+                      "body": {
+                        "pt-BR": "Governos"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 277,
+                      "decidim_question_id": 86,
+                      "body": {
+                        "pt-BR": "Instituições religiosas"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 278,
+                      "decidim_question_id": 86,
+                      "body": {
+                        "pt-BR": "Congresso Nacional"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 279,
+                      "decidim_question_id": 86,
+                      "body": {
+                        "pt-BR": "Forças Armadas"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 280,
+                      "decidim_question_id": 86,
+                      "body": {
+                        "pt-BR": "Sindicato"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 281,
+                      "decidim_question_id": 86,
+                      "body": {
+                        "pt-BR": "Redes sociais"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 282,
+                      "decidim_question_id": 86,
+                      "body": {
+                        "pt-BR": "Empresas privadas"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 283,
+                      "decidim_question_id": 86,
+                      "body": {
+                        "pt-BR": "Família"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 284,
+                      "decidim_question_id": 86,
+                      "body": {
+                        "pt-BR": "Outras. Quais?"
+                      },
+                      "free_text": true
+                    }
+                  ]
+                },
+                {
+                  "id": 87,
+                  "decidim_questionnaire_id": 9,
+                  "position": 5,
+                  "question_type": "matrix_single",
+                  "mandatory": false,
+                  "body": {
+                    "pt-BR": "Qual o seu posicionamento em relação às situações a seguir?"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-29T15:43:52.320-03:00",
+                  "updated_at": "2023-09-29T15:43:52.320-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 285,
+                      "decidim_question_id": 87,
+                      "body": {
+                        "pt-BR": "Completamente a favor"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 286,
+                      "decidim_question_id": 87,
+                      "body": {
+                        "pt-BR": "A favor"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 287,
+                      "decidim_question_id": 87,
+                      "body": {
+                        "pt-BR": "Indiferente"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 288,
+                      "decidim_question_id": 87,
+                      "body": {
+                        "pt-BR": "Contra"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 289,
+                      "decidim_question_id": 87,
+                      "body": {
+                        "pt-BR": "Completamente contra"
+                      },
+                      "free_text": false
+                    }
+                  ]
+                },
+                {
+                  "id": 88,
+                  "decidim_questionnaire_id": 9,
+                  "position": 6,
+                  "question_type": "multiple_option",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "O que considera mais importante para o seu futuro (marque duas opções)"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-29T15:49:33.550-03:00",
+                  "updated_at": "2023-09-29T15:49:33.550-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 290,
+                      "decidim_question_id": 88,
+                      "body": {
+                        "pt-BR": "Concluir o ensino médio"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 291,
+                      "decidim_question_id": 88,
+                      "body": {
+                        "pt-BR": "Concluir o ensino superior"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 292,
+                      "decidim_question_id": 88,
+                      "body": {
+                        "pt-BR": "Fazer ou concluir uma pós-graduação"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 293,
+                      "decidim_question_id": 88,
+                      "body": {
+                        "pt-BR": "Concluir um curso profissionalizante"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 294,
+                      "decidim_question_id": 88,
+                      "body": {
+                        "pt-BR": "Conseguir um trabalho decente"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 295,
+                      "decidim_question_id": 88,
+                      "body": {
+                        "pt-BR": "Casar e ter filhos"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 296,
+                      "decidim_question_id": 88,
+                      "body": {
+                        "pt-BR": "Sair do Brasil"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 297,
+                      "decidim_question_id": 88,
+                      "body": {
+                        "pt-BR": "Outro. Qual?"
+                      },
+                      "free_text": true
+                    }
+                  ]
+                },
+                {
+                  "id": 89,
+                  "decidim_questionnaire_id": 9,
+                  "position": 7,
+                  "question_type": "separator",
+                  "mandatory": false,
+                  "body": {
+                  },
+                  "description": {
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-29T15:49:33.576-03:00",
+                  "updated_at": "2023-09-29T15:49:33.576-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 90,
+                  "decidim_questionnaire_id": 9,
+                  "position": 8,
+                  "question_type": "title_and_description",
+                  "mandatory": false,
+                  "body": {
+                    "pt-BR": "PARTE IV - CONFERÊNCIA"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-29T15:49:33.581-03:00",
+                  "updated_at": "2023-09-29T15:49:33.581-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+
+                  ]
+                },
+                {
+                  "id": 91,
+                  "decidim_questionnaire_id": 9,
+                  "position": 9,
+                  "question_type": "sorting",
+                  "mandatory": true,
+                  "body": {
+                    "pt-BR": "Quais as suas expectativas em relação às propostas aprovadas pela IV Conferência Nacional de Juventude? Enumere em ordem de prioridade."
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-29T15:49:33.586-03:00",
+                  "updated_at": "2023-09-29T15:49:33.586-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 298,
+                      "decidim_question_id": 91,
+                      "body": {
+                        "pt-BR": "Consolidação de um Plano Nacional de Juventude"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 299,
+                      "decidim_question_id": 91,
+                      "body": {
+                        "pt-BR": "Aprimoramento do Sistema Nacional de Juventude (SINAJUVE)"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 300,
+                      "decidim_question_id": 91,
+                      "body": {
+                        "pt-BR": "Fortalecimento dos órgãos de Juventude nos municípios e estados"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 301,
+                      "decidim_question_id": 91,
+                      "body": {
+                        "pt-BR": "Formulação de Políticas Públicas, com Programas e Projetos para atender às diversas juventudes do Brasil"
+                      },
+                      "free_text": false
+                    }
+                  ]
+                },
+                {
+                  "id": 92,
+                  "decidim_questionnaire_id": 9,
+                  "position": 10,
+                  "question_type": "single_option",
+                  "mandatory": false,
+                  "body": {
+                    "pt-BR": "De maneira geral, o que poderia melhorar no processo de participação da Conferência Nacional de Juventude?"
+                  },
+                  "description": {
+                    "pt-BR": ""
+                  },
+                  "max_choices": null,
+                  "created_at": "2023-09-29T15:49:33.601-03:00",
+                  "updated_at": "2023-09-29T15:49:33.601-03:00",
+                  "max_characters": 0,
+                  "answer_options": [
+                    {
+                      "id": 302,
+                      "decidim_question_id": 92,
+                      "body": {
+                        "pt-BR": "Convocação"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 303,
+                      "decidim_question_id": 92,
+                      "body": {
+                        "pt-BR": "Escolha/eleição dos delegados"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 304,
+                      "decidim_question_id": 92,
+                      "body": {
+                        "pt-BR": "Metodologia para eleição das propostas prioritárias"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 305,
+                      "decidim_question_id": 92,
+                      "body": {
+                        "pt-BR": "Debate realizado nos grupos de trabalho (GT ́s)"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 306,
+                      "decidim_question_id": 92,
+                      "body": {
+                        "pt-BR": "Infraestrutura"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 307,
+                      "decidim_question_id": 92,
+                      "body": {
+                        "pt-BR": "Temas apresentados no documento-base"
+                      },
+                      "free_text": false
+                    },
+                    {
+                      "id": 308,
+                      "decidim_question_id": 92,
+                      "body": {
+                        "pt-BR": "Outra. Qual?"
+                      },
+                      "free_text": true
+                    }
+                  ]
+                }
+              ]
+            },
+            "survey_id": 9
+          }
+        ]
+      },
+      {
+        "manifest_name": "pages",
+        "id": 14,
+        "name": {
+          "pt-BR": "Etapas"
+        },
+        "participatory_space_id": 1,
+        "participatory_space_type": "Decidim::Assembly",
+        "settings": {
+          "steps": {
+          },
+          "global": {
+            "announcement": {
+              "pt-BR": ""
+            },
+            "announcement_en": null,
+            "announcement_pt__BR": ""
+          },
+          "default_step": {
+            "announcement": {
+              "pt-BR": ""
+            },
+            "announcement_en": null,
+            "announcement_pt__BR": ""
+          }
+        },
+        "weight": 2,
+        "permissions": null,
+        "published_at": "2023-08-28 17:08:46 -0300",
+        "specific_data": {
+          "body": {
+            "pt-BR": "<p>&lt;section class=\"steps-text-section br-container\"&gt;&lt;p&gt;A IV Conferência Nacional da Juventude engloba etapas municipais, regionais, estaduais, livres, Temáticas, de Povos e Comunidades, Territoriais, além da&lt;a href=\"/assemblies/confjuv4/f/10/\" id=\"digital-step-link\"&gt;etapa digital&lt;/a&gt;. Saiba mais sobre como se tornar um delegado digital.&lt;/p&gt;&lt;/section&gt;&lt;section class=\"new-features-container br-container\"&gt;&lt;div class=\"new-features-content\"&gt;&lt;div class=\"new-feature-card\"&gt;&lt;a href=\"/assemblies/confjuv4/f/12/surveys/1\"&gt;&lt;div class=\"card-content\"&gt;&lt;div class=\"steps-icon-background\"&gt;&lt;i class=\"fa fa-solid fa-upload fa-2xl\"&gt;&lt;/i&gt;&lt;/div&gt;&lt;p class=\"card-name\"&gt;Envie a ata da sua etapa&lt;/p&gt;&lt;p class=\"card-description\"&gt;Registre o que ocorreu&lt;/p&gt;&lt;p class=\"card-see-more\"&gt;Leia mais&lt;/p&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=\"new-feature-card\"&gt;&lt;a href=\"/assemblies/confjuv4/f/11/meetings/new\"&gt;&lt;div class=\"card-content\"&gt;&lt;div class=\"steps-icon-background\"&gt;&lt;i class=\"fa fa-bullhorn fa-2xl\"&gt;&lt;/i&gt;&lt;/div&gt;&lt;p class=\"card-name\"&gt;Organize uma etapa&lt;/p&gt;&lt;p class=\"card-description\"&gt;Realize uma conferência livre&lt;/p&gt;&lt;p class=\"card-see-more\"&gt;Leia mais&lt;/p&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=\"new-feature-card\"&gt;&lt;a href=\"/assemblies/confjuv4/f/11/meetings\"&gt;&lt;div class=\"card-content\"&gt;&lt;div class=\"steps-icon-background\"&gt;&lt;i class=\"fa fa-calendar fa-2xl\"&gt;&lt;/i&gt;&lt;/div&gt;&lt;p class=\"card-name\"&gt;Agenda&lt;/p&gt;&lt;p class=\"card-description\"&gt;Confira a agenda das conferências&lt;/p&gt;&lt;p class=\"card-see-more\"&gt;Leia mais&lt;/p&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;style&gt;.steps-icon-background{width:52px;height:52px;flex-shrink:0;border-radius:50%;background-color:var(--blue-warm-vivid-60);padding:14px 4px 0 0;color:#fff;margin-bottom:1rem}.steps-icon-background:last-of-type{padding:14px 2px 0 0!important}#digital-step-link{margin-left:4px}.steps-text-section{max-width:800px}&lt;/style&gt;</p>"
+          }
+        }
+      },
+      {
+        "manifest_name": "proposals",
+        "id": 10,
+        "name": {
+          "pt-BR": "Etapa Digital"
+        },
+        "participatory_space_id": 1,
+        "participatory_space_type": "Decidim::Assembly",
+        "settings": {
+          "steps": {
+          },
+          "global": {
+            "scope_id": null,
+            "vote_limit": 0,
+            "announcement": {
+              "pt-BR": ""
+            },
+            "proposal_limit": 0,
+            "scopes_enabled": false,
+            "announcement_en": null,
+            "proposal_length": 500,
+            "comments_enabled": true,
+            "geocoding_enabled": false,
+            "amendments_enabled": false,
+            "default_sort_order": "default",
+            "proposal_edit_time": "limited",
+            "announcement_pt__BR": "",
+            "attachments_allowed": false,
+            "comments_max_length": 0,
+            "minimum_votes_per_user": 0,
+            "new_proposal_help_text": {
+              "pt-BR": ""
+            },
+            "threshold_per_proposal": 0,
+            "new_proposal_help_text_en": null,
+            "new_proposal_body_template": {
+              "pt-BR": ""
+            },
+            "official_proposals_enabled": true,
+            "proposal_answering_enabled": true,
+            "amendments_wizard_help_text": {
+              "pt-BR": ""
+            },
+            "participatory_texts_enabled": false,
+            "collaborative_drafts_enabled": false,
+            "proposal_edit_before_minutes": 15,
+            "new_proposal_body_template_en": null,
+            "new_proposal_help_text_pt__BR": "",
+            "resources_permissions_enabled": true,
+            "amendments_wizard_help_text_en": null,
+            "proposal_wizard_step_1_help_text": {
+              "pt-BR": ""
+            },
+            "proposal_wizard_step_2_help_text": {
+              "pt-BR": ""
+            },
+            "proposal_wizard_step_3_help_text": {
+              "pt-BR": ""
+            },
+            "proposal_wizard_step_4_help_text": {
+              "pt-BR": ""
+            },
+            "new_proposal_body_template_pt__BR": "",
+            "amendments_wizard_help_text_pt__BR": "",
+            "proposal_wizard_step_1_help_text_en": null,
+            "proposal_wizard_step_2_help_text_en": null,
+            "proposal_wizard_step_3_help_text_en": null,
+            "proposal_wizard_step_4_help_text_en": null,
+            "proposal_wizard_step_1_help_text_pt__BR": "",
+            "proposal_wizard_step_2_help_text_pt__BR": "",
+            "proposal_wizard_step_3_help_text_pt__BR": "",
+            "proposal_wizard_step_4_help_text_pt__BR": "",
+            "can_accumulate_supports_beyond_threshold": false
+          },
+          "default_step": {
+            "announcement": {
+              "pt-BR": ""
+            },
+            "votes_hidden": false,
+            "votes_blocked": false,
+            "votes_enabled": true,
+            "announcement_en": null,
+            "comments_blocked": false,
+            "creation_enabled": true,
+            "answers_with_costs": false,
+            "automatic_hashtags": "",
+            "default_sort_order": "",
+            "suggested_hashtags": "",
+            "announcement_pt__BR": "",
+            "endorsements_blocked": false,
+            "endorsements_enabled": false,
+            "amendments_visibility": "all",
+            "amendment_creation_enabled": true,
+            "amendment_reaction_enabled": true,
+            "proposal_answering_enabled": true,
+            "amendment_promotion_enabled": true,
+            "publish_answers_immediately": true
+          }
+        },
+        "weight": 2,
+        "permissions": null,
+        "published_at": "2023-08-28 17:08:53 -0300"
+      },
+      {
+        "manifest_name": "blogs",
+        "id": 9,
+        "name": {
+          "pt-BR": "Notícias"
+        },
+        "participatory_space_id": 1,
+        "participatory_space_type": "Decidim::Assembly",
+        "settings": {
+          "steps": {
+          },
+          "global": {
+            "announcement": {
+              "pt-BR": ""
+            },
+            "announcement_en": null,
+            "comments_enabled": true,
+            "announcement_pt__BR": "",
+            "comments_max_length": 0
+          },
+          "default_step": {
+            "announcement": {
+              "pt-BR": ""
+            },
+            "announcement_en": null,
+            "comments_blocked": false,
+            "announcement_pt__BR": "",
+            "endorsements_blocked": false,
+            "endorsements_enabled": false
+          }
+        },
+        "weight": 4,
+        "permissions": null,
+        "published_at": "2023-08-28 17:09:01 -0300"
+      },
+      {
+        "manifest_name": "blogs",
+        "id": 13,
+        "name": {
+          "pt-BR": "Perguntas Frequentes"
+        },
+        "participatory_space_id": 1,
+        "participatory_space_type": "Decidim::Assembly",
+        "settings": {
+          "steps": {
+          },
+          "global": {
+            "announcement": {
+              "pt-BR": ""
+            },
+            "announcement_en": null,
+            "comments_enabled": true,
+            "announcement_pt__BR": "",
+            "comments_max_length": 0
+          },
+          "default_step": {
+            "announcement": {
+              "pt-BR": ""
+            },
+            "announcement_en": null,
+            "comments_blocked": false,
+            "announcement_pt__BR": "",
+            "endorsements_blocked": false,
+            "endorsements_enabled": false
+          }
+        },
+        "weight": 5,
+        "permissions": null,
+        "published_at": "2023-08-28 17:09:03 -0300"
+      }
+    ],
+    "announcement": {
+      "pt-BR": ""
+    }
+  }
+]
