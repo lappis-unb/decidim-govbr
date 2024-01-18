@@ -3,9 +3,9 @@
     <h3 class="section-heading">
       <%= translated_attribute(model.name) %> - <%= t("decidim.participatory_spaces.highlighted_meetings.upcoming_meetings") %>
     </h3>
-    <div class="card card--list">
+    <div class="card-grid meetings-content mb-baseh">
       <% upcoming_meetings.includes(:component).each do |meeting| %>
-        <%= card_for meeting, size: :list_item %>
+        <%= card_for meeting%>
       <% end %>
     </div>
     <%= link_to(
@@ -19,9 +19,9 @@
     <h3 class="section-heading">
       <%= translated_attribute(model.name) %> - <%= t("decidim.participatory_spaces.highlighted_meetings.past_meetings") %> 
     </h3>
-    <div class="card card--list">
+    <div class="card-grid meetings-content mb-baseh">
       <% past_meetings.each do |meeting| %>
-        <%= card_for meeting, size: :list_item %>
+        <%= card_for meeting%>
       <% end %>
     </div>
     <%= link_to(
