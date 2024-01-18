@@ -56,7 +56,7 @@
     align-items: center;
     align-content: center;
     text-transform: none;
-    color: var(--Blue-Warm-Vivid-blue-warm-vivid-70, #1351B4);
+    color: var(--blue-warm-vivid-60);
     font-variant-numeric: lining-nums proportional-nums;
     font-family: Rawline;
     font-style: normal;
@@ -64,10 +64,10 @@
     line-height: normal;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 80%;
+    max-width: 75%;
     white-space: nowrap;
 
-    @media (max-width: 400px) {
+    @media (max-width: 480px) {
         max-width: 100px;
     }
 }
@@ -81,8 +81,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    border: 1px solid var(--blue-warm-vivid-80);
-    gap: 12px;
+    border: 1px solid var(--blue-warm-vivid-60);
 }
 
 .br-card--list__text {
@@ -91,7 +90,7 @@
     max-height: 40px;
     text-align: center;
     align-items: center;
-    color: var(--Blue-Warm-Vivid-blue-warm-vivid-70, #1351B4);
+    color: var(--blue-warm-vivid-60);
     font-variant-numeric: lining-nums proportional-nums;
     font-family: Rawline;
     font-size: 14px;
@@ -115,7 +114,7 @@
     align-items: center;
 }
 
-small {
+.doc_extension {
     text-transform: lowercase;
     text-align: left;
 }
