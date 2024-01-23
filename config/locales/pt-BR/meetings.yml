@@ -52,6 +52,7 @@ pt-BR:
       meetings:
         actions:
           join: Junte-se à
+          new: 'Novo(a) %{name}'
         settings:
           global:
             default_registration_terms: Termos de inscrição predefinidos
