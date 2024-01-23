@@ -1,4 +1,4 @@
-<div class="column" id="<%= dom_id(model) %>">
+<div class="column card__animation" id="<%= dom_id(model) %>">
   <div class="card <%= card_classes %>">
     <%= render :label if has_label? %>
     <%= render :top if render_top? %>
@@ -20,3 +20,5 @@
     <%= render :footer %>
   </div>
 </div>
+
+
