@@ -14,3 +14,16 @@
   transform: scale(1.05);
   transition: transform 0.2s, box-shadow 0.2s;
 }
+
+.proposals_card_footer{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.progress__bar__number{
+  font-weight: 600;
+}
+.progress__bar__text{
+  color:#726a70;
+}
