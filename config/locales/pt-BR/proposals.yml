@@ -57,6 +57,8 @@ pt-BR:
               'true': Não respondida
     components:
       proposals:
+        actions:
+          new: Novo(a) %{name}
         settings:
           global:
             default_sort_order: Ordem padrão das propostas
