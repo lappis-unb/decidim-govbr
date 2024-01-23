@@ -1,7 +1,7 @@
 <div class="category-wrapper margin-vertical-1" data-id="<%= category[:slug] %>">
   <div class="category-row flex-center">
     <button class="dc-title padding-left-3">
-      <span class="br-group">
+      <span class="br-cookie-group">
         <%= category[:title] %>
       </span>
     </button>
@@ -15,11 +15,9 @@
         name="<%= category[:slug] %>"
         <%= "disabled" if category[:mandatory] %>>
 
-      <label></label>
+      <label for="dc-<%= category[:slug] %>"></label>
 
-      <label class="switch-default" for="dc-<%= category[:slug] %>">
-        <span class="show-for-sr"><%= t("layouts.decidim.data_consent.modal.toggle", consent_category: category[:title]) %></span>
-      </label>
+
     </div>
   </div>
   <div class="dc-description hide">
