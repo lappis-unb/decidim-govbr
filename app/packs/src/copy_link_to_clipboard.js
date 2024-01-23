@@ -18,6 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
       linkClipboard.addEventListener("click", copyLinkToClipboard);
     });
   }
+
+  document
+    .getElementById("clipboard-icon")
+    .addEventListener("click", function (event) {
+      document.getElementById("clipboard-button").click();
+
+      event.stopPropagation();
+    });
 });
 
 export { copyLinkToClipboard };
