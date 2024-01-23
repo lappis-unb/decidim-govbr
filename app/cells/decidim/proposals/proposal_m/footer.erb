@@ -1,8 +1,8 @@
 <% if has_link_to_resource? %>
   <div class="card__footer">
     <div class="card__support">
-      <% if has_actions? %>
-        <% if !current_settings.votes_hidden? %>
+    <div class="proposals_card_footer">
+      <% if !current_settings.votes_hidden? %>
           <%= cell(
             "decidim/progress_bar",
             progress_bar_progress,
@@ -12,7 +12,17 @@
             subtitle_text: progress_bar_subtitle_text,
             small: true
           ) %>
+          <div>
+            <span class="progress__bar__number progress__bar__title" style="font-size: 20px;" data-asw-orgfontsize="20">
+              <%= render partial: "decidim/proposals/proposal_m/count" %> 
+            </span>
+            <span class="progress__bar__text">COMENTARIOS
+            </span>
+          </div>
         <% end %>
+    </div>
+      <% if has_actions? %>
+        
         <%= render partial: "decidim/proposals/proposals/vote_button.html", locals: { proposal: model, from_proposals_list: true } %>
       <% elsif has_footer? %>
         <div class="card__support__data"></div>
@@ -24,3 +34,4 @@
     </div>
   </div>
 <% end %>
+
