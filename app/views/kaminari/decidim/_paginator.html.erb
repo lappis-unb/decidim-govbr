@@ -35,7 +35,7 @@ paginator:     the paginator that renders the pagination tags inside -%>
       </button>
 
 
-      <div class="br-list br-radio">
+      <div class="br-list">
       <% 5.upto((paginator.each_page.max.to_i) - 1)  do  |page| -%>
                 <%= paginator.page_tag page %>
             <% end -%>
