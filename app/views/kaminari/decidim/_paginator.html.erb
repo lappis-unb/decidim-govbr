@@ -1,99 +1,90 @@
 <%# The container tag
 - available local variables
-current_page:  a page object for the currently displayed page
-total_pages:   total number of pages
-per_page:      number of items to fetch per page
-remote:        data-remote
-paginator:     the paginator that renders the pagination tags inside -%>
-
+current_page: a page object for the currently displayed page
+total_pages: total number of pages
+per_page: number of items to fetch per page
+remote: data-remote
+paginator: the paginator that renders the pagination tags inside -%>
 
 <% menu_id = "#{SecureRandom.uuid}_results_per_page_menu" %>
 
-
-
-
-
 <div class="bg-white p-3">
-  <nav class="br-pagination" aria-label="Paginação de resultados" data-total= "<%= total_pages %>" data-current="2">
-  <ul class="pagination-list-buttons">
-    <% unless current_page.out_of_range? %>
-
-      <li>
-        <%= paginator.prev_page_tag unless current_page.first? %>
-      </li>
+  <nav class="br-pagination" aria-label="Paginação de resultados" data-total="<%= total_pages %>" data-current="2">
+    <ul class="pagination-list-buttons">
+      <% unless current_page.out_of_range? %>
+        <li>
+          <%= paginator.prev_page_tag unless current_page.first? %>
+        </li>
       <% end %>
-    <% if total_pages > 4 %>
 
+      <% if total_pages > 4 %>
+        <% 1.upto(4) do |page| -%>
+          <%= paginator.page_tag page %>
+        <% end -%>
 
+        <li class="pagination-ellipsis br-item">
+          <button class="br-button circle" type="button" data-toggle="dropdown" aria-label="Abrir listagem">
+            <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
+          </button>
 
-      <% 1.upto(4) do  |page| -%>
-                <%= paginator.page_tag page %>
+          <div class="br-list">
+            <% 5.upto(paginator.each_page.max.to_i - 1) do |page| -%>
+              <%= paginator.page_tag page %>
             <% end -%>
+          </div>
+        </li>
 
-       <li class="pagination-ellipsis br-item">
-      <button class="br-button circle" type="button" data-toggle="dropdown" aria-label="Abrir listagem"><i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-      </button>
-
-
-      <div class="br-list">
-      <% 5.upto((paginator.each_page.max.to_i) - 1)  do  |page| -%>
-                <%= paginator.page_tag page %>
-            <% end -%>
-      </div>
-    </li>
-
-
-
-    <%= paginator.page_tag total_pages%>
-    <% else %>
-
-      <% 1.upto(total_pages) do |i| %>
-        <li><a class="page" href="javascript:void(0)"><%= i %></a></li>
+        <%= paginator.page_tag total_pages %>
+      <% else %>
+        <% 1.upto(total_pages) do |i| %>
+          <div class="pagination-list-buttons"><a class="br-item" href="javascript:void(0)"><%= i %></a></div>
+        <% end %>
       <% end %>
 
-    <% end %>
-    <% unless current_page.out_of_range? %>
-      <li>
-        <%= paginator.next_page_tag unless current_page.last? %>
-      </li>
+      <% unless current_page.out_of_range? %>
+        <li>
+          <%= paginator.next_page_tag unless current_page.last? %>
+        </li>
       <% end %>
+    </ul>
+  </nav>
 
-  </ul>
-</nav>
-  <nav class="br-pagination br-divider" aria-label="Paginação de resultados" data-total="50" data-current="1" data-per-page="10">
+  <span class="br-divider"></span>
 
+  <nav class="br-pagination pagination-bottom-side" aria-label="Paginação de resultados" data-total="50" data-current="1" data-per-page="10">
     <%= render partial: "decidim/shared/results_per_page" %>
+    <span class="br-divider d-none d-sm-block mx-3"></span>
 
-    <div class="pagination-information d-none d-sm-flex"><span class="current">1</span>&ndash;<span class="per-page"><%= per_page %></span>&nbsp;de&nbsp;<span class="total">
+    <div class="pagination-information d-none d-sm-flex">
+      <span class="current">1</span>&ndash;<span class="per-page"><%= per_page %></span>&nbsp;de&nbsp;<span class="total">
+        <%= render partial: "kaminari/decidim/proposals_count" %>
+      </span>&nbsp;itens
+    </div>
 
-      <%= render partial: "kaminari/decidim/proposals_count"  %>
-
-
-    </span>&nbsp;itens</div><span class="br-divider d-none d-sm-block mx-3"></span>
-
-
+    <span class="br-divider d-none d-sm-block mx-3"></span>
 
     <div class="pagination-go-to-page d-none d-sm-flex">
       <div class="br-select">
         <div class="br-input">
           <label for="go-to-selection-random-48838">Página</label>
-          <input id="go-to-selection-random-48838" type="number" placeholder=" " value="<%=current_page%>"/>
-          <button class="br-button" type="button" aria-label="Exibir lista" tabindex="-1" data-trigger="data-trigger"><i class="fas fa-angle-down" aria-hidden="true"></i>
+          <input id="go-to-selection-random-48838" type="number" placeholder=" " value="<%= current_page %>"/>
+          <button class="br-button" type="button" aria-label="Exibir lista" tabindex="-1" data-trigger="data-trigger">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
           </button>
         </div>
         <div class="br-list" tabindex="0">
-            <% paginator.each_page do |page| -%>
-              <% if page.display_tag? -%>
-
-                <%= paginator.page_tag page %>
-              <% elsif !page.was_truncated? -%>
-              <% end -%>
+          <% paginator.each_page do |page| -%>
+            <% if page.display_tag? -%>
+              <%= paginator.page_tag page %>
+            <% elsif !page.was_truncated? -%>
             <% end -%>
+          <% end -%>
         </div>
       </div>
     </div>
+
     <div class="pagination-arrows ml-auto">
-       <% unless current_page.out_of_range? %>
+      <% unless current_page.out_of_range? %>
         <%= paginator.first_page_tag unless current_page.first? %>
       <% end %>
 
@@ -102,5 +93,4 @@ paginator:     the paginator that renders the pagination tags inside -%>
       <% end %>
     </div>
   </nav>
-
 </div>

@@ -34,23 +34,31 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-.br-select .br-list[expanded]  {
-    display: flex;
-    flex-direction: column;
+.br-select .br-list[expanded] {
+  display: flex;
+  flex-direction: column;
 }
 .br-select .br-list[expanded] > a {
-    text-align: center;
+  text-align: center;
 }
 .pagination-list-buttons > a {
   border-radius: 50% !important;
 }
 
-.pagination-modal{
+.pagination-modal {
   border: 0 !important;
   border-radius: 50%;
   padding: 8px 16px !important;
 }
-.pagination-modal:hover{
+.pagination-modal:hover {
   background-color: var(--blue-warm-vivid-70);
 }
-.br-item {}
+
+.pagination-ellipsis > button {
+  padding: 20px !important;
+}
+
+.pagination-bottom-side {
+  padding-top: 10px !important;
+  gap: 10px;
+}
