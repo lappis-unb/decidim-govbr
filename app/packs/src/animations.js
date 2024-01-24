@@ -2,14 +2,14 @@ document.addEventListener("DOMContentLoaded", function () {
   var observer = new IntersectionObserver(
     function (entries, observer) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
           entry.target.classList.add("in-view");
-        } else {
+        } else if (entry.intersectionRatio < 0.5) {
           entry.target.classList.remove("in-view");
         }
       });
     },
-    { threshold: 0.5 }
+    { threshold: [0.1, 0.75] }
   );
 
   var cardAnimations = document.querySelectorAll(".card__animation");
