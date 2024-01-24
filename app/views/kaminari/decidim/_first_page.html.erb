@@ -5,9 +5,7 @@
     total_pages:   total number of pages
     per_page:      number of items to fetch per page
     remote:        data-remote -%>
-<li class="first">
-  <a href="<%= url %>" rel="first" remote="<%= remote %>" title="<%= t("views.pagination.first_title") %>">
-    <i class="icon fa-solid fa-angles-left"></i>
-    <%= t("views.pagination.first").html_safe.sub("&laquo;", "") %>
+  <a class="br-button circle" href="<%= url %>" rel="first" remote="<%= remote %>" >
+    <i class="fas fa-angles-left"></i>
   </a>
-</li>
+

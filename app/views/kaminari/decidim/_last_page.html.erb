@@ -5,9 +5,7 @@
     total_pages:   total number of pages
     per_page:      number of items to fetch per page
     remote:        data-remote -%>
-<li class="pagination-last">
-  <a href="<%= url %>" rel="next" remote="<%= remote %>" title="<%= t("views.pagination.last_title") %>">
-    <%= t("views.pagination.last").html_safe.sub("&raquo;", "") %>
-   <i class="icon fa-solid fa-angles-right"></i>
+  <a class="br-button circle" href="<%= url %>" rel="next" remote="<%= remote %>" >
+       <i class="fas fa-angles-right"></i>
+
   </a>
-</li>

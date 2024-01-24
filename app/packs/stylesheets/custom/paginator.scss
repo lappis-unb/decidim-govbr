@@ -1,0 +1,35 @@
+.pagination__container {
+  width: 100%;
+}
+
+.pagination-text {
+}
+
+.input-group,
+.br-input > input,
+.input-group > input {
+  margin: 0;
+}
+
+.br-radio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.results-per-page__link {
+  padding: var(--item-padding);
+  color: #000;
+}
+
+.results-per-page__link:hover {
+  background-color: var(--color-gray-100);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}

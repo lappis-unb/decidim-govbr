@@ -8,6 +8,8 @@ module Decidim
       helper ProposalWizardHelper
       helper ParticipatoryTextsHelper
       helper UserGroupHelper
+
+
       include Decidim::ApplicationHelper
       include Flaggable
       include Withdrawable
@@ -22,6 +24,7 @@ module Decidim
       before_action :ensure_is_draft, only: [:compare, :complete, :preview, :publish, :edit_draft, :update_draft, :destroy_draft]
       before_action :set_proposal, only: [:show, :edit, :update, :withdraw]
       before_action :edit_form, only: [:edit_draft, :edit]
+      before_action :proposals_total
 
       before_action :set_participatory_text
 
@@ -306,6 +309,11 @@ module Decidim
       def proposal_creation_params
         params[:proposal].merge(body_template: translated_proposal_body_template)
       end
+
+      def proposals_total
+        @proposals_total ||= search_collection.count - 1
+      end
+
     end
   end
 end
