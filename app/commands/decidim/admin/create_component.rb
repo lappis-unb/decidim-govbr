@@ -36,7 +36,7 @@ module Decidim
             form.current_user,
             manifest_name: manifest.name,
             name: form.name,
-            pluralized_name: form.pluralized_name,
+            singular_name: form.singular_name,
             participatory_space: form.participatory_space,
             weight: form.weight,
             settings: form.settings,
