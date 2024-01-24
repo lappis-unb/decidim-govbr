@@ -82,6 +82,7 @@ $(() => {
     formFilter.mountComponent();
   });
 
+  // A função converte todos os links externos para outro link que abre a modal de aviso de saída do site
   // updateExternalDomainLinks($("body"))
 
   addInputEmoji();
