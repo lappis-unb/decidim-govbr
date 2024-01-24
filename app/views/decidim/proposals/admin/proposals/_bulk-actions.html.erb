@@ -24,7 +24,10 @@
       <% end %>
   
       <% if allowed_to? :create, :proposal %>
-        <%= link_to t("decidim.components.proposals.actions.new", name: translated_attribute(current_component.name).downcase), new_proposal_path, class: "button tiny button--simple" %>
+        <%= link_to t("decidim.components.proposals.actions.new", 
+        name: translated_attribute(current_component.singular_name).present? ? 
+        translated_attribute(current_component.singular_name).downcase : 
+        t("decidim.proposals.admin.when_empty").downcase), new_proposal_path, class: "button tiny button--simple" %>
       <% end %>
     </div>
   

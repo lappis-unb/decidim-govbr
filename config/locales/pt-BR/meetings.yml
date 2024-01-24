@@ -52,7 +52,7 @@ pt-BR:
       meetings:
         actions:
           join: Junte-se à
-          new: 'Novo(a) %{name}'
+          new: 'Novo(a) %{singular_name}'
         settings:
           global:
             default_registration_terms: Termos de inscrição predefinidos
@@ -82,6 +82,8 @@ pt-BR:
         registrations: Inscrições
       admin:
         meetings:
+          pluralized_name:
+            when_empty: Reuniões
           edit:
             title: Editar o evento
           form:

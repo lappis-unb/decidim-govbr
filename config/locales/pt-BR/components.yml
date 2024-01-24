@@ -26,10 +26,10 @@ pt-BR:
         parent_id: Superior
         weight: Posição do pedido
       component:
-        name: Nome
+        name: Nome no plural
         published_at: Publicado em
         weight: Posição do pedido
-        pluralized_name: Nome no plural
+        singular_name: Nome no singular
       external_domain:
         value: Valor
       help_section:
