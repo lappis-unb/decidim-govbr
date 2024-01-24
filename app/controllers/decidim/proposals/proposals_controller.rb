@@ -9,7 +9,6 @@ module Decidim
       helper ParticipatoryTextsHelper
       helper UserGroupHelper
 
-
       include Decidim::ApplicationHelper
       include Flaggable
       include Withdrawable
@@ -19,7 +18,6 @@ module Decidim
       include Paginable
 
       helper_method :proposal_presenter, :form_presenter
-
       before_action :authenticate_user!, only: [:new, :create, :complete]
       before_action :ensure_is_draft, only: [:compare, :complete, :preview, :publish, :edit_draft, :update_draft, :destroy_draft]
       before_action :set_proposal, only: [:show, :edit, :update, :withdraw]
@@ -311,9 +309,8 @@ module Decidim
       end
 
       def proposals_total
-        @proposals_total ||= search_collection.count - 1
+        @proposals_total= Proposal.published.not_hidden.count
       end
-
     end
   end
 end

@@ -6,52 +6,45 @@ per_page:      number of items to fetch per page
 remote:        data-remote
 paginator:     the paginator that renders the pagination tags inside -%>
 
-<% total_pages = 10 %>
 
 <% menu_id = "#{SecureRandom.uuid}_results_per_page_menu" %>
 
-<% if total_pages > 1 %>
-  <nav aria-label="<%= t("views.pagination.pagination") %>" class="pagination__container">
-    <ul class="pagination text-center pagination-br-container">
-     
-      <% paginator.each_page do |page| -%>
-        <% if page.display_tag? -%>
-          <%= paginator.page_tag page %>
-        <% elsif !page.was_truncated? -%>
-          <%= paginator.gap_tag %>
-        <% end -%>
-      <% end -%>
-      
-    </ul>
-  </nav>
-<% end %>
+
 
 
 
 <div class="bg-white p-3">
   <nav class="br-pagination" aria-label="Paginação de resultados" data-total= "<%= total_pages %>" data-current="2">
-  <ul>
+  <ul class="pagination-list-buttons">
     <% unless current_page.out_of_range? %>
+
       <li>
         <%= paginator.prev_page_tag unless current_page.first? %>
       </li>
       <% end %>
     <% if total_pages > 4 %>
-      
 
 
-      <li><a class="page" href="javascript:void(0)">1</a></li>
-      <li><a class="page active" href="javascript:void(0)">2</a></li>
-      <li><a class="page" href="javascript:void(0)">3</a></li>
-      <li><a class="page" href="javascript:void(0)">4</a></li>
 
-       <li class="pagination-ellipsis">
+      <% 1.upto(4) do  |page| -%>
+                <%= paginator.page_tag page %>
+            <% end -%>
+
+       <li class="pagination-ellipsis br-item">
       <button class="br-button circle" type="button" data-toggle="dropdown" aria-label="Abrir listagem"><i class="fas fa-ellipsis-h" aria-hidden="true"></i>
       </button>
-      <div class="br-list"><a class="br-item" href="javascript:void(0)">5</a><a class="br-item" href="javascript:void(0)">6</a><a class="br-item" href="javascript:void(0)">7</a><a class="br-item" href="javascript:void(0)">8</a><a class="br-item" href="javascript:void(0)">9</a>
+
+
+      <div class="br-list br-radio">
+      <% 5.upto((paginator.each_page.max.to_i) - 1)  do  |page| -%>
+                <%= paginator.page_tag page %>
+            <% end -%>
       </div>
     </li>
-    <li><a class="page" href="javascript:void(0)"><%= total_pages %></a></li>
+
+
+
+    <%= paginator.page_tag total_pages%>
     <% else %>
 
       <% 1.upto(total_pages) do |i| %>
@@ -63,59 +56,39 @@ paginator:     the paginator that renders the pagination tags inside -%>
       <li>
         <%= paginator.next_page_tag unless current_page.last? %>
       </li>
-      <% end %> 
+      <% end %>
 
   </ul>
 </nav>
   <nav class="br-pagination br-divider" aria-label="Paginação de resultados" data-total="50" data-current="1" data-per-page="10">
-    
+
     <%= render partial: "decidim/shared/results_per_page" %>
-      
+
     <div class="pagination-information d-none d-sm-flex"><span class="current">1</span>&ndash;<span class="per-page"><%= per_page %></span>&nbsp;de&nbsp;<span class="total">
-      
+
       <%= render partial: "kaminari/decidim/proposals_count"  %>
 
 
     </span>&nbsp;itens</div><span class="br-divider d-none d-sm-block mx-3"></span>
+
+
+
     <div class="pagination-go-to-page d-none d-sm-flex">
       <div class="br-select">
         <div class="br-input">
           <label for="go-to-selection-random-48838">Página</label>
-          <input id="go-to-selection-random-48838" type="text" placeholder=" "/>
+          <input id="go-to-selection-random-48838" type="number" placeholder=" " value="<%=current_page%>"/>
           <button class="br-button" type="button" aria-label="Exibir lista" tabindex="-1" data-trigger="data-trigger"><i class="fas fa-angle-down" aria-hidden="true"></i>
           </button>
         </div>
         <div class="br-list" tabindex="0">
-          <div class="br-item" tabindex="-1">
-            <div class="br-radio">
-              <input id="go-to-1-random-48838" type="radio" name="go-to-random-48838" value="go-to-1-random-48838" checked="checked"/>
-              <label for="go-to-1-random-48838">1</label>
-            </div>
-          </div>
-          <div class="br-item" tabindex="-1">
-            <div class="br-radio">
-              <input id="go-to-2-random-48838" type="radio" name="go-to-random-48838" value="go-to-2-random-48838"/>
-              <label for="go-to-2-random-48838">2</label>
-            </div>
-          </div>
-          <div class="br-item" tabindex="-1">
-            <div class="br-radio">
-              <input id="go-to-3-random-48838" type="radio" name="go-to-random-48838" value="go-to-3-random-48838"/>
-              <label for="go-to-3-random-48838">3</label>
-            </div>
-          </div>
-          <div class="br-item" tabindex="-1">
-            <div class="br-radio">
-              <input id="go-to-4-random-48838" type="radio" name="go-to-random-48838" value="go-to-4-random-48838"/>
-              <label for="go-to-4-random-48838">4</label>
-            </div>
-          </div>
-          <div class="br-item" tabindex="-1">
-            <div class="br-radio">
-              <input id="go-to-5-random-48838" type="radio" name="go-to-random-48838" value="go-to-5-random-48838"/>
-              <label for="go-to-5-random-48838">5</label>
-            </div>
-          </div>
+            <% paginator.each_page do |page| -%>
+              <% if page.display_tag? -%>
+
+                <%= paginator.page_tag page %>
+              <% elsif !page.was_truncated? -%>
+              <% end -%>
+            <% end -%>
         </div>
       </div>
     </div>
@@ -123,12 +96,11 @@ paginator:     the paginator that renders the pagination tags inside -%>
        <% unless current_page.out_of_range? %>
         <%= paginator.first_page_tag unless current_page.first? %>
       <% end %>
-      
+
       <% unless current_page.out_of_range? %>
         <%= paginator.last_page_tag unless current_page.last? %>
       <% end %>
     </div>
   </nav>
+
 </div>
-
-
