@@ -24,36 +24,37 @@
       <% end %>
     </div>
   </div>
-
-  <div class="header-meetings">
-    <h1 class="title"><%= present(meeting).title(links: true, html_escape: true ) %></h1>
-    <% if true %>
-    <div class="admin-buttons">
-      <div class="br-magic-button">
-        <a class="br-button" type="button" href="#">
-          Registre o que aconteceu
+  <% if allowed_to?(:update, :meeting, meeting: meeting) %>
+    <div class="header-meetings">
+      <h1 class="title"><%= present(meeting).title(links: true, html_escape: true ) %></h1>
+      <% if true %>
+      <div class="admin-buttons">
+        <div class="br-magic-button">
+          <a class="br-button" type="button" href="#">
+            Registre o que aconteceu
+          </a>
+        </div>
+        <a class="br-button secondary dark-mode" type="button" href="#">
+          Gerencie as inscrições
+        </a>
+        <a class="br-button secondary dark-mode" type="button" href="#">
+          Exporte lista de inscritos
         </a>
       </div>
-      <a class="br-button secondary dark-mode" type="button" href="#">
-        Gerencie as inscrições
-      </a>
-      <a class="br-button secondary dark-mode" type="button" href="#">
-        Exporte lista de inscritos
-      </a>
+      <% end %>
     </div>
-    <% end %>
-  </div>
+  <% end %>
 
   <div>
     <div class="columns section br-card mediumlarge-4 mediumlarge-push-8
                 large-3 large-push-9">
       <% if allowed_to?(:update, :meeting, meeting: meeting) %>
-        <%= link_to t(".edit_meeting"), edit_meeting_path(meeting), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
+        <%= link_to t(".edit_meeting"), edit_meeting_path(meeting), class: "br-button secondary mt-3" %>
       <% end %>
 
       <% if allowed_to?(:close, :meeting, meeting: meeting) %>
         <% caption =  meeting.closed? ? t(".edit_close_meeting") : t(".close_meeting") %>
-        <%= link_to caption, edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "button hollow expanded button-sc button--icon follow-button" %>
+        <%= link_to caption, edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "br-button secondary mt-3" %>
       <% end %>
 
       <div class="extra">
