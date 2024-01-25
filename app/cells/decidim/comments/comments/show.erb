@@ -1,7 +1,5 @@
 <%= content_tag :div, id: node_id, data: { decidim_comments: comments_data } do %>
-  <% if comments_blocked? && comments_count == 0 %>
-
-  <% else %>
+  <% unless comments_blocked? && comments_count == 0 %>
   <div class="columns large-9 comments-meeting" id="comments">
     <div class="comments-new">
       <div class="comments-header meeting">
