@@ -28822,7 +28822,7 @@ button.br-item:not(:disabled):active {
 .br-switch.br-icon input + label:after {
   align-items: center;
   color: var(--color-dark);
-  content: "\f00d" !important;
+  content: "\f00d";
   display: inline-flex;
   font-family: Font Awesome\5 Free, sans-serif;
   font-size: var(--switch-icon-size);
@@ -28830,7 +28830,7 @@ button.br-item:not(:disabled):active {
   justify-content: center;
 }
 .br-switch.br-icon input:checked + label:after {
-  content: "\f00c" !important;
+  content: "\f00c";
 }
 .br-switch input.focus-visible + label:before,
 .br-switch input:focus-visible + label:before {
