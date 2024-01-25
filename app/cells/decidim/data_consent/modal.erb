@@ -1,0 +1,40 @@
+<div class="reveal dc-modal br-cookie-modal" id="dc-modal" role="dialog" data-close-on-click="false" data-close-on-esc="false" aria-modal="true" data-reveal>
+  <div class="br-row">
+    <div class="reveal__header">
+      <div class="br-h1">
+        Configurações avançadas de cookies
+      </div>
+      <div class="entry-text">
+        <a class="br-a" href="https://www.gov.br/pt-br/termos-de-uso" target="_blank">Ver Declaração de Cookies</a>
+        <div class="br-subtitle">
+          Para melhorar a sua experiência na plataforma e prover serviços personalizados, utilizamos cookies.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dc-categories">
+    <% categories.each do |category| %>
+      <%= render(
+            {
+              view: :category,
+              locals: {
+                category: category
+              }
+            }
+          ) %>
+    <% end %>
+  </div>
+
+    <div class="br-cookie-buttons">
+      <button id="dc-modal-accept" class="br-button primary" data-close>
+        <%= t("layouts.decidim.data_consent.modal.accept_all") %>
+      </button>
+      <button id="dc-modal-reject" class="br-button primary" data-close>
+        <%= t("layouts.decidim.data_consent.modal.accept_only_essential") %>
+      </button>
+      <button id="dc-modal-save" class="br-button primary" data-close>
+        <%= t("layouts.decidim.data_consent.modal.save_settings") %>
+      </button>
+    </div>
+</div>

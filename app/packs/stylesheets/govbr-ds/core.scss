@@ -23308,6 +23308,7 @@ mark {
 a.br-button {
   font-weight: var(--font-weight-semi-bold);
   text-decoration: none !important;
+  color: var(--interactive);
 }
 .br-card {
   --card-padding: var(--spacing-scale-2x);
@@ -24263,6 +24264,40 @@ a.br-button {
 .br-cookiebar .br-modal {
   --modal-size: var(--modal-auto);
 }
+
+.br-h1 {
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  color: #333 !important;
+  line-height: normal !important;
+  margin-bottom: 5px !important;
+}
+
+.br-subtitle {
+  font-size: 12px;
+}
+
+.br-a {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 12px;
+  margin-top: 3px;
+  text-decoration: underline;
+  font-weight: bold;
+  color: #2453AE;
+}
+
+.br-group {
+  display: block;
+  font-size: 12px;
+  color: #333;
+  font-weight: 600;
+  max-width: 300px;
+  margin-bottom: 10px;
+  cursor: auto;
+  padding-left: 8px;
+}
+
 .flatpickr-calendar {
   --flatpicker-padding: var(--spacing-scale-2x);
   --datetimepicker-day-size: 24px;
@@ -28785,7 +28820,7 @@ button.br-item:not(:disabled):active {
 .br-switch input:checked ~ .switch-data:before {
   content: attr(data-enabled);
 }
-.br-switch.icon input + label:after {
+.br-switch.br-icon input + label:after {
   align-items: center;
   color: var(--color-dark);
   content: "\f00d";
@@ -28795,7 +28830,7 @@ button.br-item:not(:disabled):active {
   font-weight: var(--font-weight-black);
   justify-content: center;
 }
-.br-switch.icon input:checked + label:after {
+.br-switch.br-icon input:checked + label:after {
   content: "\f00c";
 }
 .br-switch input.focus-visible + label:before,
