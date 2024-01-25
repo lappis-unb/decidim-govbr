@@ -190,7 +190,11 @@
 
   <div class="meetings-footer-components">
     <%= attachments_for meeting %>
-    <%= comments_for meeting %>
+    <%
+=begin%>
+ <%= comments_for meeting %> 
+<%
+=end%>
     <%= pad_iframe_for meeting %>
   </div>
 </div>
