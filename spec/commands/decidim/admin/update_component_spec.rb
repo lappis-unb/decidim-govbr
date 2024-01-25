@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "spec_helper"
+require "rails_helper"
 
 module Decidim::Admin
   describe UpdateComponent do
@@ -14,9 +14,12 @@ module Decidim::Admin
       instance_double(
         ComponentForm,
         name: {
-          en: "My component",
-          ca: "La meva funcionalitat",
-          es: "Mi funcionalidad"
+          en: "My components",
+          pt_BR: "Meus componentes"
+        },
+        singular_name: {
+            en: "My component",
+            pt_BR: "Meu componente"
         },
         weight: 3,
         invalid?: !valid,
@@ -51,7 +54,10 @@ module Decidim::Admin
           described_class.call(form, component, user)
         end.to broadcast(:ok)
 
-        expect(component["name"]["en"]).to eq("My component")
+        expect(component["name"]["en"]).to eq("My components")
+        expect(component["name"]["pt_BR"]).to eq("Meus componentes")
+        expect(component["singular_name"]["en"]).to eq("My component")
+        expect(component["singular_name"]["pt_BR"]).to eq("Meu componente")
         expect(component.weight).to eq(3)
         expect(component.settings.dummy_global_attribute1).to be(true)
         expect(component.settings.dummy_global_attribute2).to be(false)
@@ -73,7 +79,10 @@ module Decidim::Admin
         described_class.call(form, component, user)
 
         component = results[:component]
-        expect(component.name["en"]).to eq("My component")
+        expect(component["name"]["en"]).to eq("My components")
+        expect(component["name"]["pt_BR"]).to eq("Meus componentes")
+        expect(component["singular_name"]["en"]).to eq("My component")
+        expect(component["singular_name"]["pt_BR"]).to eq("Meu componente")
         expect(component).to be_persisted
       end
 
@@ -117,7 +126,10 @@ module Decidim::Admin
         end.to broadcast(:invalid)
 
         component.reload
-        expect(component.name["en"]).not_to eq("My component")
+        expect(component["name"]["en"]).not_to eq("My components")
+        expect(component["name"]["pt_BR"]).not_to eq("Meus componentes")
+        expect(component["singular_name"]).to be_nil
+        expect(component["singular_name"]).to be_nil
       end
     end
   end
