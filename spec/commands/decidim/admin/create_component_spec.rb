@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "spec_helper"
+require "rails_helper"
 
 module Decidim::Admin
   describe CreateComponent do
@@ -11,9 +11,12 @@ module Decidim::Admin
       instance_double(
         ComponentForm,
         name: {
-          en: "My component",
-          ca: "La meva funcionalitat",
-          es: "Mi funcionalidad"
+          en: "My proposals",
+          pt_BR: "Minhas propostas"
+        },
+        singular_name: {
+          en: "My proposal",
+          pt_BR: "Minha proposta"
         },
         invalid?: !valid,
         valid?: valid,
@@ -87,7 +90,10 @@ module Decidim::Admin
         subject.call
 
         component = results[:component]
-        expect(component.name["en"]).to eq("My component")
+        expect(component.name["en"]).to eq("My proposals")
+        expect(component.name["pt_BR"]).to eq("Minhas propostas")
+        expect(component.singular_name["en"]).to eq("My proposal")
+        expect(component.singular_name["pt_BR"]).to eq("Minha proposta")
         expect(component).to be_persisted
       end
     end
