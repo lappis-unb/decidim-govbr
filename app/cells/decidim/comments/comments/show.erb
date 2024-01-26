@@ -6,9 +6,9 @@
           <% if single_comment? %>
             <%= t("decidim.components.comments.comment_details_title") %>
           <% else %>
-            <h1 class="br-comments-count">
+            <h3 class="br-comments-count">
               <%= t("decidim.components.comments.title", count: comments_count) %>
-            </h1>
+            </h3>
           <% end %>
         <%= render :order_control %>
       </div>

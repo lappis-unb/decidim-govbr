@@ -23,11 +23,10 @@
         <%= t(".back") %>
       <% end %>
     </div>
-  </div>
-  <% if allowed_to?(:update, :meeting, meeting: meeting) %>
+
     <div class="header-meetings">
       <h1 class="title"><%= present(meeting).title(links: true, html_escape: true ) %></h1>
-      <% if true %>
+      <% if allowed_to?(:update, :meeting, meeting: meeting) %>
       <div class="admin-buttons">
         <div class="br-magic-button">
           <a class="br-button" type="button" href="#">
@@ -43,32 +42,29 @@
       </div>
       <% end %>
     </div>
-  <% end %>
-
-  <div>
-    <div class="columns section br-card mediumlarge-4 mediumlarge-push-8
+  </div>
+  <div class="row">
+    <div class="columns section view-side br-card mediumlarge-4 mediumlarge-push-8
                 large-3 large-push-9">
+
       <% if allowed_to?(:update, :meeting, meeting: meeting) %>
-        <%= link_to t(".edit_meeting"), edit_meeting_path(meeting), class: "br-button secondary mt-3" %>
+        <%= link_to t(".edit_meeting"), edit_meeting_path(meeting), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
       <% end %>
 
       <% if allowed_to?(:close, :meeting, meeting: meeting) %>
         <% caption =  meeting.closed? ? t(".edit_close_meeting") : t(".close_meeting") %>
-        <%= link_to caption, edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "br-button secondary mt-3" %>
+        <%= link_to caption, edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "button hollow expanded button-sc button--icon follow-button" %>
       <% end %>
 
       <div class="extra">
-        <div class="card-meeting__content">
+        <div class="card__content">
           <%= cell("decidim/date_range", { start: meeting.start_time, end: meeting.end_time }) %>
-          
+
           <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
-          <%= render partial: "decidim/shared/share_modal" %>
-          <%= embed_modal_for meeting_widget_url(meeting, format: :js) %>
-          <%= render partial: "calendar_modal", locals: { ics_url: calendar_meeting_url(meeting), google_url: google_calendar_event_url(meeting) } %>
         </div>
         <% if meeting.closed? && meeting.closing_visible? %>
           <% double = meeting.has_contributions? && meeting.has_attendees? %>
-          <div class="card--secondary extra definition-data">
+          <div class="card card--secondary extra definition-data">
             <% if meeting.has_contributions? %>
               <div class="definition-data__item <%= "definition-data__item--double" if double %>">
                 <span class="definition-data__title"><%= t(".contributions") %></span>
@@ -89,6 +85,7 @@
             <% end %>
           </div>
         <% end %>
+
         <%= cell "decidim/author", author_presenter_for(meeting.normalized_author), has_actions: true, from: meeting, context: { extra_classes: ["author-data--small"] } %>
       </div>
 
@@ -122,8 +119,10 @@
 
       <%= resource_reference(meeting) %>
       <%= resource_version(meeting, versions_path: meeting_versions_path(meeting)) %>
+      <%= render partial: "decidim/shared/share_modal" %>
+      <%= embed_modal_for meeting_widget_url(meeting, format: :js) %>
+      <%= render partial: "calendar_modal", locals: { ics_url: calendar_meeting_url(meeting), google_url: google_calendar_event_url(meeting) } %>
     </div>
-
     <div class="columns mediumlarge-8 mediumlarge-pull-4">
       <div class="section">
         <% if meeting.private_meeting? %>
@@ -186,15 +185,9 @@
       <%= linked_resources_for meeting, :proposals, "proposals_from_meeting" %>
       <%= linked_resources_for meeting, :results, "meetings_through_proposals" %>
     </div>
-  </div>
 
-  <div class="meetings-footer-components">
     <%= attachments_for meeting %>
-    <%
-=begin%>
- <%= comments_for meeting %> 
-<%
-=end%>
+    <%= comments_for meeting %>
     <%= pad_iframe_for meeting %>
   </div>
 </div>
