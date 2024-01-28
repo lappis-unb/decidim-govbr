@@ -12,11 +12,11 @@ module Decidim
       end
 
       def supporters
-        @supporters ||= partners.select { |partner| partner.partner_type == 'supporter' }
+        @supporters ||= partners.select { |partner| partner.partner_type == 'supporter' }.sort_by(&:weight)
       end
 
       def organizers
-        @organizers ||= partners.select { |partner| partner.partner_type == 'organizer' }
+        @organizers ||= partners.select { |partner| partner.partner_type == 'organizer' }.sort_by(&:weight)
       end
     end
   end
