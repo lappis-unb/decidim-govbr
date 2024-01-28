@@ -955,6 +955,25 @@ ActiveRecord::Schema.define(version: 2024_01_28_140241) do
     t.index ["name"], name: "index_decidim_hashtags_on_name"
   end
 
+  create_table "decidim_homes_homes", id: :serial, force: :cascade do |t|
+    t.jsonb "title"
+    t.integer "decidim_component_id"
+    t.string "banner"
+    t.string "digital_stage", default: "/"
+    t.string "organize_stage", default: "/"
+    t.string "schedule", default: "/"
+    t.string "common_questions", default: "/"
+    t.string "support_material", default: "/"
+    t.boolean "statistics", default: false
+    t.boolean "news", default: false
+    t.integer "news_id"
+    t.jsonb "organizers", default: []
+    t.jsonb "supporters", default: []
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_component_id"], name: "index_decidim_homes_homes_on_decidim_component_id"
+  end
+
   create_table "decidim_identities", id: :serial, force: :cascade do |t|
     t.string "provider", null: false
     t.string "uid", null: false
