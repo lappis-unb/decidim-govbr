@@ -25,7 +25,6 @@
 .ruby-gemset
 .byebug_history
 
-public/assets
 public/uploads
 public/decidim-packs
 public/packs
