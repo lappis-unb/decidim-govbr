@@ -9,7 +9,7 @@ module Decidim
         # Public: Initializes the command.
         #
         # form - A form object with the params.
-        # partnerable - The partnerable that will hold the speaker
+        # partnerable - The partnerable that will hold the partner
         def initialize(form, current_user, partnerable)
           @form = form
           @current_user = current_user

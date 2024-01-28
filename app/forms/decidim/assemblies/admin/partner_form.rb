@@ -3,7 +3,7 @@
 module Decidim
   module Assemblies
     module Admin
-      # A form object used to create conference members from the admin dashboard.
+      # A form object used to create assembly partners.
       class PartnerForm < Decidim::Govbr::Admin::PartnerForm
         mimic :assembly_partner
 
