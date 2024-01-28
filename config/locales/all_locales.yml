@@ -2,7 +2,20 @@
 # instead of creating a folder and a file for every language.
 
 pt-BR:
+  activemodel:
+    attributes:
+      assembly_partner:
+        link: Link oficial
+        logo: Logotipo
+        name: Nome
+        partner_type: Tipo
+        weight: Weight (posição de exibição)
   decidim:
+    assemblies:
+      admin:
+        partners:
+          index:
+            title: Organizadores e Apoiadores
     forms:
       admin:
         models:
@@ -20,28 +33,92 @@ pt-BR:
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Pesquisar %{collection} por e-mail, nome, nome de usuário ou CPF.
-pt:
-  decidim:
-    forms:
-      admin:
-        models:
-          components:
-            topp: Termos de Privacidade
-            collect_user_data: Habilitar termos de privacidade para coleta de dados dos usuarios (e-mail e CPF).
-      user_answers_serializer:
-        email: E-mail
-        uid: CPF
-        anonymous_answer: Usuário não quis informar
-      questionnaires:
-        show:
-          topp_agreement: Concordo com a política de privacidade
-    admin:
-      filters:
-        search_placeholder:
-          name_or_nickname_or_email_or_identities_uid_cont: Pesquisar %{collection} por e-mail, nome, nome de usuário ou CPF.
+      menu:
+        assemblies_submenu:
+          partners: Organizadores e Apoiadores
+      models:
+        partner:
+          types:
+            supporter: Apoiador
+            organizer: Organizador
+      partners:
+        update:
+          success: Parceiro atualizado com sucesso
+          error: Não foi possível atualizar o parceiro
+        create:
+          success: Parceiro criado com sucesso
+          error: Não foi possível criar o parceiro
+        destroy:
+          success: Parceiro excluído com sucesso
+          error: Não foi possível excluir o parceiro
+    admin_log:
+      govbr:
+        partner:
+          create: "%{user_name} criou o parceiro %{resource_name} no espaço participativo %{space_name}"
+          delete: "%{user_name} excluiu o parceiro %{resource_name} no espaço participativo %{space_name}"
+          update: "%{user_name} atualizou o parceiro %{resource_name} no espaço participativo %{space_name}"
 
-en:
+pt:
+  activemodel:
+    attributes:
+      assembly_partner:
+        link: Link oficial
+        logo: Logotipo
+        name: Nome
+        partner_type: Tipo
+        weight: Weight (posição de exibição)
   decidim:
+    assemblies:
+      admin:
+        partners:
+          index:
+            title: Organizadores e Apoiadores
+    forms:
+      admin:
+        models:
+          components:
+            topp: Termos de Privacidade
+            collect_user_data: Habilitar termos de privacidade para coleta de dados dos usuarios (e-mail e CPF).
+      user_answers_serializer:
+        email: E-mail
+        uid: CPF
+        anonymous_answer: Usuário não quis informar
+      questionnaires:
+        show:
+          topp_agreement: Concordo com a política de privacidade
+    admin:
+      filters:
+        search_placeholder:
+          name_or_nickname_or_email_or_identities_uid_cont: Pesquisar %{collection} por e-mail, nome, nome de usuário ou CPF.
+      menu:
+        assemblies_submenu:
+          partners: Organizadores e Apoiadores
+      models:
+        partner:
+          types:
+            supporter: Apoiador
+            organizer: Organizador
+    admin_log:
+      govbr:
+        partner:
+          create: "%{user_name} criou o parceiro %{resource_name} no espaço participativo %{space_name}"
+          delete: "%{user_name} removeu o parceiro %{resource_name} no espaço participativo %{space_name}"
+          update: "%{user_name} actualizou o parceiro %{resource_name} no espaço participativo %{space_name}"
+en:
+  activemodel:
+    attributes:
+      assembly_partner:
+        link: Link
+        logo: Logo
+        name: Name
+        partner_type: Type
+        weight: Weight (display position)
+  decidim:
+    assemblies:
+      admin:
+        partners:
+          index:
+            title: Organizers and Supporters
     forms:
       admin:
         models:
@@ -59,9 +136,36 @@ en:
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Search %{collection} by email, name, nickname or identification number.
+      menu:
+        assemblies_submenu:
+          partners: Organizers and Supporters
+      models:
+        partner:
+          types:
+            supporter: Supporter
+            organizer: Organizer
+    admin_log:
+      govbr:
+        partner:
+          create: "%{user_name} created the partner %{resource_name} in the participatory space %{space_name}"
+          delete: "%{user_name} removed ther partner %{resource_name} in the participatory space %{space_name}"
+          update: "%{user_name} updated the partner %{resource_name} in the participatory space %{space_name}"
 
 es-MX:
+  activemodel:
+    attributes:
+      assembly_partner:
+        link: Enlace
+        logo: Logo
+        name: Nombre
+        partner_type: Tipo
+        weight: Weight (posición de visualización)
   decidim:
+    assemblies:
+      admin:
+        partners:
+          index:
+            title: Organizadores y Simpatizantes
     forms:
       admin:
         models:
@@ -79,9 +183,36 @@ es-MX:
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Buscar %{collection} por correo electrónico, nombre o alias.
+      menu:
+        assemblies_submenu:
+          partners: Organizadores y Simpatizantes
+      models:
+        partner:
+          types:
+            supporter: Simpatizantes
+            organizer: Organizadores
+    admin_log:
+      govbr:
+        partner:
+          create: "%{user_name} crea el paquete %{resource_name} en el espacio participativo %{space_name}"
+          delete: "%{user_name} eliminó el paquete %{resource_name} en el espacio participativo %{space_name}"
+          update: "%{user_name} actualizó el paquete %{resource_name} en el espacio participativo %{space_name}"
 
 es-PY:
+  activemodel:
+    attributes:
+      assembly_partner:
+        link: Enlace
+        logo: Logo
+        name: Nombre
+        partner_type: Tipo
+        weight: Weight (posición de visualización)
   decidim:
+    assemblies:
+      admin:
+        partners:
+          index:
+            title: Organizadores y Simpatizantes
     forms:
       admin:
         models:
@@ -99,9 +230,36 @@ es-PY:
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Buscar %{collection} por correo electrónico, nombre o alias.
+      menu:
+        assemblies_submenu:
+          partners: Organizadores y Simpatizantes
+      models:
+        partner:
+          types:
+            supporter: Simpatizantes
+            organizer: Organizadores
+    admin_log:
+      govbr:
+        partner:
+          create: "%{user_name} crea el paquete %{resource_name} en el espacio participativo %{space_name}"
+          delete: "%{user_name} eliminó el paquete %{resource_name} en el espacio participativo %{space_name}"
+          update: "%{user_name} actualizó el paquete %{resource_name} en el espacio participativo %{space_name}"
 
 es:
+  activemodel:
+    attributes:
+      assembly_partner:
+        link: Enlace
+        logo: Logo
+        name: Nombre
+        partner_type: Tipo
+        weight: Weight (posición de visualización)
   decidim:
+    assemblies:
+      admin:
+        partners:
+          index:
+            title: Organizadores y Simpatizantes
     forms:
       admin:
         models:
@@ -119,3 +277,17 @@ es:
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Buscar %{collection} por correo electrónico, nombre o alias.
+      menu:
+        assemblies_submenu:
+          partners: Organizadores y Simpatizantes
+      models:
+        partner:
+          types:
+            supporter: Simpatizantes
+            organizer: Organizadores
+    admin_log:
+      govbr:
+        partner:
+          create: "%{user_name} crea el paquete %{resource_name} en el espacio participativo %{space_name}"
+          delete: "%{user_name} eliminó el paquete %{resource_name} en el espacio participativo %{space_name}"
+          update: "%{user_name} actualizó el paquete %{resource_name} en el espacio participativo %{space_name}"
