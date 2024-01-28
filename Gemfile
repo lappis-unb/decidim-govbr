@@ -37,6 +37,8 @@ gem 'sidekiq', '6.5.7'
 
 gem 'whenever', require: false
 
+gem 'decidim-homes', git: 'git@gitlab.com:lappis-unb/decidimbr/components-brasil-participativo/decidim-module-homes.git'
+
 group :development, :test do
   gem 'byebug', '11.1.3'
   gem 'decidim-dev', DECIDIM_VERSION
