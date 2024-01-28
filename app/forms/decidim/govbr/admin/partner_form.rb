@@ -3,7 +3,7 @@
 module Decidim
   module Govbr
     module Admin
-      # A form object used to create conference members from the admin dashboard.
+      # A form object used to create partners.
       class PartnerForm < Form
         include Decidim::HasUploadValidations
 
