@@ -1,0 +1,32 @@
+<button class="button button--title share-link text-center calendar" data-open="calendarShare">
+  <%= t(".export_calendar") %>
+  <i class="fa fa-share-alt" aria-hidden="true"></i>
+</button>
+
+<div class="reveal" id="calendarShare" data-reveal>
+  <div class="reveal__header">
+    <h3 class="reveal__title"><%= t(".calendar_url") %>:</h3>
+    <button class="close-button" data-close aria-label="<%= t(".close_window") %>" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="calendar-url-description"><%= t(".copy_calendar_url_description") %></div>
+  <div class="calendar-url-explanation"><%= t(".copy_calendar_url_explanation") %></div>
+
+  <div class="input-group calendar_url_input">
+    <input id="urlCalendarUrl" class="input-group-field" type="text" title="<%= t(".calendar_url") %>" value="<%= "#{path}" %>" readonly>
+    <div class="input-group-button">
+      <button class="br-button"
+              data-clipboard-copy="#urlCalendarUrl"
+              data-clipboard-copy-label="✓"
+              data-clipboard-copy-message="✓"
+              aria-label="<%= t(".copy_calendar_url_clarification") %>"
+              id="clipboard-button"
+              >
+        <i class="fa-regular fa-clipboard" aria-hidden="true" id="clipboard-icon"
+        ></i>
+      </button>
+    </div>
+  </div>
+</div>
