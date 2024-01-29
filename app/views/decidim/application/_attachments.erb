@@ -1,7 +1,7 @@
 <% if attached_to.attachments.any? %>
   <div class="grid attachments">
-      <%= render partial: "decidim/application/documents", locals: { documents: attached_to.documents } %>
-    </div>
+    <%= render partial: "decidim/application/documents", locals: { documents: attached_to.documents } %>
+  </div>
   <div class="grid attachments images">
     <div>
       <%= render partial: "decidim/application/photos", locals: { photos: attached_to.photos } %>
