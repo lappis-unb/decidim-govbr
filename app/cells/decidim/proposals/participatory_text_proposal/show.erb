@@ -1,7 +1,14 @@
 <li class="participatory-text-item">
-  <%= link_to resource_path do %>
-    <%= title %>
-    <%= body %>
+  <% if is_interactive %>
+    <%= link_to resource_path do %>
+      <%= title %>
+      <%= body %>
+    <% end %>
+    <%= render :buttons %>
+  <% else %>
+    <div>
+      <%= title %>
+      <%= body %>
+    </div>
   <% end %>
-  <%= render :buttons %>
 </li>
