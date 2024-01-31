@@ -55,6 +55,8 @@ pt-BR:
             label: Estado
             values:
               'true': Não respondida
+      participatory_texts:
+        is_interactive: Interação habilitada
     components:
       proposals:
         settings:
