@@ -6,6 +6,7 @@ module Decidim
   module Proposals
     module Admin
       describe UpdateParticipatoryText do
+        include TranslateHelper
         describe "call" do
           let(:current_component) do
             create(
@@ -30,7 +31,8 @@ module Decidim
                 id: proposal.id,
                 position: new_positions.shift,
                 title: ::Faker::Books::Lovecraft.fhtagn,
-                body: { en: ::Faker::Books::Lovecraft.fhtagn(number: 5) }
+                body: { en: ::Faker::Books::Lovecraft.fhtagn(number: 5) },
+                is_interactive: false
               ).with_context(
                 current_participatory_space: current_component.participatory_space,
                 current_component: current_component
@@ -58,20 +60,13 @@ module Decidim
           describe "when form modifies proposals" do
             context "with valid values" do
               it "persists modifications" do
-                def self.translated(attribute=nil)
-                  attribute = attribute.with_indifferent_access
-                  locale = I18n.locale
-          
-                  attribute[locale]
-                end
-
                 expect { command.call }.to broadcast(:ok)
                 proposals.zip(proposal_modifications).each do |proposal, proposal_form|
                   proposal.reload
-
                   expect(proposal_form.title).to eq translated(proposal.title)
                   expect(proposal_form.body).to eq translated(proposal.body) if proposal.participatory_text_level == Decidim::Proposals::ParticipatoryTextSection::LEVELS[:article]
                   expect(proposal_form.position).to eq proposal.position
+                  expect(proposal_form.is_interactive).to eq proposal.is_interactive
                 end
               end
             end
