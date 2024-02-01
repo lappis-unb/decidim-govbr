@@ -14,6 +14,10 @@ require 'support/organization'
 require 'support/wisper'
 
 require 'rspec-html-matchers'
+require "commands/decidim/proposals/admin/admin_resource_gallery_example"
+require "shared/proposal_form_examples"
+require "shared/scopable_resource_examples"
+require "shared/translate_helper"
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
