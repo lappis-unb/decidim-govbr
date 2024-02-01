@@ -24758,6 +24758,7 @@ hr {
 .br-footer .br-list.horizontal {
   display: flex;
   flex-wrap: wrap;
+  padding-bottom: 40px;
 }
 .br-footer .br-list.horizontal .header {
   width: 100%;
@@ -26975,9 +26976,6 @@ button.br-item:not(:disabled):active {
 .br-message {
   padding: 1rem;
   gap: 1rem;
-}
-.br-message .icon {
-  padding: 1rem 0;
 }
 .feedback {
   --message-background: var(--background);
