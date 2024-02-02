@@ -454,11 +454,6 @@ module Decidim
       end
       public
 
-
-
-      def comments_count
-        comments.count
-      end
     end
   end
 end
