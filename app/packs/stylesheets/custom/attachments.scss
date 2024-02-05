@@ -17,11 +17,9 @@
     height: 55px;
     width: 100%;
     justify-content: center;
-    
 }
 
 .download-attachment {
-    filter: invert(21%) sepia(60%) saturate(2546%) hue-rotate(204deg) brightness(100%) contrast(94%);
     width: 15px;
     height: 15px;
 }
@@ -66,8 +64,8 @@
     text-overflow: ellipsis;
     max-width: 75%;
     white-space: nowrap;
-
-    @media (max-width: 480px) {
+    
+    @media (max-width: 400px) {
         max-width: 100px;
     }
 }
@@ -76,12 +74,12 @@
     min-width: 200px;
     display: flex;
     border-radius: 10px;
-    background-color: var(--blue-3);
     height: 40px;
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    border: 1px solid var(--blue-warm-vivid-60);
+    border: 1px solid var(--blue-warm-vivid-70);
+    gap: 12px;
 }
 
 .br-card--list__text {
@@ -90,7 +88,7 @@
     max-height: 40px;
     text-align: center;
     align-items: center;
-    color: var(--blue-warm-vivid-60);
+    color: var(--blue-warm-vivid-70);
     font-variant-numeric: lining-nums proportional-nums;
     font-family: Rawline;
     font-size: 14px;
@@ -103,6 +101,7 @@
 .br-card--list__data__icon{
     display: flex;
     align-items: center;
+    color: var(--blue-warm-vivid-70);
 }
 
 .br-message.info {
@@ -126,4 +125,13 @@
 .section.images h3 {
     font-style: normal;
     font-weight: 600;
+}
+
+.grid.attachments{
+    background-color: var(--blue-3);
+    display: flex;
+    justify-content: center;flex-direction: column;
+    padding: 20px;
+    border-radius: 10px; 
+    
 }
