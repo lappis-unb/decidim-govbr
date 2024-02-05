@@ -1,0 +1,121 @@
+# This file has been created in order to cover only specific small translations for ALL languages
+# instead of creating a folder and a file for every language.
+
+pt-BR:
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            topp: Termos de Privacidade
+            collect_user_data: Habilitar termos de privacidade para coleta de dados dos usuarios (e-mail e CPF).
+      user_answers_serializer:
+        email: E-mail
+        uid: CPF
+        anonymous_answer: Usuário não quis informar
+      questionnaires:
+        show:
+          topp_agreement: Concordo com a política de privacidade
+    admin:
+      filters:
+        search_placeholder:
+          name_or_nickname_or_email_or_identities_uid_cont: Pesquisar %{collection} por e-mail, nome, nome de usuário ou CPF.
+pt:
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            topp: Termos de Privacidade
+            collect_user_data: Habilitar termos de privacidade para coleta de dados dos usuarios (e-mail e CPF).
+      user_answers_serializer:
+        email: E-mail
+        uid: CPF
+        anonymous_answer: Usuário não quis informar
+      questionnaires:
+        show:
+          topp_agreement: Concordo com a política de privacidade
+    admin:
+      filters:
+        search_placeholder:
+          name_or_nickname_or_email_or_identities_uid_cont: Pesquisar %{collection} por e-mail, nome, nome de usuário ou CPF.
+
+en:
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            topp: Terms of privacy policy
+            collect_user_data: Enable user data collecting via terms of privacy policy.
+      user_answers_serializer:
+        email: E-mail
+        uid: Identification number
+        anonymous_answer: User didn't want to inform
+      questionnaires:
+        show:
+          topp_agreement: I agree with the privacy policy
+    admin:
+      filters:
+        search_placeholder:
+          name_or_nickname_or_email_or_identities_uid_cont: Search %{collection} by email, name, nickname or identification number.
+
+es-MX:
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            topp: Términos de política de privacidad
+            collect_user_data: Habilite la recopilación de datos del usuario a través de los términos de la política de privacidad.
+      user_answers_serializer:
+        email: E-mail
+        uid: Número de identificación
+        anonymous_answer: El usuario no quería informar
+      questionnaires:
+        show:
+          topp_agreement: Estoy de acuerdo con la política de privacidad
+    admin:
+      filters:
+        search_placeholder:
+          name_or_nickname_or_email_or_identities_uid_cont: Buscar %{collection} por correo electrónico, nombre o alias.
+
+es-PY:
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            topp: Términos de política de privacidad
+            collect_user_data: Habilite la recopilación de datos del usuario a través de los términos de la política de privacidad.
+      user_answers_serializer:
+        email: E-mail
+        uid: Número de identificación
+        anonymous_answer: El usuario no quería informar
+      questionnaires:
+        show:
+          topp_agreement: Estoy de acuerdo con la política de privacidad
+    admin:
+      filters:
+        search_placeholder:
+          name_or_nickname_or_email_or_identities_uid_cont: Buscar %{collection} por correo electrónico, nombre o alias.
+
+es:
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            topp: Términos de política de privacidad
+            collect_user_data: Habilite la recopilación de datos del usuario a través de los términos de la política de privacidad.
+      user_answers_serializer:
+        email: E-mail
+        uid: Número de identificación
+        anonymous_answer: El usuario no quería informar
+      questionnaires:
+        show:
+          topp_agreement: Estoy de acuerdo con la política de privacidad
+    admin:
+      filters:
+        search_placeholder:
+          name_or_nickname_or_email_or_identities_uid_cont: Buscar %{collection} por correo electrónico, nombre o alias.

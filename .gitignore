@@ -25,7 +25,6 @@
 .ruby-gemset
 .byebug_history
 
-public/assets
 public/uploads
 public/decidim-packs
 public/packs
@@ -36,3 +35,4 @@ public/sw.js*
 yarn-debug.log*
 .yarn-integrity
 package-lock.json
+.DS_Store

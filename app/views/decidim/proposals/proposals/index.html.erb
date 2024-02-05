@@ -1,0 +1,86 @@
+<div class="br-container-lg">
+  <% if component_settings.geocoding_enabled? %>
+    <%= dynamic_map_for proposals_data_for_map(@all_geocoded_proposals) do %>
+      <template id="marker-popup">
+        <div class="map-info__content">
+          <h3>${title}</h3>
+          <div id="bodyContent">
+            <p>{{html body}}</p>
+            <div class="map__date-address">
+              <div class="address card__extra">
+                <div class="address__icon">{{html icon}}</div>
+                <div class="address__details">
+                  <span>${address}</span><br>
+                </div>
+              </div>
+            </div>
+            <div class="map-info__button">
+              <a href="${link}" class="button button--sc">
+                <%= t(".view_proposal") %>
+              </a>
+            </div>
+          </div>
+        </div>
+      </template>
+    <% end %>
+  <% end %>
+
+  <%= render partial: "decidim/shared/component_announcement" %>
+
+  <%= render partial: "voting_rules" %>
+
+  <div class="filter-container">
+    <% if current_user %>
+      <h2 class="user-name-title-h1">Olá, <%= current_user.name %></h2>
+    <% end %>
+    <div class="proposals__buttons-container">
+      <div class="proposals-button__container">
+        <%= render partial: "statistics_small_view", locals: {statistics: @user_proposals_statistic}%>
+      </div>
+      <% if browser.mobile? %>
+        <div class="proposals-button__container">
+          <%= render partial: "filters_small_view" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="br-row">
+    <div class="title-action title-action-button">
+      <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) %>
+        <%= action_authorized_link_to :create, new_proposal_path,
+          class: "title-action__action br-button block primary", data: { "redirect_url" => new_proposal_path } do %>
+          <i class="fa-solid fa-plus fa-sl"></i>
+          <span class="title-action-text">Faça sua proposta</span>
+        <% end %>
+      <% end %>
+
+      <% if component_settings.collaborative_drafts_enabled? %>
+        <%= link_to t(".collaborative_drafts_list"), collaborative_drafts_path, class: "title-action__action button small hollow ml-s" %>
+      <% end %>
+    </div>
+    <% if browser.mobile? %>
+      <%= filter_form_for filter do |form| %>
+        <div class="br-input input-highlight">
+          <%= form.search_field :search_text_cont, type: "search",
+            label: false, class: "input-group-field", placeholder: "Qual proposta você procura?",
+            "aria-label": "Buscar", id: "input-search-large",
+            data: { disable_dynamic_change: true } %>
+            <button class="br-button" type="submit" aria-label="Buscar">
+              <i class="fas fa-search" aria-hidden="true"></i>
+            </button>
+        </div>
+      <% end %>
+    <% end %>
+    <div class="proposals-content-container">
+      <% if not browser.mobile? %>
+        <div class="br-card proposals-filters">
+            <%= render partial: "filters" %>
+        </div>
+      <% end %>
+      <div id="proposals" aria-live="polite">
+        <%= render partial: "proposals" %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -13,7 +13,7 @@ DECIDIM_VERSION = '0.27.2'
 CALENDAR_REPO = { gitlab: 'nomadetec/decidim-module-calendar' }.freeze
 
 gem 'decidim', DECIDIM_VERSION
-gem 'decidim-calendar', CALENDAR_REPO
+# gem 'decidim-calendar', CALENDAR_REPO
 gem 'decidim-conferences', DECIDIM_VERSION
 gem 'decidim-consultations', DECIDIM_VERSION
 gem 'decidim-initiatives', DECIDIM_VERSION
@@ -40,6 +40,7 @@ gem 'whenever', require: false
 group :development, :test do
   gem 'byebug', '11.1.3'
   gem 'decidim-dev', DECIDIM_VERSION
+  gem 'pry-nav'
 end
 
 group :development do

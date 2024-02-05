@@ -1,0 +1,16 @@
+<div class="br-message info" role="alert">
+  <div class="icon"><i class="fas fa-info-circle fa-lg" aria-hidden="true"></i>
+  </div>
+  <div class="content">
+    <span class="message-body">
+      <% if has_title? %>
+        <span class="message-title">
+          <%= clean_title %>
+        </span>
+        <%= clean_body %>
+      <% else %>
+        <%= clean_announcement %>
+      <% end %>
+    </span>
+  </div>
+</div>

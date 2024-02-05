@@ -1,0 +1,24 @@
+<div class="item-actions">
+  <% if amendmendment_creation_enabled? || visible_emendations.any? %>
+    <div>
+      <%= link_to amend_resource_path, disabled: amend_button_disabled? do %>
+        <button class="br-sign-in secondary small" type="button" data-trigger="login">
+          <i class="fa-solid fa-square-pen"></i>
+          <span class="d-sm-inline">
+            <%= visible_emendations.count %>
+          </span>
+        </button>
+      <% end %>
+    </div>
+  <% end %>
+  <% if component_settings.comments_enabled? %>
+    <%= link_to resource_comments_path do %>
+      <button class="br-sign-in secondary small" type="button" data-trigger="login">
+        <i class="fa-solid fa-message"></i>
+        <span class="d-sm-inline">
+          <%= model.comments_count %>
+        </span>
+      </button>
+    <% end %>
+  <% end %>
+</div>

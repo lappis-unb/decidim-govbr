@@ -6,3 +6,23 @@
 //
 // By default this is empty.
 //@import "../application";
+
+@import "../govbr-ds/core";
+@import "../govbr-ds/main";
+@import "../govbr-ds/collapse.scss";
+@import "../govbr-ds/blog.scss";
+@import "../govbr-ds/participatory-text.scss";
+@import ".././govbr-ds/pagination.scss";
+@import "../custom/proposals.scss";
+@import "../govbr-ds/filter.scss";
+@import "../custom/statistics.scss";
+@import "../custom/tts.scss";
+
+@import "../custom/process-content.scss";
+@import "../custom/attachments.scss";
+@import "../custom/meetings.scss";
+@import "../custom/questionary.scss";
+@import "../custom/card.scss";
+@import "../custom/sign.scss";
+@import "../custom/lateralMenu.scss";
+@import "../custom/cookies.scss";

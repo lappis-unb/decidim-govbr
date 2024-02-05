@@ -1,0 +1,16 @@
+<section class="row stats-sections-container">
+  <% if heading? %>
+    <h2 class="stats-heading">
+      <%= stats_heading %>
+    </h2>
+  <% end %>
+  <div class="home-sections-content stats-container">
+
+    <% if stats.present?%>
+      <%= cell("decidim/statistic", collection: stats, design: design) %>
+
+    <% else %>
+      <span class="muted">Ainda não há estatísticas.</span>
+    <% end %>
+  </div>
+</section>

@@ -1,0 +1,48 @@
+.form-container {
+  box-shadow: none;
+  border: none;
+  padding: 0;
+
+  .card__content {
+    padding: 0;
+  }
+
+}
+
+.answer-questionnaire__submit {
+  justify-content: flex-start;
+}
+
+.question-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  margin-bottom: 1rem;
+
+  & > div {
+    border-bottom: 1px solid #e0e0e0;
+    min-height: 150px;
+  }
+}
+
+.question-conainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+
+}
+
+.submit-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.submit-content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  align-items: flex-end;
+}

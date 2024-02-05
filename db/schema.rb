@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_08_220402) do
+ActiveRecord::Schema.define(version: 2024_01_31_201221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -311,6 +311,7 @@ ActiveRecord::Schema.define(version: 2023_05_08_220402) do
     t.integer "endorsements_count", default: 0, null: false
     t.integer "comments_count", default: 0, null: false
     t.integer "follows_count", default: 0, null: false
+    t.jsonb "subtitle"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_blogs_posts_on_decidim_author"
     t.index ["decidim_component_id"], name: "index_decidim_blogs_posts_on_decidim_component_id"
     t.index ["decidim_user_group_id"], name: "index_decidim_blogs_posts_on_decidim_user_group_id"
@@ -450,6 +451,7 @@ ActiveRecord::Schema.define(version: 2023_05_08_220402) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "participatory_space_type", null: false
+    t.boolean "hide_in_menu"
     t.index ["participatory_space_id", "participatory_space_type"], name: "index_decidim_components_on_decidim_participatory_space"
   end
 
@@ -829,6 +831,7 @@ ActiveRecord::Schema.define(version: 2023_05_08_220402) do
     t.datetime "updated_at", null: false
     t.string "session_token", default: "", null: false
     t.string "ip_hash"
+    t.boolean "anonymous_answer", default: true
     t.index ["decidim_question_id"], name: "index_decidim_forms_answers_question_id"
     t.index ["decidim_questionnaire_id"], name: "index_decidim_forms_answers_on_decidim_questionnaire_id"
     t.index ["decidim_user_id"], name: "index_decidim_forms_answers_on_decidim_user_id"
@@ -868,6 +871,8 @@ ActiveRecord::Schema.define(version: 2023_05_08_220402) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "salt"
+    t.jsonb "topp"
+    t.boolean "collect_user_data", default: false
     t.index ["questionnaire_for_type", "questionnaire_for_id"], name: "index_decidim_forms_questionnaires_questionnaire_for"
   end
 
@@ -891,6 +896,42 @@ ActiveRecord::Schema.define(version: 2023_05_08_220402) do
     t.string "badge_name", null: false
     t.integer "value", default: 0, null: false
     t.index ["user_id"], name: "index_decidim_gamification_badge_scores_on_user_id"
+  end
+
+  create_table "decidim_govbr_user_proposals_statistic_settings", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.string "decidim_participatory_space_type", null: false
+    t.integer "decidim_participatory_space_id", null: false
+    t.float "proposals_done_weight", default: 1.0
+    t.float "comments_done_weight", default: 1.0
+    t.float "votes_done_weight", default: 1.0
+    t.float "follows_done_weight", default: 1.0
+    t.float "votes_received_weight", default: 1.0
+    t.float "comments_received_weight", default: 1.0
+    t.float "follows_received_weight", default: 1.0
+    t.integer "users_to_be_exported", default: 200, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["decidim_participatory_space_type", "decidim_participatory_space_id"], name: "user_proposals_statistic_settings_participatory_space_idx"
+  end
+
+  create_table "decidim_govbr_user_proposals_statistics", force: :cascade do |t|
+    t.bigint "decidim_user_id", null: false
+    t.string "decidim_user_identification_number", default: "", null: false
+    t.string "decidim_user_name"
+    t.integer "proposals_done", default: 0
+    t.integer "comments_done", default: 0
+    t.integer "votes_done", default: 0
+    t.integer "follows_done", default: 0
+    t.integer "votes_received", default: 0
+    t.integer "comments_received", default: 0
+    t.integer "follows_received", default: 0
+    t.float "score", default: 0.0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_proposals_statistic_setting_id"
+    t.index ["decidim_user_id"], name: "decidim_govbr_user_proposals_statistic_user_idx"
+    t.index ["user_proposals_statistic_setting_id"], name: "user_proposals_statistics_on_settings_idx"
   end
 
   create_table "decidim_hashtags", force: :cascade do |t|
@@ -1352,6 +1393,7 @@ ActiveRecord::Schema.define(version: 2023_05_08_220402) do
     t.string "machine_translation_display_priority", default: "original", null: false
     t.string "external_domain_whitelist", default: [], array: true
     t.boolean "enable_participatory_space_filters", default: true
+    t.jsonb "menu_links", default: "{}", null: false
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
