@@ -14,3 +14,7 @@ Inclua qualquer informação extra ou considerações para os revisores, como á
 - [ ] O código segue as diretrizes de codificação do projeto.
 - [ ] A documentação reflete as alterações realizadas.
 - [ ] Já cobri os testes unitários.
+
+### Issue referenciada
+
+Closes <link-da-issue>
