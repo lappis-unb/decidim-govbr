@@ -100,6 +100,7 @@
   gap: 0.5rem;
 }
 
+
 .proposals__button-circle {
   display: inline-flex;
   width: 40px;
@@ -161,4 +162,23 @@
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+.results-per-page-export-button {
+  display: flex !important;
+  flex-direction: row !important;
+  text-decoration: none !important;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-scale-base);
+  font-weight: var(--font-weight-semi-bold);
+  padding: 5px 15px;
+}
+
+.filter-container .dropdown.menu > li > a {
+  background-color: var(--interactive-light);
+  color: var(--color-dark);
+  padding: 10px;
+  border-radius: 100em;
+  margin-right: 10px;
 }
