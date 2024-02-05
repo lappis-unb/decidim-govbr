@@ -17,9 +17,13 @@ bundle check || bundle install
 
 if bundle exec rails db:exists; then
   bundle exec rails db:migrate
+  bundle exec rails decidim_decidim_awesome:install:migrations
+  bundle exec rails decidim_decidim_awesome:webpacker:install
 else
   bundle exec rails db:create
   bundle exec rails db:migrate
+  bundle exec rails decidim_decidim_awesome:install:migrations
+  bundle exec rails decidim_decidim_awesome:webpacker:install
   bundle exec rails db:seed
 fi
 
@@ -27,3 +31,8 @@ mailcatcher --http-ip=0.0.0.0 &
 bundle exec sidekiq & 
 bash scripts/start_webpack_dev.sh & 
 bundle exec rails s -p 3000 -b 0.0.0.0
+
+
+bundle exec rails decidim_decidim_awesome:install:migrations
+bundle exec rails decidim_decidim_awesome:webpacker:install
+bundle exec rails db:migrate
