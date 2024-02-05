@@ -1,0 +1,32 @@
+.br-switch input[type="checkbox"]+label::after { 
+  align-items: center;
+  color: var(--color-dark);
+  content: "\F00D";
+  display: inline-flex;
+  font-family: "Font Awesome 5 Free", sans-serif;
+  font-size: var(--switch-icon-size);
+  font-weight: 900;
+  justify-content: center;
+}
+.br-switch input[type="checkbox"]:checked+label::after { 
+  content: "\F00C";
+}
+.br-switch input[type="checkbox"]:checked:disabled+label::after { 
+  content: "\F023";
+}
+
+.br-cookie-modal {
+  border-radius: 10px;
+}
+
+
+.br-cookie-group {
+  font-weight: 600;
+  color: var(--gray-80);
+}
+
+.br-cookie-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}

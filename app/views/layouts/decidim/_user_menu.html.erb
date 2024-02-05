@@ -1,0 +1,10 @@
+<%= link_to t(".profile"), decidim.account_path, role: "menuitem", class: "br-item hide-br-list-dropdown" %>
+<% if current_user.nickname.present? && !current_user.managed? %>
+  <%= link_to t(".public_profile"), decidim.profile_path(current_user.nickname), role: "menuitem", class: "br-item hide-br-list-dropdown" %>
+<% end %>
+<%= link_to t(".notifications"), decidim.notifications_path, role: "menuitem", class: "br-item hide-br-list-dropdown" %>
+<%= link_to t(".conversations"), decidim.conversations_path, role: "menuitem", class: "br-item hide-br-list-dropdown" %>
+<% if allowed_to? :read, :admin_dashboard %>
+  <%= link_to t(".admin_dashboard"), decidim_admin.root_path, role: "menuitem", class: "br-item hide-br-list-dropdown" %>
+<% end %>
+<%= link_to t(".sign_out"), decidim.destroy_user_session_path, method: :delete, role: "menuitem", class: "br-item hide-br-list-dropdown" %>

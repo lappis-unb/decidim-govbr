@@ -56,7 +56,10 @@ module Decidim
           organization: organization
         )
       else
-        @user = User.new(organization: organization)
+        @user = User.find_or_initialize_by(
+          email: verified_email,
+          organization: organization
+        )
       end
 
       if @user.persisted?

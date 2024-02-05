@@ -19,7 +19,7 @@ pt-BR:
             title:
               identical: E a descrição não pode ser idêntica
     models:
-      decidim/proposals/accepted_proposal_event: Proposta enviada ao governo
+      decidim/proposals/accepted_proposal_event: Proposta recebida
       decidim/proposals/admin/update_proposal_category_event: Tema da proposta alterada
       decidim/proposals/collaborative_draft_access_requested_event: Solicitação de acesso a rascunho colaborativo
       decidim/proposals/collaborative_draft_access_requester_accepted_event: Solicitação de acesso a rascunho colaborativo aceito
@@ -45,7 +45,7 @@ pt-BR:
           state_eq:
             label: Estado
             values:
-              accepted: Enviada ao governo
+              accepted: Recebida
               evaluating: Em avaliação
               published: Publicada
               rejected: Rejeitada
@@ -127,14 +127,14 @@ pt-BR:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>retirou</strong> o rascunho colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         proposal_accepted:
           affected_user:
-            email_intro: 'Sua proposta "%{resource_title}" foi enviada ao governo. Você pode ler a resposta nesta página:'
-            email_subject: Sua proposta foi enviada ao governo
-            notification_title: Sua proposta <a href="%{resource_path}">%{resource_title}</a> foi enviada ao governo.
-          email_intro: 'Sua proposta "%{resource_title}" foi enviada ao governo. Você pode ler a resposta nesta página:'
+            email_intro: 'Sua proposta "%{resource_title}" foi recebida. Você pode ler a resposta nesta página:'
+            email_subject: Sua proposta foi recebida
+            notification_title: Sua proposta <a href="%{resource_path}">%{resource_title}</a> foi recebida.
+          email_intro: 'Sua proposta "%{resource_title}" foi recebida. Você pode ler a resposta nesta página:'
           follower:
-            email_intro: 'A proposta "%{resource_title}" foi enviada ao governo. Você pode ler a resposta nesta página:'
-            email_subject: Uma proposta que você segue foi enviada ao governo
-            notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi enviada ao governo.
+            email_intro: 'A proposta "%{resource_title}" foi recebida. Você pode ler a resposta nesta página:'
+            email_subject: Uma proposta que você segue foi recebida
+            notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi recebida.
         proposal_evaluating:
           affected_user:
             email_intro: 'Sua proposta "%{resource_title}" está em avaliação no momento. Você pode verificar uma resposta nesta página:'
@@ -159,19 +159,19 @@ pt-BR:
         accepted_proposals:
           conditions:
             - Escolha o espaço de participação do seu interesse com o envio de propostas ativado
-            - Tente fazer propostas que possam ser realizadas. Desta forma, estas são mais propensas a serem enviadas ao governo.
-          description: Este distintivo é concedido quando você participa ativamente com novas propostas e estas são enviadas ao governo.
-          description_another: Este participante obteve %{score} propostas enviadas ao governo.
-          description_own: Você tem %{score} propostas enviadas ao governo.
-          name: Propostas enviadas ao governo
-          next_level_in: Obtenha mais %{score} propostas enviadas ao governo para alcançar o próximo nível!
-          unearned_another: Este participante ainda não obteve nenhuma proposta enviada ao governo.
-          unearned_own: Você não recebeu nenhuma proposta enviada ao governo ainda.
+            - Tente fazer propostas que possam ser realizadas. Desta forma, estas são mais propensas a serem recebidas.
+          description: Este distintivo é concedido quando você participa ativamente com novas propostas e estas são recebidas.
+          description_another: Este participante teve %{score} propostas recebidas.
+          description_own: Você tem %{score} propostas recebidas.
+          name: Propostas recebidas
+          next_level_in: Tenha mais %{score} propostas recebidas para alcançar o próximo nível!
+          unearned_another: Este participante ainda não teve nenhuma proposta recebida.
+          unearned_own: Você ainda não teve nenhuma proposta recebida.
     metrics:
       accepted_proposals:
-        description: Número de propostas enviadas ao governo
+        description: Número de propostas recebidas
         object: propostas
-        title: Propostas enviadas ao governo
+        title: Propostas recebidas
     proposals:
       admin:
         imports:
@@ -191,13 +191,13 @@ pt-BR:
             success: 'Propostas atualizadas com sucesso para o tema %{subject_name}: %{proposals}.'
         proposal_answers:
           form:
-            accepted: Enviada ao governo
+            accepted: Recebida
             answer_proposal: Resposta
             evaluating: Em avaliação
             not_answered: Não respondida
             rejected: Rejeitada
       answers:
-        accepted: Enviada ao governo
+        accepted: Recebida
         evaluating: Em avaliação
         not_answered: Não respondida
         rejected: Rejeitada
@@ -206,7 +206,7 @@ pt-BR:
         filter_origin_values:
           participants: Participantes
         filter_state_values:
-          accepted: Enviada ao governo
+          accepted: Recebida
           all: Todos
           evaluating: Em avaliação
           not_answered: Não respondida
@@ -274,7 +274,7 @@ pt-BR:
           recent: Recentes
           with_more_authors: Com mais autores
         preview:
-          announcement_body: A sua proposta foi guardada como um rascunho. Ela precisa ser publicada para que apareça no site.
+          announcement_body: Este é um rascunho para revisão. Clique em editar para modificar ou em publicar se não desejar alterar. Após a publicação você terá 15 minutos para editar e depois não será possível modificar o conteúdo.
           announcement_title: A sua proposta ainda não foi publicada
           modify: Editar proposta
         requests:
@@ -284,7 +284,7 @@ pt-BR:
         show:
           back_to: Voltar para
           back_to_list: Voltar para a lista
-          proposal_accepted_reason: 'Esta proposta foi enviada ao governo porque:'
+          proposal_accepted_reason: 'Esta proposta foi recebida porque:'
           proposal_in_evaluation_reason: Esta proposta está em avaliação
           report: Denunciar
         vote_button:
@@ -325,4 +325,4 @@ pt-BR:
         proposals:
           back_to_resource: Voltar para a proposta
     statistics:
-      proposals_accepted: Propostas enviadas ao governo
+      proposals_accepted: Propostas recebidas

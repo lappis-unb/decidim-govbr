@@ -1,0 +1,49 @@
+.ql-editor-display h1, h2, h3, h4, h5, h6{
+    color: var(--blue-warm-vivid-80);
+    font-family: Rawline;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.ql-editor-display p {
+    color: var(--blue-warm-vivid-90);
+    text-align: justify;
+}
+
+.lead {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin: 10px 0px;
+}
+
+
+@media (max-width: 800px) {
+    .lead{
+    flex-direction: column;
+}
+}
+
+.assemblie-props{
+    color: var(--blue-warm-vivid-80);
+    font-variant-numeric: lining-nums proportional-nums;
+    font-family: Rawline;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-right: 6px;
+}
+
+.extra__date-container {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
