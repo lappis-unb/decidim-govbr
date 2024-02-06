@@ -1,7 +1,4 @@
-.wrapper {
-    padding: 24px calc(var(--grid-margin) + 40px);
-}
-.grid.attachments {
+.meetings-footer-components .section.documents {
     display: flex;
     justify-content: center;
     background-color: var(--blue-3);
@@ -9,7 +6,6 @@
     width: 100%;
 
 }
-
 .section-heading {
     display: flex;
     text-align: center;
@@ -37,13 +33,13 @@
     align-items: center;
 }
 
-.section.documents {
+.documents {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.section.documents .card {
+.documents .card {
     border-radius: 0px;
     border: none;
     box-shadow: none;

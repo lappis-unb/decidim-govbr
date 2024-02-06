@@ -35,7 +35,6 @@
   ---blue-warm-vivid-80: #0c326f;
   ---blue-cool-60: #2e6276;
   ---blue-cool-40: #6499af;
-  ---blue-cool-50: #3a7d95;
   ---cyan-40: #449dac;
   ---mint-cool-60: #376462;
   ---mint-cool-50: #40807e;
@@ -1180,13 +1179,11 @@ svg.icon--flag.icon.icon--small {
   box-shadow: none;
 }
 
-.wrapper {
-  background: var(---white);
-  min-height: calc(100vh - 140px - 214px);
-}
-
 .columns.section.view-side.mediumlarge-4.large-3 {
-  background-color: var(---gray-cool-04);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
   padding: 15px;
   min-width: 300px;
 }
@@ -1333,8 +1330,8 @@ input[type="text"]:focus:not(.input-group-field) {
 
 .button--icon.hollow.secondary .icon-wrap,
 .button--icon.secondary.meeting-polls__button .icon-wrap {
-  border-right: 1px solid var(---blue-cool-50);
-  background: var(---blue-cool-50);
+  border-right: 1px solid var(---blue-warm-vivid-70);
+  background: var(---blue-warm-vivid-70);
   border-radius: 25px 0 0 25px;
   font-weight: 800;
   color: var(---white);
@@ -1348,14 +1345,14 @@ input[type="text"]:focus:not(.input-group-field) {
 .button.secondary.hollow,
 .secondary.meeting-polls__button {
   background: var(---white);
-  color: var(---blue-cool-50);
-  border-color: var(---blue-cool-50);
+  color: var(---blue-warm-vivid-70);
+  border-color: var(---blue-warm-vivid-70);
 }
 
 .button.secondary.hollow:hover,
 .secondary.meeting-polls__button:hover {
-  background: var(---blue-cool-50);
-  border-color: var(---blue-cool-50);
+  background: var(---blue-warm-vivid-70);
+  border-color: var(---blue-warm-vivid-70);
   color: var(---white);
 }
 
@@ -1368,7 +1365,7 @@ input[type="text"]:focus:not(.input-group-field) {
 }
 
 .columns .text-center [data-open="socialShare"] {
-  background: var(---blue-cool-50);
+  background: var(---blue-warm-vivid-70);
   color: var(---white);
   font-size: var(--unnamed-font-size-16-799999237060547);
   line-height: var(--unnamed-line-spacing-19-31999969482422);
@@ -2543,4 +2540,9 @@ img#dataprev-logo {
 
 .space-menu {
   justify-content: center;
+}
+
+.br-container-lg .row,
+.wrapper.wrapper--inner .row {
+  max-width: 100%;
 }
