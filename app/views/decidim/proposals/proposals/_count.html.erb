@@ -1,0 +1,8 @@
+
+<%= t(
+    ".proposals_count", count: @proposals.total_count, 
+    singular_name: translated_attribute(current_component.singular_name).present? ?
+    translated_attribute(current_component.singular_name) :  
+    t("decidim.proposals.admin.when_empty").downcase, 
+    pluralized_name: translated_attribute(current_component.name).downcase
+) %>
