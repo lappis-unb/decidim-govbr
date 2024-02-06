@@ -25,4 +25,8 @@ Rails.application.routes.draw do
   resources :assemblies, param: :slug, only: [] do
     resources :partners, except: [:show], controller: 'decidim/assemblies/admin/partners'
   end
+
+  resources :participatory_processes, param: :slug, only: [] do
+    resources :partners, except: [:show], controller: 'decidim/participatory_processes/admin/partners'
+  end
 end
