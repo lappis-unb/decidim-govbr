@@ -27,6 +27,7 @@ module Decidim
       attribute :machine_translation_display_priority, String
       attribute :enable_participatory_space_filters, Boolean
       attribute :menu_links, String
+      attribute :footer_menu_links, String
 
       attribute :send_welcome_notification, Boolean
       attribute :customize_welcome_notification, Boolean
@@ -49,6 +50,7 @@ module Decidim
                 inclusion: { in: Decidim::Organization::AVAILABLE_MACHINE_TRANSLATION_DISPLAY_PRIORITIES },
                 if: :machine_translation_enabled?
       validate :menu_links_json_format
+      validate :footer_menu_links_json_format
 
       def machine_translation_priorities
         Decidim::Organization::AVAILABLE_MACHINE_TRANSLATION_DISPLAY_PRIORITIES.map do |priority|
@@ -64,6 +66,14 @@ module Decidim
           JSON.parse(menu_links.gsub('=>', ':'))
         rescue
           self.errors.add(:menu_links, :invalid)
+        end
+      end
+
+      def footer_menu_links_json_format
+        begin
+          JSON.parse(footer_menu_links.gsub('=>', ':'))
+        rescue
+          self.errors.add(:footer_menu_links, :invalid)
         end
       end
 
