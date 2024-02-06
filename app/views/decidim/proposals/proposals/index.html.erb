@@ -30,37 +30,40 @@
   <%= render partial: "voting_rules" %>
 
   <div class="filter-container">
-    <ul class="dropdown menu" data-dropdown-menu="g43sr8-dropdown-menu" data-autoclose="false" data-disable-hover="true" data-click-open="true" data-close-on-click="true" role="menubar">
-      <li class="is-dropdown-submenu-parent opens-right" role="none" data-asw-orgfontsize="14" style="font-size: 14px;" data-is-click="false">
-        <a  class="results-per-page-export-button" href="#" id="7e15fee9-5239-4c0d-a72e-22094f7ba819_results_per_page_menu-control" aria-controls="7e15fee9-5239-4c0d-a72e-22094f7ba819_results_per_page_menu" aria-haspopup="true" title="Selecionar número de resultados por página" role="menuitem" data-asw-orgfontsize="14" style="font-size: 14px;">
-          Exportar propostas
-          <div class="filters-per-page-button">
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-        </a>
-        <ul id="7e15fee9-5239-4c0d-a72e-22094f7ba819_results_per_page_menu" class="menu submenu is-dropdown-submenu first-sub vertical" role="menu" aria-labelledby="7e15fee9-5239-4c0d-a72e-22094f7ba819_results_per_page_menu-control" data-submenu="" style="">
-            <li role="none" class="resullts-per-page-item is-submenu-item is-dropdown-submenu-item" data-asw-orgfontsize="14" style="font-size: 14px;">
-              <a href="#">Propostas como CSV</a>
-            </li>
-            <li role="none" class="resullts-per-page-item is-submenu-item is-dropdown-submenu-item" data-asw-orgfontsize="14" style="font-size: 14px;">
-              <a href="#">Propostas como JSON</a>
-            </li>
-            <li role="none" class="resullts-per-page-item is-submenu-item is-dropdown-submenu-item" data-asw-orgfontsize="14" style="font-size: 14px;">
-              <a href="#">Propostas como Excel</a>
-            </li>
-            </li>
-            <li role="none" class="resullts-per-page-item is-submenu-item is-dropdown-submenu-item" data-asw-orgfontsize="14" style="font-size: 14px;">
-              <a href="#">Comentários como CSV</a>
-            </li>
-            <li role="none" class="resullts-per-page-item is-submenu-item is-dropdown-submenu-item" data-asw-orgfontsize="14" style="font-size: 14px;">
-              <a href="#">Comentários como JSON</a>
-            </li>
-            <li role="none" class="resullts-per-page-item is-submenu-item is-dropdown-submenu-item" data-asw-orgfontsize="14" style="font-size: 14px;">
-              <a href="#">Comentários como Excel</a>
-            </li>
-        </ul>
-      </li>
-    </ul>
+
+    <% if current_user.admin %>
+      <ul class="dropdown menu" data-dropdown-menu="g43sr8-dropdown-menu" data-autoclose="false" data-disable-hover="true" data-click-open="true" data-close-on-click="true" role="menubar">
+        <li class="is-dropdown-submenu-parent opens-right" role="none" data-asw-orgfontsize="14" style="font-size: 14px;" data-is-click="false">
+          <a  class="results-per-page-export-button" href="#" id="7e15fee9-5239-4c0d-a72e-22094f7ba819_results_per_page_menu-control" aria-controls="7e15fee9-5239-4c0d-a72e-22094f7ba819_results_per_page_menu" aria-haspopup="true" title="Selecionar número de resultados por página" role="menuitem" data-asw-orgfontsize="14" style="font-size: 14px;">
+            Exportar propostas
+            <div class="filters-per-page-button">
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+          </a>
+          <ul id="7e15fee9-5239-4c0d-a72e-22094f7ba819_results_per_page_menu" class="menu submenu is-dropdown-submenu first-sub vertical" role="menu" aria-labelledby="7e15fee9-5239-4c0d-a72e-22094f7ba819_results_per_page_menu-control" data-submenu="" style="">
+              <li role="none" class="resullts-per-page-item is-submenu-item is-dropdown-submenu-item" data-asw-orgfontsize="14" style="font-size: 14px;">
+                <a href="#">Propostas como CSV</a>
+              </li>
+              <li role="none" class="resullts-per-page-item is-submenu-item is-dropdown-submenu-item" data-asw-orgfontsize="14" style="font-size: 14px;">
+                <a href="#">Propostas como JSON</a>
+              </li>
+              <li role="none" class="resullts-per-page-item is-submenu-item is-dropdown-submenu-item" data-asw-orgfontsize="14" style="font-size: 14px;">
+                <a href="#">Propostas como Excel</a>
+              </li>
+              </li>
+              <li role="none" class="resullts-per-page-item is-submenu-item is-dropdown-submenu-item" data-asw-orgfontsize="14" style="font-size: 14px;">
+                <a href="#">Comentários como CSV</a>
+              </li>
+              <li role="none" class="resullts-per-page-item is-submenu-item is-dropdown-submenu-item" data-asw-orgfontsize="14" style="font-size: 14px;">
+                <a href="#">Comentários como JSON</a>
+              </li>
+              <li role="none" class="resullts-per-page-item is-submenu-item is-dropdown-submenu-item" data-asw-orgfontsize="14" style="font-size: 14px;">
+                <a href="#">Comentários como Excel</a>
+              </li>
+          </ul>
+        </li>
+      </ul>
+    <% end %>
 
     <% if current_user %>
       <h2 class="user-name-title-h1">Olá, <%= current_user.name %></h2>
