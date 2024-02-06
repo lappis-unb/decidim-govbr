@@ -1,0 +1,78 @@
+<%= content_tag :div, id: "comment_#{model.id}", class: comment_classes, data: { depth: model.depth, comment_id: model.id, toggler: ".no-comments" } do %>
+  <% if model.hidden? %>
+    <%= render :moderation_data %>
+  <% elsif model.deleted? %>
+    <%= render :deletion_data %>
+  <% else %>
+    <div class="comment__header">
+      <div class="author-data">
+        <div class="author-data__main">
+          <%= render :author %>
+          <span>
+            <%= time_tag created_at, l(created_at, format: :decidim_short) %>
+          </span>
+          <% if edited? %>
+            <div class="author-data__extra">
+              <span class="comment__edited">
+                <%= t("decidim.components.comment.edited") %>
+              </span>
+            </div>
+          <% end %>
+
+
+          <%if model.status == "in_discussion"%>
+            <span class="br-tag status bg-warning" aria-describedby="tag-status-01"></span><span class="ml-1" id="tag-status-02">Em discussão</span>
+          <%elsif model.status == "rejected"%>
+            <span class="br-tag status bg-danger large" aria-describedby="tag-status-01"></span><span class="ml-1" id="tag-status-01">Não incorporado</span>
+          <%else%>
+            <span class="br-tag status bg-success small" aria-describedby="tag-status-01"></span><span class="ml-1" id="tag-status-03">Incorporado</span>
+          <% end %>
+
+
+
+        </div>
+      </div>
+      <%= render :utilities %>
+    </div>
+    <div class="comment__content">
+      <%= alignment_badge %>
+      <%= comment_body %>
+    </div>
+    <div class="comment__footer">
+      <%= render :actions %>
+
+
+      <% if current_user.present? && current_user.admin %>
+        <div class="col-md">
+          <div class="d-flex align-items-center"><span class="br-tag interaction-select">
+              <input id="tag04" type="radio" name="vehicle" value="1"/>
+              <label for="tag04"><span id="tag04-label">Incorporar</span>
+              </label></span><span class="br-tag interaction-select selected">
+              <input id="tag05" type="radio" checked="checked" name="vehicle" value="2"/>
+              <label for="tag05"><span id="tag05-label">Rejeitar</span>
+              </label></span>
+          </div>
+        </div>
+      <% end %>
+
+      <%= votes %>
+    </div>
+  <% end %>
+  <div id="comment-<%= model.id %>-replies" class="replies">
+    <% if has_replies_in_children? %>
+      <% replies.each do |reply| %>
+        <%= cell("decidim/comments/comment", reply, root_depth: root_depth, order: order, reloaded: reloaded?) %>
+      <% end %>
+    <% end %>
+  </div>
+  <% if can_reply? %>
+    <div class="comment__additionalreply<%= " hide" unless commentable? %> replies">
+      <button class="comment__reply muted-link" aria-controls="<%= reply_id %>" data-toggle="<%= reply_id %>">
+        <%= icon "pencil", class: "icon--small", role: "img", "aria-hidden": true %>&nbsp;<%= t("decidim.components.comment.reply") %>
+      </button>
+    </div>
+    <div class="add-comment hide" id="<%= reply_id %>" data-toggler=".hide">
+      <%== cell("decidim/comments/comment_form", model, root_depth: root_depth, order: order) %>
+    </div>
+  <% end %>
+<% end %>
