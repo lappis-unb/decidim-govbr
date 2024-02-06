@@ -10,8 +10,19 @@ pt-BR:
         name: Nome
         partner_type: Tipo
         weight: Weight (posição de exibição)
+      participatory_process_partner:
+        link: Link oficial
+        logo: Logotipo
+        name: Nome
+        partner_type: Tipo
+        weight: Weight (posição de exibição)
   decidim:
     assemblies:
+      admin:
+        partners:
+          index:
+            title: Organizadores e Apoiadores
+    participatory_processes:
       admin:
         partners:
           index:
@@ -67,8 +78,19 @@ pt:
         name: Nome
         partner_type: Tipo
         weight: Weight (posição de exibição)
+      participatory_process_partner:
+        link: Link oficial
+        logo: Logotipo
+        name: Nome
+        partner_type: Tipo
+        weight: Weight (posição de exibição)
   decidim:
     assemblies:
+      admin:
+        partners:
+          index:
+            title: Organizadores e Apoiadores
+    participatory_processes:
       admin:
         partners:
           index:
@@ -113,8 +135,19 @@ en:
         name: Name
         partner_type: Type
         weight: Weight (display position)
+      participatory_process_partner:
+        link: Link
+        logo: Logo
+        name: Name
+        partner_type: Type
+        weight: Weight (display position)
   decidim:
     assemblies:
+      admin:
+        partners:
+          index:
+            title: Organizers and Supporters
+    participatory_processes:
       admin:
         partners:
           index:
@@ -160,8 +193,19 @@ es-MX:
         name: Nombre
         partner_type: Tipo
         weight: Weight (posición de visualización)
+      participatory_process_partner:
+        link: Enlace
+        logo: Logo
+        name: Nombre
+        partner_type: Tipo
+        weight: Weight (posición de visualización)
   decidim:
     assemblies:
+      admin:
+        partners:
+          index:
+            title: Organizadores y Simpatizantes
+    participatory_processes:
       admin:
         partners:
           index:
@@ -207,8 +251,19 @@ es-PY:
         name: Nombre
         partner_type: Tipo
         weight: Weight (posición de visualización)
+      participatory_process_partner:
+        link: Enlace
+        logo: Logo
+        name: Nombre
+        partner_type: Tipo
+        weight: Weight (posición de visualización)
   decidim:
     assemblies:
+      admin:
+        partners:
+          index:
+            title: Organizadores y Simpatizantes
+    participatory_processes:
       admin:
         partners:
           index:
@@ -254,8 +309,19 @@ es:
         name: Nombre
         partner_type: Tipo
         weight: Weight (posición de visualización)
+      participatory_process_partner:
+        link: Enlace
+        logo: Logo
+        name: Nombre
+        partner_type: Tipo
+        weight: Weight (posición de visualización)
   decidim:
     assemblies:
+      admin:
+        partners:
+          index:
+            title: Organizadores y Simpatizantes
+    participatory_processes:
       admin:
         partners:
           index:
