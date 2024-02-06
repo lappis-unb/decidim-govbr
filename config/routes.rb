@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   # This is going to be removed once admin front-end is finished
   get 'admin/user_proposal_statistic_report_force_refresh/:slug', to: 'decidim/govbr/user_proposals_statistic_settings#force_refresh', as: 'user_proposal_statistic_report_force_refresh'
   get 'admin/user_proposal_statistic_report_create/:slug', to: 'decidim/govbr/user_proposals_statistic_settings#create', as: 'user_proposal_statistic_report_create'
+  put '/update_status_comment/:id/', to: 'decidim/comments/comments#update_status', as: 'update_comment_status'
 end

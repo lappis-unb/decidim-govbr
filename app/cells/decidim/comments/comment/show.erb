@@ -21,11 +21,17 @@
 
 
           <%if model.status == "in_discussion"%>
+            <% accepted_icon = "" %>
+            <% rejected_icon = "" %>
             <span class="br-tag status bg-warning" aria-describedby="tag-status-01"></span><span class="ml-1" id="tag-status-02">Em discussão</span>
           <%elsif model.status == "rejected"%>
-            <span class="br-tag status bg-danger large" aria-describedby="tag-status-01"></span><span class="ml-1" id="tag-status-01">Não incorporado</span>
+            <% accepted_icon = "" %>
+            <% rejected_icon = "<i class='fa-solid fa-check'></i>" %>
+            <span class="br-tag status bg-danger" aria-describedby="tag-status-01"></span><span class="ml-1" id="tag-status-01">Não incorporado</span>
           <%else%>
-            <span class="br-tag status bg-success small" aria-describedby="tag-status-01"></span><span class="ml-1" id="tag-status-03">Incorporado</span>
+            <% accepted_icon = "<i class='fa-solid fa-check'></i>" %>
+            <% rejected_icon = "" %>
+            <span class="br-tag status bg-success" aria-describedby="tag-status-01"></span><span class="ml-1" id="tag-status-03">Incorporado</span>
           <% end %>
 
 
@@ -44,13 +50,14 @@
 
       <% if current_user.present? && current_user.admin %>
         <div class="col-md">
-          <div class="d-flex align-items-center"><span class="br-tag interaction-select">
-              <input id="tag04" type="radio" name="vehicle" value="1"/>
-              <label for="tag04"><span id="tag04-label">Incorporar</span>
-              </label></span><span class="br-tag interaction-select selected">
-              <input id="tag05" type="radio" checked="checked" name="vehicle" value="2"/>
-              <label for="tag05"><span id="tag05-label">Rejeitar</span>
-              </label></span>
+          <div class="d-flex align-items-center">
+          <span class="br-tag interaction-select">
+          
+          <%= link_to "<span> Incorporar </span> #{accepted_icon}".html_safe, update_comment_status_path(id: model.id, status: "accepted"), method: :put,remote: true,id:"tag04", class:"status-button" %>
+          </span>
+          <span class="br-tag interaction-select selected">
+            <%= link_to "<span> Rejeitar </span> #{rejected_icon}".html_safe, update_comment_status_path(id: model.id, status: "rejected"), method: :put,remote: true,id:"tag04", class:"status-button" %>
+            </span>
           </div>
         </div>
       <% end %>
