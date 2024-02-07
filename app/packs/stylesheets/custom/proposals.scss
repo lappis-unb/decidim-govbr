@@ -195,3 +195,37 @@
   transition: background-color 0.3s ease-in-out;
 }
 
+.exports.dropdown-br.tiny.button.button--simple{
+  margin-right: 15px !important;
+}
+
+.vertical.menu.add-components {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.exports--proposals, .exports--proposal_comments {
+  padding: 10px;
+}
+
+.exports--proposals:hover, .exports--proposal_comments:hover {
+  background-color: var(--blue-20);
+}
+
+.br-message.info-drop{
+  --message-background: var(--background);
+  --message-color-icon: var(--color);
+  --feedback-background: var(--background);
+  --message-text: var(--color);
+  display: flex;
+  margin-bottom: var(--spacing-scale-2x);
+  background-color: #5dc560;
+  
+}
+.br-message.info-drop > .content-br > .message-title-br{
+  color:#fff;
+  font-weight: 15px;
+}
+
+
