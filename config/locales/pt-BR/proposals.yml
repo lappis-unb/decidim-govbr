@@ -59,6 +59,8 @@ pt-BR:
         is_interactive: Interação habilitada
     components:
       proposals:
+        actions:
+          new: Novo(a) %{name}
         settings:
           global:
             default_sort_order: Ordem padrão das propostas
@@ -176,11 +178,14 @@ pt-BR:
         title: Propostas recebidas
     proposals:
       admin:
+        when_empty: Proposta
         imports:
           label:
             answers: Importar respostas de um arquivo
             proposals: Importar propostas de um arquivo
         proposals:
+          pluralized_name:
+            when_empty: Propostas
           form:
             select_a_category: Selecionar um tema
           index:
@@ -245,12 +250,18 @@ pt-BR:
           fields:
             category: Tema
       proposals:
+        count: 
+          proposals_count:
+            one: "%{count} %{singular_name}"
+            other: "%{count} %{pluralized_name}"
+        view_btn:
+          placeholder: Ver %{singular_name}
         compare:
           no_similars_found: Muito bom! Não foram encontradas propostas semelhantes
         index:
           click_here: Ver todas as propostas
           collaborative_drafts_list: Acessar rascunhos colaborativos
-          new_proposal: Faça sua Proposta
+          new_proposal: Faça sua %{proposal}
           see_all: Ver todas as propostas
           text_banner: Está vendo a lista de propostas retiradas pelos seus próprios autores. %{go_back_link}
         new:
@@ -266,6 +277,7 @@ pt-BR:
           send: Continuar
         filters:
           category: Tema
+          placeholder: "Qual %{name} você procura?"
         orders:
           label: 'Ordene propostas por:'
           most_commented: Mais comentadas
