@@ -1,4 +1,9 @@
-<h1 class="page-title">Últimas Notícias</h1>
+<div class="news-title-container">
+  <h1 class="page-title">Últimas Notícias</h1>
+   <% if current_user.admin? && request.path %>
+      <%= link_to "Criar notícia", create_news_admin_href(request.path), class: "button" %>
+    <% end %> 
+</div>
 
 <%= render partial: "medias-section" %>
 
