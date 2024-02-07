@@ -1,3 +1,8 @@
+let csvExport = document.getElementsByClassName("exports--format--csv")
+let jsonExport = document.getElementsByClassName("exports--format--json")
+let excelExport = document.getElementsByClassName("exports--format--excel")
+let exportSpan = document.getElementById("export-span")
+
 document.addEventListener("DOMContentLoaded", function () {
   var observer = new IntersectionObserver(
     function (entries, observer) {
@@ -58,4 +63,14 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   observer.observe(menuLateral);
+
+  if(exportSpan.style.opacity != 1){
+    exportSpan.style.opacity = 0
+  }
+
+  for(let i = 0; i < csvExport.length ; i++){
+    csvExport[i].addEventListener("click", () => {exportSpan.style.opacity = 1})
+    jsonExport[i].addEventListener("click", () => {exportSpan.style.opacity = 1})
+    excelExport[i].addEventListener("click", () => {exportSpan.style.opacity = 1})
+  }
 });
