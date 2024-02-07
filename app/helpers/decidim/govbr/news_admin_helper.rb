@@ -1,44 +1,38 @@
 module Decidim
     module Govbr
       module NewsAdminHelper # rubocop:disable Style/Documentation
-        def generate_admin_href(current_url)
-          url_parts = current_url.split('/')
-          base_url = 'http://localhost:3000/admin/'
+        def edit_news_admin_href(current_url)
+
+          participatory_path = request.path.split('/')[2]
+          news_id = current_url.split('/').last
+          component_id = current_url.split('/' )[4]
+          component_name = current_url.split('/')[1]
 
           entity_type =
-            if url_parts.include?('processes')
+            if component_name == 'assemblies'
+              'assemblies'
+            elsif component_name == 'processes'
               'participatory_processes'
-            elsif url_parts.include?('assemblies')
-              'participatory_assemblies'
             end
 
-          component_id = url_parts[url_parts.index('f') + 1]
-          post_id = url_parts.last
-
-          "#{base_url}#{entity_type}/programas/components/#{component_id}/manage/posts/#{post_id}/edit"
+          "/admin/#{entity_type}/#{participatory_path}/components/#{component_id}/manage/posts/#{news_id}/edit"
         end
-      end
-    end
-  end
-module Decidim
-    module Govbr
-      module NewsAdminHelper # rubocop:disable Style/Documentation
-        def generate_admin_href(current_url)
-          url_parts = current_url.split('/')
-          base_url = 'http://localhost:3000/admin/'
+
+        def create_news_admin_href(current_url)
+          participatory_path = request.path.split('/')[2]
+          component_id = current_url.split('/' )[4]
+          component_name = current_url.split('/')[1]
 
           entity_type =
-            if url_parts.include?('processes')
+            if component_name == 'assemblies'
+              'assemblies'
+            elsif component_name == 'processes'
               'participatory_processes'
-            elsif url_parts.include?('assemblies')
-              'participatory_assemblies'
             end
 
-          component_id = url_parts[url_parts.index('f') + 1]
-          post_id = url_parts.last
-
-          "#{base_url}#{entity_type}/programas/components/#{component_id}/manage/posts/#{post_id}/edit"
+          "/admin/#{entity_type}/#{participatory_path}/components/#{component_id}/manage/posts/new"
         end
+
       end
     end
   end

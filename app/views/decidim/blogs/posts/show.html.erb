@@ -16,16 +16,19 @@
 %>
 
 <div class="br-container-lg">
-    <div class="m-bottom">
-        <%= link_to :posts, class: "small hollow" do %>
+        <div class="m-bottom">
+            <%= link_to :posts, class: "small hollow" do %>
         <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-        <%= t(".back") %>
-        <% end %>
-        <% if current_user.admin %>
-            <%= link_to "Editar Notícia", generate_admin_href(request.original_url), class: "button" %>
-        <% end %>
+            <%= t(".back") %>
+            <% end %>
+        </div>
+    <div class="news-title-container">
+        <h2 class="blog-title"><%= translated_attribute post.title %></h2>
+        <% if current_user.admin? && request.path %>
+            <%= link_to "Editar Notícia", edit_news_admin_href(request.path), class: "button" %>
+        <% end %>   
     </div>
-    <h2 class="blog-title"><%= translated_attribute post.title %></h2>
+
     <h2 class="blog-subtitle"><%= translated_attribute post.subtitle %></h2>
 
     <% post_presenter = Decidim::Blogs::PostPresenter.new(post) %>
