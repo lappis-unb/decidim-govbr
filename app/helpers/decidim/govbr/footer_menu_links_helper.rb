@@ -12,8 +12,13 @@ module Decidim
               link_content = content_tag(:a, class: 'br-item header', href: item['href']) do
                 content_tag(:div, item['label'], class: 'content text-down-01 text-bold text-uppercase')
               end
-
+              
+              angle_icon_down = content_tag(:div, '', class: 'support') do
+                content_tag(:i, '', class: 'fas fa-angle-down')
+              end
+              
               if item['sub_items'].present?
+                link_content + angle_icon_down
                 link_content += content_tag(:div, class: 'br-list') do
                   item['sub_items'].map do |sub_item|
                     render_footer_menu_link_with_sub_links(sub_item)
