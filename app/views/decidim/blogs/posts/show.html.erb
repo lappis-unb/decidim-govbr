@@ -21,6 +21,9 @@
         <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
         <%= t(".back") %>
         <% end %>
+        <% if current_user.admin %>
+            <%= link_to "Editar Notícia", generate_admin_href(request.original_url), class: "button" %>
+        <% end %>
     </div>
     <h2 class="blog-title"><%= translated_attribute post.title %></h2>
     <h2 class="blog-subtitle"><%= translated_attribute post.subtitle %></h2>
