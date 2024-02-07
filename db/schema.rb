@@ -452,6 +452,7 @@ ActiveRecord::Schema.define(version: 2024_02_07_132116) do
     t.datetime "updated_at", null: false
     t.string "participatory_space_type", null: false
     t.boolean "hide_in_menu"
+    t.jsonb "singular_name"
     t.index ["participatory_space_id", "participatory_space_type"], name: "index_decidim_components_on_decidim_participatory_space"
   end
 
@@ -1394,6 +1395,7 @@ ActiveRecord::Schema.define(version: 2024_02_07_132116) do
     t.string "external_domain_whitelist", default: [], array: true
     t.boolean "enable_participatory_space_filters", default: true
     t.jsonb "menu_links", default: "{}", null: false
+    t.jsonb "footer_menu_links", default: "{}", null: false
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
