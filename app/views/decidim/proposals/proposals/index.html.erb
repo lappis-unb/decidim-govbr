@@ -29,6 +29,11 @@
 
   <%= render partial: "voting_rules" %>
 
+  <div class="br-message info-drop" role="alert">
+    <div class="message-icon-br"><i class="fas fa-info-circle fa-lg" aria-hidden="true"></i></div>
+    <div class="content-br"><span class="message-title-br">A sua exportação está em curso. Receberá um e-mail quando estiver completa.</span></div>
+  </div>
+
   <div class="filter-container">
 
     <% if current_user.admin %>
