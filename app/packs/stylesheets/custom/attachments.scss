@@ -6,13 +6,8 @@
     width: 100%;
 
 }
-.section-heading {
-    display: flex;
-    text-align: center;
-    color: var(--blue-warm-vivid-80);
-    height: 55px;
-    width: 100%;
-    justify-content: center;
+.attachments .section-heading {
+    margin: 0 0 2rem 0;
 }
 
 .download-attachment {
@@ -25,7 +20,6 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
     gap: 24px;
     background-color: var(--blue-3);
-    justify-content: center; 
 }
 
 .card.br-card--list .br-card--list__data{
@@ -114,7 +108,7 @@
     text-align: left;
 }
 
-.grid.attachments.images {
+.attachments.images {
     background-color: white;
 }
 
@@ -123,7 +117,7 @@
     font-weight: 600;
 }
 
-.grid.attachments{
+.attachments{
     background-color: var(--blue-3);
     display: flex;
     justify-content: center;flex-direction: column;
