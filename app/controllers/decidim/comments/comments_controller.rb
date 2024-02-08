@@ -73,17 +73,32 @@ module Decidim
       def update_status 
         set_comment
         enforce_permission_to :update, :comment, comment: comment
-        
-        if @comment.update(status: params[:status])
-          respond_to do |format|
-            format.js { render "update" }
-          end
-        else
-          respond_to do |format|
-            format.js { render :update_error }
-          end
-              
 
+        params[:comment] = {
+          :body => comment.body["#{I18n.locale}"],
+          :status => params[:status]
+        }
+
+        params.delete(:status)
+
+        form = Decidim::Comments::CommentForm.from_params(
+          params.merge(commentable: comment.commentable)
+        ).with_context(
+          current_organization: current_organization
+        )
+
+        Decidim::Comments::UpdateComment.call(comment, current_user, form) do
+          on(:ok) do
+            respond_to do |format|
+              format.js { render :update }
+            end
+          end
+
+          on(:invalid) do
+            respond_to do |format|
+              format.js { render :update_error }
+            end
+          end
         end
 
       end
