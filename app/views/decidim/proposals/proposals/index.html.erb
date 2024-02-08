@@ -30,8 +30,12 @@
   <%= render partial: "voting_rules" %>
 
   <div id="export-span" class="br-message info-drop" role="alert">
-    <div class="message-icon-br"><i class="fas fa-info-circle fa-lg" aria-hidden="true"></i></div>
-    <div class="content-br"><span class="message-title-br">A sua exportação está em curso. Receberá um e-mail quando estiver completa.</span></div>
+    <div class="br-message-container">
+      <div class="message-icon-br"><i class="fas fa-check-circle fa-lg" aria-hidden="true"></i></div>
+      <div class="content-br"><span class="message-title-br">A sua exportação está em curso. Receberá um e-mail quando estiver completa.</span></div>
+    </div>
+    <button id="export-span-close" class="br-button circle small" type="button"><i class="fas fa-times" aria-hidden="true"></i>
+    </button>
   </div>
 
   <div class="filter-container">

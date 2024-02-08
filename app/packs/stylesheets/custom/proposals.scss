@@ -220,12 +220,21 @@
   --message-text: var(--color);
   display: flex;
   margin-bottom: var(--spacing-scale-2x);
-  background-color: #5dc560;
-  
+  background-color: var(--green-cool-vivid-5);
+  justify-content: space-between;
+  align-items: center;
 }
+
 .br-message.info-drop > .content-br > .message-title-br{
-  color:#fff;
-  font-weight: 15px;
+  color:var(--gray-80);
+  font-weight: var(--font-size-scale-up-01)
 }
 
+.br-message-container {
+  display: flex;
+  align-items: center;
+}
 
+#export-span-close {
+  color: var(--green-cool-vivid-50);
+}
