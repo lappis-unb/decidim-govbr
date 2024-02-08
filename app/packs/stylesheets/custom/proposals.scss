@@ -205,11 +205,14 @@
   gap: 15px;
 }
 
-.exports--proposals, .exports--proposal_comments {
-  padding: 10px;
+.exports--proposals a, .exports--proposal_comments a {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  padding: 16px;
 }
 
-.exports--proposals:hover, .exports--proposal_comments:hover {
+.exports--proposals a:hover, .exports--proposal_comments a:hover {
   background-color: var(--blue-20);
 }
 
