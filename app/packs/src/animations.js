@@ -1,8 +1,3 @@
-let csvExport = document.getElementsByClassName("exports--format--csv")
-let jsonExport = document.getElementsByClassName("exports--format--json")
-let excelExport = document.getElementsByClassName("exports--format--excel")
-let exportSpan = document.getElementById("export-span")
-
 document.addEventListener("DOMContentLoaded", function () {
   var observer = new IntersectionObserver(
     function (entries, observer) {
@@ -63,14 +58,37 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   observer.observe(menuLateral);
+  
+  let csvExport = document.getElementsByClassName("exports--format--csv")
+  let jsonExport = document.getElementsByClassName("exports--format--json")
+  let excelExport = document.getElementsByClassName("exports--format--excel")
+  let exportSpan = document.getElementById("export-span")
+  let closeExportSpan = document.getElementById("export-span-close")
+  closeExportSpan.addEventListener("click", () => {
+    exportSpan.style.opacity = 0
+    exportSpan.style.height = 0
+    exportSpan.style.padding = 0
+    exportSpan.style.margin = 0
+  })
 
   if(exportSpan.style.opacity != 1){
     exportSpan.style.opacity = 0
+    exportSpan.style.height = 0
+    exportSpan.style.padding = 0
+    exportSpan.style.margin = 0
   }
 
   for(let i = 0; i < csvExport.length ; i++){
-    csvExport[i].addEventListener("click", () => {exportSpan.style.opacity = 1})
-    jsonExport[i].addEventListener("click", () => {exportSpan.style.opacity = 1})
-    excelExport[i].addEventListener("click", () => {exportSpan.style.opacity = 1})
+    csvExport[i].addEventListener("click", () => exportSpanStyle())
+    jsonExport[i].addEventListener("click", () => exportSpanStyle())
+    excelExport[i].addEventListener("click", () => exportSpanStyle())
+  }
+
+  function exportSpanStyle(){
+    console.log("atual")
+    exportSpan.style.opacity = 1
+    exportSpan.style.height = "56px"
+    exportSpan.style.padding = "16px"
+    exportSpan.style.marginBottom = "16px"
   }
 });
