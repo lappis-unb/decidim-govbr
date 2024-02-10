@@ -8,6 +8,9 @@ This file keeps the list of all overwritten Decidim files. The main purpose of t
 * app/commands/decidim/blogs/admin/update_post.rb
 * app/models/decidim/assembly.rb
 * app/permissions/decidim/assemblies/permissions.rb
+* app/models/decidim/participatory_process.rb
+* app/permissions/decidim/participatory_processes/permissions.rb
+
 
 ## Embeded Ruby Files (HTML)
 
