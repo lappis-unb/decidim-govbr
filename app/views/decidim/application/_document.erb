@@ -1,17 +1,13 @@
-<div class="br-card--list__item">
+<%= link_to document.url, target: "_blank", rel: "noopener", class: "br-card--list__item" do %>
   <div class="br-card--list__text">
-    <div>
-      <a href="<%= document.url %>" class="card__link" target="_blank">
-        <span class="br-card--list__heading heading6">
-          <%= attachment_title(document)%>
-        </span>
-        <small>.<%= document.file_type %>&nbsp;(<%= number_to_human_size(document.file_size) %>)</small>
-      </a>
+    <div class="card__link">
+      <span class="br-card--list__heading heading6">
+        <%= attachment_title(document) %>
+      </span>
+      <span class="doc_extension">.<%= document.file_type %>&nbsp;(<%= number_to_human_size(document.file_size) %>)</span>
     </div>
   </div>
   <div class="br-card--list__data">
-    <%= link_to document.url, target: "_blank", rel: "noopener", class: "br-card--list__data__icon", title: t("decidim.application.document.download") do %>
-        <img class="download-attachment" src="/assets/download_icon.svg"/>
-    <% end %>
+     <i class="fa-solid fa-download"></i>
   </div>
-</div>
+<% end %>

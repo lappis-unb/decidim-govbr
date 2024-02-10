@@ -2012,6 +2012,12 @@ span.flatpickr-weekday {
   --font-weight-bold: 700;
   --font-weight-extra-bold: 800;
   --font-weight-black: 900;
+  --font-size-10: 10px;
+  --font-size-11: 11px;
+  --font-size-20: 20px;
+  --font-size-32: 32px;
+  --font-size-32: 48px;
+  --font-size-96: 96px;
   --font-size-scale-base: 14px;
   --font-size-scale-down-01: 11.662px;
   --font-size-scale-down-02: 9.716px;
@@ -24739,6 +24745,7 @@ hr {
 }
 .br-footer .cclIcon {
   height: 16px;
+  width: 16px;
 }
 
 .br-footer-url:hover {
@@ -24757,6 +24764,7 @@ hr {
 .br-footer .br-list.horizontal {
   display: flex;
   flex-wrap: wrap;
+  padding-bottom: 40px;
 }
 .br-footer .br-list.horizontal .header {
   width: 100%;
@@ -24777,10 +24785,9 @@ hr {
     justify-content: center;
     gap: 8px;
     text-align: center;
-    border-top: 1px solid #303947;
-    border-bottom: 1px solid #303947;
     padding: 16px 0;
     margin: 0 30px;
+    flex-wrap: wrap;
   }
 
 
@@ -26974,9 +26981,6 @@ button.br-item:not(:disabled):active {
 .br-message {
   padding: 1rem;
   gap: 1rem;
-}
-.br-message .icon {
-  padding: 1rem 0;
 }
 .feedback {
   --message-background: var(--background);
