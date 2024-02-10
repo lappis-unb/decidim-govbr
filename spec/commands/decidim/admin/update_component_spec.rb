@@ -24,6 +24,7 @@ module Decidim::Admin
         weight: 3,
         invalid?: !valid,
         valid?: valid,
+        hide_in_menu: false,
         settings: {
           dummy_global_attribute1: true,
           dummy_global_attribute2: false,
