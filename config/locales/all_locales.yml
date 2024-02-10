@@ -68,60 +68,6 @@ pt-BR:
           create: "%{user_name} criou o parceiro %{resource_name} no espaço participativo %{space_name}"
           delete: "%{user_name} excluiu o parceiro %{resource_name} no espaço participativo %{space_name}"
           update: "%{user_name} atualizou o parceiro %{resource_name} no espaço participativo %{space_name}"
-pt:
-  decidim:
-    forms:
-      admin:
-        models:
-          components:
-            topp: Termos de Privacidade
-            collect_user_data: Habilitar termos de privacidade para coleta de dados dos usuarios (e-mail e CPF).
-      user_answers_serializer:
-        email: E-mail
-        uid: CPF
-        anonymous_answer: Usuário não quis informar
-      questionnaires:
-        show:
-          topp_agreement: Concordo com a política de privacidade
-    admin:
-      filters:
-        search_placeholder:
-          name_or_nickname_or_email_or_identities_uid_cont: Pesquisar %{collection} por e-mail, nome, nome de usuário ou CPF.
-      components:
-        form:
-          pluralized_name_field: Preencha com o nome no plural
-          name_field: Preencha com o nome no singular
-    components:
-      proposals:
-        actions:
-          new: Novo(a) %{name}
-      meetings:
-        actions:
-          new: 'Novo(a) %{singular_name}'
-    meetings:
-      admin:
-        meetings:
-          pluralized_name:
-            when_empty: Reuniões
-    proposals:
-      admin:
-        when_empty: Proposta
-        proposals:
-          pluralized_name:
-            when_empty: Propostas
-          singular_name:
-            when_empty: Proposta
-      proposals:
-        count:
-          proposals_count:
-            one: "%{count} %{singular_name}"
-            other: "%{count} %{pluralized_name}"
-        view_btn:
-          placeholder: Ver %{singular_name}
-        index:
-          new_proposal: Faça sua %{proposal}
-        filters:
-          placeholder: "Qual %{name} você procura?"
 
 pt:
   activemodel:
