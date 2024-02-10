@@ -1,8 +1,5 @@
 inherit_from: .rubocop_todo.yml
-<<<<<<< HEAD
 
 AllCops:
   Exclude:
     - 'db/schema.rb'
-=======
->>>>>>> origin/main
