@@ -16,7 +16,7 @@ require 'support/wisper'
 require 'rspec-html-matchers'
 
 # Requires all rspec examples
-Dir[File.join('spec', 'shared', '*_example.rb')].map { |file| require_relative "shared/#{file.split('/').last}" }
+Dir[File.join('spec', 'shared', '*_examples.rb')].map { |file| require_relative "shared/#{file.split('/').last}" }
 
 require 'component.rb'
 
