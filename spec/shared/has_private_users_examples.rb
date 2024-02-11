@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "spec_helper"
+require "rails_helper"
 
 shared_examples_for "has private users" do
   let(:factory_name) { described_class.name.demodulize.underscore.to_sym }
