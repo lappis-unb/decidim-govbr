@@ -15,6 +15,9 @@ require 'support/wisper'
 
 require 'rspec-html-matchers'
 
+# Requires all rspec examples
+Dir[File.join('spec', 'shared', '*_examples.rb')].map { |file| require_relative "shared/#{file.split('/').last}" }
+
 require 'component.rb'
 
 # Add additional requires below this line. Rails is not loaded until this point!
@@ -76,4 +79,12 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  RSpec::Matchers.define :be_versioned do
+    match { |actual| actual.is_a?(::PaperTrail::Model::InstanceMethods) }
+  end
+
+  RSpec::Matchers.define :be_partnerable do
+    match { |actual| actual.is_a?(Decidim::Govbr::HasPartners) }
+  end
 end

@@ -21,4 +21,12 @@ Rails.application.routes.draw do
   # This is going to be removed once admin front-end is finished
   get 'admin/user_proposal_statistic_report_force_refresh/:slug', to: 'decidim/govbr/user_proposals_statistic_settings#force_refresh', as: 'user_proposal_statistic_report_force_refresh'
   get 'admin/user_proposal_statistic_report_create/:slug', to: 'decidim/govbr/user_proposals_statistic_settings#create', as: 'user_proposal_statistic_report_create'
+
+  resources :assemblies, param: :slug, only: [] do
+    resources :partners, except: [:show], controller: 'decidim/assemblies/admin/partners'
+  end
+
+  resources :participatory_processes, param: :slug, only: [] do
+    resources :partners, except: [:show], controller: 'decidim/participatory_processes/admin/partners'
+  end
 end
