@@ -217,7 +217,7 @@ en:
       govbr:
         partner:
           create: "%{user_name} created the partner %{resource_name} in the participatory space %{space_name}"
-          delete: "%{user_name} removed ther partner %{resource_name} in the participatory space %{space_name}"
+          delete: "%{user_name} removed the partner %{resource_name} in the participatory space %{space_name}"
           update: "%{user_name} updated the partner %{resource_name} in the participatory space %{space_name}"
 
 es-MX:
