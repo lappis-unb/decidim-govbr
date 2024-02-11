@@ -21,4 +21,11 @@ FactoryBot.define do
       partner_type { "supporter" }
     end
   end
+
+  factory :govbr_media_link, class: "Decidim::Govbr::MediaLink" do
+    title { generate_localized_title }
+    weight { Faker::Number.between(from: 1, to: 10) }
+    link { Faker::Internet.url }
+    date { 1.month.ago }
+  end
 end
