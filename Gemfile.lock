@@ -1,11 +1,4 @@
 GIT
-  remote: git@gitlab.com:lappis-unb/decidimbr/components-brasil-participativo/decidim-module-homes.git
-  revision: f823e585b0478a49ea35b033e1d43499d9e7220a
-  specs:
-    decidim-homes (0.27.2)
-      decidim-core (= 0.27.2)
-
-GIT
   remote: https://github.com/mainio/decidim-module-apiauth.git
   revision: d6011818b617bd9e776d00cf8afe6343870431b7
   specs:
@@ -13,6 +6,13 @@ GIT
       decidim-api (~> 0.27.0)
       decidim-core (~> 0.27.0)
       devise-jwt (~> 0.9.0)
+
+GIT
+  remote: https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-module-homes.git
+  revision: e679365357a1eef89b3d8ecba9ccc8976a78f47e
+  specs:
+    decidim-homes (0.27.2)
+      decidim-core (= 0.27.2)
 
 GEM
   remote: https://rubygems.org/
