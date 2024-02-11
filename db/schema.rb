@@ -899,6 +899,19 @@ ActiveRecord::Schema.define(version: 2024_02_05_194345) do
     t.index ["user_id"], name: "index_decidim_gamification_badge_scores_on_user_id"
   end
 
+  create_table "decidim_govbr_partners", force: :cascade do |t|
+    t.string "partnerable_type"
+    t.bigint "partnerable_id"
+    t.string "name", null: false
+    t.string "partner_type", null: false
+    t.integer "weight", default: 0, null: false
+    t.string "link"
+    t.string "logo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["partnerable_type", "partnerable_id"], name: "partner_partnerable_index"
+  end
+
   create_table "decidim_govbr_user_proposals_statistic_settings", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.string "decidim_participatory_space_type", null: false
@@ -942,6 +955,25 @@ ActiveRecord::Schema.define(version: 2024_02_05_194345) do
     t.datetime "updated_at", null: false
     t.index ["decidim_organization_id"], name: "index_decidim_hashtags_on_decidim_organization_id"
     t.index ["name"], name: "index_decidim_hashtags_on_name"
+  end
+
+  create_table "decidim_homes_homes", id: :serial, force: :cascade do |t|
+    t.jsonb "title"
+    t.integer "decidim_component_id"
+    t.string "banner"
+    t.string "digital_stage", default: "/"
+    t.string "organize_stage", default: "/"
+    t.string "schedule", default: "/"
+    t.string "common_questions", default: "/"
+    t.string "support_material", default: "/"
+    t.boolean "statistics", default: false
+    t.boolean "news", default: false
+    t.integer "news_id"
+    t.jsonb "organizers", default: []
+    t.jsonb "supporters", default: []
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_component_id"], name: "index_decidim_homes_homes_on_decidim_component_id"
   end
 
   create_table "decidim_identities", id: :serial, force: :cascade do |t|
