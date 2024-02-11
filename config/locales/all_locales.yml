@@ -16,6 +16,10 @@ pt-BR:
         name: Nome
         partner_type: Tipo
         weight: Weight (posição de exibição)
+      participatory_process_media_link:
+        date: Data
+        link: Link
+        title: Título
   decidim:
     assemblies:
       admin:
@@ -68,6 +72,10 @@ pt-BR:
           create: "%{user_name} criou o parceiro %{resource_name} no espaço participativo %{space_name}"
           delete: "%{user_name} excluiu o parceiro %{resource_name} no espaço participativo %{space_name}"
           update: "%{user_name} atualizou o parceiro %{resource_name} no espaço participativo %{space_name}"
+        media_link:
+          create: "%{user_name} criou o link externo %{resource_name} no espaço participativo %{space_name}"
+          delete: "%{user_name} removeu o link externo %{resource_name} do espaço participativo %{space_name}"
+          update: "%{user_name} atualizou o link externo %{resource_name} do espaço participativo %{space_name}"
 
 pt:
   activemodel:
@@ -84,6 +92,10 @@ pt:
         name: Nome
         partner_type: Tipo
         weight: Weight (posição de exibição)
+      participatory_process_media_link:
+        date: Data
+        link: Link
+        title: Título
   decidim:
     assemblies:
       admin:
@@ -130,6 +142,10 @@ pt:
           create: "%{user_name} criou o parceiro %{resource_name} no espaço participativo %{space_name}"
           delete: "%{user_name} removeu o parceiro %{resource_name} no espaço participativo %{space_name}"
           update: "%{user_name} actualizou o parceiro %{resource_name} no espaço participativo %{space_name}"
+        media_link:
+          create: "%{user_name} criou o link externo %{resource_name} no espaço participativo %{space_name}"
+          delete: "%{user_name} removeu o link externo %{resource_name} do espaço participativo %{space_name}"
+          update: "%{user_name} atualizou o link externo %{resource_name} do espaço participativo %{space_name}"
     components:
       proposals:
         actions:
@@ -177,6 +193,10 @@ en:
         name: Name
         partner_type: Type
         weight: Weight (display position)
+      participatory_process_media_link:
+        date: Date
+        link: Link
+        title: Title
   decidim:
     assemblies:
       admin:
@@ -219,6 +239,10 @@ en:
           create: "%{user_name} created the partner %{resource_name} in the participatory space %{space_name}"
           delete: "%{user_name} removed the partner %{resource_name} in the participatory space %{space_name}"
           update: "%{user_name} updated the partner %{resource_name} in the participatory space %{space_name}"
+        media_link:
+          create: "%{user_name} created an external link %{resource_name} in the participatory space %{space_name}"
+          delete: "%{user_name} removed the external link %{resource_name} from the participatory space %{space_name}"
+          update: "%{user_name} updated the external link %{resource_name} from the participatory space %{space_name}"
 
 es-MX:
   activemodel:
@@ -235,6 +259,10 @@ es-MX:
         name: Nombre
         partner_type: Tipo
         weight: Weight (posición de visualización)
+      participatory_process_media_link:
+        date: Fecha
+        link: Enlace
+        title: Título
   decidim:
     assemblies:
       admin:
@@ -277,6 +305,10 @@ es-MX:
           create: "%{user_name} crea el paquete %{resource_name} en el espacio participativo %{space_name}"
           delete: "%{user_name} eliminó el paquete %{resource_name} en el espacio participativo %{space_name}"
           update: "%{user_name} actualizó el paquete %{resource_name} en el espacio participativo %{space_name}"
+        media_link:
+          create: "%{user_name} creó un enlace externo %{resource_name} en el espacio participativo %{space_name}"
+          delete: "%{user_name} eliminó el enlace externo %{resource_name} del espacio participativo %{space_name}"
+          update: "%{user_name} actualizó el enlace externo %{resource_name} del espacio participativo %{space_name}"
 
 es-PY:
   activemodel:
@@ -293,6 +325,10 @@ es-PY:
         name: Nombre
         partner_type: Tipo
         weight: Weight (posición de visualización)
+      participatory_process_media_link:
+        date: Fecha
+        link: Enlace
+        title: Título
   decidim:
     assemblies:
       admin:
@@ -335,6 +371,10 @@ es-PY:
           create: "%{user_name} crea el paquete %{resource_name} en el espacio participativo %{space_name}"
           delete: "%{user_name} eliminó el paquete %{resource_name} en el espacio participativo %{space_name}"
           update: "%{user_name} actualizó el paquete %{resource_name} en el espacio participativo %{space_name}"
+        media_link:
+          create: "%{user_name} creó un enlace externo %{resource_name} en el espacio participativo %{space_name}"
+          delete: "%{user_name} eliminó el enlace externo %{resource_name} del espacio participativo %{space_name}"
+          update: "%{user_name} actualizó el enlace externo %{resource_name} del espacio participativo %{space_name}"
 
 es:
   activemodel:
@@ -351,6 +391,10 @@ es:
         name: Nombre
         partner_type: Tipo
         weight: Weight (posición de visualización)
+      participatory_process_media_link:
+        date: Fecha
+        link: Enlace
+        title: Título
   decidim:
     assemblies:
       admin:
@@ -393,3 +437,7 @@ es:
           create: "%{user_name} crea el paquete %{resource_name} en el espacio participativo %{space_name}"
           delete: "%{user_name} eliminó el paquete %{resource_name} en el espacio participativo %{space_name}"
           update: "%{user_name} actualizó el paquete %{resource_name} en el espacio participativo %{space_name}"
+        media_link:
+          create: "%{user_name} creó un enlace externo %{resource_name} en el espacio participativo %{space_name}"
+          delete: "%{user_name} eliminó el enlace externo %{resource_name} del espacio participativo %{space_name}"
+          update: "%{user_name} actualizó el enlace externo %{resource_name} del espacio participativo %{space_name}"
