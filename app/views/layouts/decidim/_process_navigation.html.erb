@@ -16,5 +16,11 @@
       url: main_component_path(component),
       active: is_active_link?(main_component_path(component), :inclusive)
     }
-  end)
+  end + [
+    current_participatory_space.attachments.any? || current_participatory_space.media_links.any? ? {
+      name: t(".media"),
+      url: decidim_participatory_processes.participatory_process_media_path(current_participatory_space),
+      active: is_active_link?(decidim_participatory_processes.participatory_process_media_path(current_participatory_space), :inclusive)
+    } : nil
+  ])
 %>
