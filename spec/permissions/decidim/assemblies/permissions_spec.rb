@@ -740,5 +740,25 @@ describe Decidim::Assemblies::Permissions do
         end
       end
     end
+
+    context "when subject is media_links" do
+      let(:action) do
+        {
+          scope: :public,
+          action: :list,
+          subject: :media_links
+        }
+      end
+
+      context "when user is admin" do
+        let(:user) { create :user, :admin, organization: organization }
+        it { is_expected.to be(true) }
+      end
+
+      context "when user is not admin" do
+        let(:user) { create :user, organization: organization }
+        it { is_expected.to be(true) }
+      end
+    end
   end
 end
