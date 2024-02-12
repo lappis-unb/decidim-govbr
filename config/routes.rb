@@ -30,6 +30,14 @@ Rails.application.routes.draw do
     as: 'user_proposal_statistic_report_create'
   )
 
+  resources :assemblies, param: :slug, only: [] do
+    resources :media, only: :index, controller: 'decidim/assemblies/media'
+  end
+
+  resources :participatory_processes, param: :slug, only: [], path: :processes do
+    resources :media, only: :index, controller: 'decidim/participatory_processes/media'
+  end
+
   scope :admin do
     resources :assemblies, param: :slug, only: [] do
       resources :partners, except: [:show], controller: 'decidim/assemblies/admin/partners'
