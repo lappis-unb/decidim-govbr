@@ -82,6 +82,12 @@ pt-BR:
           create: "%{user_name} criou o link externo %{resource_name} no espaço participativo %{space_name}"
           delete: "%{user_name} removeu o link externo %{resource_name} do espaço participativo %{space_name}"
           update: "%{user_name} atualizou o link externo %{resource_name} do espaço participativo %{space_name}"
+  layouts:
+    decidim:
+      assembly_navigation:
+        media: Multimídia
+      process_navigation:
+        media: Multimídia
 
 pt:
   activemodel:
@@ -189,6 +195,12 @@ pt:
           new_proposal: Faça sua %{proposal}
         filters:
           placeholder: "Qual %{name} você procura?"
+  layouts:
+    decidim:
+      assembly_navigation:
+        media: Multimídia
+      process_navigation:
+        media: Multimídia
 
 en:
   activemodel:
@@ -261,6 +273,12 @@ en:
           create: "%{user_name} created an external link %{resource_name} in the participatory space %{space_name}"
           delete: "%{user_name} removed the external link %{resource_name} from the participatory space %{space_name}"
           update: "%{user_name} updated the external link %{resource_name} from the participatory space %{space_name}"
+  layouts:
+    decidim:
+      assembly_navigation:
+        media: Media
+      process_navigation:
+        media: Media
 
 es-MX:
   activemodel:
@@ -333,6 +351,12 @@ es-MX:
           create: "%{user_name} creó un enlace externo %{resource_name} en el espacio participativo %{space_name}"
           delete: "%{user_name} eliminó el enlace externo %{resource_name} del espacio participativo %{space_name}"
           update: "%{user_name} actualizó el enlace externo %{resource_name} del espacio participativo %{space_name}"
+  layouts:
+    decidim:
+      assembly_navigation:
+        media: Medios
+      process_navigation:
+        media: Medios
 
 es-PY:
   activemodel:
@@ -405,6 +429,12 @@ es-PY:
           create: "%{user_name} creó un enlace externo %{resource_name} en el espacio participativo %{space_name}"
           delete: "%{user_name} eliminó el enlace externo %{resource_name} del espacio participativo %{space_name}"
           update: "%{user_name} actualizó el enlace externo %{resource_name} del espacio participativo %{space_name}"
+  layouts:
+    decidim:
+      assembly_navigation:
+        media: Medios
+      process_navigation:
+        media: Medios
 
 es:
   activemodel:
@@ -477,3 +507,9 @@ es:
           create: "%{user_name} creó un enlace externo %{resource_name} en el espacio participativo %{space_name}"
           delete: "%{user_name} eliminó el enlace externo %{resource_name} del espacio participativo %{space_name}"
           update: "%{user_name} actualizó el enlace externo %{resource_name} del espacio participativo %{space_name}"
+  layouts:
+    decidim:
+      assembly_navigation:
+        media: Medios
+      process_navigation:
+        media: Medios
