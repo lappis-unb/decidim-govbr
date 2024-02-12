@@ -7,6 +7,14 @@ Decidim::ParticipatoryProcesses::AdminEngine.class_eval do
   end
 end
 
+Decidim::ParticipatoryProcesses::Engine.class_eval do
+  routes do
+    resources :participatory_processes, param: :slug, only: [], path: :processes do
+      resources :media, only: :index
+    end
+  end
+end
+
 Decidim.menu :admin_participatory_process_menu do |menu|
   menu.add_item :participatory_process_partners,
                 I18n.t("partners", scope: "decidim.admin.menu.assemblies_submenu"),
