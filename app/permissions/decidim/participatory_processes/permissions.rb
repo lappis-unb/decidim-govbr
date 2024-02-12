@@ -235,7 +235,8 @@ module Decidim
           :process_user_role,
           :space_private_user,
           :export_space,
-          :import
+          :import,
+          :media_link
         ].include?(permission_action.subject)
         allow! if is_allowed
       end
@@ -255,7 +256,8 @@ module Decidim
           :process_user_role,
           :space_private_user,
           :export_space,
-          :import
+          :import,
+          :media_link
         ].include?(permission_action.subject)
         allow! if is_allowed
       end

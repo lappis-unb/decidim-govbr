@@ -16,7 +16,7 @@ pt-BR:
         name: Nome
         partner_type: Tipo
         weight: Weight (posição de exibição)
-      participatory_process_media_link:
+      participatory_space_media_link:
         date: Data
         link: Link
         title: Título
@@ -51,11 +51,17 @@ pt-BR:
       menu:
         assemblies_submenu:
           partners: Organizadores e Apoiadores
+          media_links: Links de Multimídia
       models:
         partner:
           types:
             supporter: Apoiador
             organizer: Organizador
+        media_link:
+          fields:
+            date: Data
+            link: Link
+            title: Título
       partners:
         update:
           success: Parceiro atualizado com sucesso
@@ -92,7 +98,7 @@ pt:
         name: Nome
         partner_type: Tipo
         weight: Weight (posição de exibição)
-      participatory_process_media_link:
+      participatory_space_media_link:
         date: Data
         link: Link
         title: Título
@@ -131,11 +137,17 @@ pt:
       menu:
         assemblies_submenu:
           partners: Organizadores e Apoiadores
+          media_links: Links de Multimídia
       models:
         partner:
           types:
             supporter: Apoiador
             organizer: Organizador
+        media_link:
+          fields:
+            date: Data
+            link: Link
+            title: Título
     admin_log:
       govbr:
         partner:
@@ -193,7 +205,7 @@ en:
         name: Name
         partner_type: Type
         weight: Weight (display position)
-      participatory_process_media_link:
+      participatory_space_media_link:
         date: Date
         link: Link
         title: Title
@@ -228,11 +240,17 @@ en:
       menu:
         assemblies_submenu:
           partners: Organizers and Supporters
+          media_links: Media Links
       models:
         partner:
           types:
             supporter: Supporter
             organizer: Organizer
+        media_link:
+          fields:
+            date: Date
+            link: Link
+            title: Title
     admin_log:
       govbr:
         partner:
@@ -259,7 +277,7 @@ es-MX:
         name: Nombre
         partner_type: Tipo
         weight: Weight (posición de visualización)
-      participatory_process_media_link:
+      participatory_space_media_link:
         date: Fecha
         link: Enlace
         title: Título
@@ -294,11 +312,17 @@ es-MX:
       menu:
         assemblies_submenu:
           partners: Organizadores y Simpatizantes
+          media_links: Enlaces de Medios
       models:
         partner:
           types:
             supporter: Simpatizantes
             organizer: Organizadores
+        media_link:
+          fields:
+            date: Fecha
+            link: Enlace
+            title: Título
     admin_log:
       govbr:
         partner:
@@ -325,7 +349,7 @@ es-PY:
         name: Nombre
         partner_type: Tipo
         weight: Weight (posición de visualización)
-      participatory_process_media_link:
+      participatory_space_media_link:
         date: Fecha
         link: Enlace
         title: Título
@@ -360,11 +384,17 @@ es-PY:
       menu:
         assemblies_submenu:
           partners: Organizadores y Simpatizantes
+          media_links: Enlaces de Medios
       models:
         partner:
           types:
             supporter: Simpatizantes
             organizer: Organizadores
+        media_link:
+          fields:
+            date: Fecha
+            link: Enlace
+            title: Título
     admin_log:
       govbr:
         partner:
@@ -391,7 +421,7 @@ es:
         name: Nombre
         partner_type: Tipo
         weight: Weight (posición de visualización)
-      participatory_process_media_link:
+      participatory_space_media_link:
         date: Fecha
         link: Enlace
         title: Título
@@ -426,11 +456,17 @@ es:
       menu:
         assemblies_submenu:
           partners: Organizadores y Simpatizantes
+          media_links: Enlaces de Medios
       models:
         partner:
           types:
             supporter: Simpatizantes
             organizer: Organizadores
+        media_link:
+          fields:
+            date: Fecha
+            link: Enlace
+            title: Título
     admin_log:
       govbr:
         partner:

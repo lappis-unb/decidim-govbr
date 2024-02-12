@@ -272,7 +272,8 @@ module Decidim
           :assembly_member,
           :space_private_user,
           :export_space,
-          :import
+          :import,
+          :media_link
         ].include?(permission_action.subject)
         allow! if is_allowed
       end
@@ -293,7 +294,8 @@ module Decidim
           :space_private_user,
           :export_space,
           :import,
-          :assemblies_setting
+          :assemblies_setting,
+          :media_link
         ].include?(permission_action.subject)
         allow! if is_allowed
       end

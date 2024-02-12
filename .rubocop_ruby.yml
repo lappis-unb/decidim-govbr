@@ -36,7 +36,7 @@ Metrics/BlockLength:
   Enabled: false
 
 Layout/LineLength:
-  Max: 180
+  Max: 210
   # To make it possible to copy or click on URIs in the code, we allow lines
   # containing a URI to be longer than Max.
   AllowHeredoc: true
@@ -46,3 +46,5 @@ Layout/LineLength:
     - https
   Exclude:
     - "**/spec/**/*"
+    - "db/seeds.rb" # TODO: Remove this
+    - "app/models/decidim/govbr/user_proposals_statistic.rb" # TODO: Remove this
