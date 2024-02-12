@@ -39,7 +39,7 @@ module Decidim
         end
 
         def diff_actions
-          super + %w[delete]
+          super + %w(delete)
         end
       end
     end

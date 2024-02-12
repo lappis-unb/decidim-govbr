@@ -39,7 +39,7 @@ module Decidim
     include Decidim::Govbr::HasPartners
 
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
-    CREATED_BY = %w[city_council public others].freeze
+    CREATED_BY = %w(city_council public others).freeze
 
     translatable_fields :title, :subtitle, :short_description, :description, :developer_group, :meta_scope, :local_area,
                         :target, :participatory_scope, :participatory_structure, :purpose_of_action, :composition, :created_by_other,
