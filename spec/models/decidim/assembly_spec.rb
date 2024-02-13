@@ -14,6 +14,7 @@ module Decidim
     include_examples "publicable"
     include_examples "resourceable"
     include_examples "partnerable"
+    include_examples "has media links"
 
     context "when there's an assembly with the same slug in the same organization" do
       let!(:external_assembly) { create :assembly, organization: assembly.organization, slug: "my-slug" }

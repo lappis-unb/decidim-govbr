@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_05_194345) do
+ActiveRecord::Schema.define(version: 2024_02_11_190548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -897,6 +897,18 @@ ActiveRecord::Schema.define(version: 2024_02_05_194345) do
     t.string "badge_name", null: false
     t.integer "value", default: 0, null: false
     t.index ["user_id"], name: "index_decidim_gamification_badge_scores_on_user_id"
+  end
+
+  create_table "decidim_govbr_media_links", force: :cascade do |t|
+    t.string "participatory_space_type"
+    t.bigint "participatory_space_id"
+    t.jsonb "title", null: false
+    t.string "link", null: false
+    t.date "date"
+    t.integer "weight", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["participatory_space_type", "participatory_space_id"], name: "decidim_govbr_media_links_ps_index"
   end
 
   create_table "decidim_govbr_partners", force: :cascade do |t|

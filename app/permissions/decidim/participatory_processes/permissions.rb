@@ -19,6 +19,7 @@ module Decidim
           public_list_process_groups_action?
           public_read_process_group_action?
           public_read_process_action?
+          public_list_media_links_action?
           return permission_action
         end
 
@@ -111,6 +112,13 @@ module Decidim
         return allow! if process.published?
 
         toggle_allow(can_manage_process?)
+      end
+
+      def public_list_media_links_action?
+        return unless permission_action.action == :list &&
+                      permission_action.subject == :media_links
+
+        allow!
       end
 
       def can_view_private_space?
@@ -235,7 +243,8 @@ module Decidim
           :process_user_role,
           :space_private_user,
           :export_space,
-          :import
+          :import,
+          :media_link
         ].include?(permission_action.subject)
         allow! if is_allowed
       end
@@ -255,7 +264,8 @@ module Decidim
           :process_user_role,
           :space_private_user,
           :export_space,
-          :import
+          :import,
+          :media_link
         ].include?(permission_action.subject)
         allow! if is_allowed
       end

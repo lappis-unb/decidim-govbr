@@ -16,6 +16,7 @@ module Decidim
     it_behaves_like "has private users"
 
     include_examples "partnerable"
+    include_examples "has media links"
 
     it "overwrites the log presenter" do
       expect(described_class.log_presenter_class_for(:foo))
