@@ -48,3 +48,8 @@ Layout/LineLength:
     - "**/spec/**/*"
     - "db/seeds.rb" # TODO: Remove this
     - "app/models/decidim/govbr/user_proposals_statistic.rb" # TODO: Remove this
+
+# `MinBodyLength` defines the number of lines of the a body of an if / unless
+# needs to have to trigger this cop
+Style/GuardClause:
+  MinBodyLength: 6
