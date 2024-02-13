@@ -5,8 +5,6 @@ require "rails_helper"
 module Decidim
   module Govbr
     describe HasCustomShowPage do
-      include HasCustomShowPage # remover isso e ver o que rola
-
       subject { dummy_class.new(participatory_space) }
 
       let(:dummy_class) do
