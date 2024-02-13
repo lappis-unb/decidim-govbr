@@ -8,6 +8,7 @@ module Decidim
       include ParticipatorySpaceContext
       participatory_space_layout only: [:show, :all_metrics]
       include FilterResource
+      include Decidim::Govbr::HasCustomShowPage
 
       helper_method :collection,
                     :promoted_collection,
@@ -29,8 +30,7 @@ module Decidim
       def show
         enforce_permission_to :read, :process, process: current_participatory_space
 
-        # Initial Page has priority in rendering
-        redirect_to decidim_participatory_process_homes_path(current_participatory_space, initial_page) if initial_page
+        redirect_to_custom_show_page_if_necessary
       end
 
       def all_metrics
@@ -133,9 +133,8 @@ module Decidim
         @linked_assemblies ||= current_participatory_space.linked_participatory_space_resources(:assembly, "included_participatory_processes").public_spaces
       end
 
-      def initial_page
-        @initial_page ||= Decidim::Component.where(manifest_name: "homes", participatory_space: current_participatory_space).first
-      end
+      alias decidim_participatory_space_homes_path decidim_participatory_process_homes_path
+      alias decidim_participatory_space_pages_path decidim_participatory_process_pages_path
     end
   end
 end
