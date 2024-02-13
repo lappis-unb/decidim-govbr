@@ -9,7 +9,7 @@ module Decidim
       include Decidim::Loggable
       include Decidim::HasUploadValidations
 
-      TYPES = %w[supporter organizer].freeze
+      TYPES = %w(supporter organizer).freeze
 
       belongs_to :partnerable, polymorphic: true
 

@@ -17,6 +17,7 @@ module Decidim
           public_list_assemblies_action?
           public_read_assembly_action?
           public_list_members_action?
+          public_list_media_links_action?
           return permission_action
         end
 
@@ -107,6 +108,13 @@ module Decidim
       def public_list_assemblies_action?
         return unless permission_action.action == :list &&
                       permission_action.subject == :assembly
+
+        allow!
+      end
+
+      def public_list_media_links_action?
+        return unless permission_action.action == :list &&
+                      permission_action.subject == :media_links
 
         allow!
       end
@@ -272,7 +280,8 @@ module Decidim
           :assembly_member,
           :space_private_user,
           :export_space,
-          :import
+          :import,
+          :media_link
         ].include?(permission_action.subject)
         allow! if is_allowed
       end
@@ -293,7 +302,8 @@ module Decidim
           :space_private_user,
           :export_space,
           :import,
-          :assemblies_setting
+          :assemblies_setting,
+          :media_link
         ].include?(permission_action.subject)
         allow! if is_allowed
       end
