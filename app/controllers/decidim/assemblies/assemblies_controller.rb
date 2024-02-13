@@ -7,6 +7,7 @@ module Decidim
       include ParticipatorySpaceContext
       participatory_space_layout only: :show
       include FilterResource
+      include Decidim::Govbr::HasCustomShowPage
 
       helper_method :parent_assemblies, :promoted_assemblies, :stats, :assembly_participatory_processes, :current_assemblies_settings
 
@@ -45,8 +46,7 @@ module Decidim
       def show
         enforce_permission_to :read, :assembly, assembly: current_participatory_space
 
-        # Initial Page has priority in rendering
-        redirect_to decidim_assembly_homes_path(current_participatory_space, initial_page) if initial_page
+        redirect_to_custom_show_page_if_necessary
       end
 
       private
@@ -95,9 +95,8 @@ module Decidim
         @current_assemblies_settings ||= Decidim::AssembliesSetting.find_or_create_by(decidim_organization_id: current_organization.id)
       end
 
-      def initial_page
-        @initial_page ||= Decidim::Component.where(manifest_name: "homes", participatory_space: current_participatory_space).first
-      end
+      alias decidim_participatory_space_homes_path decidim_assembly_homes_path
+      alias decidim_participatory_space_pages_path decidim_assembly_pages_path
     end
   end
 end

@@ -7,6 +7,7 @@ require "decidim/proposals/test/factories"
 require "decidim/comments/test/factories"
 require "decidim/accountability/test/factories"
 require "decidim/meetings/test/factories"
+require "decidim/homes/test/factories"
 
 FactoryBot.define do
   factory :partner, class: "Decidim::Govbr::Partner" do
@@ -27,5 +28,16 @@ FactoryBot.define do
     weight { Faker::Number.between(from: 1, to: 10) }
     link { Faker::Internet.url }
     date { 1.month.ago }
+  end
+
+  factory :page_component, parent: :component do
+    name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :pages).i18n_name }
+    manifest_name { :pages }
+    participatory_space { create(:participatory_process, :with_steps, organization: organization) }
+  end
+
+  factory :page, class: "Decidim::Pages::Page" do
+    body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    component { build(:component, manifest_name: "pages") }
   end
 end
