@@ -21,7 +21,7 @@ module Decidim
         raise ActionController::RoutingError, "No media_links for the participatory space #{current_participatory_space.try(:slug)}" if media_links.empty? && current_participatory_space.attachments.empty?
 
         enforce_permission_to :list, :media_links
-        redirect_to decidim_conferences.participatory_space_path(current_participatory_space) unless current_user_can_visit_space?
+        redirect_to main_app.root_path unless current_user_can_visit_space?
       end
 
       def collection
