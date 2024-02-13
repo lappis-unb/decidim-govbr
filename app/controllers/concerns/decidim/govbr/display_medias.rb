@@ -9,7 +9,7 @@ module Decidim
       include ParticipatorySpaceContext
 
       included do
-        helper Decidim::Conferences::MediaAttachmentsHelper
+        helper Decidim::Govbr::MediaAttachmentsHelper
         helper Decidim::SanitizeHelper
 
         participatory_space_layout only: :index
