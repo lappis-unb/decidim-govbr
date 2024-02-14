@@ -22,6 +22,8 @@ pt-BR:
         title: Título
       assembly:
         initial_page_component_id: Página Principal da Assembléia
+      participatory_process:
+        initial_page_component_id: Página Principal do Processo
   decidim:
     govbr:
       initial_page_type:
@@ -39,6 +41,9 @@ pt-BR:
         partners:
           index:
             title: Organizadores e Apoiadores
+        participatory_processes:
+          form:
+            initial_page_component_id_help: Selecione qual componente será utilizado como a página principal deste Processo. Apenas Páginas Estáticas e Páginas Iniciais serão exibidas aqui como opção. Caso não queira uma página inicial customizada, deixe marcada a opção "Página Padrão"
     forms:
       admin:
         models:
@@ -118,6 +123,8 @@ pt:
         title: Título
       assembly:
         initial_page_component_id: Página Principal da Assembléia
+      participatory_process:
+        initial_page_component_id: Página Principal do Processo
   decidim:
     govbr:
       initial_page_type:
@@ -135,6 +142,9 @@ pt:
         partners:
           index:
             title: Organizadores e Apoiadores
+        participatory_processes:
+          form:
+            initial_page_component_id_help: Selecione qual componente será utilizado como a página principal deste Processo. Apenas Páginas Estáticas e Páginas Iniciais serão exibidas aqui como opção. Caso não queira uma página inicial customizada, deixe marcada a opção "Página Padrão"
     forms:
       admin:
         models:
@@ -239,6 +249,8 @@ en:
         title: Title
       assembly:
         initial_page_component_id: The Assembly Main Page
+      participatory_process:
+        initial_page_component_id: The Process Main Page
   decidim:
     govbr:
       initial_page_type:
@@ -251,6 +263,9 @@ en:
         assemblies:
           form:
             initial_page_component_id_help: Select the component to be used as the assembly main page. Only Static Pages and Initial Pages are displayed here as options. If a custom main page is not necessary, keep the option "Default Page" selected.
+        participatory_processes:
+          form:
+            initial_page_component_id_help: Select the component to be used as the process main page. Only Static Pages and Initial Pages are displayed here as options. If a custom main page is not necessary, keep the option "Default Page" selected.
     participatory_processes:
       admin:
         partners:
@@ -325,6 +340,8 @@ es-MX:
         title: Título
       assembly:
         initial_page_component_id: La página Principal de la Asamblea
+      participatory_process:
+        initial_page_component_id: La página Principal del Proceso
   decidim:
     govbr:
       initial_page_type:
@@ -342,6 +359,9 @@ es-MX:
         partners:
           index:
             title: Organizadores y Simpatizantes
+        participatory_processes:
+          form:
+            initial_page_component_id_help: Seleccione el componente que se utilizará como página principal del proceso. Aquí sólo se muestran como opciones Páginas estáticas y Páginas iniciales. Si no es necesaria una página principal personalizada, mantenga seleccionada la opción "Página Predeterminada".
     forms:
       admin:
         models:
@@ -411,6 +431,8 @@ es-PY:
         title: Título
       assembly:
         initial_page_component_id: La página Principal de la Asamblea
+      participatory_process:
+        initial_page_component_id: La página Principal del Proceso
   decidim:
     govbr:
       initial_page_type:
@@ -428,6 +450,9 @@ es-PY:
         partners:
           index:
             title: Organizadores y Simpatizantes
+        participatory_processes:
+          form:
+            initial_page_component_id_help: Seleccione el componente que se utilizará como página principal del proceso. Aquí sólo se muestran como opciones Páginas estáticas y Páginas iniciales. Si no es necesaria una página principal personalizada, mantenga seleccionada la opción "Página Predeterminada".
     forms:
       admin:
         models:
@@ -497,6 +522,8 @@ es:
         title: Título
       assembly:
         initial_page_component_id: La página Principal de la Asamblea
+      participatory_process:
+        initial_page_component_id: La página Principal del Proceso
   decidim:
     govbr:
       initial_page_type:
@@ -514,6 +541,9 @@ es:
         partners:
           index:
             title: Organizadores y Simpatizantes
+        participatory_processes:
+          form:
+            initial_page_component_id_help: Seleccione el componente que se utilizará como página principal del proceso. Aquí sólo se muestran como opciones Páginas estáticas y Páginas iniciales. Si no es necesaria una página principal personalizada, mantenga seleccionada la opción "Página Predeterminada".
     forms:
       admin:
         models:
