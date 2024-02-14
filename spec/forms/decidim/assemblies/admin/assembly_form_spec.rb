@@ -160,7 +160,7 @@ module Decidim
               "announcement_es" => announcement[:es],
               "announcement_ca" => announcement[:ca],
               "initial_page_component_id" => initial_page_component_id,
-              "initial_page_type" => "foo"
+              "initial_page_type" => initial_page_type
             }
           }
         end
