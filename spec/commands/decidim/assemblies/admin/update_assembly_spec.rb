@@ -255,7 +255,7 @@ module Decidim
             end
 
             it "updates the initial page information" do
-              expect { command.call }.to change { [my_assembly.reload.initial_page_component_id, my_assembly.reload.initial_page_type] }.from([10, "foo"]).to([0, "default"])
+              expect { command.call }.to change { [my_assembly.reload.initial_page_component_id, my_assembly.reload.initial_page_type] }.from([10, "foo"]).to([initial_page_component_id, initial_page_type])
             end
           end
         end
