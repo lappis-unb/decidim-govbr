@@ -33,7 +33,7 @@
       <%= form.select :initial_page_component_id,
                       options_for_select(
                         @form.initial_page_components_for_select,
-                        selected: current_assembly.initial_page_component_id
+                        selected: current_assembly.try(:initial_page_component_id)
                       ) %>
       <p class="help-text"><%= t(".initial_page_component_id_help") %></p>
     </div>
