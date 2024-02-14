@@ -20,12 +20,20 @@ pt-BR:
         date: Data
         link: Link
         title: Título
+      assembly:
+        initial_page_component_id: Página Principal da Assembléia
   decidim:
+    govbr:
+      initial_page_type:
+        default: Página Padrão
     assemblies:
       admin:
         partners:
           index:
             title: Organizadores e Apoiadores
+        assemblies:
+          form:
+            initial_page_component_id_help: Selecione qual componente será utilizado como a página principal desta assembléia. Apenas Páginas Estáticas e Páginas Iniciais serão exibidas aqui como opção. Caso não queira uma página inicial customizada, deixe marcada a opção "Página Padrão"
     participatory_processes:
       admin:
         partners:
@@ -108,12 +116,20 @@ pt:
         date: Data
         link: Link
         title: Título
+      assembly:
+        initial_page_component_id: Página Principal da Assembléia
   decidim:
+    govbr:
+      initial_page_type:
+        default: Página Padrão
     assemblies:
       admin:
         partners:
           index:
             title: Organizadores e Apoiadores
+        assemblies:
+          form:
+            initial_page_component_id_help: Selecione qual componente será utilizado como a página principal desta assembléia. Apenas Páginas Estáticas e Páginas Iniciais serão exibidas aqui como opção. Caso não queira uma página inicial customizada, deixe marcada a opção "Página Padrão"
     participatory_processes:
       admin:
         partners:
@@ -221,12 +237,20 @@ en:
         date: Date
         link: Link
         title: Title
+      assembly:
+        initial_page_component_id: The Assembly Main Page
   decidim:
+    govbr:
+      initial_page_type:
+        default: Default Page
     assemblies:
       admin:
         partners:
           index:
             title: Organizers and Supporters
+        assemblies:
+          form:
+            initial_page_component_id_help: Select the component to be used as the assembly main page. Only Static Pages and Initial Pages are displayed here as options. If a custom main page is not necessary, keep the option "Default Page" selected.
     participatory_processes:
       admin:
         partners:
@@ -299,12 +323,20 @@ es-MX:
         date: Fecha
         link: Enlace
         title: Título
+      assembly:
+        initial_page_component_id: La página Principal de la Asamblea
   decidim:
+    govbr:
+      initial_page_type:
+        default: Página Predeterminada
     assemblies:
       admin:
         partners:
           index:
             title: Organizadores y Simpatizantes
+        assemblies:
+          form:
+            initial_page_component_id_help: Seleccione el componente que se utilizará como página principal del ensamblaje. Aquí sólo se muestran como opciones Páginas estáticas y Páginas iniciales. Si no es necesaria una página principal personalizada, mantenga seleccionada la opción "Página Predeterminada".
     participatory_processes:
       admin:
         partners:
@@ -377,12 +409,20 @@ es-PY:
         date: Fecha
         link: Enlace
         title: Título
+      assembly:
+        initial_page_component_id: La página Principal de la Asamblea
   decidim:
+    govbr:
+      initial_page_type:
+        default: Página Predeterminada
     assemblies:
       admin:
         partners:
           index:
             title: Organizadores y Simpatizantes
+        assemblies:
+          form:
+            initial_page_component_id_help: Seleccione el componente que se utilizará como página principal del ensamblaje. Aquí sólo se muestran como opciones Páginas estáticas y Páginas iniciales. Si no es necesaria una página principal personalizada, mantenga seleccionada la opción "Página Predeterminada".
     participatory_processes:
       admin:
         partners:
@@ -455,12 +495,20 @@ es:
         date: Fecha
         link: Enlace
         title: Título
+      assembly:
+        initial_page_component_id: La página Principal de la Asamblea
   decidim:
+    govbr:
+      initial_page_type:
+        default: Página Predeterminada
     assemblies:
       admin:
         partners:
           index:
             title: Organizadores y Simpatizantes
+        assemblies:
+          form:
+            initial_page_component_id_help: Seleccione el componente que se utilizará como página principal del ensamblaje. Aquí sólo se muestran como opciones Páginas estáticas y Páginas iniciales. Si no es necesaria una página principal personalizada, mantenga seleccionada la opción "Página Predeterminada".
     participatory_processes:
       admin:
         partners:
