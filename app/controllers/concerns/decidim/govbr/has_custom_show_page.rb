@@ -25,7 +25,7 @@ module Decidim
       end
 
       def initial_page_component
-        @initial_page_component ||= Decidim::Component.find_by(id: initial_page_component_id, manifest_name: initial_page_type)
+        @initial_page_component ||= current_participatory_space.components.where(id: initial_page_component_id, manifest_name: initial_page_type).first
       end
 
       def decidim_participatory_space_homes_path(*args)
