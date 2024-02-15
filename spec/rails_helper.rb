@@ -20,6 +20,9 @@ Dir[File.join('spec', 'shared', '*_examples.rb')].map { |file| require_relative 
 
 require 'component.rb'
 
+# Loads Attachment Helpers from Decidim Dev
+require 'decidim/dev/test/rspec_support/attachment_helpers'
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
