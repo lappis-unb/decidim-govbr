@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_11_190548) do
+ActiveRecord::Schema.define(version: 2024_02_13_153444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -208,6 +208,8 @@ ActiveRecord::Schema.define(version: 2024_02_11_190548) do
     t.integer "weight", default: 1, null: false
     t.integer "follows_count", default: 0, null: false
     t.jsonb "announcement"
+    t.string "initial_page_type", default: "default", null: false
+    t.bigint "initial_page_component_id"
     t.index ["decidim_area_id"], name: "index_decidim_assemblies_on_decidim_area_id"
     t.index ["decidim_assemblies_type_id"], name: "index_decidim_assemblies_on_decidim_assemblies_type_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_assembly_slug_and_organization", unique: true
@@ -1542,6 +1544,8 @@ ActiveRecord::Schema.define(version: 2024_02_11_190548) do
     t.integer "weight", default: 1, null: false
     t.integer "follows_count", default: 0, null: false
     t.bigint "decidim_participatory_process_type_id"
+    t.string "initial_page_type", default: "default", null: false
+    t.bigint "initial_page_component_id"
     t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id"
