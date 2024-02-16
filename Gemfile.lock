@@ -967,11 +967,8 @@ DEPENDENCIES
   decidim-conferences (= 0.27.2)
   decidim-consultations (= 0.27.2)
   decidim-dev (= 0.27.2)
-<<<<<<< HEAD
-  decidim-homes!
-=======
   decidim-extra_user_fields!
->>>>>>> 104f31f (adiciona campos extras ao perfil de usuário)
+  decidim-homes!
   decidim-initiatives (= 0.27.2)
   devise-i18n
   dotenv-rails
