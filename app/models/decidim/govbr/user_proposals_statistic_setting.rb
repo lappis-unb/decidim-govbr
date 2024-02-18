@@ -6,7 +6,22 @@ module Decidim
     class UserProposalsStatisticSetting < ApplicationRecord
       self.table_name = 'decidim_govbr_user_proposals_statistic_settings'
 
-      has_many :user_proposals_statistics, class_name: 'Decidim::Govbr::UserProposalsStatistic'
+      include Decidim::Traceable
+      include Decidim::Loggable
+
+      belongs_to :decidim_participatory_space, polymorphic: true
+      has_many :user_proposals_statistics, class_name: 'Decidim::Govbr::UserProposalsStatistic', dependent: :destroy
+
+      alias participatory_space decidim_participatory_space
+      alias participatory_space= decidim_participatory_space=
+
+      def self.log_presenter_class_for(_log)
+        Decidim::Govbr::AdminLog::UserProposalsStatisticSettingPresenter
+      end
+
+      def csv_file_name
+        "#{name.delete(",;").parameterize}-#{Date.today}.csv"
+      end
 
       def user_proposals_statistics_as_csv
         attributes = Decidim::Govbr::UserProposalsStatistic.csv_attributes_header_map
@@ -62,7 +77,7 @@ module Decidim
 
         Decidim::Govbr::UserProposalsStatistic.insert_all(statistic_data.values)
 
-        self.touch
+        update_column(:statistics_data_updated_at, Time.zone.now)
       end
 
       def get_user_proposals_data

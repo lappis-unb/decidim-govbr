@@ -244,7 +244,8 @@ module Decidim
           :space_private_user,
           :export_space,
           :import,
-          :media_link
+          :media_link,
+          :user_proposals_statistic_setting
         ].include?(permission_action.subject)
         allow! if is_allowed
       end
@@ -265,7 +266,8 @@ module Decidim
           :space_private_user,
           :export_space,
           :import,
-          :media_link
+          :media_link,
+          :user_proposals_statistic_setting
         ].include?(permission_action.subject)
         allow! if is_allowed
       end
