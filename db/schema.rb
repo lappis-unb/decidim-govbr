@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_13_153444) do
+ActiveRecord::Schema.define(version: 2024_02_18_030602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -453,8 +453,8 @@ ActiveRecord::Schema.define(version: 2024_02_13_153444) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "participatory_space_type", null: false
-    t.boolean "hide_in_menu"
     t.jsonb "singular_name"
+    t.boolean "hide_in_menu"
     t.index ["participatory_space_id", "participatory_space_type"], name: "index_decidim_components_on_decidim_participatory_space"
   end
 
@@ -940,6 +940,7 @@ ActiveRecord::Schema.define(version: 2024_02_13_153444) do
     t.integer "users_to_be_exported", default: 200, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "statistics_data_updated_at", precision: 6
     t.index ["decidim_participatory_space_type", "decidim_participatory_space_id"], name: "user_proposals_statistic_settings_participatory_space_idx"
   end
 

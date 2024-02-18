@@ -1,0 +1,8 @@
+<% add_decidim_page_title(t("user_proposals_statistic_setting.edit.title", scope: "decidim.admin")) %>
+<%= decidim_form_for(@form, url: participatory_space_user_proposals_statistic_setting_path(@statistic_setting.participatory_space, @statistic_setting), html: { class: "form edit_statistic_setting_link" }) do |f| %>
+  <%= render partial: "form", object: f, locals: { title: t("user_proposals_statistic_setting.edit.title", scope: "decidim.admin") } %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t("user_proposals_statistic_setting.edit.update", scope: "decidim.admin") %>
+  </div>
+<% end %>

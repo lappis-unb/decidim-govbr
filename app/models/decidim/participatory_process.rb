@@ -66,6 +66,8 @@ module Decidim
 
     has_many :media_links, as: :participatory_space, class_name: "Decidim::Govbr::MediaLink", inverse_of: :participatory_space, dependent: :destroy
 
+    has_many :user_proposals_statistic_settings, as: :decidim_participatory_space, class_name: "Decidim::Govbr::UserProposalsStatisticSetting", inverse_of: :decidim_participatory_space, dependent: :destroy
+
     attr_readonly :active_step
 
     validates :slug, uniqueness: { scope: :organization }

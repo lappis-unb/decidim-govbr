@@ -40,4 +40,16 @@ FactoryBot.define do
     body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     component { build(:component, manifest_name: "pages") }
   end
+
+  factory :statistic_setting, class: "Decidim::Govbr::UserProposalsStatisticSetting" do
+    name { "User Proposals Statistic Report" }
+    proposals_done_weight { Faker::Number.between(from: 1, to: 10) }
+    comments_done_weight { Faker::Number.between(from: 1, to: 10) }
+    votes_done_weight { Faker::Number.between(from: 1, to: 10) }
+    follows_done_weight { Faker::Number.between(from: 1, to: 10) }
+    votes_received_weight { Faker::Number.between(from: 1, to: 10) }
+    comments_received_weight { Faker::Number.between(from: 1, to: 10) }
+    follows_received_weight { Faker::Number.between(from: 1, to: 10) }
+    users_to_be_exported { Faker::Number.between(from: 1, to: 10) }
+  end
 end
