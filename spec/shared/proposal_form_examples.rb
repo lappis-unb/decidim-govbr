@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-
-
 shared_examples "a proposal form" do |options|
   include TranslateHelper
   subject { form }
@@ -178,9 +176,8 @@ shared_examples "a proposal form" do |options|
       end
 
       context "when the proposal is unchanged" do
-        
         let(:previous_proposal) { create(:proposal, address: address) }
-        
+
         let(:title) do
           if options[:skip_etiquette_validation]
             previous_proposal.title
