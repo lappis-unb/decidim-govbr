@@ -6,16 +6,11 @@
     width: 100%;
 
 }
-.section-heading {
-    display: flex;
-    text-align: center;
-    color: var(--blue-warm-vivid-80);
-    height: 55px;
-    width: 100%;
+.attachments .section-heading {
+    margin: 0 0 2rem 0;
 }
 
 .download-attachment {
-    filter: invert(21%) sepia(60%) saturate(2546%) hue-rotate(204deg) brightness(100%) contrast(94%);
     width: 15px;
     height: 15px;
 }
@@ -25,7 +20,6 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
     gap: 24px;
     background-color: var(--blue-3);
-    justify-content: center; 
 }
 
 .card.br-card--list .br-card--list__data{
@@ -50,7 +44,7 @@
     align-items: center;
     align-content: center;
     text-transform: none;
-    color: var(--Blue-Warm-Vivid-blue-warm-vivid-70, #1351B4);
+    color: var(--blue-warm-vivid-60);
     font-variant-numeric: lining-nums proportional-nums;
     font-family: Rawline;
     font-style: normal;
@@ -58,9 +52,9 @@
     line-height: normal;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 80%;
+    max-width: 75%;
     white-space: nowrap;
-
+    
     @media (max-width: 400px) {
         max-width: 100px;
     }
@@ -70,12 +64,11 @@
     min-width: 200px;
     display: flex;
     border-radius: 10px;
-    background-color: var(--blue-3);
     height: 40px;
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    border: 1px solid var(--blue-warm-vivid-80);
+    border: 1px solid var(--blue-warm-vivid-70);
     gap: 12px;
 }
 
@@ -85,7 +78,7 @@
     max-height: 40px;
     text-align: center;
     align-items: center;
-    color: var(--Blue-Warm-Vivid-blue-warm-vivid-70, #1351B4);
+    color: var(--blue-warm-vivid-70);
     font-variant-numeric: lining-nums proportional-nums;
     font-family: Rawline;
     font-size: 14px;
@@ -98,6 +91,7 @@
 .br-card--list__data__icon{
     display: flex;
     align-items: center;
+    color: var(--blue-warm-vivid-70);
 }
 
 .br-message.info {
@@ -109,16 +103,25 @@
     align-items: center;
 }
 
-small {
+.doc_extension {
     text-transform: lowercase;
     text-align: left;
 }
 
-.grid.attachments.images {
+.attachments.images {
     background-color: white;
 }
 
 .section.images h3 {
     font-style: normal;
     font-weight: 600;
+}
+
+.attachments{
+    background-color: var(--blue-3);
+    display: flex;
+    justify-content: center;flex-direction: column;
+    padding: 20px;
+    border-radius: 10px; 
+    
 }

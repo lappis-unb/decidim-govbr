@@ -11,6 +11,7 @@ module Decidim
       mimic :component
 
       translatable_attribute :name, String
+      translatable_attribute :singular_name, String
       validates :name, translatable_presence: true
 
       attribute :weight, Integer, default: 0
