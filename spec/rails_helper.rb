@@ -19,7 +19,13 @@ require "shared/proposal_form_examples"
 require "shared/scopable_resource_examples"
 require "shared/translate_helper"
 
+# Requires all rspec examples
+Dir[File.join('spec', 'shared', '*_examples.rb')].map { |file| require_relative "shared/#{file.split('/').last}" }
+
 require 'component.rb'
+
+# Loads Attachment Helpers from Decidim Dev
+require 'decidim/dev/test/rspec_support/attachment_helpers'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -80,4 +86,12 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  RSpec::Matchers.define :be_versioned do
+    match { |actual| actual.is_a?(::PaperTrail::Model::InstanceMethods) }
+  end
+
+  RSpec::Matchers.define :be_partnerable do
+    match { |actual| actual.is_a?(Decidim::Govbr::HasPartners) }
+  end
 end
