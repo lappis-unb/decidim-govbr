@@ -70,12 +70,12 @@ describe Decidim::Proposals::Admin::UpdateProposal do
       end
 
       it "updates the proposal" do
-        locale = "#{I18n.locale}"
+        locale = I18n.locale.to_s
         expect do
           command.call
-        end.to change {[proposal.title[locale], proposal.is_interactive]}.to(
-       ["A reasonable proposal title", false]
-      )
+        end.to change { [proposal.title[locale], proposal.is_interactive] }.to(
+          ["A reasonable proposal title", false]
+        )
       end
 
       it "traces the update", versioning: true do
