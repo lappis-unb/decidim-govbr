@@ -2012,6 +2012,12 @@ span.flatpickr-weekday {
   --font-weight-bold: 700;
   --font-weight-extra-bold: 800;
   --font-weight-black: 900;
+  --font-size-10: 10px;
+  --font-size-11: 11px;
+  --font-size-20: 20px;
+  --font-size-32: 32px;
+  --font-size-32: 48px;
+  --font-size-96: 96px;
   --font-size-scale-base: 14px;
   --font-size-scale-down-01: 11.662px;
   --font-size-scale-down-02: 9.716px;
@@ -24779,10 +24785,9 @@ hr {
     justify-content: center;
     gap: 8px;
     text-align: center;
-    border-top: 1px solid #303947;
-    border-bottom: 1px solid #303947;
     padding: 16px 0;
     margin: 0 30px;
+    flex-wrap: wrap;
   }
 
 
