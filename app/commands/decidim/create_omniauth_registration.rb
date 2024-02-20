@@ -32,6 +32,7 @@ module Decidim
         transaction do
           create_or_find_user
           @identity = create_identity
+          grant_authorization
         end
         trigger_omniauth_registration
 
@@ -138,6 +139,19 @@ module Decidim
         raw_data: form.raw_data
       )
     end
+
+    def grant_authorization
+      # If the Authorization option is enabled in the admin panel, all users will be required to upload 
+      # an identification document. However, this verification is not intended for users who registered 
+      # through govbr. In this method, authorization is granted to users registered with govbr.
+
+      @authorization = Decidim::Authorization.find_or_initialize_by(user: @user, name: "id_documents")
+      
+      if @authorization
+        @authorization.grant!
+      end
+    end
+
   end
 
   class InvalidOauthSignature < StandardError
