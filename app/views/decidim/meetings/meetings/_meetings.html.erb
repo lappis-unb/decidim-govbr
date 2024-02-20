@@ -20,14 +20,15 @@
    <p id="meetings-count" class="title-action__title section-heading meeting-counter-text">
       <%= render partial: "count" %>
     </p>
-
-    <%= render partial: "decidim/meetings/calendar_modal", locals: {
+    <div class="export-buttons">
+      <%= render partial: "decidim/meetings/meetings/export_modal"%>
+      <%= render partial: "decidim/meetings/calendar_modal", locals: {
       path: short_url(
         route_name: "calendar",
         params: { filter: params.fetch(:filter, {}).try(:to_unsafe_hash) }
       )
     } %>
-   
+   </div>
 </div>
 
 <div class="card-grid meetings-content">

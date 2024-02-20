@@ -122,7 +122,7 @@
       <%= render partial: "decidim/shared/share_modal" %>
       <%= embed_modal_for meeting_widget_url(meeting, format: :js) %>
       <%= render partial: "calendar_modal", locals: { ics_url: calendar_meeting_url(meeting), google_url: google_calendar_event_url(meeting) } %>
-    </div>
+      </div>
     <div class="columns mediumlarge-8 mediumlarge-pull-4">
       <div class="section">
         <% if meeting.private_meeting? %>
