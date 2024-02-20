@@ -51,6 +51,7 @@ module Decidim
         attribute :hero_image
         attribute :remove_banner_image, Boolean, default: false
         attribute :remove_hero_image, Boolean, default: false
+        attribute :group_chat_id, String
 
         validate :initial_page_component_existence
 
@@ -76,6 +77,8 @@ module Decidim
           self.related_process_ids = model.linked_participatory_space_resources(:participatory_process, "related_processes").pluck(:id)
           @processes = Decidim::ParticipatoryProcess.where(organization: model.organization).where.not(id: model.id)
         end
+
+
 
         def scope
           @scope ||= current_organization.scopes.find_by(id: scope_id)
