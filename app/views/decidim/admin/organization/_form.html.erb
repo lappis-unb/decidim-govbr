@@ -60,11 +60,16 @@
   </div>
 </div>
 
+
+
+<%= link_to Decidim::Admin::OrganizationForm.update_menu_links(Decidim::Admin::OrganizationForm.generate_menu_links) %>
+
 <div class="row">
   <div class="columns xlarge-6">
     <%= form.text_field :menu_links %>
   </div>
 </div>
+
 
 <div class="row" >
   <div class="columns xlarge-6">
