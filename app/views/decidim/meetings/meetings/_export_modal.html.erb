@@ -1,0 +1,21 @@
+<button class="button button--title share-link text-center" data-open="export_data">
+  <%= t("add_to_calendar", scope: "decidim.meetings.meetings.calendar_modal" ) %>
+  <i class="fa-regular fa-calendar m-2"></i>
+</button>
+<div class="reveal" id="export_data" data-reveal>
+<%= form_tag("https://jsonplaceholder.typicode.com/", method: :post, remote: true) do %>
+<div class="col-sm-6 col-md-4 col-lg-3">
+<!-- [html-validate-disable input-attributes]-->
+<div class="br-datetimepicker" data-mode="range" data-type="text">
+  <div class="br-input has-icon">
+    <label for="range-input">Datepicker com range com a data inicial de 15/04/2022</label>
+    <input id="range-input" type="text" name="date_range" placeholder="exemplo: 02/02/2024 até 03/02/2025" data-input="data-input"/>
+    <button class="br-button circle small" type="button" aria-label="Abrir Timepicker" data-toggle="data-toggle" id="range-input-btn" tabindex="-1" aria-hidden="true"><i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    </button>
+    <button class="button button--title share-link text-center" type="submit"> Enviar </button>
+  </div>
+</div>
+</div>
+<%end%>
+
+</div>
