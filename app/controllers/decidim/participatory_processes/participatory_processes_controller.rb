@@ -132,6 +132,9 @@ module Decidim
       def linked_assemblies
         @linked_assemblies ||= current_participatory_space.linked_participatory_space_resources(:assembly, "included_participatory_processes").public_spaces
       end
+
+      alias decidim_participatory_space_homes_path decidim_participatory_process_homes_path
+      alias decidim_participatory_space_pages_path decidim_participatory_process_pages_path
     end
   end
 end
