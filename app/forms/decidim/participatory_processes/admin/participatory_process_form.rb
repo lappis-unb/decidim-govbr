@@ -78,8 +78,6 @@ module Decidim
           @processes = Decidim::ParticipatoryProcess.where(organization: model.organization).where.not(id: model.id)
         end
 
-
-
         def scope
           @scope ||= current_organization.scopes.find_by(id: scope_id)
         end
