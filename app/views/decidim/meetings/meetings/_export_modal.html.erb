@@ -3,7 +3,7 @@
   <i class="fa-regular fa-calendar m-2"></i>
 </button>
 <div class="reveal" id="export_data" data-reveal>
-<%= form_tag("https://jsonplaceholder.typicode.com/", method: :post, remote: true) do %>
+<%= form_tag("https://jsonplaceholder.typicode.com/", method: :post, remote: true, :id => "dateRangeForm") do %>
 <div class="col-sm-6 col-md-4 col-lg-3">
 <!-- [html-validate-disable input-attributes]-->
 <div class="br-datetimepicker" data-mode="range" data-type="text">
@@ -19,3 +19,32 @@
 <%end%>
 
 </div>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('dateRangeForm').addEventListener('submit', function(event) {
+      console.log("dadwadadwd")
+      var dateRangeInput = document.getElementById('range-input');
+      if (!dateRangeInput.value) {
+        event.preventDefault(); // Prevent form submission
+        alert('Passe uma data valida');
+        return;
+      }
+
+      // Listen for the ajax:success event
+      this.addEventListener('ajax:success', function() {
+        // Open the modal on successful form submission
+        alert('Requisição enviada com sucesso!');
+      });
+
+      // Listen for the ajax:error event
+      this.addEventListener('ajax:error', function(event) {
+        alert('Erro ao enviar pedido, tente novamente mais tarde.');
+        var detail = event.detail;
+        var xhr = detail[0], status = detail[1], error = detail[2];
+        console.error('Error:', error); // Handle the error
+      });
+    });
+  });
+</script>
