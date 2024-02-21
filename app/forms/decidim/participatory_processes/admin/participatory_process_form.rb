@@ -51,6 +51,7 @@ module Decidim
         attribute :hero_image
         attribute :remove_banner_image, Boolean, default: false
         attribute :remove_hero_image, Boolean, default: false
+        attribute :group_chat_id, String
 
         validate :initial_page_component_existence
 
