@@ -30,7 +30,7 @@ module Decidim
       def show
         enforce_permission_to :read, :process, process: current_participatory_space
 
-        redirect_to_custom_show_page_if_necessary
+        render_custom_show_page_if_necessary
       end
 
       def all_metrics
