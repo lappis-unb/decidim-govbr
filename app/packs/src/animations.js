@@ -18,10 +18,17 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(cardAnimation);
   });
 
+  var filters = document.querySelectorAll(".proposals_filters_checkbox");
+  filters.forEach(function (filter) {
+    filter.addEventListener("change", function () {
+      filter.closest("form").submit();
+    });
+  });
+
   var avatarButton = document.getElementById("avatar-dropdown-trigger");
   var userMenuLinks = document.querySelectorAll(".br-list-dropdown a");
   var userMenu = document.getElementById("avatar-menu");
-  
+
   if (avatarButton) {
     avatarButton.addEventListener("click", function () {
       userMenuLinks.forEach(function (link, i) {
