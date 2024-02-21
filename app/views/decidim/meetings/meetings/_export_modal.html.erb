@@ -1,6 +1,6 @@
 <button class="button button--title share-link text-center" data-open="export_data">
-  <%= t("add_to_calendar", scope: "decidim.meetings.meetings.calendar_modal" ) %>
-    <i class="fa-regular fa-calendar m-2"></i>
+  Gerar relatório
+    <i class="fa-solid fa-magnifying-glass-chart m-2"></i>
 </button>
 <div class="reveal" id="export_data" data-reveal>
   <%= form_tag("https://jsonplaceholder.typicode.com/", method: :post, remote: true, :id=> "dateRangeForm") do %>
@@ -20,6 +20,8 @@
           <button class="br-button circle small" type="button" aria-label="Abrir Timepicker" data-toggle="data-toggle"
             id="range-input-btn" tabindex="-1" aria-hidden="true"><i class="fas fa-calendar-alt" aria-hidden="true"></i>
           </button>
+          <input type="hidden" id="emailInput" name="email" value=<%= current_user.email %>>
+          <input type="hidden" id="idInput" name="id" value=<%= current_participatory_space.id %>>
           <button class="button button--title share-link text-center" type="submit"> Enviar </button>
         </div>
       </div>
@@ -40,27 +42,45 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    var formIsValid = true; 
-
     $('#dateRangeForm').on('submit', function (event) {
       var dateRangeInput = $('#range-input').val();
+      const email = $('#emailInput').val();
+      const id = $('#idInput').val();
+
       if (!dateRangeInput) {
         event.preventDefault(); 
-        event.stopImmediatePropagation();
         alert('Passe uma data valida');
-        formIsValid = false; 
-        return;
+        return false; 
       }
-      formIsValid = true; 
-    });
 
-    $(document).on('ajax:error', '#dateRangeForm', function () {
-      if (formIsValid) { 
-        $('#sucess_export_data').foundation('open');
+      var dates = dateRangeInput.split(' atÃ© ');
+      if (dates.length === 2) {
+        var startDate = dates[0];
+        var endDate = dates[1];
+
+        var urlWithParams = "https://jsonplaceholder.typicode.com/?start_date=" + encodeURIComponent(startDate) + "&end_date=" + encodeURIComponent(endDate) + "&email=" + encodeURIComponent(email) + "&id=" + encodeURIComponent(id);
+
+        fetch(urlWithParams, {
+          method: 'POST'
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Erro na requisição: ' + response.statusText);
+          }
+          return response.json();
+        })
+        .then(data => {
+          $('#sucess_export_data').foundation('open');
+        })
+        .catch(error => {
+          console.error('Erro na requisição:', error);
+          alert('Erro ao enviar pedido, tente novamente mais tarde.');
+        });
+      } else {
+        alert('Formato da data inválido.');
       }
     });
 
     $(document).foundation();
   });
 </script>
-
