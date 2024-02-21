@@ -26,7 +26,6 @@ services:
       - 1080:1080
     volumes:
       - .:/decidim-govbr:cached
-      - ../decidim-extra_user_fields:/decidim-govbr/vendor/decidim-extra_user_fields
     networks:
       - decidim-network
     depends_on:

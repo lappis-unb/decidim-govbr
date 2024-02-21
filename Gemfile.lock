@@ -14,8 +14,9 @@ GIT
     decidim-homes (0.27.2)
       decidim-core (= 0.27.2)
 
-PATH
-  remote: vendor/decidim-extra_user_fields
+GIT
+  remote: https://gitlab.com/lappis-unb/decidimbr/decidim-extra_user_fields.git
+  revision: c8112f5766a6676360b9d261a1462cf01f6e7d6c
   specs:
     decidim-extra_user_fields (0.27.2)
       country_select (~> 4.0)
