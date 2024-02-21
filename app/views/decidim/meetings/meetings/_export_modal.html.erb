@@ -1,58 +1,65 @@
 <button class="button button--title share-link text-center" data-open="export_data">
   <%= t("add_to_calendar", scope: "decidim.meetings.meetings.calendar_modal" ) %>
-  <i class="fa-regular fa-calendar m-2"></i>
+    <i class="fa-regular fa-calendar m-2"></i>
 </button>
 <div class="reveal" id="export_data" data-reveal>
-<%= form_tag("https://jsonplaceholder.typicode.com/", method: :post, remote: true, :id => "dateRangeForm") do %>
-<div class="reveal__header">
-<h2 class="reveal__title">Gerar Relatório</h2>
-<button class="close-button" data-close aria-label="<%= t("close_window", scope: "decidim.meetings.meetings.calendar_modal") %>" type="button">
-  <span aria-hidden="true">&times;</span>
-</button>
+  <%= form_tag("https://jsonplaceholder.typicode.com/", method: :post, remote: true, :id=> "dateRangeForm") do %>
+    <div class="reveal__header">
+      <h2 class="reveal__title">Gerar Relatório</h2>
+      <button class="close-button" data-close aria-label="<%= t("close_window", scope: "decidim.meetings.meetings.calendar_modal" ) %>" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3">
+      <!-- [html-validate-disable input-attributes]-->
+      <div class="br-datetimepicker" data-mode="range" data-type="text">
+        <div class="br-input has-icon">
+          <label for="range-input">Escolha as datas para o recebimento do relatório deste processo</label>
+          <input id="range-input" type="text" name="date_range" placeholder="exemplo: 02/02/2024 até 03/02/2025"
+            data-input="data-input" />
+          <button class="br-button circle small" type="button" aria-label="Abrir Timepicker" data-toggle="data-toggle"
+            id="range-input-btn" tabindex="-1" aria-hidden="true"><i class="fas fa-calendar-alt" aria-hidden="true"></i>
+          </button>
+          <button class="button button--title share-link text-center" type="submit"> Enviar </button>
+        </div>
+      </div>
+    </div>
+  <%end%>
 </div>
 
-<%= form_tag("https://jsonplaceholder.typicode.com/", method: :post, remote: true, :id => "dateRangeForm") do %>
-<div class="col-sm-6 col-md-4 col-lg-3">
-<!-- [html-validate-disable input-attributes]-->
-<div class="br-datetimepicker" data-mode="range" data-type="text">
-  <div class="br-input has-icon">
-    <label for="range-input">Escolha as datas para o recebimento do relatório deste processo</label>
-    <input id="range-input" type="text" name="date_range" placeholder="exemplo: 02/02/2024 até 03/02/2025" data-input="data-input"/>
-    <button class="br-button circle small" type="button" aria-label="Abrir Timepicker" data-toggle="data-toggle" id="range-input-btn" tabindex="-1" aria-hidden="true"><i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    </button>
-    <button class="button button--title share-link text-center" type="submit"> Enviar </button>
-  </div>
-</div>
-</div>
-<%end%>
-
+<div class="reveal" id="sucess_export_data" data-reveal>
+  
+      <h2 class="reveal__title">Solicitação enviada com sucesso!</h2>
+      <button class="close-button" data-close aria-label="<%= t("close_window", scope: "decidim.meetings.meetings.calendar_modal" ) %>" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    
 </div>
 
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('dateRangeForm').addEventListener('submit', function(event) {
-      console.log("dadwadadwd")
-      var dateRangeInput = document.getElementById('range-input');
-      if (!dateRangeInput.value) {
-        event.preventDefault(); // Prevent form submission
+  document.addEventListener('DOMContentLoaded', function () {
+    var formIsValid = true; 
+
+    $('#dateRangeForm').on('submit', function (event) {
+      var dateRangeInput = $('#range-input').val();
+      if (!dateRangeInput) {
+        event.preventDefault(); 
+        event.stopImmediatePropagation();
         alert('Passe uma data valida');
+        formIsValid = false; 
         return;
       }
-
-      // Listen for the ajax:success event
-      this.addEventListener('ajax:success', function() {
-        // Open the modal on successful form submission
-        alert('Requisição enviada com sucesso!');
-      });
-
-      // Listen for the ajax:error event
-      this.addEventListener('ajax:error', function(event) {
-        alert('Erro ao enviar pedido, tente novamente mais tarde.');
-        var detail = event.detail;
-        var xhr = detail[0], status = detail[1], error = detail[2];
-        console.error('Error:', error); // Handle the error
-      });
+      formIsValid = true; 
     });
+
+    $(document).on('ajax:error', '#dateRangeForm', function () {
+      if (formIsValid) { 
+        $('#sucess_export_data').foundation('open');
+      }
+    });
+
+    $(document).foundation();
   });
 </script>
+
