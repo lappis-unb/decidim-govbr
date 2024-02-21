@@ -2,124 +2,9 @@
   <div class="br-container-lg">
     <div class="logo"><img src="https://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaGxXIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--58ec2fccc15b4935104a1befc1f8a048538cf0b6/logo%20bp%20-%20white.png" alt="Imagem"/></div>
     <div class="br-list horizontal" data-toggle="data-toggle" data-sub="data-sub">
-      <div class="br-col-2">
-        <a class="br-item header" href="/">
-          <div class="content text-down-01 text-bold text-uppercase">Início</div>
-        </a>
-      </div>
-      <div class="br-col-2">
-        <a class="br-item header" href="/processes/brasilparticipativo/f/26/">
-          <div class="content text-down-01 text-bold text-uppercase">Notícias</div>
-        </a>
-      </div>
-      <div class="br-col-2"><a class="br-item header" href="javascript:void(0)">
-          <div class="content text-down-01 text-bold text-uppercase">Processos Participativos</div>
-          <div class="support"><i class="fas fa-angle-down" aria-hidden="true"></i>
-          </div></a>
-        <div class="br-list"><span class="br-divider d-md-none"></span>
-          <a class="br-item" href="/assemblies/">
-            <div class="content">Conferências</div>
-          </a>
-          <a class="br-item" href="/processes/programas/f/45/">
-            <div class="content">PPA</div>
-          </a>
-          <%
-=begin%>
- <a class="br-item" href="javascript:void(0)">
-            <div class="content">Colegiados</div>
-          </a>
-          <a class="br-item" href="javascript:void(0)">
-            <div class="content">Consultas Públicas</div>
-          </a>
-          <a class="br-item" href="javascript:void(0)">
-            <div class="content">Enquetes</div>
-          </a>
-          <a class="br-item" href="javascript:void(0)">
-            <div class="content">Audiências Públicas</div>
-          </a>
-<%
-=end%>
-          <span class="br-divider d-md-none"></span>
-        </div>
-      </div>
-      <div class="br-col-2">
-        <a class="br-item header" href="javascript:void(0)">
-          <div class="content text-down-01 text-bold text-uppercase">Canais de Atendimento</div>
-          <div class="support"><i class="fas fa-angle-down" aria-hidden="true"></i>
-          </div>
-        </a>
-        <div class="br-list">
-          <span class="br-divider d-md-none"></span>
-          <a class="br-item" href="https://falabr.cgu.gov.br/web/home">
-              <div class="content">Fale Conosco</div>
-            </a>
-            <a class="br-item" href="https://falabr.cgu.gov.br/web/home?modoOuvidoria=1">
-              <div class="content">Ouvidoria</div>
-            </a>
-            <a class="br-item" href="https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/area-de-imprensa">
-              <div class="content">Área de Imprensa</div>
-            </a>
-            <a class="br-item" href="https://falabr.cgu.gov.br/web/home">
-              <div class="content">Serviço de Informação do Cidadão (SIC)</div>
-            </a>
-          <span class="br-divider d-md-none"></span>
-        </div>
-      </div>
-<%
-=begin%>
-      <div class="br-col-2">
-        <a class="br-item header" href="javascript:void(0)">
-          <div class="content text-down-01 text-bold text-uppercase">Central de Conteúdo</div>
-          <div class="support">
-            <i class="fas fa-angle-down" aria-hidden="true"></i>
-          </div>
-        </a>
-        <div class="br-list">
-          <span class="br-divider d-md-none"></span>
-          <a class="br-item" href="javascript:void(0)">
-            <div class="content">Imagem</div>
-          </a>
-          <a class="br-item" href="javascript:void(0)">
-            <div class="content">Vídeo</div>
-          </a>
-          <a class="br-item" href="javascript:void(0)">
-            <div class="content">Redes</div>
-          </a>
-          <a class="br-item" href="javascript:void(0)">
-            <div class="content">Manuais</div>
-          </a>
-          <a class="br-item" href="javascript:void(0)">
-            <div class="content">Cursos EVG</div>
-          </a>
-          <span class="br-divider d-md-none"></span>
-        </div>
-      </div>
-<%
-=end%>
-      <div class="br-col-2">
-        <a class="br-item header" href="javascript:void(0)">
-          <div class="content text-down-01 text-bold text-uppercase">Sobre</div>
-          <div class="support">
-            <i class="fas fa-angle-down" aria-hidden="true"></i>
-          </div>
-        </a>
-        <div class="br-list">
-          <span class="br-divider d-md-none"></span>
-          <a class="br-item" href="/processes/programas/f/33/">
-            <div class="content">Quem Somos</div>
-          </a>
-          <a class="br-item" href="/processes/programas/f/33/">
-            <div class="content">O que fazemos</div>
-          </a>
-          <a class="br-item" href="/pages/terms-and-conditions">
-            <div class="content">Termos e Condições de Uso</div>
-          </a>
-          <a class="br-item" href="/open-data/download">
-            <div class="content">Dados Abertos</div>
-          </a>
-          <span class="br-divider d-md-none"></span>
-        </div>
-      </div>
+      
+     <%= render_footer_menu_links(current_organization)%>
+      
     </div>
   </div>
   <div class="br-footer-container">
@@ -188,18 +73,13 @@
           </g>
         </svg>
       </a>
+      <span>
+        v1.0.11
+      </span>
       <p class="p-footer">
         Site desenvolvido com <a target="_blank" href="https://github.com/decidim/decidim" class="br-footer-url"> software livre</a>
         e mantido por <a target="_blank" href="https://www.lappis.rocks" class="br-footer-url"> Lappis</a>
       </p>
   </div>
-<%
-=begin%>
- <div class="br-container-lg">
-    <div class="info">
-      <div class="text-down-01 text-medium pb-3">Texto destinado a exibição de informações relacionadas à&nbsp;<strong>licença de uso.</strong></div>
-    </div>
-  </div>
-<%
-=end%>
+
 </footer>

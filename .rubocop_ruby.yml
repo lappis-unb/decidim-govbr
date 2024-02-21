@@ -1,0 +1,61 @@
+# This file is meant to be a mirror of what we have in Decidim original's file
+# which can be found in https://github.com/decidim/decidim/blob/release/0.27-stable/.rubocop_ruby.yml
+#
+
+# Call super to initialize state of the parent class.
+Lint/MissingSuper:
+  Enabled: false
+
+Metrics/MethodLength:
+  CountComments: false  # count full line comments?
+  Max: 15
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+  SupportedStyles:
+    - single_quotes
+    - double_quotes
+  # If true, strings which span multiple lines using \ for continuation must
+  # use the same type of quotes on each line.
+  ConsistentQuotesInMultiline: false
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    "%":  ()
+    "%i": ()
+    "%q": ()
+    "%Q": ()
+    "%r": "{}"
+    "%s": ()
+    "%w": ()
+    "%W": ()
+    "%x": ()
+
+Metrics/BlockLength:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 211
+  # To make it possible to copy or click on URIs in the code, we allow lines
+  # containing a URI to be longer than Max.
+  AllowHeredoc: true
+  AllowURI: true
+  URISchemes:
+    - http
+    - https
+  Exclude:
+    - "**/spec/**/*"
+    - "db/seeds.rb" # TODO: Remove this
+    - "app/models/decidim/govbr/user_proposals_statistic.rb" # TODO: Remove this
+
+# `MinBodyLength` defines the number of lines of the a body of an if / unless
+# needs to have to trigger this cop
+Style/GuardClause:
+  MinBodyLength: 6
+
+Metrics/AbcSize:
+  # The ABC size is a calculated magnitude, so this number can be an Integer or
+  # a Float.
+  Max: 15
+  Enabled: false
