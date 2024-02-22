@@ -16,7 +16,7 @@ shared_examples "delegates permissions to" do |delegated_class|
       .with(user, permission_action, context)
       .and_return delegated_permissions
 
-    expect(delegated_permissions)
+    expect(delegated_permissions) # rubocop:disable RSpec/StubbedMock
       .to receive(:permissions)
       .and_return(delegated_permission_action)
 

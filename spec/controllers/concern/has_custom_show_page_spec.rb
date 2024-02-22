@@ -52,26 +52,32 @@ module Decidim
 
           context "when page type is pages" do
             let(:page_type) { "pages" }
+
             context "and component id does not belong to a page component" do
               let(:component_id) { 0 }
+
               it { is_expected.to be_nil }
             end
 
             context "and component id belongs to a valid page component" do
               let(:component_id) { actual_pages_component_id }
+
               it { is_expected.to eq("/#{participatory_space.class}/#{participatory_space.id}/pages/#{component_id}") }
             end
           end
 
           context "when page type is homes" do
             let(:page_type) { "homes" }
+
             context "and component id does not belong to a home component" do
               let(:component_id) { 0 }
+
               it { is_expected.to be_nil }
             end
 
             context "and component id belongs to a valid home component" do
               let(:component_id) { actual_homes_component_id }
+
               it { is_expected.to eq("/#{participatory_space.class}/#{participatory_space.id}/homes/#{component_id}") }
             end
           end
