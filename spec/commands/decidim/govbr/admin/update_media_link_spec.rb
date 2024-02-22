@@ -39,16 +39,19 @@ module Decidim
 
         context "when title is absent" do
           let(:title) { nil }
+
           it { expect { subject.call }.to broadcast(:invalid) }
         end
 
         context "when date is absent" do
           let(:date) { nil }
+
           it { expect { subject.call }.to broadcast(:invalid) }
         end
 
         context "when link is invalid" do
           let(:link) { "this is not a link bro" }
+
           it { expect { subject.call }.to broadcast(:invalid) }
         end
 
@@ -59,9 +62,9 @@ module Decidim
             end.to change { media_link.reload && media_link.title }.from(media_link.title).to(title)
           end
 
-          it { expect { subject.call }.to(change { media_link.date }.from(media_link.date).to(date)) }
-          it { expect { subject.call }.to(change { media_link.weight }.from(media_link.weight).to(weight)) }
-          it { expect { subject.call }.to(change { media_link.link }.from(media_link.link).to(link)) }
+          it { expect { subject.call }.to(change(media_link, :date).from(media_link.date).to(date)) }
+          it { expect { subject.call }.to(change(media_link, :weight).from(media_link.weight).to(weight)) }
+          it { expect { subject.call }.to(change(media_link, :link).from(media_link.link).to(link)) }
 
           it "broadcasts ok" do
             expect { subject.call }.to broadcast(:ok)
@@ -81,11 +84,13 @@ module Decidim
 
         context "when participatory space is participatory process," do
           let(:participatory_space) { create(:participatory_process) }
+
           include_examples "when everything is ok"
         end
 
         context "when participatory space is assembly," do
           let(:participatory_space) { create(:assembly) }
+
           include_examples "when everything is ok"
         end
       end
