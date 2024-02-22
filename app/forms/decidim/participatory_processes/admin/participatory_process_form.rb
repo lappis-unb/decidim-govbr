@@ -93,7 +93,7 @@ module Decidim
         def available_initial_page_components
           return Decidim::Component.none unless id
 
-          @available_initial_page_components ||= Decidim::Component.where(participatory_space_type: "Decidim::ParticipatoryProcess", participatory_space_id: id, manifest_name: ["pages", "homes"])
+          @available_initial_page_components ||= Decidim::Component.where(participatory_space_type: "Decidim::ParticipatoryProcess", participatory_space_id: id, manifest_name: %w(pages homes))
         end
 
         def initial_page_components_for_select
