@@ -38,8 +38,17 @@ module Decidim
         search(current_organization.user_entities.available)
       end
 
-      def update_menu_links(updated_menu_links)
-       current_organization.update(menu_links: updated_menu_links)
+      def autofill_menu_links
+        enforce_permission_to :update, :organization, organization: current_organization
+        Govbr::AutofillMenuLinks.call(current_user) do
+          on(:ok) do
+            flash[:notice] = "Menu links atualizados com sucesso"
+          end
+
+          on(:invalid) do
+            flash[:alert] = "Erro ao atualizar menu links"
+          end
+        end
       end
 
       private
