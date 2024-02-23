@@ -15,7 +15,6 @@ module Decidim
             'participatory_processes'
           end
 
-
           "/admin/#{entity_type}/#{participatory_path}/components/#{component_id}/manage/posts/#{news_id}/edit"
         end
 
@@ -25,11 +24,11 @@ module Decidim
           component_name = current_url.split('/')[1]
 
           entity_type = case component_name
-            when 'assemblies'
-              'assemblies'
-            when 'processes'
-              'participatory_processes'
-            end
+          when 'assemblies'
+            'assemblies'
+          when 'processes'
+            'participatory_processes'
+          end
 
           "/admin/#{entity_type}/#{participatory_path}/components/#{component_id}/manage/posts/new"
         end
