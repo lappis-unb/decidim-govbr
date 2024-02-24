@@ -49,6 +49,8 @@ module Decidim
       end
 
       def initial_page_component
+        return unless current_participatory_space
+
         @initial_page_component ||= current_participatory_space.components.where(id: initial_page_component_id, manifest_name: initial_page_type).first
       end
 
