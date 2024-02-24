@@ -61,11 +61,11 @@ module Decidim
       end
 
       def current_settings
-        @current_settings ||= initial_page_component.settings
+        @current_settings ||= initial_page_component&.settings
       end
 
       def component_settings
-        @component_settings ||= initial_page_component.settings
+        @component_settings ||= initial_page_component&.settings
       end
     end
   end
