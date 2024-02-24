@@ -1,3 +1,4 @@
+
 # https://github.com/decidim/decidim/blob/develop/decidim-comments/config/locales/en.yml
 pt-BR:
   activemodel:
@@ -20,7 +21,7 @@ pt-BR:
         one: Contribuição
         other: Contribuições
   decidim:
-    comments:
+    contribuicoes:
       admin:
         shared:
           availability_fields:
