@@ -12,6 +12,11 @@ module Decidim
 
       TYPES = %w(default homes pages).freeze
 
+      included do
+        helper_method :current_settings,
+                      :component_settings
+      end
+
       delegate :initial_page_type, :initial_page_component_id, to: :current_participatory_space
 
       def redirect_to_custom_show_page_if_necessary
@@ -24,7 +29,28 @@ module Decidim
         end
       end
 
+      def render_custom_show_page_if_necessary
+        return if initial_page_type == "default" || initial_page_component_id.blank?
+
+        if initial_page_type == "homes" && initial_page_component
+          @home = Decidim::Homes::Home.find_by(component: initial_page_component)
+          @supporters = current_participatory_space.try(:supporters) || []
+          @organizers = current_participatory_space.try(:organizers) || []
+          @latest_posts = Rails.cache.fetch("decidim_homes_home_#{@home.id}_blogs_#{@home.news_id}_latest_3_posts", expires_in: 2.minutes) do
+            @home.news_section_enabled? ? Decidim::Blogs::Post.where(component: @home.news_id).order(created_at: :desc).limit(3) : []
+          end
+
+          render template: "decidim/homes/application/show"
+        elsif initial_page_type == "pages" && initial_page_component
+          @page = Decidim::Pages::Page.find_by(component: initial_page_component)
+
+          render template: "decidim/pages/application/show"
+        end
+      end
+
       def initial_page_component
+        return unless current_participatory_space
+
         @initial_page_component ||= current_participatory_space.components.where(id: initial_page_component_id, manifest_name: initial_page_type).first
       end
 
@@ -34,6 +60,14 @@ module Decidim
 
       def decidim_participatory_space_pages_path(*args)
         raise NotImplementedError
+      end
+
+      def current_settings
+        @current_settings ||= initial_page_component&.settings
+      end
+
+      def component_settings
+        @component_settings ||= initial_page_component&.settings
       end
     end
   end
