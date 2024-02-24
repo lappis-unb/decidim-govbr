@@ -39,7 +39,7 @@ module Decidim
           end
 
           def instance_variables_values
-            instance_variables.map { |variable| [variable, instance_variable_get(variable)] }.to_h
+            instance_variables.to_h { |variable| [variable, instance_variable_get(variable)] }
           end
         end
       end
