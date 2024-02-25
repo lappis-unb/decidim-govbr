@@ -101,15 +101,15 @@ module Decidim
         end
 
         shared_examples "when everything is ok" do
-          it { expect { subject.call }.to(change { statistic_setting.name }.from(statistic_setting.name).to(name)) }
-          it { expect { subject.call }.to(change { statistic_setting.proposals_done_weight }.from(statistic_setting.proposals_done_weight).to(proposals_done_weight)) }
-          it { expect { subject.call }.to(change { statistic_setting.comments_done_weight }.from(statistic_setting.comments_done_weight).to(comments_done_weight)) }
-          it { expect { subject.call }.to(change { statistic_setting.votes_done_weight }.from(statistic_setting.votes_done_weight).to(votes_done_weight)) }
-          it { expect { subject.call }.to(change { statistic_setting.follows_done_weight }.from(statistic_setting.follows_done_weight).to(follows_done_weight)) }
-          it { expect { subject.call }.to(change { statistic_setting.votes_received_weight }.from(statistic_setting.votes_received_weight).to(votes_received_weight)) }
-          it { expect { subject.call }.to(change { statistic_setting.comments_received_weight }.from(statistic_setting.comments_received_weight).to(comments_received_weight)) }
-          it { expect { subject.call }.to(change { statistic_setting.follows_received_weight }.from(statistic_setting.follows_received_weight).to(follows_received_weight)) }
-          it { expect { subject.call }.to(change { statistic_setting.users_to_be_exported }.from(statistic_setting.users_to_be_exported).to(users_to_be_exported)) }
+          it { expect { subject.call }.to(change(statistic_setting, :name).from(statistic_setting.name).to(name)) }
+          it { expect { subject.call }.to(change(statistic_setting, :proposals_done_weight).from(statistic_setting.proposals_done_weight).to(proposals_done_weight)) }
+          it { expect { subject.call }.to(change(statistic_setting, :comments_done_weight).from(statistic_setting.comments_done_weight).to(comments_done_weight)) }
+          it { expect { subject.call }.to(change(statistic_setting, :votes_done_weight).from(statistic_setting.votes_done_weight).to(votes_done_weight)) }
+          it { expect { subject.call }.to(change(statistic_setting, :follows_done_weight).from(statistic_setting.follows_done_weight).to(follows_done_weight)) }
+          it { expect { subject.call }.to(change(statistic_setting, :votes_received_weight).from(statistic_setting.votes_received_weight).to(votes_received_weight)) }
+          it { expect { subject.call }.to(change(statistic_setting, :comments_received_weight).from(statistic_setting.comments_received_weight).to(comments_received_weight)) }
+          it { expect { subject.call }.to(change(statistic_setting, :follows_received_weight).from(statistic_setting.follows_received_weight).to(follows_received_weight)) }
+          it { expect { subject.call }.to(change(statistic_setting, :users_to_be_exported).from(statistic_setting.users_to_be_exported).to(users_to_be_exported)) }
 
           it "broadcasts ok" do
             expect { subject.call }.to broadcast(:ok)
@@ -129,11 +129,13 @@ module Decidim
 
         context "when participatory space is participatory process," do
           let(:participatory_space) { create(:participatory_process) }
+
           include_examples "when everything is ok"
         end
 
         context "when participatory space is assembly," do
           let(:participatory_space) { create(:assembly) }
+
           include_examples "when everything is ok"
         end
       end
