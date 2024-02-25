@@ -1,0 +1,6 @@
+        Prefix Verb URI Pattern                                 Controller#Action
+new_html_block PUT  /admin/organization/homepage/edit(.:format) decidim/admin/organization_homepage#add_html_block
+
+
+aparentemente tudo certo
+porém mais uma vez vc está ERRADO. Já que apesar da rota estar certa como vc verá a seguir, nada acontece feijoada e o bagulho continua nao achando
