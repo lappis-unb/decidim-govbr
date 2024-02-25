@@ -5,7 +5,7 @@ module Decidim
       def render_footer_menu_links(current_organization)
         footer_menu_items = current_organization.try(:footer_menu_links).try(:[], 'menu') || []
         visible_footer_menu_items = footer_menu_items.filter { |item| item['is_visible'] }
-        
+
         angle_icon_down = content_tag(:div, '', class: 'support') do
           content_tag(:i, '', class: 'fas fa-angle-down')
         end
@@ -16,22 +16,22 @@ module Decidim
               link_content = content_tag(:a, class: 'br-item header', href: item['href']) do
                 content_tag(:div, item['label'], class: 'content text-down-01 text-bold text-uppercase') +
                 (item['sub_items'].present? ? angle_icon_down : '')
-              end 
-              
-              
-              
+              end
+
+
+
               if item['sub_items'].present?
                 link_content += content_tag(:div, class: 'br-list') do
                   item['sub_items'].map do |sub_item|
                     render_footer_menu_link_with_sub_links(sub_item)
-                  end.join('').html_safe
+                  end.join('').html_safe # rubocop:disable Style/RedundantArgument
                 end
               end
 
               link_content
             end
           end
-        end.join('').html_safe
+        end.join('').html_safe # rubocop:disable Style/RedundantArgument
       end
 
 

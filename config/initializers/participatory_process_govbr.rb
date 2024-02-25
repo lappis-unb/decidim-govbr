@@ -32,7 +32,8 @@ Decidim.menu :admin_participatory_process_menu do |menu|
                 I18n.t("media_links", scope: "decidim.admin.menu.assemblies_submenu"),
                 main_app.participatory_process_media_links_path(current_participatory_space),
                 if: allowed_to?(:read, :media_link, participatory_process: current_participatory_space),
-                active: is_active_link?(main_app.participatory_process_media_links_path(current_participatory_space))
+                active: is_active_link?(main_app.participatory_process_media_links_path(current_participatory_space)),
+                position: 7
 
   menu.add_item :participatory_process_user_proposals_statistic_settings,
                 I18n.t("user_proposals_statistic_settings", scope: "decidim.admin.menu.participatory_processes_submenu"),

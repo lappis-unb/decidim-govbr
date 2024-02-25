@@ -149,9 +149,9 @@ pt-BR:
   layouts:
     decidim:
       assembly_navigation:
-        media: Multimídia
+        media: Mobilização
       process_navigation:
-        media: Multimídia
+        media: Mobilização
 
 pt:
   activemodel:
@@ -326,9 +326,9 @@ pt:
   layouts:
     decidim:
       assembly_navigation:
-        media: Multimídia
+        media: Mobilização
       process_navigation:
-        media: Multimídia
+        media: Mobilização
 
 en:
   activemodel:

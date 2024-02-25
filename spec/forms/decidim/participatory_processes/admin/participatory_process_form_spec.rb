@@ -78,7 +78,7 @@ module Decidim
           it { is_expected.to be_valid }
 
           it "infers initial page type information" do
-            expect { subject.valid? }.to change { subject.initial_page_type }.from(initial_page_type).to("homes")
+            expect { subject.valid? }.to change(subject, :initial_page_type).from(initial_page_type).to("homes")
           end
         end
 
