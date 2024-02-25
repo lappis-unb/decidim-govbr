@@ -4,6 +4,17 @@ module Decidim
   module Admin
     # Controller that allows managing the organization homepage
     class OrganizationHomepageController < Decidim::Admin::ApplicationController
+      def add_html_block
+        @html_blocks_count = content_blocks.where(manifest_name: 'html').count + 1
+        @add_html_block = Decidim.content_blocks.register(:homepage,
+                                                          "html#{@html_blocks_count}".to_sym) do |content_block|
+          content_block.cell = 'decidim/content_blocks/html'
+          content_block.public_name_key = 'decidim.content_blocks.html.name'
+        end
+
+        render :edit if @add_html_block
+      end
+
       layout 'decidim/admin/settings'
 
       helper_method :active_blocks, :inactive_blocks
@@ -22,17 +33,6 @@ module Decidim
             head :bad_request
           end
         end
-      end
-
-      def add_html_block
-        @html_blocks_count = content_blocks.where(manifest_name: 'html').count
-        @add_html_block = Decidim.content_blocks.register(:homepage,
-                                                          "html#{@html_blocks_count}".to_sym) do |content_block|
-          content_block.cell = 'decidim/content_blocks/html'
-          content_block.public_name_key = 'decidim.content_blocks.html.name'
-        end
-
-        render :edit if @add_html_block
       end
 
       private

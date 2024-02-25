@@ -22,7 +22,7 @@
             <% end %>
           </ul>
           <div class="button">
-            <%= button_to 'Adicionar bloco html', add_html_block, method: post %>
+            <%= button_to 'Adicionar bloco html', :action => "new_html_block", method: :post %> 
           </div>
         </div>
       </div>

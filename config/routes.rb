@@ -35,10 +35,7 @@ Rails.application.routes.draw do
     as: 'user_proposal_statistic_report_create'
   )
 
-  post(
-    'admin/organization/homepage/edit',
-    to: 'decidim/admin/organization_homepage#add_html_block',
-    as: 'add_html_block')
+  put 'admin/organization/homepage/edit', to: 'decidim/admin/organization_homepage#add_html_block', as: 'new_html_block'
 
   resources :assemblies, param: :slug, only: [] do
     resources :media, only: :index, controller: 'decidim/assemblies/media'
