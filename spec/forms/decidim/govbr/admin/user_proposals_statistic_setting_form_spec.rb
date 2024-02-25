@@ -43,46 +43,55 @@ module Decidim
 
         context "when name is not given" do
           let(:name) { nil }
+
           it { expect(subject).not_to be_valid }
         end
 
         context "when proposals_done_weight is not given" do
           let(:proposals_done_weight) { nil }
+
           it { expect(subject).not_to be_valid }
         end
 
         context "when comments_done_weight is not given" do
           let(:comments_done_weight) { nil }
+
           it { expect(subject).not_to be_valid }
         end
 
         context "when votes_done_weight is not given" do
           let(:votes_done_weight) { nil }
+
           it { expect(subject).not_to be_valid }
         end
 
         context "when follows_done_weight is not given" do
           let(:follows_done_weight) { nil }
+
           it { expect(subject).not_to be_valid }
         end
 
         context "when votes_received_weight is not given" do
           let(:votes_received_weight) { nil }
+
           it { expect(subject).not_to be_valid }
         end
 
         context "when comments_received_weight is not given" do
           let(:comments_received_weight) { nil }
+
           it { expect(subject).not_to be_valid }
         end
 
         context "when follows_received_weight is not given" do
           let(:follows_received_weight) { nil }
+
           it { expect(subject).not_to be_valid }
         end
 
         context "when users_to_be_exported is not given" do
           let(:users_to_be_exported) { nil }
+
           it { expect(subject).not_to be_valid }
         end
       end

@@ -51,10 +51,6 @@ module Decidim
           it { expect { subject.call }.to broadcast(:invalid) }
         end
 
-        context "when name is not given" do
-
-        end
-
         context "when proposals_done_weight is not given" do
           let(:proposals_done_weight) { nil }
 
@@ -141,11 +137,13 @@ module Decidim
 
         context "when participatory space is participatory process," do
           let(:participatory_space) { create(:participatory_process) }
+
           include_examples "when everything is ok"
         end
 
         context "when participatory space is assembly," do
           let(:participatory_space) { create(:assembly) }
+
           include_examples "when everything is ok"
         end
       end
