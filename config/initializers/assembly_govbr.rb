@@ -27,5 +27,6 @@ Decidim.menu :admin_assembly_menu do |menu|
                 I18n.t("media_links", scope: "decidim.admin.menu.assemblies_submenu"),
                 main_app.assembly_media_links_path(current_participatory_space),
                 if: allowed_to?(:read, :media_link, assembly: current_participatory_space),
-                active: is_active_link?(main_app.assembly_media_links_path(current_participatory_space))
+                active: is_active_link?(main_app.assembly_media_links_path(current_participatory_space)),
+                position: 6
 end

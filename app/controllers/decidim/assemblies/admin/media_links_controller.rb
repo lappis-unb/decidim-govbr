@@ -11,11 +11,12 @@ module Decidim
                       :edit_participatory_space_media_link_path,
                       :participatory_space_media_link_path,
                       :participatory_space_media_links_path
-
+        # rubocop:disable Layout/ExtraSpacing
         alias new_participatory_space_media_link_path   new_assembly_media_link_path
         alias edit_participatory_space_media_link_path  edit_assembly_media_link_path
         alias participatory_space_media_link_path       assembly_media_link_path
         alias participatory_space_media_links_path      assembly_media_links_path
+        # rubocop:enable Layout/ExtraSpacing
       end
     end
   end

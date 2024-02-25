@@ -167,13 +167,14 @@ module Decidim
         let!(:homes) { create :homes_component, id: initial_page_component_id, participatory_space: create(:assembly, id: assembly_id, organization: organization) }
         let(:initial_page_component_id) { 10 }
         let(:initial_page_type) { "foo" }
-        let(:assembly_id) { 5 }
 
         context "when everything is OK" do
+          let(:assembly_id) { 5 }
+
           it { is_expected.to be_valid }
 
           it "infers initial page type information" do
-            expect { subject.valid? }.to change { subject.initial_page_type }.from(initial_page_type).to("homes")
+            expect { subject.valid? }.to change(subject, :initial_page_type).from(initial_page_type).to("homes")
           end
         end
 
@@ -196,6 +197,7 @@ module Decidim
 
         context "when assembly type is null" do
           let(:assembly_type_id) { nil }
+          let(:assembly_id) { 5 }
 
           it { is_expected.to be_valid }
         end
@@ -272,6 +274,8 @@ module Decidim
           end
 
           context "when in another organization" do
+            let(:assembly_id) { 5 }
+
             before do
               create(:assembly, slug: slug)
             end
@@ -284,6 +288,7 @@ module Decidim
 
         context "when assembly has a parent_id" do
           let(:parent_id) { create(:assembly, organization: organization) }
+          let(:assembly_id) { 5 }
 
           it { is_expected.to be_valid }
         end
