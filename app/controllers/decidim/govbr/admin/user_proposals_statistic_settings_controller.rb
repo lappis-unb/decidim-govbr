@@ -74,7 +74,7 @@ module Decidim
           enforce_permission_to :read, :user_proposals_statistic_setting
           @statistic_setting = collection.find(params[:id])
 
-          send_data @statistic_setting.user_proposals_statistics_as_csv, filename: @statistic_setting.csv_file_name
+          send_data @statistic_setting.user_proposals_statistics_as_csv, filename: "#{@statistic_setting.last_generated_statistics_data_identifier}.csv"
         end
 
         def participatory_space_user_proposals_statistic_settings_path(_current_participatory_space)
