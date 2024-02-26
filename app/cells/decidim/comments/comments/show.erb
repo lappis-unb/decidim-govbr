@@ -4,10 +4,11 @@
     <div class="comments-new">
       <div class="comments-header meeting">
           <% if single_comment? %>
-            <%= t("decidim.components.comments.comment_details_title") %>
+          <%= t("activemodel.models.decidim/comments/comment_created_event") %>
           <% else %>
             <h3 class="br-comments-count">
-              <%= t("decidim.components.comments.title", count: comments_count) %>
+            <%= comments_count %>
+            <%= t("activemodel.models.decidim/comments/comment_created_event", count: comments_count) %>
             </h3>
           <% end %>
         <%= render :order_control %>
@@ -31,13 +32,13 @@
 
       <%if comments_blocked? %>
 
-        <p class="comments_blocked_warning">Comentários bloqueados</p>
+        <p class="comments_blocked_warning">Contribuições bloqueadas</p>
 
       <% end %>
 
     </div>
     <div class="callout primary loading-comments hide meeting">
-      <p><%= t("decidim.components.comments.loading") %></p>
+      <p><%= t("activemodel.models.decidim/comments/comment_created_event")%></p>
     </div>
   </div>
   <% end %>
