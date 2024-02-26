@@ -58,9 +58,10 @@ module Decidim
           admin_terms_of_use_body: form.admin_terms_of_use_body,
           rich_text_editor_in_public_views: form.rich_text_editor_in_public_views,
           enable_participatory_space_filters: form.enable_participatory_space_filters,
-          menu_links: JSON.parse(form.menu_links.gsub('=>', ':'))
-        }.merge(welcome_notification_attributes)
-          .merge(machine_translation_attributes || {})
+          menu_links: JSON.parse(form.menu_links.gsub('=>', ':')),
+          footer_menu_links: JSON.parse(form.footer_menu_links.gsub('=>', ':'))
+        }.merge(welcome_notification_attributes).merge(machine_translation_attributes || {})
+
       end
 
       def welcome_notification_attributes
