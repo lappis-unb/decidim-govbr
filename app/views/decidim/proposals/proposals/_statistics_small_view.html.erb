@@ -1,5 +1,4 @@
 <div class="proposal_export_buttons">
-
 <div class="scrimutilexemplo">
   <button data-open="statistics-box export_button_proposals" aria-controls="statistics-box" aria-haspopup="dialog"  type="button">
     <span class="proposals__button-circle button-container-style">
@@ -7,98 +6,9 @@
     </span> 
   </button>
 </div>
-  <button class="button button--title share-link text-center export_button_proposals" data-open="export_data">
-  Gerar relatório
-    <i class="fa-solid fa-magnifying-glass-chart m-2"></i>
-  </button>
-
-  <div class="reveal" id="export_data" data-reveal>
-  <%= form_tag("https://jsonplaceholder.typicode.com/", method: :post, remote: true, :id=> "dateRangeForm") do %>
-    <div class="reveal__header">
-      <h2 class="reveal__title">Gerar Relatório</h2>
-      <button class="close-button" data-close aria-label="<%= t("close_window", scope: "decidim.meetings.meetings.calendar_modal" ) %>" type="button">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <!-- [html-validate-disable input-attributes]-->
-      <div class="br-datetimepicker" data-mode="range" data-type="text">
-      <label for="range-input">Escolha as datas para o recebimento do relatório deste processo</label>
-        <div class="br-input has-icon">
-            
-            
-            <button class="br-button circle small" type="button" aria-label="Abrir Timepicker" data-toggle="data-toggle"
-            id="range-input-btn" tabindex="-1" aria-hidden="true"><i class="fas fa-calendar-alt calendar_export" aria-hidden="true"></i>
-            </button>
-            
-            
-            <div class="button_export_calendar">
-             <input id="range-input" type="text" name="date_range" placeholder="exemplo: 02/02/2024 até 03/02/2025" data-input="data-input" />
-            </div>
-
-            
-        </div>
-          <input type="hidden" id="emailInput" name="email" value=<%= current_user.email %>>
-          <input type="hidden" id="idInput" name="id" value=<%= current_participatory_space.id %>>
-          <button class="button button--title share-link text-center export_env" type="submit"> Enviar </button>
-      </div>
-    </div>
-  <%end%>
+<div class="export-buttons ">
+<%= render partial: "decidim/proposals/proposals/export_modal"%>
 </div>
-
-<div class="reveal" id="sucess_export_data" data-reveal>
-      
-      <h2 class="reveal__title">O relatório será enviado ao seu email em até duas horas</h2>
-      
-      <div class="export_close_button">
-        <button class="button button--title share-link text-center" data-close>fechar</button>
-      </div>
-    
-</div>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    $('#dateRangeForm').on('submit', function (event) {
-      var dateRangeInput = $('#range-input').val();
-      const email = $('#emailInput').val();
-      const id = $('#idInput').val();
-
-      if (!dateRangeInput) {
-        event.preventDefault(); 
-        alert('Passe uma data valida');
-        return false; 
-      }
-
-      var dates = dateRangeInput.split(' atÃ© ');
-      if (dates.length === 2) {
-        var startDate = dates[0];
-        var endDate = dates[1];
-
-        var urlWithParams = "https://jsonplaceholder.typicode.com/?start_date=" + encodeURIComponent(startDate) + "&end_date=" + encodeURIComponent(endDate) + "&email=" + encodeURIComponent(email) + "&id=" + encodeURIComponent(id);
-
-        fetch(urlWithParams, {
-          method: 'POST'
-        })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Erro na requisição: ' + response.statusText);
-          }
-          return response.json();
-        })
-        .then(data => {
-          $('#sucess_export_data').foundation('open');
-        })
-        .catch(error => {
-          console.error('Erro na requisição:', error);
-          alert('Erro ao enviar pedido, tente novamente mais tarde.');
-        });
-      } else {
-        alert('Formato da data inválido.');
-      }
-    });
-
-    $(document).foundation();
-  });
-</script>
   </div>
 <div class="br-scrim-util foco" id="scrimutilexample" data-scrim="true">
   <div class="br-modal">
