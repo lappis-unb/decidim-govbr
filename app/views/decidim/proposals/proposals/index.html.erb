@@ -58,7 +58,13 @@
         <%= action_authorized_link_to :create, new_proposal_path,
           class: "title-action__action br-button block primary", data: { "redirect_url" => new_proposal_path } do %>
           <i class="fa-solid fa-plus fa-sl"></i>
-          <span class="title-action-text">Faça sua proposta</span>
+          <span class="title-action-text">
+            <% if translated_attribute(current_component.singular_name).present? %>
+              <%= t("decidim.proposals.proposals.index.new_proposal", proposal: translated_attribute(current_component.singular_name).downcase) %>
+            <% else %>
+              <%= t("decidim.proposals.proposals.index.new_proposal", proposal: "proposta") %>
+            <% end %>
+          </span>
         <% end %>
       <% end %>
       <% if component_settings.collaborative_drafts_enabled? %>
@@ -69,7 +75,10 @@
       <%= filter_form_for filter do |form| %>
         <div class="br-input input-highlight">
           <%= form.search_field :search_text_cont, type: "search",
-            label: false, class: "input-group-field", placeholder: "Qual proposta você procura?",
+            label: false, class: "input-group-field", placeholder: t("decidim.proposals.proposals.filters.placeholder", 
+            name: translated_attribute(current_component.singular_name).present? ? 
+            translated_attribute(current_component.singular_name).downcase : 
+            "proposta"),
             "aria-label": "Buscar", id: "input-search-large",
             data: { disable_dynamic_change: true } %>
           <button class="br-button" type="submit" aria-label="Buscar">

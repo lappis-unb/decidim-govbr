@@ -20,6 +20,8 @@ module Decidim
       end
 
       # Rebuild entire table from scratch with updated decidim database content for the specified participatory_space
+      # TODO refactor this
+      # rubocop:disable Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity,Layout/ExtraSpacing
       def refresh_data!
         user_proposals_statistics.delete_all
 
@@ -63,6 +65,7 @@ module Decidim
         Decidim::Govbr::UserProposalsStatistic.insert_all(statistic_data.values)
 
         self.touch
+        # rubocop:enable Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity,Layout/ExtraSpacing
       end
 
       def get_user_proposals_data
