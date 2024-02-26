@@ -1,0 +1,8 @@
+<% add_decidim_page_title(t("partners.edit.title", scope: "decidim.admin")) %>
+<%= decidim_form_for(@form, url: assembly_partner_path(@partner.partnerable, @partner), html: { class: "form edit_partner" }) do |f| %>
+  <%= render partial: "form", object: f, locals: { title: t("partners.edit.title", scope: "decidim.admin") } %>
+
+  <div class="button--double form-general-submit">
+  <%= f.submit t("partners.edit.update", scope: "decidim.admin") %>
+  </div>
+<% end %>
