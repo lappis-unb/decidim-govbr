@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Decidim::Admin::ExportsHelper
 
 module Decidim
@@ -12,7 +13,8 @@ module Decidim
       #
       # Returns a rendered dropdown.
       def export_dropdown_br(component = current_component, resource_id = nil)
-        render partial: 'decidim/admin/exports-br/dropdown-br', locals: { component: component, resource_id: resource_id }
+        render partial: 'decidim/admin/exports-br/dropdown-br',
+               locals: { component: component, resource_id: resource_id }
       end
 
       # Routes to the correct exporter for a component.
@@ -22,7 +24,9 @@ module Decidim
       #
       # Returns the path to the component exporter.
       def exports_path(component, options)
-        EngineRouter.admin_proxy(component.participatory_space).component_exports_path(options.merge(component_id: component))
+        EngineRouter.admin_proxy(
+          component.participatory_space
+        ).component_exports_path(options.merge(component_id: component))
       end
     end
   end
