@@ -38,7 +38,7 @@ module Decidim
         decidim_sanitize_editor(strip_links(formatted))
       end
 
-      def is_interactive
+      def interactive?
         model.is_interactive
       end
 
