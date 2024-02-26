@@ -61,13 +61,12 @@ module Decidim
         end
       end
 
-      def self.is_menu_link_valid?
+      def self.menu_link_valid?
         organization = Decidim::Organization.find_by(id: 1)
         return false unless organization
 
         organization.menu_links == {} || organization.menu_links == ''
       end
-
 
       def menu_links_json_format
         begin
@@ -77,7 +76,6 @@ module Decidim
         end
       end
 
-
       def footer_menu_links_json_format
         begin
           JSON.parse(footer_menu_links.gsub('=>', ':'))
@@ -85,8 +83,6 @@ module Decidim
           self.errors.add(:footer_menu_links, :invalid)
         end
       end
-
-
 
       private
 

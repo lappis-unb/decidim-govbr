@@ -6,7 +6,6 @@ module Decidim
       class AutofillMenuLinks < Decidim::Command
         attr_reader :form, :component, :previous_settings
 
-
         def initialize(user)
           @user = user
         end
@@ -15,23 +14,22 @@ module Decidim
         #
         # Broadcasts :ok if created, :invalid otherwise.
         def call
-          return update_organization ? broadcast(:ok) : broadcast(:invalid)
+          update_organization ? broadcast(:ok) : broadcast(:invalid)
         end
 
         private
 
         def get_components_links(spaces, space_label)
-          spaces_links = spaces.map do |space|
+          spaces.map do |space|
             links = space.components.map do |component|
               label = component.respond_to?('name') ? 'name' : 'title'
               label_pt_br = component.send(label)['pt-br'] || component.send(label)['pt'] || 'Componente'
               url = "/#{space_label}/#{space.slug}/f/#{component.id}"
-              { 'id' => (label_pt_br + '_' + component.id.to_s), 'label' => label_pt_br, 'href' => url, "is_visible"=> true }
+              { 'id' => "#{label_pt_br}_#{component.id}", 'label' => label_pt_br, 'href' => url, "is_visible" => true }
             end
             label_pt_br = space.send('title')['pt-br'] || space.send('title')['pt'] || 'Espaço'
-            { 'id' => (space_label + '_' + space.id.to_s), 'label' => label_pt_br, 'sub_items' => links, "is_visible"=> true }
+            { 'id' => "#{space_label}_#{space.id}", 'label' => label_pt_br, 'sub_items' => links, "is_visible" => true }
           end
-          spaces_links
         end
 
         def generate_menu_links
@@ -45,7 +43,6 @@ module Decidim
         def update_organization
           current_organization.update(menu_links: generate_menu_links)
         end
-
       end
     end
   end
