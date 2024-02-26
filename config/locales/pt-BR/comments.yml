@@ -53,3 +53,16 @@ pt-BR:
           other: "%{count} contribuições"
         single_comment_warning: Pode consultar as contribuições restantes <a href="%{url}">aqui</a>.
         single_comment_kjhgwarning_title: Está vendo uma única contribuição
+        confirm_destroy: Tem certeza que deseja excluir esta contribuição?
+        delete: PORRA
+        deleted_at: Contribuição excluída em %{date}
+      edit_comment_modal_form:
+        close: Fechar
+        form:
+          body:
+            label: Contribuição
+            placeholder: O que você pensa sobre isso?
+          submit: Enviar
+        title: Editar sua contribuição
+      up_vote_button:
+        text: Eu concordo com esta contribuição
