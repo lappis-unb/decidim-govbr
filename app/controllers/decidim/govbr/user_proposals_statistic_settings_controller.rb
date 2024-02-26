@@ -97,7 +97,7 @@ module Decidim
               'ERROR' =>
                 <<-T.squish
                 There is no available reports for the participatory space '#{params[:slug]}'.
-                Available reports are: #{available_reports.try(:join, ', ')}
+                Available reports are: #{available_reports.try(:join, ", ")}
                 T
               }
           end

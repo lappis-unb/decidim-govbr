@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_06_132929) do
+ActiveRecord::Schema.define(version: 2024_02_20_181855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -208,6 +208,8 @@ ActiveRecord::Schema.define(version: 2024_02_06_132929) do
     t.integer "weight", default: 1, null: false
     t.integer "follows_count", default: 0, null: false
     t.jsonb "announcement"
+    t.string "initial_page_type", default: "default", null: false
+    t.bigint "initial_page_component_id"
     t.index ["decidim_area_id"], name: "index_decidim_assemblies_on_decidim_area_id"
     t.index ["decidim_assemblies_type_id"], name: "index_decidim_assemblies_on_decidim_assemblies_type_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_assembly_slug_and_organization", unique: true
@@ -453,6 +455,7 @@ ActiveRecord::Schema.define(version: 2024_02_06_132929) do
     t.datetime "updated_at", null: false
     t.string "participatory_space_type", null: false
     t.boolean "hide_in_menu"
+    t.jsonb "singular_name"
     t.index ["participatory_space_id", "participatory_space_type"], name: "index_decidim_components_on_decidim_participatory_space"
   end
 
@@ -899,6 +902,31 @@ ActiveRecord::Schema.define(version: 2024_02_06_132929) do
     t.index ["user_id"], name: "index_decidim_gamification_badge_scores_on_user_id"
   end
 
+  create_table "decidim_govbr_media_links", force: :cascade do |t|
+    t.string "participatory_space_type"
+    t.bigint "participatory_space_id"
+    t.jsonb "title", null: false
+    t.string "link", null: false
+    t.date "date"
+    t.integer "weight", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["participatory_space_type", "participatory_space_id"], name: "decidim_govbr_media_links_ps_index"
+  end
+
+  create_table "decidim_govbr_partners", force: :cascade do |t|
+    t.string "partnerable_type"
+    t.bigint "partnerable_id"
+    t.string "name", null: false
+    t.string "partner_type", null: false
+    t.integer "weight", default: 0, null: false
+    t.string "link"
+    t.string "logo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["partnerable_type", "partnerable_id"], name: "partner_partnerable_index"
+  end
+
   create_table "decidim_govbr_user_proposals_statistic_settings", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.string "decidim_participatory_space_type", null: false
@@ -942,6 +970,25 @@ ActiveRecord::Schema.define(version: 2024_02_06_132929) do
     t.datetime "updated_at", null: false
     t.index ["decidim_organization_id"], name: "index_decidim_hashtags_on_decidim_organization_id"
     t.index ["name"], name: "index_decidim_hashtags_on_name"
+  end
+
+  create_table "decidim_homes_homes", id: :serial, force: :cascade do |t|
+    t.jsonb "title"
+    t.integer "decidim_component_id"
+    t.string "banner"
+    t.string "digital_stage", default: "/"
+    t.string "organize_stage", default: "/"
+    t.string "schedule", default: "/"
+    t.string "common_questions", default: "/"
+    t.string "support_material", default: "/"
+    t.boolean "statistics", default: false
+    t.boolean "news", default: false
+    t.integer "news_id"
+    t.jsonb "organizers", default: []
+    t.jsonb "supporters", default: []
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_component_id"], name: "index_decidim_homes_homes_on_decidim_component_id"
   end
 
   create_table "decidim_identities", id: :serial, force: :cascade do |t|
@@ -1395,6 +1442,7 @@ ActiveRecord::Schema.define(version: 2024_02_06_132929) do
     t.string "external_domain_whitelist", default: [], array: true
     t.boolean "enable_participatory_space_filters", default: true
     t.jsonb "menu_links", default: "{}", null: false
+    t.jsonb "footer_menu_links", default: "{}", null: false
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
@@ -1497,6 +1545,9 @@ ActiveRecord::Schema.define(version: 2024_02_06_132929) do
     t.integer "weight", default: 1, null: false
     t.integer "follows_count", default: 0, null: false
     t.bigint "decidim_participatory_process_type_id"
+    t.string "initial_page_type", default: "default", null: false
+    t.bigint "initial_page_component_id"
+    t.string "group_chat_id"
     t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id"
