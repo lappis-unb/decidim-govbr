@@ -85,7 +85,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function exportSpanStyle(){
-    console.log("atual")
+    let dropDown = document.getElementById("export-dropdown")
+    dropDown.classList.remove("is-open")
+    
     exportSpan.style.opacity = 1
     exportSpan.style.height = "56px"
     exportSpan.style.padding = "16px"
