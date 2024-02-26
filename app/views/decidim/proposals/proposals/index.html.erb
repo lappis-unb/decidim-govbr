@@ -41,7 +41,7 @@
   <div class="filter-container">
 
     <% if current_user.admin %>
-      <%= render partial: 'decidim/admin/exports-br/dropdown-br', locals: { component: current_component, resource_id: nil} %>
+      <%= render partial: 'decidim/govbr/exports/dropdown', locals: { component: current_component, resource_id: nil} %>
     <% end %>
 
     <% if current_user %>
