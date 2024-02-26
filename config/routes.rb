@@ -20,8 +20,6 @@ Rails.application.routes.draw do
     end
   end
 
-
-
   get 'admin/user_proposal_statistic_report/:slug', to: 'decidim/govbr/user_proposals_statistic_settings#export_user_data', as: 'user_proposal_statistic_report'
 
   # These two routes are not present anywhere in the product
