@@ -65,7 +65,7 @@ pt-BR:
             default_sort_order_help: Padrão significa que se os apoios estiverem ativos as propostas serão ordenadas aleatóriamente, e se os apoios estiverem bloqueados serão ordenadas do maior para o menor número de apoios.
             default_sort_order_options:
               default: Padrão
-              most_commented: Mais comentadas
+              most_commented: Mais contribuições
               most_endorsed: Mais endossadas
               most_followed: Mais seguidas
               most_voted: Mais votadas
@@ -87,7 +87,7 @@ pt-BR:
             default_sort_order_help: Padrão significa que se os apoios estiverem ativos as propostas serão ordenadas aleatóriamente, e se os apoios estiverem bloqueados serão ordenadas do maior para o menor número de apoios.
             default_sort_order_options:
               default: Padrão
-              most_commented: Mais comentadas
+              most_commented: Mais contribuições
               most_endorsed: Mais endossadas
               most_followed: Mais seguidas
               most_voted: Mais votadas
@@ -278,7 +278,7 @@ pt-BR:
           placeholder: "Qual %{name} você procura?"
         orders:
           label: 'Ordene propostas por:'
-          most_commented: Mais comentadas
+          most_commented: Mais contribuições
           most_endorsed: Mais endossadas
           most_followed: Mais seguidas
           most_voted: Mais votadas
