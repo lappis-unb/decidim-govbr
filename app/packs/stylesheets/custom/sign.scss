@@ -1,0 +1,24 @@
+.hide-br-list-dropdown {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 0.3s, transform 0.3s, box-shadow 0.2s;
+}
+
+.br-list-dropdown {
+  box-shadow: none !important;
+}
+
+.br-list-dropdown-in-view {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) !important;
+  transition: box-shadow 3s;
+}
+
+.show-br-list-dropdown {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s, transform 0.4s, box-shadow 0.3s;
+  -webkit-transition: opacity 0.5s, transform 0.4s, box-shadow 0.3s;
+  -moz-transition: opacity 0.5s, transform 0.4s, box-shadow 0.3s;
+  -ms-transition: opacity 0.5s, transform 0.4s, box-shadow 0.3s;
+  -o-transition: opacity 0.5s, transform 0.4s, box-shadow 0.3s;
+}

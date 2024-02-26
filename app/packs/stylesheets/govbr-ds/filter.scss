@@ -1,50 +1,60 @@
-.mini-title { 
-    color: #636363;
-    font-size: .875rem;
-    letter-spacing: .01em;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin-bottom: 1rem;
-  
-    &__strong{
-      font-size: 1.2rem;
-      font-weight: 800;
-    }
-  
-    &__strong--highlight{
-      font-size: 1.4rem;
-    }
+.mini-title {
+  color: #636363;
+  font-size: 0.875rem;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 1rem;
+
+  &__strong {
+    font-size: 1.2rem;
+    font-weight: 800;
+  }
+
+  &__strong--highlight {
+    font-size: 1.4rem;
+  }
 }
 
 .button-container-style {
-    color: #1451b4;
+  color: #1451b4;
 }
-  
+
 .size-icon-filter {
-    font-size: 1rem;
+  font-size: 1rem;
 }
-  
+
 .fa-sliders-h {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 100;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
 }
 
 .filter-container {
-    width: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-end;
-    align-items: left;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: left;
 }
 
-@include breakpoint(small down){
-    .reveal{
-      width: 100%;
-      height: 100%;
-    }
+.br-reveal {
+  display: block;
+  height: 80%;
+  width: 600px;
+  max-width: 80%;
+  z-index: 10;
+  padding: 1rem;
+  border: 1px solid #e8e8e8;
+  background-color: #fafafa;
+  border-radius: 4px;
+  position: relative;
+  top: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  overflow-y: auto;
 }
 
 .announcement-card {
@@ -54,4 +64,50 @@
 .filters {
   padding: 0;
   min-height: auto;
+}
+
+.filters__title {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.resullts-per-page-item {
+  padding: 4px;
+  display: flex;
+  text-decoration: none;
+}
+
+.results-per-page__link {
+  text-decoration: none !important;
+}
+
+.results-per-page__link:hover {
+  background-color: #e8e8e8;
+}
+
+.results-per-page-button {
+  display: flex !important;
+  flex-direction: row !important;
+  text-decoration: none !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.filters-per-page-button {
+  padding: 5px !important;
+  border-radius: 50% !important;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  -ms-border-radius: 50% !important;
+  -o-border-radius: 50% !important;
+  display: flex;
+  margin-left: 4px;
+}
+
+.filters-per-page-button:hover {
+  background-color: var(--blue-warm-20);
+}
+
+.pagination-br-container {
+  margin-top: 16px;
 }

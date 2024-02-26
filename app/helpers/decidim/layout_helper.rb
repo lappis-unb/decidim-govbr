@@ -8,22 +8,25 @@ module Decidim
     #
     # Returns a safe String with the versions.
     def favicon
+      @protocol = ENV["RAILS_ENV"] == "production" ? "https://" : "http://"
       return if current_organization.favicon.blank?
 
       safe_join(Decidim::OrganizationFaviconUploader::SIZES.map do |version, size|
-        favicon_link_tag(current_organization.attached_uploader(:favicon).variant_url(version, host: current_organization.host), sizes: "#{size}x#{size}")
+        favicon_link_tag(current_organization.attached_uploader(:favicon).variant_url(version, host: "#{@protocol}#{current_organization.host}"), sizes: "#{size}x#{size}")
       end)
     end
 
     def apple_favicon
-      icon_image = current_organization.attached_uploader(:favicon).variant_url(:medium, host: current_organization.host)
+      @protocol = ENV["RAILS_ENV"] == "production" ? "https://" : "http://"
+      icon_image = current_organization.attached_uploader(:favicon).variant_url(:medium, host: "#{@protocol}#{current_organization.host}")
       return unless icon_image
 
       favicon_link_tag(icon_image, rel: "apple-touch-icon", type: "image/png")
     end
 
     def legacy_favicon
-      icon_image = current_organization.attached_uploader(:favicon).variant_url(:small, host: current_organization.host)
+      @protocol = ENV["RAILS_ENV"] == "production" ? "https://" : "http://"
+      icon_image = current_organization.attached_uploader(:favicon).variant_url(:small, host: "#{@protocol}#{current_organization.host}")
       return unless icon_image
 
       favicon_link_tag(icon_image.gsub(".png", ".ico"), rel: "icon", sizes: "any", type: nil)
@@ -48,9 +51,9 @@ module Decidim
 
       html_properties["width"] = options[:width]
       html_properties["height"] = options[:height]
-      html_properties["aria-label"] = options[:aria_label] || options[:"aria-label"]
+      html_properties["aria-label"] = options[:aria_label] || options[:"aria-label"] # rubocop:disable Style/QuotedSymbols
       html_properties["role"] = options[:role] || "img"
-      html_properties["aria-hidden"] = options[:aria_hidden] || options[:"aria-hidden"]
+      html_properties["aria-hidden"] = options[:aria_hidden] || options[:"aria-hidden"] # rubocop:disable Style/QuotedSymbols
 
       html_properties["class"] = (["icon--#{name}"] + _icon_classes(options)).join(" ")
 

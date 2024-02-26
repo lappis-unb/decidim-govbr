@@ -16086,8 +16086,8 @@ reference element's position.
 import { contrastButtonFunc } from "../acessibility_widget";
 contrastButtonFunc();
 
-import { textToSpeechFunc } from "../tts_widget";
-textToSpeechFunc();
+//import { textToSpeechFunc } from "../tts_widget";
+//textToSpeechFunc();
 
 import { getNavBar } from "../submenu_navbar";
 getNavBar();
