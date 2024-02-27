@@ -51,3 +51,31 @@
     color: var(--blue-warm-vivid-20);
   }
 }
+
+.feedback-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.accept-button {
+  background-color: var(--background-light);
+  border: 1px solid var(--blue-warm-vivid-70);
+  color: var(--blue-warm-vivid-70);
+}
+.accept-button.selected {
+  background-color: var(--blue-warm-vivid-70);
+  color: var(--background-light);
+}
+
+
+.reject-button {
+  background-color: var(--background-light);
+  border: 1px solid var(--red-vivid-60);
+  color: var(--red-vivid-60);
+}
+.reject-button.selected {
+    background-color: var(--red-vivid-60);
+    color: var(--background-light);
+  
+}
