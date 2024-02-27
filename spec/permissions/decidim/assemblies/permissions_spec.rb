@@ -731,11 +731,13 @@ describe Decidim::Assemblies::Permissions do
 
         context "when user is admin" do
           let(:user) { create :user, :admin, organization: organization }
+
           it { is_expected.to be(true) }
         end
 
         context "when user is not admin" do
           let(:user) { create :user, organization: organization }
+
           it { is_expected.not_to be(true) }
         end
       end
@@ -752,11 +754,13 @@ describe Decidim::Assemblies::Permissions do
 
       context "when user is admin" do
         let(:user) { create :user, :admin, organization: organization }
+
         it { is_expected.to be(true) }
       end
 
       context "when user is not admin" do
         let(:user) { create :user, organization: organization }
+
         it { is_expected.to be(true) }
       end
     end

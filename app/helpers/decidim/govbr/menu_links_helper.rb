@@ -16,7 +16,7 @@ module Decidim
                 content_tag(:span, item['label'], class: 'content')
               end
             end
-          end.join('').html_safe
+          end.join('').html_safe # rubocop:disable Style/RedundantArgument
         end
       end
 
@@ -40,7 +40,7 @@ module Decidim
                 end
               end
             end
-          end.join('').html_safe
+          end.join('').html_safe # rubocop:disable Style/RedundantArgument
         end
 
         (label_content + items_content).html_safe
