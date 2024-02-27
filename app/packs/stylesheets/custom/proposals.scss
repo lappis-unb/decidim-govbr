@@ -231,3 +231,17 @@
 #export-span-close {
   color: var(--green-cool-vivid-50);
 }
+
+.export-span-show {
+  opacity: 1;
+  height: 3rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.export-span-hollow {
+  opacity: 0;
+  height: 0rem;
+  padding: 0rem;
+  margin-bottom: 0rem;
+}

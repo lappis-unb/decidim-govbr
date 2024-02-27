@@ -65,20 +65,11 @@ document.addEventListener("DOMContentLoaded", function () {
   let exportSpan = document.getElementById("export-span")
   let closeExportSpan = document.getElementById("export-span-close")
   closeExportSpan.addEventListener("click", () => {
-    exportSpan.style.opacity = 0
-    exportSpan.style.height = 0
-    exportSpan.style.padding = 0
-    exportSpan.style.margin = 0
+    exportSpan.classList.remove("export-span-show")
+    exportSpan.classList.add("export-span-hollow")
   })
 
-  if(exportSpan.style.opacity != 1){
-    exportSpan.style.opacity = 0
-    exportSpan.style.height = 0
-    exportSpan.style.padding = 0
-    exportSpan.style.margin = 0
-  }
-
-  for(let i = 0; i < csvExport.length ; i++){
+  for(let i = 0; i < 2 ; i++){
     csvExport[i].addEventListener("click", () => exportSpanStyle())
     jsonExport[i].addEventListener("click", () => exportSpanStyle())
     excelExport[i].addEventListener("click", () => exportSpanStyle())
@@ -87,10 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function exportSpanStyle(){
     let dropDown = document.getElementById("export-dropdown")
     dropDown.classList.remove("is-open")
-    
-    exportSpan.style.opacity = 1
-    exportSpan.style.height = "56px"
-    exportSpan.style.padding = "16px"
-    exportSpan.style.marginBottom = "16px"
+    exportSpan.classList.remove("export-span-hollow")
+    exportSpan.classList.add("export-span-show")
   }
 });
