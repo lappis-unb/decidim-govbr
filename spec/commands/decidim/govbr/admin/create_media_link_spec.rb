@@ -37,16 +37,19 @@ module Decidim
 
         context "when title is absent" do
           let(:title) { nil }
+
           it { expect { subject.call }.to broadcast(:invalid) }
         end
 
         context "when date is absent" do
           let(:date) { nil }
+
           it { expect { subject.call }.to broadcast(:invalid) }
         end
 
         context "when link is invalid" do
           let(:link) { "this is not a link bro" }
+
           it { expect { subject.call }.to broadcast(:invalid) }
         end
 
@@ -85,11 +88,13 @@ module Decidim
 
         context "when participatory space is participatory process," do
           let(:participatory_space) { create(:participatory_process) }
+
           include_examples "when everything is ok"
         end
 
         context "when participatory space is assembly," do
           let(:participatory_space) { create(:assembly) }
+
           include_examples "when everything is ok"
         end
       end
