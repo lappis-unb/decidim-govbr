@@ -1,6 +1,6 @@
 <div class="news-title-container">
   <h1 class="page-title">Últimas Notícias</h1>
-   <% if current_user.admin? && request.path %>
+   <% if current_user.admin? %>
    <%= link_to t("actions.new", scope: "decidim.blogs", name: t("models.post.name", scope: "decidim.blogs.admin")), send(current_component.mounted_admin_engine).new_post_path, class: "button tiny button--title" %>
    <% end %> 
 </div>
