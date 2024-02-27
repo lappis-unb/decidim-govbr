@@ -46,7 +46,7 @@ module Decidim
       def show
         enforce_permission_to :read, :assembly, assembly: current_participatory_space
 
-        redirect_to_custom_show_page_if_necessary
+        render_custom_show_page_if_necessary
       end
 
       private
