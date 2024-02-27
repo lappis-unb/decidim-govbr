@@ -452,8 +452,6 @@ module Decidim
       def copied_from_other_component?
         linked_resources(:proposals, "copied_from_component").any?
       end
-      public
-
     end
   end
 end
