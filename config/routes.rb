@@ -32,8 +32,6 @@ Rails.application.routes.draw do
   
   put '/update_status_comment/:id/', to: 'decidim/comments/comments#update_status', as: 'update_comment_status'
 
-  put '/update_status_comment/:id/', to: 'decidim/comments/comments#update_status', as: 'update_comment_status'
-
   resources :assemblies, param: :slug, only: [] do
     resources :media, only: :index, controller: 'decidim/assemblies/media'
   end
