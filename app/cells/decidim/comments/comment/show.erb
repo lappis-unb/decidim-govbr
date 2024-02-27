@@ -50,16 +50,11 @@
 
       
       <div class="comment__footer_votes">
-        <%= votes %>
         <% if current_user.present? && current_user.admin %>
           <div>
-            <div class="d-flex align-items-center">
-              <span class="br-tag interaction-select">
-                <%= link_to "Incorporar  #{accepted_icon}".html_safe, update_comment_status_path(id: model.id, status: "accepted"), method: :put,remote: true,id:"tag04", class:"status-button" %>
-              </span>
-              <span class="br-tag interaction-select selected">
-                <%= link_to "Rejeitar #{rejected_icon}".html_safe, update_comment_status_path(id: model.id, status: "rejected"), method: :put,remote: true,id:"tag04", class:"status-button" %>
-              </span>
+            <div class="d-flex align-items-center feedback-buttons">
+                <%= button_to "Incorporar".html_safe, update_comment_status_path(id: model.id, status: "accepted"), method: :put,remote: true,id:"tag04", class:"br-button accept-button #{'selected' if model.status == 'accepted'}" %>
+                <%= button_to "Rejeitar".html_safe, update_comment_status_path(id: model.id, status: "rejected"), method: :put,remote: true,id:"tag04", class:"br-button reject-button #{'selected' if model.status == 'rejected'}" %>
             </div>
           </div>
         <% end %>
