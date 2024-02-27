@@ -12,13 +12,13 @@ shared_examples_for "a scopable resource" do
   context "when the scope does not exist" do
     let(:scope_id) { 3456 }
 
-    it { expect(form.scope).to eq(nil) }
+    it { expect(form.scope).to be_nil }
   end
 
   context "when the scope is from another organization" do
     let(:scope_id) { create(:scope).id }
 
-    it { expect(form.scope).to eq(nil) }
+    it { expect(form.scope).to be_nil }
   end
 
   context "when the component has a scope" do
