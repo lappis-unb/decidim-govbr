@@ -87,6 +87,8 @@ pt-BR:
         form:
           default_step_settings: Configurações da fase padrão
           step_settings: Configurações da fase
+          name_field: Preencha com o nome no singular
+          pluralized_name_field: Preencha com o nome no plural
       conflicts:
         title: Conflitos de verificação
       dashboard:
