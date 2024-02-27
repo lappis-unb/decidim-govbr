@@ -70,13 +70,13 @@ module Decidim
         end
       end
 
-      def update_status 
+      def update_status
         set_comment
         enforce_permission_to :update, :comment, comment: comment
 
         params[:comment] = {
-          :body => comment.body["#{I18n.locale}"],
-          :status => params[:status]
+          body: comment.body[I18n.locale.to_s],
+          status: params[:status]
         }
 
         params.delete(:status)
@@ -100,7 +100,6 @@ module Decidim
             end
           end
         end
-
       end
 
       def create
