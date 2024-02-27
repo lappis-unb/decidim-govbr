@@ -11,7 +11,7 @@ module Decidim
 
       belongs_to :user_proposals_statistic_setting, class_name: 'Decidim::Govbr::UserProposalsStatisticSetting'
 
-      scope :by_component, -> (component) {
+      scope :by_component, lambda { |component|
         where(
           user_proposals_statistic_setting: Decidim::Govbr::UserProposalsStatisticSetting.where(
                                               decidim_participatory_space_type: component.participatory_space_type,
@@ -20,7 +20,7 @@ module Decidim
         )
       }
 
-      scope :by_user, -> (user) {
+      scope :by_user, lambda { |user|
         where(decidim_user_id: user.id)
       }
 

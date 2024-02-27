@@ -30,7 +30,7 @@ module Decidim
       def show
         enforce_permission_to :read, :process, process: current_participatory_space
 
-        redirect_to_custom_show_page_if_necessary
+        render_custom_show_page_if_necessary
       end
 
       def all_metrics
@@ -49,7 +49,7 @@ module Decidim
 
       def default_filter_params
         {
-          with_any_scope: nil,
+          with_scope: nil,
           with_area: nil,
           with_type: nil,
           with_date: default_date_filter

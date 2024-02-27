@@ -2,7 +2,7 @@ module OmniAuth
   module Strategies
     class OpenIDConnect
       info do
-        name = user_info.name.split(' ').first
+        name = user_info.name.split(' ').first # rubocop:disable Style/RedundantArgument
         nickname = name.parameterize[0,10] << '_' << rand.to_s[2..10]
 
         {
@@ -23,7 +23,7 @@ Devise.setup do |config|
     name: :govbr,
     scope: [:openid, :email, :profile, :govbr_confiabilidades],
     grant_type: 'authorization_code',
-    issuer: "https://#{ENV['OMNIAUTH_GOVBR_HOST']}/",
+    issuer: "https://#{ENV["OMNIAUTH_GOVBR_HOST"]}/",
     client_auth_method: 'jwks',
     pkce: true,
     client_options: {
@@ -31,7 +31,7 @@ Devise.setup do |config|
       identifier: ENV["OMNIAUTH_GOVBR_CLIENT_ID"],
       secret: ENV["OMNIAUTH_GOVBR_SECRET_KEY"],
       redirect_uri: ENV["OMNIAUTH_GOVBR_REDIRECT_URI"],
-      jwks_uri: "https://#{ENV['OMNIAUTH_GOVBR_HOST']}/jwk"
+      jwks_uri: "https://#{ENV["OMNIAUTH_GOVBR_HOST"]}/jwk"
     }
   }
 end

@@ -20,7 +20,7 @@ require "shared/scopable_resource_examples"
 require "shared/translate_helper"
 
 # Requires all rspec examples
-Dir[File.join('spec', 'shared', '*_examples.rb')].map { |file| require_relative "shared/#{file.split('/').last}" }
+Dir[File.join('spec', 'shared', '*_examples.rb')].map { |file| require_relative "shared/#{file.split("/").last}" }
 
 require 'component.rb'
 

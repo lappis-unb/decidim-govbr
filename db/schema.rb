@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_13_153444) do
+ActiveRecord::Schema.define(version: 2024_02_20_181855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -433,7 +433,6 @@ ActiveRecord::Schema.define(version: 2024_02_13_153444) do
     t.string "decidim_participatory_space_type"
     t.integer "decidim_participatory_space_id"
     t.datetime "deleted_at"
-    t.integer "status", default: 0
     t.index ["created_at"], name: "index_decidim_comments_comments_on_created_at"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_comments_comments_on_decidim_author"
     t.index ["decidim_author_id"], name: "decidim_comments_comment_author"
@@ -1547,6 +1546,7 @@ ActiveRecord::Schema.define(version: 2024_02_13_153444) do
     t.bigint "decidim_participatory_process_type_id"
     t.string "initial_page_type", default: "default", null: false
     t.bigint "initial_page_component_id"
+    t.string "group_chat_id"
     t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id"
