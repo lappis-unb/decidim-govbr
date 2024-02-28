@@ -52,7 +52,7 @@ pt-BR:
           one: "%{count} contribuicao"
           other: "%{count} contribuições"
         single_comment_warning: Pode consultar as contribuições restantes <a href="%{url}">aqui</a>.
-        single_comment_kjhgwarning_title: Está vendo uma única contribuição
+        single_comment_warning_title: Está vendo uma única contribuição
         confirm_destroy: Tem certeza que deseja excluir esta contribuição?
         delete: PORRA
         deleted_at: Contribuição excluída em %{date}
