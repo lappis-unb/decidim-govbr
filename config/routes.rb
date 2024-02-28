@@ -29,8 +29,8 @@ Rails.application.routes.draw do
     to: 'decidim/govbr/user_proposals_statistic_settings#create',
     as: 'user_proposal_statistic_report_create'
   )
-  
-  put '/update_status_comment/:id/', to: 'decidim/comments/comments#update_status', as: 'update_comment_status'
+
+  patch '/update_status_comment/:id/', to: 'decidim/comments/comments#update_status', as: 'update_comment_status'
 
   resources :assemblies, param: :slug, only: [] do
     resources :media, only: :index, controller: 'decidim/assemblies/media'
