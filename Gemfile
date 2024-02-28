@@ -44,6 +44,7 @@ group :development, :test do
   gem 'byebug', '11.1.3'
   gem 'decidim-dev', DECIDIM_VERSION
   gem 'pry-nav'
+  gem "rubocop-faker", "~> 1.1"
 end
 
 group :development do
