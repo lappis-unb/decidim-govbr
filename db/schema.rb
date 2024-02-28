@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2024_02_28_133849) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
@@ -1593,6 +1592,7 @@ ActiveRecord::Schema.define(version: 2024_02_28_133849) do
     t.bigint "decidim_participatory_process_type_id"
     t.string "initial_page_type", default: "default", null: false
     t.bigint "initial_page_component_id"
+    t.string "group_chat_id"
     t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id"
