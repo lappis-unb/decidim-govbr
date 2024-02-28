@@ -98,9 +98,9 @@ pt-BR:
   layouts:
     decidim:
       assembly_navigation:
-        media: Multimídia
+        media: Mobilização
       process_navigation:
-        media: Multimídia
+        media: Mobilização
 
 pt:
   activemodel:
@@ -159,6 +159,8 @@ pt:
         show:
           topp_agreement: Concordo com a política de privacidade
     admin:
+      participatory_texts:
+        is_interactive: Interação habilitada
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Pesquisar %{collection} por e-mail, nome, nome de usuário ou CPF.
@@ -224,9 +226,9 @@ pt:
   layouts:
     decidim:
       assembly_navigation:
-        media: Multimídia
+        media: Mobilização
       process_navigation:
-        media: Multimídia
+        media: Mobilização
 
 en:
   activemodel:

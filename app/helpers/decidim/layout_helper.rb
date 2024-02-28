@@ -51,9 +51,9 @@ module Decidim
 
       html_properties["width"] = options[:width]
       html_properties["height"] = options[:height]
-      html_properties["aria-label"] = options[:aria_label] || options[:"aria-label"]
+      html_properties["aria-label"] = options[:aria_label] || options[:"aria-label"] # rubocop:disable Style/QuotedSymbols
       html_properties["role"] = options[:role] || "img"
-      html_properties["aria-hidden"] = options[:aria_hidden] || options[:"aria-hidden"]
+      html_properties["aria-hidden"] = options[:aria_hidden] || options[:"aria-hidden"] # rubocop:disable Style/QuotedSymbols
 
       html_properties["class"] = (["icon--#{name}"] + _icon_classes(options)).join(" ")
 
