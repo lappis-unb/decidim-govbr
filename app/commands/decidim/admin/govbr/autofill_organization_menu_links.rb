@@ -42,10 +42,10 @@ module Decidim
 
         def update_organization
           @organization = Decidim.traceability.update!(
-          current_organization,
-          current_user,
-          menu_links: generate_menu_links
-        )
+            current_organization,
+            current_user,
+            menu_links: generate_menu_links
+          )
         end
       end
     end
