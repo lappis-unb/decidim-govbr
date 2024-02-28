@@ -61,13 +61,6 @@ module Decidim
         end
       end
 
-      def self.menu_link_valid?
-        organization = Decidim::Organization.find_by(id: 1)
-        return false unless organization
-
-        organization.menu_links == {} || organization.menu_links == ''
-      end
-
       def menu_links_json_format
         begin
           JSON.parse(menu_links.gsub('=>', ':'))

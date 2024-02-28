@@ -4,17 +4,17 @@ module Decidim
   module Admin
     module Govbr
       class AutofillMenuLinks < Decidim::Command
-        attr_reader :form, :component, :previous_settings
+        attr_reader :current_user
 
         def initialize(user)
-          @user = user
+          @current_user = user
         end
 
         # Public: Creates the Component.
         #
         # Broadcasts :ok if created, :invalid otherwise.
         def call
-          update_organization ? broadcast(:ok) : broadcast(:invalid)
+          update_organization ? broadcast(:ok, @organization) : broadcast(:invalid)
         end
 
         private
@@ -41,7 +41,11 @@ module Decidim
         end
 
         def update_organization
-          current_organization.update(menu_links: generate_menu_links)
+          @organization = Decidim.traceability.update!(
+          current_organization,
+          current_user,
+          menu_links: generate_menu_links
+        )
         end
       end
     end

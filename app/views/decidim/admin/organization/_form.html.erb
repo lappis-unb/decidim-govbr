@@ -52,7 +52,7 @@
       <%= form.check_box :enable_participatory_space_filters %>
     </div>
   </div>
-  <% if Decidim::Admin::OrganizationForm.menu_link_valid? %>
+  <% if current_organization.menu_links.to_s == "{}" || current_organization.menu_links.empty?   %>
     <%= link_to "Preencher campo", main_app.autofill_menu_links_organization_path(current_organization), method: :patch %>
   <% end %>
   <div class="row">
