@@ -18,9 +18,7 @@
           <li class="accordion-item <%= proposal.article? ? "is-active" : nil %>" data-accordion-item>
             <a href="#" class="accordion-title flex--sbc">
               <%= preview_participatory_text_section_title(proposal) %>
-              <div class="is-interactive-checkbox">
-                <span class="mr-m"><%= icon "menu", class: "icon--small", role: "img", "aria-hidden": true %></span>
-              </div>
+              <span class="mr-m"><%= icon "menu", class: "icon--small", role: "img", "aria-hidden": true %></span>
             </a>
             <div class="accordion-content" data-tab-content>
               <span class="mr-m"><%= prop_form.check_box :is_interactive, label: t("decidim.admin.participatory_texts.is_interactive") %></span>
