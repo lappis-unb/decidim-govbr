@@ -69,9 +69,9 @@
       <%= filter_form_for filter do |form| %>
         <div class="br-input input-highlight">
           <%= form.search_field :search_text_cont, type: "search",
-            label: false, class: "input-group-field", placeholder: t("decidim.proposals.proposals.filters.placeholder", 
-            name: translated_attribute(current_component.singular_name).present? ? 
-            translated_attribute(current_component.singular_name).downcase : 
+            label: false, class: "input-group-field", placeholder: t("decidim.proposals.proposals.filters.placeholder",
+            name: translated_attribute(current_component.singular_name).present? ?
+            translated_attribute(current_component.singular_name).downcase :
             "proposta"),
             "aria-label": "Buscar", id: "input-search-large",
             data: { disable_dynamic_change: true } %>
