@@ -13,7 +13,7 @@ module Decidim
       #
       # Returns a rendered dropdown.
       def export_dropdown_br(component = current_component, resource_id = nil)
-        render partial: 'decidim/admin/exports-br/dropdown-br',
+        render partial: 'decidim/govbr/exports/_dropdown.html.erb',
                locals: { component: component, resource_id: resource_id }
       end
 
