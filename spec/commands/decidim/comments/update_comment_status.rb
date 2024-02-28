@@ -15,9 +15,9 @@ module Decidim
       let(:body) { "This is a reasonable comment" }
       let(:params) do
         {
-          :id => comment.id,
-          :comment => {
-            :status => 'accepted'
+          id: comment.id,
+          comment: {
+            status: 'accepted'
           }
         }
       end
