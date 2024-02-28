@@ -7,7 +7,7 @@ module Decidim
       def add_html_block
         @html_blocks_count = content_blocks.where("manifest_name LIKE ?", "html%").count
         @html_blocks_count += 1
-        Decidim::Core::HtmlBlockRegistration.register_dynamic_html_block(@html_blocks_count)
+        Decidim::Admin::HtmlBlockRegistration.register_dynamic_html_block(@html_blocks_count)
       end
 
       layout 'decidim/admin/settings'
