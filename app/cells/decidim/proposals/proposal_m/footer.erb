@@ -4,22 +4,24 @@
     <div class="proposals_card_footer">
       <% if !current_settings.votes_hidden? %>
           <%= cell(
-            "decidim/progress_bar",
-            progress_bar_progress,
-            total: progress_bar_total,
-            units_name: "decidim.proposals.proposals.votes_count.count",
-            element_id: "proposal-#{model.id}-votes-count",
-            subtitle_text: progress_bar_subtitle_text,
-            small: true
-          ) %>
-          <div>
-            <span class="progress__bar__coment_number" style="font-size: 1rem;" data-asw-orgfontsize="20">
-              <%= comments_count %> 
-            </span>
-            <span class="progress__bar__coment">Comentários
-            </span>
-          </div>
-        <% end %>
+          "decidim/progress_bar",
+          progress_bar_progress,
+          total: progress_bar_total,
+          units_name: "decidim.proposals.proposals.votes_count.count",
+          element_id: "proposal-#{model.id}-votes-count",
+          subtitle_text: progress_bar_subtitle_text,
+          small: true
+        ) %>
+      <% end %>
+      <%= cell(
+        "decidim/progress_bar",
+        comments_count,
+        total: progress_bar_total,
+        units_name: "decidim.proposals.proposals.comments_count.count",
+        element_id: "proposal-#{model.id}-comments-count",
+        subtitle_text: progress_bar_subtitle_text,
+        small: true
+      ) %>
     </div>
       <% if has_actions? %>
         
