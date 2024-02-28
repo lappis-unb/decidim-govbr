@@ -22,6 +22,8 @@ module Decidim
       #
       # Returns nothing.
       def call
+        return broadcast(:invalid) if !current_user.admin
+        
         update_comment_status
 
         broadcast(:ok)
