@@ -1,27 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var observer = new IntersectionObserver(
-    function (entries, observer) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-          entry.target.classList.add("in-view");
-        } else if (entry.intersectionRatio < 0.5) {
-          entry.target.classList.remove("in-view");
-        }
-      });
-    },
-    { threshold: [0.1, 0.75] }
-  );
-
-  var cardAnimations = document.querySelectorAll(".card__animation");
-
-  cardAnimations.forEach(function (cardAnimation) {
-    observer.observe(cardAnimation);
-  });
-
   var avatarButton = document.getElementById("avatar-dropdown-trigger");
   var userMenuLinks = document.querySelectorAll(".br-list-dropdown a");
   var userMenu = document.getElementById("avatar-menu");
-  
+
   if (avatarButton) {
     avatarButton.addEventListener("click", function () {
       userMenuLinks.forEach(function (link, i) {
