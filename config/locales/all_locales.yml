@@ -100,7 +100,7 @@ pt-BR:
         comments_count:
           count:
             one: COMENTÁRIO
-            other: COMENTÁRIOS  
+            other: COMENTÁRIOS
   layouts:
     decidim:
       assembly_navigation:
@@ -423,8 +423,8 @@ es-MX:
       proposals:
         comments_count:
           count:
-            one: COMMENT
-            other: COMMENTS
+            one: COMENTARIO
+            other: COMENTARIOS
   layouts:
     decidim:
       assembly_navigation:
