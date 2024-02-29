@@ -35,10 +35,10 @@
     </button>
   </div>
   <div class="filter-container">
-    <% if current_user.admin? %>
-      <%= render partial: 'decidim/govbr/exports/dropdown', locals: { component: current_component, resource_id: nil} %>
-    <% end %>
     <% if current_user %>
+      <% if current_user.admin? %>
+        <%= render partial: 'decidim/govbr/exports/dropdown', locals: { component: current_component, resource_id: nil} %>
+      <% end %>
       <h2 class="user-name-title-h1">Olá, <%= current_user.name %></h2>
     <% end %>
     <div class="proposals__buttons-container">

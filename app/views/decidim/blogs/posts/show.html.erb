@@ -24,7 +24,7 @@
         </div>
     <div class="news-title-container">
         <h2 class="blog-title"><%= translated_attribute post.title %></h2>
-        <% if current_user.admin? %>
+        <% if current_user && current_user.admin? %>
             <%= link_to "Editar Notícia", send(current_component.mounted_admin_engine).edit_post_path(post), class: "button" %>
         <% end %>   
     </div>
