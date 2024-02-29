@@ -91,6 +91,7 @@ Rails.application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
   if ENV['RAILS_LOG_TO_STDOUT'].present?
+    # rubocop:disable Layout/ExtraSpacing
     logger           = ActiveSupport::Logger.new($stdout)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
@@ -98,6 +99,7 @@ Rails.application.configure do
     logger           = ActiveSupport::Logger.new(Rails.root.join('log', "#{Rails.env}.log"))
     logger.formatter = MessageFormatter.new
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
+    # rubocop:enable Layout/ExtraSpacing
   end
 
   # Do not dump schema after migrations.
