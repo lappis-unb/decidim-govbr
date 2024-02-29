@@ -954,7 +954,6 @@ DEPENDENCIES
   omniauth_openid_connect (= 0.6.1)
   pry-nav
   puma (= 5.6.5)
-  rails-controller-testing
   rails-erd
   redis (= 4.7.1)
   rubocop-faker (~> 1.1)
