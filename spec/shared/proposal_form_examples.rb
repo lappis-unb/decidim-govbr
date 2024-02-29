@@ -37,7 +37,6 @@ shared_examples "a proposal form" do |options|
   let(:attachment_params) { nil }
   let(:meeting_as_author) { false }
   let(:is_interactive) { false }
-  let!(:validate_title_min_length) { create(:awesome_config, organization: organization, var: :validate_title_min_length, value: 15) }
   let(:params) do
     {
       title: title,
@@ -273,7 +272,7 @@ shared_examples "a proposal form" do |options|
     it { is_expected.to be_valid }
 
     context "when the form has some errors" do
-      let(:title) { "Tiny title" }
+      let(:title) { nil }
 
       it "adds an error to the `:attachment` field" do
         expect(subject).not_to be_valid
@@ -282,7 +281,7 @@ shared_examples "a proposal form" do |options|
           expect(subject.errors.full_messages).to match_array(["Title en can't be blank", "Add photos Needs to be reattached"])
           expect(subject.errors.attribute_names).to match_array([:title_en, :add_photos])
         else
-          expect(subject.errors.full_messages).to match_array(["Title is too short (under 15 characters)", "Add photos Needs to be reattached"])
+          expect(subject.errors.full_messages).to match_array(["Title can't be blank", "Title is too short (under 15 characters)", "Add photos Needs to be reattached"])
           expect(subject.errors.attribute_names).to match_array([:title, :add_photos])
         end
       end
