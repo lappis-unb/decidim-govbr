@@ -7,7 +7,14 @@
   </button>
 </div>
 <div class="export-buttons ">
-<%= render partial: "decidim/shared/export_modal"%>
+<%= render partial: "decidim/shared/export_modal", locals:
+    {
+      host_airflow: "https://your-airflow-url.com",
+      dag_id: "generate_report_proposals",
+      username: "your_username",
+      password: "your_password",
+    }
+%>
 </div>
   </div>
 <div class="br-scrim-util foco" id="scrimutilexample" data-scrim="true">
