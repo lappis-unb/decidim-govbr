@@ -47,9 +47,17 @@
 
   <div class="br-row">
     <div class="title-action title-action-button">
+      <%= render partial: "decidim/shared/export_modal", locals:
+      {
+        host_airflow: "https://your-airflow-url.com",
+        dag_id: "generate_report_proposals",
+        username: "your_username",
+        password: "your_password",
+      }
+  %>
       <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) %>
         <%= action_authorized_link_to :create, new_proposal_path,
-          class: "title-action__action br-button block primary", data: { "redirect_url" => new_proposal_path } do %>
+          class: "title-action__action br-button primary", data: { "redirect_url" => new_proposal_path } do %>
           <i class="fa-solid fa-plus fa-sl"></i>
           <span class="title-action-text">
             <% if translated_attribute(current_component.singular_name).present? %>

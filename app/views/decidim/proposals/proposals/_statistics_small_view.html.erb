@@ -1,21 +1,9 @@
-<div class="proposal-export-buttons">
-<div class="scrimutilexemplo">
-  <button data-open="statistics-box export_button_proposals" aria-controls="statistics-box" aria-haspopup="dialog"  type="button">
-    <span class="proposals__button-circle button-container-style">
-      <i class="fas fa-chart-bar size-icon-filter"></i>
-    </span> 
-  </button>
-</div>
-<div class="export-buttons ">
-<%= render partial: "decidim/shared/export_modal", locals:
-    {
-      host_airflow: "https://your-airflow-url.com",
-      dag_id: "generate_report_proposals",
-      username: "your_username",
-      password: "your_password",
-    }
-%>
-</div>
+  <div class="scrimutilexemplo">
+    <button data-open="statistics-box" aria-controls="statistics-box" aria-haspopup="dialog"  type="button">
+      <span class="proposals__button-circle button-container-style">
+        <i class="fas fa-chart-bar size-icon-filter"></i>
+      </span> 
+    </button>
   </div>
 <div class="br-scrim-util foco" id="scrimutilexample" data-scrim="true">
   <div class="br-modal">
