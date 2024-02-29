@@ -3,6 +3,14 @@
   <h1>
     <%= render_participatory_text_title(@participatory_text) %>
   </h1>
+  <%= render partial: "decidim/shared/export_modal", locals:
+      {
+        host_airflow: "https://your-airflow-url.com",
+        dag_id: "generate_report_participatory_texts",
+        username: "your_username",
+        password: "your_password",
+      }
+      %>
   <%= render partial: "decidim/proposals/proposals/participatory_texts/view_index" %>
   <ul class="participatory-text-list" id="proposals-text">
     <% @proposals.each do |proposal| %>
