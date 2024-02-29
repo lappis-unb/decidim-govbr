@@ -1,11 +1,11 @@
 <% if current_user %> 
   <% if current_user.admin? %>
     <button
-      class="button button--title share-link text-center"
+      class="br-button primary"
       data-open="export_data"
     >
-      Gerar relatório
       <i class="fa-solid fa-magnifying-glass-chart m-2"></i>
+      Gerar relatório
     </button>
     <div class="reveal" id="export_data" data-reveal>
       <div class="reveal__header">
@@ -55,7 +55,7 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         $("#submitBtn").on("click", function () {
-          
+
           var dateRangeInput = $("#range-input").val();
           const email = $("#emailInput").val();
           const id = $("#idInput").val();

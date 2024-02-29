@@ -72,7 +72,7 @@
 .title-action-button {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: right;
 }
 
 .title-action__action {
@@ -167,4 +167,22 @@
   display: flex;
   align-items: normal;
   gap: 8px;
+}
+
+.participatory_texts_buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+  margin-bottom: 8px;
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
+.see-index-button {
+  color: var(--interactive);
+  gap: 1rem;
 }
