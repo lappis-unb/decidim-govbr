@@ -646,6 +646,11 @@ input[type="text"]:focus:not(.input-group-field) {
   color: var(--blue-warm-vivid-80);
   font-size: 2.25rem;
   font-weight: var(--font-weight-semi-bold);
+  padding: 0;
+}
+
+.row-counter {
+  max-width: 100% !important;
 }
 
 /* ------- Calendario ----- */
@@ -1292,12 +1297,11 @@ a[href="#comments"] {
   justify-content: center;
 }
 
-.br-container-lg .row,
-.wrapper.wrapper--inner .row {
-  max-width: 100%;
-}
-
 .social-register {
   display: flex;
   justify-content: center;
+}
+
+.comment-container {
+  padding-bottom: 4rem;
 }
