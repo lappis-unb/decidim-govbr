@@ -29359,7 +29359,7 @@ button.br-item:not(:disabled):active {
   background: transparent;
   padding: 0;
 }
-.br-tag.interaction-select label {
+.br-tag.interaction-select label, .status-button {
   --interactive-rgb: var(--color-dark-rgb);
   --hover: var(--hover-dark);
   align-items: center;

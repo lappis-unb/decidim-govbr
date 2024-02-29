@@ -87,6 +87,8 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
+  config.include Devise::Test::ControllerHelpers, type: :controller
+
   RSpec::Matchers.define :be_versioned do
     match { |actual| actual.is_a?(::PaperTrail::Model::InstanceMethods) }
   end
