@@ -37,7 +37,7 @@
   --unnamed-line-spacing-40-060001373291016: 40.060001373291016px;
   --unnamed-line-spacing-33-380001068115234: 33.380001068115234px;
   --unnamed-line-spacing-48-06999969482422: 48.06999969482422px;
-  
+
   --input-medium: 40px;
   --input-size: var(--input-medium);
 }
@@ -644,6 +644,11 @@ input[type="text"]:focus:not(.input-group-field) {
   color: var(--blue-warm-vivid-80);
   font-size: 2.25rem;
   font-weight: var(--font-weight-semi-bold);
+  padding: 0;
+}
+
+.row-counter {
+  max-width: 100% !important;
 }
 
 /* ------- Calendario ----- */
