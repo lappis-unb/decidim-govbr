@@ -19,6 +19,7 @@ gem 'decidim-consultations', DECIDIM_VERSION
 gem 'decidim-initiatives', DECIDIM_VERSION
 gem 'decidim-apiauth', github: 'mainio/decidim-module-apiauth'
 gem 'omniauth_openid_connect', '0.6.1'
+gem "decidim-decidim_awesome", "~> 0.10.2"
 
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 
@@ -43,6 +44,7 @@ group :development, :test do
   gem 'byebug', '11.1.3'
   gem 'decidim-dev', DECIDIM_VERSION
   gem 'pry-nav'
+  gem "rubocop-faker", "~> 1.1"
 end
 
 group :development do

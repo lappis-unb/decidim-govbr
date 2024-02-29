@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-module-homes.git
-  revision: e679365357a1eef89b3d8ecba9ccc8976a78f47e
+  revision: cbd9f979bc2493c127373e29e37e74afe3a33c1d
   specs:
     decidim-homes (0.27.2)
       decidim-core (= 0.27.2)
@@ -299,6 +299,11 @@ GEM
     decidim-debates (0.27.2)
       decidim-comments (= 0.27.2)
       decidim-core (= 0.27.2)
+    decidim-decidim_awesome (0.10.2)
+      decidim-admin (>= 0.26.0, < 0.28)
+      decidim-core (>= 0.26.0, < 0.28)
+      deface (>= 1.5)
+      sassc (~> 2.3)
     decidim-dev (0.27.2)
       axe-core-rspec (~> 4.1.0)
       byebug (~> 11.0)
@@ -379,6 +384,12 @@ GEM
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
+    deface (1.9.0)
+      actionview (>= 5.2)
+      nokogiri (>= 1.6)
+      polyglot
+      railties (>= 5.2)
+      rainbow (>= 2.1.0)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     devise (4.8.1)
@@ -655,6 +666,7 @@ GEM
     pg_search (2.3.6)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
+    polyglot (0.3.5)
     premailer (1.19.0)
       addressable
       css_parser (>= 1.12.0)
@@ -787,6 +799,9 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.26.0)
       parser (>= 3.2.1.0)
+    rubocop-faker (1.1.0)
+      faker (>= 2.12.0)
+      rubocop (>= 0.82.0)
     rubocop-rails (2.15.2)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
@@ -808,6 +823,8 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     selenium-webdriver (4.1.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -939,6 +956,7 @@ DEPENDENCIES
   decidim-apiauth!
   decidim-conferences (= 0.27.2)
   decidim-consultations (= 0.27.2)
+  decidim-decidim_awesome (~> 0.10.2)
   decidim-dev (= 0.27.2)
   decidim-homes!
   decidim-initiatives (= 0.27.2)
@@ -953,6 +971,7 @@ DEPENDENCIES
   puma (= 5.6.5)
   rails-erd
   redis (= 4.7.1)
+  rubocop-faker (~> 1.1)
   sidekiq (= 6.5.7)
   spring (~> 2.0)
   spring-watcher-listen (~> 2.0)

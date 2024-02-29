@@ -159,6 +159,8 @@ pt:
         show:
           topp_agreement: Concordo com a política de privacidade
     admin:
+      participatory_texts:
+        is_interactive: Interação habilitada
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Pesquisar %{collection} por e-mail, nome, nome de usuário ou CPF.
