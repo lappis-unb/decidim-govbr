@@ -51,6 +51,19 @@ module Decidim
         end
       end
 
+      def autofill_footer_menu_links
+        enforce_permission_to :update, :organization, organization: current_organization
+        Govbr::AutofillFooterMenuLinks.call(current_user) do
+          on(:ok) do
+            flash[:notice] = "Menu links atualizados com sucesso"
+          end
+
+          on(:invalid) do
+            flash[:alert] = "Erro ao atualizar menu links"
+          end
+        end
+      end
+
       private
 
       def search(relation)

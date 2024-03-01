@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resource :organization, only: [], controller: "decidim/admin/organization" do
     member do
       patch :autofill_menu_links, action: :autofill_menu_links
+      patch :autofill_footer_menu_links, action: :autofill_footer_menu_links
     end
   end
 
