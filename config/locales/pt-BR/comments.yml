@@ -54,7 +54,9 @@ pt-BR:
         single_comment_warning: Pode consultar as contribuições restantes <a href="%{url}">aqui</a>.
         single_comment_warning_title: Está vendo uma única contribuição
         confirm_destroy: Tem certeza que deseja excluir esta contribuição?
-        delete: PORRA
+        loading: Carregando contribuições ...
+      comment:
+        delete: deletar
         deleted_at: Contribuição excluída em %{date}
       edit_comment_modal_form:
         close: Fechar
