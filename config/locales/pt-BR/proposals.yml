@@ -60,7 +60,7 @@ pt-BR:
         actions:
           new: Novo(a) %{name}
           answer_proposal: Responder proposta
-          edit_proposal: Editar proposta
+          edit_proposal: Editar %{singular_name_button}
           import: Importar de outro componente
           participatory_texts: Textos participativos
           show: Mostrar proposta
@@ -273,17 +273,18 @@ pt-BR:
         index:
           click_here: Ver todas as propostas
           collaborative_drafts_list: Acessar rascunhos colaborativos
-          new_proposal: Faça sua proposta
+          new_proposal: Faça sua %{proposal}
           see_all: Ver todas as propostas
           text_banner: Está vendo a lista de propostas retiradas pelos seus próprios autores. %{go_back_link}
         new:
-         title: Crie sua proposta
+         title: Crie sua %{singular_name}
         edit:
           add_documents: Adicionar documentos
           add_image: Adicionar imagem
           edit_documents: Editar documentos
           edit_image: Editar imagem
           select_a_category: Selecione um tema
+          title: Editar ISSO
         edit_draft:
           discard: Descartar rascunho
           send: Continuar
