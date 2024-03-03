@@ -91,6 +91,13 @@
   margin-bottom: 1rem;
 }
 
+.comment__deleted {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
 .br-comments-count {
   color: var(--blue-warm-vivid-80);
   font-size: 1.25rem !important;
