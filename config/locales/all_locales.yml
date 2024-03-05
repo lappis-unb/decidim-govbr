@@ -4,12 +4,21 @@
 pt-BR:
   activemodel:
     attributes:
+      assembly:
+        initial_page_component_id: Página Principal da Assembléia
       assembly_partner:
         link: Link oficial
         logo: Logotipo
         name: Nome
         partner_type: Tipo
         weight: Weight (posição de exibição)
+      participatory_process:
+        area_id: Órgão/Instituição
+        decidim_area_id: Órgão/Instituição
+        initial_page_component_id: Página Principal do Processo
+        scope_id: Áreas de interesse
+        scopes_enabled: Áreas de interesse ativadas
+        slug: URL Amigável
       participatory_process_partner:
         link: Link oficial
         logo: Logotipo
@@ -20,10 +29,7 @@ pt-BR:
         date: Data
         link: Link
         title: Título
-      assembly:
-        initial_page_component_id: Página Principal da Assembléia
-      participatory_process:
-        initial_page_component_id: Página Principal do Processo
+
   decidim:
     govbr:
       initial_page_type:
@@ -95,6 +101,12 @@ pt-BR:
           create: "%{user_name} criou o link externo %{resource_name} no espaço participativo %{space_name}"
           delete: "%{user_name} removeu o link externo %{resource_name} do espaço participativo %{space_name}"
           update: "%{user_name} atualizou o link externo %{resource_name} do espaço participativo %{space_name}"
+    proposals:
+      proposals:
+        comments_count:
+          count:
+            one: COMENTÁRIO
+            other: COMENTÁRIOS
   layouts:
     decidim:
       assembly_navigation:
@@ -198,7 +210,7 @@ pt:
           new: Novo(a) %{name}
       meetings:
         actions:
-          new: 'Novo(a) %{singular_name}'
+          new: "Novo(a) %{singular_name}"
     meetings:
       admin:
         meetings:
@@ -213,6 +225,10 @@ pt:
           singular_name:
             when_empty: Proposta
       proposals:
+        comments_count:
+          count:
+            one: COMENTÁRIO
+            other: COMENTÁRIOS
         count:
           proposals_count:
             one: "%{count} %{singular_name}"
@@ -314,6 +330,12 @@ en:
           create: "%{user_name} created an external link %{resource_name} in the participatory space %{space_name}"
           delete: "%{user_name} removed the external link %{resource_name} from the participatory space %{space_name}"
           update: "%{user_name} updated the external link %{resource_name} from the participatory space %{space_name}"
+    proposals:
+      proposals:
+        comments_count:
+          count:
+            one: COMMENT
+            other: COMMENTS
   layouts:
     decidim:
       assembly_navigation:
@@ -405,6 +427,12 @@ es-MX:
           create: "%{user_name} creó un enlace externo %{resource_name} en el espacio participativo %{space_name}"
           delete: "%{user_name} eliminó el enlace externo %{resource_name} del espacio participativo %{space_name}"
           update: "%{user_name} actualizó el enlace externo %{resource_name} del espacio participativo %{space_name}"
+    proposals:
+      proposals:
+        comments_count:
+          count:
+            one: COMENTARIO
+            other: COMENTARIOS
   layouts:
     decidim:
       assembly_navigation:
@@ -496,6 +524,12 @@ es-PY:
           create: "%{user_name} creó un enlace externo %{resource_name} en el espacio participativo %{space_name}"
           delete: "%{user_name} eliminó el enlace externo %{resource_name} del espacio participativo %{space_name}"
           update: "%{user_name} actualizó el enlace externo %{resource_name} del espacio participativo %{space_name}"
+    proposals:
+      proposals:
+        comments_count:
+          count:
+            one: COMENTARIO
+            other: COMENTARIOS
   layouts:
     decidim:
       assembly_navigation:
@@ -587,6 +621,12 @@ es:
           create: "%{user_name} creó un enlace externo %{resource_name} en el espacio participativo %{space_name}"
           delete: "%{user_name} eliminó el enlace externo %{resource_name} del espacio participativo %{space_name}"
           update: "%{user_name} actualizó el enlace externo %{resource_name} del espacio participativo %{space_name}"
+    proposals:
+      proposals:
+        comments_count:
+          count:
+            one: COMENTARIO
+            other: COMENTARIOS
   layouts:
     decidim:
       assembly_navigation:
