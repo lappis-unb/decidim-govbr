@@ -9,7 +9,7 @@ pt-BR:
       decidim/comments/reply_created_event: Resposta
       decidim/comments/user_group_mentioned_event: Mencionar
       decidim/comments/user_mentioned_event: Mencionar
-    contribuicao:
+    contribution:
       one: Contribuição
       other: Contribuições
   activerecord:
@@ -18,7 +18,7 @@ pt-BR:
         one: Contribuição
         other: Contribuições
   decidim:
-    contribuicoes:
+    comments:
       admin:
         shared:
           availability_fields:
