@@ -14,7 +14,6 @@ module Decidim
         #
         # Broadcasts :ok if created, :invalid otherwise.
         def call
-          puts "xerecaaaaaaaaaaaaaa"
           update_organization ? broadcast(:ok, @organization) : broadcast(:invalid)
         end
 
@@ -33,7 +32,7 @@ module Decidim
               },
               {
                 "id" => "noticia",
-                "href" => "/processes/brasilparticipativo/f/26/",
+                "href" => "/",
                 "label" => "Notícias",
                 "sub_items" => [],
                 "is_visible" => true,
@@ -53,7 +52,7 @@ module Decidim
                   },
                   {
                     "id" => "PPA",
-                    "href" => "processes/programas/f/45",
+                    "href" => "/processes/",
                     "label" => "PPA",
                     "sub_items" => [],
                     "is_visible" => true
@@ -64,7 +63,7 @@ module Decidim
               },
               {
                 "id" => "Canais de Atendimento",
-                "href" => "javascript:void(0)",
+                "href" => "/",
                 "label" => "Canais de Atendimento",
                 "sub_items" => [
                   {
@@ -106,14 +105,14 @@ module Decidim
                 "sub_items" => [
                   {
                     "id" => "Quem Somos",
-                    "href" => "/processes/programas/f/33/",
+                    "href" => "/",
                     "label" => "Quem Somos",
                     "sub_items" => [],
                     "is_visible" => true
                   },
                   {
                     "id" => "O que fazemos",
-                    "href" => "/processes/programas/f/33/",
+                    "href" => "/",
                     "label" => "O que fazemos",
                     "sub_items" => [],
                     "is_visible" => true
@@ -127,7 +126,7 @@ module Decidim
                   },
                   {
                     "id" => "Dados Abertos",
-                    "href" => "/open-data/download",
+                    "href" => "/",
                     "label" => "Dados Abertos",
                     "sub_items" => [],
                     "is_visible" => true
