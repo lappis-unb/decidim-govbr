@@ -4,12 +4,21 @@
 pt-BR:
   activemodel:
     attributes:
+      assembly:
+        initial_page_component_id: Página Principal da Assembléia
       assembly_partner:
         link: Link oficial
         logo: Logotipo
         name: Nome
         partner_type: Tipo
         weight: Weight (posição de exibição)
+      participatory_process:
+        area_id: Órgão/Instituição
+        decidim_area_id: Órgão/Instituição
+        initial_page_component_id: Página Principal do Processo
+        scope_id: Áreas de interesse
+        scopes_enabled: Áreas de interesse ativadas
+        slug: URL Amigável
       participatory_process_partner:
         link: Link oficial
         logo: Logotipo
@@ -20,10 +29,7 @@ pt-BR:
         date: Data
         link: Link
         title: Título
-      assembly:
-        initial_page_component_id: Página Principal da Assembléia
-      participatory_process:
-        initial_page_component_id: Página Principal do Processo
+
   decidim:
     govbr:
       initial_page_type:
@@ -198,7 +204,7 @@ pt:
           new: Novo(a) %{name}
       meetings:
         actions:
-          new: 'Novo(a) %{singular_name}'
+          new: "Novo(a) %{singular_name}"
     meetings:
       admin:
         meetings:
