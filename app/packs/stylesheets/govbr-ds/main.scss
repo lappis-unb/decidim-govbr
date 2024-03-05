@@ -573,7 +573,7 @@ h6 {
 }
 
 .columns.section.view-side.mediumlarge-4.large-3 .card .card__content {
-  background-color: var(--gray-cool-4);
+  background-color: var(--blue-3);
   box-shadow: none;
 }
 
@@ -639,7 +639,13 @@ input[type="text"]:focus:not(.input-group-field) {
 }
 
 .main-container__content {
-  padding: 0 1.5rem;
+  padding: 0;
+}
+
+@media (min-width: 640px) {
+  .main-container__content {
+    padding: 0 1.5rem;
+  }
 }
 
 .page-title {
@@ -985,6 +991,11 @@ a[href="#comments"] {
 
 #proposals a[href*="with_availability%5D=withdrawn"] {
   display: none;
+}
+
+div.columns.large-12 div.section.images h3.section-heading,
+div.columns.large-12 div.section.images .gallery.row .columns.small-6.medium-4.end {
+  display: block;
 }
 
 /* Estatísticas na Home */
