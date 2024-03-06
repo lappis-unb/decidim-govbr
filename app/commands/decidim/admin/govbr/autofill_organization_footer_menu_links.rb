@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     module Govbr
-      class AutofillFooterMenuLinks < Decidim::Command
+      class AutofillOrganizationFooterMenuLinks < Decidim::Command
         attr_reader :current_user
 
         def initialize(user)

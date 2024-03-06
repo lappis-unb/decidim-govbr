@@ -3,11 +3,12 @@
 module Decidim
   module Admin
     module Govbr
-      class AutofillMenuLinks < Decidim::Command
-        attr_reader :current_user
+      class AutofillOrganizationMenuLinks < Decidim::Command
+        attr_reader :current_user, :current_organization
 
         def initialize(user)
           @current_user = user
+          @current_organization = user.organization
         end
 
         # Public: Creates the Component.
@@ -33,11 +34,11 @@ module Decidim
         end
 
         def generate_menu_links
-          processes = get_components_links(Decidim::ParticipatoryProcess.all, 'processes')
-          assemblies = get_components_links(Decidim::Assembly.all, 'assemblies')
+          processes = get_components_links(Decidim::ParticipatoryProcess.published.public_spaces, 'processes')
+          assemblies = get_components_links(Decidim::Assembly.published.public_spaces, 'assemblies')
 
           result = processes + assemblies
-          { 'menu' => result }.to_json.to_s.gsub(':', '=>')
+          { 'menu' => result }
         end
 
         def update_organization

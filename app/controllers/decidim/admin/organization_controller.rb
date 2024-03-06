@@ -40,7 +40,7 @@ module Decidim
 
       def autofill_menu_links
         enforce_permission_to :update, :organization, organization: current_organization
-        Govbr::AutofillMenuLinks.call(current_user) do
+        Govbr::AutofillOrganizationMenuLinks.call(current_user) do
           on(:ok) do
             flash[:notice] = "Menu links atualizados com sucesso"
           end
@@ -53,7 +53,7 @@ module Decidim
 
       def autofill_footer_menu_links
         enforce_permission_to :update, :organization, organization: current_organization
-        Govbr::AutofillFooterMenuLinks.call(current_user) do
+        Govbr::AutofillOrganizationFooterMenuLinks.call(current_user) do
           on(:ok) do
             flash[:notice] = "Menu links atualizados com sucesso"
           end
