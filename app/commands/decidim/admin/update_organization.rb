@@ -59,7 +59,8 @@ module Decidim
           rich_text_editor_in_public_views: form.rich_text_editor_in_public_views,
           enable_participatory_space_filters: form.enable_participatory_space_filters,
           menu_links: JSON.parse(form.menu_links.gsub('=>', ':')),
-          footer_menu_links: JSON.parse(form.footer_menu_links.gsub('=>', ':'))
+          footer_menu_links: JSON.parse(form.footer_menu_links.gsub('=>', ':')),
+          user_profile_poll_link: form.user_profile_poll_link
         }.merge(welcome_notification_attributes).merge(machine_translation_attributes || {})
 
       end
