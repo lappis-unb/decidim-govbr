@@ -61,7 +61,7 @@
     </div>
   </div>
   <% if current_organization.footer_menu_links.to_s == "{}" || current_organization.footer_menu_links.empty?   %>
-    <%= link_to "Preencher campo", main_app. (current_organization), method: :patch %>
+    <%= link_to "Preencher campo", main_app.autofill_footer_menu_links_organization_path(current_organization), method: :patch %>
   <% end %>
   <div class="row" >
     <div class="columns xlarge-6">
