@@ -37,11 +37,7 @@
   box-shadow: none !important;
   flex-wrap: wrap; 
 }
-@media only screen and (max-width: 1080px) {
-   .botton-cookies {
-     padding: 16px 0 !important;
-}
-}
+
 .botton-button-cokies{
   color: #FFFF !important;
 }
@@ -50,4 +46,20 @@
 }
 .text-cookies-booton{
   color: #FFFF;
+  width: 70%;
+  text-align: justify;
+  
 }
+
+@media print, screen and (min-width: 64em){
+    .large-4.cookie {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    }
+}
+
+
+    
