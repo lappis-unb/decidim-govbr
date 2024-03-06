@@ -53,6 +53,14 @@ module Decidim
         attribute :remove_hero_image, Boolean, default: false
         attribute :group_chat_id, String
 
+        attribute :institution, String
+        attribute :sector, String
+        attribute :process_status, String
+        attribute :consultant, String
+        attribute :dou_publication_date, Decidim::Attributes::LocalizedDate
+        attribute :dou_link, String
+        attribute :contact, String
+
         validate :initial_page_component_existence
 
         validates :area, presence: true, if: proc { |object| object.area_id.present? }

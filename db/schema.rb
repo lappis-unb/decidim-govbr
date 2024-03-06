@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_20_181855) do
+ActiveRecord::Schema.define(version: 2024_03_04_154031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -454,8 +454,8 @@ ActiveRecord::Schema.define(version: 2024_02_20_181855) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "participatory_space_type", null: false
-    t.jsonb "singular_name"
     t.boolean "hide_in_menu"
+    t.jsonb "singular_name"
     t.index ["participatory_space_id", "participatory_space_type"], name: "index_decidim_components_on_decidim_participatory_space"
   end
 
@@ -1548,6 +1548,13 @@ ActiveRecord::Schema.define(version: 2024_02_20_181855) do
     t.string "initial_page_type", default: "default", null: false
     t.bigint "initial_page_component_id"
     t.string "group_chat_id"
+    t.string "institution"
+    t.string "sector"
+    t.integer "process_status", default: 0
+    t.string "consultant"
+    t.date "dou_publication_date"
+    t.string "dou_link"
+    t.string "contact"
     t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id"
