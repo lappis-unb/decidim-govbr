@@ -24,6 +24,7 @@ module Decidim
       before_action :edit_form, only: [:edit_draft, :edit]
 
       before_action :set_participatory_text
+      before_action :user_profile_poll_answered?, only: [:show]
 
       # rubocop:disable Naming/VariableNumber
       STEP1 = :step_1
@@ -305,6 +306,15 @@ module Decidim
 
       def proposal_creation_params
         params[:proposal].merge(body_template: translated_proposal_body_template)
+      end
+
+      def user_profile_poll_answered?
+        return unless current_participatory_space.model_name.to_s == "Decidim::ParticipatoryProcess"
+
+        if current_participatory_space.should_have_user_full_profile && !current_user.user_profile_poll_answered
+          flash[:alert] = I18n.t("decidim.components.proposals.actions.action_not_allowed")
+          flash[:poll_link] = current_organization.user_profile_poll_link.to_s
+        end
       end
     end
   end
