@@ -14,19 +14,37 @@
 .br-switch input[type="checkbox"]:checked:disabled+label::after { 
   content: "\F023";
 }
-
 .br-cookie-modal {
   border-radius: 10px;
 }
-
-
 .br-cookie-group {
   font-weight: 600;
   color: var(--gray-80);
 }
-
 .br-cookie-buttons {
   display: flex;
   justify-content: space-between;
   margin-top: 1rem;
+}
+.botton-cookies {
+  background-color: rgba(7, 29, 65, 0.9) !important;
+  display: flex !important;
+  height: auto !important;
+  width: 100vw !important;
+  margin: 0 !important;
+  padding: 2% 0 !important; 
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  flex-wrap: wrap; 
+}
+.botton-button-cokies{
+  overflow: none !important;
+  background-color: rgba(7, 29, 65, 0.9) !important;
+  color: #FFFF !important;
+}
+.seetings-button-cokies{
+  color: #FFFF;
+}
+.text-cookies-booton{
+  color: #FFFF;
 }
