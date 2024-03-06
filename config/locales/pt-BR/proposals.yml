@@ -264,7 +264,7 @@ pt-BR:
           no_similars_found: Muito bom! Não foram encontradas propostas semelhantes
         complete:
           send: Enviar
-          title: Complete sua proposta
+          title: Complete sua %{singular_name}
         edit_draft:
           discard: Descarte este rascunho
           discard_confirmation: Deseja mesmo descartar este rascunho de proposta?
@@ -288,6 +288,9 @@ pt-BR:
         edit_draft:
           discard: Descartar rascunho
           send: Continuar
+          discard_confirmation: Deseja mesmo descartar este rascunho de proposta?
+          send: Visualização
+          title: Editar %{singular_name} de rascunho
         filters:
           category: Tema
           placeholder: "Qual %{name} você procura?"
@@ -308,7 +311,7 @@ pt-BR:
             one: Você poderá editar esta proposta durante o primeiro minuto após a publicação da proposta. Uma vez que esta janela de tempo passa, você não poderá editar a proposta.
             other: Você poderá editar esta proposta durante o primeiro %{count} minutos após a publicação da proposta. Uma vez que esta janela de tempo passa, você não poderá editar a proposta.
           publish: Publicar
-          title: Publique sua proposta
+          title: Publique sua %{singular_name}
         requests:
           accepted_request:
             error: Não foi possível ser aceito como colaborador, por favor tente novamente mais tarde.
