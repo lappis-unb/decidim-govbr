@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_20_181855) do
+ActiveRecord::Schema.define(version: 2024_03_04_183136) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1443,6 +1443,7 @@ ActiveRecord::Schema.define(version: 2024_02_20_181855) do
     t.boolean "enable_participatory_space_filters", default: true
     t.jsonb "menu_links", default: "{}", null: false
     t.jsonb "footer_menu_links", default: "{}", null: false
+    t.string "user_profile_poll_link"
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
@@ -1548,6 +1549,7 @@ ActiveRecord::Schema.define(version: 2024_02_20_181855) do
     t.string "initial_page_type", default: "default", null: false
     t.bigint "initial_page_component_id"
     t.string "group_chat_id"
+    t.boolean "should_have_user_full_profile", default: false
     t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id"
@@ -2007,6 +2009,7 @@ ActiveRecord::Schema.define(version: 2024_02_20_181855) do
     t.datetime "digest_sent_at"
     t.datetime "password_updated_at"
     t.string "previous_passwords", default: [], array: true
+    t.boolean "user_profile_poll_answered", default: false
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
     t.index ["email", "decidim_organization_id"], name: "index_decidim_users_on_email_and_decidim_organization_id", unique: true, where: "((deleted_at IS NULL) AND (managed = false) AND ((type)::text = 'Decidim::User'::text))"
