@@ -1,5 +1,8 @@
 <%= csrf_meta_tags %>
 
+<% if request.base_url.include?("lab-decide")%>
+<meta name="robots" content="noindex">
+<% end %>
 <meta name="description" content="Plataforma de participação social do governo federal, para que a população possa contribuir com a criação e melhoria das políticas públicas de forma digital.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <% available_locales.each do |locale| %>
