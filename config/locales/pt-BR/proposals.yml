@@ -61,6 +61,7 @@ pt-BR:
       proposals:
         actions:
           new: Novo(a) %{name}
+          action_not_allowed: Você não pode interagir com propostas. O seu Perfil de Usuário está incompleto!
         settings:
           global:
             default_sort_order: Ordem padrão das propostas
