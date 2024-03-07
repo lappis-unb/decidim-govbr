@@ -4,10 +4,11 @@ module Decidim
   module Admin
     module Govbr
       class AutofillOrganizationFooterMenuLinks < Decidim::Command
-        attr_reader :current_user
+        attr_reader :current_user, :current_organization
 
         def initialize(user)
           @current_user = user
+          @current_organization = user.organization
         end
 
         # Public: Creates the Component.

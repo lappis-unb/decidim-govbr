@@ -9,13 +9,13 @@ module Decidim
         let(:user) { create(:user, :admin, :confirmed, organization: organization) }
         let(:organization) { create(:organization) }
         let(:command) { described_class.new(user) }
-        let!(:assembly) { create(:assembly, :published , organization:organization) }
-        let!(:process) { create(:participatory_process, :published, organization:organization) }
-        let!(:private_assembly) { create(:assembly, :published, :private ,organization:organization) }
-        let!(:private_processes) { create(:participatory_process, :published, :private , organization:organization) }
-        let!(:unpublished_assembly) { create(:assembly, :unpublished, organization:organization) }
-        let!(:unpublished_processes) { create(:participatory_process, :unpublished, organization:organization) }
-        let!(:process_proposals) { create(:proposal_component, participatory_space:process) }
+        let!(:assembly) { create(:assembly, :published, organization: organization) }
+        let!(:process) { create(:participatory_process, :published, organization: organization) }
+        let!(:private_assembly) { create(:assembly, :published, :private, :opaque, organization: organization) }
+        let!(:private_processes) { create(:participatory_process, :published, :private, organization: organization) }
+        let!(:unpublished_assembly) { create(:assembly, :unpublished, organization: organization) }
+        let!(:unpublished_processes) { create(:participatory_process, :unpublished, organization: organization) }
+        let!(:process_proposals) { create(:proposal_component, participatory_space: process) }
 
         context "when there are unpublished and private participatory spaces" do
           it "only consider published and public participatory spaces" do
