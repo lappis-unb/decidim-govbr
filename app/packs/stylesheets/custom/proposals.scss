@@ -132,17 +132,17 @@
   }
 }
 
-#proposals-br {
+.proposals-br {
   width: 100%;
   margin: 1rem 0;
 }
 
-#proposals-br .dropdown.menu > li > a {
+.proposals-br .dropdown.menu > li > a {
   padding: 0.7rem 0.3rem;
 }
 
-#proposals-br .card-grid .column,
-#proposals-br .card-grid .columns {
+.proposals-br .card-grid .column,
+.proposals-br .card-grid .columns {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -244,4 +244,8 @@
   height: 0rem;
   padding: 0rem;
   margin-bottom: 0rem;
+}
+
+#proposals {
+  width: 100%;
 }
