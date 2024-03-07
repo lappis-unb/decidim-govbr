@@ -27,10 +27,11 @@
 <div >
   <div >
       <div class="section">
-        <h2 class="show-for-sr"><%= t(".title") %></h2>
-        <div class="lead">
-          <%= decidim_sanitize_editor_admin translated_attribute(current_participatory_space.short_description) %>
-        </div>
+        <h2 ><%= decidim_sanitize_editor_admin translated_attribute(current_participatory_space.title) %></h2>
+        <% if current_participatory_space.participatory_process_type.title.values.include?("Consulta Pública") %>
+          <%= render partial: "process_data" %>
+        <% end %>
+        <%= decidim_sanitize_editor_admin translated_attribute(current_participatory_space.short_description) %>
         <%= decidim_sanitize_editor_admin translated_attribute(current_participatory_space.description) %>
       </div>
       <%= attachments_for current_participatory_space %>
