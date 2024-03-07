@@ -16,6 +16,11 @@
   </div>
 </div>
 
+<div class="card-grid">
+  <% if flash[:alert].present? %>
+    <span class="message-title"><%= flash[:alert] %></span><a target="_blank" href=<%= flash[:poll_link] %>> Completar Perfil de Usuário</a>
+  <% end %>
+</div>
 <div class="card-grid proposals-content">
   <%= render @proposals %>
 
