@@ -34,8 +34,8 @@ module Decidim
         end
 
         def generate_menu_links
-          processes = get_components_links(Decidim::ParticipatoryProcess.published.public_spaces, 'processes')
-          assemblies = get_components_links(Decidim::Assembly.published.public_spaces, 'assemblies')
+          processes = get_components_links(Decidim::ParticipatoryProcess.public_spaces, 'processes')
+          assemblies = get_components_links(Decidim::Assembly.public_spaces, 'assemblies')
 
           result = processes + assemblies
           { 'menu' => result }
