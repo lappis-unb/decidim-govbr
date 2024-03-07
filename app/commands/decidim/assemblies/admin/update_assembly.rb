@@ -44,6 +44,8 @@ module Decidim
         attr_reader :form, :assembly
 
         def update_assembly
+          hide_custom_initial_page_component
+
           @assembly.assign_attributes(attributes)
           save_assembly if @assembly.valid?
           update_children_count
@@ -104,6 +106,18 @@ module Decidim
           }.merge(
             attachment_attributes(:hero_image, :banner_image)
           )
+        end
+
+        def hide_custom_initial_page_component
+          unless @participatory_process.initial_page_component_id.zero? || @participatory_process.initial_page_component_id.nil?
+            previous_initial_page_component = Decidim::Component.find(@participatory_process.initial_page_component_id)
+            previous_initial_page_component.update_column(:hide_in_menu, false)
+          end
+
+          return if form.initial_page_component_id.zero? || form.initial_page_component_id.nil?
+
+          initial_page_component = Decidim::Component.find(form.initial_page_component_id)
+          initial_page_component.update_column(:hide_in_menu, true)
         end
 
         def participatory_processes(assembly)
