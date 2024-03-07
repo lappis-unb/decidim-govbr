@@ -130,6 +130,12 @@ module Decidim
           end
         end
 
+        def participatory_process_status_for_select
+          @participatory_process_statuses_for_select ||= Decidim::ParticipatoryProcess.process_statuses.keys.map do |status|
+            [status]
+          end
+        end
+
         private
 
         def participatory_process_types
