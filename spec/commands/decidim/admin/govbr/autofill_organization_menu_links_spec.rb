@@ -29,7 +29,7 @@ module Decidim
                     "label" => process.title['pt'],
                     "sub_items" => [
                       {
-                        "id" => "processes_#{process_proposals.id}",
+                        "id" => "Propostas_#{process_proposals.id}",
                         "label" => process_proposals.name["pt"],
                         "href" => "/processes/#{process.slug}/f/#{process_proposals.id}",
                         "is_visible" => true
