@@ -13,16 +13,16 @@ const initDialog = (manager) => {
 
   acceptAllButton.addEventListener("click", () => {
     manager.acceptAll();
-    // dialogWrapper.style.display = "none";
+    dialogWrapper.style.display = "none";
   });
 
   rejectAllButton.addEventListener("click", () => {
     manager.rejectAll();
-    // dialogWrapper.style.display = "none";
+    dialogWrapper.style.display = "none";
   });
 
   settingsButton.addEventListener("click", () => {
-    // dialogWrapper.style.display = "none";
+    dialogWrapper.style.display = "none";
   });
 }
 
