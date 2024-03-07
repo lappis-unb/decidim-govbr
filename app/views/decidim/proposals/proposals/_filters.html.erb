@@ -1,6 +1,6 @@
 <%= filter_form_for filter do |form| %>
   <% if not browser.mobile? %>
-    <div class="filters__section br-input input-highlight">
+    <div class="filters__eesection br-input input-highlight">
       <%= form.search_field :search_text_cont, type: "search",
         label: false, class: "input-group-field", placeholder: t("decidim.proposals.proposals.filters.placeholder", 
         name: translated_attribute(current_component.singular_name).present? ? 
@@ -27,11 +27,7 @@
   <% if current_component.categories.any? %>
     <%= form.check_boxes_tree :with_any_category, filter_categories_values, legend_title: t(".category"), "aria-controls": "proposals" %>
   <% end %>
-
-  <% if component_settings.official_proposals_enabled %>
-    <%= form.check_boxes_tree :with_any_origin, filter_origin_values, legend_title: t(".origin"), "aria-controls": "proposals" %>
-  <% end %>
-
+  
   <% if @proposals.only_emendations.any? %>
     <%= form.collection_radio_buttons :type, filter_type_values, :first, :last, { legend_title: t(".amendment_type") }, "aria-controls": "proposals" %>
   <% end %>
