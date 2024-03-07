@@ -1,6 +1,6 @@
 <%= filter_form_for filter do |form| %>
   <% if not browser.mobile? %>
-    <div class="filters__eesection br-input input-highlight">
+    <div class="filters__section br-input input-highlight">
       <%= form.search_field :search_text_cont, type: "search",
         label: false, class: "input-group-field", placeholder: t("decidim.proposals.proposals.filters.placeholder", 
         name: translated_attribute(current_component.singular_name).present? ? 
