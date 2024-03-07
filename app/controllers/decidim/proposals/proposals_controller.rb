@@ -24,7 +24,7 @@ module Decidim
       before_action :edit_form, only: [:edit_draft, :edit]
 
       before_action :set_participatory_text
-      before_action :user_profile_poll_answered?, only: [:show]
+      before_action :user_profile_poll_answered?, only: [:index, :show]
 
       # rubocop:disable Naming/VariableNumber
       STEP1 = :step_1
