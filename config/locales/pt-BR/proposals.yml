@@ -262,14 +262,16 @@ pt-BR:
           placeholder: Ver %{singular_name}
         compare:
           no_similars_found: Muito bom! Não foram encontradas propostas semelhantes
+          continue: Continuar
+          title: Propostas %{singular_name}
         complete:
           send: Enviar
           title: Complete sua %{singular_name}
         edit_draft:
           discard: Descarte este rascunho
-          discard_confirmation: Deseja mesmo descartar este rascunho de proposta?
+          discard_confirmation: Deseja mesmo descartar este rascunho de %{singular_name}?
           send: Visualização
-          title: Editar proposta de rascunho
+          title: Editar %{sinugular_name} proposta de rascunho
         index:
           click_here: Ver todas as propostas
           collaborative_drafts_list: Acessar rascunhos colaborativos
@@ -284,11 +286,11 @@ pt-BR:
           edit_documents: Editar documentos
           edit_image: Editar imagem
           select_a_category: Selecione um tema
-          title: Editar ISSO
+          title: Editar %{singular_name}
         edit_draft:
           discard: Descartar rascunho
           send: Continuar
-          discard_confirmation: Deseja mesmo descartar este rascunho de proposta?
+          discard_confirmation: Deseja mesmo descartar este rascunho de %{singular_name}?
           send: Visualização
           title: Editar %{singular_name} de rascunho
         filters:
@@ -340,20 +342,20 @@ pt-BR:
             description: Pode votar até %{limit} proposta(s).
         wizard_aside:
           back: Voltar
-          back_from_step_1: Voltar para as propostas
-          back_from_step_2: Voltar para as propostas
-          back_from_step_3: Voltar à comparação de propostas
+          back_from_step_1: Voltar para %{singular_name}
+          back_from_step_2: Voltar para %{singular_name}
+          back_from_step_3: Voltar à comparação de %{singular_name}
           back_from_step_4: Voltar para a edição do rascunho
-          info: Você está criando uma proposta
+          info: Você está criando uma %{singular_name}
         wizard_steps:
           current_step: Etapa atual
           see_steps: ver etapas
-          step_1: Crie sua proposta
+          step_1: Crie sua %{singular_name}
           step_2: Comparar
           step_3: Concluir
-          step_4: Publique sua proposta
+          step_4: Publique sua %{singular_name}
           step_of: Etapa %{current_step_num} de %{total_steps}
-          title: Etapas de criação da proposta
+          title: Etapas de criação da %{singular_name}
       versions:
         collaborative_drafts:
           back_to_resource: Voltar para o rascunho colaborativo
