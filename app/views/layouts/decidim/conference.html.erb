@@ -11,17 +11,16 @@
   <%= cell "decidim/translation_bar", current_organization %>
   <div class="wrapper">
     <%= yield %>
-  </div>
-
-  <% if content_for? :expanded %>
-    <div class="expanded">
-      <div class="wrapper wrapper--inner">
-        <div class="row">
+    
+    <% if content_for? :expanded %>
+      <div class="expanded">
+        <div class="br-container-lg">
           <%= yield :expanded %>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+
 <% end %>
 
 <% provide :meta_image_url, current_participatory_space.attached_uploader(:banner_image).path %>

@@ -1,8 +1,15 @@
 <% if current_participatory_space.attached_uploader(:banner_image).path %>
   <div class="process-header br-container-lg">
     <div class="process-header__inner">
-      <div class="process-header__main"
-          style="background-image:url('<%= current_participatory_space.attached_uploader(:banner_image).path %>');">
+        <% if browser.mobile?%>
+          <div class="process-header__main"
+            style="background-image:url('<%= current_participatory_space.attached_uploader(:hero_image).path %>');">
+          </div>
+        <%else%>
+          <div class="process-header__main"
+            style="background-image:url('<%= current_participatory_space.attached_uploader(:banner_image).path %>');">
+          </div>
+        <%end%>
       </div>
       <% if false %>
       <div class="process-header__container row collapse column">
