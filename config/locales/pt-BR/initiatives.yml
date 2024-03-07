@@ -8,7 +8,7 @@ pt-BR:
         answer: Resposta
         answer_url: URL de resposta
         area_id: Área
-        decidim_scope_id: Âmbito
+        decidim_scope_id: Área de interesse
       initiatives_committee_member:
         user: Membro do Comitê
       initiatives_settings:
@@ -20,7 +20,7 @@ pt-BR:
         promoting_committee_enabled: Permitir comitê promotor
         signature_type: Tipo de assinatura
       initiatives_type_scope:
-        decidim_scopes_id: Escopo
+        decidim_scopes_id: Área de interesse
         supports_required: Assinaturas necessárias
     models:
       decidim/initiatives/initiative_sent_to_technical_validation_event: Iniciativa enviada para validação técnica
@@ -56,8 +56,8 @@ pt-BR:
         initiatives_types:
           form:
             authorizations: Configurações de autorização
-            child_scope_threshold_enabled_help: 'Esta opção de configuração não suporta votos off-line, ela permite subescopos e funciona com um manipulador de autorização que associa um escopo ao usuário, certifique-se de selecionar essa autorização, abaixo nas configurações de autorização. Para que funcione, os escopos de trabalho precisam ser configurados de forma hierárquica: 1 Pai - N Descendente. Para mais informações sobre como esta configuração funciona, veja o seguinte <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
-            only_global_scope_enabled_help: Marque esta opção se você ativou "âmbito descendente de assinaturas" e configurou o escopo global como seu escopo pai. Ao ativar isto, a seleção do tipo de iniciativa será pulada no assistente de criação de iniciativa. Para mais informações sobre como esta configuração funciona, veja o seguinte <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.
+            child_scope_threshold_enabled_help: 'Esta opção de configuração não suporta votos off-line, ela permite subárea de interesses e funciona com um manipulador de autorização que associa uma área de interesse ao usuário, certifique-se de selecionar essa autorização, abaixo nas configurações de autorização. Para que funcione, as áreas de interesse de trabalho precisam ser configurados de forma hierárquica: 1 Pai - N Descendente. Para mais informações sobre como esta configuração funciona, veja o seguinte <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
+            only_global_scope_enabled_help: Marque esta opção se você ativou "área de interesse descendente de assinaturas" e configurou a área de interesse global como sua área de interesse pai. Ao ativar isto, a seleção do tipo de iniciativa será pulada no assistente de criação de iniciativa. Para mais informações sobre como esta configuração funciona, veja o seguinte <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.
         initiatives_type_scopes:
           edit:
             back: Voltar
@@ -72,7 +72,7 @@ pt-BR:
           update: "%{user_name} atualizou o tipo de iniciativas %{resource_name}"
       create_initiative:
         fill_data:
-          fill_data_help: "<ul> <li>Revise o conteúdo de sua iniciativa. Seu título é fácil de entender? O objetivo de sua iniciativa é claro?</li> <li>Você tem que escolher o tipo de assinatura. Pessoalmente, online ou uma combinação de ambos.</li> <li>Qual é o âmbito geográfico da iniciativa?</li> </ul>"
+          fill_data_help: "<ul> <li>Revise o conteúdo de sua iniciativa. Seu título é fácil de entender? O objetivo de sua iniciativa é claro?</li> <li>Você tem que escolher o tipo de assinatura. Pessoalmente, online ou uma combinação de ambos.</li> <li>Qual é o área de interesse geográfico da iniciativa?</li> </ul>"
         finish:
           back: Voltar
           back_to_initiatives: Voltar para iniciativas

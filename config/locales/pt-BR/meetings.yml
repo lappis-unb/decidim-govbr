@@ -52,17 +52,17 @@ pt-BR:
       meetings:
         actions:
           join: Junte-se à
-          new: 'Novo(a) %{singular_name}'
+          new: "Novo(a) %{singular_name}"
         settings:
           global:
             default_registration_terms: Termos de inscrição predefinidos
             registration_code_enabled: Código de inscrição habilitado
-            scopes_enabled: Âmbitos ativados
+            scopes_enabled: Áreas de interesse ativados
             maps_enabled: Mapas ativados
     events:
       meetings:
         meeting_closed:
-          email_intro: 'O evento encerrou, confira o que aconteceu na página:'
+          email_intro: "O evento encerrou, confira o que aconteceu na página:"
         meeting_registration_confirmed:
           notification_title: A sua inscrição para o evento <a href="%{resource_url}">%{resource_title}</a> foi confirmada. O seu código de inscrição é %{registration_code}.
         registration_code_validated:
@@ -88,11 +88,11 @@ pt-BR:
             title: Editar o evento
           form:
             available_slots_help: Deixe o valor 0 se você tiver vagas ilimitadas disponíveis
-            location_hints_help: 'Exemplo: o andar do edifício se for um evento presencial, ou a senha do evento se for um evento virtual com acesso restrito.'
+            location_hints_help: "Exemplo: o andar do edifício se for um evento presencial, ou a senha do evento se for um evento virtual com acesso restrito."
             select_a_meeting_type: Por favor, selecione um tipo de evento
             select_a_registration_type: Por favor, selecione um tipo de inscrição
             select_an_iframe_access_level: Por favor selecione um nível de acesso iframe
-            show_embedded_iframe_help: 'Apenas alguns poucos serviços permitem a incorporação em reuniões ou eventos ao vivo dos seguintes domínios: %{domains}'
+            show_embedded_iframe_help: "Apenas alguns poucos serviços permitem a incorporação em reuniões ou eventos ao vivo dos seguintes domínios: %{domains}"
         meetings_poll:
           form:
             title: Editar questionário da enquete para %{questionnaire_for}
