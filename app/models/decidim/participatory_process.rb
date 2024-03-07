@@ -26,7 +26,7 @@ module Decidim
     include Decidim::Govbr::HasPartners
 
     translatable_fields :title, :subtitle, :short_description, :description, :developer_group, :meta_scope, :local_area,
-                        :target, :participatory_scope, :participatory_structure, :announcement
+                        :target, :participatory_scope, :participatory_structure, :announcement, :institution, :sector, :consultant
 
     enum process_status: { publicado: 0, finalizado: 1, pendente: 2 }
 

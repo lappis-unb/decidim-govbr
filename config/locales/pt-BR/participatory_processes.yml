@@ -11,6 +11,13 @@ pt-BR:
         participatory_process_type_id: Tipo de processo participativo
         private_space: Espaço privado
         weight: Posição de ordem
+        institution: Orgão/Instituição
+        sector: Setor
+        process_status: Status do Processo
+        consultant: Responsável pela consulta
+        dou_publication_date: data da publicação do DOU
+        dou_link: Link da Publicação do DOU
+        contact: contato
       participatory_process_group:
         group_url: Site
         promoted: Promovido
@@ -134,6 +141,8 @@ pt-BR:
     participatory_processes:
       show:
         belongs_to_group: Este processo pertence a
+        dou_publication: Publicação no DOU
+        acess_dou_publication: Acessar publicação
       admin:
         participatory_processes:
           form:

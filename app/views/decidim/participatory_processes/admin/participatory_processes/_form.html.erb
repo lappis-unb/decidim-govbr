@@ -147,31 +147,31 @@
   <div class="card-section">
     <div class="row">
       <div class="columns xlarge-6">
-        <%= form.text_field :institution, :label => "Orgão/Instituição" %>
+        <%= form.translated :text_field, :institution%>
       </div>
 
       <div class="columns xlarge-6">
-        <%= form.text_field :sector, :label => "Setor" %>
+        <%= form.translated :text_field, :sector %>
       </div>
     </div>
 
     <div class="row column">
-      <%= form.text_field :process_status, :label => "Status do Processo" %>
+      <%= form.text_field :process_status %>
     </div>
 
     <div class="row column">
-      <%= form.text_field :consultant, :label => "Responsável pela consulta" %>
+      <%= form.translated :text_field, :consultant %>
     </div>
 
     <div class="row column">
-      <%= form.text_field :dou_publication_date, :label => "data da publicação do DOU" %>
+      <%= form.date_field :dou_publication_date %>
     </div>
 
     <div class="row column">
-      <%= form.text_field :dou_link, :label => "Link da Publicação do DOU" %>
+      <%= form.text_field :dou_link %>
     </div>
     <div class="row column">
-      <%= form.text_field :contact, :label => "contato" %>
+      <%= form.text_field :contact %>
     </div>
   </div>
 

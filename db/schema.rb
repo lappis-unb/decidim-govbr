@@ -1548,10 +1548,10 @@ ActiveRecord::Schema.define(version: 2024_03_04_154031) do
     t.string "initial_page_type", default: "default", null: false
     t.bigint "initial_page_component_id"
     t.string "group_chat_id"
-    t.string "institution"
-    t.string "sector"
+    t.jsonb "institution"
+    t.jsonb "sector"
     t.integer "process_status", default: 0
-    t.string "consultant"
+    t.jsonb "consultant"
     t.date "dou_publication_date"
     t.string "dou_link"
     t.string "contact"

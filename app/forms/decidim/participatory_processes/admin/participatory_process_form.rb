@@ -53,10 +53,10 @@ module Decidim
         attribute :remove_hero_image, Boolean, default: false
         attribute :group_chat_id, String
 
-        attribute :institution, String
-        attribute :sector, String
+        translatable_attribute :institution, String
+        translatable_attribute :sector, String
         attribute :process_status, String
-        attribute :consultant, String
+        translatable_attribute :consultant, String
         attribute :dou_publication_date, Decidim::Attributes::LocalizedDate
         attribute :dou_link, String
         attribute :contact, String
@@ -75,6 +75,8 @@ module Decidim
         validates :hero_image, passthru: { to: Decidim::ParticipatoryProcess }
 
         validates :weight, presence: true
+
+        validates :dou_link, url: true, allow_blank: true
 
         alias organization current_organization
 
