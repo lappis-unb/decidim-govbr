@@ -14,12 +14,12 @@ pt-BR:
           category_id_eq:
             label: Categoria
           scope_id_eq:
-            label: Escopo
+            label: Área de interesse
           selected_at_null:
             label: Selecionado
             values:
-              'false': Selecionado para implementação
-              'true': Não selecionado para implementação
+              "false": Selecionado para implementação
+              "true": Não selecionado para implementação
     budgets:
       actions:
         confirm_destroy: Você tem certeza de que deseja excluir este projeto?
@@ -46,13 +46,13 @@ pt-BR:
             actions: Ações
             cancel: Cancelar
             change_category: Alterar categoria
-            change_scope: Alterar escopo
+            change_scope: Alterar área de interesse
             change_selected: Alterar selecionado
             deselect_implementation: Desmarcar
             select_for_implementation: Selecionar
             selected: Selecionado
             update: Atualizar
-            update_scope_button: Atualizar escopo
+            update_scope_button: Atualizar área de interesse
         proposals_imports:
           new:
             default_budget: Orçamento padrão
@@ -82,11 +82,11 @@ pt-BR:
           fields:
             category: Categoria
             id: ID
-            scope: Escopo
+            scope: Área de interesse
             title: Título
       order_summary_mailer:
         order_summary:
-          selected_projects: 'Os projetos que você selecionou são:'
+          selected_projects: "Os projetos que você selecionou são:"
           subject: Você votou no espaço participativo %{space_name}
           voted_on_space: Você votou no orçamento %{budget_name} para o espaço participativo %{space_name}.
           voted_on_space_with_scope: Você votou no orçamento %{budget_name} para o espaço participativo %{space_name} em %{scope_name} (%{scope_type}).
@@ -144,7 +144,7 @@ pt-BR:
           you_voted: Você votou nisso
       vote_reminder_mailer:
         vote_reminder:
-          email_budgets: 'Áreas onde você tem votação não concluída:'
+          email_budgets: "Áreas onde você tem votação não concluída:"
           email_intro: Você iniciou a votação do orçamento participativo, mas não a completou.
           email_link: Continue votando
           email_outro: Por favor, lembrem-se de completar a votação. Para votar, você deve primeiro selecionar a proposta ou propostas que você deseja votar e depois confirmar seu voto com o botão "Votar".
@@ -158,23 +158,23 @@ pt-BR:
             geocoding_enabled: Geocodificação habilitada
             more_information_modal: Mais informações na janela modal
             resources_permissions_enabled: Permissões de ações podem ser definidas para cada projeto
-            scopes_enabled: Âmbitos ativados
+            scopes_enabled: Áreas de interesse ativadas
             vote_minimum_budget_projects_number: Número mínimo de projetos para votar
-            vote_rule_minimum_budget_projects_enabled: 'Ativar regra: Número mínimo de projetos a serem votados'
-            vote_rule_selected_projects_enabled: 'Ativar regra: Número mínimo e máximo de projetos a serem votados'
-            vote_rule_threshold_percent_enabled: 'Ativar regra: Percentagem mínima do orçamento'
+            vote_rule_minimum_budget_projects_enabled: "Ativar regra: Número mínimo de projetos a serem votados"
+            vote_rule_selected_projects_enabled: "Ativar regra: Número mínimo e máximo de projetos a serem votados"
+            vote_rule_threshold_percent_enabled: "Ativar regra: Percentagem mínima do orçamento"
             vote_selected_projects_maximum: Número máximo dos projetos para selecionar
             vote_selected_projects_minimum: Número mínimo de projetos para selecionar
             workflow_choices:
-              all: 'Votar em todos: permite aos participantes votarem em todos os orçamentos.'
-              one: 'Votar em um: permite aos participantes votarem em qualquer orçamento, mas apenas em um.'
+              all: "Votar em todos: permite aos participantes votarem em todos os orçamentos."
+              one: "Votar em um: permite aos participantes votarem em qualquer orçamento, mas apenas em um."
           step:
             votes_choices:
               disabled: Votação desativada
     events:
       budgets:
         budget_published:
-          email_intro: 'O orçamento %{resource_title} está ativo agora para %{participatory_space_title}. Você pode vê-lo a partir desta página:'
+          email_intro: "O orçamento %{resource_title} está ativo agora para %{participatory_space_title}. Você pode vê-lo a partir desta página:"
           email_outro: Você recebeu esta notificação porque segue %{participatory_space_title}. Você pode parar de receber notificações seguindo o link anterior.
           email_subject: O orçamento %{resource_title} está ativo agora para %{participatory_space_title}.
           notification_title: O orçamento <a href="%{resource_path}”>%%{resource_title}</a> está ativo agora para %{participatory_space_title}.

@@ -5,7 +5,7 @@ pt-BR:
       debates:
         settings:
           global:
-            scopes_enabled: Âmbitos ativados
+            scopes_enabled: Áreas de interesse ativadas
           step:
             creation_enabled: Participantes podem criar debates
     debates:
