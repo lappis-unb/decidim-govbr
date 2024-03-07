@@ -16,13 +16,7 @@ module Decidim
             ca: "Títol"
           }
         end
-        let(:subtitle) do
-          {
-            en: "Subtitle",
-            es: "Subtítulo",
-            ca: "Subtítol"
-          }
-        end
+
         let(:weight) { 1 }
         let(:description) do
           {
@@ -31,13 +25,7 @@ module Decidim
             ca: "Descripció"
           }
         end
-        let(:short_description) do
-          {
-            en: "Short description",
-            es: "Descripción corta",
-            ca: "Descripció curta"
-          }
-        end
+
         let(:slug) { "slug" }
         let(:attachment) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
         let(:show_metrics) { true }
@@ -49,16 +37,10 @@ module Decidim
               "title_en" => title[:en],
               "title_es" => title[:es],
               "title_ca" => title[:ca],
-              "subtitle_en" => subtitle[:en],
-              "subtitle_es" => subtitle[:es],
-              "subtitle_ca" => subtitle[:ca],
               "weight" => weight,
               "description_en" => description[:en],
               "description_es" => description[:es],
               "description_ca" => description[:ca],
-              "short_description_en" => short_description[:en],
-              "short_description_es" => short_description[:es],
-              "short_description_ca" => short_description[:ca],
               "hero_image" => attachment,
               "banner_image" => attachment,
               "slug" => slug,
@@ -109,30 +91,10 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        context "when default language in subtitle is missing" do
-          let(:subtitle) do
-            {
-              ca: "Subtítol"
-            }
-          end
-
-          it { is_expected.to be_invalid }
-        end
-
         context "when default language in description is missing" do
           let(:description) do
             {
               ca: "Descripció"
-            }
-          end
-
-          it { is_expected.to be_invalid }
-        end
-
-        context "when default language in short_description is missing" do
-          let(:short_description) do
-            {
-              ca: "Descripció curta"
             }
           end
 
