@@ -3,6 +3,15 @@
     <h2 class="card-title"><%= t(".title") %></h2>
   </div>
   <div class="card-section">
+    <% if @form.participatory_process_types_for_select.present? %>
+      <div class="row column">
+        <%= form.select(
+              :participatory_process_type_id,
+              @form.participatory_process_types_for_select,
+              include_blank: t(".select_participatory_process_type")
+            ) %>
+      </div>
+    <% end %>
     <div class="row column">
       <%= form.translated :text_field, :title, autofocus: true %>
     </div>
@@ -142,15 +151,6 @@
             </div>
           </div>
         </div>
-        <% if @form.participatory_process_types_for_select.present? %>
-          <div class="row column">
-            <%= form.select(
-              :participatory_process_type_id,
-              @form.participatory_process_types_for_select,
-              include_blank: t(".select_participatory_process_type")
-            ) %>
-          </div>
-        <% end %>
       </div>
     </div>
     <script>
