@@ -109,8 +109,8 @@ module Decidim
         end
 
         def hide_custom_initial_page_component
-          unless @participatory_process.initial_page_component_id.zero? || @participatory_process.initial_page_component_id.nil?
-            previous_initial_page_component = Decidim::Component.find(@participatory_process.initial_page_component_id)
+          unless @assembly.initial_page_component_id.zero? || @assembly.initial_page_component_id.nil?
+            previous_initial_page_component = Decidim::Component.find(@assembly.initial_page_component_id)
             previous_initial_page_component.update_column(:hide_in_menu, false)
           end
 
