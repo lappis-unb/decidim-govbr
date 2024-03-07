@@ -8,7 +8,7 @@
 .process-header__inner{
   position: relative;
 
-  height: 216px;
+  height: 220px;
   background-color: var(--color-secondary-01);
   @include flex;
   @include flex-align($x: center);
