@@ -41,7 +41,7 @@ pt-BR:
               "false": Propostas
               "true": Modificações
           scope_id_eq:
-            label: Âmbito
+            label: Área de interesse
           state_eq:
             label: Estado
             values:
@@ -81,7 +81,7 @@ pt-BR:
             proposal_edit_time_choices:
               infinite: Permitir a edição de propostas por um período infinito de tempo
               limited: Permitir a edição de propostas dentro de um período de tempo específico
-            scopes_enabled: Âmbitos ativados
+            scopes_enabled: Áreas de interesse ativados
           step:
             creation_enabled: Participantes podem criar propostas
             creation_enabled_readonly: Essa configuração é desativada quando você ativa a funcionalidade Textos participativos. Para carregar propostas como texto participativo, clique no botão 'Textos participativos' e siga as instruções.
