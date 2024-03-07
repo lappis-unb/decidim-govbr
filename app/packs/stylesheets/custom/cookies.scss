@@ -1,4 +1,4 @@
-.br-switch input[type="checkbox"]+label::after { 
+.br-switch input[type="checkbox"] + label::after {
   align-items: center;
   color: var(--color-dark);
   content: "\F00D";
@@ -8,10 +8,10 @@
   font-weight: 900;
   justify-content: center;
 }
-.br-switch input[type="checkbox"]:checked+label::after { 
+.br-switch input[type="checkbox"]:checked + label::after {
   content: "\F00C";
 }
-.br-switch input[type="checkbox"]:checked:disabled+label::after { 
+.br-switch input[type="checkbox"]:checked:disabled + label::after {
   content: "\F023";
 }
 .br-cookie-modal {
@@ -26,32 +26,39 @@
   justify-content: space-between;
   margin-top: 1rem;
 }
-.boxe-bottom-cookies{
+.bottom-cookies-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
-.bottom-cookies{
-  background-color: rgba(7, 29, 65, 0.8) !important;
-  color: #FFFF !important;
-  width: 100vw !important;
+.bottom-cookies {
+  background-color: rgba(7, 29, 65, 0.8);
+  color: var(--pure-0);
+  width: 100%;
+  position: fixed;
+  bottom: 0;
 }
-.bottom-button-cokies{
-  background: transparent !important;
+.bottom-button-cookies {
+  background-color: transparent !important;
 }
-.text-cookies-bottom{
-  color: #FFFF;
-  width: 70%;
+.settings-bottom-cookies{
+  gap: 5px;
+}
+.text-cookies-bottom {
+  color: var(--pure-0);
   text-align: justify;
 }
-@media print, screen and (min-width: 64em){
-    .large-4.cookie {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
 
-    }
+.cookies-button-container {
+  flex-direction: column;
+  gap: 8px;
+ }
+
+@media (min-width: 800px) {
+ .bottom-cookies-container {
+  flex-direction: row;
+ }
+ .cookies-button-container {
+  flex-direction: row;
+ }
 }
-
-
-    
