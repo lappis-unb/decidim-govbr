@@ -38,6 +38,7 @@
     <% if current_user %>
       <% if current_user.admin? %>
         <%= render partial: 'decidim/govbr/exports/dropdown', locals: { component: current_component, resource_id: nil} %>
+        <%= link_to "Editar componente", send(current_participatory_space.mounted_admin_engine).edit_component_path(current_participatory_space, current_component), class: "button tiny button--title" %>
       <% end %>
       <h2 class="user-name-title-h1">Olá, <%= current_user.name %></h2>
     <% end %>
