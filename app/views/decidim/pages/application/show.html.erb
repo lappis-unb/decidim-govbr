@@ -3,9 +3,6 @@
 }) %>
 
 <%= render partial: "decidim/shared/component_announcement" %>
-<div class="page-buttons">
-  <%= link_to "Editar componente", "#{send(current_participatory_space.mounted_admin_engine).components_path}/#{current_component.id}/manage", class: "button tiny button--title" %>
-</div>
 <% translated_body = translated_attribute(@page.body) %>
 <% if translated_body.present? && (translated_body.start_with?("<p>&lt;section") || translated_body.start_with?("<p>&lt;script")) %>
   <%= translated_body.html_safe.gsub(/<p>|<\/p>/, '').gsub("&lt;","<").gsub("&gt;",">").html_safe %>
