@@ -26,31 +26,23 @@
   justify-content: space-between;
   margin-top: 1rem;
 }
-.botton-cookies {
-  background-color: rgba(7, 29, 65, 0.9) !important;
-  display: flex !important;
-  height: auto !important;
-  width: 100vw !important;
-  margin: 0 !important;
-  padding: 2% 0 !important; 
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  flex-wrap: wrap; 
+.boxe-bottom-cookies{
+  display: flex;
+  align-items: center;
 }
-
-.botton-button-cokies{
+.bottom-cookies{
+  background-color: rgba(7, 29, 65, 0.8) !important;
   color: #FFFF !important;
+  width: 100vw !important;
 }
-.seetings-button-cokies{
-  color: #FFFF;
+.bottom-button-cokies{
+  background: transparent !important;
 }
-.text-cookies-booton{
+.text-cookies-bottom{
   color: #FFFF;
   width: 70%;
   text-align: justify;
-  
 }
-
 @media print, screen and (min-width: 64em){
     .large-4.cookie {
     width: 100%;
