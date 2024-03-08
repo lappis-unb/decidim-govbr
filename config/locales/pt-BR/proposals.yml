@@ -306,7 +306,7 @@ pt-BR:
           recent: Recentes
           with_more_authors: Com mais autores
         preview:
-          announcement_body: Sua proposta foi salva como rascunho. Precisa ser publicada para aparecer no site.
+          announcement_body: Sua %{singular_name} foi salva como rascunho. Precisa ser publicada para aparecer no site.
           announcement_title: Sua %{singular_name} ainda não foi publicada
           modify: Modificar a proposta
           proposal_edit_before_minutes:

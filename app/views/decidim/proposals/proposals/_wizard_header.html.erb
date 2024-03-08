@@ -1,5 +1,9 @@
 <% if @step == :step_4 %>
-    <% body_messages = [t("decidim.proposals.proposals.preview.announcement_body")]
+    <% body_messages = [if translated_attribute(current_component.singular_name).present?
+          t("decidim.proposals.proposals.preview.announcement_body", singular_name: translated_attribute(current_component.singular_name).downcase)
+        else
+          t("decidim.proposals.proposals.preview.announcement_body", singular_name: "proposta")
+        end]
     if component_settings.proposal_edit_time == "limited"
       body_messages << t("decidim.proposals.proposals.preview.proposal_edit_before_minutes", count: component_settings.proposal_edit_before_minutes)
     end %>
@@ -7,7 +11,12 @@
   <%= cell(
     "decidim/announcement",
     {
-      title: t("decidim.proposals.proposals.preview.announcement_title"),
+      title: 
+      if translated_attribute(current_component.singular_name).present?
+        t("decidim.proposals.proposals.preview.announcement_title", singular_name: translated_attribute(current_component.singular_name).downcase)
+      else
+        t("decidim.proposals.proposals.preview.announcement_title", singular_name: "proposta")
+      end,
       body: body_messages
     },
     callout_class: "warning"
