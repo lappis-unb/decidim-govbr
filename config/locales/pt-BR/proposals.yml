@@ -307,7 +307,7 @@ pt-BR:
           with_more_authors: Com mais autores
         preview:
           announcement_body: Sua proposta foi salva como rascunho. Precisa ser publicada para aparecer no site.
-          announcement_title: Sua proposta ainda não foi publicada
+          announcement_title: Sua %{singular_name} ainda não foi publicada
           modify: Modificar a proposta
           proposal_edit_before_minutes:
             one: Você poderá editar esta proposta durante o primeiro minuto após a publicação da proposta. Uma vez que esta janela de tempo passa, você não poderá editar a proposta.
@@ -342,20 +342,20 @@ pt-BR:
             description: Pode votar até %{limit} proposta(s).
         wizard_aside:
           back: Voltar
-          back_from_step_1: Voltar para %{singular_name}
-          back_from_step_2: Voltar para %{singular_name}
-          back_from_step_3: Voltar à comparação de %{singular_name}
+          back_from_step_1: Voltar para propostaSu
+          back_from_step_2: Voltar para proposta
+          back_from_step_3: Voltar à comparação de proposta
           back_from_step_4: Voltar para a edição do rascunho
-          info: Você está criando uma %{singular_name}
+          info: Você está criando uma proposta
         wizard_steps:
           current_step: Etapa atual
           see_steps: ver etapas
-          step_1: Crie sua %{singular_name}
+          step_1: Crie sua proposta
           step_2: Comparar
           step_3: Concluir
-          step_4: Publique sua %{singular_name}
+          step_4: Publique sua proposta
           step_of: Etapa %{current_step_num} de %{total_steps}
-          title: Etapas de criação da %{singular_name}
+          title: Etapas de criação da proposta
       versions:
         collaborative_drafts:
           back_to_resource: Voltar para o rascunho colaborativo
