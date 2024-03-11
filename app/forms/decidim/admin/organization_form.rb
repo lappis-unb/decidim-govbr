@@ -28,7 +28,7 @@ module Decidim
       attribute :enable_participatory_space_filters, Boolean
       attribute :menu_links, String
       attribute :footer_menu_links, String
-      attribute :user_profile_poll_link, String
+      attribute :user_profile_survey_id, Integer
 
       attribute :send_welcome_notification, Boolean
       attribute :customize_welcome_notification, Boolean
