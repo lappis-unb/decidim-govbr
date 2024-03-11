@@ -4,13 +4,13 @@
 }) %>
 
 <%= render partial: "decidim/shared/component_announcement" if current_component.manifest_name == "surveys" %>
-<% expected_poll_link = "/processes/" + params[:participatory_process_slug] + "/f/" + params[:component_id] %>
 
-<% if current_participatory_space.should_have_user_full_profile && !current_organization.user_profile_poll_link.include?(expected_poll_link) %>
-  <% if current_user.user_profile_poll_answered %>
+<% if current_participatory_space.should_have_user_full_profile && current_organization.user_profile_survey_id != current_component.id %>
+  <% if should_allow_user_action? %>
     <%= render partial: 'decidim/forms/questionnaires/questionnaire_form' %>
   <% else %>
-    <span class="message-title"><%= flash[:alert] %></span><a target="_blank" href=<%= flash[:poll_link] %>> Completar Perfil de Usuário</a>
+    <span class="message-title"><%= flash[:alert] %></span>
+    <a target="_blank" href=<%= flash[:poll_link] %>> <%= t("decidim.forms.incomplete_profile") %></a>
   <% end %>
 <% else %>
   <%= render partial: 'decidim/forms/questionnaires/questionnaire_form' %>

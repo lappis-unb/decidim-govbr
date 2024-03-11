@@ -75,7 +75,7 @@ pt-BR:
         machine_translation_display_priority: Prioridade na exibição da tradução automática
         machine_translation_display_priority_original: Texto original primeiro
         machine_translation_display_priority_translation: Texto traduzido primeiro
-        user_profile_poll_link: Link para Enquete de Perfil de Usuário
+        user_profile_survey_id: ID da Enquete de Perfil de Usuário
         name: Nome
         official_img_footer: Símbolo oficial do rodapé
         official_img_header: Cabeçalho do logotipo oficial

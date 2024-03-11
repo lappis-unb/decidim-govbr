@@ -32,6 +32,7 @@ pt-BR:
           questionnaire_answered:
             body: Você já respondeu esta pesquisa.
             title: Já respondido
+      incomplete_profile: Completar Perfil de Usuário
     events:
       surveys:
         survey_closed:
