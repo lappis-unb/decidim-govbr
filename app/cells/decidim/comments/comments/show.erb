@@ -21,7 +21,8 @@
         <% end %>
       </div>
       <% if options.try(:[], :hide_comment_action) %>
-        <span class="message-title"><%= options[:alert] %></span><a target="_blank" href=<%= options[:poll_link] %>> Completar Perfil de Usuário</a>
+        <span class="message-title"><%= options[:alert] %></span>
+        <a target="_blank" href=<%= options[:poll_link] %>> <%= t("decidim.forms.incomplete_profile") %></a>
       <% else %>
         <%= add_comment %>
       <% end %>

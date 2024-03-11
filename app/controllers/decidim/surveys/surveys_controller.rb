@@ -7,6 +7,7 @@ module Decidim
       include Decidim::Forms::Concerns::HasQuestionnaire
       include Decidim::ComponentPathHelper
       helper Decidim::Surveys::SurveyHelper
+      helper Decidim::Govbr::ParticipatoryProcessesHelper
 
       delegate :allow_unregistered?, to: :current_settings
 
@@ -48,19 +49,18 @@ module Decidim
       end
 
       def should_update_user_poll_answered
-        expected_poll_link = "/processes/#{params[:participatory_process_slug]}/f/#{params[:component_id]}"
-
-        (current_organization.user_profile_poll_link.include? expected_poll_link) &&
+        (current_organization.user_profile_survey_id == current_component.id) &&
           current_participatory_space.should_have_user_full_profile
       end
 
       def should_have_user_full_profile
-        expected_poll_link = "/processes/#{params[:participatory_process_slug]}/f/#{params[:component_id]}"
-
-        if (!current_organization.user_profile_poll_link.include? expected_poll_link) &&
-           current_participatory_space.should_have_user_full_profile && !current_user.user_profile_poll_answered
+        if (current_organization.user_profile_survey_id != current_component.id) && 
+            current_participatory_space.should_have_user_full_profile && 
+            !current_user.user_profile_poll_answered
+          survey_component_id = current_organization.user_profile_survey_id
+          
           flash[:alert] = I18n.t("decidim.components.proposals.actions.action_not_allowed")
-          flash[:poll_link] = current_organization.user_profile_poll_link.to_s
+          flash[:poll_link] = "/processes/#{params[:participatory_process_slug]}/f/#{survey_component_id}"
         end
       end
     end
