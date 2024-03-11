@@ -141,8 +141,6 @@ pt-BR:
     participatory_processes:
       show:
         belongs_to_group: Este processo pertence a
-        dou_publication: Publicação no DOU
-        acess_dou_publication: Acessar publicação
       admin:
         participatory_processes:
           form:
@@ -160,6 +158,23 @@ pt-BR:
           filter_by: Exibir
         show:
           title: Sobre este processo
+        process_data:
+          institution: Orgão/Instituição
+          sector: Setor
+          process_status: Status do Processo
+          consultant: Responsável pela consulta
+          dou_publication_date: data da publicação do DOU
+          dou_link: Link da Publicação do DOU
+          dou_publication: Publicação no DOU
+          acess_dou_publication: Acessar publicação
+          not_avaliable_dou_publication: Publicação não disponível
+          contact: contato
+          status:
+            closed: Encerrado
+            active: Ativo
+            upcoming: Próximo
+            unknown: Desconhecido
+
   layouts:
     decidim:
       participatory_process_widgets:

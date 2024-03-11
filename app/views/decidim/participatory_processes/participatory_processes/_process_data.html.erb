@@ -1,10 +1,14 @@
 <div>
-  <p> <b class="process_data_name"><%= t("activemodel.attributes.participatory_process.institution") %>: </b> <%= translated_attribute(current_participatory_space.institution) %> </p>
-  <p> <b class="process_data_name"><%= t("activemodel.attributes.participatory_process.sector") %>: </b> <%= translated_attribute(current_participatory_space.sector) %> </p>
-  <p> <b class="process_data_name"><%= t("activemodel.attributes.participatory_process.process_status") %>: </b> <%= current_participatory_space.process_status %> </p>
-  <p> <b class="process_data_name"><%= t("activemodel.attributes.participatory_process.consultant") %>: </b> <%= translated_attribute(current_participatory_space.consultant) %> </p>
-  <p> <b class="process_data_name"><%= t("decidim.participatory_processes.show.dou_publication") %>: </b> <%= current_participatory_space.dou_publication_date.strftime('%d/%m/%Y') %> <a href="<%= current_participatory_space.dou_link %>"> <%= t("decidim.participatory_processes.show.acess_dou_publication") %> </a> </p>
-  <p> <b class="process_data_name"><%= t("activemodel.attributes.participatory_process.dou_link") %>: </b> <%= current_participatory_space.dou_link %>  </p>
-  <p> <b class="process_data_name"><%= t("activemodel.attributes.participatory_process.contact") %>: </b> <%= current_participatory_space.contact %> </p>
+  <p> <b class="process_data_name"><%= t(".institution") %>: </b> <%= translated_attribute(current_participatory_space.institution) %> </p>
+  <p> <b class="process_data_name"><%= t(".sector") %>: </b> <%= translated_attribute(current_participatory_space.sector) %> </p>
+  <p> <b class="process_data_name"><%= t(".process_status") %>: </b> <%= t(".status.#{current_participatory_space.status}") %> </p>
+  <p> <b class="process_data_name"><%= t(".consultant") %>: </b> <%= translated_attribute(current_participatory_space.consultant) %> </p>
+  <% if !current_participatory_space.dou_link %>
+    <p> <b class="process_data_name"><%= t(".dou_publication") %>: </b> <%= t(".not_avaliable_dou_publication") %> </p>
+  <% else %> 
+    <p> <b class="process_data_name"><%= t(".dou_publication") %>: </b> <%= current_participatory_space.dou_publication_date.strftime('%d/%m/%Y') if current_participatory_space.dou_publication_date %> <a href="<%= current_participatory_space.dou_link %>"> <%= t(".acess_dou_publication") %> </a> </p>
+    <p> <b class="process_data_name"><%= t(".dou_link") %>: </b> <%= current_participatory_space.dou_link %>  </p>
+  <% end %> 
+  <p> <b class="process_data_name"><%= t(".contact") %>: </b> <%= current_participatory_space.contact %> </p>
 </div>
 

@@ -28,8 +28,6 @@ module Decidim
     translatable_fields :title, :subtitle, :short_description, :description, :developer_group, :meta_scope, :local_area,
                         :target, :participatory_scope, :participatory_structure, :announcement, :institution, :sector, :consultant
 
-    enum process_status: { publicado: 0, finalizado: 1, pendente: 2 }
-
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
@@ -178,6 +176,18 @@ module Decidim
 
     def closed?
       past?
+    end
+
+    def status
+      if active?
+        'active'
+      elsif past?
+        'closed'
+      elsif upcoming?
+        'upcoming'
+      else
+        'unknown'
+      end
     end
 
     def hashtag

@@ -55,7 +55,6 @@ module Decidim
 
         translatable_attribute :institution, String
         translatable_attribute :sector, String
-        attribute :process_status, String
         translatable_attribute :consultant, String
         attribute :dou_publication_date, Decidim::Attributes::LocalizedDate
         attribute :dou_link, String
@@ -127,12 +126,6 @@ module Decidim
         def participatory_process_types_for_select
           @participatory_process_types_for_select ||= participatory_process_types.map do |type|
             [translated_attribute(type.title), type.id]
-          end
-        end
-
-        def participatory_process_status_for_select
-          @participatory_process_statuses_for_select ||= Decidim::ParticipatoryProcess.process_statuses.keys.map do |status|
-            [status]
           end
         end
 

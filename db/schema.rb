@@ -1550,7 +1550,6 @@ ActiveRecord::Schema.define(version: 2024_03_04_154031) do
     t.string "group_chat_id"
     t.jsonb "institution"
     t.jsonb "sector"
-    t.integer "process_status", default: 0
     t.jsonb "consultant"
     t.date "dou_publication_date"
     t.string "dou_link"

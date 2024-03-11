@@ -86,7 +86,6 @@ module Decidim
             group_chat_id: form.group_chat_id,
             institution: form.institution,
             sector: form.sector,
-            process_status: form.process_status,
             consultant: form.consultant,
             dou_publication_date: form.dou_publication_date,
             dou_link: form.dou_link,
