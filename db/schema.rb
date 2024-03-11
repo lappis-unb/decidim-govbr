@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_03_04_183136) do
+ActiveRecord::Schema.define(version: 2024_03_11_130832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -454,7 +454,6 @@ ActiveRecord::Schema.define(version: 2024_03_04_183136) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "participatory_space_type", null: false
-    t.jsonb "singular_name"
     t.boolean "hide_in_menu"
     t.index ["participatory_space_id", "participatory_space_type"], name: "index_decidim_components_on_decidim_participatory_space"
   end
@@ -1443,7 +1442,7 @@ ActiveRecord::Schema.define(version: 2024_03_04_183136) do
     t.boolean "enable_participatory_space_filters", default: true
     t.jsonb "menu_links", default: "{}", null: false
     t.jsonb "footer_menu_links", default: "{}", null: false
-    t.string "user_profile_poll_link"
+    t.integer "user_profile_survey_id"
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
