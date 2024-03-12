@@ -16,7 +16,6 @@ module Decidim
             ca: "Títol"
           }
         end
-
         let(:weight) { 1 }
         let(:description) do
           {
@@ -25,7 +24,6 @@ module Decidim
             ca: "Descripció"
           }
         end
-
         let(:slug) { "slug" }
         let(:attachment) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
         let(:show_metrics) { true }
@@ -91,6 +89,16 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
+        context "when default language in subtitle is missing" do
+          let(:subtitle) do
+            {
+              ca: "Subtítol"
+            }
+          end
+
+          it { is_expected.to be_valid }
+        end
+
         context "when default language in description is missing" do
           let(:description) do
             {
@@ -99,6 +107,16 @@ module Decidim
           end
 
           it { is_expected.to be_invalid }
+        end
+
+        context "when default language in short_description is missing" do
+          let(:short_description) do
+            {
+              ca: "Descripció curta"
+            }
+          end
+
+          it { is_expected.to be_valid }
         end
 
         context "when slug is missing" do
