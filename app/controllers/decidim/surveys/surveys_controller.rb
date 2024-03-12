@@ -45,6 +45,8 @@ module Decidim
       end
 
       def update_user_poll_answered
+        return unless current_user.present?
+
         current_user.update!(user_profile_poll_answered: true)
       end
 
@@ -54,6 +56,8 @@ module Decidim
       end
 
       def should_have_user_full_profile
+        return unless current_user.present?
+
         if (current_organization.user_profile_survey_id != current_component.id) && 
             current_participatory_space.should_have_user_full_profile && 
             !current_user.user_profile_poll_answered

@@ -128,8 +128,8 @@ extra_admin_link(
 </div>
 <%= attachments_for @proposal %>
 
-<% if current_participatory_space.should_have_user_full_profile %>
-  <% if should_allow_user_action? %>
+<% if user_has_full_profile? %>
+  <% if user_survey_answered? %>
     <%= comments_for @proposal %>
   <% else %>
     <%= comments_for(@proposal, {

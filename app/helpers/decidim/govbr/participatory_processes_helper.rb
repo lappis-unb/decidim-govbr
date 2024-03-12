@@ -1,8 +1,12 @@
 module Decidim
   module Govbr
     module ParticipatoryProcessesHelper
-      def should_allow_user_action?
+      def user_survey_answered?
         current_user.present? && current_user.user_profile_poll_answered
+      end
+
+      def user_has_full_profile?
+        current_user.present? && current_participatory_space.should_have_user_full_profile
       end
     end
   end
