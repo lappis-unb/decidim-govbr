@@ -35,6 +35,8 @@ gem 'redis', '4.7.1'
 gem 'hiredis', '0.6.3'
 gem 'sidekiq', '6.5.7'
 
+gem 'rest-client'
+
 gem 'whenever', require: false
 
 gem 'decidim-homes', git: 'https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-module-homes.git'
