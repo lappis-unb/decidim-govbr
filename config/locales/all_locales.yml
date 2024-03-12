@@ -19,6 +19,12 @@ pt-BR:
         scope_id: Áreas de interesse
         scopes_enabled: Áreas de interesse ativadas
         slug: URL Amigável
+        developer_group: Órgão/Instituição
+        local_area: Setor
+        meta_scope: Status do Processo
+        target: Responsável pela consulta
+        participatory_scope: Publicação no DOU (DIA E LINK DA PUBLICAÇÃO)
+        participatory_structure: Contato
       participatory_process_partner:
         link: Link oficial
         logo: Logotipo
@@ -29,7 +35,6 @@ pt-BR:
         date: Data
         link: Link
         title: Título
-
   decidim:
     govbr:
       initial_page_type:
@@ -49,7 +54,10 @@ pt-BR:
             title: Organizadores e Apoiadores
         participatory_processes:
           form:
+            metadata: Dados do Processo
             initial_page_component_id_help: Selecione qual componente será utilizado como a página principal deste Processo. Apenas Páginas Estáticas e Páginas Iniciais serão exibidas aqui como opção. Caso não queira uma página inicial customizada, deixe marcada a opção "Página Padrão"
+            group_chat_id_help: Coloque o ID do grupo de chat que será utilizado para este processo.
+            hash_tag_help: Coloque palavras chaves que serão utilizadas para identificar este processo nos campos de pesquisa.
     forms:
       admin:
         models:
@@ -137,6 +145,17 @@ pt:
         initial_page_component_id: Página Principal da Assembléia
       participatory_process:
         initial_page_component_id: Página Principal do Processo
+        scope_id: Áreas de interesse
+        scopes_enabled: Áreas de interesse ativadas
+        slug: URL Amigável
+        developer_group: Órgão/Instituição
+        local_area: Setor
+        meta_scope: Status do Processo
+        target: Responsável pela consulta
+        participatory_scope: Publicação no DOU (DIA E LINK DA PUBLICAÇÃO)
+        participatory_structure: Contato
+        area_id: Órgão/Instituição
+        decidim_area_id: Órgão/Instituição
   decidim:
     govbr:
       initial_page_type:
@@ -157,6 +176,9 @@ pt:
         participatory_processes:
           form:
             initial_page_component_id_help: Selecione qual componente será utilizado como a página principal deste Processo. Apenas Páginas Estáticas e Páginas Iniciais serão exibidas aqui como opção. Caso não queira uma página inicial customizada, deixe marcada a opção "Página Padrão"
+            metadata: Dados do Processo
+            group_chat_id_help: Coloque o ID do grupo de chat que será utilizado para este processo.
+            hash_tag_help: Coloque palavras chaves que serão utilizadas para identificar este processo nos campos de pesquisa.
     forms:
       admin:
         models:
@@ -281,14 +303,16 @@ en:
         assemblies:
           form:
             initial_page_component_id_help: Select the component to be used as the assembly main page. Only Static Pages and Initial Pages are displayed here as options. If a custom main page is not necessary, keep the option "Default Page" selected.
-        participatory_processes:
-          form:
-            initial_page_component_id_help: Select the component to be used as the process main page. Only Static Pages and Initial Pages are displayed here as options. If a custom main page is not necessary, keep the option "Default Page" selected.
     participatory_processes:
       admin:
         partners:
           index:
             title: Organizers and Supporters
+        participatory_processes:
+          form:
+            initial_page_component_id_help: Select the component to be used as the process main page. Only Static Pages and Initial Pages are displayed here as options. If a custom main page is not necessary, keep the option "Default Page" selected.
+            group_chat_id_help: The Telegram group ID to be used on this process
+            hash_tag_help: The key-words to be used to identify this process on searching
     forms:
       admin:
         models:
@@ -386,6 +410,8 @@ es-MX:
         participatory_processes:
           form:
             initial_page_component_id_help: Seleccione el componente que se utilizará como página principal del proceso. Aquí sólo se muestran como opciones Páginas estáticas y Páginas iniciales. Si no es necesaria una página principal personalizada, mantenga seleccionada la opción "Página Predeterminada".
+            group_chat_id_help: El ID del grupo de Telegram que se utilizará en este proceso.
+            hash_tag_help: Las palabras clave que se utilizarán para identificar este proceso en la búsqueda.
     forms:
       admin:
         models:
@@ -483,6 +509,8 @@ es-PY:
         participatory_processes:
           form:
             initial_page_component_id_help: Seleccione el componente que se utilizará como página principal del proceso. Aquí sólo se muestran como opciones Páginas estáticas y Páginas iniciales. Si no es necesaria una página principal personalizada, mantenga seleccionada la opción "Página Predeterminada".
+            group_chat_id_help: El ID del grupo de Telegram que se utilizará en este proceso.
+            hash_tag_help: Las palabras clave que se utilizarán para identificar este proceso en la búsqueda.
     forms:
       admin:
         models:
@@ -580,6 +608,8 @@ es:
         participatory_processes:
           form:
             initial_page_component_id_help: Seleccione el componente que se utilizará como página principal del proceso. Aquí sólo se muestran como opciones Páginas estáticas y Páginas iniciales. Si no es necesaria una página principal personalizada, mantenga seleccionada la opción "Página Predeterminada".
+            group_chat_id_help: El ID del grupo de Telegram que se utilizará en este proceso.
+            hash_tag_help: Las palabras clave que se utilizarán para identificar este proceso en la búsqueda.
     forms:
       admin:
         models:
