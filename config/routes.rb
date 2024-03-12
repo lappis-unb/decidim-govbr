@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     as: 'user_proposal_statistic_report_create'
   )
 
+  get 'reports/generate_report', to: 'decidim/reports/reports#generate_report', as: 'generate_report'
+
   resources :assemblies, param: :slug, only: [] do
     resources :media, only: :index, controller: 'decidim/assemblies/media'
   end
