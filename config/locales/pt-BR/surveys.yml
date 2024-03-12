@@ -25,6 +25,9 @@ pt-BR:
     forms:
       questionnaires:
         questionnaire_form:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Entre com sua conta</a> ou <a href="%{sign_up_link}">inscreva-se</a> para responder ao questionário.
+            title: Responda o questionário
           questionnaire_js_disabled:
             body: Algumas das funcionalidades deste formulário serão desativadas. Para melhorar sua experiência, por favor ative o JavaScript no seu navegador.
             title: JavaScript está desativado
