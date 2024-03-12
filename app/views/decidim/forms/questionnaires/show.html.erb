@@ -5,8 +5,9 @@
 
 <%= render partial: "decidim/shared/component_announcement" if current_component.manifest_name == "surveys" %>
 
-<% if current_participatory_space.should_have_user_full_profile && current_organization.user_profile_survey_id != current_component.id %>
-  <% if should_allow_user_action? %>
+<% if user_has_full_profile? && 
+  current_organization.user_profile_survey_id != current_component.id %>
+  <% if user_survey_answered? %>
     <%= render partial: 'decidim/forms/questionnaires/questionnaire_form' %>
   <% else %>
     <span class="message-title"><%= flash[:alert] %></span>

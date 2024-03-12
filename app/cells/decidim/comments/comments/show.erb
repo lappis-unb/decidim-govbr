@@ -20,7 +20,7 @@
           <%= cell("decidim/comments/comment_thread", comment, order: order) %>
         <% end %>
       </div>
-      <% if options.try(:[], :hide_comment_action) %>
+      <% if options.try(:[], :hide_comment_action) && current_user.present? %>
         <span class="message-title"><%= options[:alert] %></span>
         <a target="_blank" href=<%= options[:poll_link] %>> <%= t("decidim.forms.incomplete_profile") %></a>
       <% else %>
