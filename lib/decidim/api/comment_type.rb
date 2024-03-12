@@ -39,6 +39,8 @@ module Decidim
 
       field :user_allowed_to_comment, GraphQL::Types::Boolean, "Check if the current user can comment", null: false
 
+      field :status, GraphQL::Types::String, "The status of the comment", null: false
+
       def author
         object.user_group || object.author
       end
@@ -89,6 +91,12 @@ module Decidim
 
       def user_allowed_to_comment
         object.root_commentable.commentable? && object.root_commentable.user_allowed_to_comment?(context[:current_user])
+      end
+
+      def status
+        statuses = %w(in_discussion accepted rejected)
+
+        statuses[object.status.to_i]
       end
     end
   end
