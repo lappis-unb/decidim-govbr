@@ -6,6 +6,7 @@ module Decidim
       # A command to fire report requests on airflow, by specifying the endpoint, the start_date
       # the end_date and the component_id to build report on
       class TriggerAirflowReport < Decidim::Command
+        # rubocop:disable Metrics/ParameterLists
         def initialize(endpoint, start_date, end_date, email, component_id, current_user)
           @endpoint = endpoint
           @start_date = start_date
@@ -14,6 +15,7 @@ module Decidim
           @component_id = component_id
           @current_user = current_user
         end
+        # rubocop:enable Metrics/ParameterLists
 
         attr_reader :endpoint, :start_date, :end_date, :email, :component_id, :current_user
 
