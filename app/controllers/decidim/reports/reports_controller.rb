@@ -1,26 +1,38 @@
 module Decidim
   module Reports
-    class ReportsController < ApplicationController
-
-      def generate_report
-        airflow_host = "200.152.47.48:8080"
-        endpoint = params[:airflow_endpoint]
+    # This controller handle requests for firing requests to Airflow
+    class ReportsController < Decidim::ApplicationController
+      def create
+        # TODO: colocar o enforce permission
         date_range = params[:date_range].split(" até ")
         start_date = date_range.first
         end_date = date_range.second
-        email = params[:email]
-        component_id = params[:id]
 
-        Services::Airflow::AirflowService.enqueue_report(
-          airflow_host:airflow_host,
-          endpoint:endpoint,
-          start_date:start_date,
-          end_date:end_date,
-          email:email,
-          component_id:component_id
-        )
+        missing_params = []
+        missing_params << :airflow_endpoint unless params[:airflow_endpoint].present?
+        missing_params << :start_date unless start_date.present?
+        missing_params << :end_date unless end_date.present?
+        missing_params << :email unless params[:email].present?
+        missing_params << :email unless params[:component_id].present?
+        missing_params << :current_user unless current_user.present?
 
-        return
+        return render json: { "status" => "Erro!", "message" => "Informações ausentes: #{missing_params}" } if missing_params.present?
+
+        Govbr::Airflow::TriggerAirflowReport.call(params[:airflow_endpoint], start_date, end_date, params[:email], params[:component_id], current_user) do
+          on(:ok) do
+            flash[:notice] = "Sucesso! O Relatório será processado em breve e você será notificado por e-mail."
+            render json: { "status" => "Sucesso!", "message" => "Você receberá um e-mail em breve." }
+          end
+
+          on(:invalid) do
+            flash[:alert] = "Parametros inválidos!"
+            render json: { "status" => "Erro!", "message" => "Informações ausentes: #{missing_params}" }
+          end
+
+          on(:error) do |airflow_response|
+            render airflow_response
+          end
+        end
       end
     end
   end
