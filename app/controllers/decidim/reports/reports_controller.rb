@@ -4,6 +4,8 @@ module Decidim
     class ReportsController < Decidim::ApplicationController
       def create
         # TODO: colocar o enforce permission
+        redirect_to main_app.root_path unless current_user.admin?
+
         date_range = params[:date_range].split(" até ")
         start_date = date_range.first
         end_date = date_range.second
@@ -30,7 +32,7 @@ module Decidim
           end
 
           on(:error) do |airflow_response|
-            render airflow_response
+            render json: airflow_response
           end
         end
       end
