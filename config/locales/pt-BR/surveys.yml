@@ -17,7 +17,7 @@ pt-BR:
           global:
             clean_after_publish: Excluir respostas ao publicar a enquete
             ends_at: Respostas aceitas até
-            scopes_enabled: Âmbitos ativados
+            scopes_enabled: Áreas de interesse ativados
             starts_at: Respostas aceitas a partir de
           step:
             allow_unregistered: Permitir que usuários não registrados respondam a enquete
@@ -29,7 +29,7 @@ pt-BR:
           email_subject: Uma enquete finalizou em %{participatory_space_title}
           notification_title: A enquete <a href="%{resource_path}">%{resource_title}</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a> finalizou.
         survey_opened:
-          email_intro: 'A enquete %{resource_title} em %{participatory_space_title} está aberta agora. Você pode participar a partir desta página:'
+          email_intro: "A enquete %{resource_title} em %{participatory_space_title} está aberta agora. Você pode participar a partir desta página:"
           email_subject: Uma nova enquete em %{participatory_space_title}
           notification_title: A enquete <a href="%{resource_path}">%{resource_title}</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a> está aberta agora.
     metrics:

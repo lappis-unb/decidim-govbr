@@ -19,8 +19,8 @@ module Decidim
         translatable_attribute :meta_scope, String
         translatable_attribute :participatory_scope, String
         translatable_attribute :participatory_structure, String
-        translatable_attribute :subtitle, String
-        translatable_attribute :short_description, String
+        translatable_attribute :subtitle, String # Deprecated in Brasil Participativo
+        translatable_attribute :short_description, String # Deprecated in Brasil Participativo
         translatable_attribute :title, String
         translatable_attribute :target, String
 
@@ -33,13 +33,13 @@ module Decidim
         attribute :area_id, Integer
         attribute :participatory_process_group_id, Integer
         attribute :scope_id, Integer
-        attribute :related_process_ids, Array[Integer]
-        attribute :scope_type_max_depth_id, Integer
+        attribute :related_process_ids, Array[Integer] # Deprecated in Brasil Participativo
+        attribute :scope_type_max_depth_id, Integer # Deprecated in Brasil Participativo
         attribute :weight, Integer, default: 0
 
         attribute :private_space, Boolean
         attribute :promoted, Boolean
-        attribute :scopes_enabled, Boolean
+        attribute :scopes_enabled, Boolean # Deprecated in Brasil Participativo (always true)
         attribute :show_metrics, Boolean
         attribute :show_statistics, Boolean
         attribute :participatory_process_type_id, Integer
@@ -61,7 +61,7 @@ module Decidim
 
         validate :slug_uniqueness
 
-        validates :title, :subtitle, :description, :short_description, translatable_presence: true
+        validates :title, :description, translatable_presence: true
 
         validates :banner_image, passthru: { to: Decidim::ParticipatoryProcess }
         validates :hero_image, passthru: { to: Decidim::ParticipatoryProcess }
