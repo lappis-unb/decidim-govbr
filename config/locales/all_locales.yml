@@ -4,12 +4,27 @@
 pt-BR:
   activemodel:
     attributes:
+      assembly:
+        initial_page_component_id: Página Principal da Assembléia
       assembly_partner:
         link: Link oficial
         logo: Logotipo
         name: Nome
         partner_type: Tipo
         weight: Weight (posição de exibição)
+      participatory_process:
+        area_id: Órgão/Instituição
+        decidim_area_id: Órgão/Instituição
+        initial_page_component_id: Página Principal do Processo
+        scope_id: Áreas de interesse
+        scopes_enabled: Áreas de interesse ativadas
+        slug: URL Amigável
+        developer_group: Órgão/Instituição
+        local_area: Setor
+        meta_scope: Status do Processo
+        target: Responsável pela consulta
+        participatory_scope: Publicação no DOU (DIA E LINK DA PUBLICAÇÃO)
+        participatory_structure: Contato
       participatory_process_partner:
         link: Link oficial
         logo: Logotipo
@@ -20,10 +35,6 @@ pt-BR:
         date: Data
         link: Link
         title: Título
-      assembly:
-        initial_page_component_id: Página Principal da Assembléia
-      participatory_process:
-        initial_page_component_id: Página Principal do Processo
   decidim:
     govbr:
       initial_page_type:
@@ -43,7 +54,10 @@ pt-BR:
             title: Organizadores e Apoiadores
         participatory_processes:
           form:
+            metadata: Dados do Processo
             initial_page_component_id_help: Selecione qual componente será utilizado como a página principal deste Processo. Apenas Páginas Estáticas e Páginas Iniciais serão exibidas aqui como opção. Caso não queira uma página inicial customizada, deixe marcada a opção "Página Padrão"
+            group_chat_id_help: Coloque o ID do grupo de chat que será utilizado para este processo.
+            hash_tag_help: Coloque palavras chaves que serão utilizadas para identificar este processo nos campos de pesquisa.
     forms:
       admin:
         models:
@@ -95,12 +109,18 @@ pt-BR:
           create: "%{user_name} criou o link externo %{resource_name} no espaço participativo %{space_name}"
           delete: "%{user_name} removeu o link externo %{resource_name} do espaço participativo %{space_name}"
           update: "%{user_name} atualizou o link externo %{resource_name} do espaço participativo %{space_name}"
+    proposals:
+      proposals:
+        comments_count:
+          count:
+            one: COMENTÁRIO
+            other: COMENTÁRIOS
   layouts:
     decidim:
       assembly_navigation:
-        media: Multimídia
+        media: Mobilização
       process_navigation:
-        media: Multimídia
+        media: Mobilização
 
 pt:
   activemodel:
@@ -125,6 +145,17 @@ pt:
         initial_page_component_id: Página Principal da Assembléia
       participatory_process:
         initial_page_component_id: Página Principal do Processo
+        scope_id: Áreas de interesse
+        scopes_enabled: Áreas de interesse ativadas
+        slug: URL Amigável
+        developer_group: Órgão/Instituição
+        local_area: Setor
+        meta_scope: Status do Processo
+        target: Responsável pela consulta
+        participatory_scope: Publicação no DOU (DIA E LINK DA PUBLICAÇÃO)
+        participatory_structure: Contato
+        area_id: Órgão/Instituição
+        decidim_area_id: Órgão/Instituição
   decidim:
     govbr:
       initial_page_type:
@@ -145,6 +176,9 @@ pt:
         participatory_processes:
           form:
             initial_page_component_id_help: Selecione qual componente será utilizado como a página principal deste Processo. Apenas Páginas Estáticas e Páginas Iniciais serão exibidas aqui como opção. Caso não queira uma página inicial customizada, deixe marcada a opção "Página Padrão"
+            metadata: Dados do Processo
+            group_chat_id_help: Coloque o ID do grupo de chat que será utilizado para este processo.
+            hash_tag_help: Coloque palavras chaves que serão utilizadas para identificar este processo nos campos de pesquisa.
     forms:
       admin:
         models:
@@ -159,6 +193,8 @@ pt:
         show:
           topp_agreement: Concordo com a política de privacidade
     admin:
+      participatory_texts:
+        is_interactive: Interação habilitada
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Pesquisar %{collection} por e-mail, nome, nome de usuário ou CPF.
@@ -196,7 +232,7 @@ pt:
           new: Novo(a) %{name}
       meetings:
         actions:
-          new: 'Novo(a) %{singular_name}'
+          new: "Novo(a) %{singular_name}"
     meetings:
       admin:
         meetings:
@@ -211,6 +247,10 @@ pt:
           singular_name:
             when_empty: Proposta
       proposals:
+        comments_count:
+          count:
+            one: COMENTÁRIO
+            other: COMENTÁRIOS
         count:
           proposals_count:
             one: "%{count} %{singular_name}"
@@ -224,9 +264,9 @@ pt:
   layouts:
     decidim:
       assembly_navigation:
-        media: Multimídia
+        media: Mobilização
       process_navigation:
-        media: Multimídia
+        media: Mobilização
 
 en:
   activemodel:
@@ -263,14 +303,16 @@ en:
         assemblies:
           form:
             initial_page_component_id_help: Select the component to be used as the assembly main page. Only Static Pages and Initial Pages are displayed here as options. If a custom main page is not necessary, keep the option "Default Page" selected.
-        participatory_processes:
-          form:
-            initial_page_component_id_help: Select the component to be used as the process main page. Only Static Pages and Initial Pages are displayed here as options. If a custom main page is not necessary, keep the option "Default Page" selected.
     participatory_processes:
       admin:
         partners:
           index:
             title: Organizers and Supporters
+        participatory_processes:
+          form:
+            initial_page_component_id_help: Select the component to be used as the process main page. Only Static Pages and Initial Pages are displayed here as options. If a custom main page is not necessary, keep the option "Default Page" selected.
+            group_chat_id_help: The Telegram group ID to be used on this process
+            hash_tag_help: The key-words to be used to identify this process on searching
     forms:
       admin:
         models:
@@ -312,6 +354,12 @@ en:
           create: "%{user_name} created an external link %{resource_name} in the participatory space %{space_name}"
           delete: "%{user_name} removed the external link %{resource_name} from the participatory space %{space_name}"
           update: "%{user_name} updated the external link %{resource_name} from the participatory space %{space_name}"
+    proposals:
+      proposals:
+        comments_count:
+          count:
+            one: COMMENT
+            other: COMMENTS
   layouts:
     decidim:
       assembly_navigation:
@@ -362,6 +410,8 @@ es-MX:
         participatory_processes:
           form:
             initial_page_component_id_help: Seleccione el componente que se utilizará como página principal del proceso. Aquí sólo se muestran como opciones Páginas estáticas y Páginas iniciales. Si no es necesaria una página principal personalizada, mantenga seleccionada la opción "Página Predeterminada".
+            group_chat_id_help: El ID del grupo de Telegram que se utilizará en este proceso.
+            hash_tag_help: Las palabras clave que se utilizarán para identificar este proceso en la búsqueda.
     forms:
       admin:
         models:
@@ -403,6 +453,12 @@ es-MX:
           create: "%{user_name} creó un enlace externo %{resource_name} en el espacio participativo %{space_name}"
           delete: "%{user_name} eliminó el enlace externo %{resource_name} del espacio participativo %{space_name}"
           update: "%{user_name} actualizó el enlace externo %{resource_name} del espacio participativo %{space_name}"
+    proposals:
+      proposals:
+        comments_count:
+          count:
+            one: COMENTARIO
+            other: COMENTARIOS
   layouts:
     decidim:
       assembly_navigation:
@@ -453,6 +509,8 @@ es-PY:
         participatory_processes:
           form:
             initial_page_component_id_help: Seleccione el componente que se utilizará como página principal del proceso. Aquí sólo se muestran como opciones Páginas estáticas y Páginas iniciales. Si no es necesaria una página principal personalizada, mantenga seleccionada la opción "Página Predeterminada".
+            group_chat_id_help: El ID del grupo de Telegram que se utilizará en este proceso.
+            hash_tag_help: Las palabras clave que se utilizarán para identificar este proceso en la búsqueda.
     forms:
       admin:
         models:
@@ -494,6 +552,12 @@ es-PY:
           create: "%{user_name} creó un enlace externo %{resource_name} en el espacio participativo %{space_name}"
           delete: "%{user_name} eliminó el enlace externo %{resource_name} del espacio participativo %{space_name}"
           update: "%{user_name} actualizó el enlace externo %{resource_name} del espacio participativo %{space_name}"
+    proposals:
+      proposals:
+        comments_count:
+          count:
+            one: COMENTARIO
+            other: COMENTARIOS
   layouts:
     decidim:
       assembly_navigation:
@@ -544,6 +608,8 @@ es:
         participatory_processes:
           form:
             initial_page_component_id_help: Seleccione el componente que se utilizará como página principal del proceso. Aquí sólo se muestran como opciones Páginas estáticas y Páginas iniciales. Si no es necesaria una página principal personalizada, mantenga seleccionada la opción "Página Predeterminada".
+            group_chat_id_help: El ID del grupo de Telegram que se utilizará en este proceso.
+            hash_tag_help: Las palabras clave que se utilizarán para identificar este proceso en la búsqueda.
     forms:
       admin:
         models:
@@ -585,6 +651,12 @@ es:
           create: "%{user_name} creó un enlace externo %{resource_name} en el espacio participativo %{space_name}"
           delete: "%{user_name} eliminó el enlace externo %{resource_name} del espacio participativo %{space_name}"
           update: "%{user_name} actualizó el enlace externo %{resource_name} del espacio participativo %{space_name}"
+    proposals:
+      proposals:
+        comments_count:
+          count:
+            one: COMENTARIO
+            other: COMENTARIOS
   layouts:
     decidim:
       assembly_navigation:
