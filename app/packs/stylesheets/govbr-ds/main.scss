@@ -1312,3 +1312,13 @@ div.columns.large-12 div.section.images .gallery.row .columns.small-6.medium-4.e
   display: flex;
   justify-content: center;
 }
+
+.meta-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--blue-3);
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 1.5rem;
+  width: 50%;
+}
