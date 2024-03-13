@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     as: 'user_proposal_statistic_report_create'
   )
 
+  resources :reports, only: [:create], controller: 'decidim/reports/reports'
+
   patch '/update_status_comment/:id/', to: 'decidim/comments/comments#update_status', as: 'update_comment_status'
 
   resources :assemblies, param: :slug, only: [] do

@@ -53,8 +53,8 @@
         <% if current_user.present? && current_user.admin %>
           <div>
             <div class="d-flex align-items-center feedback-buttons">
-                <%= button_to "Incorporar".html_safe, update_comment_status_path(id: model.id, status: "accepted"), method: :patch,remote: true,id:"tag04", class:"br-button accept-button #{'selected' if model.status == 'accepted'}" %>
                 <%= button_to "Rejeitar".html_safe, update_comment_status_path(id: model.id, status: "rejected"), method: :patch,remote: true,id:"tag04", class:"br-button reject-button #{'selected' if model.status == 'rejected'}" %>
+                <%= button_to "Incorporar".html_safe, update_comment_status_path(id: model.id, status: "accepted"), method: :patch,remote: true,id:"tag04", class:"br-button accept-button #{'selected' if model.status == 'accepted'}" %>
             </div>
           </div>
         <% end %>
