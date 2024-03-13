@@ -24,13 +24,22 @@
       </template>
     <% end %>
   <% end %>
-
   <%= render partial: "decidim/shared/component_announcement" %>
-
   <%= render partial: "voting_rules" %>
-
+  <div id="export-span" class="br-message info-drop export-span-hollow" role="alert">
+    <div class="br-message-container">
+      <div class="message-icon-br"><i class="fas fa-check-circle fa-lg" aria-hidden="true"></i></div>
+      <div class="content-br"><span class="message-title-br">A sua exportação está em curso. Receberá um e-mail quando estiver completa.</span></div>
+    </div>
+    <button id="export-span-close" class="br-button circle small" type="button"><i class="fas fa-times" aria-hidden="true"></i>
+    </button>
+  </div>
   <div class="filter-container">
     <% if current_user %>
+      <% if current_user.admin? %>
+        <%= render partial: 'decidim/govbr/exports/dropdown', locals: { component: current_component, resource_id: nil} %>
+        <%= link_to "Editar componente", send(current_participatory_space.mounted_admin_engine).edit_component_path(current_participatory_space, current_component), class: "button tiny button--title" %>
+      <% end %>
       <h2 class="user-name-title-h1">Olá, <%= current_user.name %></h2>
     <% end %>
     <div class="proposals__buttons-container">
@@ -44,7 +53,6 @@
       <% end %>
     </div>
   </div>
-
   <div class="br-row">
     <div class="title-action title-action-button">
       <%= render partial: "decidim/shared/export_modal", locals:
@@ -68,7 +76,6 @@
           </span>
         <% end %>
       <% end %>
-
       <% if component_settings.collaborative_drafts_enabled? %>
         <%= link_to t(".collaborative_drafts_list"), collaborative_drafts_path, class: "title-action__action button small hollow ml-s" %>
       <% end %>
@@ -77,25 +84,25 @@
       <%= filter_form_for filter do |form| %>
         <div class="br-input input-highlight">
           <%= form.search_field :search_text_cont, type: "search",
-            label: false, class: "input-group-field", placeholder: t("decidim.proposals.proposals.filters.placeholder", 
-            name: translated_attribute(current_component.singular_name).present? ? 
-            translated_attribute(current_component.singular_name).downcase : 
+            label: false, class: "input-group-field", placeholder: t("decidim.proposals.proposals.filters.placeholder",
+            name: translated_attribute(current_component.singular_name).present? ?
+            translated_attribute(current_component.singular_name).downcase :
             "proposta"),
             "aria-label": "Buscar", id: "input-search-large",
             data: { disable_dynamic_change: true } %>
-            <button class="br-button" type="submit" aria-label="Buscar">
-              <i class="fas fa-search" aria-hidden="true"></i>
-            </button>
+          <button class="br-button" type="submit" aria-label="Buscar">
+            <i class="fas fa-search" aria-hidden="true"></i>
+          </button>
         </div>
       <% end %>
     <% end %>
     <div class="proposals-content-container">
       <% if not browser.mobile? %>
         <div class="br-card proposals-filters">
-            <%= render partial: "filters" %>
+          <%= render partial: "filters" %>
         </div>
       <% end %>
-      <div id="proposals" aria-live="polite">
+      <div id="proposals" class="proposals-br" aria-live="polite">
         <%= render partial: "proposals" %>
       </div>
     </div>
