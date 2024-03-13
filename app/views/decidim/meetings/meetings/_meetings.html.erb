@@ -21,20 +21,13 @@
       <%= render partial: "count" %>
     </p>
     <div class="export-buttons">
-      <%= render partial: "decidim/shared/export_modal", locals:
-      {
-        host_airflow: "https://your-airflow-url.com",
-        dag_id: "generate_report_meetings",
-        username: "your_username",
-        password: "your_password",
-      }
-      %>
+      <%= render partial: "decidim/shared/export_modal" %>
       <%= render partial: "decidim/meetings/calendar_modal", locals: {
-      path: short_url(
-        route_name: "calendar",
-        params: { filter: params.fetch(:filter, {}).try(:to_unsafe_hash) }
-      )
-    } %>
+        path: short_url(
+          route_name: "calendar",
+          params: { filter: params.fetch(:filter, {}).try(:to_unsafe_hash) }
+        )}
+      %>
    </div>
 </div>
 
