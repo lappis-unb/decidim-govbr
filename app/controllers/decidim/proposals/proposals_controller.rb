@@ -312,8 +312,8 @@ module Decidim
       def display_user_profile_poll_warning
         return unless current_participatory_space.is_a? Decidim::ParticipatoryProcess
 
-        if current_participatory_space.should_have_user_full_profile && current_user.present? && 
-          !current_user.user_profile_poll_answered
+        if current_participatory_space.should_have_user_full_profile && current_user.present? &&
+           !current_user.user_profile_poll_answered
           survey_component_id = current_organization.user_profile_survey_id
 
           flash[:alert] = I18n.t("decidim.components.proposals.actions.action_not_allowed")
