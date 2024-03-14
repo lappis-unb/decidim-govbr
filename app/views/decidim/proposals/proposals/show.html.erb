@@ -128,7 +128,7 @@ extra_admin_link(
 </div>
 <%= attachments_for @proposal %>
 
-<% if user_has_full_profile? %>
+<% if user_full_profile_required? %>
   <% if user_survey_answered? %>
     <%= comments_for @proposal %>
   <% else %>
