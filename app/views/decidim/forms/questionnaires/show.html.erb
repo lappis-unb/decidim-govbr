@@ -5,7 +5,7 @@
 
 <%= render partial: "decidim/shared/component_announcement" if current_component.manifest_name == "surveys" %>
 
-<% if user_has_full_profile? && 
+<% if user_full_profile_required? && 
   current_organization.user_profile_survey_id != current_component.id %>
   <% if user_survey_answered? %>
     <%= render partial: 'decidim/forms/questionnaires/questionnaire_form' %>

@@ -55,7 +55,7 @@
   <div class="br-row">
     <div class="title-action title-action-button">
       <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) %>
-        <% if user_has_full_profile? %>
+        <% if user_full_profile_required? %>
           <% if user_survey_answered? %>
             <%= action_authorized_link_to :create, new_proposal_path,
               class: "title-action__action br-button block primary", data: { "redirect_url" => new_proposal_path } do %>
