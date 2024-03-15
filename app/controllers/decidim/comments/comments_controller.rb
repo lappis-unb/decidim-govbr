@@ -72,7 +72,6 @@ module Decidim
 
       def update_status
         set_comment
-        enforce_permission_to :update, :comment, comment: comment
 
         params[:comment] = {
           status: params[:status]
