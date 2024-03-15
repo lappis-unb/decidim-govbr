@@ -63,7 +63,7 @@ module Decidim
            current_user.present? && !current_user.user_profile_poll_answered
           survey_component_id = current_organization.user_profile_survey_id
 
-          flash[:alert] = I18n.t("decidim.components.proposals.actions.action_not_allowed")
+          flash[:alert] = I18n.t("decidim.components.surveys.actions.action_not_allowed")
           flash[:poll_link] = "/processes/#{params[:participatory_process_slug]}/f/#{survey_component_id}"
         end
       end

@@ -12,6 +12,8 @@ pt-BR:
   decidim:
     components:
       surveys:
+        actions:
+          action_not_allowed: Você não pode interagir com enquetes. O seu Perfil de Usuário está incompleto!
         name: Enquetes
         settings:
           global:
