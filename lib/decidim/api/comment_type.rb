@@ -92,12 +92,6 @@ module Decidim
       def user_allowed_to_comment
         object.root_commentable.commentable? && object.root_commentable.user_allowed_to_comment?(context[:current_user])
       end
-
-      def status
-        statuses = %w(in_discussion accepted rejected)
-
-        statuses[object.status.to_i]
-      end
     end
   end
 end
