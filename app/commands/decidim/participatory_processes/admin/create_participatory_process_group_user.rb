@@ -50,7 +50,7 @@ module Decidim
         end
 
         def scoped_user_roles
-          @scoped_user_roles ||= ParticipatoryProcessUserRole.where(user: user, participatory_processes: participatory_processes)
+          @scoped_user_roles ||= ParticipatoryProcessUserRole.where(user: user, participatory_process: participatory_processes)
         end
 
         def participatory_processes
