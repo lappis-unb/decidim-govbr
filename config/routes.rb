@@ -52,5 +52,12 @@ Rails.application.routes.draw do
       resources :partners, except: [:show], controller: 'decidim/participatory_processes/admin/partners'
       resources :media_links, except: [:show], controller: 'decidim/participatory_processes/admin/media_links'
     end
+
+    resources :participatory_process_groups, only: [] do
+      resources :participatory_process_group_users,
+                controller: 'decidim/participatory_processes/admin/participatory_process_group_users',
+                except: [:edit, :update, :show],
+                as: :users
+    end
   end
 end

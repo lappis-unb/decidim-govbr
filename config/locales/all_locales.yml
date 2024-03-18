@@ -29,7 +29,9 @@ pt-BR:
         date: Data
         link: Link
         title: Título
-
+      participatory_process_group_user:
+        email: E-mail do Usuário
+        role: Cargo
   decidim:
     govbr:
       initial_page_type:
@@ -50,6 +52,9 @@ pt-BR:
         participatory_processes:
           form:
             initial_page_component_id_help: Selecione qual componente será utilizado como a página principal deste Processo. Apenas Páginas Estáticas e Páginas Iniciais serão exibidas aqui como opção. Caso não queira uma página inicial customizada, deixe marcada a opção "Página Padrão"
+        participatory_process_group_users:
+          index:
+            title: Usuários Membros do Grupo
     forms:
       admin:
         models:
@@ -64,6 +69,10 @@ pt-BR:
         show:
           topp_agreement: Concordo com a política de privacidade
     admin:
+      actions:
+        participatory_process_group_user:
+          confirm_destroy: Realmente deseja remover este usuário do grupo? Ao fazer isso, este usuário perderá todos seus papeis relacionados aos processos vinculados ao grupo.
+        create: Criar
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Pesquisar %{collection} por e-mail, nome, nome de usuário ou CPF.
@@ -72,6 +81,8 @@ pt-BR:
           partners: Organizadores e Apoiadores
           media_links: Links de Multimídia
       models:
+        participatory_process_group_user:
+          name: Usuário Membro do Grupo
         partner:
           types:
             supporter: Apoiador
@@ -91,6 +102,14 @@ pt-BR:
         destroy:
           success: Parceiro excluído com sucesso
           error: Não foi possível excluir o parceiro
+      participatory_process_group_users:
+        create:
+          success: Usuário adicionado ao grupo com sucesso
+          error: Não foi possível adicionar o usuário ao grupo
+          taken: Um usuário só pode participar de um grupo de processos por vez. O usuário especificado já participa do grupo %{group_name}.
+        destroy:
+          success: Usuário foi removido do grupo com sucesso
+          error: Não foi possível remover o usuário do grupo
     admin_log:
       govbr:
         partner:
@@ -133,6 +152,9 @@ pt:
         date: Data
         link: Link
         title: Título
+      participatory_process_group_user:
+        email: E-mail do Usuário
+        role: Cargo
       assembly:
         initial_page_component_id: Página Principal da Assembléia
       participatory_process:
@@ -157,6 +179,9 @@ pt:
         participatory_processes:
           form:
             initial_page_component_id_help: Selecione qual componente será utilizado como a página principal deste Processo. Apenas Páginas Estáticas e Páginas Iniciais serão exibidas aqui como opção. Caso não queira uma página inicial customizada, deixe marcada a opção "Página Padrão"
+        participatory_process_group_users:
+          index:
+            title: Usuários Membros do Grupo
     forms:
       admin:
         models:
@@ -173,6 +198,10 @@ pt:
     admin:
       participatory_texts:
         is_interactive: Interação habilitada
+      actions:
+        participatory_process_group_user:
+          confirm_destroy: Realmente deseja remover este usuário do grupo? Ao fazer isso, este usuário perderá todos seus papeis relacionados aos processos vinculados ao grupo.
+        create: Criar
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Pesquisar %{collection} por e-mail, nome, nome de usuário ou CPF.
@@ -185,6 +214,8 @@ pt:
           partners: Organizadores e Apoiadores
           media_links: Links de Multimídia
       models:
+        participatory_process_group_user:
+          name: Usuário Membro do Grupo
         partner:
           types:
             supporter: Apoiador
@@ -194,6 +225,24 @@ pt:
             date: Data
             link: Link
             title: Título
+      partners:
+        update:
+          success: Parceiro atualizado com sucesso
+          error: Não foi possível atualizar o parceiro
+        create:
+          success: Parceiro criado com sucesso
+          error: Não foi possível criar o parceiro
+        destroy:
+          success: Parceiro excluído com sucesso
+          error: Não foi possível excluir o parceiro
+      participatory_process_group_users:
+        create:
+          success: Usuário adicionado ao grupo com sucesso
+          error: Não foi possível adicionar o usuário ao grupo
+          taken: Um usuário só pode participar de um grupo de processos por vez. E, este já participa do grupo %{group_name}.
+        destroy:
+          success: Usuário foi removido do grupo com sucesso
+          error: Não foi possível remover o usuário do grupo
     admin_log:
       govbr:
         partner:
@@ -265,6 +314,9 @@ en:
         date: Date
         link: Link
         title: Title
+      participatory_process_group_user:
+        email: User E-mail
+        role: Role
       assembly:
         initial_page_component_id: The Assembly Main Page
       participatory_process:
@@ -281,14 +333,17 @@ en:
         assemblies:
           form:
             initial_page_component_id_help: Select the component to be used as the assembly main page. Only Static Pages and Initial Pages are displayed here as options. If a custom main page is not necessary, keep the option "Default Page" selected.
-        participatory_processes:
-          form:
-            initial_page_component_id_help: Select the component to be used as the process main page. Only Static Pages and Initial Pages are displayed here as options. If a custom main page is not necessary, keep the option "Default Page" selected.
     participatory_processes:
       admin:
         partners:
           index:
             title: Organizers and Supporters
+        participatory_processes:
+          form:
+            initial_page_component_id_help: Select the component to be used as the process main page. Only Static Pages and Initial Pages are displayed here as options. If a custom main page is not necessary, keep the option "Default Page" selected.
+        participatory_process_group_users:
+          index:
+            title: Group Member Users
     forms:
       admin:
         models:
@@ -303,6 +358,10 @@ en:
         show:
           topp_agreement: I agree with the privacy policy
     admin:
+      actions:
+        participatory_process_group_user:
+          confirm_destroy: Do you really want to remove this user from the group? This action is going to revoke all user roles in the processes associated with this group.
+        create: Create
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Search %{collection} by email, name, nickname or identification number.
@@ -311,6 +370,8 @@ en:
           partners: Organizers and Supporters
           media_links: Media Links
       models:
+        participatory_process_group_user:
+          name: Group Member User
         partner:
           types:
             supporter: Supporter
@@ -320,6 +381,24 @@ en:
             date: Date
             link: Link
             title: Title
+      partners:
+        update:
+          success: Partner updated successfully
+          error: Could not update partner
+        create:
+          success: Partner created successfully
+          error: Could not create partner
+        destroy:
+          success: Partner delete successfully
+          error: Could not delete partner
+      participatory_process_group_users:
+        create:
+          success: User added to the group successfully
+          error: Could not add user to the group
+          taken: A user could only participate of one process group at once. The specified user is already in group %{group_name}.
+        destroy:
+          success: User removed from the group successfully
+          error: Could not remove user from the group
     admin_log:
       govbr:
         partner:
@@ -362,6 +441,9 @@ es-MX:
         date: Fecha
         link: Enlace
         title: Título
+      participatory_process_group_user:
+        email: Dirección de Correo Electrónico del Usuario
+        role: Role
       assembly:
         initial_page_component_id: La página Principal de la Asamblea
       participatory_process:
@@ -386,6 +468,9 @@ es-MX:
         participatory_processes:
           form:
             initial_page_component_id_help: Seleccione el componente que se utilizará como página principal del proceso. Aquí sólo se muestran como opciones Páginas estáticas y Páginas iniciales. Si no es necesaria una página principal personalizada, mantenga seleccionada la opción "Página Predeterminada".
+        participatory_process_group_users:
+          index:
+            title: Usuarios Miembros del Grupo
     forms:
       admin:
         models:
@@ -400,6 +485,10 @@ es-MX:
         show:
           topp_agreement: Estoy de acuerdo con la política de privacidad
     admin:
+      actions:
+        participatory_process_group_user:
+          confirm_destroy: ¿Realmente deseas eliminar a este usuario del grupo? Esta acción revocará todos los roles de usuario en los procesos asociados con este grupo.
+        create: Crear
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Buscar %{collection} por correo electrónico, nombre o alias.
@@ -408,6 +497,8 @@ es-MX:
           partners: Organizadores y Simpatizantes
           media_links: Enlaces de Medios
       models:
+        participatory_process_group_user:
+          name: Usuario Miembro del Grupo
         partner:
           types:
             supporter: Simpatizantes
@@ -417,6 +508,24 @@ es-MX:
             date: Fecha
             link: Enlace
             title: Título
+      partners:
+        update:
+          success: Colaborador actualizado exitosamente
+          error: No se pudo actualizar el colaborador
+        create:
+          success: Colaborador creado con éxito
+          error: No se pudo crear el colaborador
+        destroy:
+          success: Colaborador eliminado con éxito
+          error: No se pudo eliminar el colaborador
+      participatory_process_group_users:
+        create:
+          success: Usuario agregado al grupo exitosamente
+          error: No se pudo agregar usuario al grupo
+          taken: Un usuario sólo podría participar de un grupo de procesos a la vez. El usuario especificado ya está en el grupo %{group_name}.
+        destroy:
+          success: Usuario eliminado del grupo con éxito
+          error: No se pudo eliminar el usuario del grupo
     admin_log:
       govbr:
         partner:
@@ -459,6 +568,9 @@ es-PY:
         date: Fecha
         link: Enlace
         title: Título
+      participatory_process_group_user:
+        email: Dirección de Correo Electrónico del Usuario
+        role: Role
       assembly:
         initial_page_component_id: La página Principal de la Asamblea
       participatory_process:
@@ -483,6 +595,9 @@ es-PY:
         participatory_processes:
           form:
             initial_page_component_id_help: Seleccione el componente que se utilizará como página principal del proceso. Aquí sólo se muestran como opciones Páginas estáticas y Páginas iniciales. Si no es necesaria una página principal personalizada, mantenga seleccionada la opción "Página Predeterminada".
+        participatory_process_group_users:
+          index:
+            title: Usuarios Miembros del Grupo
     forms:
       admin:
         models:
@@ -497,6 +612,10 @@ es-PY:
         show:
           topp_agreement: Estoy de acuerdo con la política de privacidad
     admin:
+      actions:
+        participatory_process_group_user:
+          confirm_destroy: ¿Realmente deseas eliminar a este usuario del grupo? Esta acción revocará todos los roles de usuario en los procesos asociados con este grupo.
+        create: Crear
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Buscar %{collection} por correo electrónico, nombre o alias.
@@ -505,6 +624,8 @@ es-PY:
           partners: Organizadores y Simpatizantes
           media_links: Enlaces de Medios
       models:
+        participatory_process_group_user:
+          name: Usuario Miembro del Grupo
         partner:
           types:
             supporter: Simpatizantes
@@ -514,6 +635,24 @@ es-PY:
             date: Fecha
             link: Enlace
             title: Título
+      partners:
+        update:
+          success: Colaborador actualizado exitosamente
+          error: No se pudo actualizar el colaborador
+        create:
+          success: Colaborador creado con éxito
+          error: No se pudo crear el colaborador
+        destroy:
+          success: Colaborador eliminado con éxito
+          error: No se pudo eliminar el colaborador
+      participatory_process_group_users:
+        create:
+          success: Usuario agregado al grupo exitosamente
+          error: No se pudo agregar usuario al grupo
+          taken: Un usuario sólo podría participar de un grupo de procesos a la vez. El usuario especificado ya está en el grupo %{group_name}.
+        destroy:
+          success: Usuario eliminado del grupo con éxito
+          error: No se pudo eliminar el usuario del grupo
     admin_log:
       govbr:
         partner:
@@ -556,6 +695,9 @@ es:
         date: Fecha
         link: Enlace
         title: Título
+      participatory_process_group_user:
+        email: Dirección de Correo Electrónico del Usuario
+        role: Role
       assembly:
         initial_page_component_id: La página Principal de la Asamblea
       participatory_process:
@@ -580,6 +722,9 @@ es:
         participatory_processes:
           form:
             initial_page_component_id_help: Seleccione el componente que se utilizará como página principal del proceso. Aquí sólo se muestran como opciones Páginas estáticas y Páginas iniciales. Si no es necesaria una página principal personalizada, mantenga seleccionada la opción "Página Predeterminada".
+        participatory_process_group_users:
+          index:
+            title: Usuarios Miembros del Grupo
     forms:
       admin:
         models:
@@ -594,6 +739,10 @@ es:
         show:
           topp_agreement: Estoy de acuerdo con la política de privacidad
     admin:
+      actions:
+        participatory_process_group_user:
+          confirm_destroy: ¿Realmente deseas eliminar a este usuario del grupo? Esta acción revocará todos los roles de usuario en los procesos asociados con este grupo.
+        create: Crear
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Buscar %{collection} por correo electrónico, nombre o alias.
@@ -602,6 +751,8 @@ es:
           partners: Organizadores y Simpatizantes
           media_links: Enlaces de Medios
       models:
+        participatory_process_group_user:
+          name: Usuario Miembro del Grupo
         partner:
           types:
             supporter: Simpatizantes
@@ -611,6 +762,24 @@ es:
             date: Fecha
             link: Enlace
             title: Título
+      partners:
+        update:
+          success: Colaborador actualizado exitosamente
+          error: No se pudo actualizar el colaborador
+        create:
+          success: Colaborador creado con éxito
+          error: No se pudo crear el colaborador
+        destroy:
+          success: Colaborador eliminado con éxito
+          error: No se pudo eliminar el colaborador
+      participatory_process_group_users:
+        create:
+          success: Usuario agregado al grupo exitosamente
+          error: No se pudo agregar usuario al grupo
+          taken: Un usuario sólo podría participar de un grupo de procesos a la vez. El usuario especificado ya está en el grupo %{group_name}.
+        destroy:
+          success: Usuario eliminado del grupo con éxito
+          error: No se pudo eliminar el usuario del grupo
     admin_log:
       govbr:
         partner:
