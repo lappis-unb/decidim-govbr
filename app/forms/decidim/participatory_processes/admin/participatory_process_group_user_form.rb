@@ -10,7 +10,17 @@ module Decidim
         attribute :email, String
         attribute :role, String
 
+        validates :email, :role, presence: true
         validates :role, inclusion: Decidim::ParticipatoryProcessUserRole::ROLES
+        validate :user_existence
+
+        def available_roles_for_select
+          Decidim::ParticipatoryProcessUserRole::ROLES
+        end
+
+        def user_existence
+          errors.add(:email, :invalid) unless Decidim::User.find_by(email: email).present?
+        end
 
         def map_model(model)
           self.email = model.email
