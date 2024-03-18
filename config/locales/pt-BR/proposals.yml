@@ -286,7 +286,7 @@ pt-BR:
           edit_documents: Editar documentos
           edit_image: Editar imagem
           select_a_category: Selecione um tema
-          title: Editar %{singular_name}
+          title: Editar %{singular_name} 
         edit_draft:
           discard: Descartar rascunho
           send: Continuar
@@ -342,7 +342,7 @@ pt-BR:
             description: Pode votar até %{limit} proposta(s).
         wizard_aside:
           back: Voltar
-          back_from_step_1: Voltar para propostaSu
+          back_from_step_1: Voltar para proposta
           back_from_step_2: Voltar para proposta
           back_from_step_3: Voltar à comparação de proposta
           back_from_step_4: Voltar para a edição do rascunho

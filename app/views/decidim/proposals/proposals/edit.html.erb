@@ -1,5 +1,4 @@
 <% add_decidim_page_title(proposal_wizard_step_title(action_name)) %>
-<h1>oii</h1>
 <div class="row columns">
   <div class="m-bottom">
     <%= link_to :back, class: "muted-link" do %>
@@ -7,7 +6,13 @@
       <%= t(".back") %>
     <% end %>
   </div>
-  <h2 class="section-heading"><%= t(".title") %></h2>
+  <h2 class="section-heading">
+      <% if translated_attribute(current_component.singular_name).present? %>
+          <%= t("decidim.proposals.proposals.index.new_proposal", proposal: translated_attribute(current_component.singular_name).downcase) %>
+      <% else %>
+        <%= t("decidim.proposals.proposals.index.new_proposal", proposal: "proposta") %>
+      <% end %>
+  </h2>
 </div>
 
 <div class="row">
