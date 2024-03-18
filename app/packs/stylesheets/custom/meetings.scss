@@ -132,3 +132,28 @@
 .admin-tools {
   flex: 1;
 }
+
+
+.export-buttons{
+  display: flex;
+  gap: 8px;
+  @media (max-width: 768px) {
+      flex-direction: column;
+    }
+}
+
+.export-close-button{
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.export-calendar-input{
+   width: 94%;
+}
+
+.calendar-export{
+  font-size: 26px;
+}
+
