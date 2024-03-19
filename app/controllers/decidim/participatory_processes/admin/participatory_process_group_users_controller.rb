@@ -22,6 +22,12 @@ module Decidim
           @form = form(ParticipatoryProcessGroupUserForm).instance
         end
 
+        def edit
+          enforce_permission_to :create :process_user_role
+          @user = collection.find(params[:id])
+          @form = form(ParticipatoryProcessGroupUserForm).from_model(@user)
+        end
+
         def create
           enforce_permission_to :create, :process_user_role
 
@@ -39,6 +45,23 @@ module Decidim
 
             on(:taken) do |group_name|
               flash[:alert] = I18n.t("participatory_process_group_users.create.taken", scope: "decidim.admin", group_name: group_name)
+              render :new
+            end
+          end
+        end
+
+        def update
+          enforce_permission_to :create, :process_user_role
+
+          @user = collection.find(params[:id])
+          UpdateParticipatoryProcessGroupUser.call(participatory_process_group, current_user, @form) do
+            on(:ok) do
+              flash[:notice] = I18n.t("participatory_process_group_users.update.success", scope: "decidim.admin")
+              redirect_to main_app.participatory_process_group_users_path(participatory_process_group)
+            end
+
+            on(:invalid) do
+              flash[:alert] = I18n.t("participatory_process_group_users.update.error", scope: "decidim.admin")
               render :new
             end
           end
