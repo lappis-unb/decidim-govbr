@@ -3,9 +3,9 @@
 module Decidim
   module ParticipatoryProcesses
     module Admin
-      # This command links user to participatory process group by
-      # creating roles
-      class CreateParticipatoryProcessGroupUser < Decidim::Command
+      # This command updates user participation on a participatory process group by
+      # changing its roles
+      class UpdateParticipatoryProcessGroupUser < Decidim::Command
         # Public: Initializes the command
         #
         # participatory_process_group - the participatory process group to link
@@ -28,7 +28,6 @@ module Decidim
         # Returns nothing
         def call
           return broadcast(:invalid) if form.invalid? || participatory_process_group.blank?
-          return broadcast(:taken, user_current_process_group.title[current_locale]) if user_current_process_group.present?
 
           transaction do
             update_user_roles!
@@ -64,33 +63,17 @@ module Decidim
         # a new participatory process user role and updates the existing one with the specified role privilleges
         #
         def update_user_roles!
-          participatory_processes.each do |participatory_process|
-            user_role = scoped_user_roles.detect { |user_role| user_role.decidim_participatory_process_id == participatory_process.id  }
-            if user_role
-              Decidim.traceability.update!(
-                user_role,
-                current_user,
-                {
-                  role: form.role.to_sym
-                },
-                resource: {
-                  title: user.name
-                }
-              )
-            else
-              Decidim.traceability.create!(
-                Decidim::ParticipatoryProcessUserRole,
-                current_user,
-                {
-                  role: form.role.to_sym,
-                  user: user,
-                  participatory_process: participatory_process
-                },
-                resource: {
-                  title: user.name
-                }
-              )
-            end
+          scoped_user_roles.each do |user_role|
+            Decidim.traceability.update!(
+              user_role,
+              current_user,
+              {
+                role: form.role.to_sym
+              },
+              resource: {
+                title: user.name
+              }
+            )
           end
         end
 
