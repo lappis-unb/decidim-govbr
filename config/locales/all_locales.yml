@@ -23,7 +23,7 @@ pt-BR:
       assembly:
         initial_page_component_id: Página Principal da Assembléia
       participatory_process:
-        initial_page_component_id: Página Principal do Processo
+        initial_page_component_id: Página Inicial do Processo Participativo
   decidim:
     govbr:
       initial_page_type:
