@@ -14,9 +14,13 @@ require 'support/organization'
 require 'support/wisper'
 
 require 'rspec-html-matchers'
+require "commands/decidim/proposals/admin/admin_resource_gallery_example"
+require "shared/proposal_form_examples"
+require "shared/scopable_resource_examples"
+require "shared/translate_helper"
 
 # Requires all rspec examples
-Dir[File.join('spec', 'shared', '*_examples.rb')].map { |file| require_relative "shared/#{file.split('/').last}" }
+Dir[File.join('spec', 'shared', '*_examples.rb')].map { |file| require_relative "shared/#{file.split("/").last}" }
 
 require 'component.rb'
 
@@ -82,6 +86,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  config.include Devise::Test::ControllerHelpers, type: :controller
 
   RSpec::Matchers.define :be_versioned do
     match { |actual| actual.is_a?(::PaperTrail::Model::InstanceMethods) }

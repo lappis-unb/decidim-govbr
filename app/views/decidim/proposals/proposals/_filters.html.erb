@@ -27,11 +27,7 @@
   <% if current_component.categories.any? %>
     <%= form.check_boxes_tree :with_any_category, filter_categories_values, legend_title: t(".category"), "aria-controls": "proposals" %>
   <% end %>
-
-  <% if component_settings.official_proposals_enabled %>
-    <%= form.check_boxes_tree :with_any_origin, filter_origin_values, legend_title: t(".origin"), "aria-controls": "proposals" %>
-  <% end %>
-
+  
   <% if @proposals.only_emendations.any? %>
     <%= form.collection_radio_buttons :type, filter_type_values, :first, :last, { legend_title: t(".amendment_type") }, "aria-controls": "proposals" %>
   <% end %>

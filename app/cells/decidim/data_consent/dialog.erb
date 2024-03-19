@@ -1,0 +1,30 @@
+<div id="dc-dialog-wrapper" class="flex-center hide robots-noindex robots-nocontent noindex" data-nosnippet role="region">
+  <div class="padding-vertical-1 bottom-cookies">
+    <div class="row expanded bottom-cookies-container">
+      <div class="columns medium-12 large-8">
+        <div class="dc-content">
+          <div class="h5 text-cookies-bottom">
+            <%= t("layouts.decidim.data_consent.dialog.title") %>
+          </div>
+          <div class="text-cookies-bottom">
+            <%= t("layouts.decidim.data_consent.dialog.description") %>
+          </div>
+        </div>
+      </div>
+      <div class="cookie">
+        <div class="dc-button-wrapper flex-center cookies-button-container ">
+          <button id="dc-dialog-settings" class="br-button block dark-mode settings-bottom-cookies" data-open="dc-modal">
+            <i class="fa-solid fa-cookie-bite"></i>
+            <%= t("layouts.decidim.data_consent.dialog.settings") %>
+          </button>
+          <button id="dc-dialog-reject" class="br-button secondary dark-mode mr-3 bottom-button-cookies block">
+            <%= t("layouts.decidim.data_consent.dialog.reject") %>
+          </button>
+          <button id="dc-dialog-accept" class="br-button secondary dark-mode mr-3 bottom-button-cookies block">
+            <%= t("layouts.decidim.data_consent.dialog.accept_all") %>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

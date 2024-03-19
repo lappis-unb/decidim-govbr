@@ -39,10 +39,13 @@ gem 'whenever', require: false
 
 gem 'decidim-homes', git: 'https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-module-homes.git'
 
+gem "rest-client", "~> 2.1"
+
 group :development, :test do
   gem 'byebug', '11.1.3'
   gem 'decidim-dev', DECIDIM_VERSION
   gem 'pry-nav'
+  gem "rubocop-faker", "~> 1.1"
 end
 
 group :development do

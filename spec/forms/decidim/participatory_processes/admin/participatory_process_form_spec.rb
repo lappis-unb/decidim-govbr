@@ -16,26 +16,12 @@ module Decidim
             ca: "Títol"
           }
         end
-        let(:subtitle) do
-          {
-            en: "Subtitle",
-            es: "Subtítulo",
-            ca: "Subtítol"
-          }
-        end
         let(:weight) { 1 }
         let(:description) do
           {
             en: "Description",
             es: "Descripción",
             ca: "Descripció"
-          }
-        end
-        let(:short_description) do
-          {
-            en: "Short description",
-            es: "Descripción corta",
-            ca: "Descripció curta"
           }
         end
         let(:slug) { "slug" }
@@ -49,16 +35,10 @@ module Decidim
               "title_en" => title[:en],
               "title_es" => title[:es],
               "title_ca" => title[:ca],
-              "subtitle_en" => subtitle[:en],
-              "subtitle_es" => subtitle[:es],
-              "subtitle_ca" => subtitle[:ca],
               "weight" => weight,
               "description_en" => description[:en],
               "description_es" => description[:es],
               "description_ca" => description[:ca],
-              "short_description_en" => short_description[:en],
-              "short_description_es" => short_description[:es],
-              "short_description_ca" => short_description[:ca],
               "hero_image" => attachment,
               "banner_image" => attachment,
               "slug" => slug,
@@ -78,7 +58,7 @@ module Decidim
           it { is_expected.to be_valid }
 
           it "infers initial page type information" do
-            expect { subject.valid? }.to change { subject.initial_page_type }.from(initial_page_type).to("homes")
+            expect { subject.valid? }.to change(subject, :initial_page_type).from(initial_page_type).to("homes")
           end
         end
 
@@ -116,7 +96,7 @@ module Decidim
             }
           end
 
-          it { is_expected.to be_invalid }
+          it { is_expected.to be_valid }
         end
 
         context "when default language in description is missing" do
@@ -136,7 +116,7 @@ module Decidim
             }
           end
 
-          it { is_expected.to be_invalid }
+          it { is_expected.to be_valid }
         end
 
         context "when slug is missing" do

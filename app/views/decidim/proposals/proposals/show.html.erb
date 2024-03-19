@@ -95,8 +95,8 @@ extra_admin_link(
       <% else %>
         <div class="card">
           <div class="card__content">
-            <% if current_settings.votes_enabled? %>
               <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
+            <% if current_settings.votes_enabled? %>
               <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
             <% end %>
             <div class="row collapse buttons__row">
@@ -128,6 +128,16 @@ extra_admin_link(
 </div>
 <%= attachments_for @proposal %>
 
-<%= comments_for @proposal %>
+<% if user_full_profile_required? %>
+  <% if user_survey_answered? %>
+    <%= comments_for @proposal %>
+  <% else %>
+    <%= comments_for(@proposal, {
+      :hide_comment_action => true, :alert => flash[:alert], :poll_link => flash[:poll_link]}) 
+    %>
+  <% end %>
+<% else %>
+  <%= comments_for @proposal %>
+<% end %>
 
 <%= cell("decidim/flag_modal", @proposal) %>
