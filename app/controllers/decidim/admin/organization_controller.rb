@@ -72,7 +72,7 @@ module Decidim
             if (term = params[:term].to_s).present?
               query = relation.order(name: :asc)
               query = if term.start_with?("@")
-                        query.where("nickname ILIKE ?", "#{term.delete('@')}%")
+                        query.where("nickname ILIKE ?", "#{term.delete("@")}%")
                       else
                         query.where("name ILIKE ?", "%#{term}%").or(
                           query.where("email ILIKE ?", "%#{term}%")

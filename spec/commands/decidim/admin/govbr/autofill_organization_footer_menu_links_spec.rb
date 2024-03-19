@@ -13,7 +13,6 @@ module Decidim
         context "when footer is void" do
           it "only consider footer is full" do
             command.call
-
             expect(organization.footer_menu_links).to eq(
               {
                 "menu" => [
