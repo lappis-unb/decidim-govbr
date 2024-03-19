@@ -63,6 +63,7 @@ module Decidim
           let(:command) { described_class.new(my_process, form) }
           let(:initial_page_component_id) { 0 }
           let(:initial_page_type) { "default" }
+          let!(:initial_page_component) { create :homes_component, id: 10, participatory_space: my_process }
 
           describe "when the form is not valid" do
             before do
