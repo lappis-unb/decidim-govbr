@@ -85,32 +85,6 @@
   font-weight: 600;
 }
 
-.comments-header {
-  display: flex;
-  align-items: flex-end;
-  margin-bottom: 1rem;
-}
-
-.br-comments-count {
-  color: var(--blue-warm-vivid-80);
-  font-size: 1.25rem !important;
-  font-weight: 600;
-  margin: 0;
-  padding: 0;
-}
-
-.comments_blocked_warning{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 2rem 0;
-  gap: 1rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--blue-warm-vivid-80);
-  
-}
 .extra {
   .author-data {
     flex-direction: column;
@@ -158,3 +132,28 @@
 .admin-tools {
   flex: 1;
 }
+
+
+.export-buttons{
+  display: flex;
+  gap: 8px;
+  @media (max-width: 768px) {
+      flex-direction: column;
+    }
+}
+
+.export-close-button{
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.export-calendar-input{
+   width: 94%;
+}
+
+.calendar-export{
+  font-size: 26px;
+}
+

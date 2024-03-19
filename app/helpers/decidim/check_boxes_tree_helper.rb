@@ -12,15 +12,15 @@ module Decidim
         multiple: true,
         include_hidden: false,
         label_options: {
-          "data-children-checkbox": "",
+          "data-children-checkbox": "", # rubocop:disable Style/QuotedSymbols
           value: value
         }
       }
       options.merge!(checkbox_options)
 
       if options.delete(:is_root_check_box) == true
-        options[:label_options].merge!("data-global-checkbox": "")
-        options[:label_options].delete(:"data-children-checkbox")
+        options[:label_options].merge!("data-global-checkbox": "") # rubocop:disable Style/QuotedSymbols
+        options[:label_options].delete(:"data-children-checkbox") # rubocop:disable Style/QuotedSymbols
       end
 
       options

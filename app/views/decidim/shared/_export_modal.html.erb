@@ -1,0 +1,51 @@
+<% if current_user.present? && current_user.admin? %>
+  <button
+    class="br-button primary"
+    data-open="export_data"
+  >
+    <i class="fa-solid fa-magnifying-glass-chart m-2"></i>
+    Gerar relatório
+  </button>
+  <div class="reveal" id="export_data" data-reveal>
+    <div class="reveal__header">
+      <h2 class="reveal__title">Gerar Relatório</h2>
+      <button class="close-button" data-close aria-label="Close window" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3">
+      <%= form_with url: main_app.reports_path, method: :post, local: true do |f| %>
+        <div class="br-datetimepicker" data-mode="range" data-type="text">
+        <%= f.label :range_input, "Escolha as datas para o recebimento do relatório deste processo" %>
+          <div class="br-input">
+            <button class="br-button circle small" type="button" aria-label="Abrir Timepicker" data-toggle="data-toggle" id="range-input-btn" tabindex="-1" aria-hidden="true">
+              <i class="fas fa-calendar-alt calendar-export" aria-hidden="true"></i>
+            </button>
+            <div class="export-calendar-input">
+              <input id="range-input" type="text" name="date_range" placeholder="exemplo: 02/02/2024 até 03/02/2025" data-input="data-input" />
+            </div>
+            <div>
+              <%= f.text_field :airflow_endpoint, label: "Endpoint do Airflow", placeholder: "Insira o endpoint para a requisição" %>
+            </div>
+          </div>
+
+          <%= f.hidden_field :component_id, value: current_component.id %>
+          <%= f.hidden_field :email, value: current_user.email %>
+
+          <%= f.submit "Enviar" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="reveal" id="sucess_export_data" data-reveal>
+    <h2 class="reveal__title">
+      O relatório será enviado ao seu email em até duas horas
+    </h2>
+    <div class="export-close-button">
+      <button class="button button--title share-link text-center" data-close>
+        fechar
+      </button>
+    </div>
+  </div>
+<% end %>
