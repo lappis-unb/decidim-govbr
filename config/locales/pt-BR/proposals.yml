@@ -286,7 +286,7 @@ pt-BR:
           edit_documents: Editar documentos
           edit_image: Editar imagem
           select_a_category: Selecione um tema
-          title: Editar %{singular_name} 
+          title: Editar %{singular_name}
         edit_draft:
           discard: Descartar rascunho
           send: Continuar
@@ -308,10 +308,10 @@ pt-BR:
         preview:
           announcement_body: Sua %{singular_name} foi salva como rascunho. Precisa ser publicada para aparecer no site.
           announcement_title: Sua %{singular_name} ainda não foi publicada
-          modify: Modificar a proposta
+          modify: Modificar %{singular_name}
           proposal_edit_before_minutes:
-            one: Você poderá editar esta proposta durante o primeiro minuto após a publicação da proposta. Uma vez que esta janela de tempo passa, você não poderá editar a proposta.
-            other: Você poderá editar esta proposta durante o primeiro %{count} minutos após a publicação da proposta. Uma vez que esta janela de tempo passa, você não poderá editar a proposta.
+            one: Você poderá editar durante o primeiro minuto após a publicação. Uma vez que esta janela de tempo passa, você não poderá editar.
+            other: Você poderá editar durante o primeiro %{count} minutos após a publicação. Uma vez que esta janela de tempo passa, você não poderá editar .
           publish: Publicar
           title: Publique sua %{singular_name}
         requests:
