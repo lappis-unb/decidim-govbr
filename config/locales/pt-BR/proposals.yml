@@ -61,16 +61,13 @@ pt-BR:
       proposals:
         actions:
           new: Novo(a) %{name}
-<<<<<<< HEAD
           action_not_allowed: Você não pode interagir com propostas. O seu Perfil de Usuário está incompleto!
-=======
           answer_proposal: Responder proposta
           edit_proposal: Editar proposta
           import: Importar de outro componente
           participatory_texts: Textos participativos
           show: Mostrar proposta
           title: Ações
->>>>>>> e936446 (Atualizar traducao comentarios contribuicoes)
         settings:
           global:
             default_sort_order: Ordem padrão das propostas
