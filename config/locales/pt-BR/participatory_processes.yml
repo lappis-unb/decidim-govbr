@@ -5,12 +5,48 @@ pt-BR:
       participatory_process:
         document: Documento
         import_attachments: Importar anexos
+        slug: URL amigável
         import_categories: Importar temas
         import_components: Importar componentes
         import_steps: Importar fases
-        participatory_process_type_id: Tipo de processo participativo
+        participatory_process_type_id: Tipo de Processo Participativo
         private_space: Espaço privado
         weight: Posição de ordem
+        announcement: Anúncio
+        area_id: Área
+        banner_image: Imagem da capa (desktop)
+        copy_categories: Copiar categorias
+        copy_components: Copiar componentes
+        copy_steps: Copiar etapas
+        decidim_area_id: Área
+        description: Resumo do Processo Participativo
+        developer_group: Grupo promotor
+        domain: Domínio
+        end_date: Data final
+        hashtag: Palavras-chave
+        hero_image: Imagem da capa (mobile)
+        import_categories: Importar categorias
+        import_steps: Importar etapas
+        local_area: Área da organização
+        meta_scope: Metadados do âmbito
+        participatory_process_group_id: Setor
+        participatory_scope: O que é decidido
+        participatory_structure: Como é decidido
+        promoted: Destacado
+        published_at: Publicado em
+        related_process_ids: Processos relacionados
+        scope_id: Âmbito
+        scope_type_max_depth_id: Profundidade de filtro de escopo
+        scopes_enabled: Âmbitos ativados
+        short_description: Descrição curta (VER!)
+        show_metrics: Mostrar métricas
+        show_statistics: Mostrar estatísticas
+        start_date: Data de início
+        subtitle: Subtítulo(VER!)
+        target: Quem participa
+        title: Nome do Processo Participativo
+        
+        
       participatory_process_group:
         group_url: Site
         promoted: Promovido
@@ -139,6 +175,7 @@ pt-BR:
           form:
             announcement_help: O texto que insere aqui será mostrado ao usuário logo abaixo das informações do processo.
             select_participatory_process_type: Selecione um tipo de processo
+            duration: Prazo do Processo Participativo
       pages:
         home:
           highlighted_processes:
