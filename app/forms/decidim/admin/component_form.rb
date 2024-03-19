@@ -24,7 +24,7 @@ module Decidim
       attribute :default_step_settings, Object
       attribute(:step_settings, { String => Object })
 
-      attribute :share_tokens, Array[ShareToken]
+      attribute :share_tokens, [ShareToken]
 
       validate :validate_settings, :validate_step_settings
 
