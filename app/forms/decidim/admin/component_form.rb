@@ -12,7 +12,11 @@ module Decidim
 
       translatable_attribute :name, String
       translatable_attribute :singular_name, String
+      translatable_attribute :menu_name, String
+
       validates :name, translatable_presence: true
+      validates :singular_name, translatable_presence: true
+      validates :menu_name, translatable_presence: true
 
       attribute :weight, Integer, default: 0
       attribute :hide_in_menu, Boolean
