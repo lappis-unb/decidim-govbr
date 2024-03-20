@@ -11,7 +11,7 @@
       <%= form.translated :text_field, :singular_name %>
       <p class="help-text"><%= t(".name_field") %></p>
       <%= form.number_field :weight %>
-      <%= form.check_box :hide_in_menu, label: "Ocultar no menu" %>
+      <%= form.check_box :hide_in_menu, label: "Ocultar essa página do menu (documentação)" %>
 
       <% if form.object.settings? %>
         <fieldset class="global-settings">
