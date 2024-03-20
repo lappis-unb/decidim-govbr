@@ -23,7 +23,8 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :create :process_user_role
+          enforce_permission_to :update, :process_user_role
+
           @user = collection.find(params[:id])
           @form = form(ParticipatoryProcessGroupUserForm).from_model(@user)
         end
@@ -51,7 +52,7 @@ module Decidim
         end
 
         def update
-          enforce_permission_to :create, :process_user_role
+          enforce_permission_to :update, :process_user_role
 
           @user = collection.find(params[:id])
           UpdateParticipatoryProcessGroupUser.call(participatory_process_group, current_user, @form) do

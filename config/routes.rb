@@ -56,7 +56,7 @@ Rails.application.routes.draw do
     resources :participatory_process_groups, only: [] do
       resources :participatory_process_group_users,
                 controller: 'decidim/participatory_processes/admin/participatory_process_group_users',
-                except: [:edit, :update, :show],
+                except: [:show],
                 as: :users
     end
   end
