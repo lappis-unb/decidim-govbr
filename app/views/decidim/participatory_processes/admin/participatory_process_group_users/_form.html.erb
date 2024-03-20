@@ -4,7 +4,7 @@
   </div>
   <div class="card-section">
     <div class="row column">
-      <%= form.text_field :email %>
+      <%= form.text_field :email, readonly: form_mode == :edit %>
     </div>
     <div class="row column">
       <%= form.select :role, options_for_select(@form.available_roles_for_select, selected: @form.role) %>

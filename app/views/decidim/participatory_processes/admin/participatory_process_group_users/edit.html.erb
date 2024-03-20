@@ -1,6 +1,6 @@
 <% add_decidim_page_title t("actions.update", scope: "decidim.admin", name: t("models.participatory_process_group_user.name", scope: "decidim.admin")) %>
 <%= decidim_form_for(@form, url: participatory_process_group_user_path(participatory_process_group, @user), html: { class: "form edit_participatory_process_group_user" }) do |f| %>
-  <%= render partial: "form", object: f %>
+  <%= render partial: "form", object: f, locals: { form_mode: :edit } %>
 
   <div class="button--double form-general-submit">
     <%= f.submit t("actions.update", scope: "decidim.admin", name: t("models.participatory_process_group_user.name", scope: "decidim.admin")) %>

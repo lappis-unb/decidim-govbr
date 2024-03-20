@@ -111,6 +111,9 @@ pt-BR:
         destroy:
           success: Usuário foi removido do grupo com sucesso
           error: Não foi possível remover o usuário do grupo
+        update:
+          success: Usuário do grupo atualizado com sucesso
+          error: Não foi possível atulizar o usuário do grupo
     admin_log:
       govbr:
         partner:
@@ -245,6 +248,9 @@ pt:
         destroy:
           success: Usuário foi removido do grupo com sucesso
           error: Não foi possível remover o usuário do grupo
+        update:
+          success: Usuário do grupo atualizado com sucesso
+          error: Não foi possível atulizar o usuário do grupo
     admin_log:
       govbr:
         partner:
@@ -402,6 +408,9 @@ en:
         destroy:
           success: User removed from the group successfully
           error: Could not remove user from the group
+        update:
+          success: Group user updated successfully
+          error: Could not update group user
     admin_log:
       govbr:
         partner:
@@ -530,6 +539,9 @@ es-MX:
         destroy:
           success: Usuario eliminado del grupo con éxito
           error: No se pudo eliminar el usuario del grupo
+        update:
+          success: Usuario del grupo actualizado con éxito
+          error: No se pudo actualizar el usuario del grupo
     admin_log:
       govbr:
         partner:
@@ -658,6 +670,9 @@ es-PY:
         destroy:
           success: Usuario eliminado del grupo con éxito
           error: No se pudo eliminar el usuario del grupo
+        update:
+          success: Usuario del grupo actualizado con éxito
+          error: No se pudo actualizar el usuario del grupo
     admin_log:
       govbr:
         partner:
@@ -786,6 +801,9 @@ es:
         destroy:
           success: Usuario eliminado del grupo con éxito
           error: No se pudo eliminar el usuario del grupo
+        update:
+          success: Usuario del grupo actualizado con éxito
+          error: No se pudo actualizar el usuario del grupo
     admin_log:
       govbr:
         partner:
