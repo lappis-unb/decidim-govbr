@@ -30,6 +30,7 @@ pt-BR:
         published_at: Publicado em
         weight: Posição do pedido
         singular_name: Nome no singular
+        menu_name: Nome que será exibido no menu horizontal
       external_domain:
         value: Valor
       help_section:
