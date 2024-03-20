@@ -26,10 +26,10 @@ pt-BR:
         parent_id: Superior
         weight: Posição do pedido
       component:
-        name: Nome no plural
+        name: Nome de um Conjunto de Páginas
         published_at: Publicado em
         weight: Posição do pedido
-        singular_name: Nome no singular
+        singular_name: Nome da Página
       external_domain:
         value: Valor
       help_section:
@@ -320,12 +320,12 @@ pt-BR:
           error: Ocorreu um erro ao destruir esse componente.
           success: Componente excluído com sucesso.
         edit:
-          title: Editar componente
+          title: Editar Página de Participação (Componente)
           update: Atualizar
         form:
           default_step_settings: Configurações de etapa padrão
-          global_settings: Configurações globais
-          step_settings: Configurações de etapa
+          global_settings: Configurações
+          step_settings: Configurações das Etapas do Processo
         index:
           add: Adicionar componente
           headers:
