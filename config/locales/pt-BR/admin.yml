@@ -88,7 +88,8 @@ pt-BR:
           default_step_settings: Configurações da fase padrão
           step_settings: Configurações da fase
           name_field: Preencha com o nome no singular
-          pluralized_name_field: Preencha com o nome no plural
+          pluralized_name_field: "Preencha com o nome que represente o conjunto dessas páginas. Exemplo de nome para página Moção: Moções"
+          menu_name_field: Preencha com o nome da página(componente) que aparece no menu
       conflicts:
         title: Conflitos de verificação
       dashboard:
