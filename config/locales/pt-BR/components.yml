@@ -45,7 +45,7 @@ pt-BR:
         alert_color: Alerta
         available_authorizations: Autorizações disponíveis
         badges_enabled: Ativar emblemas
-        comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
+        comments_max_length: Quantidade máxima de caracteres por comentários (deixe 0 para não limitar a quantidade máxima)
         cta_button_path: Caminho do botão Chamar para Ação
         cta_button_text: Texto do botão Chamar para Ação
         customize_welcome_notification: Personalizar notificação de boas-vindas
