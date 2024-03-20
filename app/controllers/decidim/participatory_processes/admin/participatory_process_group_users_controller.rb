@@ -55,6 +55,7 @@ module Decidim
           enforce_permission_to :update, :process_user_role
 
           @user = collection.find(params[:id])
+          @form = form(ParticipatoryProcessGroupUserForm).from_params(params)
           UpdateParticipatoryProcessGroupUser.call(participatory_process_group, current_user, @form) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_process_group_users.update.success", scope: "decidim.admin")
