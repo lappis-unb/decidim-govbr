@@ -5,11 +5,15 @@
 
   <div class="card-section">
     <div class="row column">
-      <%= form.translated :text_field, :name, autofocus: true %>
-      <p class="help-text"><%= t(".pluralized_name_field") %></p>
+      <%= form.translated :text_field, :menu_name %>
+      <p class="help-text"><%= t(".menu_name_field") %> </p>
 
       <%= form.translated :text_field, :singular_name %>
       <p class="help-text"><%= t(".name_field") %></p>
+
+      <%= form.translated :text_field, :name, autofocus: true %>
+      <p class="help-text"><%= t(".pluralized_name_field") %></p>
+
       <%= form.number_field :weight %>
       <%= form.check_box :hide_in_menu, label: "Ocultar no menu" %>
 
