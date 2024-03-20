@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require "spec_helper"
+require "rails_helper"
 
 module Decidim::ParticipatoryProcesses
   describe Admin::UpdateParticipatoryProcessGroup do
     subject { described_class.new(participatory_process_group, form) }
 
     let(:organization) { create :organization }
-    let(:participatory_process_group) { create :participatory_process_group, organization: organization }
+    let(:participatory_process_group) { create :participatory_process_group, :with_participatory_processes, organization: organization }
     let(:current_user) { create :user, :admin, :confirmed, organization: organization }
     let(:invalid) { false }
     let(:title_en) { "title es" }
@@ -99,6 +99,31 @@ module Decidim::ParticipatoryProcesses
         action_log = Decidim::ActionLog.last
         expect(action_log.version).to be_present
         expect(action_log.version.event).to eq "update"
+      end
+
+      context "when it has relationship with users" do
+        let(:current_user) {
+          create(
+            :user,
+            :admin,
+            :confirmed,
+            rganization: organization,
+            participatory_process_group: participatory_process_group,
+            decidim_participatory_process_group_role: "admin")
+          }
+
+        context "when it already has process user roles" do
+          let!(:process_user_roles) do
+            participatory_process_group.participatory_processes.map do |participatory_process|
+              let(:participatory_process_user_role) { create user: current_user, participatory_process: participatory_process, role: "moderator" }
+            end
+          end
+
+          it "overrides previous process user roles" do
+
+          end
+        end
+
       end
     end
   end
