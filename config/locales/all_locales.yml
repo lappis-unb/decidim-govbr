@@ -73,6 +73,7 @@ pt-BR:
         participatory_process_group_user:
           confirm_destroy: Realmente deseja remover este usuário do grupo? Ao fazer isso, este usuário perderá todos seus papeis relacionados aos processos vinculados ao grupo.
         create: Criar
+        update: Atualizar %{name}
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Pesquisar %{collection} por e-mail, nome, nome de usuário ou CPF.
@@ -202,6 +203,7 @@ pt:
         participatory_process_group_user:
           confirm_destroy: Realmente deseja remover este usuário do grupo? Ao fazer isso, este usuário perderá todos seus papeis relacionados aos processos vinculados ao grupo.
         create: Criar
+        update: Atualizar %{name}
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Pesquisar %{collection} por e-mail, nome, nome de usuário ou CPF.
@@ -362,6 +364,7 @@ en:
         participatory_process_group_user:
           confirm_destroy: Do you really want to remove this user from the group? This action is going to revoke all user roles in the processes associated with this group.
         create: Create
+        update: Update %{name}
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Search %{collection} by email, name, nickname or identification number.
@@ -489,6 +492,7 @@ es-MX:
         participatory_process_group_user:
           confirm_destroy: ¿Realmente deseas eliminar a este usuario del grupo? Esta acción revocará todos los roles de usuario en los procesos asociados con este grupo.
         create: Crear
+        update: Actualizar %{name}
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Buscar %{collection} por correo electrónico, nombre o alias.
@@ -616,6 +620,7 @@ es-PY:
         participatory_process_group_user:
           confirm_destroy: ¿Realmente deseas eliminar a este usuario del grupo? Esta acción revocará todos los roles de usuario en los procesos asociados con este grupo.
         create: Crear
+        update: Actualizar %{name}
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Buscar %{collection} por correo electrónico, nombre o alias.
@@ -743,6 +748,7 @@ es:
         participatory_process_group_user:
           confirm_destroy: ¿Realmente deseas eliminar a este usuario del grupo? Esta acción revocará todos los roles de usuario en los procesos asociados con este grupo.
         create: Crear
+        update: Actualizar %{name}
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Buscar %{collection} por correo electrónico, nombre o alias.

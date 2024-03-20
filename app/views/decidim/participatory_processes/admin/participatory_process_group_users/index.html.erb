@@ -25,6 +25,9 @@
               <td><%= user.email %></td>
               <td><%= user.decidim_participatory_process_group_role %></td>
               <td class="table-list__actions">
+                <% if allowed_to? :update, :process_user_role %>
+                  <%= icon_link_to "pencil", edit_participatory_process_group_user_path(participatory_process_group, user), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
+                <% end %>
                 <% if allowed_to? :create, :process_user_role %>
                   <%= icon_link_to "circle-x", participatory_process_group_user_path(participatory_process_group, user), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.participatory_process_group_user.confirm_destroy", scope: "decidim.admin") } %>
                 <% end %>

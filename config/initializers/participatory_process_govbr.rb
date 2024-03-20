@@ -6,7 +6,7 @@ Decidim::ParticipatoryProcesses::AdminEngine.class_eval do
     end
 
     resources :participatory_process_groups, only: [] do
-      resources :participatory_process_group_users, as: :users, except: [:edit, :update, :show]
+      resources :participatory_process_group_users, as: :users, except: [:show]
     end
   end
 end
