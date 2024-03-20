@@ -65,7 +65,7 @@ module Decidim
         #
         def update_user_roles!
           participatory_processes.each do |participatory_process|
-            user_role = scoped_user_roles.detect { |user_role| user_role.decidim_participatory_process_id == participatory_process.id  }
+            user_role = scoped_user_roles.detect { |scoped_user_role| scoped_user_role.decidim_participatory_process_id == participatory_process.id }
             if user_role
               Decidim.traceability.update!(
                 user_role,

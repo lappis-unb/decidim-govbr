@@ -7,7 +7,7 @@
       <%= form.text_field :email %>
     </div>
     <div class="row column">
-      <%= form.select :role, options_for_select(@form.available_roles_for_select) %>
+      <%= form.select :role, options_for_select(@form.available_roles_for_select, selected: @form.role) %>
     </div>
   </div>
 </div>
