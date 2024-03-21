@@ -4,7 +4,7 @@
   </div>
   <div class="card-section">
     <div class="row column">
-      <%= form.translated :text_field, :title, autofocus: true %>
+      <%= form.translated :text_field, :title, required: true %>
     </div>
     <!--
       This element is hidden because it is not intended to be used!
@@ -18,7 +18,8 @@
         <%= form.select(
               :participatory_process_type_id,
               @form.participatory_process_types_for_select,
-              include_blank: t(".select_participatory_process_type")
+              include_blank: t(".select_participatory_process_type"),
+              required: true
             ) %>
       </div>
     <% end %>
@@ -51,7 +52,7 @@
           <%= form.translated :text_field, :short_description %>
         </div>
         <div class="row column">
-          <%= form.translated :editor, :description %>
+          <%= form.translated :editor, :description, required: true %>
         </div>
         <!--
       This element is hidden because it is not intended to be used!
