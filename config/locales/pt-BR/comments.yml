@@ -49,7 +49,7 @@ pt-BR:
         title: Adicione sua contribuição
       comments:
         title:
-          one: "%{count} contribuicao"
+          one: "%{count} contribuição"
           other: "%{count} contribuições"
         single_comment_warning: Pode consultar as contribuições restantes <a href="%{url}">aqui</a>.
         single_comment_warning_title: Está vendo uma única contribuição
