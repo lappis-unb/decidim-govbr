@@ -36,7 +36,7 @@ module Decidim
         end
 
         def allowed_meeting_action?
-          return unless permission_action.subject == :meeting
+          return false unless permission_action.subject == :meeting
 
           # The check !meeting.official? was disabled in order to make admin users able to edit
           # any meeting
@@ -53,7 +53,7 @@ module Decidim
         end
 
         def allowed_registration_form_action?
-          return unless permission_action.subject == :questionnaire
+          return false unless permission_action.subject == :questionnaire
 
           case permission_action.action
           when :update
@@ -62,7 +62,7 @@ module Decidim
         end
 
         def allowed_agenda_action?
-          return unless permission_action.subject == :agenda
+          return false unless permission_action.subject == :agenda
 
           case permission_action.action
           when :create
@@ -73,7 +73,7 @@ module Decidim
         end
 
         def allowed_poll_action?
-          return unless permission_action.subject == :poll
+          return false unless permission_action.subject == :poll
 
           case permission_action.action
           when :update
@@ -82,7 +82,7 @@ module Decidim
         end
 
         def allowed_export_answers?
-          return unless permission_action.subject == :questionnaire
+          return false unless permission_action.subject == :questionnaire
 
           case permission_action.action
           when :export_answers

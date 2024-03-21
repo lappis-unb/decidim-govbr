@@ -123,7 +123,8 @@ module Decidim
       def current_component
         return commentable.component if commentable.respond_to?(:component)
         return commentable.participatory_space if commentable.respond_to?(:participatory_space)
-        return commentable if Decidim.participatory_space_manifests.find { |manifest| manifest.model_class_name == commentable.class.name }
+
+        commentable if Decidim.participatory_space_manifests.find { |manifest| manifest.model_class_name == commentable.class.name }
       end
 
       def destroy
