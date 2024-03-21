@@ -1,4 +1,5 @@
 <% manifest.settings(settings_name).attributes.each do |field_name, settings_attribute| %>
+  <% next if [:minimum_votes_per_user, :proposal_edit_time, :proposal_answering_enabled,:default_sort_order, :geocoding_enabled, :resources_permissions_enabled, :collaborative_drafts_enabled, :new_proposal_body_template, :new_proposal_help_text, :proposal_wizard_step_1_help_text, :proposal_wizard_step_2_help_text].include?(field_name) %>
   <%= settings_attribute_input(
     form,
     settings_attribute,
