@@ -23,7 +23,8 @@ pt-BR:
         local_area: Setor
         meta_scope: Status do Processo
         target: Responsável pela consulta
-        participatory_scope: Publicação no DOU (DIA E LINK DA PUBLICAÇÃO)
+        participatory_scope: Link da publicação do processo no DOU
+        publish_date: Data de publicação 
         participatory_structure: Contato
       participatory_process_partner:
         link: Link oficial
