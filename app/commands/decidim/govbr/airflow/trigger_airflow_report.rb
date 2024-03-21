@@ -33,7 +33,7 @@ module Decidim
         end
 
         def invalid_params?
-          return true unless endpoint && start_date && end_date && component_id && current_user
+          true unless endpoint && start_date && end_date && component_id && current_user
         end
 
         def username
