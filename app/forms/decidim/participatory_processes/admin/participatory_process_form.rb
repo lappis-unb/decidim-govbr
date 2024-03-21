@@ -46,6 +46,7 @@ module Decidim
 
         attribute :end_date, Decidim::Attributes::LocalizedDate
         attribute :start_date, Decidim::Attributes::LocalizedDate
+        attribute :publish_date, Decidim::Attributes::LocalizedDate
 
         attribute :banner_image
         attribute :hero_image

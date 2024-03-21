@@ -5,15 +5,11 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new participatory
       # process in the system.
-      class UpdateParticipatoryProcess < Decidim::Command
-        include ::Decidim::AttachmentAttributesMethods
-
+      class CreateParticipatoryProcess < Decidim::Command
         # Public: Initializes the command.
         #
-        # participatory_process - the ParticipatoryProcess to update
         # form - A form object with the params.
-        def initialize(participatory_process, form)
-          @participatory_process = participatory_process
+        def initialize(form)
           @form = form
         end
 
@@ -26,43 +22,59 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          update_participatory_process
+          create_participatory_process
 
-          if @participatory_process.valid?
-            broadcast(:ok, @participatory_process)
+          if process.persisted?
+            add_admins_as_followers(process)
+            link_related_processes
+            broadcast(:ok, process)
           else
-            form.errors.add(:hero_image, @participatory_process.errors[:hero_image]) if @participatory_process.errors.include? :hero_image
-            form.errors.add(:banner_image, @participatory_process.errors[:banner_image]) if @participatory_process.errors.include? :banner_image
+            form.errors.add(:hero_image, process.errors[:hero_image]) if process.errors.include? :hero_image
+            form.errors.add(:banner_image, process.errors[:banner_image]) if process.errors.include? :banner_image
             broadcast(:invalid)
           end
         end
 
         private
 
-        attr_reader :form, :participatory_process
+        attr_reader :form, :process
 
-        def update_participatory_process
-          @participatory_process.assign_attributes(attributes)
-          return unless @participatory_process.valid?
+        def create_participatory_process
+          @process = ParticipatoryProcess.new
+          @process.assign_attributes(attributes)
 
-          @participatory_process.save!
+          return process unless process.valid?
 
-          Decidim.traceability.perform_action!(:update, @participatory_process, form.current_user) do
-            @participatory_process
+          transaction do
+            process.save!
+
+            log_process_creation(process)
+
+            process.steps.create!(
+              title: TranslationsHelper.multi_translation(
+                "decidim.admin.participatory_process_steps.default_title",
+                form.current_organization.available_locales
+              ),
+              active: true
+            )
+
+            process
           end
-          link_related_processes
         end
 
         def attributes
           {
+            organization: form.current_organization,
             title: form.title,
             subtitle: form.subtitle,
             weight: form.weight,
             slug: form.slug,
             hashtag: form.hashtag,
-            promoted: form.promoted,
             description: form.description,
             short_description: form.short_description,
+            hero_image: form.hero_image,
+            banner_image: form.banner_image,
+            promoted: form.promoted,
             scopes_enabled: form.scopes_enabled,
             scope: form.scope,
             scope_type_max_depth: form.scope_type_max_depth,
@@ -81,14 +93,31 @@ module Decidim
             show_metrics: form.show_metrics,
             show_statistics: form.show_statistics,
             announcement: form.announcement,
-            initial_page_component_id: form.initial_page_component_id,
-            initial_page_type: form.initial_page_type,
             group_chat_id: form.group_chat_id,
-            publish_date: form.publish_date,
-            should_have_user_full_profile: form.should_have_user_full_profile
-          }.merge(
-            attachment_attributes(:hero_image, :banner_image)
+            publish_date: form.publish_date
+          }
+        end
+
+        def log_process_creation(process)
+          Decidim::ActionLogger.log(
+            "create",
+            form.current_user,
+            process,
+            process.versions.last.id
           )
+        end
+
+        def add_admins_as_followers(process)
+          process.organization.admins.each do |admin|
+            form = Decidim::FollowForm
+                   .from_params(followable_gid: process.to_signed_global_id.to_s)
+                   .with_context(
+                     current_organization: process.organization,
+                     current_user: admin
+                   )
+
+            Decidim::CreateFollow.new(form, admin).call
+          end
         end
 
         def related_processes
@@ -96,7 +125,7 @@ module Decidim
         end
 
         def link_related_processes
-          @participatory_process.link_participatory_space_resources(related_processes, "related_processes")
+          process.link_participatory_space_resources(related_processes, "related_processes")
         end
       end
     end
