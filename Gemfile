@@ -28,6 +28,7 @@ gem 'puma', '5.6.5'
 gem 'uglifier', '~> 4.1'
 
 gem 'faker', '~> 2.17'
+gem 'elastic-apm'
 
 gem 'devise-i18n'
 
