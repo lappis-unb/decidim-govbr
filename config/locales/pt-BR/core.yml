@@ -479,14 +479,15 @@ pt-BR:
             cookie: Cookie
             local_storage: Armazenagem local
         dialog:
-          accept_all: Aceitar todos
-          accept_only_essential: Aceitar somente o essencial
+          accept_all: Aceitar cookies
+          reject: Rejeitar cookies
           description: Utilizamos cookies para melhorar o desempenho e o conteúdo do site. Os cookies nos permitem fornecer uma experiência de usuário mais individual e canais de mídia social.
-          settings: Configurações
+          settings: Gerenciador cookies
           title: Informações sobre os cookies utilizados no site
         modal:
-          accept_all: Aceitar todos
-          accept_only_essential: Aceitar somente o essencial
+          accept_all: Salvar 
+          reject: Rejeitar cookies
+          accept_only_essential: Rejeitar cookies
           analytics:
             description: Estes cookies são usados para medir e analisar o público para ajudar a melhorar o site.
             title: Analítica e estatística

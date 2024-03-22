@@ -28,6 +28,7 @@ gem 'puma', '5.6.5'
 gem 'uglifier', '~> 4.1'
 
 gem 'faker', '~> 2.17'
+gem 'elastic-apm'
 
 gem 'devise-i18n'
 
@@ -38,6 +39,8 @@ gem 'sidekiq', '6.5.7'
 gem 'whenever', require: false
 
 gem 'decidim-homes', git: 'https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-module-homes.git'
+
+gem "rest-client", "~> 2.1"
 
 group :development, :test do
   gem 'byebug', '11.1.3'

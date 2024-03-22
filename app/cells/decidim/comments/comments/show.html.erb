@@ -4,10 +4,10 @@
     <div class="comments-new">
       <div class="comments-header meeting">
           <% if single_comment? %>
-            <%= t("decidim.components.comments.comment_details_title") %>
           <% else %>
             <h3 class="br-comments-count">
-              <%= t("decidim.components.comments.title", count: comments_count) %>
+            <%= comments_count %>
+            <%= t("activemodel.models.decidim/comments/comment_created_event", count: comments_count) %>
             </h3>
           <% end %>
         <%= render :order_control %>
@@ -20,19 +20,24 @@
           <%= cell("decidim/comments/comment_thread", comment, order: order) %>
         <% end %>
       </div>
-      <%= add_comment %>
+      <% if options.try(:[], :hide_comment_action) && current_user.present? %>
+        <span class="message-title"><%= options[:alert] %></span>
+        <a target="_blank" href=<%= options[:poll_link] %>> <%= t("decidim.forms.incomplete_profile") %></a>
+      <% else %>
+        <%= add_comment %>
+      <% end %>
       <%= user_comments_blocked_warning %>
 
 
       <%if comments_blocked? %>
 
-        <p class="comments_blocked_warning">Comentários bloqueados</p>
+        <p class="comments_blocked_warning">Contribuições bloqueadas</p>
 
       <% end %>
 
     </div>
     <div class="callout primary loading-comments hide meeting">
-      <p><%= t("decidim.components.comments.loading") %></p>
+      <p><%= t("activemodel.models.decidim/comments/comment_created_event")%></p>
     </div>
   </div>
   <% end %>

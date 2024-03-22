@@ -18,13 +18,6 @@
     background: linear-gradient(rgba(var(--interactive-rgb), var(--hover)), rgba(var(--interactive-rgb), var(--hover)));
 }
 
-.see-index-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    margin-bottom: 1rem;
-}
-
 .participatory-text-item a h6 {
     margin: 0 0 1rem 0;
     padding: 0;
@@ -33,7 +26,7 @@
     font-weight: 400;
 }
 
-.participatory-text-item button, .see-index-container button {
+.participatory-text-item button {
     color: var(--interactive);
     gap: 1rem;
 }
