@@ -125,12 +125,12 @@ module Decidim::ParticipatoryProcesses
             end
           end
 
-          it "update previous process user roles" do
+          it "updates previous process user roles" do
             expect(participatory_process_group.participatory_processes.size).to eq(2)
             expect { subject.call }.to change { Decidim::ParticipatoryProcessUserRole.where(user: admin_user).map(&:role) }.from(%w(moderator moderator)).to(%w(admin admin))
           end
 
-          it "create missing user roles" do
+          it "creates missing user roles" do
             expect(participatory_process_group.participatory_processes.size).to eq(2)
             expect { subject.call }.to change(Decidim::ParticipatoryProcessUserRole, :count).by(2)
           end
