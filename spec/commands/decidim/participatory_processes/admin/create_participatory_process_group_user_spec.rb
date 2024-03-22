@@ -4,7 +4,7 @@ require "rails_helper"
 
 module Decidim::ParticipatoryProcesses
   describe Admin::CreateParticipatoryProcessGroupUser do
-    subject { described_class.new(participatory_process_group, current_user, form) }
+    subject { described_class.new(current_user, form) }
 
     let(:organization) { create :organization }
     let(:current_user) { create :user, :confirmed, :admin, organization: organization }
@@ -14,7 +14,8 @@ module Decidim::ParticipatoryProcesses
       {
         participatory_process_group_user: {
           email: user.email,
-          role: "moderator"
+          role: "moderator",
+          participatory_process_group_id: participatory_process_group&.id
         }
       }
     end
