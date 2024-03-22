@@ -15,16 +15,16 @@ pt-BR:
       participatory_process:
         area_id: Órgão/Instituição
         decidim_area_id: Órgão/Instituição
-        initial_page_component_id: Página Principal do Processo
+        initial_page_component_id: Página Inicial do Processo Participativo
         scope_id: Áreas de interesse
         scopes_enabled: Áreas de interesse ativadas
         slug: URL Amigável
         developer_group: Órgão/Instituição
         local_area: Setor
-        meta_scope: Status do Processo
+        meta_scope: Selecione o Status deste processo participativo
         target: Responsável pela consulta
         participatory_scope: Publicação no DOU (DIA E LINK DA PUBLICAÇÃO)
-        participatory_structure: Contato
+        participatory_structure: Telefone ou Email Institucional do Setor
       participatory_process_partner:
         link: Link oficial
         logo: Logotipo
@@ -57,7 +57,7 @@ pt-BR:
             metadata: Dados do Processo
             initial_page_component_id_help: Selecione qual componente será utilizado como a página principal deste Processo. Apenas Páginas Estáticas e Páginas Iniciais serão exibidas aqui como opção. Caso não queira uma página inicial customizada, deixe marcada a opção "Página Padrão"
             group_chat_id_help: Coloque o ID do grupo de chat que será utilizado para este processo.
-            hash_tag_help: Coloque palavras chaves que serão utilizadas para identificar este processo nos campos de pesquisa.
+            hash_tag_help: Adicione palavras-chave separadas por vírgulas para identificar este processo nos campos de pesquisa
     forms:
       admin:
         models:
