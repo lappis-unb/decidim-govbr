@@ -43,11 +43,6 @@ module Decidim
               flash[:alert] = I18n.t("participatory_process_group_users.create.error", scope: "decidim.admin")
               render :new
             end
-
-            on(:taken) do |group_name|
-              flash[:alert] = I18n.t("participatory_process_group_users.create.taken", scope: "decidim.admin", group_name: group_name)
-              render :new
-            end
           end
         end
 
