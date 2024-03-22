@@ -39,7 +39,8 @@ module Decidim
                 show_statistics: my_process.show_statistics,
                 private_space: my_process.private_space,
                 initial_page_type: initial_page_type,
-                initial_page_component_id: initial_page_component_id
+                initial_page_component_id: initial_page_component_id,
+                should_have_user_full_profile: true
               }.merge(attachment_params)
             }
           end
@@ -111,6 +112,7 @@ module Decidim
               my_process.reload
 
               expect(my_process.title["en"]).to eq("Foo title")
+              expect(my_process.should_have_user_full_profile).to be(true)
             end
 
             it "tracks the action", versioning: true do

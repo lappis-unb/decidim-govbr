@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_03_08_020918) do
+ActiveRecord::Schema.define(version: 2024_03_19_135345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -455,6 +455,7 @@ ActiveRecord::Schema.define(version: 2024_03_08_020918) do
     t.datetime "updated_at", null: false
     t.string "participatory_space_type", null: false
     t.jsonb "singular_name"
+    t.jsonb "menu_name"
     t.boolean "hide_in_menu"
     t.index ["participatory_space_id", "participatory_space_type"], name: "index_decidim_components_on_decidim_participatory_space"
   end
@@ -1443,6 +1444,7 @@ ActiveRecord::Schema.define(version: 2024_03_08_020918) do
     t.boolean "enable_participatory_space_filters", default: true
     t.jsonb "menu_links", default: "{}", null: false
     t.jsonb "footer_menu_links", default: "{}", null: false
+    t.integer "user_profile_survey_id"
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
@@ -1548,6 +1550,7 @@ ActiveRecord::Schema.define(version: 2024_03_08_020918) do
     t.string "initial_page_type", default: "default", null: false
     t.bigint "initial_page_component_id"
     t.string "group_chat_id"
+        t.boolean "should_have_user_full_profile", default: false
     t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id"
@@ -2009,6 +2012,7 @@ ActiveRecord::Schema.define(version: 2024_03_08_020918) do
     t.string "previous_passwords", default: [], array: true
     t.bigint "decidim_participatory_process_group_id"
     t.string "decidim_participatory_process_group_role"
+    t.boolean "user_profile_poll_answered", default: false
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
     t.index ["decidim_participatory_process_group_id"], name: "index_decidim_users_on_decidim_participatory_process_group_id"

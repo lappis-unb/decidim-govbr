@@ -26,10 +26,11 @@ pt-BR:
         parent_id: Superior
         weight: Posição do pedido
       component:
-        name: Nome no plural
+        name: Nome do conjunto de componentes
         published_at: Publicado em
         weight: Posição do pedido
-        singular_name: Nome no singular
+        singular_name: Nome do componente
+        menu_name: Nome que será exibido no menu horizontal
       external_domain:
         value: Valor
       help_section:
@@ -75,6 +76,7 @@ pt-BR:
         machine_translation_display_priority: Prioridade na exibição da tradução automática
         machine_translation_display_priority_original: Texto original primeiro
         machine_translation_display_priority_translation: Texto traduzido primeiro
+        user_profile_survey_id: ID da Enquete de Perfil de Usuário
         name: Nome
         official_img_footer: Símbolo oficial do rodapé
         official_img_header: Cabeçalho do logotipo oficial

@@ -15,7 +15,7 @@ module Decidim
         attribute :collect_user_data, Boolean
 
         attribute :published_at, Decidim::Attributes::TimeWithZone
-        attribute :questions, Array[QuestionForm]
+        attribute :questions, [QuestionForm]
 
         validates :title, :tos, translatable_presence: true
         validates :topp, translatable_presence: true, if: -> (form) { form.collect_user_data.present? }

@@ -11,6 +11,7 @@ pt-BR:
         participatory_process_type_id: Tipo de processo participativo
         private_space: Espaço privado
         weight: Posição de ordem
+        should_have_user_full_profile: Exigir Perfil de Usuário completo
       participatory_process_group:
         group_url: Site
         promoted: Promovido

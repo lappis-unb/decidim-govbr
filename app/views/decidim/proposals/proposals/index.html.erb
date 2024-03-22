@@ -37,7 +37,6 @@
   <div class="filter-container">
     <% if current_user %>
       <% if current_user.admin? %>
-        <%= render partial: 'decidim/govbr/exports/dropdown', locals: { component: current_component, resource_id: nil} %>
         <%= link_to "Editar componente", send(current_participatory_space.mounted_admin_engine).edit_component_path(current_participatory_space, current_component), class: "button tiny button--title" %>
       <% end %>
       <h2 class="user-name-title-h1">Olá, <%= current_user.name %></h2>
@@ -55,17 +54,34 @@
   </div>
   <div class="br-row">
     <div class="title-action title-action-button">
+      <%= render partial: "decidim/shared/export_modal" %>
       <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) %>
-        <%= action_authorized_link_to :create, new_proposal_path,
-          class: "title-action__action br-button block primary", data: { "redirect_url" => new_proposal_path } do %>
-          <i class="fa-solid fa-plus fa-sl"></i>
-          <span class="title-action-text">
-            <% if translated_attribute(current_component.singular_name).present? %>
-              <%= t("decidim.proposals.proposals.index.new_proposal", proposal: translated_attribute(current_component.singular_name).downcase) %>
-            <% else %>
-              <%= t("decidim.proposals.proposals.index.new_proposal", proposal: "proposta") %>
+        <% if user_full_profile_required? %>
+          <% if user_survey_answered? %>
+            <%= action_authorized_link_to :create, new_proposal_path,
+              class: "title-action__action br-button primary", data: { "redirect_url" => new_proposal_path } do %>
+              <i class="fa-solid fa-plus fa-sl"></i>
+              <span class="title-action-text">
+                <% if translated_attribute(current_component.singular_name).present? %>
+                  <%= t("decidim.proposals.proposals.index.new_proposal", proposal: translated_attribute(current_component.singular_name).downcase) %>
+                <% else %>
+                  <%= t("decidim.proposals.proposals.index.new_proposal", proposal: "proposta") %>
+                <% end %>
+              </span>
             <% end %>
-          </span>
+          <% end %>
+        <% else %>
+          <%= action_authorized_link_to :create, new_proposal_path,
+            class: "title-action__action br-button block primary", data: { "redirect_url" => new_proposal_path } do %>
+            <i class="fa-solid fa-plus fa-sl"></i>
+            <span class="title-action-text">
+              <% if translated_attribute(current_component.singular_name).present? %>
+                <%= t("decidim.proposals.proposals.index.new_proposal", proposal: translated_attribute(current_component.singular_name).downcase) %>
+              <% else %>
+                <%= t("decidim.proposals.proposals.index.new_proposal", proposal: "proposta") %>
+              <% end %>
+            </span>
+          <% end %>
         <% end %>
       <% end %>
       <% if component_settings.collaborative_drafts_enabled? %>
