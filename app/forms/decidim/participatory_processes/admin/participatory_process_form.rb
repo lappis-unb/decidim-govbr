@@ -33,7 +33,7 @@ module Decidim
         attribute :area_id, Integer
         attribute :participatory_process_group_id, Integer
         attribute :scope_id, Integer
-        attribute :related_process_ids, Array[Integer] # Deprecated in Brasil Participativo
+        attribute :related_process_ids, [Integer] # Deprecated in Brasil Participativo
         attribute :scope_type_max_depth_id, Integer # Deprecated in Brasil Participativo
         attribute :weight, Integer, default: 0
 

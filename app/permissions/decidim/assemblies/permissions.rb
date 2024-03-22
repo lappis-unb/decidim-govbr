@@ -55,7 +55,7 @@ module Decidim
       private
 
       def assemblies_type_action?
-        return unless [:assembly_type, :assemblies_type].include? permission_action.subject
+        return false unless [:assembly_type, :assemblies_type].include? permission_action.subject
         return disallow! unless user.admin?
 
         assembly_type = context.fetch(:assembly_type, nil)
@@ -83,14 +83,14 @@ module Decidim
 
       # Checks if it has any manageable assembly, with any possible role.
       def has_manageable_assemblies?(role: :any)
-        return unless user
+        return false unless user
 
         assemblies_with_role_privileges(role).any?
       end
 
       # Whether the user can manage the given assembly or not.
       def can_manage_assembly?(role: :any)
-        return unless user
+        return false unless user
 
         assemblies_with_role_privileges(role).include? assembly
       end
@@ -106,23 +106,23 @@ module Decidim
       end
 
       def public_list_assemblies_action?
-        return unless permission_action.action == :list &&
-                      permission_action.subject == :assembly
+        return false unless permission_action.action == :list &&
+                            permission_action.subject == :assembly
 
         allow!
       end
 
       def public_list_media_links_action?
-        return unless permission_action.action == :list &&
-                      permission_action.subject == :media_links
+        return false unless permission_action.action == :list &&
+                            permission_action.subject == :media_links
 
         allow!
       end
 
       def public_read_assembly_action?
-        return unless permission_action.action == :read &&
-                      [:assembly, :participatory_space].include?(permission_action.subject) &&
-                      assembly
+        return false unless permission_action.action == :read &&
+                            [:assembly, :participatory_space].include?(permission_action.subject) &&
+                            assembly
 
         return disallow! unless can_view_private_space?
         return allow! if user&.admin?
@@ -139,8 +139,8 @@ module Decidim
       end
 
       def public_list_members_action?
-        return unless permission_action.action == :list &&
-                      permission_action.subject == :members
+        return false unless permission_action.action == :list &&
+                            permission_action.subject == :members
 
         allow!
       end
@@ -149,10 +149,10 @@ module Decidim
       # the space area. The sapce area is considered to be the assemblies zone,
       # not the assembly groups one.
       def user_can_enter_space_area?
-        return unless permission_action.action == :enter &&
-                      permission_action.scope == :admin &&
-                      permission_action.subject == :space_area &&
-                      context.fetch(:space_name, nil) == :assemblies
+        return false unless permission_action.action == :enter &&
+                            permission_action.scope == :admin &&
+                            permission_action.subject == :space_area &&
+                            context.fetch(:space_name, nil) == :assemblies
 
         toggle_allow(user.admin? || has_manageable_assemblies?)
       end
@@ -174,42 +174,42 @@ module Decidim
 
       # Only organization admins and assemblies admins can create a assembly
       def user_can_create_assembly?
-        return unless permission_action.action == :create &&
-                      permission_action.subject == :assembly
+        return false unless permission_action.action == :create &&
+                            permission_action.subject == :assembly
 
         toggle_allow(user.admin? || admin_assembly? || user_role == "admin")
       end
 
       def user_can_export_assembly?
-        return unless permission_action.action == :export &&
-                      permission_action.subject == :assembly
+        return false unless permission_action.action == :export &&
+                            permission_action.subject == :assembly
 
         toggle_allow(user.admin? || admin_assembly?)
       end
 
       def user_can_copy_assembly?
-        return unless permission_action.action == :copy &&
-                      permission_action.subject == :assembly
+        return false unless permission_action.action == :copy &&
+                            permission_action.subject == :assembly
 
         toggle_allow(user.admin? || admin_assembly?)
       end
 
       def user_can_read_assemblies_setting?
-        return unless permission_action.action == :read &&
-                      permission_action.subject == :assemblies_setting
+        return false unless permission_action.action == :read &&
+                            permission_action.subject == :assemblies_setting
 
         toggle_allow(user.admin?)
       end
 
       def user_can_manage_assemblies_partners?
-        return unless permission_action.subject == :partner
+        return false unless permission_action.subject == :partner
 
         toggle_allow(user.admin?)
       end
 
       # Everyone can read the assembly list
       def user_can_read_assembly_list?
-        return unless read_assembly_list_permission_action?
+        return false unless read_assembly_list_permission_action?
 
         toggle_allow(user.admin? || has_manageable_assemblies?)
       end
@@ -219,8 +219,8 @@ module Decidim
       # In case of user being admin of child assembly even parent assembly
       # should be listed to be able to navigate to child assembly
       def user_can_list_assembly_list?
-        return unless permission_action.action == :list &&
-                      permission_action.subject == :assembly
+        return false unless permission_action.action == :list &&
+                            permission_action.subject == :assembly
 
         toggle_allow(user.admin? || allowed_list_of_assemblies?)
       end
@@ -233,8 +233,8 @@ module Decidim
       end
 
       def user_can_read_current_assembly?
-        return unless read_assembly_list_permission_action?
-        return if permission_action.subject == :assembly_list
+        return false unless read_assembly_list_permission_action?
+        return false if permission_action.subject == :assembly_list
 
         toggle_allow(user.admin? || can_manage_assembly? || admin_assembly?)
       end
@@ -242,21 +242,21 @@ module Decidim
       # A moderator needs to be able to read the assembly they are assigned to,
       # and needs to perform all actions for the moderations of that assembly.
       def moderator_action?
-        return unless can_manage_assembly?(role: :moderator)
+        return false unless can_manage_assembly?(role: :moderator)
 
         allow! if permission_action.subject == :moderation
       end
 
       # Collaborators can read/preview everything inside their assembly.
       def collaborator_action?
-        return unless can_manage_assembly?(role: :collaborator)
+        return false unless can_manage_assembly?(role: :collaborator)
 
         allow! if permission_action.action == :read || permission_action.action == :preview
       end
 
       # Valuators can only read the assembly components
       def valuator_action?
-        return unless can_manage_assembly?(role: :valuator)
+        return false unless can_manage_assembly?(role: :valuator)
 
         allow! if permission_action.action == :read && permission_action.subject == :component
         allow! if permission_action.action == :export && permission_action.subject == :component_data
@@ -265,8 +265,8 @@ module Decidim
       # Process admins can perform everything *inside* that assembly. They cannot
       # perform actions on assembly groups or other assemblies.
       def assembly_admin_action?
-        return unless can_manage_assembly?(role: :admin)
-        return if user.admin?
+        return false unless can_manage_assembly?(role: :admin)
+        return false if user.admin?
 
         is_allowed = [
           :attachment,
@@ -287,7 +287,7 @@ module Decidim
       end
 
       def org_admin_action?
-        return unless user.admin?
+        return false unless user.admin?
 
         is_allowed = [
           :attachment,

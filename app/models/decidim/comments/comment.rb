@@ -104,7 +104,7 @@ module Decidim
 
       # Public: Override Commentable concern method `accepts_new_comments?`
       def accepts_new_comments?
-        return if deleted?
+        return false if deleted?
 
         root_commentable.accepts_new_comments? && depth < MAX_DEPTH
       end
@@ -221,7 +221,7 @@ module Decidim
       end
 
       def component_settings_comments_max_length?
-        return unless component&.settings.respond_to?(:comments_max_length)
+        return false unless component&.settings.respond_to?(:comments_max_length)
 
         component.settings.comments_max_length.positive?
       end
