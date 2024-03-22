@@ -33,7 +33,7 @@ module Decidim
           enforce_permission_to :create, :process_user_role
 
           @form = form(ParticipatoryProcessGroupUserForm).from_params(params)
-          CreateParticipatoryProcessGroupUser.call(participatory_process_group, current_user, @form) do
+          CreateParticipatoryProcessGroupUser.call(current_user, @form) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_process_group_users.create.success", scope: "decidim.admin")
               redirect_to main_app.participatory_process_group_users_path(participatory_process_group)
@@ -51,7 +51,7 @@ module Decidim
 
           @user = collection.find(params[:id])
           @form = form(ParticipatoryProcessGroupUserForm).from_params(params)
-          UpdateParticipatoryProcessGroupUser.call(participatory_process_group, current_user, @form) do
+          UpdateParticipatoryProcessGroupUser.call(current_user, @form) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_process_group_users.update.success", scope: "decidim.admin")
               redirect_to main_app.participatory_process_group_users_path(participatory_process_group)

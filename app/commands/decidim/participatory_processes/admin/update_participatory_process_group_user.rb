@@ -8,16 +8,14 @@ module Decidim
       class UpdateParticipatoryProcessGroupUser < Decidim::Command
         # Public: Initializes the command
         #
-        # participatory_process_group - the participatory process group to link
         # current_user - the current user that is perfoming the action
         # form - A form object containing user information and relationship, i.e.: user role
-        def initialize(participatory_process_group, current_user, form)
-          @participatory_process_group = participatory_process_group
+        def initialize(current_user, form)
           @current_user = current_user
           @form = form
         end
 
-        attr_reader :participatory_process_group, :current_user, :form
+        attr_reader :current_user, :form
 
         # Executes the command. Broadcasts these events:
         #
@@ -41,6 +39,10 @@ module Decidim
         end
 
         private
+
+        def participatory_process_group
+          @participatory_process_group ||= ParticipatoryProcessGroup.find_by(id: form.participatory_process_group_id)
+        end
 
         def user
           @user ||= Decidim::User.find_by(email: form.email)
