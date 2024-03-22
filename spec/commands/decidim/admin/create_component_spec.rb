@@ -40,6 +40,10 @@ module Decidim::Admin
             dummy_step_attribute1: true,
             dummy_step_attribute2: false
           }
+        },
+        menu_name: {
+          en: "My proposals",
+          pt_BR: "Minhas propostas"
         }
       )
     end
@@ -95,6 +99,8 @@ module Decidim::Admin
         expect(component.name["pt_BR"]).to eq("Minhas propostas")
         expect(component.singular_name["en"]).to eq("My proposal")
         expect(component.singular_name["pt_BR"]).to eq("Minha proposta")
+        expect(component.menu_name["en"]).to eq("My proposals")
+        expect(component.menu_name["pt_BR"]).to eq("Minhas propostas")
         expect(component).to be_persisted
       end
     end

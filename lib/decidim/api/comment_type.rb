@@ -39,6 +39,8 @@ module Decidim
 
       field :user_allowed_to_comment, GraphQL::Types::Boolean, "Check if the current user can comment", null: false
 
+      field :status, GraphQL::Types::String, "The status of the comment", null: false
+
       def author
         object.user_group || object.author
       end
