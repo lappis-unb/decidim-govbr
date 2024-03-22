@@ -1,0 +1,8 @@
+<% add_decidim_page_title t("actions.new", scope: "decidim.admin", name: t("models.participatory_process_group_user.name", scope: "decidim.admin")) %>
+<%= decidim_form_for(@form, url: participatory_process_group_users_path(participatory_process_group), html: { class: "form new_participatory_process_group_user"}) do |f| %>
+  <%= render partial: "form", object: f, locals: { form_mode: :create } %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t("actions.create", scope: "decidim.admin") %>
+  </div>
+<% end %>
