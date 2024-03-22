@@ -44,6 +44,8 @@ module Decidim::ParticipatoryProcesses
     context "when everything is ok" do
       let(:user_roles) { Decidim::ParticipatoryProcessUserRole.all }
 
+      it { expect { subject.call }.to broadcast(:ok) }
+
       it "creates the user roles and link user to the group with the specified role" do
         expect { subject.call }.to change(Decidim::ParticipatoryProcessUserRole, :count).by(2)
         expect(user_roles.map(&:role)).to all(eq("moderator"))
