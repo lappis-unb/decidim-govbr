@@ -32,7 +32,7 @@ pt-BR:
         email: E-mail
         name: Nome
       settings:
-        scope_id: Âmbito
+        scope_id: Área de interesse
       static_page:
         topic_id: Tópico
         weight: Posição de ordem
@@ -83,12 +83,13 @@ pt-BR:
       components:
         index:
           headers:
-            scope: Âmbito do componente
+            scope: Área de interesse do componente
         form:
           default_step_settings: Configurações da fase padrão
           step_settings: Configurações da fase
           name_field: Preencha com o nome no singular
-          pluralized_name_field: Preencha com o nome no plural
+          pluralized_name_field: "Preencha com o nome que represente o conjunto dessas páginas. Exemplo de nome para página Moção: Moções"
+          menu_name_field: Preencha com o nome da página(componente) que aparece no menu
       conflicts:
         title: Conflitos de verificação
       dashboard:
@@ -153,7 +154,7 @@ pt-BR:
         edit:
           save_and_preview: Salvar e pré-visualizar
         index:
-          all_users: 'Todos os usuários '
+          all_users: "Todos os usuários "
           title: Boletins informativos
         new:
           save: Salvar
@@ -163,8 +164,8 @@ pt-BR:
           followers_help: Envia um boletim informativo para todos os usuários confirmados que seguem quaisquer espaços participativos na lista.
           participants_help: Envia um boletim informativo para todos os usuários confirmados que tenham participado em qualquer um dos espaços participativos selecionados na lista.
           recipients_count: Este boletim informativo será enviado para <strong id='recipients_count'>%{count}</strong> usuários.
-          scopes_help: Envia um boletim informativo aos usuários que tenham qualquer um dos âmbitos selecionados ativados nas definições "Os meus interesses" das suas contas.
-          select_scopes: Filtro para os usuários que ativaram qualquer âmbito selecionado nas definições "Os meus interesses" das suas contas.
+          scopes_help: Envia um boletim informativo aos usuários que tenham qualquer uma das áreas de interesse selecionadas ativados nas definições "Os meus interesses" das suas contas.
+          select_scopes: Filtro para os usuários que ativaram qualquer área de interesse selecionada nas definições "Os meus interesses" das suas contas.
           select_users: Selecione os usuários para os quais pretende enviar o boletim informativo
           send_to_all_users: Enviar para todos os usuários
           send_to_followers: Enviar para os seguidores
@@ -219,7 +220,7 @@ pt-BR:
           upload: Enviar
       scope_types:
         new:
-          title: Novo tipo de âmbito
+          title: Novo tipo de área de interesse
       share_tokens:
         actions:
           share: Compartilhar

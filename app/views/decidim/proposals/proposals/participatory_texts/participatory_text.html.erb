@@ -3,10 +3,17 @@
   <h1>
     <%= render_participatory_text_title(@participatory_text) %>
   </h1>
+  <div class="participatory_texts_buttons">
   <%= render partial: "decidim/proposals/proposals/participatory_texts/view_index" %>
+  <%= render partial: "decidim/shared/export_modal" %>
+  </div>
   <ul class="participatory-text-list" id="proposals-text">
     <% @proposals.each do |proposal| %>
       <%= cell("decidim/proposals/participatory_text_proposal", proposal, context: { current_user: current_user }) %>
+    <% end %>
+
+    <% if @proposals.first %>
+      <%= comments_for @proposals.first %>
     <% end %>
   </ul>
 </div>
