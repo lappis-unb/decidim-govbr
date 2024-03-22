@@ -92,41 +92,6 @@ module Decidim
             end
           end
         end
-
-        def destroy_current_user_roles!
-          scoped_user_roles.each do |user_role|
-            Decidim.traceability.perform_action!(
-              "delete",
-              user_role,
-              current_user,
-              resource: {
-                title: user_role.user.name
-              }
-            ) do
-              user_role.destroy!
-              user_role
-            end
-          end
-        end
-
-        def create_new_user_roles!
-          participatory_processes.each do |participatory_process|
-            role_params = {
-              role: form.role.to_sym,
-              user: user,
-              participatory_process: participatory_process
-            }
-
-            Decidim.traceability.create!(
-              Decidim::ParticipatoryProcessUserRole,
-              current_user,
-              role_params,
-              resource: {
-                title: user.name
-              }
-            )
-          end
-        end
       end
     end
   end
