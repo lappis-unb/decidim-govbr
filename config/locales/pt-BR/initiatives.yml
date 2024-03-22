@@ -14,8 +14,8 @@ pt-BR:
       initiatives_settings:
         initiatives_order: Ordem das iniciativas
       initiatives_type:
-        comments_enabled: Comentários ativados
         child_scope_threshold_enabled: Ativar área de interesse descendente de assinaturas
+        comments_enabled: Contribuições ativadas
         minimum_committee_members: Mínimo de membros do comitê
         promoting_committee_enabled: Permitir comitê promotor
         signature_type: Tipo de assinatura
@@ -47,7 +47,7 @@ pt-BR:
           edit:
             update: Atualizar
           form:
-            comments: Mais comentadas
+            comments: Mais contribuições
             date: Mais recentes
             publication_date: Publicado mais recentemente
             random: Aleatória

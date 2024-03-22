@@ -42,7 +42,8 @@ module Decidim
           weight: form.weight,
           settings: form.settings,
           default_step_settings: form.default_step_settings,
-          step_settings: form.step_settings
+          step_settings: form.step_settings,
+          menu_name: form.menu_name
         )
       end
 

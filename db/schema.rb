@@ -454,9 +454,10 @@ ActiveRecord::Schema.define(version: 2024_03_21_172506) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "participatory_space_type", null: false
-    t.boolean "hide_in_menu"
     t.jsonb "singular_name"
-        t.index ["participatory_space_id", "participatory_space_type"], name: "index_decidim_components_on_decidim_participatory_space"
+    t.jsonb "menu_name"
+    t.boolean "hide_in_menu"
+    t.index ["participatory_space_id", "participatory_space_type"], name: "index_decidim_components_on_decidim_participatory_space"
   end
 
   create_table "decidim_conference_speaker_conference_meetings", force: :cascade do |t|

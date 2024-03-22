@@ -201,7 +201,7 @@ pt:
           name_or_nickname_or_email_or_identities_uid_cont: Pesquisar %{collection} por e-mail, nome, nome de usuário ou CPF.
       components:
         form:
-          pluralized_name_field: Preencha com o nome no plural
+          pluralized_name_field: "Preencha com o nome que represente o conjunto dessas páginas. Exemplo de nome para página Moção: Moções"
           name_field: Preencha com o nome no singular
       menu:
         assemblies_submenu:
