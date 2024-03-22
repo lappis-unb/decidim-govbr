@@ -174,8 +174,7 @@ pt-BR:
       create:
         error: Erro ao carregar a imagem
         success: Imagem carregada com sucesso
-      drag_and_drop_help: Adicione imagens arrastando e soltando-as ou colando-as.
-    forms:
+      drag_and_drop_help: Descreva resumidamente o seu Processo Participativo. dicione imagens arrastando e soltando-as ou colando-as. 
       current_file: Arquivo atual
       current_image: Imagem atual
       default_image: Imagem padrão
