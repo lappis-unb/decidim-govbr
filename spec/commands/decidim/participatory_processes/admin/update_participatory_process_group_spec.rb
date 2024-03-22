@@ -7,12 +7,12 @@ module Decidim::ParticipatoryProcesses
     subject { described_class.new(participatory_process_group, form) }
 
     let(:organization) { create :organization }
-    let(:participatory_process_group) { create :participatory_process_group, :with_participatory_processes, organization: organization }
+    let(:participatory_process_group) { create :participatory_process_group, organization: organization }
     let(:current_user) { create :user, :admin, :confirmed, organization: organization }
     let(:invalid) { false }
     let(:title_en) { "title es" }
     let(:developer_group) { participatory_process_group.developer_group }
-
+    let(:participatory_processes) { create_list :participatory_process, 2, :published, organization: organization }
     let(:params) do
       {
         participatory_process_group: {
@@ -28,7 +28,7 @@ module Decidim::ParticipatoryProcesses
           hero_image: nil,
           current_organization: organization,
           current_user: current_user,
-          participatory_process_ids: [],
+          participatory_process_ids: participatory_processes.map(&:id),
           developer_group: developer_group,
           local_area: participatory_process_group.local_area,
           meta_scope: participatory_process_group.meta_scope,
@@ -102,28 +102,39 @@ module Decidim::ParticipatoryProcesses
       end
 
       context "when it has relationship with users" do
-        let(:current_user) {
-          create(
-            :user,
-            :admin,
-            :confirmed,
-            rganization: organization,
-            participatory_process_group: participatory_process_group,
-            decidim_participatory_process_group_role: "admin")
-          }
+        let!(:admin_user) do
+          create(:user, :confirmed, organization: organization, participatory_process_group: participatory_process_group, decidim_participatory_process_group_role: "admin")
+        end
+        let!(:moderator_user) do
+          create(:user, :confirmed, organization: organization, participatory_process_group: participatory_process_group, decidim_participatory_process_group_role: "moderator")
+        end
+        let(:user_roles) { ->(user) { Decidim::ParticipatoryProcessUserRole.where(user: user).map(&:role) } }
 
-        context "when it already has process user roles" do
-          let!(:process_user_roles) do
-            participatory_process_group.participatory_processes.map do |participatory_process|
-              let(:participatory_process_user_role) { create user: current_user, participatory_process: participatory_process, role: "moderator" }
+        it "creates user roles for all associated processes" do
+          expect { subject.call }.to change(Decidim::ParticipatoryProcessUserRole, :count).by(4)
+          expect(user_roles.call(admin_user)).to all(eq("admin"))
+          expect(user_roles.call(moderator_user)).to all(eq("moderator"))
+        end
+
+        context "when it already has some process user roles" do
+          let(:participatory_process_group) { create :participatory_process_group, :with_participatory_processes, organization: organization }
+
+          before do
+            participatory_process_group.participatory_processes.each do |participatory_process|
+              create :participatory_process_user_role, user: admin_user, participatory_process: participatory_process, role: "moderator"
             end
           end
 
-          it "overrides previous process user roles" do
+          it "update previous process user roles" do
+            expect(participatory_process_group.participatory_processes.size).to eq(2)
+            expect { subject.call }.to change { Decidim::ParticipatoryProcessUserRole.where(user: admin_user).map(&:role) }.from(%w(moderator moderator)).to(%w(admin admin))
+          end
 
+          it "create missing user roles" do
+            expect(participatory_process_group.participatory_processes.size).to eq(2)
+            expect { subject.call }.to change(Decidim::ParticipatoryProcessUserRole, :count).by(2)
           end
         end
-
       end
     end
   end
