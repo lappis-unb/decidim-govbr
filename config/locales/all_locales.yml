@@ -14,6 +14,7 @@ pt-BR:
         weight: Weight (posição de exibição)
       participatory_process:
         area_id: Órgão/Instituição
+        participatory_process_group_id: Setor
         decidim_area_id: Órgão/Instituição
         initial_page_component_id: Página Inicial do Processo Participativo
         scope_id: Áreas de interesse
