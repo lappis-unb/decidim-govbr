@@ -60,8 +60,14 @@ module Decidim::ParticipatoryProcesses
 
       context "when user already has some roles" do
         let(:some_participatory_process) { participatory_process_group.participatory_processes.last }
+        let(:user_role) { create :participatory_process_user_role, user: user, participatory_process: some_participatory_process, role: "collaborator" }
 
-        before { create :participatory_process_user_role, user: user, participatory_process: some_participatory_process, role: "colaborator" }
+        it "updates the existing roles while creating the new ones" do
+          expect(user_role.role).to eq("collaborator")
+          expect { subject.call }.to change(Decidim::ParticipatoryProcessUserRole, :count).by(1)
+          expect(user_role.reload.role).to eq("admin")
+          expect(user_roles.map(&:role)).to all(eq("admin"))
+        end
       end
     end
   end
