@@ -54,6 +54,10 @@ module Decidim::ParticipatoryProcesses
         expect(user.decidim_participatory_process_group_role).to eq("moderator")
       end
 
+      it "traces the user role creation" do
+        expect { subject.call }.to change(Decidim::ActionLog, :count).by(2)
+      end
+
       context "when user already has user roles for some participatory process" do
         let(:some_participatory_process) { participatory_process_group.participatory_processes.last }
 
@@ -63,12 +67,16 @@ module Decidim::ParticipatoryProcesses
           expect { subject.call }.to change(Decidim::ParticipatoryProcessUserRole, :count).by(1)
         end
 
-        it "updates the existing user roles" do
+        it "updates the existing user roles and traces action" do
           expect { subject.call }.to(
             change { Decidim::ParticipatoryProcessUserRole.find_by(user: user, participatory_process: some_participatory_process).role }
               .from("admin")
               .to("moderator")
           )
+        end
+
+        it "traces the user role creation and modification" do
+          expect { subject.call }.to change(Decidim::ActionLog, :count).by(2)
         end
       end
     end
