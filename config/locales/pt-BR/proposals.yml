@@ -269,7 +269,7 @@ pt-BR:
           title: Complete sua %{singular_name}
         edit_draft:
           discard: Descarte este rascunho
-          discard_confirmation: Deseja mesmo descartar este rascunho de %{singular_name}?
+          discard_confirmation: Deseja mesmo descartar este rascunho
           send: Visualização
           title: Editar %{sinugular_name} proposta de rascunho
         index:
@@ -290,7 +290,7 @@ pt-BR:
         edit_draft:
           discard: Descartar rascunho
           send: Continuar
-          discard_confirmation: Deseja mesmo descartar este rascunho de %{singular_name}?
+          discard_confirmation: Deseja mesmo descartar este rascunho
           send: Visualização
           title: Editar %{singular_name} de rascunho
         filters:
@@ -308,7 +308,7 @@ pt-BR:
         preview:
           announcement_body: Sua %{singular_name} foi salva como rascunho. Precisa ser publicada para aparecer no site.
           announcement_title: Sua %{singular_name} ainda não foi publicada
-          modify: Modificar %{singular_name}
+          modify: Modificar
           proposal_edit_before_minutes:
             one: Você poderá editar durante o primeiro minuto após a publicação. Uma vez que esta janela de tempo passa, você não poderá editar.
             other: Você poderá editar durante o primeiro %{count} minutos após a publicação. Uma vez que esta janela de tempo passa, você não poderá editar .
