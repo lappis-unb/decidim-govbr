@@ -28,7 +28,6 @@ module Decidim
         # Returns nothing
         def call
           return broadcast(:invalid) if form.invalid? || participatory_process_group.blank?
-          return broadcast(:taken, user_current_process_group.title[current_locale]) if user_current_process_group.present?
 
           transaction do
             update_user_roles!

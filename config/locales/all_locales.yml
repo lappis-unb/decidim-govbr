@@ -107,7 +107,6 @@ pt-BR:
         create:
           success: Usuário adicionado ao grupo com sucesso
           error: Não foi possível adicionar o usuário ao grupo
-          taken: Um usuário só pode participar de um grupo de processos por vez. O usuário especificado já participa do grupo %{group_name}.
         destroy:
           success: Usuário foi removido do grupo com sucesso
           error: Não foi possível remover o usuário do grupo
@@ -244,7 +243,6 @@ pt:
         create:
           success: Usuário adicionado ao grupo com sucesso
           error: Não foi possível adicionar o usuário ao grupo
-          taken: Um usuário só pode participar de um grupo de processos por vez. E, este já participa do grupo %{group_name}.
         destroy:
           success: Usuário foi removido do grupo com sucesso
           error: Não foi possível remover o usuário do grupo
@@ -404,7 +402,6 @@ en:
         create:
           success: User added to the group successfully
           error: Could not add user to the group
-          taken: A user could only participate of one process group at once. The specified user is already in group %{group_name}.
         destroy:
           success: User removed from the group successfully
           error: Could not remove user from the group
@@ -535,7 +532,6 @@ es-MX:
         create:
           success: Usuario agregado al grupo exitosamente
           error: No se pudo agregar usuario al grupo
-          taken: Un usuario sólo podría participar de un grupo de procesos a la vez. El usuario especificado ya está en el grupo %{group_name}.
         destroy:
           success: Usuario eliminado del grupo con éxito
           error: No se pudo eliminar el usuario del grupo
@@ -666,7 +662,6 @@ es-PY:
         create:
           success: Usuario agregado al grupo exitosamente
           error: No se pudo agregar usuario al grupo
-          taken: Un usuario sólo podría participar de un grupo de procesos a la vez. El usuario especificado ya está en el grupo %{group_name}.
         destroy:
           success: Usuario eliminado del grupo con éxito
           error: No se pudo eliminar el usuario del grupo
@@ -797,7 +792,6 @@ es:
         create:
           success: Usuario agregado al grupo exitosamente
           error: No se pudo agregar usuario al grupo
-          taken: Un usuario sólo podría participar de un grupo de procesos a la vez. El usuario especificado ya está en el grupo %{group_name}.
         destroy:
           success: Usuario eliminado del grupo con éxito
           error: No se pudo eliminar el usuario del grupo
