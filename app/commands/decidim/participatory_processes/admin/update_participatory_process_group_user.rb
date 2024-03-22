@@ -4,7 +4,7 @@ module Decidim
   module ParticipatoryProcesses
     module Admin
       # This command updates user participation on a participatory process group by
-      # changing its roles
+      # changing their roles
       class UpdateParticipatoryProcessGroupUser < Decidim::Command
         # Public: Initializes the command
         #
@@ -22,15 +22,15 @@ module Decidim
         # Executes the command. Broadcasts these events:
         #
         # - :ok when everything is valid.
-        # - :invalid if form has invalid data, or participatory process group is blank, or user already belong to a group
-        # - :taken when user already belongs to a process group
+        # - :invalid if form has invalid data, or participatory process group is blank
         #
         # Returns nothing
         def call
           return broadcast(:invalid) if form.invalid? || participatory_process_group.blank?
 
           transaction do
-            update_user_roles!
+            update_existing_user_roles!
+            create_missing_user_roles!
 
             user.participatory_process_group = participatory_process_group
             user.decidim_participatory_process_group_role = form.role
@@ -41,10 +41,6 @@ module Decidim
         end
 
         private
-
-        def user_current_process_group
-          user.participatory_process_group
-        end
 
         def user
           @user ||= Decidim::User.find_by(email: form.email)
@@ -58,11 +54,9 @@ module Decidim
           @participatory_processes ||= participatory_process_group.participatory_processes
         end
 
-        # Create or update existing roles according to group user membership. I.e., if the participatory process group
-        # have two processes inside of it, and user already has a role for one of them, this method creates
-        # a new participatory process user role and updates the existing one with the specified role privilleges
+        # Update existing user roles according to the specified role on the form
         #
-        def update_user_roles!
+        def update_existing_user_roles!
           scoped_user_roles.each do |user_role|
             Decidim.traceability.update!(
               user_role,
@@ -70,43 +64,39 @@ module Decidim
               {
                 role: form.role.to_sym
               },
-              resource: {
-                title: user.name
+              {
+                resource: {
+                  title: user.name
+                }
               }
             )
           end
         end
 
-        def destroy_current_user_roles!
-          scoped_user_roles.each do |user_role|
-            Decidim.traceability.perform_action!(
-              "delete",
-              user_role,
-              current_user,
-              resource: {
-                title: user_role.user.name
-              }
-            ) do
-              user_role.destroy!
-              user_role
-            end
-          end
+        # Returns the difference between all the processes that belong to the participatory group and the processes that
+        # the user has roles on them. I.e. the participatory process group processes that the user
+        # does not have a role yet.
+        #
+        def remaining_processes
+          participatory_processes - scoped_user_roles.map(&:participatory_process)
         end
 
-        def create_new_user_roles!
-          participatory_processes.each do |participatory_process|
-            role_params = {
-              role: form.role.to_sym,
-              user: user,
-              participatory_process: participatory_process
-            }
-
+        # Create missing roles for this user if there are processes that user doesn't participate yet
+        #
+        def create_missing_user_roles!
+          remaining_processes.each do |process|
             Decidim.traceability.create!(
-              Decidim::ParticipatoryProcessUserRole,
+              ParticipatoryProcessUserRole,
               current_user,
-              role_params,
-              resource: {
-                title: user.name
+              {
+                participatory_process: process,
+                user: user,
+                role: form.role.to_sym
+              },
+              {
+                resource: {
+                  title: user.name
+                }
               }
             )
           end
