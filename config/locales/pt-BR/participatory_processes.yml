@@ -12,11 +12,12 @@ pt-BR:
         participatory_process_type_id: Tipo de processo participativo
         private_space: Espaço privado
         weight: Posição de ordem
+        show_statistics: Mostrar Dados Participativos
         description: Resumo do Processo Participativo 
         hero_image: Imagem da capa (mobile)
         banner_image: Imagem de capa (desktop)
         hashtag: Palavras-chave
-        should_have_user_full_profile: Exigir Perfil de Usuário completo
+        should_have_user_full_profile: Exigir Perfil de Usuário completo para responder o formulário
       participatory_process_group:
         group_url: Site
         promoted: Promovido
