@@ -4,7 +4,7 @@
   </div>
   <div class="card-section">
     <div class="row column">
-      <%= form.translated :text_field, :title, required: true %>
+      <%= form.translated :text_field, :title, autofocus: true, required: true %>
     </div>
     <!--
       This element is hidden because it is not intended to be used!
@@ -33,13 +33,13 @@
     </div>
     <div class="row">
       <div class="columns xlarge-6">
-        <%= form.number_field :group_chat_id , :label => "ID do Grupo do Telegram" %>
+        <%= form.number_field :group_chat_id , :label => "Identificador do grupo no Telegram para Moderação" %>
         <div>
         </div>
         <!--
-      This element is hidden because it is not intended to be used!
-      Refer to issue 138
-    -->
+          This element is hidden because it is not intended to be used!
+          Refer to issue 138
+        -->
         <div class="row column" style="display: none;">
           <%= form.translated :text_field, :short_description %>
         </div>
@@ -47,9 +47,9 @@
           <%= form.translated :editor, :description, required: true %>
         </div>
         <!--
-      This element is hidden because it is not intended to be used!
-      Refer to issue 138
-    -->
+          This element is hidden because it is not intended to be used!
+          Refer to issue 138
+        -->
         <div class="row column" style="display: none;">
           <%= form.translated :editor, :announcement %>
           <p class="help-text"><%== t(".announcement_help") %></p>
@@ -114,18 +114,18 @@
       </div>
       <div class="card-section">
         <!--
-      This element is hidden because it is not intended to be used!
-      Refer to issue 138
-    -->
+          This element is hidden because it is not intended to be used!
+          Refer to issue 138
+        -->
         <div class="row column">
           <%= form.check_box :scopes_enabled, label: false, checked: true, style: "display: none;" %>
         </div>
         <div class="row column">
           <%= scopes_picker_field form, :scope_id, root: nil %>
           <!--
-        This element is hidden because it is not intended to be used!
-        Refer to issue 138
-      -->
+            This element is hidden because it is not intended to be used!
+            Refer to issue 138
+          -->
           <div class="row" id="scope-depth " style="display: none;">
             <%= form.collection_select :scope_type_max_depth_id,
                                     organization_scope_depths,
@@ -148,9 +148,9 @@
       </div>
       <div class="card-section">
         <!--
-      This element is hidden because it is not intended to be used!
-      Refer to issue 138
-    -->
+          This element is hidden because it is not intended to be used!
+          Refer to issue 138
+        -->
         <div class="row column" style="display: none;">
           <%= form.check_box :private_space %>
         </div>
@@ -159,16 +159,16 @@
         </div>
       </div>
       <!--
-    This element is hidden because it is not intended to be used!
-    Refer to issue 138
-  -->
+        This element is hidden because it is not intended to be used!
+        Refer to issue 138
+      -->
       <div class="card-divider" style="display: none;">
         <h2 class="card-title"><%= t(".related_processes") %></h2>
       </div>
       <!--
-    This element is hidden because it is not intended to be used!
-    Refer to issue 138
-  -->
+        This element is hidden because it is not intended to be used!
+        Refer to issue 138
+      -->
       <div class="card-section" style="display: none;">
         <div class="row column">
           <%= form.select(
