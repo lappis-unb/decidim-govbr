@@ -6,13 +6,20 @@
     </p>
       inscritos  
   </div>
-  
     <% if can_join? && show_footer_actions? %>
       <%= cell "decidim/meetings/join_meeting_button", model %>
     <% else %>
-      <div class="footer_button_text">
+
+    <% hora_atual = Time.now.strftime("%H:%M") %>
+    <% data_atual = Time.now.strftime("%Y-%m-%d") %>
+
+    <div class="footer_button_text">
+      <% if formatted_start_time < hora_atual && formatted_end_time > hora_atual %>
         <%= link_to "Participar", resource_path, class: "card__button button--sc light button small" %>
-      </div>
+      <% else %>
+        <%= link_to "Visualizar", resource_path, class: "card__button button--sc light button small" %>
+      <% end %>  
+    </div>
     <% end %>
   </div>
 </div>
