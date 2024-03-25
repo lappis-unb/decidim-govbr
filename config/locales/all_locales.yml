@@ -14,6 +14,7 @@ pt-BR:
         weight: Weight (posição de exibição)
       participatory_process:
         area_id: Órgão/Instituição
+        participatory_process_group_id: Setor
         decidim_area_id: Órgão/Instituição
         initial_page_component_id: Página Inicial do Processo Participativo
         scope_id: Áreas de interesse
@@ -21,7 +22,7 @@ pt-BR:
         slug: URL Amigável
         developer_group: Órgão/Instituição
         local_area: Setor
-        meta_scope: Status do Processo
+        meta_scope: Selecione o Status deste processo participativo
         target: Responsável pela consulta
         participatory_scope: Link da publicação do processo no DOU
         publish_date: Data de publicação
@@ -30,7 +31,6 @@ pt-BR:
         hero_image: Imagem de capa (mobile)
         banner_image: Imagem de capa (desktop)
         participatory_structure: Telefone ou Email Institucional do Setor
-        participatory_process_group_id: Setor
         show_statistics: Mostrar Dados Participativos
         should_have_user_full_profile: Exigir Perfil de Usuário completo para responder o formulário
       participatory_process_partner:
