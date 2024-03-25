@@ -326,7 +326,7 @@ pt-BR:
           update: Atualizar
         form:
           default_step_settings: Configurações de etapa padrão
-          global_settings: Configurações globais
+          global_settings: Configurações
           step_settings: Configurações de etapa
         index:
           add: Adicionar componente
