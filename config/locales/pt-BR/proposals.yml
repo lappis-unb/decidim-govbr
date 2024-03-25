@@ -82,8 +82,14 @@ pt-BR:
               recent: Recentes
               with_more_authors: Com mais autores
             geocoding_enabled: Geolocalização ativada
-            minimum_votes_per_user: Votos mínimos por usuário
-            proposal_limit: Limite de propostas por usuário
+            minimum_votes_per_user: Quantidade mínima de votos por usuário
+            proposal_answering_enabled: Permitir que o órgão faça a devolutiva por proposta
+            proposal_limit: Quantidade máxima de propostas por usuário (deixe 0 caso não queira limitar)
+            proposal_length: Quantidade máxima de caracteres por propostas
+            official_proposals_enabled: Permitir que o órgão faça propostas oficiais
+            comments_enabled: Permitir que usuários façam comentários nas propostas
+            comments_max_length: Quantidade máxima de caracteres por comentário (deixe 0 para não limitar)
+            attachments_allowed: Permitir que o órgão crie propostas com anexos
             proposal_edit_time: Edição de propostas
             proposal_edit_time_choices:
               infinite: Permitir a edição de propostas por um período infinito de tempo
