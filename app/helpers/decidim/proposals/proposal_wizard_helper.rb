@@ -45,7 +45,6 @@ module Decidim
                      else
                        action_name
                      end
-        
         if translated_attribute(current_component.singular_name).present?
           t("decidim.proposals.proposals.#{step_title}.title", singular_name: translated_attribute(current_component.singular_name).downcase)
         else
