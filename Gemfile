@@ -28,7 +28,6 @@ gem 'puma', '5.6.5'
 gem 'uglifier', '~> 4.1'
 
 gem 'faker', '~> 2.17'
-gem 'elastic-apm'
 
 gem 'devise-i18n'
 
@@ -60,4 +59,5 @@ end
 
 group :production do
   gem 'aws-sdk-s3', require: false
+  gem 'elastic-apm', '~> 4.7.2'
 end
