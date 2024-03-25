@@ -75,22 +75,25 @@ extra_admin_link(
     <%= amendments_for @proposal %>
   </div>
   <div class="columns section view-side mediumlarge-4 large-3">
-    <% if @proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal) %>
-      <%= link_to t("decidim.components.proposals.actions.edit_proposal"), edit_proposal_path(@proposal), class: "button hollow expanded button--sc" %>
+  <% if @proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal) %>
+    <% if translated_attribute(current_component.singular_name).present? %>
+      <%= link_to t("decidim.components.proposals.actions.edit_proposal", singular_name_button: translated_attribute(current_component.singular_name).downcase), edit_proposal_path(@proposal), class: "button hollow expanded button--sc" %>
     <% else %>
-      <%= amend_button_for @proposal %>
+      <%= link_to t("decidim.components.proposals.actions.edit_proposal", singular_name_button: "proposta"), edit_proposal_path(@proposal), class: "button hollow expanded button--sc" %>
     <% end %>
+  <% else %>
+    <%= amend_button_for @proposal %>
+  <% end %>
 
-    <%= emendation_actions_for @proposal %>
+  <%= emendation_actions_for @proposal %>
 
-    <% if current_settings.votes_enabled? || show_endorsements_card? || current_user %>
-      <% if @proposal.withdrawn? %>
-        <div class="card">
-          <div class="card__content">
-            <% if current_settings.votes_enabled? %>
-              <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
-            <% end %>
-          </div>
+  <% if current_settings.votes_enabled? || show_endorsements_card? || current_user %>
+    <% if @proposal.withdrawn? %>
+      <div class="card">
+        <div class="card__content">
+          <% if current_settings.votes_enabled? %>
+            <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
+          <% end %>
         </div>
       <% else %>
         <div class="card">
@@ -112,19 +115,21 @@ extra_admin_link(
             </div>
           </div>
         </div>
-      <% end %>
+      </div>
     <% end %>
+  <% end %>
 
-    <%= amenders_list_for(@proposal) %>
+  <%= amenders_list_for(@proposal) %>
 
-    <%= resource_reference(@proposal) %>
-    <%= resource_version(proposal_presenter, versions_path: proposal_versions_path(@proposal)) %>
-    <%= cell("decidim/fingerprint", @proposal) %>
-    <%= render partial: "decidim/shared/share_modal", locals: { resource: @proposal } %>
-    <%= embed_modal_for proposal_widget_url(@proposal, format: :js) %>
-    <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
-    <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
-  </div>
+  <%= resource_reference(@proposal) %>
+  <%= resource_version(proposal_presenter, versions_path: proposal_versions_path(@proposal)) %>
+  <%= cell("decidim/fingerprint", @proposal) %>
+  <%= render partial: "decidim/shared/share_modal", locals: { resource: @proposal } %>
+  <%= embed_modal_for proposal_widget_url(@proposal, format: :js) %>
+  <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
+  <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
+</div>
+
 </div>
 <%= attachments_for @proposal %>
 

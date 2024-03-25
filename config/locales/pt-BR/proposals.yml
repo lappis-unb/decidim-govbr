@@ -63,7 +63,7 @@ pt-BR:
           new: Novo(a) %{name}
           action_not_allowed: Você não pode interagir com propostas. O seu Perfil de Usuário está incompleto!
           answer_proposal: Responder proposta
-          edit_proposal: Editar proposta
+          edit_proposal: Editar %{singular_name_button}
           import: Importar de outro componente
           participatory_texts: Textos participativos
           show: Mostrar proposta
@@ -271,14 +271,16 @@ pt-BR:
           placeholder: Ver %{singular_name}
         compare:
           no_similars_found: Muito bom! Não foram encontradas propostas semelhantes
+          continue: Continuar
+          title: Propostas %{singular_name}
         complete:
           send: Enviar
-          title: Complete sua proposta
+          title: Complete sua %{singular_name}
         edit_draft:
           discard: Descarte este rascunho
-          discard_confirmation: Deseja mesmo descartar este rascunho de proposta?
+          discard_confirmation: Deseja mesmo descartar este rascunho
           send: Visualização
-          title: Editar proposta de rascunho
+          title: Editar %{sinugular_name} proposta de rascunho
         index:
           click_here: Ver todas as propostas
           collaborative_drafts_list: Acessar rascunhos colaborativos
@@ -286,16 +288,20 @@ pt-BR:
           see_all: Ver todas as propostas
           text_banner: Está vendo a lista de propostas retiradas pelos seus próprios autores. %{go_back_link}
         new:
-         title: Crie sua proposta
+         title: Crie sua %{singular_name}
         edit:
           add_documents: Adicionar documentos
           add_image: Adicionar imagem
           edit_documents: Editar documentos
           edit_image: Editar imagem
           select_a_category: Selecione um tema
+          title: Editar %{singular_name}
         edit_draft:
           discard: Descartar rascunho
           send: Continuar
+          discard_confirmation: Deseja mesmo descartar este rascunho
+          send: Visualização
+          title: Editar %{singular_name} de rascunho
         filters:
           category: Tema
           placeholder: "Qual %{name} você procura?"
@@ -309,14 +315,14 @@ pt-BR:
           recent: Recentes
           with_more_authors: Com mais autores
         preview:
-          announcement_body: Sua proposta foi salva como rascunho. Precisa ser publicada para aparecer no site.
-          announcement_title: Sua proposta ainda não foi publicada
-          modify: Modificar a proposta
+          announcement_body: Sua %{singular_name} foi salva como rascunho. Precisa ser publicada para aparecer no site.
+          announcement_title: Sua %{singular_name} ainda não foi publicada
+          modify: Modificar
           proposal_edit_before_minutes:
-            one: Você poderá editar esta proposta durante o primeiro minuto após a publicação da proposta. Uma vez que esta janela de tempo passa, você não poderá editar a proposta.
-            other: Você poderá editar esta proposta durante o primeiro %{count} minutos após a publicação da proposta. Uma vez que esta janela de tempo passa, você não poderá editar a proposta.
+            one: Você poderá editar durante o primeiro minuto após a publicação. Uma vez que esta janela de tempo passa, você não poderá editar.
+            other: Você poderá editar durante o primeiro %{count} minutos após a publicação. Uma vez que esta janela de tempo passa, você não poderá editar .
           publish: Publicar
-          title: Publique sua proposta
+          title: Publique sua %{singular_name}
         requests:
           accepted_request:
             error: Não foi possível ser aceito como colaborador, por favor tente novamente mais tarde.
@@ -345,9 +351,9 @@ pt-BR:
             description: Pode votar até %{limit} proposta(s).
         wizard_aside:
           back: Voltar
-          back_from_step_1: Voltar para as propostas
-          back_from_step_2: Voltar para as propostas
-          back_from_step_3: Voltar à comparação de propostas
+          back_from_step_1: Voltar para proposta
+          back_from_step_2: Voltar para proposta
+          back_from_step_3: Voltar à comparação de proposta
           back_from_step_4: Voltar para a edição do rascunho
           info: Você está criando uma proposta
         wizard_steps:
