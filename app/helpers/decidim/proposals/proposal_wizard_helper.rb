@@ -89,7 +89,7 @@ module Decidim
         current_step_num = proposal_wizard_step_number(step)
         see_steps = content_tag(:span, class: "hide-for-large") do
           concat " ("
-          concat content_tag :a, t(:"decidim.proposals.proposals.wizard_steps.see_steps"), "data-toggle": "steps"
+          concat content_tag :a, t(:'decidim.proposals.proposals.wizard_steps.see_steps'), 'data-toggle': 'steps'
           concat ")"
         end
         content_tag :span, class: "text-small" do
