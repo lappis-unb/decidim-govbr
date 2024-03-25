@@ -35,6 +35,7 @@ gem 'redis', '4.7.1'
 gem 'hiredis', '0.6.3'
 gem 'sidekiq', '6.5.7'
 
+gem 'decidim-extra_user_fields', git: 'https://gitlab.com/lappis-unb/decidimbr/decidim-extra_user_fields.git', tag: 'version-with-node-modules'
 gem 'whenever', require: false
 
 gem 'decidim-homes', git: 'https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-module-homes.git'

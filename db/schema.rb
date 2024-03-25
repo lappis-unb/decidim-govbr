@@ -1442,6 +1442,7 @@ ActiveRecord::Schema.define(version: 2024_03_21_172506) do
     t.string "machine_translation_display_priority", default: "original", null: false
     t.string "external_domain_whitelist", default: [], array: true
     t.boolean "enable_participatory_space_filters", default: true
+    t.jsonb "extra_user_fields", default: {"enabled"=>false}
     t.jsonb "menu_links", default: "{}", null: false
     t.jsonb "footer_menu_links", default: "{}", null: false
     t.integer "user_profile_survey_id"

@@ -23,7 +23,14 @@ else
   bundle exec rails db:seed
 fi
 
+bundle install
+npm install
+yarn
+
+cp .env.dev .env
+
 mailcatcher --http-ip=0.0.0.0 &
 bundle exec sidekiq & 
 bash scripts/start_webpack_dev.sh & 
 bundle exec rails s -p 3000 -b 0.0.0.0
+
