@@ -486,7 +486,7 @@ pt-BR:
           settings: Gerenciador cookies
           title: Informações sobre os cookies utilizados no site
         modal:
-          accept_all: Salvar 
+          accept_all: Salvar
           reject: Rejeitar cookies
           accept_only_essential: Rejeitar cookies
           analytics:
