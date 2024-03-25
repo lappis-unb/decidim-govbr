@@ -3,6 +3,7 @@ pt-BR:
   activemodel:
     attributes:
       participatory_process:
+        title: Nome do Processo Participativo 
         document: Documento
         import_attachments: Importar anexos
         import_categories: Importar temas
@@ -11,7 +12,12 @@ pt-BR:
         participatory_process_type_id: Tipo de processo participativo
         private_space: Espaço privado
         weight: Posição de ordem
-        should_have_user_full_profile: Exigir Perfil de Usuário completo
+        show_statistics: Mostrar Dados Participativos
+        description: Resumo do Processo Participativo 
+        hero_image: Imagem da capa (mobile)
+        banner_image: Imagem de capa (desktop)
+        hashtag: Palavras-chave
+        should_have_user_full_profile: Exigir Perfil de Usuário completo para responder o formulário
       participatory_process_group:
         group_url: Site
         promoted: Promovido
@@ -138,6 +144,10 @@ pt-BR:
       admin:
         participatory_processes:
           form:
+            select_an_area: Selecione um Órgão/Instituição
+            select_process_group: Selecione um Setor
+            duration: Prazo do Processo Participativo
+            slug_help: 'A URL Amigável é usada para gerar a URL para acessar o processo participativo. Apenas aceita letras, números e traços, e deve começar com uma letra. Exemplo: https://brasilparticipativo.presidencia.gov.br/nome do processo participativo/nome-da-conferência'
             announcement_help: O texto que insere aqui será mostrado ao usuário logo abaixo das informações do processo.
             select_participatory_process_type: Selecione um tipo de processo
       pages:
