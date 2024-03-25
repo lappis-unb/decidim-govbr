@@ -16,7 +16,6 @@ module Decidim
 
       validates :name, translatable_presence: true
       validates :singular_name, translatable_presence: true
-      validates :menu_name, translatable_presence: true
 
       attribute :weight, Integer, default: 0
       attribute :hide_in_menu, Boolean
