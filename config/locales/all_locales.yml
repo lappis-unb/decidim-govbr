@@ -43,10 +43,9 @@ pt-BR:
         date: Data
         link: Link
         title: Título
-      assembly:
-        initial_page_component_id: Página Principal da Assembléia
-      participatory_process:
-        initial_page_component_id: Página Inicial do Processo Participativo
+      participatory_process_group_user:
+        email: E-mail do Usuário
+        role: Cargo
   decidim:
     statistics:
       headline: Dados Participativos
