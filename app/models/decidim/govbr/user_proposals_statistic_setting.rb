@@ -40,13 +40,13 @@ module Decidim
         end
 
         statistic_data.each do |user_id, data|
-          data['proposals_done'] =    data['proposals_done'].presence     || 0
-          data['votes_received'] =    data['votes_received'].presence     || 0
-          data['comments_received'] = data['comments_received'].presence  || 0
-          data['follows_received'] =  data['follows_received'].presence   || 0
-          data['comments_done'] =     data['comments_done'].presence      || 0
-          data['votes_done'] =        data['votes_done'].presence         || 0
-          data['follows_done'] =      data['follows_done'].presence       || 0
+          data['proposals_done'] = data['proposals_done'].presence     || 0
+          data['votes_received'] = data['votes_received'].presence     || 0
+          data['comments_received'] = data['comments_received'].presence || 0
+          data['follows_received'] = data['follows_received'].presence || 0
+          data['comments_done'] = data['comments_done'].presence || 0
+          data['votes_done'] = data['votes_done'].presence || 0
+          data['follows_done'] = data['follows_done'].presence || 0
 
           proposals_done        = data['proposals_done'].to_f     * self.proposals_done_weight
           comments_done_weight  = data['comments_done'].to_f      * self.comments_done_weight

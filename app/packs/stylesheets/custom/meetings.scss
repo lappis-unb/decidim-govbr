@@ -91,6 +91,13 @@
   margin-bottom: 1rem;
 }
 
+.comment__deleted {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
 .br-comments-count {
   color: var(--blue-warm-vivid-80);
   font-size: 1.25rem !important;
@@ -158,3 +165,28 @@
 .admin-tools {
   flex: 1;
 }
+
+
+.export-buttons{
+  display: flex;
+  gap: 8px;
+  @media (max-width: 768px) {
+      flex-direction: column;
+    }
+}
+
+.export-close-button{
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.export-calendar-input{
+   width: 94%;
+}
+
+.calendar-export{
+  font-size: 26px;
+}
+

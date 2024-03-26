@@ -1,18 +1,42 @@
+<% advanced_fields = [:minimum_votes_per_user,
+                      :proposal_edit_time,
+                      :threshold_per_proposal,
+                      :proposal_answering_enabled,
+                      :default_sort_order,
+                      :geocoding_enabled,
+                      :attachments_allowed,
+                      :resources_permissions_enabled,
+                      :collaborative_drafts_enabled,
+                      :new_proposal_help_text,
+                      :proposal_wizard_step_1_help_text,
+                      :proposal_wizard_step_2_help_text,
+                      :proposal_wizard_step_3_help_text,
+                      :proposal_wizard_step_4_help_text,
+                      :official_proposals_enabled,
+                      :new_proposal_body_template] %>
+
 <div class="card">
   <div class="card-divider">
     <h2 class="card-title"><%= title %></h2>
   </div>
-
   <div class="card-section">
     <div class="row column">
-      <%= form.translated :text_field, :name, autofocus: true %>
-      <p class="help-text"><%= t(".pluralized_name_field") %></p>
-
       <%= form.translated :text_field, :singular_name %>
       <p class="help-text"><%= t(".name_field") %></p>
-      <%= form.number_field :weight %>
-      <%= form.check_box :hide_in_menu, label: "Ocultar essa página do menu (documentação)" %>
-
+      <%= form.translated :text_field, :name, autofocus: true %>
+      <p class="help-text"><%= t(".pluralized_name_field") %></p>
+      <%= form.fields_for :settings, form.object.settings do |settings_fields| %>
+        <%= render partial: "decidim/admin/components/settings_fields",
+                   locals: {
+                    form: settings_fields,
+                    manifest: form.object.manifest,
+                    settings_name: :global,
+                    tabs_prefix: "global-settings",
+                    only: [:participatory_texts_enabled]
+                   } %>
+      <% end %>
+      <%= form.translated :text_field, :menu_name %>
+      <p class="help-text"><%= t(".menu_name_field") %> </p>
       <% if form.object.settings? %>
         <fieldset class="global-settings">
           <div class="card">
@@ -22,18 +46,35 @@
             <div class="card-section">
               <%= form.fields_for :settings, form.object.settings do |settings_fields| %>
                 <%= render partial: "decidim/admin/components/settings_fields",
-                           locals: {
-                             form: settings_fields,
-                             manifest: form.object.manifest,
-                             settings_name: :global,
-                             tabs_prefix: "global-settings"
-                           } %>
+                            locals: {
+                              form: settings_fields,
+                              manifest: form.object.manifest,
+                              settings_name: :global,
+                              tabs_prefix: "global-settings",
+                              except: (advanced_fields + [:participatory_texts_enabled])
+                            } %>
               <% end %>
             </div>
           </div>
         </fieldset>
       <% end %>
-
+    </div>
+    <div class="card-divider toggle-settings">
+      <h2 class="card-title">Configurações avançadas</h2>
+    </div>
+    <div class="card-section settings-section">
+      <%= form.number_field :weight %>
+      <%= form.check_box :hide_in_menu, label: "Ocultar essa página do menu" %>
+      <%= form.fields_for :settings, form.object.settings do |settings_fields| %>
+        <%= render partial: "decidim/admin/components/settings_fields",
+                    locals: {
+                      form: settings_fields,
+                      manifest: form.object.manifest,
+                      settings_name: :global,
+                      tabs_prefix: "global-settings",
+                      only: advanced_fields
+                    } %>
+      <% end %>
       <% if current_participatory_space.has_steps? %>
         <fieldset class="step-settings">
           <div class="card">
@@ -45,7 +86,6 @@
                 <fieldset class="step-settings-<%= step.id %>">
                   <legend><%= step.position + 1 %>. <%= translated_attribute step.title %></legend>
                   <% step_settings = form.object.step_settings[step.id.to_s] %>
-
                   <%= form.fields_for :step_settings, nil do |settings_fields| %>
                     <%= settings_fields.fields_for step.id.to_s, step_settings do |settings_fields| %>
                       <%= render partial: "decidim/admin/components/settings_fields",
@@ -82,10 +122,17 @@
           </div>
         </fieldset>
       <% end %>
-
       <% if component && component.persisted? && !component.published? %>
         <%= render partial: "decidim/admin/share_tokens/share_tokens", locals: { share_tokens: form.object.share_tokens } %>
       <% end %>
     </div>
   </div>
 </div>
+<script>
+  $(document).ready(function() {
+    $(".settings-section").hide();
+    $(".toggle-settings").on("click", function() {
+      $(".settings-section").slideToggle();
+    });
+  });
+</script>
