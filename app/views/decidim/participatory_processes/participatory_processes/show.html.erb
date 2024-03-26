@@ -25,13 +25,15 @@
 <%= cell("decidim/announcement", current_participatory_space.announcement) %>
 
 <div>
+  <h1 class="page-title"><%= translated_attribute(current_participatory_space.title) %></h1>
   <div class="meta-card">
-    <p><strong>Órgão/Instituição</strong>: <%= translated_attribute(current_participatory_space.decidim_area_id) %></p>
-    <p><strong>Setor</strong>: <%= translated_attribute(current_participatory_space.participatory_structure) %></p>
-    <p><strong>Status do processo</strong>: <%= translated_attribute(current_participatory_space.meta_scope) %></p>
+    <p><strong>Órgão/Instituição</strong>: <%= translated_attribute(@current_area) %></p>
+    <p><strong>Setor</strong>: <%= translated_attribute(current_participatory_space.participatory_process_group.title) %></p>
+    <p><strong>Telefone ou E-mail Institucional do Setor</strong>: <%= translated_attribute(current_participatory_space.participatory_structure) %></p>
     <p><strong>Responsável pela consulta</strong>: <%= translated_attribute(current_participatory_space.target) %></p>
-    <p><strong>Publicação no DOU</strong>: <%= translated_attribute(current_participatory_space.participatory_scope) %></p>
-    <p><strong>Contato</strong>: <%= translated_attribute(current_participatory_space.participatory_structure) %></p>
+    <p><strong>Data de Publicação no DOU</strong>: <%= l(current_participatory_space.publish_date) %></p>
+    <p><strong>Link da Publicação no DOU</strong>: <%= translated_attribute(current_participatory_space.participatory_scope) %></p>
+    <p><strong>Status do processo</strong>: <%= translated_attribute(current_participatory_space.meta_scope) %></p>
   </div>
 
   <div>

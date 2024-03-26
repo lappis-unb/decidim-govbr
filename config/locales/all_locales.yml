@@ -47,6 +47,8 @@ pt-BR:
         email: E-mail do Usuário
         role: Cargo
   decidim:
+    statistics:
+      headline: Dados Participativos
     components:
       proposals:
         settings:
