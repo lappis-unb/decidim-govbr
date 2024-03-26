@@ -68,3 +68,10 @@ pt-BR:
         title: Editar sua contribuição
       up_vote_button:
         text: Eu concordo com esta contribuição
+      comment_order_selector:
+        order:
+          best_rated: Melhores avaliados
+          most_discussed: Mais discutidos
+          older: Mais antigos
+          recent: Mais recentes
+        title: 'Ordenar por:'
