@@ -1,0 +1,14 @@
+<div class="card">
+  <%= form.hidden_field :participatory_process_group_id, value: participatory_process_group.id %>
+  <div class="card-divider">
+    <h2 class="card-title"><%= t("models.participatory_process_group_user.name", scope: "decidim.admin") %></h2>
+  </div>
+  <div class="card-section">
+    <div class="row column">
+      <%= form.text_field :email, readonly: form_mode == :edit %>
+    </div>
+    <div class="row column">
+      <%= form.select :role, options_for_select(@form.available_roles_for_select, selected: @form.role) %>
+    </div>
+  </div>
+</div>

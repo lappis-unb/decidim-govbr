@@ -41,6 +41,7 @@ module Decidim
         @component.weight = form.weight
         @component.hide_in_menu = form.hide_in_menu
         @component.singular_name = form.singular_name
+        @component.menu_name = form.menu_name
 
         restore_readonly_settings!
 

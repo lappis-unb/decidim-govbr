@@ -38,10 +38,10 @@ pt-BR:
           is_emendation_true:
             label: Tipo
             values:
-              'false': Propostas
-              'true': Modificações
+              "false": Propostas
+              "true": Modificações
           scope_id_eq:
-            label: Âmbito
+            label: Área de interesse
           state_eq:
             label: Estado
             values:
@@ -54,11 +54,14 @@ pt-BR:
           state_null:
             label: Estado
             values:
-              'true': Não respondida
+              "true": Não respondida
+      participatory_texts:
+        is_interactive: Interação habilitada
     components:
       proposals:
         actions:
           new: Novo(a) %{name}
+          action_not_allowed: Você não pode interagir com propostas. O seu Perfil de Usuário está incompleto!
           answer_proposal: Responder proposta
           edit_proposal: Editar %{singular_name_button}
           import: Importar de outro componente
@@ -80,12 +83,18 @@ pt-BR:
               with_more_authors: Com mais autores
             geocoding_enabled: Geolocalização ativada
             minimum_votes_per_user: Quantidade mínima de votos por usuário
+            proposal_answering_enabled: Permitir que o órgão faça a devolutiva por proposta
             proposal_limit: Quantidade máxima de propostas por usuário (deixe 0 caso não queira limitar)
+            proposal_length: Quantidade máxima de caracteres por propostas
+            official_proposals_enabled: Permitir que o órgão faça propostas oficiais
+            comments_enabled: Permitir que usuários façam comentários nas propostas
+            comments_max_length: Quantidade máxima de caracteres por comentário (deixe 0 para não limitar)
+            attachments_allowed: Permitir que o órgão crie propostas com anexos
             proposal_edit_time: Edição de propostas
             proposal_edit_time_choices:
               infinite: Permitir a edição de propostas por um período infinito de tempo
               limited: Permitir a edição de propostas dentro de um período de tempo específico
-            scopes_enabled: Âmbitos ativados
+            scopes_enabled: Áreas de interesse ativados
           step:
             creation_enabled: Participantes podem criar propostas
             creation_enabled_readonly: Essa configuração é desativada quando você ativa a funcionalidade Textos participativos. Para carregar propostas como texto participativo, clique no botão 'Textos participativos' e siga as instruções.
@@ -197,9 +206,9 @@ pt-BR:
           show:
             body: Descrição
           update_category:
-            invalid: 'Estas propostas já tinham o tema %{subject_name}: %{proposals}.'
+            invalid: "Estas propostas já tinham o tema %{subject_name}: %{proposals}."
             select_a_category: Selecione um tema
-            success: 'Propostas atualizadas com sucesso para o tema %{subject_name}: %{proposals}.'
+            success: "Propostas atualizadas com sucesso para o tema %{subject_name}: %{proposals}."
         proposal_answers:
           form:
             accepted: Recebida
@@ -217,7 +226,7 @@ pt-BR:
         filter_origin_values:
           participants: Participantes
         filter_state_values:
-          accepted: Recebida
+          accepted: Incorporada
           all: Todos
           evaluating: Em avaliação
           not_answered: Não respondida
@@ -254,7 +263,7 @@ pt-BR:
           fields:
             category: Tema
       proposals:
-        count: 
+        count:
           proposals_count:
             one: "%{count} %{singular_name}"
             other: "%{count} %{pluralized_name}"
@@ -269,7 +278,7 @@ pt-BR:
           title: Complete sua %{singular_name}
         edit_draft:
           discard: Descarte este rascunho
-          discard_confirmation: Deseja mesmo descartar este rascunho de %{singular_name}?
+          discard_confirmation: Deseja mesmo descartar este rascunho
           send: Visualização
           title: Editar %{sinugular_name} proposta de rascunho
         index:
@@ -290,14 +299,14 @@ pt-BR:
         edit_draft:
           discard: Descartar rascunho
           send: Continuar
-          discard_confirmation: Deseja mesmo descartar este rascunho de %{singular_name}?
+          discard_confirmation: Deseja mesmo descartar este rascunho
           send: Visualização
           title: Editar %{singular_name} de rascunho
         filters:
           category: Tema
           placeholder: "Qual %{name} você procura?"
         orders:
-          label: 'Ordene propostas por:'
+          label: "Ordene propostas por:"
           most_commented: Mais contribuições
           most_endorsed: Mais endossadas
           most_followed: Mais seguidas
