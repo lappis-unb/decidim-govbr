@@ -41,11 +41,3 @@
   <%= "(#{@similar_proposals.count})" if @similar_proposals.present? %>
 </h2>
 
-<div class="hide-for-large m-bottom">
-  <div><%= proposal_wizard_steps_title %></div>
-  <div><%= proposal_wizard_current_step_of(@step) %></div>
-
-  <div id="steps" class="wizard__steps steps-toggle is-hidden" data-toggler=".is-hidden">
-    <%= proposal_wizard_stepper(@step) %>
-  </div>
-</div>
