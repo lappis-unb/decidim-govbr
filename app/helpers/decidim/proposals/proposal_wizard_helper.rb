@@ -45,7 +45,6 @@ module Decidim
                      else
                        action_name
                      end
-        
         if translated_attribute(current_component.singular_name).present?
           t("decidim.proposals.proposals.#{step_title}.title", singular_name: translated_attribute(current_component.singular_name).downcase)
         else
@@ -89,11 +88,11 @@ module Decidim
         current_step_num = proposal_wizard_step_number(step)
         see_steps = content_tag(:span, class: "hide-for-large") do
           concat " ("
-          concat content_tag :a, t(:"decidim.proposals.proposals.wizard_steps.see_steps"), "data-toggle": "steps"
+          concat content_tag :a, t(:'decidim.proposals.proposals.wizard_steps.see_steps'), 'data-toggle': 'steps'
           concat ")"
         end
         content_tag :span, class: "text-small" do
-          concat t(:"decidim.proposals.proposals.wizard_steps.step_of", current_step_num: current_step_num, total_steps: total_steps)
+          concat t(:'decidim.proposals.proposals.wizard_steps.step_of', current_step_num: current_step_num, total_steps: total_steps)
           concat see_steps
         end
       end
