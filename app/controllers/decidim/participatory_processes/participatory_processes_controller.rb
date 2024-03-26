@@ -29,6 +29,7 @@ module Decidim
 
       def show
         enforce_permission_to :read, :process, process: current_participatory_space
+        @current_area = current_area
 
         render_custom_show_page_if_necessary
       end
@@ -54,6 +55,13 @@ module Decidim
           with_type: nil,
           with_date: default_date_filter
         }
+      end
+
+      def current_area
+        area_id = current_participatory_space.decidim_area_id
+        areas = current_organization.areas.pluck(:id, :name)
+
+        areas.filter { |area| area.first == area_id }.first.second
       end
 
       def organization_participatory_processes
