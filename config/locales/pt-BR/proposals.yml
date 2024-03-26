@@ -274,7 +274,7 @@ pt-BR:
           continue: Continuar
           title: Propostas %{singular_name}
         complete:
-          send: Enviar
+          send: Criar
           title: Complete sua %{singular_name}
         edit_draft:
           discard: Descarte este rascunho
@@ -329,10 +329,11 @@ pt-BR:
             success: "@%{user} foi aceito como colaborador com sucesso"
         show:
           back_to: Voltar para
-          back_to_list: Voltar para a lista
-          proposal_accepted_reason: "Esta proposta foi recebida porque:"
+          back_to_list: Voltar
+          proposal_accepted_reason: 'Esta proposta foi recebida porque:'
           proposal_in_evaluation_reason: Esta proposta está em avaliação
           report: Denunciar
+          withdraw_proposal: Retirar %{singular_name} 
         vote_button:
           already_voted: Votada!
           already_voted_hover: Retirar voto
@@ -351,8 +352,8 @@ pt-BR:
             description: Pode votar até %{limit} proposta(s).
         wizard_aside:
           back: Voltar
-          back_from_step_1: Voltar para proposta
-          back_from_step_2: Voltar para proposta
+          back_from_step_1: Voltar
+          back_from_step_2: Voltar
           back_from_step_3: Voltar à comparação de proposta
           back_from_step_4: Voltar para a edição do rascunho
           info: Você está criando uma proposta
@@ -369,6 +370,6 @@ pt-BR:
         collaborative_drafts:
           back_to_resource: Voltar para o rascunho colaborativo
         proposals:
-          back_to_resource: Voltar para a proposta
+          back_to_resource: Voltar
     statistics:
       proposals_accepted: Propostas recebidas
