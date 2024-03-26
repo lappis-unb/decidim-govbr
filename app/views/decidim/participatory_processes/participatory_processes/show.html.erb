@@ -27,7 +27,7 @@
 <div>
   <h1 class="page-title"><%= translated_attribute(current_participatory_space.title) %></h1>
   <div class="meta-card">
-    <p><strong>Órgão/Instituição</strong>: <%= translated_attribute(@current_area) %></p>
+    <p><strong>Órgão/Instituição</strong>: <%= translated_attribute(current_participatory_space.area.name) %></p>
     <p><strong>Setor</strong>: <%= translated_attribute(current_participatory_space.participatory_process_group.title) %></p>
     <p><strong>Telefone ou E-mail Institucional do Setor</strong>: <%= translated_attribute(current_participatory_space.participatory_structure) %></p>
     <p><strong>Responsável pela consulta</strong>: <%= translated_attribute(current_participatory_space.target) %></p>
