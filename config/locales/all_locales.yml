@@ -369,7 +369,6 @@ pt:
           new_proposal: Faça sua %{proposal}
         filters:
           placeholder: "Qual %{name} você procura?"
-          state: DASDADADSADSADAS
   layouts:
     decidim:
       assembly_navigation:
