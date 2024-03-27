@@ -333,7 +333,8 @@ pt-BR:
           proposal_accepted_reason: 'Esta proposta foi recebida porque:'
           proposal_in_evaluation_reason: Esta proposta está em avaliação
           report: Denunciar
-          withdraw_proposal: Retirar %{singular_name} 
+          withdraw_proposal: Retirar %{singular_name}
+          withdraw_confirmation_html: Tem certeza que deseja retirar esta %{singular_name}?<br><br><strong>Esta ação não pode ser cancelada!</strong> 
         vote_button:
           already_voted: Votada!
           already_voted_hover: Retirar voto

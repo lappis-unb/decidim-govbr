@@ -123,7 +123,6 @@ extra_admin_link(
 
 
   <%= render partial: "decidim/shared/share_modal", locals: { resource: @proposal } %>
-  <%= embed_modal_for proposal_widget_url(@proposal, format: :js) %>
   <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
   <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
 </div>
