@@ -122,6 +122,7 @@ extra_admin_link(
 
       <%= amenders_list_for(@proposal) %>
 
+
       <%= render partial: "decidim/shared/share_modal", locals: { resource: @proposal } %>
       <button type="button" class="br-button" data-open="flagModal" title="Denunciar"
         aria-controls="flagModal" aria-haspopup="dialog" tabindex="0">
