@@ -305,14 +305,15 @@ pt-BR:
         filters:
           category: Tema
           placeholder: "Qual %{name} você procura?"
+          state: Status
         orders:
           label: "Ordene propostas por:"
-          most_commented: Mais contribuições
+          most_commented: Mais contribuidas
           most_endorsed: Mais endossadas
           most_followed: Mais seguidas
           most_voted: Mais votadas
           random: Aleatório
-          recent: Recentes
+          recent: Mais recentes
           with_more_authors: Com mais autores
         preview:
           announcement_body: Sua %{singular_name} foi salva como rascunho. Precisa ser publicada para aparecer no site.
