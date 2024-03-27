@@ -1,5 +1,4 @@
-<% if @step == :step_4 %>
-    <% body_messages = [if translated_attribute(current_component.singular_name).present?
+  <% body_messages = [if translated_attribute(current_component.singular_name).present?
           t("decidim.proposals.proposals.preview.announcement_body", singular_name: translated_attribute(current_component.singular_name).downcase)
         else
           t("decidim.proposals.proposals.preview.announcement_body", singular_name: "proposta")
@@ -7,8 +6,7 @@
     if component_settings.proposal_edit_time == "limited"
       body_messages << t("decidim.proposals.proposals.preview.proposal_edit_before_minutes", count: component_settings.proposal_edit_before_minutes)
     end %>
-
-  <%= cell(
+<%# <%= cell(
     "decidim/announcement",
     {
       title: 
@@ -21,23 +19,7 @@
     },
     callout_class: "warning"
   ) %>
-<% else %>
-  <%= cell("decidim/announcement", component_settings.new_proposal_help_text) %>
-<% end %>
-
-<% if proposal_wizard_step_help_text?(@step) %>
-  <div class="proposal_wizard_help_text">
-    <% callout_step_help_text_class ||= nil %>
-    <%= cell(
-      "decidim/announcement",
-      component_settings.try("proposal_wizard_#{@step}_help_text"),
-      callout_class: callout_step_help_text_class
-    ) %>
-  </div>
-<% end %>
-
 <h2 class="section-heading">
   <%= proposal_wizard_step_title action_name %>
   <%= "(#{@similar_proposals.count})" if @similar_proposals.present? %>
 </h2>
-
