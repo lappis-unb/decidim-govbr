@@ -13,6 +13,13 @@
                   { multiple: false } %>
 </div>
 
+<div class="field">
+  <%= form.select :associated_state,
+                  @form.meeting_state_select,
+                  { include_blank: t(".select_a_meeting_associated_state") },
+                  { multiple: false } %>
+</div>
+
 <div class="field" data-meeting-type="in_person">
   <%= form.geocoding_field :address, input_html: { required: false } %>
   <p class="help-text"><%= t(".address_help") %></p>

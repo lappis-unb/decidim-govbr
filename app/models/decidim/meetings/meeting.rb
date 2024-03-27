@@ -49,6 +49,36 @@ module Decidim
       enum iframe_access_level: [:all, :signed_in, :registered], _prefix: true
       enum iframe_embed_type: [:none, :embed_in_meeting_page, :open_in_live_event_page, :open_in_new_tab], _prefix: true
 
+      enum associated_state: {
+        Acre: 0,
+        Alagoas: 1,
+        Amapá: 2,
+        Amazonas: 3,
+        Bahia: 4,
+        Ceará: 5,
+        'Distrito Federal': 6,
+        'Espírito Santo': 7,
+        Goiás: 8,
+        Maranhão: 9,
+        'Mato Grosso': 10,
+        'Mato Grosso do Sul': 11,
+        'Minas Gerais': 12,
+        Pará: 13,
+        Paraíba: 14,
+        Paraná: 15,
+        Pernambuco: 16,
+        Piauí: 17,
+        'Rio de Janeiro': 18,
+        'Rio Grande do Norte': 19,
+        'Rio Grande do Sul': 20,
+        Rondônia: 21,
+        Roraima: 22,
+        'Santa Catarina': 23,
+        'São Paulo': 24,
+        Sergipe: 25,
+        Tocantins: 26
+      }
+
       component_manifest_name "meetings"
 
       validates :title, presence: true

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_03_04_183136) do
+ActiveRecord::Schema.define(version: 2024_03_26_181857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -454,8 +454,9 @@ ActiveRecord::Schema.define(version: 2024_03_04_183136) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "participatory_space_type", null: false
-    t.jsonb "singular_name"
     t.boolean "hide_in_menu"
+    t.jsonb "singular_name"
+    t.jsonb "menu_name"
     t.index ["participatory_space_id", "participatory_space_type"], name: "index_decidim_components_on_decidim_participatory_space"
   end
 
@@ -1229,6 +1230,7 @@ ActiveRecord::Schema.define(version: 2024_03_04_183136) do
     t.string "state"
     t.integer "iframe_access_level", default: 0
     t.integer "iframe_embed_type", default: 0
+    t.integer "associated_state", default: 0
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_meetings_meetings_on_author"
     t.index ["decidim_author_id"], name: "index_decidim_meetings_meetings_on_decidim_author_id"
     t.index ["decidim_component_id"], name: "index_decidim_meetings_meetings_on_decidim_component_id"
@@ -1549,6 +1551,12 @@ ActiveRecord::Schema.define(version: 2024_03_04_183136) do
     t.string "initial_page_type", default: "default", null: false
     t.bigint "initial_page_component_id"
     t.string "group_chat_id"
+    t.jsonb "institution"
+    t.jsonb "sector"
+    t.jsonb "consultant"
+    t.date "dou_publication_date"
+    t.string "dou_link"
+    t.string "contact"
     t.boolean "should_have_user_full_profile", default: false
     t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
