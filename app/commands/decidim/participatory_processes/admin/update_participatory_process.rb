@@ -94,12 +94,12 @@ module Decidim
         end
 
         def hide_custom_initial_page_component
-          unless @participatory_process.initial_page_component_id.zero? || @participatory_process.initial_page_component_id.nil?
+          unless @participatory_process.initial_page_component_id.nil? || @participatory_process.initial_page_component_id.zero?
             previous_initial_page_component = Decidim::Component.find(@participatory_process.initial_page_component_id)
             previous_initial_page_component.update_column(:hide_in_menu, false)
           end
 
-          return if form.initial_page_component_id.zero? || form.initial_page_component_id.nil?
+          return if form.initial_page_component_id.nil? || form.initial_page_component_id.zero?
 
           initial_page_component = Decidim::Component.find(form.initial_page_component_id)
           initial_page_component.update_column(:hide_in_menu, true)
