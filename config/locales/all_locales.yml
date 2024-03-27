@@ -43,10 +43,6 @@ pt-BR:
         date: Data
         link: Link
         title: Título
-      assembly:
-        initial_page_component_id: Página Principal da Assembléia
-      participatory_process:
-        initial_page_component_id: Página Inicial do Processo Participativo
   decidim:
     statistics:
       headline: Dados Participativos
@@ -285,6 +281,12 @@ pt:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Pesquisar %{collection} por e-mail, nome, nome de usuário ou CPF.
       components:
+        proposals:
+          actions:
+            new: Novo(a) %{name}
+        meetings:
+          actions:
+            new: "Novo(a) %{singular_name}"
         form:
           pluralized_name_field: "Preencha com o nome que represente o conjunto desse componente. Exemplo de nome para componente Moção: Moções"
           name_field: Preencha com o nome no singular
@@ -334,13 +336,6 @@ pt:
           create: "%{user_name} criou o link externo %{resource_name} no espaço participativo %{space_name}"
           delete: "%{user_name} removeu o link externo %{resource_name} do espaço participativo %{space_name}"
           update: "%{user_name} atualizou o link externo %{resource_name} do espaço participativo %{space_name}"
-    components:
-      proposals:
-        actions:
-          new: Novo(a) %{name}
-      meetings:
-        actions:
-          new: "Novo(a) %{singular_name}"
     meetings:
       admin:
         meetings:
