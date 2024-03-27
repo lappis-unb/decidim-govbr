@@ -41,6 +41,22 @@ module Decidim
         end
       end
 
+      def all_meetings_of_a_participatory_process
+        state = params[:state]
+
+        meeting_component = Decidim::Component.where(manifest_name: "meetings",
+                                                     participatory_space_id: current_participatory_space.id,
+                                                     participatory_space_type: "Decidim::ParticipatoryProcess")
+                                              .first
+
+        @all_meetings_of_a_participatory_process ||= Decidim::Meetings::Meeting.where(decidim_component_id: meeting_component.id, associated_state: state).except_withdrawn
+                                                                               .published
+                                                                               .not_hidden
+                                                                               .visible_for(current_user)
+
+        render json: @all_meetings_of_a_participatory_process
+      end
+
       private
 
       def search_collection

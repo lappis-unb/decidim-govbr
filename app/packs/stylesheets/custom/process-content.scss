@@ -47,3 +47,11 @@
     align-items: center;
     gap: 20px;
 }
+
+.meetings-list {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 400px;
+    gap: 32px;
+}
