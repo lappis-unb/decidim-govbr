@@ -15,6 +15,7 @@ module Decidim
       include FilterResource
       include Decidim::Proposals::Orderable
       include Paginable
+      helper Decidim::Govbr::ParticipatoryProcessesHelper
 
       helper_method :proposal_presenter, :form_presenter
 
@@ -24,6 +25,7 @@ module Decidim
       before_action :edit_form, only: [:edit_draft, :edit]
 
       before_action :set_participatory_text
+      before_action :display_user_profile_poll_warning, only: [:index, :show]
 
       # rubocop:disable Naming/VariableNumber
       STEP1 = :step_1
@@ -305,6 +307,18 @@ module Decidim
 
       def proposal_creation_params
         params[:proposal].merge(body_template: translated_proposal_body_template)
+      end
+
+      def display_user_profile_poll_warning
+        return unless current_participatory_space.is_a? Decidim::ParticipatoryProcess
+
+        if current_participatory_space.should_have_user_full_profile && current_user.present? &&
+           !current_user.user_profile_poll_answered
+          survey_component_id = current_organization.user_profile_survey_id
+
+          flash[:alert] = I18n.t("decidim.components.proposals.actions.action_not_allowed")
+          flash[:poll_link] = "/processes/#{params[:participatory_process_slug]}/f/#{survey_component_id}"
+        end
       end
     end
   end

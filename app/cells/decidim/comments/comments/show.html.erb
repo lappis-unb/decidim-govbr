@@ -4,7 +4,6 @@
     <div class="comments-new">
       <div class="comments-header meeting">
           <% if single_comment? %>
-          <%= t("activemodel.models.decidim/comments/comment_created_event") %>
           <% else %>
             <h3 class="br-comments-count">
             <%= comments_count %>
@@ -21,8 +20,12 @@
           <%= cell("decidim/comments/comment_thread", comment, order: order) %>
         <% end %>
       </div>
-      <%= add_comment %>
-
+      <% if options.try(:[], :hide_comment_action) && current_user.present? %>
+        <span class="message-title"><%= options[:alert] %></span>
+        <a target="_blank" href=<%= options[:poll_link] %>> <%= t("decidim.forms.incomplete_profile") %></a>
+      <% else %>
+        <%= add_comment %>
+      <% end %>
       <%= user_comments_blocked_warning %>
 
 

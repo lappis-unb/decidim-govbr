@@ -32,6 +32,8 @@ pt-BR:
         password_confirmation: Confirmação da senha
         remember_me: Lembrar-me
   decidim:
+    scopes:
+      global: Selecione o tema do processo
     accessibility:
       front_page_link: Ir para a página principal
     account:
@@ -98,9 +100,9 @@ pt-BR:
         create_via_csv: "%{user_name} convidou %{resource_name} via CSV para ser um participante privado"
         delete: "%{user_name} removeu %{resource_name} como participante privado"
       scope_type:
-        create: "%{user_name} criou o tipo de âmbito %{resource_name}"
-        delete: "%{user_name} removeu o tipo de âmbito %{resource_name}"
-        update: "%{user_name} atualizou o tipo de âmbito %{resource_name}"
+        create: "%{user_name} criou o tipo de área de interesse %{resource_name}"
+        delete: "%{user_name} removeu o tipo de área de interesse %{resource_name}"
+        update: "%{user_name} atualizou o tipo de área de interesse %{resource_name}"
       static_page:
         create: "%{user_name} criou a página estática %{resource_name}"
         delete: "%{user_name} removeu a página estática %{resource_name}"
@@ -174,7 +176,7 @@ pt-BR:
       create:
         error: Erro ao carregar a imagem
         success: Imagem carregada com sucesso
-      drag_and_drop_help: Adicione imagens arrastando e soltando-as ou colando-as.
+      drag_and_drop_help: Texto destacado para informações importantes, aparece logo após o título. Adicione imagens arrastando e soltando-as ou colando-as.
     forms:
       current_file: Arquivo atual
       current_image: Imagem atual
@@ -479,14 +481,15 @@ pt-BR:
             cookie: Cookie
             local_storage: Armazenagem local
         dialog:
-          accept_all: Aceitar todos
-          accept_only_essential: Aceitar somente o essencial
+          accept_all: Aceitar cookies
+          reject: Rejeitar cookies
           description: Utilizamos cookies para melhorar o desempenho e o conteúdo do site. Os cookies nos permitem fornecer uma experiência de usuário mais individual e canais de mídia social.
-          settings: Configurações
+          settings: Gerenciador cookies
           title: Informações sobre os cookies utilizados no site
         modal:
-          accept_all: Aceitar todos
-          accept_only_essential: Aceitar somente o essencial
+          accept_all: Salvar
+          reject: Rejeitar cookies
+          accept_only_essential: Rejeitar cookies
           analytics:
             description: Estes cookies são usados para medir e analisar o público para ajudar a melhorar o site.
             title: Analítica e estatística

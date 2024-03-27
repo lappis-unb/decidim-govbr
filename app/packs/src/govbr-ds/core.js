@@ -2291,15 +2291,15 @@ reference element's position.
                 };
           var Portuguese = {
             weekdays: {
-              shorthand: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "SÃ¡b"],
+              shorthand: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
               longhand: [
                 "Domingo",
                 "Segunda-feira",
-                "TerÃ§a-feira",
+                "Terça-feira",
                 "Quarta-feira",
                 "Quinta-feira",
                 "Sexta-feira",
-                "SÃ¡bado",
+                "Sábado",
               ],
             },
             months: {
@@ -2320,7 +2320,7 @@ reference element's position.
               longhand: [
                 "Janeiro",
                 "Fevereiro",
-                "MarÃ§o",
+                "Março",
                 "Abril",
                 "Maio",
                 "Junho",
@@ -2332,7 +2332,7 @@ reference element's position.
                 "Dezembro",
               ],
             },
-            rangeSeparator: " atÃ© ",
+            rangeSeparator: " até ",
             time_24hr: true,
           };
           fp.l10ns.pt = Portuguese;

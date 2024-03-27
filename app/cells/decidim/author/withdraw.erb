@@ -1,0 +1,10 @@
+<% if withdrawable? %>
+  <%= action_authorized_link_to :withdraw, withdraw_path, method: :put, class: "title-action__action button small hollow", title: t("withdraw_btn_hint", scope: resource_i18n_scope ), data: { confirm: t("withdraw_confirmation_html", scope: resource_i18n_scope ) } do %>
+    <% if translated_attribute(current_component.singular_name).present? %>
+      <%= t("decidim.proposals.proposals.show.withdraw_proposal", singular_name: translated_attribute(current_component.singular_name).downcase) %>
+    <% else %>
+      <%= t("decidim.proposals.proposals.show.withdraw_proposal", singular_name: "proposta") %>
+    <% end %>
+    <%= icon "x", role: "img", "aria-hidden": true %>
+  <% end %>
+<% end %>

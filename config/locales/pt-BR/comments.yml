@@ -4,13 +4,13 @@ pt-BR:
   activemodel:
     models:
       decidim/comments/comment_by_followed_user_event: Contribua
-      decidim/comments/comment_created_event: 
+      decidim/comments/comment_created_event:
         one: Contribuição
         other: Contribuições
       decidim/comments/reply_created_event: Resposta
       decidim/comments/user_group_mentioned_event: Mencionar
       decidim/comments/user_mentioned_event: Mencionar
-    contribuicao:
+    contribution:
       one: Contribuição
       other: Contribuições
   activerecord:
@@ -50,8 +50,29 @@ pt-BR:
         title: Adicione sua contribuição
       comments:
         title:
-          one: "%{count} contribuicao"
+          one: "%{count} contribuição"
           other: "%{count} contribuições"
         single_comment_warning: Pode consultar as contribuições restantes <a href="%{url}">aqui</a>.
-        single_comment_kjhgwarning_title: Está vendo uma única contribuição
-
+        single_comment_warning_title: Está vendo uma única contribuição
+        confirm_destroy: Tem certeza que deseja excluir esta contribuição?
+        loading: Carregando contribuições ...
+      comment:
+        delete: deletar
+        deleted_at: Contribuição excluída em %{date}
+      edit_comment_modal_form:
+        close: Fechar
+        form:
+          body:
+            label: Contribuição
+            placeholder: O que você pensa sobre isso?
+          submit: Enviar
+        title: Editar sua contribuição
+      up_vote_button:
+        text: Eu concordo com esta contribuição
+      comment_order_selector:
+        order:
+          best_rated: Melhores avaliados
+          most_discussed: Mais discutidos
+          older: Mais antigos
+          recent: Mais recentes
+        title: 'Ordenar por:'
