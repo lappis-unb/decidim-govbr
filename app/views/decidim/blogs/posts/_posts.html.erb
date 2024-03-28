@@ -63,25 +63,25 @@
     <% paginate_posts.each do |post| %>
       <li class="news-item">
         <div class="news-card">
-            <div class="news-content">
-              <%= link_to post, class: "news-title" do %>
-                <%= translated_attribute post.title %>
+          <div class="news-image-container">
+            <% if post.photo.present? %>
+              <%= link_to post do %>
+                <%= image_tag post.photo.url, class: "news-cover-image" %>
               <% end %>
-              <span class="news-description">
-                <span class="news-date">
-                  <%= l post.created_at, format: "%d/%m/%Y" %>
-                </span>
-                - <%= translated_attribute post.subtitle %>
-              </span>
-            </div>
+            <% end %>
+          </div>
 
-            <div class="news-image-container">
-              <% if post.photo.present? %>
-                <%= link_to post do %>
-                  <%= image_tag post.photo.url, class: "news-cover-image" %>
-                <% end %>
-              <% end %>
-            </div>
+          <div class="news-content">
+            <%= link_to post, class: "news-title" do %>
+              <%= translated_attribute post.title %>
+            <% end %>
+            <span class="news-description">
+              <span class="news-date">
+                <%= l post.created_at, format: "%d/%m/%Y" %>
+              </span>
+              - <%= translated_attribute post.subtitle %>
+            </span>
+          </div>
         </div>
       </li>
     <% end %>
