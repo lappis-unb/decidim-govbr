@@ -34,9 +34,10 @@ module Decidim
       def body
         return unless model.participatory_text_level == "article"
 
-        "<div class='pp_text_body'> #{formatted = simple_format(present(model).body)
-                                      decidim_sanitize_editor(strip_links(formatted))}
-        </div>"
+        content_tag(:div, class: "pp_text_body") do
+          formatted = simple_format(present(model).body)
+          decidim_sanitize_editor(strip_links(formatted))
+        end
       end
 
       def interactive?
