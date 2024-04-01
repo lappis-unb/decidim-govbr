@@ -223,10 +223,6 @@ pt-BR:
             evaluating: Em avaliação
             not_answered: Não respondida
             rejected: Rejeitada
-            title: Devolutiva para a proposta %{title}
-        proposal_notes:
-          title: Anotações privadas para o orgão
-          leave_your_note: Deixe sua anotação, apenas o órgão poderá visualizar
       answers:
         accepted: Recebida
         evaluating: Em avaliação
