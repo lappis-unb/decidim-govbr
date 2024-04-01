@@ -13,6 +13,10 @@ pt-BR:
         title: Nome da Proposta
       proposals_import:
         origin_component_id: Componente de origem
+      proposal_answer:
+        answer: Devolutiva
+      proposals_import:
+        import_proposals: Importar propostas de componente
     errors:
       models:
         proposal:
@@ -210,15 +214,19 @@ pt-BR:
             invalid: "Estas propostas já tinham o tema %{subject_name}: %{proposals}."
             select_a_category: Selecione um tema
             success: "Propostas atualizadas com sucesso para o tema %{subject_name}: %{proposals}."
+          update_scope:
+            select_a_scope: Selecione um âmbitosksh
         proposal_answers:
           form:
-            accepted: Recebida
+            accepted: Aceita
             answer_proposal: Resposta
             evaluating: Em avaliação
             not_answered: Não respondida
             rejected: Rejeitada
-        proposals_notes:
-          title: Notas privadas
+            title: Devolutiva para a proposta %{title}
+        proposal_notes:
+          title: Anotações privadas para o orgão
+          leave_your_note: Deixe sua anotação, apenas o órgão poderá visualizar
       answers:
         accepted: Recebida
         evaluating: Em avaliação
