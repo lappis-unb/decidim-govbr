@@ -10,11 +10,14 @@
       <%= cell "decidim/meetings/join_meeting_button", model %>
     <% else %>
 
-    <% current_time = Time.now.strftime("%H:%M") %>
-    <% current_date = Date.today %>    
+    <% current_time_str = Time.now.strftime("%H:%M") %>
+    <% current_time = Time.strptime(current_time_str, "%H:%M") %>
+    <% current_date = Date.today %> 
+    <% start_time = Time.parse(formatted_start_time)%>
+    <% end_time = Time.parse(formatted_end_time)%>
   
     <div class="footer_button_text">
-      <% if formatted_start_time < current_time && formatted_end_time > current_time && start_date >= current_date  && end_date<= current_date %>
+      <% if start_time <=current_time && end_time >= current_time && start_date >= current_date  && end_date >= current_date %>
         <%= link_to "Participar", resource_path, class: "card__button button--sc light button small" %>
       <% else %>
         <%= link_to "Visualizar", resource_path, class: "card__button button--sc light button small" %>
