@@ -124,7 +124,7 @@ module Decidim
 
     # Metodo sanitizer para propostas
     def render_sanitized_proposal(resource, method)
-      content = present(resource).send(method, links: true, strip_tags: try(:safe_content?))
+      content = present(resource).send(method, links: true)
 
       return decidim_sanitize(content, {}) unless try(:safe_content?)
       return decidim_sanitize_editor_admin(content, {}) if try(:safe_content_admin?)
