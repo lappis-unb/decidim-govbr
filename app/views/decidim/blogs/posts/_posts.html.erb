@@ -93,7 +93,7 @@
             <% if post.documents.length > 0 %>
               <div class="file-preview">
                 <% @file_size = post.documents[0].file_size.to_f %>
-                <%= link_to "Baixar em PDF", post.documents[0].url , class: "btn btn-primary" %>
+                <%= link_to "Baixar em PDF", post.documents[0].url , class: "download-btn" %>
                 - Tamanho do arquivo: 
                 <% if @file_size <= 999999%>
                   <%= (@file_size / (10.pow(3))).round(2) %> Kb

@@ -174,3 +174,18 @@
     font-size: 1.125rem !important;
   }
 }
+
+.posts-year {
+  font-weight: var(--font-weight-bold);
+  padding: 0.75rem;
+  border: 1px solid var(--gray-20);
+}
+
+.file-preview {
+  margin: 0.5rem 0rem;
+}
+
+.download-btn {
+  padding: 0.25rem;
+  border: 1px solid var(--gray-20);
+}
