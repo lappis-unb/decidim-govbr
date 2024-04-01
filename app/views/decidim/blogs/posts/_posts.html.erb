@@ -14,26 +14,45 @@
     <div class="message-icon"><i class="fas fa-info-circle fa-lg" aria-hidden="true"></i></div>
     <div class="content"><span class="message-title">A página não possui publicação.</span></div>
    </div>
-  <% else %> 
+  <% else %>
+    <% @prev_year = 0 %>
     <% paginate_posts.each do |post| %>
+      <% @aux_date = post.created_at.year %>
+
+      <% if @aux_date < @prev_year || @prev_year == 0 %>
+        <% @prev_year = @aux_date %>
+        <span class="posts-year">
+          <%= @aux_date %>
+        </span>
+      <% end %>
       <li class="news-item">
         <div class="br-card h-fixed">
           <div class="card-header">
             <%= link_to post, class: "news-title" do %>
-              <%= translated_attribute post.title %>
-            <% end %>
-            <p class="br-card-date">
               <%= l post.created_at, format: "%d/%m/%Y" %>
-            </p>
+               - <%= translated_attribute post.title %>
+            <% end %>
+
             <% if post.photo.present? %>
               <%= link_to post do %>
                 <%= image_tag post.photo.url, class: "news-cover-image" %>
               <% end %>
             <% end %>
           </div>
-          <div class="br-card-content" tabindex="0">
-            <%= translated_attribute post.subtitle %>
-          </div>
+
+          <% if post.documents.length > 0 %>
+            <div class="file-preview-mobile">
+              <% @file_size = post.documents[0].file_size.to_f %>
+              <%= link_to "Baixar em PDF", post.documents[0].url , class: "download-btn" %>
+              - Tamanho do arquivo: 
+              <% if @file_size <= 999999%>
+                <%= (@file_size / (10.pow(3))).round(2) %> Kb
+              <% else %>
+                <%= (@file_size / (10.pow(6))).round(2) %> Mb
+              <% end %>
+            </div>
+          <%end%>
+
           <div class="card-footer">
             <div class="d-flex">
               <%= link_to post, class: "card__link" do %>

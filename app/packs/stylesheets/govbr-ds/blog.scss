@@ -185,6 +185,14 @@
   margin: 0.5rem 0rem;
 }
 
+.br-card .file-preview-mobile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0rem;
+  gap: 0.25rem;
+}
+
 .download-btn {
   padding: 0.25rem;
   border: 1px solid var(--gray-20);
