@@ -9,10 +9,15 @@
 
     <% current_date = Date.today %>
     
-    <% if current_date >= current_date %>
-      <%= link_to("Participar",resource_path,class: "card__button button button--sc small")%>
+  <% if model.try(:creation_date) && model.try(:closing_date) %>
+    <% if model.creation_date <= current_date && model.closing_date >= current_date %>
+      <%= link_to("Participar", resource_path, class: "card__button button button--sc small") %>
     <% else %>
-      <%= link_to("Visualizar",resource_path,class: "card__button button button--sc small")%>
+      <%= link_to("Visualizar", resource_path, class: "card__button button button--sc small") %>
     <% end %>
+  <% else %>
+    <%= link_to("Visualizar", resource_path, class: "card__button button button--sc small") %>
+  <% end %>
+
   </div>
 </div>
