@@ -75,7 +75,7 @@
         </div>
         <%= cell "decidim/endorsers_list", post %>
     </div>
-    <% if post.photos.size > 1 %>
+    <% if post.photos.size > 1 || post.documents.length > 0%>
         <%= attachments_for post %>
     <% end %>
     <%= render partial: 'medias-section' %>
