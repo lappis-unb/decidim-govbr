@@ -63,13 +63,13 @@
     <% paginate_posts.each do |post| %>
       <li class="news-item">
         <div class="news-card">
-          <div class="news-image-container">
-            <% if post.photo.present? %>
+          <% if post.photo.present? %>
+            <div class="news-image-container">
               <%= link_to post do %>
                 <%= image_tag post.photo.url, class: "news-cover-image" %>
               <% end %>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
 
           <div class="news-content">
             <%= link_to post, class: "news-title" do %>
