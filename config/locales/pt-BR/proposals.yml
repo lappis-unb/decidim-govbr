@@ -7,9 +7,10 @@ pt-BR:
         category_id: Tema
       proposal:
         automatic_hashtags: Iniciativas
-        body: Descrição
+        body: Resumo da Proposta
         category_id: Tema
         suggested_hashtags: Tipos de propostas
+        title: Nome da Proposta
       proposals_import:
         origin_component_id: Componente de origem
     errors:
@@ -216,6 +217,8 @@ pt-BR:
             evaluating: Em avaliação
             not_answered: Não respondida
             rejected: Rejeitada
+        proposals_notes:
+          title: Notas privadas
       answers:
         accepted: Recebida
         evaluating: Em avaliação

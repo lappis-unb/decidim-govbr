@@ -87,7 +87,7 @@ pt-BR:
         form:
           default_step_settings: Configurações da fase padrão
           step_settings: Configurações da fase
-          name_field: Preencha com o nome no singular
+          name_field: "Este é o nome do componente, deve estar no singular. Exemplo de nome para um componente Enquetes: Questionário"
           pluralized_name_field: "Preencha com o nome que represente o conjunto desse componente. Exemplo de nome para componente Moção: Moções"
           menu_name_field: Preencha com o nome da página(componente) que aparece no menu
       conflicts:
