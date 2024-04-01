@@ -60,7 +60,17 @@
     <div class="content"><span class="message-title">A página não possui publicação.</span></div>
    </div>
   <% else %>
+    <% @prev_year = 0 %>
     <% paginate_posts.each do |post| %>
+      <% @aux_date = post.created_at.year %>
+
+      <% if @aux_date < @prev_year || @prev_year == 0 %>
+        <% @prev_year = @aux_date %>
+        <span class="posts-year">
+          <%= @aux_date %>
+        </span>
+      <% end %>
+
       <li class="news-item">
         <div class="news-card">
           <% if post.photo.present? %>
