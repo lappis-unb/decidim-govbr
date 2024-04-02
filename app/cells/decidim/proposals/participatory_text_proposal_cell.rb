@@ -33,12 +33,12 @@ module Decidim
 
       def body
         return unless model.participatory_text_level == "article"
-        
-        if translated_attribute(model.body).include? "<table>"
-          formatted = simple_format(present(model).body,{},sanitize:false)
-        else
-          formatted = simple_format(present(model).body)
-        end
+
+        formatted = if translated_attribute(model.body).include? "<table>"
+                      simple_format(present(model).body, {}, sanitize: false)
+                    else
+                      simple_format(present(model).body)
+                    end
 
         decidim_sanitize_editor(strip_links(formatted))
       end
