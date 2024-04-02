@@ -14,7 +14,12 @@
     </div>
   <% end %>
 
-  <div class="filters__menu">
+  <span id="filter-btn-br" class="button">
+    <i class="fa-solid fa-sliders" style="color: #333333;"></i>
+    Mostrar Filtros
+  </span>
+
+  <div id="filters__menu" class="filters__hidden">
     <%= form.hidden_field "state_withdraw", value: params.dig("filter", "state_withdraw") %>
 
     <% if component_settings.proposal_answering_enabled && current_settings.proposal_answering_enabled %>

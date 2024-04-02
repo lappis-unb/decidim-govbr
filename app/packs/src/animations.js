@@ -64,4 +64,21 @@ document.addEventListener("DOMContentLoaded", function () {
     jsonExport[i] && jsonExport[i].addEventListener("click", () => exportSpanStyle(exportSpan))
     excelExport[i] && excelExport[i].addEventListener("click", () => exportSpanStyle(exportSpan))
   }
+
+  let showFilters = document.getElementById("filter-btn-br")
+
+  showFilters.addEventListener("click", () => {
+    let filtersMenu = document.getElementById("filters__menu")
+    let menuStatus = filtersMenu.classList[0]
+    
+    if(menuStatus == "filters__hidden"){
+      filtersMenu.classList.remove("filters__hidden")
+      showFilters.innerHTML = `<i class="fa-solid fa-sliders" style="color: #333333;"></i>
+      Esconder Filtros`
+    } else{
+      showFilters.innerHTML = `<i class="fa-solid fa-sliders" style="color: #333333;"></i>
+      Mostrar Filtros`
+      filtersMenu.classList.add("filters__hidden")
+    }
+  })
 });
