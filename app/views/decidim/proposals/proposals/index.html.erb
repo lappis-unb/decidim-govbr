@@ -105,12 +105,15 @@
         </div>
       <% end %>
     <% end %>
+    
+    <% if not browser.mobile? %>
+      <div class="br-card proposals-filters">
+        <%= render partial: "filters" %>
+      </div>
+    <% end %>
+
     <div class="proposals-content-container">
-      <% if not browser.mobile? %>
-        <div class="br-card proposals-filters">
-          <%= render partial: "filters" %>
-        </div>
-      <% end %>
+      
       <div id="proposals" class="proposals-br" aria-live="polite">
         <%= render partial: "proposals" %>
       </div>
