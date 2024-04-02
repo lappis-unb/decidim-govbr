@@ -46,6 +46,7 @@ module Decidim
       def sanitize_markdown(markdown_str)
         new_str=sanitize_ordered_lists(markdown_str)
         new_str=sanitize_unordered_lists(new_str)
+        new_str=sanitize_images(new_str)
         new_str
       end
 
@@ -67,6 +68,16 @@ module Decidim
         new_str.gsub(/(?:\*\s\s\s.+)\n(?:[^*])/i) do |item|
           item.gsub(/\n/,"\n\n")
         end
+      end
+
+      def sanitize_images(markdown_str)
+        user_message="[INSIRA A IMAGEM AQUI!]\n\n"
+
+        new_str=markdown_str.gsub(/\<img.*\/\>/) do |img_tag|
+          img_tag.gsub(/\<img.*\/\>/,user_message)
+        end
+
+        new_str
       end
     end
   end
