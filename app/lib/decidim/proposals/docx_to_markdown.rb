@@ -44,11 +44,27 @@ module Decidim
       end
 
       def sanitize_markdown(markdown_str)
-        new_str = markdown_str.gsub(/(?:\d+\.\s\s.+)\n\n/i) do |item|
+        new_str=sanitize_ordered_lists(markdown_str)
+        new_str=sanitize_unordered_lists(new_str)
+        new_str
+      end
+
+      def sanitize_ordered_lists(markdown_str)
+        new_str=markdown_str.gsub(/(?:\d+\.\s\s.+)\n\n/i) do |item|
           item.gsub(/\n\n/,"\n")
         end
 
         new_str.gsub(/(?:\d+\.\s\s.+)\n(?:\D)/i) do |item|
+          item.gsub(/\n/,"\n\n")
+        end
+      end
+
+      def sanitize_unordered_lists(markdown_str)
+        new_str=markdown_str.gsub(/-(?:\s\s\s.+)\n\n/i) do |item|
+          item.gsub(/-/,"*").gsub(/\n\n/,"\n")
+        end
+
+        new_str.gsub(/(?:\*\s\s\s.+)\n(?:[^*])/i) do |item|
           item.gsub(/\n/,"\n\n")
         end
       end
