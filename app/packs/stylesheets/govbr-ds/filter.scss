@@ -64,7 +64,6 @@
 .filters {
   padding: 0;
   min-height: auto;
-  max-width: 320px;
 }
 
 .filters__title {
@@ -111,4 +110,8 @@
 
 .pagination-br-container {
   margin-top: 16px;
+}
+
+.filters__menu {
+  background-color: var(--gray-2);
 }
