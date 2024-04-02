@@ -54,4 +54,19 @@
     overflow-y: scroll;
     height: 400px;
     gap: 32px;
+    width: 40%;
+}
+
+.region-meetings {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.regions-map {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    flex-wrap: wrap;
 }

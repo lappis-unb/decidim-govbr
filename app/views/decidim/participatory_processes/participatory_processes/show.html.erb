@@ -43,13 +43,8 @@
       <%= decidim_sanitize_editor_admin translated_attribute(current_participatory_space.description) %>
     </div>
     <%= attachments_for current_participatory_space %>
+    <%= render partial: "region_meetings" %>
 
-    <div class="regions" id="regions">
-
-
-    </div>
-
-    <div id="meetings-list" class="meetings-list"> </div>
     </div>
   </div>
 
@@ -63,41 +58,4 @@
 </div>
 </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    const regions = ['Acre','Alagoas','Amapá','Amazonas','Bahia','Ceará','Distrito Federal','Espírito Santo','Goiás','Maranhão',
-    'Mato Grosso','Mato Grosso do Sul','Minas Gerais','Pará','Paraíba','Paraná','Pernambuco','Piauí','Rio de Janeiro','Rio Grande do Norte',
-    'Rio Grande do Sul','Rondônia','Roraima','Santa Catarina','São Paulo','Sergipe','Tocantins']
-
-    console.log('ready');
-
-    $('#regions').append(regions.map(region => `<button id="${region}" class="br-button primary">${region}</button>`).join(''));
-
-    $('#regions').on('click', 'button', function() {
-      var state = $(this).attr('id');
-      console.log(state);
-      $.ajax({
-        url: '<%= main_app.get_all_meetings_of_a_participatory_process_path %>',
-        dataType: 'json',
-        data: { state: state },
-        success: function(data) {
-          var meetingsList = $('#meetings-list');
-          meetingsList.empty();
-          $.each(data, function(index, meeting) {
-
-            const meetingDiv = document.createElement('div');
-            meetingDiv.classList.add('region-meeting');
-            meetingDiv.innerHTML = 
-                        '<p><strong>Titulo</strong>: ' + meeting.title["pt"] + '</p>' +
-                        '<p><strong>Descrição</strong>: ' + meeting.description["pt"] + '</p>';
-            meetingsList.append(meetingDiv);
-            
-          });
-        }
-      });
-    });
-
-  });
-</script>
 

@@ -1,0 +1,107 @@
+<div class="region-meetings">
+
+  <div class="regions-map" id="regions">
+
+
+  </div>
+
+  <div id="meetings-list" class="meetings-list meetings-content">
+
+  </div>
+
+</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const regions = ['Acre','Alagoas','Amapá','Amazonas','Bahia','Ceará','Distrito Federal','Espírito Santo','Goiás','Maranhão',
+    'Mato Grosso','Mato Grosso do Sul','Minas Gerais','Pará','Paraíba','Paraná','Pernambuco','Piauí','Rio de Janeiro','Rio Grande do Norte',
+    'Rio Grande do Sul','Rondônia','Roraima','Santa Catarina','São Paulo','Sergipe','Tocantins']
+
+    console.log('ready');
+
+    $('#regions').append(regions.map(region => `<button id="${region}" class="br-button primary">${region}</button>`).join(''));
+
+    $('#regions').on('click', 'button', function() {
+      var state = $(this).attr('id');
+      console.log(state);
+      $.ajax({
+        url: '<%= main_app.get_all_meetings_of_a_participatory_process_path %>',
+        dataType: 'json',
+        data: { state: state },
+        success: function(data) {
+          var meetingsList = $('#meetings-list');
+          meetingsList.empty();
+          $.each(data, function(index, meeting) {
+            console.log(meeting);
+            const meetingDiv = document.createElement('div');
+            meetingDiv.classList.add('region-meeting');
+            meetingDiv.innerHTML =
+                        `
+                        <div class="column">
+                          <div class="card card--meeting">
+                              <div class="card__content">
+                                  <div class="card__header">
+                                      <a class="card__link" href="/processes/${meeting.decidim_process_slug}/f/${meeting.decidim_component_id}/meetings/${meeting.id}">
+                                          <div class="card__title">${meeting.title["pt-BR"]}</div>
+                                      </a>
+                                      <div class="author-data">
+                                          <div class="author-data__main">
+                                              <div class="author author--inline">
+                                                  <span class="author__avatar">
+                                                      <img alt="Avatar" src="/decidim-packs/media/images/default-avatar.svg">
+                                                  </span>
+                                                  <span class="author__name">Reunião oficial</span>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="card__text">
+                                      <div class="card__text--paragraph">${meeting.description["pt-BR"]}</div>
+                                  </div>
+                                  
+                                  
+                              </div>
+                              <div class="card__icondata">
+                                  <ul class="card-data">
+                                      <li class="card-data__item">
+                                          <i class="fa-solid fa-clock fa-xl" style="color: #2670e8;"></i>
+                                      </li>
+                                      <li class="card-data__item">
+                                          <div class="card-data__item--multiple">
+                                              <div>
+                                                  <strong>${new Date(meeting.start_time).toLocaleDateString()}</strong>
+                                                  ${new Date(meeting.start_time).toLocaleTimeString()}
+                                              </div>
+                                              <i class="fa-solid fa-arrow-right fa-xl" style="color: #636363;"></i>
+                                              <div>
+                                                  <strong>${new Date(meeting.end_time).toLocaleDateString()}</strong>
+                                                  ${new Date(meeting.end_time).toLocaleTimeString()}
+                                              </div>
+                                          </div>
+                                      </li>
+                                  </ul>
+                              </div>
+                              <div class="card__footer">
+                                  <div class="card__support">
+                                      <div class="meetings-count-container">
+                                          <p class="meetings-count-text">${meeting.attendees_count || 0}</p>
+                                          inscritos
+                                      </div>
+                                      <div class="footer_button_text">
+                                          <a class="card__button button--sc light button small" href="/processes/${meeting.decidim_process_slug}/f/${meeting.decidim_component_id}/meetings/${meeting.id}">Participar</a>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>`;
+            meetingsList.append(meetingDiv);
+            
+          });
+        }
+      });
+    });
+
+  });
+</script>
