@@ -24,8 +24,6 @@ module Decidim
           enforce_permission_to :manage, :participatory_texts
           @import = form(Admin::ImportParticipatoryTextForm).from_params(params)
 
-          binding.pry
-
           Admin::ImportParticipatoryText.call(@import) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_texts.import.success", scope: "decidim.proposals.admin")
