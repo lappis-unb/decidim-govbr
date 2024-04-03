@@ -32,6 +32,8 @@ pt-BR:
         password_confirmation: Confirmação da senha
         remember_me: Lembrar-me
   decidim:
+    scopes:
+      global: Selecione o tema do processo
     accessibility:
       front_page_link: Ir para a página principal
     account:
@@ -174,7 +176,7 @@ pt-BR:
       create:
         error: Erro ao carregar a imagem
         success: Imagem carregada com sucesso
-      drag_and_drop_help: Adicione imagens arrastando e soltando-as ou colando-as.
+      drag_and_drop_help: Texto destacado para informações importantes, aparece logo após o título. Adicione imagens arrastando e soltando-as ou colando-as.
     forms:
       current_file: Arquivo atual
       current_image: Imagem atual
@@ -485,7 +487,7 @@ pt-BR:
           settings: Gerenciador cookies
           title: Informações sobre os cookies utilizados no site
         modal:
-          accept_all: Salvar 
+          accept_all: Salvar
           reject: Rejeitar cookies
           accept_only_essential: Rejeitar cookies
           analytics:

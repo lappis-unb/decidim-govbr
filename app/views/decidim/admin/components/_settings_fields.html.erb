@@ -1,0 +1,12 @@
+<% manifest.settings(settings_name).attributes.each do |field_name, settings_attribute| %>
+  <% next if local_assigns[:only] && !(field_name.in?(only)) %>
+  <% next if local_assigns[:except] && field_name.in?(except) %>
+  <%= settings_attribute_input(
+      form,
+      settings_attribute,
+      field_name,
+      "decidim.components.#{manifest.name}.settings.#{settings_name}",
+      tabs_prefix: tabs_prefix,
+      readonly: settings_attribute.readonly?(component: @component)
+    ) %>
+<% end %>

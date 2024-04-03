@@ -3,15 +3,47 @@ pt-BR:
   activemodel:
     attributes:
       participatory_process:
+        title: Nome do Processo Participativo 
         document: Documento
         import_attachments: Importar anexos
-        import_categories: Importar temas
+        slug: URL amigável
         import_components: Importar componentes
-        import_steps: Importar fases
-        participatory_process_type_id: Tipo de processo participativo
+        participatory_process_type_id: Tipo de Processo Participativo
         private_space: Espaço privado
         weight: Posição de ordem
-        should_have_user_full_profile: Exigir Perfil de Usuário completo
+        announcement: Anúncio
+        initial_page_component_id: Página Inicial do Processo Participativo
+        area_id: Secretaria
+        decidim_area_id: Órgão/Instituição
+        banner_image: Imagem da capa (desktop)
+        copy_categories: Copiar categorias
+        copy_components: Copiar componentes
+        copy_steps: Copiar etapas
+        description: Resumo do Processo Participativo
+        developer_group: Setor
+        domain: Domínio
+        end_date: Data final
+        hashtag: Palavras-chave
+        hero_image: Imagem da capa (mobile)
+        import_categories: Importar categorias
+        import_steps: Importar etapas
+        local_area: Setor
+        meta_scope: Selecione o Status deste processo participativo
+        participatory_process_group_id: Órgão/Instituição
+        participatory_scope: Link da publicação do processo no DOU
+        participatory_structure:  Telefone ou E-mail Institucional do Setor
+        promoted: Destacado
+        publish_date: Data de publicação do processo no DOU
+        published_at: Publicado em
+        related_process_ids: Processos relacionados
+        scope_id: Áres de interesse
+        scope_type_max_depth_id: Profundidade de filtro de escopo
+        scopes_enabled: Áreas de interesse ativadas
+        show_metrics: Mostrar métricas
+        show_statistics: Mostrar Dados Participativos
+        start_date: Data de início
+        target: Responsável pela consulta
+        should_have_user_full_profile: Exigir Perfil de Usuário completo para responder o formulário
       participatory_process_group:
         group_url: Site
         promoted: Promovido
@@ -138,6 +170,10 @@ pt-BR:
       admin:
         participatory_processes:
           form:
+            select_an_area: Selecione um Órgão/Instituição
+            select_process_group: Selecione um Setor
+            duration: Prazo do Processo Participativo
+            slug_help: 'A URL Amigável é usada para gerar a URL para acessar o processo participativo. Apenas aceita letras, números e traços, e deve começar com uma letra. Exemplo: https://brasilparticipativo.presidencia.gov.br/nome do processo participativo/nome-da-conferência'
             announcement_help: O texto que insere aqui será mostrado ao usuário logo abaixo das informações do processo.
             select_participatory_process_type: Selecione um tipo de processo
       pages:
