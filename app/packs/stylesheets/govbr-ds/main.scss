@@ -1322,3 +1322,29 @@ div.columns.large-12 div.section.images .gallery.row .columns.small-6.medium-4.e
   padding: 1.5rem;
   width: 50%;
 }
+
+.card__author {
+  display: none;
+}
+
+.row.collapse.buttons__row {
+  display: none;
+}
+
+.results-per-page__dropdown {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.see-index-container {
+  justify-content: flex-start;
+}
+
+.tab-item a span {
+  font-size: 16px;
+}
+
+.process-nav ul {
+  justify-content: flex-start !important;
+}

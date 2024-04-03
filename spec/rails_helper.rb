@@ -90,7 +90,7 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
 
   RSpec::Matchers.define :be_versioned do
-    match { |actual| actual.is_a?(::PaperTrail::Model::InstanceMethods) }
+    match { |actual| actual.is_a?(PaperTrail::Model::InstanceMethods) }
   end
 
   RSpec::Matchers.define :be_partnerable do
