@@ -22,6 +22,10 @@
   <div id="filters__menu" class="filters__hidden">
     <%= form.hidden_field "state_withdraw", value: params.dig("filter", "state_withdraw") %>
 
+    <% if @proposals.only_emendations.any? %>
+      <%= form.collection_radio_buttons :type, filter_type_values, :first, :last, { legend_title: t(".amendment_type") }, "aria-controls": "proposals" %>
+    <% end %>
+
     <% if component_settings.proposal_answering_enabled && current_settings.proposal_answering_enabled %>
       <%= form.check_boxes_tree :with_any_state, filter_proposals_state_values, legend_title: t(".state"), "aria-controls": "proposals" %>
     <% end %>
@@ -32,10 +36,6 @@
 
     <% if current_component.categories.any? %>
       <%= form.check_boxes_tree :with_any_category, filter_categories_values, legend_title: t(".category"), "aria-controls": "proposals" %>
-    <% end %>
-    
-    <% if @proposals.only_emendations.any? %>
-      <%= form.collection_radio_buttons :type, filter_type_values, :first, :last, { legend_title: t(".amendment_type") }, "aria-controls": "proposals" %>
     <% end %>
 
     <% if linked_classes_for(Decidim::Proposals::Proposal).any? %>
