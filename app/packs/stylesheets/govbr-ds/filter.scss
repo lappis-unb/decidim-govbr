@@ -217,8 +217,21 @@
   gap: 16px 24px;
 }
 
-#filters__menu div.type_collection_radio_buttons_filter fieldset{
+#filters__menu div.type_collection_radio_buttons_filter fieldset {
   flex-direction: row;
+  gap: 24px;
+}
+
+#filters__menu div.type_collection_radio_buttons_filter fieldset label{
+  font-size: var(--font-size-scale-up-01);
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--gray-90);
+}
+
+#filters__menu div fieldset label{
+  font-size: var(--font-size-scale-up-01);
+  font-weight: var(--font-weight-regular);
+  color: var(--gray-90);
 }
 
 #filters__triangle {
