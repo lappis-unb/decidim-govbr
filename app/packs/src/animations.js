@@ -69,16 +69,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   showFilters.addEventListener("click", () => {
     let filtersMenu = document.getElementById("filters__menu")
+    let filtersTriangle = document.getElementById("filters__triangle")
     let menuStatus = filtersMenu.classList[0]
     
     if(menuStatus == "filters__hidden"){
       filtersMenu.classList.remove("filters__hidden")
+      filtersTriangle.classList.remove("filters__hidden")
       showFilters.innerHTML = `<i class="fa-solid fa-sliders" style="color: #333333;"></i>
       Esconder Filtros`
     } else{
       showFilters.innerHTML = `<i class="fa-solid fa-sliders" style="color: #333333;"></i>
       Mostrar Filtros`
       filtersMenu.classList.add("filters__hidden")
+      filtersTriangle.classList.add("filters__hidden")
     }
   })
 });
