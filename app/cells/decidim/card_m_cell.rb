@@ -116,13 +116,11 @@ module Decidim
       when "evaluating"
         ["warning"]
       else
-        if current_user && model.voted_by?(current_user)
-          return ["voted"]
-        end
+        return ["voted"] if current_user && model.voted_by?(current_user)
+
         ["default"]
       end
     end
-
 
     def comments_count
       model.comments_count
