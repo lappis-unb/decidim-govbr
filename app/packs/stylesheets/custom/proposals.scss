@@ -47,14 +47,20 @@
 
 .order-text {
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 400;
+  line-height: 1.25rem;
+}
+
+.bp-order-by-container {
+  border-radius: 0.25rem;
+  border: 1px solid var(--Gray-gray-10, #e6e6e6);
 }
 
 .order-by__dropdown-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 200px;
+  gap: 1rem;
 }
 
 .order-by__dropdown-container > ul {
@@ -149,6 +155,10 @@
     align-items: center;
     justify-content: right;
   }
+  .bp-order-by-container {
+    width: 16rem;
+  }
+
   .proposals-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -182,8 +192,15 @@
   width: 100%;
 }
 
+.proposals-br .dropdown.menu > li {
+  display: flex;
+}
+
 .proposals-br .dropdown.menu > li > a {
   padding: 0.7rem 0.3rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .proposals-br .card-grid .column,
