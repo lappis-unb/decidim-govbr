@@ -4,14 +4,17 @@
     <%= render :top if render_top? %>
     <%= render :image if has_image? %>
     <div class="card__content">
+      <%= render :badge if has_badge? %>
       <%= render :header if has_header? %>
 
-      <div class="card__text">
-        <div class="card__text--paragraph">
-          <%= render :badge if has_badge? %>
-          <%= Decidim::ContentProcessor.render(description, "div") %>
-        </div>
+      <div class="card__text--paragraph <%= "proposal_text--paragraph" if current_component.manifest_name == "proposals" %>">
+        <%= Decidim::ContentProcessor.render(description, "div") %>
       </div>
+      <% if current_component.manifest_name == "proposals" %>
+        <div class="proposal_category_badge">
+          Categoria da proposta
+        </div>
+      <% end %>
 
       <%= render :tags %>
     </div>
