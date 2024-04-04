@@ -44,7 +44,9 @@ module Decidim
             instance_double(
               PreviewParticipatoryTextForm,
               current_component: current_component,
-              proposals: proposal_modifications
+              proposals: proposal_modifications,
+              invalid?: false,
+              should_create_new_proposal?: false
             )
           end
           let(:command) { described_class.new(form) }
