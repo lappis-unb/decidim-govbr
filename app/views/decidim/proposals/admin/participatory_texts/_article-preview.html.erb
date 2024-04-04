@@ -5,6 +5,6 @@
 </div>
 <% if proposal.article? %>
   <div class="grid-x">
-    <div class="cell"><%= form.editor :body, required: true, rows: 5 %></div>
+    <div class="cell"><%= form.text_area :body, required: true, rows: 5 %></div>
   </div>
 <% end %>
