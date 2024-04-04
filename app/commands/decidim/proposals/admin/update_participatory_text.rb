@@ -78,7 +78,7 @@ module Decidim
         def create_new_proposal
           attributes = {
             component: form.current_component,
-            title: { I18n.locale => "" },
+            title: { I18n.locale => form.proposal_to_add },
             body: { I18n.locale => "" },
             participatory_text_level: form.proposal_to_add,
             is_interactive: true
