@@ -14,11 +14,15 @@
     </div>
   <% end %>
 
-  <span id="filter-btn-br" class="button">
-    <i class="fa-solid fa-sliders" style="color: #333333;"></i>
-    Mostrar Filtros
-  </span>
+  <div>
+    <span id="filter-btn-br" class="button">
+      <i class="fa-solid fa-sliders" style="color: #333333;"></i>
+      Mostrar Filtros
+    </span>
 
+    <div id="filters__triangle" class="filters__hidden"></div>
+  </div>
+  
   <div id="filters__menu" class="filters__hidden">
     <%= form.hidden_field "state_withdraw", value: params.dig("filter", "state_withdraw") %>
 
