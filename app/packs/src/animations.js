@@ -75,6 +75,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if(menuStatus == "filters__hidden"){
       filtersMenu.classList.remove("filters__hidden")
       filtersTriangle.classList.remove("filters__hidden")
+      filtersMenu.classList.add("show__filters__menu")
+      filtersTriangle.classList.add("show__filters__menu")
       showFilters.innerHTML = `<i class="fa-solid fa-sliders" style="color: #333333;"></i>
       Esconder Filtros`
     } else{
@@ -82,6 +84,8 @@ document.addEventListener("DOMContentLoaded", function () {
       Mostrar Filtros`
       filtersMenu.classList.add("filters__hidden")
       filtersTriangle.classList.add("filters__hidden")
+      filtersMenu.classList.remove("show__filters__menu")
+      filtersTriangle.classList.remove("show__filters__menu")
     }
   })
 });
