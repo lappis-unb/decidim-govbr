@@ -26865,6 +26865,7 @@ button.br-item:not(:disabled):active {
   color: var(--color-dark);
   font-size: var(--font-size-scale-up-02);
   font-weight: var(--font-weight-semi-bold);
+  width: 100%;
 }
 .br-magic-button .br-button:not(:disabled):not(:disabled):hover {
   background-image: linear-gradient(

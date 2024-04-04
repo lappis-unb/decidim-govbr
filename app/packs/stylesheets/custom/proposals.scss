@@ -116,6 +116,31 @@
   background-color: rgba(var(--interactive-rgb), var(--hover));
 }
 
+.proposals-actions-admin {
+  display: flex;
+  flex-direction: row;
+  padding: 0 0 24px 0;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+}
+.proposals-actions-admin .black-and-white-btn {
+  width: 100%;
+}
+.proposals-actions {
+  display: flex;
+  gap: 16px;
+  padding: 24px 0;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.proposals-criteria-label {
+  color: var(--blue-warm-vivid-80);
+  display: flex;
+  align-items: center;
+}
+
 @media (min-width: 640px) {
   .title-action-button {
     display: flex;

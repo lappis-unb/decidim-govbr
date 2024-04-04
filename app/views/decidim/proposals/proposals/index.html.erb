@@ -89,21 +89,21 @@
         <%= link_to t(".collaborative_drafts_list"), collaborative_drafts_path, class: "title-action__action button small hollow ml-s" %>
       <% end %>
     </div>
-    <% if browser.mobile? %>
-      <%= filter_form_for filter do |form| %>
-        <div class="br-input input-highlight">
-          <%= form.search_field :search_text_cont, type: "search",
-            label: false, class: "input-group-field", placeholder: t("decidim.proposals.proposals.filters.placeholder",
-            name: translated_attribute(current_component.singular_name).present? ?
-            translated_attribute(current_component.singular_name).downcase :
-            "proposta"),
-            "aria-label": "Buscar", id: "input-search-large",
-            data: { disable_dynamic_change: true } %>
-          <button class="br-button" type="submit" aria-label="Buscar">
-            <i class="fas fa-search" aria-hidden="true"></i>
-          </button>
-        </div>
-      <% end %>
+  </div>
+  <span class="br-divider <% if browser.mobile? %>my-2<% else %>my-6<% end %>"></span>
+    <%= filter_form_for filter do |form| %>
+      <div class="br-input input-highlight">
+        <%= form.search_field :search_text_cont, type: "search",
+          label: false, class: "input-group-field", placeholder: t("decidim.proposals.proposals.filters.placeholder",
+          name: translated_attribute(current_component.singular_name).present? ?
+          translated_attribute(current_component.singular_name).downcase :
+          "proposta"),
+          "aria-label": "Buscar", id: "input-search-large",
+          data: { disable_dynamic_change: true } %>
+        <button class="br-button" type="submit" aria-label="Buscar">
+          <i class="fas fa-search" aria-hidden="true"></i>
+        </button>
+      </div>
     <% end %>
     <div class="proposals-content-container">
       <% if not browser.mobile? %>
