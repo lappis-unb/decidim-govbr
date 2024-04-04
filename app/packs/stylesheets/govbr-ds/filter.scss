@@ -202,8 +202,9 @@
 
 #filters__menu div fieldset div{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 200px));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
   width: 100%;
+  gap: 16px 24px;
 }
 
 #filters__menu div.type_collection_radio_buttons_filter fieldset{
