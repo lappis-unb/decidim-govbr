@@ -46,11 +46,6 @@
       <div class="proposals-button__container">
         <%= render partial: "statistics_small_view", locals: {statistics: @user_proposals_statistic}%>
       </div>
-      <% if browser.mobile? %>
-        <div class="proposals-button__container">
-          <%= render partial: "filters_small_view" %>
-        </div>
-      <% end %>
     </div>
   </div>
   <div class="br-row">
@@ -89,28 +84,10 @@
         <%= link_to t(".collaborative_drafts_list"), collaborative_drafts_path, class: "title-action__action button small hollow ml-s" %>
       <% end %>
     </div>
-    <% if browser.mobile? %>
-      <%= filter_form_for filter do |form| %>
-        <div class="br-input input-highlight">
-          <%= form.search_field :search_text_cont, type: "search",
-            label: false, class: "input-group-field", placeholder: t("decidim.proposals.proposals.filters.placeholder",
-            name: translated_attribute(current_component.singular_name).present? ?
-            translated_attribute(current_component.singular_name).downcase :
-            "proposta"),
-            "aria-label": "Buscar", id: "input-search-large",
-            data: { disable_dynamic_change: true } %>
-          <button class="br-button" type="submit" aria-label="Buscar">
-            <i class="fas fa-search" aria-hidden="true"></i>
-          </button>
-        </div>
-      <% end %>
-    <% end %>
 
-    <% if not browser.mobile? %>
-      <div class="proposals-filters">
-        <%= render partial: "filters" %>
-      </div>
-    <% end %>
+    <div class="proposals-filters">
+      <%= render partial: "filters" %>
+    </div>
 
     <div class="proposals-content-container">
       
