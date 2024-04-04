@@ -208,6 +208,7 @@
 #filters__menu div fieldset {
   align-items: flex-start;
   flex-direction: column;
+  padding: 10px;
 }
 
 #filters__menu div fieldset div{
@@ -242,4 +243,11 @@
   border-left: 35px solid transparent; /* Adjust the width of the triangle */
   border-right: 35px solid transparent; /* Adjust the width of the triangle */
   border-bottom: 24px solid var(--gray-2); /* Adjust the height and color of the triangle */
+}
+
+@media screen and (max-width: 600px) {
+  #filters__menu div.type_collection_radio_buttons_filter fieldset {
+    flex-direction: column;
+    gap: 16px;
+  }
 }
