@@ -1,15 +1,18 @@
 .proposals-container {
   display: flex;
   flex-direction: row;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
   justify-content: space-between;
   align-items: center;
+}
+.proposals-container p {
+  margin: 0;
 }
 
 .proposals-content-container {
   display: flex;
   flex-direction: row;
-  gap: 2rem;
+  gap: 24px;
 }
 
 .proposals-filters {
@@ -22,11 +25,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 1.5rem;
-}
-
-.proposals-container p {
-  margin: 0;
+  gap: 24px;
 }
 
 .diff-view-by,
@@ -35,13 +34,13 @@
 }
 
 .proposals-counter {
-  font-weight: 600;
+  font-weight: 400;
   font-size: 0.9rem;
 }
 
 .results-per-page {
   padding: 0;
-  font-weight: 600;
+  font-weight: 400;
   align-items: center;
   justify-content: right;
 }
@@ -116,6 +115,30 @@
   background-color: rgba(var(--interactive-rgb), var(--hover));
 }
 
+.proposals-actions-admin {
+  display: flex;
+  flex-direction: row;
+  padding: 0 0 24px 0;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+}
+.proposals-actions-admin .black-and-white-btn {
+  width: 100%;
+}
+.proposals-actions {
+  display: flex;
+  gap: 16px;
+  padding: 24px 0;
+  justify-content: flex-start;
+}
+.proposals-criteria-label {
+  color: var(--blue-warm-vivid-80);
+  display: flex;
+  align-items: center;
+}
+
 @media (min-width: 640px) {
   .title-action-button {
     display: flex;
@@ -125,16 +148,34 @@
   .proposals-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 2rem;
+    grid-gap: 24px;
   }
   .title-action__action {
     max-width: 250px;
+  }
+  .proposals-actions-admin {
+    padding: 0 0 24px 0;
+    gap: 8px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .proposals-actions {
+    padding: 24px 0;
+    justify-content: flex-start;
+    flex-direction: row;
+  }
+  .proposals-criteria-label {
+    color: var(--blue-warm-vivid-80);
+  }
+  .proposals-actions-admin .black-and-white-btn {
+    width: auto;
   }
 }
 
 .proposals-br {
   width: 100%;
-  margin: 1rem 0;
 }
 
 .proposals-br .dropdown.menu > li > a {
@@ -209,10 +250,6 @@
   transition: background-color 0.3s ease-in-out;
 }
 
-.exports.dropdown-br.tiny.button.button--simple{
-  margin-right: 15px !important;
-}
-
 .vertical.menu.add-components {
   display: flex;
   flex-direction: column;
@@ -285,15 +322,3 @@
   }
 }
 
-.proposals-actions {
-  display: flex;
-  flex-direction: row;
-  padding: 8px 0;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-.proposal-action {
-  flex: 1 1 auto;
-  max-width: 200px; 
-}
