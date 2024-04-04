@@ -140,6 +140,11 @@
   margin-left: 5px;
 }
 
+#filters__menu fieldset div{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 #filters__menu fieldset label > input[type=checkbox]{
   display: flex;
   justify-content: center;
@@ -188,4 +193,19 @@
   height: 0rem;
   padding: 0rem;
   margin-bottom: 0rem;
+}
+
+#filters__menu div fieldset {
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+#filters__menu div fieldset div{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 200px));
+  width: 100%;
+}
+
+#filters__menu div.type_collection_radio_buttons_filter fieldset{
+  flex-direction: row;
 }
