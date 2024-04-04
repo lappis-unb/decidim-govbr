@@ -273,3 +273,27 @@
 #proposals {
   width: 100%;
 }
+
+.br-announcement {
+  h2 {
+    padding: 0;
+    margin: 0 0 0.5rem 0;
+    color: var(--pure-100);
+  }
+  p {
+    color: var(--gray-60);
+  }
+}
+
+.proposals-actions {
+  display: flex;
+  flex-direction: row;
+  padding: 8px 0;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.proposal-action {
+  flex: 1 1 auto;
+  max-width: 200px; 
+}
