@@ -1725,7 +1725,7 @@ span.flatpickr-weekday {
   --interactive-light-rgb: var(--blue-warm-vivid-70-rgb);
   --interactive-dark: var(--blue-warm-20);
   --interactive-dark-rgb: var(--blue-warm-20-rgb);
-  --interactive-alternative: var(--green-cool-vivid-50);
+  --interactive-alternative: #335BAE;
   --interactive-alternative-rgb: var(--green-cool-vivid-50-rgb);
   --info: var(--blue-warm-vivid-60);
   --info-alternative: var(--blue-warm-vivid-10);
@@ -25354,7 +25354,7 @@ button.br-button.circle.search-close.ml-1 {
 .br-input input {
   background-color: var(--background-light);
   border-color: var(--border-color-alternative);
-  border-radius: var(--surface-rounder-sm);
+  border-radius: var(--surface-rounder-md);
   border-style: var(--border-style);
   border-width: var(--border-width);
   color: var(--color-light);
@@ -31101,4 +31101,17 @@ align-items: center;
 .flash.callout.alert,
 .flash.callout.warning {
   display: none;
+}
+
+[type=text], [type=password], [type=date], [type=datetime], [type=datetime-local],
+[type=month], [type=week], [type=email], [type=number], [type=search], [type=tel],
+[type=time], [type=url], [type=color], textarea {
+  box-shadow: none;
+  border: 0;
+}
+
+.black-and-white-btn {
+  border-color: var(--pure-100) !important;
+  color: var(--pure-100) !important;
+  gap: 8px;
 }
