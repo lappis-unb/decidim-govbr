@@ -36,9 +36,10 @@
   </div>
 </div>
 
-<%= render partial: "decidim/shared/results_per_page" %>
-
-<%= decidim_paginate @proposals %>
+<div class="paginate-container">
+  <%= decidim_paginate @proposals %>
+  <%= render partial: "decidim/shared/results_per_page" %>
+</div>
 
 <div class="row">
   <div class="text-right">
