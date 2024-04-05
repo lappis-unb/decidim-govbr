@@ -21,7 +21,7 @@ module Decidim
         #
         # Returns nothing.
         def call
-          broadcast(:invalid) if form.invalid?
+          return broadcast(:invalid) if form.invalid?
 
           transaction do
             @failures = {}
@@ -78,7 +78,7 @@ module Decidim
         def create_new_proposal
           attributes = {
             component: form.current_component,
-            title: { I18n.locale => form.proposal_to_add },
+            title: { I18n.locale => I18n.t(form.proposal_to_add, scope: "decidim.proposals.admin.participatory_texts.section.levels") },
             body: { I18n.locale => "" },
             participatory_text_level: form.proposal_to_add,
             is_interactive: true
