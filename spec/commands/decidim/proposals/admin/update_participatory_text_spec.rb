@@ -121,7 +121,7 @@ module Decidim
             let(:last_proposal) { Decidim::Proposals::Proposal.last }
 
             before do
-              I18n.locale = :"pt-BR"
+              I18n.locale = :'pt-BR'
             end
 
             it "creates a new proposal" do
@@ -135,9 +135,27 @@ module Decidim
           end
 
           context "when proposal is marked to be destroyed" do
-            let(:proposal) { create :proposal, component: current_component }
+            let!(:proposal) { proposals.first }
+            let(:proposal_modifications) do
+              Array.wrap(
+                Decidim::Proposals::Admin::ParticipatoryTextProposalForm.new(
+                  id: proposal.id,
+                  position: proposal.position,
+                  title: ::Faker::Books::Lovecraft.fhtagn,
+                  body: { en: ::Faker::Books::Lovecraft.fhtagn(number: 5) },
+                  is_interactive: false,
+                  deleted: true
+                ).with_context(
+                  current_participatory_space: current_component.participatory_space,
+                  current_component: current_component
+                )
+              )
+            end
 
-
+            it "deletes the proposal" do
+              expect { command.call }.to change(Decidim::Proposals::Proposal, :count).by(-1)
+              expect { proposal.reload }.to raise_error(ActiveRecord::RecordNotFound)
+            end
           end
         end
       end
