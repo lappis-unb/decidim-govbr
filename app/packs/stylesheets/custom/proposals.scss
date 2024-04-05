@@ -312,8 +312,7 @@
 }
 
 .card--proposal {
-  width: 364px;
-  height: 498px !important;
+  max-width: 364px;
 }
 
 .proposal_card__title {
@@ -324,14 +323,19 @@
   margin-top: 1rem;
 }
 
-.proposal_category_badge {
+.tags a {
   display: flex;
+  width: 100%;
   padding: 4px 8px;
   border-radius: 2px;
+  border: 0;
   background: var(--gray-2);
   font-size: 0.75rem;
   font-weight: 400;
   color: var(--blue-warm-vivid-70);
+}
+.tags li {
+  display: flex;
 }
 
 .propposal_card__header {

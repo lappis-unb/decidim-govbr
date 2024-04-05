@@ -11,12 +11,8 @@
         <%= Decidim::ContentProcessor.render(description, "div") %>
       </div>
       <% if current_component.manifest_name == "proposals" %>
-        <div class="proposal_category_badge">
-          Categoria da proposta
-        </div>
+        <%= render :tags %>
       <% end %>
-
-      <%= render :tags %>
     </div>
 
     <%= render :data %>
