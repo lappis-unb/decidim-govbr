@@ -41,7 +41,7 @@ gem 'decidim-homes', git: 'https://gitlab.com/lappis-unb/decidimbr/components-br
 
 gem "rest-client", "~> 2.1"
 
-gem "pandoc-ruby"
+gem "pandoc-ruby", '2.1.10'
 
 group :development, :test do
   gem 'byebug', '11.1.3'
