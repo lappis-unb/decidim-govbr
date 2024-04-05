@@ -1,9 +1,9 @@
 <% if current_user.present? && current_user.admin? %>
   <button
-    class="br-button primary"
+    class="br-button secondary black-and-white-btn"
     data-open="export_data"
   >
-    <i class="fa-solid fa-magnifying-glass-chart m-2"></i>
+    <i class="fa-solid fa-magnifying-glass-chart"></i>
     Gerar relatório
   </button>
   <div class="reveal" id="export_data" data-reveal>
