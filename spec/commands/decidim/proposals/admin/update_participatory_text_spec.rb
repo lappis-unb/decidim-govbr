@@ -120,17 +120,15 @@ module Decidim
             end
             let(:last_proposal) { Decidim::Proposals::Proposal.last }
 
-            before do
-              I18n.locale = :'pt-BR'
-            end
-
             it "creates a new proposal" do
               expect { command.call }.to change(Decidim::Proposals::Proposal, :count).by(1)
             end
 
             it "create a new proposal with pre filled title" do
-              command.call
-              expect(last_proposal.title["pt-BR"]).to eq("Seção")
+              I18n.with_locale(:'pt-BR') do
+                command.call
+                expect(last_proposal.title["pt-BR"]).to eq("Seção")
+              end
             end
           end
 
