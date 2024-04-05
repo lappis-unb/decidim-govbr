@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let jsonExport = document.getElementsByClassName("exports--format--json")
   let excelExport = document.getElementsByClassName("exports--format--excel")
   let exportSpan = document.getElementById("export-span")
+  let exportCommentsSpan = document.getElementById("export-comments-span")
   let closeExportSpan = document.getElementById("export-span-close")
   
   function exportSpanStyle(exportSpan){
@@ -52,6 +53,14 @@ document.addEventListener("DOMContentLoaded", function () {
     exportSpan.classList.remove("export-span-hollow")
     exportSpan.classList.add("export-span-show")
   }
+
+  function exportCommentsSpanStyle(exportCommentsSpanStyle){
+    let dropDown = document.getElementById("export-comments-dropdown")
+    dropDown.classList.remove("is-open")
+    exportSpan.classList.remove("export-span-hollow")
+    exportSpan.classList.add("export-span-show")
+  }
+
   if (closeExportSpan) {
     closeExportSpan.addEventListener("click", () => {
       exportSpan.classList.remove("export-span-show")
@@ -63,6 +72,9 @@ document.addEventListener("DOMContentLoaded", function () {
     csvExport[i] && csvExport[i].addEventListener("click", () => exportSpanStyle(exportSpan))
     jsonExport[i] && jsonExport[i].addEventListener("click", () => exportSpanStyle(exportSpan))
     excelExport[i] && excelExport[i].addEventListener("click", () => exportSpanStyle(exportSpan))
+    csvExport[i] && csvExport[i].addEventListener("click", () => exportCommentsSpanStyle(exportCommentsSpan))
+    jsonExport[i] && jsonExport[i].addEventListener("click", () => exportCommentsSpanStyle(exportCommentsSpan))
+    excelExport[i] && excelExport[i].addEventListener("click", () => exportCommentsSpanStyle(exportCommentsSpan))
   }
 
   let showFilters = document.getElementById("filter-btn-br")
