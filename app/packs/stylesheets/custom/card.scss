@@ -20,7 +20,7 @@
   }
 }
 
-.proposals_card_footer {
+.proposals_card_stats {
   display: flex;
   flex-direction: column;
 }
@@ -39,4 +39,56 @@
 }
 .card__header {
   overflow: hidden;
+}
+
+.card.default {
+  border-top-color: var(--blue-warm-vivid-20);
+  border-top-width: 8px; 
+}
+
+.card.voted {
+  border-top-color: var(--blue-warm-vivid-60);
+  border-top-width: 8px; 
+}
+
+.card.rejected {
+  border-top-color: var(--red-vivid-60);
+  border-top-width: 8px; 
+}
+
+.card.accepted {
+  border-top-color: var(--green-vivid-60);
+  border-top-width: 8px; 
+}
+
+.card.refused {
+  border-top-color: var(--orange-vivid-50);
+  border-top-width: 8px; 
+}
+
+.card__text--status {
+  padding: 4px 8px;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.card__text--status.accepted {
+  border: 2px solid var(--green-vivid-60);
+  color: var(--green-vivid-60);
+}
+
+.card__text--status.rejected {
+  border: 2px solid var(--red-vivid-60);
+  color: var(--red-vivid-60);
+}
+
+.card__text--status.refused {
+  border: 2px solid var(--orange-vivid-50);
+  color: var(--orange-vivid-50);
+}
+
+.card__text--status.voted {
+  border: 2px solid var(--blue-warm-vivid-60);
+  color: var(--blue-warm-vivid-60);
 }
