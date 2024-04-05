@@ -1,3 +1,17 @@
+<!-- 
+
+NAO ESQUECER
+
+- Alterar label da issue para DEV::MR
+
+---
+
+- Lembrar o Revisor de alterar a label da issue para DEV::Homolog ou voces mesmos caso o MR seja aceito.
+
+-->
+
+## **%{source_branch}** in to **%{target_branch}**
+
 ### Descrição
 Este pedido de merge aborda e descreve o problema ou história do usuário que está sendo tratado.
 
@@ -17,4 +31,16 @@ Inclua qualquer informação extra ou considerações para os revisores, como á
 
 ### Issue referenciada
 
-Closes <link-da-issue>
+**Issue:** <link-da-issue>
+
+
+
+
+<!-- Quick Actions (NAO APAGAR!) -->
+<!-- Mais informacoes em: https://docs.gitlab.com/ee/user/project/quick_actions.html -->
+
+/assign me
+
+/assign_reviewer @Edu_25 @VictorJorgeFGA
+
+/label ~REVIEW::Needed
