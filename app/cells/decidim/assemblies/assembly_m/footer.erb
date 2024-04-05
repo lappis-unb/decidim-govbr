@@ -1,0 +1,23 @@
+<div class="card__footer card__footer--spaces">
+  <div class="card__support">
+    <% if has_assembly_type? %>
+      <div class="card__support__data--left">
+        <div><%= t("assemblies.show.assembly_type", scope: "decidim") %></div>
+        <div class="text-ellipsis"><strong><%= assembly_type %></strong></div>
+      </div>
+    <% end %>
+
+    <% current_date = Date.today %>
+    
+  <% if model.try(:creation_date) && model.try(:closing_date) %>
+    <% if model.creation_date <= current_date && model.closing_date >= current_date %>
+      <%= link_to("Participar", resource_path, class: "card__button button button--sc small") %>
+    <% else %>
+      <%= link_to("Visualizar", resource_path, class: "card__button button button--sc small") %>
+    <% end %>
+  <% else %>
+    <%= link_to("Visualizar", resource_path, class: "card__button button button--sc small") %>
+  <% end %>
+
+  </div>
+</div>
