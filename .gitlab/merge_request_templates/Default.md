@@ -1,3 +1,15 @@
+<!-- 
+
+NAO ESQUECER
+
+- Alterar label da issue para DEV::MR
+
+---
+
+- Lembrar o Revisor de alterar a label da issue para DEV::Homolog ou voces mesmos caso o MR seja aceito.
+
+-->
+
 ### Descrição
 Este pedido de merge aborda e descreve o problema ou história do usuário que está sendo tratado.
 
@@ -17,4 +29,4 @@ Inclua qualquer informação extra ou considerações para os revisores, como á
 
 ### Issue referenciada
 
-Closes <link-da-issue>
+<link-da-issue>
