@@ -1,9 +1,10 @@
 .proposals-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 1rem 0;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
 }
 .proposals-container p {
   margin: 0;
@@ -38,13 +39,6 @@
   font-size: 0.9rem;
 }
 
-.results-per-page {
-  padding: 0;
-  font-weight: 400;
-  align-items: center;
-  justify-content: right;
-}
-
 .order-text {
   font-size: 0.9rem;
   font-weight: 400;
@@ -53,7 +47,7 @@
 
 .bp-order-by-container {
   border-radius: 0.25rem;
-  border: 1px solid var(--Gray-gray-10, #e6e6e6);
+  border: 1px solid var(--gray-10);
 }
 
 .order-by__dropdown-container {
@@ -64,7 +58,7 @@
 }
 
 .order-by__dropdown-container > ul {
-  padding: 0.5rem;
+  padding: 0 0.5rem;
 }
 
 .dropdown.menu > li.is-dropdown-submenu-parent > a::after {
@@ -139,17 +133,50 @@
 }
 .proposals-actions {
   display: flex;
-  gap: 16px;
+  gap: 24px;
   padding: 24px 0;
   justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
 }
 .proposals-criteria-label {
   color: var(--blue-warm-vivid-80);
   display: flex;
   align-items: center;
+  font-size: 12px;
 }
 
+.paginate-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.results-per-page {
+  visibility: hidden;
+}
 @media (min-width: 640px) {
+  .paginate-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .results-per-page {
+    padding: 0;
+    font-weight: 400;
+    align-items: center;
+    justify-content: right;
+    display: block;
+    visibility: visible;
+  }
+  .proposals-container {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem 0;
+    justify-content: space-between;
+    align-items: center;
+  }
   .title-action-button {
     display: flex;
     align-items: center;
@@ -168,7 +195,7 @@
     max-width: 250px;
   }
   .proposals-actions-admin {
-    padding: 0 0 24px 0;
+    padding: 0 0 16px 0;
     gap: 8px;
     flex-wrap: wrap;
     flex-direction: row;
@@ -182,6 +209,7 @@
   }
   .proposals-criteria-label {
     color: var(--blue-warm-vivid-80);
+    font-size: 14px;
   }
   .proposals-actions-admin .black-and-white-btn {
     width: auto;
@@ -196,11 +224,17 @@
   display: flex;
 }
 
+.empyt-div {
+  width: 200px;
+}
+
 .proposals-br .dropdown.menu > li > a {
   padding: 0.7rem 0.3rem;
   display: flex;
   justify-content: space-between;
   width: 100%;
+  font-weight: 400;
+  color: var(--blue-warm-vivid-80);
 }
 
 .proposals-br .card-grid .column,
@@ -328,6 +362,7 @@
   height: 0rem;
   padding: 0rem;
   margin-bottom: 0rem;
+  display: none;
 }
 
 #proposals {
@@ -343,7 +378,7 @@
   font-weight: 600;
   color: var(--blue-warm-vivid-70);
   margin-bottom: 1rem;
-  margin-top: 1rem;
+  margin-top: 0;
 }
 
 .tags a {
@@ -423,11 +458,4 @@
   p {
     color: var(--gray-60);
   }
-}
-
-.paginate-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
 }
