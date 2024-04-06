@@ -1,23 +1,19 @@
-<div class="column card__animation" id="<%= dom_id(model) %>">
-  <div class="card <%= card_classes %>">
-    <%= render :label if has_label? %>
-    <%= render :top if render_top? %>
-    <%= render :image if has_image? %>
-    <div class="card__content">
-      <%= render :badge if has_badge? %>
-      <%= render :header if has_header? %>
+<div class="card card__animation column <%= card_classes %> id="<%= dom_id(model) %>">
+  <%= render :label if has_label? %>
+  <%= render :top if render_top? %>
+  <%= render :image if has_image? %>
+  <div class="card__content">
+    <%= render :badge if has_badge? %>
+    <%= render :header if has_header? %>
 
-      <div class="card__text--paragraph <%= "proposal_text--paragraph" if current_component.manifest_name == "proposals" %>">
-        <%= Decidim::ContentProcessor.render(description, "div") %>
-      </div>
-      <% if current_component.manifest_name == "proposals" %>
-        <%= render :tags %>
-      <% end %>
+    <div class="card__text--paragraph <%= "proposal_text--paragraph" if current_component.manifest_name == "proposals" %>">
+      <%= Decidim::ContentProcessor.render(description, "div") %>
     </div>
-
-    <%= render :data %>
-    <%= render :footer %>
+    <% if current_component.manifest_name == "proposals" %>
+      <%= render :tags %>
+    <% end %>
   </div>
+
+  <%= render :data %>
+  <%= render :footer %>
 </div>
-
-
