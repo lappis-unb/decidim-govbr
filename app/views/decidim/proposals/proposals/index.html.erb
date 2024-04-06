@@ -96,7 +96,7 @@
       </button>
     </div>
   </div>
-  <span class="br-divider my-6"></span>
+  <span class="br-divider <% if browser.mobile? %>my-2<% else %>my-4<% end %>"></span>
     <%= filter_form_for filter do |form| %>
       <div class="br-input input-highlight">
         <%= form.search_field :search_text_cont, type: "search",
