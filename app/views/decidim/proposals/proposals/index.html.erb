@@ -1,10 +1,8 @@
 <div class="br-container-lg">
-  <% unless browser.mobile? %>
-    <%= render partial: "admin_actions",
-      locals: {mounted_admin_engine: current_participatory_space.mounted_admin_engine,
-      current_participatory_space: current_participatory_space,
-      current_component: current_component} %>
-  <% end %>
+  <%= render partial: "admin_actions",
+    locals: {mounted_admin_engine: current_participatory_space.mounted_admin_engine,
+    current_participatory_space: current_participatory_space,
+    current_component: current_component} %>
   <% if component_settings.geocoding_enabled? %>
     <%= dynamic_map_for proposals_data_for_map(@all_geocoded_proposals) do %>
       <template id="marker-popup">

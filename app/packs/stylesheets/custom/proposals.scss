@@ -4,7 +4,7 @@
   margin: 1rem 0;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 .proposals-container p {
   margin: 0;
@@ -36,7 +36,7 @@
 
 .proposals-counter {
   font-weight: 400;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .order-text {
@@ -52,13 +52,16 @@
 
 .order-by__dropdown-container {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 1rem;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5rem;
 }
 
 .order-by__dropdown-container > ul {
   padding: 0 0.5rem;
+  width: 100%;
 }
 
 .dropdown.menu > li.is-dropdown-submenu-parent > a::after {
@@ -136,8 +139,9 @@
   gap: 24px;
   padding: 24px 0;
   justify-content: flex-start;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  flex-direction: column;
 }
 .proposals-criteria-label {
   color: var(--blue-warm-vivid-80);
@@ -155,7 +159,33 @@
 .results-per-page {
   visibility: hidden;
 }
+.order__by-text {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+.br-announcement {
+  h2 {
+    padding: 0;
+    margin: 0 0 0.5rem 0;
+    color: var(--pure-100);
+    font-size: 1.5rem;
+  }
+  p {
+    color: var(--gray-60);
+  }
+}
+
 @media (min-width: 640px) {
+  .order-by__dropdown-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-direction: row;
+  }
+  .order-by__dropdown-container > ul {
+    width: 240px;
+  }
   .paginate-container {
     display: flex;
     flex-direction: row;
@@ -173,9 +203,12 @@
   .proposals-container {
     display: flex;
     flex-direction: row;
-    margin: 1rem 0;
+    margin: 1.5rem 0;
     justify-content: space-between;
     align-items: center;
+  }
+  .order__by-text {
+    width: auto;
   }
   .title-action-button {
     display: flex;
@@ -213,6 +246,17 @@
   }
   .proposals-actions-admin .black-and-white-btn {
     width: auto;
+  }
+  .br-announcement {
+    h2 {
+      padding: 0;
+      margin: 0 0 0.5rem 0;
+      color: var(--pure-100);
+      font-size: 2rem;
+    }
+    p {
+      color: var(--gray-60);
+    }
   }
 }
 
@@ -451,15 +495,4 @@
 .proposal_vote_button {
   padding-left: 48px;
   padding-right: 48px;
-}
-
-.br-announcement {
-  h2 {
-    padding: 0;
-    margin: 0 0 0.5rem 0;
-    color: var(--pure-100);
-  }
-  p {
-    color: var(--gray-60);
-  }
 }
