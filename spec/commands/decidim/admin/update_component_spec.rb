@@ -43,6 +43,10 @@ module Decidim::Admin
             dummy_step_attribute2: false,
             readonly_step_attribute: false
           }
+        },
+        menu_name: {
+          en: "My components",
+          pt_BR: "Meus componentes"
         }
       )
     end
@@ -59,6 +63,9 @@ module Decidim::Admin
         expect(component["name"]["pt_BR"]).to eq("Meus componentes")
         expect(component["singular_name"]["en"]).to eq("My component")
         expect(component["singular_name"]["pt_BR"]).to eq("Meu componente")
+        expect(component["menu_name"]["en"]).to eq("My components")
+        expect(component["menu_name"]["pt_BR"]).to eq("Meus componentes")
+
         expect(component.weight).to eq(3)
         expect(component.settings.dummy_global_attribute1).to be(true)
         expect(component.settings.dummy_global_attribute2).to be(false)

@@ -64,6 +64,8 @@
 .filters {
   padding: 0;
   min-height: auto;
+  width: 100%;
+  padding: 24px 0 0 0;
 }
 
 .filters__title {
@@ -110,4 +112,17 @@
 
 .pagination-br-container {
   margin-top: 16px;
+}
+
+.dropdown .is-dropdown-submenu a {
+  padding: 1rem !important;
+  text-decoration: none !important;
+}
+
+.order-by-item:not(:last-child) {
+  border-bottom: 1px solid var(--color-secondary-04);
+}
+
+.dropdown .is-dropdown-submenu a:hover {
+  background-color: var(--blue-warm-20);
 }

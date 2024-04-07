@@ -1,0 +1,94 @@
+.comments-header {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+.br-comments-count {
+  color: var(--blue-warm-vivid-80);
+  font-size: 1.25rem !important;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+
+.comments_blocked_warning {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+  gap: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--blue-warm-vivid-80);
+}
+
+.comment__footer {
+  padding: 1rem;
+  font-size: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.comment__footer_votes {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.comment_check {
+  margin-left: 6px;
+}
+
+.interaction-select:hover {
+  a {
+    color: var(--blue-warm-vivid-20);
+  }
+}
+
+.feedback-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.accept-button {
+  color: var(--green-vivid-70);
+  gap: 8px;
+}
+.accept-button.selected {
+  background-color: var(--green-vivid-70);
+  color: var(--background-light);
+}
+
+.reject-button {
+  color: var(--red-vivid-60);
+  gap: 8px;
+}
+.reject-button.selected {
+  background-color: var(--red-vivid-60);
+  color: var(--background-light);
+}
+
+.comment-thread {
+  border: 0;
+  box-shadow: none;
+}
+.comment__header {
+  justify-content: space-between;
+  padding: 0;
+}
+.comment-settings {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+.gallery {
+  margin-top: 1.5rem;
+}
+.comments {
+  padding: 0 0 3rem 0;
+}

@@ -5,7 +5,7 @@ pt-BR:
       answer:
         selected_choices: Escolhas selecionadas
       questionnaire:
-        title: Título
+        title: Nome do Formulário
   decidim:
     forms:
       admin:

@@ -4,7 +4,6 @@ WORKDIR /decidim-govbr
 COPY . .
 
 RUN bundle install
-RUN npm install
 RUN yarn
 
 COPY .env.dev /decidim-govbr/.env

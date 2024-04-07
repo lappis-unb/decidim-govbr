@@ -1,20 +1,21 @@
 <%= content_tag :div, id: node_id, data: { decidim_comments: comments_data } do %>
-  <% unless comments_blocked? && comments_count == 0 %>
-  <div class="columns large-9 comments-meeting" id="comments">
-    <div class="comments-new">
-      <div class="comments-header meeting">
+  <div class="comments-container" id="comments">
+    <div class="comments">
+      <div class="row collapse order-by">
+        <h3 class="order-by__text section-heading">
           <% if single_comment? %>
             <%= t("decidim.components.comments.comment_details_title") %>
           <% else %>
-            <h3 class="br-comments-count">
+            <span class="comments-count">
               <%= t("decidim.components.comments.title", count: comments_count) %>
-            </h3>
+            </span>
           <% end %>
+        </h3>
         <%= render :order_control %>
       </div>
       <%= single_comment_warning %>
       <%= blocked_comments_warning %>
-      <div class="comment-threads meeting">
+      <div class="comment-threads">
         <%= comments_loading %>
         <% comments.each do |comment| %>
           <%= cell("decidim/comments/comment_thread", comment, order: order) %>
@@ -22,18 +23,9 @@
       </div>
       <%= add_comment %>
       <%= user_comments_blocked_warning %>
-
-
-      <%if comments_blocked? %>
-
-        <p class="comments_blocked_warning">Comentários bloqueados</p>
-
-      <% end %>
-
     </div>
-    <div class="callout primary loading-comments hide meeting">
+    <div class="callout primary loading-comments hide">
       <p><%= t("decidim.components.comments.loading") %></p>
     </div>
   </div>
-  <% end %>
 <% end %>
