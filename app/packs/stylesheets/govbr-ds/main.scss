@@ -1321,6 +1321,10 @@ div.columns.large-12
   justify-content: flex-start;
   padding: 1.5rem;
   width: 50%;
+  gap: 1rem;
+}
+.meta-card p {
+  margin: 0;
 }
 
 .card__author {
