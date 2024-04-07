@@ -3,11 +3,14 @@
         <div class="proposals-actions-admin">
             <%= render partial: 'decidim/govbr/exports/dropdown', locals: { component: current_component, resource_id: nil, is_comments: true} %>
             <%= render partial: 'decidim/govbr/exports/dropdown', locals: { component: current_component, resource_id: nil, is_comments: false} %>
-            <%= render partial: "decidim/shared/export_modal" %>
             <%= link_to "<i class='fas fa-edit' aria-hidden='true'></i> Editar componente".html_safe,
                 send(mounted_admin_engine).edit_component_path(current_participatory_space, current_component),
                 class: "br-button secondary black-and-white-btn" %>
+            <%= render partial: "decidim/shared/export_modal" %>
             <!--<%= render partial: "statistics_small_view", locals: {statistics: @user_proposals_statistic} %>-->
         </div>
+        <% if browser.mobile? %>
+            <span class="br-divider my-2"></span>
+        <% end %>
     <% end %>
 <% end %>

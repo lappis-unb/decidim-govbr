@@ -26,10 +26,11 @@ pt-BR:
         parent_id: Superior
         weight: Posição do pedido
       component:
-        name: Nome de um Conjunto de Páginas
+        name: Nome de um Conjunto do Componente
         published_at: Publicado em
         weight: Posição do pedido
-        singular_name: Nome da Página
+        singular_name: Nome do Componente
+        menu_name: Nome da Página
       external_domain:
         value: Valor
       help_section:
