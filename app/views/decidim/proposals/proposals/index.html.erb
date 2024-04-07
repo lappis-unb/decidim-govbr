@@ -1,10 +1,9 @@
 <div class="br-container-lg">
-  <% unless browser.mobile? %>
-    <%= render partial: "admin_actions",
-      locals: {mounted_admin_engine: current_participatory_space.mounted_admin_engine,
-      current_participatory_space: current_participatory_space,
-      current_component: current_component} %>
-  <% end %>
+  <%= render partial: "admin_actions",
+    locals: {mounted_admin_engine: current_participatory_space.mounted_admin_engine,
+    current_participatory_space: current_participatory_space,
+    current_component: current_component} %>
+
   <% if component_settings.geocoding_enabled? %>
     <%= dynamic_map_for proposals_data_for_map(@all_geocoded_proposals) do %>
       <template id="marker-popup">
@@ -30,7 +29,9 @@
       </template>
     <% end %>
   <% end %>
-  <%= render partial: "decidim/shared/component_announcement" %>
+  <div class="proposals-announcement">
+    <%= render partial: "decidim/shared/component_announcement" %>
+  </div>
   <%= render partial: "voting_rules" %>
   <div class="filter-container">
     <div class="proposals__buttons-container">
@@ -96,7 +97,7 @@
       </button>
     </div>
   </div>
-  <span class="br-divider my-6"></span>
+  <span class="br-divider <% if browser.mobile? %>my-2<% else %>my-4<% end %>"></span>
     <%= filter_form_for filter do |form| %>
       <div class="br-input input-highlight">
         <%= form.search_field :search_text_cont, type: "search",
