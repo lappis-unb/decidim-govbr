@@ -86,77 +86,88 @@ extra_admin_link(
     </div>
     
     <div class="side-content">
-      <% if @proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal) %>
-        <% if translated_attribute(current_component.singular_name).present? %>
-          <%= link_to t("decidim.components.proposals.actions.edit_proposal",
-            singular_name_button: translated_attribute(current_component.singular_name).downcase),
-            edit_proposal_path(@proposal), class: "button hollow expanded button--sc" %>
+      <!-- Card de votos e ações -->
+      <% if current_settings.votes_enabled? || show_endorsements_card? || current_user %>
+        <% if @proposal.withdrawn? %>
+          <div class="card">
+            <div class="card__content">
+              <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
+              <% if current_settings.votes_enabled? %>
+                <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
+              <% end %>
+            </div>
+          </div>
         <% else %>
-          <%= link_to t("decidim.components.proposals.actions.edit_proposal",
-            singular_name_button: "proposta"),
-            edit_proposal_path(@proposal), class: "button hollow expanded button--sc" %>
+          <div class="proposal-card">
+            <div class="proposal-card__content">
+              <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
+            </div>
+            <% if current_settings.votes_enabled? %>
+              <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
+            <% end %>
+            <div class="row collapse buttons__row">
+              <div class="column collapse <%= endorsements_enabled? ? "small-3" : "" %>">
+                <%= link_to "#comments", class: "button small compact hollow secondary button--nomargin expanded" do %>
+                    <span class="show-for-sr">
+                      <%= present(@proposal).title(html_escape: true) %>
+                    </span>
+                    <%= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %>
+                    <%= @proposal.comments_count %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+      <%= amenders_list_for(@proposal) %>
+
+      <%= render partial: "decidim/shared/share_modal", locals: { resource: @proposal } %>
+      <button type="button" class="br-button" data-open="flagModal" title="Denunciar"
+        aria-controls="flagModal" aria-haspopup="dialog" tabindex="0">
+        <i class="fas fa-flag mr-2" aria-hidden="true"></i>
+        Moderação
+      </button>
+      <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
+      <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
+
+      <% if @proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal) %>
+        <%= link_to edit_proposal_path(@proposal), class: "br-button secondary black-and-white-btn" do %>
+          <i class="fas fa-edit" aria-hidden="true"></i>
+          <span>
+            <% if translated_attribute(current_component.singular_name).present? %>
+              <%= t("decidim.components.proposals.actions.edit_proposal",
+                singular_name_button: translated_attribute(current_component.singular_name).downcase) %>
+            <% else %>
+              <%= t("decidim.components.proposals.actions.edit_proposal",
+                singular_name_button: "proposta") %>
+            <% end %>
+          </span>
         <% end %>
       <% else %>
         <%= amend_button_for @proposal %>
       <% end %>
 
       <%= emendation_actions_for @proposal %>
-
-      <!-- Card de votos e ações -->
-      <% if current_settings.votes_enabled? || show_endorsements_card? || current_user %>
-        <% if @proposal.withdrawn? %>
-          <div class="card">
-            <div class="card__content">
-              <% if current_settings.votes_enabled? %>
-                <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
-              <% end %>
-            </div>
-          </div>
-          <% else %>
-            <div class="proposal-card">
-              <div class="proposal-card__content">
-                <% if current_settings.votes_enabled? %>
-                  <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
-                <% end %>
-                <div class="row collapse buttons__row">
-                  <div class="column collapse <%= endorsements_enabled? ? "small-3" : "" %>">
-                    <%= link_to "#comments", class: "button small compact hollow secondary button--nomargin expanded" do %>
-                        <span class="show-for-sr">
-                          <%= present(@proposal).title(html_escape: true) %>
-                        </span>
-                        <%= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %>
-                        <%= @proposal.comments_count %>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-            </div>
-        <% end %>
-      <% end %>
-
-      <%= amenders_list_for(@proposal) %>
-
-  <%= render partial: "decidim/shared/share_modal", locals: { resource: @proposal } %>
-  <%= embed_modal_for proposal_widget_url(@proposal, format: :js) %>
-  <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
-  <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
-</div>
-
-</div>
-
-<%= attachments_for @proposal %>
-
-<!-- Seção de comentários -->
-<% if user_full_profile_required? %>
-  <% if user_survey_answered? %>
-    <%= comments_for @proposal %>
+    </div>
+  </div>
+  
+  <!-- Seção de anexos e imagens -->
+  <%= attachments_for @proposal %>
+  
+  <!-- Seção de comentários -->
+  <% if user_full_profile_required? %>
+    <% if user_survey_answered? %>
+      <%= comments_for @proposal %>
+    <% else %>
+      <%= comments_for(@proposal, {
+        :hide_comment_action => true, :alert => flash[:alert], :poll_link => flash[:poll_link]}) 
+      %>
+    <% end %>
   <% else %>
-    <%= comments_for(@proposal, {
-      :hide_comment_action => true, :alert => flash[:alert], :poll_link => flash[:poll_link]}) 
-    %>
+    <%= comments_for @proposal %>
   <% end %>
-<% else %>
-  <%= comments_for @proposal %>
-<% end %>
 
-<%= cell("decidim/flag_modal", @proposal) %>
+  <%= cell("decidim/flag_modal", @proposal) %>
+</div>
+

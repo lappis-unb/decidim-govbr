@@ -291,7 +291,7 @@ pt-BR:
           discard: Descarte este rascunho
           discard_confirmation: Deseja mesmo descartar este rascunho
           send: Visualização
-          title: Editar %{sinugular_name} proposta de rascunho
+          title: Editar rascunho de %{singular_name}
         index:
           click_here: Ver todas as propostas
           collaborative_drafts_list: Acessar rascunhos colaborativos
@@ -307,12 +307,6 @@ pt-BR:
           edit_image: Editar imagem
           select_a_category: Selecione um tema
           title: Editar %{singular_name}
-        edit_draft:
-          discard: Descartar rascunho
-          send: Continuar
-          discard_confirmation: Deseja mesmo descartar este rascunho
-          send: Visualização
-          title: Editar %{singular_name} de rascunho
         filters:
           category: Tema
           placeholder: "Qual %{name} você procura?"

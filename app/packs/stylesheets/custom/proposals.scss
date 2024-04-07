@@ -197,7 +197,7 @@
   width: 100%;
   margin-bottom: 1.5rem;
 }
-.br-announcement {
+.proposals-announcement .br-announcement {
   h2 {
     padding: 0;
     margin: 0 0 0.5rem 0;
@@ -209,7 +209,19 @@
   }
 }
 
+.proposal-extra-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
 @media (min-width: 640px) {
+  .proposal-extra-data {
+    flex-direction: row;
+  }
+
   .order-by__dropdown-container {
     display: flex;
     align-items: center;
@@ -530,13 +542,6 @@
   padding-right: 48px;
 }
 
-.proposal-extra-data {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .proposal-card {
   display: flex;
   flex-direction: column;
@@ -556,4 +561,10 @@
   gap: 8px;
   align-self: stretch;
   background: var(--blue-warm-vivid-5);
+}
+
+.button--vote-button,
+.button_to,
+.button--vote-button .button_to button {
+  width: 100%;
 }
