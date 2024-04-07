@@ -1,16 +1,111 @@
 .card__animation {
-  opacity: 0;
-  transform: translateY(-50px);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.card__animation.in-view {
-  opacity: 1;
-  transform: translateY(0);
+  animation: slidein 0.5s;
   transition: opacity 0.5s, transform 0.4s, box-shadow 0.3s;
 }
 
 .card__animation:hover {
   transform: scale(1.05);
   transition: transform 0.2s, box-shadow 0.2s;
+}
+
+@keyframes slidein {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.proposals_card_stats {
+  display: flex;
+  flex-direction: column;
+}
+
+.progress__bar__number {
+  color: var(--pure-100);
+  font-variant-numeric: lining-nums proportional-nums;
+  font-size: 41.8px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 0.5rem;
+}
+.progress__bar__text {
+  color: var(--gray-90);
+  text-align: center;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: lowercase !important;
+}
+
+.progress__bar__coment_number {
+  color: #726a70;
+}
+
+.progress__bar__coment {
+  color: #726a70;
+  font-size: 1rem !important;
+}
+.card__header {
+  overflow: hidden;
+}
+
+.card.default {
+  border-top-color: var(--blue-warm-vivid-20);
+  border-top-width: 8px; 
+}
+
+.card.voted {
+  border-top-color: var(--blue-warm-vivid-60);
+  border-top-width: 8px; 
+}
+
+.card.rejected {
+  border-top-color: var(--red-vivid-60);
+  border-top-width: 8px; 
+}
+
+.card.accepted {
+  border-top-color: var(--green-vivid-60);
+  border-top-width: 8px; 
+}
+
+.card.refused {
+  border-top-color: var(--orange-vivid-50);
+  border-top-width: 8px; 
+}
+
+.card__text--status {
+  padding: 4px 8px;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.card__text--status.accepted {
+  border: 2px solid var(--green-vivid-60);
+  color: var(--green-vivid-60);
+}
+
+.card__text--status.rejected {
+  border: 2px solid var(--red-vivid-60);
+  color: var(--red-vivid-60);
+}
+
+.card__text--status.refused {
+  border: 2px solid var(--orange-vivid-50);
+  color: var(--orange-vivid-50);
+}
+
+.card__text--status.voted {
+  border: 2px solid var(--blue-warm-vivid-60);
+  color: var(--blue-warm-vivid-60);
 }

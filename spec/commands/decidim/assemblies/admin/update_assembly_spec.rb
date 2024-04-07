@@ -12,7 +12,6 @@ module Decidim
           let(:assembly_type_id) { assembly_type.id }
           let(:my_assembly) { create :assembly, assembly_type: assembly_type, organization: organization, initial_page_component_id: 10, initial_page_type: "foo" }
           let(:user) { create :user, :admin, :confirmed, organization: my_assembly.organization }
-
           let(:participatory_processes) do
             create_list(
               :participatory_process,
@@ -94,6 +93,7 @@ module Decidim
           let(:command) { described_class.new(my_assembly, form) }
           let(:initial_page_component_id) { 0 }
           let(:initial_page_type) { "default" }
+          let!(:initial_page_component) { create :homes_component, id: 10, participatory_space: my_assembly }
 
           describe "when the form is not valid" do
             before do
