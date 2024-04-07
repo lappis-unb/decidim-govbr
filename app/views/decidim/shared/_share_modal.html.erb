@@ -1,4 +1,4 @@
-<button class="br-button secondary" data-open="socialShare">
+<button class="br-button" data-open="socialShare">
   <i class="fas fa-share-alt mr-2" aria-hidden="true"></i>
   <%= t(".share") %>
   <% if try(:resource) %>
@@ -13,7 +13,7 @@
     </button>
   </div>
   <div class="button-group text-center">
-  <%= social_share_button_tag(decidim_page_title,
+    <%= social_share_button_tag(decidim_page_title,
         url: decidim_meta_url,
         image: decidim_meta_image_url,
         desc: h(decidim_meta_description),
