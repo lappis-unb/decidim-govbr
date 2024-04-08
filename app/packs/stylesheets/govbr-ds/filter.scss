@@ -212,6 +212,26 @@
   padding: 0px;
 }
 
+.voting-rules {
+  max-height: 0;
+  transition: max-height 0.5s ease-in-out;
+  overflow: hidden;
+}
+
+.vote_rules_card_hidden {
+  max-height: 0;
+  overflow: hidden;
+}
+
+.vote_rules_card_visible {
+  max-height: 500px;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.show__rules__card {
+  max-height: 500px;
+}
+
 #filters__menu.show__filters__menu,
 #filters__triangle.show__filters__menu {
   max-height: 500px;
