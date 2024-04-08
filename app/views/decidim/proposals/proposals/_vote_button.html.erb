@@ -29,7 +29,7 @@
             class: "br-button #{vote_button_classes(from_proposals_list)} secondary black-and-white-btn",
             id: "vote_button-#{proposal.id}"
           ) do %>
-            <i class="fa-solid fa-xmark fa-sm"></i>
+            <i class="fa-solid fa-xmark xmark-button"></i>
             <%= t("decidim.proposals.proposals.vote_button.already_voted_hover") %>
             <span class="show-for-sr"><%= decidim_html_escape(present(proposal).title) %></span>
           <% end %>
@@ -43,9 +43,10 @@
               <%# <%= content_tag :button, t("decidim.proposals.proposals.vote_button.votes_blocked"), class: "button #{vote_button_classes(from_proposals_list)} disabled", disabled: true %> 
             <% else %>
               <%= action_authorized_button_to :vote,
-                proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list),
+               proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list),
                 resource: proposal, remote: true, data: { disable: true, "redirect-url": proposal_path(proposal) },
-                class: "br-button secondary #{vote_button_classes(from_proposals_list)}" do %>
+                class: "button proposal_vote_button #{vote_button_classes(from_proposals_list)}" do %>
+                <%= icon("check") %>
                 <%= t("decidim.proposals.proposals.vote_button.vote") %>
                 <span class="show-for-sr"><%= decidim_html_escape(present(proposal).title) %></span>
               <% end %>
