@@ -13,7 +13,7 @@
                   </span>
                 <% else %>
                   <span class="name">
-                    <%= item[:menu_name] %>
+                    <%= item[:menu_name] ? item[:menu_name] : item[:name]%>
                   </span>
                 <% end %>
               <% end %>
