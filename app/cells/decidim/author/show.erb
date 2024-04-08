@@ -1,9 +1,6 @@
 <div class="<%= author_classes %>">
   <div class="author-data__main">
     <%= render :profile %>
-    <% if current_user.admin? %>
-      <%= render :flag %>
-    <% end %>
   </div>
   <% if actionable? %>
     <div class="author-data__extra">

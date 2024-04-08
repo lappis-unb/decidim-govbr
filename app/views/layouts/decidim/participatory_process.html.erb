@@ -12,12 +12,8 @@
     <%= yield %>
   </div>
   <% if content_for? :expanded %>
-    <div class="expanded">
-      <div class="wrapper">
-        <div class="br-container-lg row">
-          <%= yield :expanded %>
-        </div>
-      </div>
+    <div class="br-container-lg row">
+      <%= yield :expanded %>
     </div>
   <% end %>
 <% end %>

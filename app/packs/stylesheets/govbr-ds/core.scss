@@ -16257,6 +16257,9 @@ template {
   overflow: hidden !important;
 }
 @media (min-width: 576px) {
+  .br-magic-button, .br-magic-button .br-button {
+    width: auto !important;
+  }
   .overflow-sm-auto {
     overflow: auto !important;
   }
@@ -16544,6 +16547,7 @@ label {
   font-weight: var(--font-weight-semi-bold);
   line-height: var(--font-line-height-medium);
   margin-bottom: var(--spacing-scale-half);
+  width: fit-content;
 }
 .fieldset,
 fieldset {
@@ -26827,6 +26831,7 @@ button.br-item:not(:disabled):active {
   --magic-support-medium: var(--spacing-scale-8x);
   --magic-support-large: var(--spacing-scale-9x);
   --magic-z-index: var(--z-index-layer-1);
+  width: 100%;
   align-items: center;
   background-color: var(--gray-5);
   border-radius: 100em;
@@ -26865,6 +26870,7 @@ button.br-item:not(:disabled):active {
   color: var(--color-dark);
   font-size: var(--font-size-scale-up-02);
   font-weight: var(--font-weight-semi-bold);
+  width: 100%;
 }
 .br-magic-button .br-button:not(:disabled):not(:disabled):hover {
   background-image: linear-gradient(
@@ -31111,7 +31117,7 @@ align-items: center;
 }
 
 .black-and-white-btn {
-  border-color: var(--pure-100) !important;
-  color: var(--pure-100) !important;
+  border-color: var(--gray-90) !important;
+  color: var(--gray-90) !important;
   gap: 8px;
 }
