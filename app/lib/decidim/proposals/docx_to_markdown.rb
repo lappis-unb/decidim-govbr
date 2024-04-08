@@ -78,11 +78,9 @@ module Decidim
       end
 
       def sanitize_script_tags(participatory_text)
-        script_tags = /&lt;script&gt;.*&lt;\/script&gt;/
+        script_tags = %r{&lt;script&gt;.*&lt;/script&gt;}
 
-        if script_tags.match?(participatory_text)
-          participatory_text=participatory_text.gsub(script_tags,'')
-        end
+        participatory_text = participatory_text.gsub(script_tags, '') if script_tags.match?(participatory_text)
 
         participatory_text
       end
