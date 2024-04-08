@@ -40,7 +40,8 @@ module Decidim
                 private_space: my_process.private_space,
                 initial_page_type: initial_page_type,
                 initial_page_component_id: initial_page_component_id,
-                should_have_user_full_profile: true
+                should_have_user_full_profile: true,
+                show_mobilization: false
               }.merge(attachment_params)
             }
           end
