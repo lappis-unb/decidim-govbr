@@ -15,7 +15,7 @@
         data-allow-all-closed="true">
         <%= form.fields_for(:proposals) do |prop_form| %>
         <% proposal= @drafts[prop_form.index] %>
-          <li class="accordion-item <%= proposal.article? ? "is-active" : nil %>" data-accordion-item>
+          <li id="proposal-draft-<%= prop_form.index %>" class="accordion-item <%= proposal.article? ? "is-active" : nil %>" data-accordion-item>
             <a href="#" class="accordion-title flex--sbc">
               <%= preview_participatory_text_section_title(proposal) %>
               <span class="mr-m"><%= icon "menu", class: "icon--small", role: "img", "aria-hidden": true %></span>
@@ -28,6 +28,11 @@
         <% end %>
       </ul>
     <% end -%>
+    <%= form.hidden_field :proposal_to_add, id: "proposal-to-add" %>
+
+    <button class="add-proposal-draft button tiny button--title" data-proposal-draft-type="article">Adicionar Artigo</button>
+    <button class="add-proposal-draft button tiny button--title" data-proposal-draft-type="sub-section">Adicionar Subseção</button>
+    <button class="add-proposal-draft button tiny button--title" data-proposal-draft-type="section">Adicionar Seção</button>
   </div>
 </div>
 <% if @drafts.any? %>
@@ -54,5 +59,25 @@ $(window).on("load", function() {
       })
     }
   )
+  $(".remove-proposal-draft").on("click", function(ev) {
+    ev.preventDefault();
+    const proposalDraftId = $(this).data("proposal-draft-id");
+    $(`#proposal-draft-${proposalDraftId}-deleted`).val("1");
+
+    let form = $(this).parents("form");
+    form.append('<input type="hidden" name="save_draft" value="true" />');
+    form.submit();
+  });
+
+  $(".add-proposal-draft").on("click", function(ev) {
+    ev.preventDefault();
+
+    const buttonPressed = $(ev.target);
+    $("#proposal-to-add").val(buttonPressed.data("proposal-draft-type"));
+
+    var form = $(this).parents("form");
+    form.append('<input type="hidden" name="save_draft" value="true" />');
+    form.submit();
+  });
 })
 </script>

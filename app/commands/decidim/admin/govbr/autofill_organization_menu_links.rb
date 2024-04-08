@@ -24,11 +24,12 @@ module Decidim
           spaces.map do |space|
             links = space.components.map do |component|
               label = component.respond_to?('name') ? 'name' : 'title'
-              label_pt_br = component.send(label)['pt-br'] || component.send(label)['pt'] || 'Componente'
+              puts component['name']
+              label_pt_br = component.send(label)['pt-BR'] || component.send(label)['pt'] || 'Componente'
               url = "/#{space_label}/#{space.slug}/f/#{component.id}"
               { 'id' => "#{label_pt_br}_#{component.id}", 'label' => label_pt_br, 'href' => url, "is_visible" => true }
             end
-            label_pt_br = space.send('title')['pt-br'] || space.send('title')['pt'] || 'Espaço'
+            label_pt_br = space.send('title')['pt-BR'] || space.send('title')['pt'] || 'Espaço'
             { 'id' => "#{space_label}_#{space.id}", 'label' => label_pt_br, 'sub_items' => links, "is_visible" => true }
           end
         end

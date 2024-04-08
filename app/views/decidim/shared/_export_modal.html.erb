@@ -1,9 +1,9 @@
 <% if current_user.present? && current_user.admin? %>
   <button
-    class="br-button primary"
+    class="br-button secondary black-and-white-btn"
     data-open="export_data"
   >
-    <i class="fa-solid fa-magnifying-glass-chart m-2"></i>
+    <i class="fa-solid fa-file-alt"></i>
     Gerar relatório
   </button>
   <div class="reveal" id="export_data" data-reveal>
@@ -24,13 +24,11 @@
             <div class="export-calendar-input">
               <input id="range-input" type="text" name="date_range" placeholder="exemplo: 02/02/2024 até 03/02/2025" data-input="data-input" />
             </div>
-            <div>
-              <%= f.text_field :airflow_endpoint, label: "Endpoint do Airflow", placeholder: "Insira o endpoint para a requisição" %>
-            </div>
           </div>
 
           <%= f.hidden_field :component_id, value: current_component.id %>
           <%= f.hidden_field :email, value: current_user.email %>
+          <%= f.hidden_field :airflow_endpoint, value: 'generate_report_proposals' %>
 
           <%= f.submit "Enviar" %>
         </div>
