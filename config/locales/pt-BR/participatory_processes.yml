@@ -44,6 +44,7 @@ pt-BR:
         start_date: Data de início
         target: Responsável pela consulta
         should_have_user_full_profile: Exigir Perfil de Usuário completo para responder o formulário
+        show_mobilization: Mostrar mobilização
       participatory_process_group:
         group_url: Site
         promoted: Promovido

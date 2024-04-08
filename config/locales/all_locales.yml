@@ -33,6 +33,7 @@ pt-BR:
         participatory_structure: Telefone ou E-mail Institucional do Setor
         show_statistics: Mostrar Dados Participativos
         should_have_user_full_profile: Exigir Perfil de Usuário completo para responder o formulário
+        show_mobilization: Mostrar mobilização
       participatory_process_partner:
         link: Link oficial
         logo: Logotipo
@@ -213,6 +214,7 @@ pt:
         participatory_process_group_id: Setor
         show_statistics: Mostrar Dados Participativos
         should_have_user_full_profile: Exigir Perfil de Usuário completo para responder o formulário
+        show_mobilization: Mostrar mobilização
   decidim:
     components:
       proposals:
