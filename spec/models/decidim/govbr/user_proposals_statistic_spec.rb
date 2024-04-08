@@ -56,13 +56,17 @@ module Decidim::Govbr
     end
 
     describe ".csv_attributes_header_map" do
-      subject { Decidim::Govbr::UserProposalsStatistic }
+      subject { UserProposalsStatistic.csv_attributes_header_map }
       let(:columns) do
-        subject.column_names - %w(id decidim_user_identification_number created_at updated_at user_proposals_statistic_setting_id)
+        UserProposalsStatistic.column_names - %w(id decidim_user_identification_number created_at updated_at user_proposals_statistic_setting_id)
       end
 
       it "translates all model columns" do
-        expect(subject.csv_attributes_header_map.keys).to match_array(columns)
+        expect(subject.keys).to match_array(columns)
+      end
+
+      it "provides no empty translations" do
+        expect(subject.values).to all be_present
       end
     end
   end
