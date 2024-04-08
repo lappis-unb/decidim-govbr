@@ -1,0 +1,37 @@
+<div class="meta-card">
+  <% if translated_attribute(current_participatory_space&.area&.name).present? %>
+    <p>
+      <strong>Órgão/Instituição</strong>: <%= translated_attribute(current_participatory_space.area.name) %>
+    </p>
+  <% end %>
+  <% if translated_attribute(current_participatory_space&.participatory_process_group&.title).present? %>
+    <p>
+      <strong>Secretaria</strong>: <%= translated_attribute(current_participatory_space.participatory_process_group.title) %>
+    </p>
+  <% end %>
+  <% if translated_attribute(current_participatory_space&.developer_group).present? %>
+    <p>
+      <strong>Setor</strong>: <%= translated_attribute(current_participatory_space.developer_group) %>
+    </p>
+  <% end %>
+  <% if translated_attribute(current_participatory_space&.participatory_structure).present? %>
+    <p>
+      <strong>Telefone ou E-mail Institucional do Setor</strong>: <%= translated_attribute(current_participatory_space.participatory_structure) %>
+    </p>
+  <% end %>
+  <% if translated_attribute(current_participatory_space&.target).present? %>
+    <p>
+      <strong>Responsável pela consulta</strong>: <%= translated_attribute(current_participatory_space.target) %>
+    </p>
+  <% end %>
+  <% if translated_attribute(current_participatory_space&.publish_date).present? %>
+    <p>
+      <strong>Data de Publicação no DOU</strong>: <%= l(current_participatory_space.publish_date) %>
+    </p>
+  <% end %>
+  <% if translated_attribute(current_participatory_space&.participatory_scope).present? %>
+    <p>
+      <strong>Link da Publicação no DOU</strong>: <%= translated_attribute(current_participatory_space.participatory_scope) %>
+    </p>
+  <% end %>
+</div>
