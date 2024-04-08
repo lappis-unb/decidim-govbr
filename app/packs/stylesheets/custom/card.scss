@@ -26,7 +26,23 @@
 }
 
 .progress__bar__number {
-  font-weight: 600;
+  color: var(--pure-100);
+  font-variant-numeric: lining-nums proportional-nums;
+  font-size: 41.8px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 0.5rem;
+}
+.progress__bar__text {
+  color: var(--gray-90);
+  text-align: center;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: lowercase !important;
 }
 
 .progress__bar__coment_number {
@@ -71,6 +87,7 @@
   border-radius: 30px;
   font-size: 0.75rem;
   font-weight: 600;
+  margin-bottom: 24px;
 }
 
 .card__text--status.accepted {
