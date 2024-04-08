@@ -13,7 +13,7 @@ pt-BR:
         weight: Posição de ordem
         announcement: Anúncio
         initial_page_component_id: Página Inicial do Processo Participativo
-        area_id: Secretaria
+        area_id: Órgão/Instituição
         decidim_area_id: Órgão/Instituição
         banner_image: Imagem da capa (desktop)
         copy_categories: Copiar categorias
@@ -29,14 +29,14 @@ pt-BR:
         import_steps: Importar etapas
         local_area: Setor
         meta_scope: Selecione o Status deste processo participativo
-        participatory_process_group_id: Órgão/Instituição
+        participatory_process_group_id: Secretaria
         participatory_scope: Link da publicação do processo no DOU
         participatory_structure:  Telefone ou E-mail Institucional do Setor
         promoted: Destacado
         publish_date: Data de publicação do processo no DOU
         published_at: Publicado em
         related_process_ids: Processos relacionados
-        scope_id: Áres de interesse
+        scope_id: Áreas de interesse
         scope_type_max_depth_id: Profundidade de filtro de escopo
         scopes_enabled: Áreas de interesse ativadas
         show_metrics: Mostrar métricas

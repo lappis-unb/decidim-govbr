@@ -39,53 +39,96 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   observer.observe(menuLateral);
-  
-  let csvExport = document.getElementsByClassName("exports--format--csv")
-  let jsonExport = document.getElementsByClassName("exports--format--json")
-  let excelExport = document.getElementsByClassName("exports--format--excel")
-  let exportSpan = document.getElementById("export-span")
-  let closeExportSpan = document.getElementById("export-span-close")
-  
-  function exportSpanStyle(exportSpan){
-    let dropDown = document.getElementById("export-dropdown")
-    dropDown.classList.remove("is-open")
-    exportSpan.classList.remove("export-span-hollow")
-    exportSpan.classList.add("export-span-show")
+
+  let csvExport = document.getElementsByClassName("exports--format--csv");
+  let jsonExport = document.getElementsByClassName("exports--format--json");
+  let excelExport = document.getElementsByClassName("exports--format--excel");
+  let exportSpan = document.getElementById("export-span");
+  let exportCommentsSpan = document.getElementById("export-comments-span");
+  let closeExportSpan = document.getElementById("export-span-close");
+
+  function exportSpanStyle(exportSpan) {
+    let dropDown = document.getElementById("export-dropdown");
+    dropDown.classList.remove("is-open");
+    exportSpan.classList.remove("export-span-hollow");
+    exportSpan.classList.add("export-span-show");
   }
+
+  function exportCommentsSpanStyle(exportCommentsSpanStyle) {
+    let dropDown = document.getElementById("export-comments-dropdown");
+    dropDown.classList.remove("is-open");
+    exportSpan.classList.remove("export-span-hollow");
+    exportSpan.classList.add("export-span-show");
+  }
+
   if (closeExportSpan) {
     closeExportSpan.addEventListener("click", () => {
-      exportSpan.classList.remove("export-span-show")
-      exportSpan.classList.add("export-span-hollow")
-    })
+      exportSpan.classList.remove("export-span-show");
+      exportSpan.classList.add("export-span-hollow");
+    });
   }
 
-  for(let i = 0; i < 2 ; i++){
-    csvExport[i] && csvExport[i].addEventListener("click", () => exportSpanStyle(exportSpan))
-    jsonExport[i] && jsonExport[i].addEventListener("click", () => exportSpanStyle(exportSpan))
-    excelExport[i] && excelExport[i].addEventListener("click", () => exportSpanStyle(exportSpan))
+  for (let i = 0; i < 2; i++) {
+    csvExport[i] &&
+      csvExport[i].addEventListener("click", () => exportSpanStyle(exportSpan));
+    jsonExport[i] &&
+      jsonExport[i].addEventListener("click", () =>
+        exportSpanStyle(exportSpan)
+      );
+    excelExport[i] &&
+      excelExport[i].addEventListener("click", () =>
+        exportSpanStyle(exportSpan)
+      );
+    csvExport[i] &&
+      csvExport[i].addEventListener("click", () =>
+        exportCommentsSpanStyle(exportCommentsSpan)
+      );
+    jsonExport[i] &&
+      jsonExport[i].addEventListener("click", () =>
+        exportCommentsSpanStyle(exportCommentsSpan)
+      );
+    excelExport[i] &&
+      excelExport[i].addEventListener("click", () =>
+        exportCommentsSpanStyle(exportCommentsSpan)
+      );
   }
 
-  let showFilters = document.getElementById("filter-btn-br")
+  const showFiltersButton = document.getElementById("filter-btn-br");
+  const filtersMenu = document.getElementById("filters__menu");
+  const filtersTriangle = document.getElementById("filters__triangle");
 
-  showFilters.addEventListener("click", () => {
-    let filtersMenu = document.getElementById("filters__menu")
-    let filtersTriangle = document.getElementById("filters__triangle")
-    let menuStatus = filtersMenu.classList[0]
-    
-    if(menuStatus == "filters__hidden"){
-      filtersMenu.classList.remove("filters__hidden")
-      filtersTriangle.classList.remove("filters__hidden")
-      filtersMenu.classList.add("show__filters__menu")
-      filtersTriangle.classList.add("show__filters__menu")
-      showFilters.innerHTML = `<i class="fa-solid fa-sliders" style="color: #333333;"></i>
-      Esconder Filtros`
-    } else{
-      showFilters.innerHTML = `<i class="fa-solid fa-sliders" style="color: #333333;"></i>
-      Mostrar Filtros`
-      filtersMenu.classList.add("filters__hidden")
-      filtersTriangle.classList.add("filters__hidden")
-      filtersMenu.classList.remove("show__filters__menu")
-      filtersTriangle.classList.remove("show__filters__menu")
+  showFiltersButton.addEventListener("click", toggleFilters);
+
+  function toggleFilters() {
+    const isMenuHidden = filtersMenu.classList.contains("filters__hidden");
+
+    if (isMenuHidden) {
+      showFilters();
+    } else {
+      hideFilters();
     }
-  })
+  }
+
+  function showFilters() {
+    filtersMenu.classList.remove("filters__hidden");
+    filtersMenu.classList.add("filters__visible");
+    filtersTriangle.classList.remove("filters__hidden");
+    filtersMenu.offsetHeight;
+    filtersTriangle.offsetHeight;
+    filtersMenu.classList.add("show__filters__menu");
+    filtersTriangle.classList.add("show__filters__menu");
+    showFiltersButton.innerHTML = `<i class="fa-solid fa-sliders" style="color: #333333;"></i> Esconder Filtros`;
+  }
+
+  function hideFilters() {
+    filtersMenu.classList.remove("filters__visible");
+    filtersMenu.classList.remove("show__filters__menu");
+    filtersTriangle.classList.add("filters__hidden");
+    filtersTriangle.classList.remove("show__filters__menu");
+    showFiltersButton.innerHTML = `<i class="fa-solid fa-sliders" style="color: #333333;"></i> Mostrar Filtros`;
+
+    setTimeout(() => {
+      filtersMenu.classList.add("filters__hidden");
+    }, 500);
+  }
 });
