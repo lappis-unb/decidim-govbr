@@ -43,10 +43,6 @@ pt-BR:
         date: Data
         link: Link
         title: Título
-      assembly:
-        initial_page_component_id: Página Principal da Assembléia
-      participatory_process:
-        initial_page_component_id: Página Inicial do Processo Participativo
   decidim:
     statistics:
       headline: Dados Participativos
@@ -87,8 +83,8 @@ pt-BR:
             hash_tag_help: Adicione palavras-chave separadas por vírgulas para identificar este processo nos campos de pesquisa.
             slug_help: "A URL amigável é usada para gerar a URL para acessar o processo participativo. Apenas aceita letra, números e traços, e deve começar com uma letra. Exemplo: %{url}"
             duration: Prazo do Processo Participativo
-            select_process_group: Selecione um Setor
-            select_an_area: Selecione um Orgão/Instituição
+            select_process_group: Selecione um Orgão/Instituição
+            select_an_area: Selecione um Secretaria
         participatory_process_group_users:
           index:
             title: Usuários Membros do Grupo
@@ -161,6 +157,13 @@ pt-BR:
           delete: "%{user_name} removeu o link externo %{resource_name} do espaço participativo %{space_name}"
           update: "%{user_name} atualizou o link externo %{resource_name} do espaço participativo %{space_name}"
     proposals:
+      admin:
+        participatory_texts:
+          section:
+            levels:
+              section: Seção
+              sub-section: Subseção
+              article: Artigo
       proposals:
         comments_count:
           count:
@@ -285,6 +288,12 @@ pt:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Pesquisar %{collection} por e-mail, nome, nome de usuário ou CPF.
       components:
+        proposals:
+          actions:
+            new: Novo(a) %{name}
+        meetings:
+          actions:
+            new: "Novo(a) %{singular_name}"
         form:
           pluralized_name_field: "Preencha com o nome que represente o conjunto desse componente. Exemplo de nome para componente Moção: Moções"
           name_field: Preencha com o nome no singular
@@ -334,13 +343,6 @@ pt:
           create: "%{user_name} criou o link externo %{resource_name} no espaço participativo %{space_name}"
           delete: "%{user_name} removeu o link externo %{resource_name} do espaço participativo %{space_name}"
           update: "%{user_name} atualizou o link externo %{resource_name} do espaço participativo %{space_name}"
-    components:
-      proposals:
-        actions:
-          new: Novo(a) %{name}
-      meetings:
-        actions:
-          new: "Novo(a) %{singular_name}"
     meetings:
       admin:
         meetings:
@@ -348,6 +350,12 @@ pt:
             when_empty: Reuniões
     proposals:
       admin:
+        participatory_texts:
+          section:
+            levels:
+              section: Seção
+              sub-section: Subseção
+              article: Artigo
         when_empty: Proposta
         proposals:
           pluralized_name:
@@ -496,6 +504,13 @@ en:
           delete: "%{user_name} removed the external link %{resource_name} from the participatory space %{space_name}"
           update: "%{user_name} updated the external link %{resource_name} from the participatory space %{space_name}"
     proposals:
+      admin:
+        participatory_texts:
+          section:
+            levels:
+              section: Section
+              sub-section: Sub Section
+              article: Article
       proposals:
         comments_count:
           count:
@@ -628,6 +643,13 @@ es-MX:
           delete: "%{user_name} eliminó el enlace externo %{resource_name} del espacio participativo %{space_name}"
           update: "%{user_name} actualizó el enlace externo %{resource_name} del espacio participativo %{space_name}"
     proposals:
+      admin:
+        participatory_texts:
+          section:
+            levels:
+              section: Sección
+              sub-section: Subsección
+              article: Artículo
       proposals:
         comments_count:
           count:
@@ -760,6 +782,13 @@ es-PY:
           delete: "%{user_name} eliminó el enlace externo %{resource_name} del espacio participativo %{space_name}"
           update: "%{user_name} actualizó el enlace externo %{resource_name} del espacio participativo %{space_name}"
     proposals:
+      admin:
+        participatory_texts:
+          section:
+            levels:
+              section: Sección
+              sub-section: Subsección
+              article: Artículo
       proposals:
         comments_count:
           count:
@@ -892,6 +921,13 @@ es:
           delete: "%{user_name} eliminó el enlace externo %{resource_name} del espacio participativo %{space_name}"
           update: "%{user_name} actualizó el enlace externo %{resource_name} del espacio participativo %{space_name}"
     proposals:
+      admin:
+        participatory_texts:
+          section:
+            levels:
+              section: Sección
+              sub-section: Subsección
+              article: Artículo
       proposals:
         comments_count:
           count:
