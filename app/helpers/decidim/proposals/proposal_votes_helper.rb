@@ -99,8 +99,8 @@ module Decidim
         component_settings.vote_limit - votes_count
       end
 
-      def update_status_classes(currentProposal)
-        case currentProposal.state
+      def update_status_classes(current_proposal)
+        case current_proposal.state
         when "accepted"
           "accepted"
         when "rejected", "withdrawn"
@@ -108,11 +108,11 @@ module Decidim
         when "evaluating"
           "warning"
         else
-          return "voted" if current_user && currentProposal.voted_by?(current_user)
+          return "voted" if current_user && current_proposal.voted_by?(current_user)
+
           "default"
         end
       end
-
     end
   end
 end
