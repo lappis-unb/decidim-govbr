@@ -18,7 +18,6 @@ module Decidim
         @form = form
         @current_user = current_user
         @coauthorships = coauthorships
-        @attached_to = proposal
       end
 
       # Executes the command. Broadcasts these events:
@@ -90,7 +89,7 @@ module Decidim
             )
             proposal.add_coauthor(@current_user, user_group: user_group)
             proposal.save!
-            proposal
+            @attached_to = proposal
           end
         end
       end
