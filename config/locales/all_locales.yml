@@ -157,6 +157,13 @@ pt-BR:
           delete: "%{user_name} removeu o link externo %{resource_name} do espaço participativo %{space_name}"
           update: "%{user_name} atualizou o link externo %{resource_name} do espaço participativo %{space_name}"
     proposals:
+      admin:
+        participatory_texts:
+          section:
+            levels:
+              section: Seção
+              sub-section: Subseção
+              article: Artigo
       proposals:
         comments_count:
           count:
@@ -343,6 +350,12 @@ pt:
             when_empty: Reuniões
     proposals:
       admin:
+        participatory_texts:
+          section:
+            levels:
+              section: Seção
+              sub-section: Subseção
+              article: Artigo
         when_empty: Proposta
         proposals:
           pluralized_name:
@@ -491,6 +504,13 @@ en:
           delete: "%{user_name} removed the external link %{resource_name} from the participatory space %{space_name}"
           update: "%{user_name} updated the external link %{resource_name} from the participatory space %{space_name}"
     proposals:
+      admin:
+        participatory_texts:
+          section:
+            levels:
+              section: Section
+              sub-section: Sub Section
+              article: Article
       proposals:
         comments_count:
           count:
@@ -623,6 +643,13 @@ es-MX:
           delete: "%{user_name} eliminó el enlace externo %{resource_name} del espacio participativo %{space_name}"
           update: "%{user_name} actualizó el enlace externo %{resource_name} del espacio participativo %{space_name}"
     proposals:
+      admin:
+        participatory_texts:
+          section:
+            levels:
+              section: Sección
+              sub-section: Subsección
+              article: Artículo
       proposals:
         comments_count:
           count:
@@ -755,6 +782,13 @@ es-PY:
           delete: "%{user_name} eliminó el enlace externo %{resource_name} del espacio participativo %{space_name}"
           update: "%{user_name} actualizó el enlace externo %{resource_name} del espacio participativo %{space_name}"
     proposals:
+      admin:
+        participatory_texts:
+          section:
+            levels:
+              section: Sección
+              sub-section: Subsección
+              article: Artículo
       proposals:
         comments_count:
           count:
@@ -887,6 +921,13 @@ es:
           delete: "%{user_name} eliminó el enlace externo %{resource_name} del espacio participativo %{space_name}"
           update: "%{user_name} actualizó el enlace externo %{resource_name} del espacio participativo %{space_name}"
     proposals:
+      admin:
+        participatory_texts:
+          section:
+            levels:
+              section: Sección
+              sub-section: Subsección
+              article: Artículo
       proposals:
         comments_count:
           count:

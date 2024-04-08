@@ -1,10 +1,9 @@
 <div class="br-container-lg">
-  <% unless browser.mobile? %>
-    <%= render partial: "admin_actions",
-      locals: {mounted_admin_engine: current_participatory_space.mounted_admin_engine,
-      current_participatory_space: current_participatory_space,
-      current_component: current_component} %>
-  <% end %>
+  <%= render partial: "admin_actions",
+    locals: {mounted_admin_engine: current_participatory_space.mounted_admin_engine,
+    current_participatory_space: current_participatory_space,
+    current_component: current_component} %>
+
   <% if component_settings.geocoding_enabled? %>
     <%= dynamic_map_for proposals_data_for_map(@all_geocoded_proposals) do %>
       <template id="marker-popup">
@@ -30,17 +29,27 @@
       </template>
     <% end %>
   <% end %>
-  <%= render partial: "decidim/shared/component_announcement" %>
-  <%= render partial: "voting_rules" %>
-  <div class="filter-container">
-    <div class="proposals__buttons-container">
-      <% if browser.mobile? %>
-        <div class="proposals-button__container">
-          <%= render partial: "filters_small_view" %>
-        </div>
-      <% end %>
-    </div>
+  <div class="proposals-announcement">
+    <%= render partial: "decidim/shared/component_announcement" %>
   </div>
+
+  <%= render partial: "voting_rules" %>
+
+  <!-- TODO fazer aparecer novamente quando for necessário mostrar as estatisticas -->
+  <% if false %>
+    <div class="filter-container">
+      <div class="proposals__buttons-container">
+        <div class="proposals-button__container">
+          <%= render partial: "statistics_small_view", locals: {statistics: @user_proposals_statistic}%>
+        </div>
+        <% if browser.mobile? %>
+          <div class="proposals-button__container">
+            <%= render partial: "filters_small_view" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
   <div class="br-row">
     <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) %>
       <div class="proposals-actions">
@@ -96,21 +105,11 @@
       </button>
     </div>
   </div>
-  <span class="br-divider my-6"></span>
-    <%= filter_form_for filter do |form| %>
-      <div class="br-input input-highlight">
-        <%= form.search_field :search_text_cont, type: "search",
-          label: false, class: "input-group-field", placeholder: t("decidim.proposals.proposals.filters.placeholder",
-          name: translated_attribute(current_component.singular_name).present? ?
-          translated_attribute(current_component.singular_name).downcase :
-          "proposta"),
-          "aria-label": "Buscar", id: "input-search-large",
-          data: { disable_dynamic_change: true } %>
-        <button class="br-button" type="submit" aria-label="Buscar">
-          <i class="fas fa-search" aria-hidden="true"></i>
-        </button>
-      </div>
-    <% end %>
+  <span class="br-divider <% if browser.mobile? %>my-2<% else %>my-4<% end %>"></span>
+    <div class="proposals-filters">
+      <%= render partial: "filters" %>
+    </div>
+
     <div class="proposals-content-container">
       <div id="proposals" class="proposals-br" aria-live="polite">
         <%= render partial: "proposals" %>
