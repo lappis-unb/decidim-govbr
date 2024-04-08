@@ -45,6 +45,7 @@ module Decidim
       def sanitize_markdown(markdown_str)
         new_str = sanitize_ordered_lists(markdown_str)
         new_str = sanitize_unordered_lists(new_str)
+        new_str = sanitize_script_tags(new_str)
         sanitize_images(new_str)
       end
 
@@ -74,6 +75,16 @@ module Decidim
         markdown_str.gsub(%r{<img.*/>}) do |img_tag|
           img_tag.gsub(%r{<img.*/>}, user_message)
         end
+      end
+
+      def sanitize_script_tags(participatory_text)
+        script_tags = /&lt;script&gt;.*&lt;\/script&gt;/
+
+        if script_tags.match?(participatory_text)
+          participatory_text=participatory_text.gsub(script_tags,'')
+        end
+
+        participatory_text
       end
     end
   end
