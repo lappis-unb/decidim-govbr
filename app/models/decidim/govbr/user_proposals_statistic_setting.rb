@@ -14,6 +14,8 @@ module Decidim
       belongs_to :decidim_participatory_space, polymorphic: true
       has_many :user_proposals_statistics, class_name: 'Decidim::Govbr::UserProposalsStatistic', dependent: :destroy
 
+      delegate :organization, to: :decidim_participatory_space
+
       # Return the identifier for last calculated statistics
       #
       def last_generated_statistics_data_identifier
