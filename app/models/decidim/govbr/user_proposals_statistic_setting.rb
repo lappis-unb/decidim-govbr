@@ -34,7 +34,7 @@ module Decidim
       end
 
       # Rebuild entire table from scratch with updated decidim database content for the specified participatory_space
-      # This is not a heavy weight method
+      # This is a heavy weight method!!!
       #
       def refresh_data!
         user_proposals_statistics.delete_all
