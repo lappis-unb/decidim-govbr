@@ -27,7 +27,7 @@ module Decidim
 
         CSV.generate(headers: true) do |csv|
           csv << attributes.values
-          user_proposals_statistics.each do |data|
+          user_proposals_statistics.order(score: :desc).each do |data|
             csv << attributes.keys.map{ |attr| data.send(attr) }
           end
         end
