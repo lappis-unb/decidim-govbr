@@ -97,6 +97,16 @@ module Decidim
         )
         @component2.save!(validate: false)
 
+        @participatory_process3 = Decidim::ParticipatoryProcess.new(
+          slug: 'pp3',
+          title: 'Processo Participativo 3',
+          subtitle: 'processo participativo 3',
+          short_description: 'processo participativo',
+          description: 'PPB participativo do Brasil',
+          organization: @org
+        )
+        @participatory_process3.save!(validate: false)
+
         @proposal1 = Decidim::Proposals::Proposal.new(
           title: 'proposal 1 user 1',
           body: 'this is the user 1 proposal 1',
@@ -315,9 +325,9 @@ module Decidim
       end
 
       test 'should keep data from other participatory space untouched after refreshing' do
-        setting = Decidim::Govbr::UserProposalsStatisticSetting.create!(decidim_participatory_space_type: 'foo', decidim_participatory_space_id: 1)
+        setting = Decidim::Govbr::UserProposalsStatisticSetting.create!(decidim_participatory_space: @participatory_process3)
         statistics = 5.times.map do |index|
-          Decidim::Govbr::UserProposalsStatistic.create!(user_proposals_statistic_setting: setting, decidim_user_id: index, decidim_user_name: "User #{index}", decidim_user_identification_number: "CPF #{index}")
+          Decidim::Govbr::UserProposalsStatistic.create!(user_proposals_statistic_setting: setting, user: @user1, decidim_user_name: "User #{index}", decidim_user_identification_number: "CPF #{index}")
         end
 
         setting = Decidim::Govbr::UserProposalsStatisticSetting.create!(
@@ -345,7 +355,7 @@ module Decidim
         )
         Decidim::Govbr::UserProposalsStatistic.create!(
           user_proposals_statistic_setting: setting,
-          decidim_user_id: 1,
+          user: @user1,
           decidim_user_name: "User 1",
           decidim_user_identification_number: "CPF",
           proposals_done: 10,
@@ -359,7 +369,7 @@ module Decidim
         )
 
         expected_header = Decidim::Govbr::UserProposalsStatistic.csv_attributes_header_map.values.join(',')
-        expected_content = [1, 'User 1', 10, 17, 5, 21, 58, 12, 34, 105.0].join(',')
+        expected_content = [@user1.id, 'User 1', 10, 17, 5, 21, 58, 12, 34, 105.0].join(',')
 
         header, content = setting.user_proposals_statistics_as_csv.split("\n")
         assert_equal expected_header, header

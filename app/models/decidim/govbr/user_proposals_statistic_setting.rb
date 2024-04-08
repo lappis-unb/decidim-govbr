@@ -52,7 +52,7 @@ module Decidim
           data.each { |user_data| @statistics_data[user_data['decidim_user_id']].merge!(user_data) }
         end
 
-        @statistics_data.values
+        @statistics_data = @statistics_data.values
       end
 
       # Generate statistics data and then post process it by filling absent fields and calculating the user score
