@@ -71,16 +71,14 @@ module Decidim
 
       def new
         enforce_permission_to :create, :proposal
-        if proposal_draft.present?
-          redirect_to edit_draft_proposal_path(proposal_draft, component_id: proposal_draft.component.id, question_slug: proposal_draft.component.participatory_space.slug)
-        else
-          @form = form(ProposalWizardCreateStepForm).from_params(body: translated_proposal_body_template)
-        end
+        
+        @form = form(ProposalForm).instance
       end
 
       def create
         enforce_permission_to :create, :proposal
-        @form = form(ProposalWizardCreateStepForm).from_params(proposal_creation_params)
+        @form = form(ProposalForm).from_params(proposal_creation_params)
+        @form.attachment = form_attachment_new
 
         CreateProposal.call(@form, current_user) do
           on(:ok) do
