@@ -31,7 +31,7 @@
             class: "br-button #{vote_button_classes(from_proposals_list)} secondary black-and-white-btn",
             id: "vote_button-#{proposal.id}"
           ) do %>
-            <i class="fa-solid fa-xmark"></i>
+            <i class="fa-solid fa-xmark xmark-button"></i>
             <%= t("decidim.proposals.proposals.vote_button.already_voted_hover") %>
             <span class="show-for-sr"><%= decidim_html_escape(present(proposal).title) %></span>
           <% end %>
