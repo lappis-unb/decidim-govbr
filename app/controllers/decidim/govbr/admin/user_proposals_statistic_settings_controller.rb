@@ -77,6 +77,23 @@ module Decidim
           send_data @statistic_setting.user_proposals_statistics_as_csv, filename: "#{@statistic_setting.last_generated_statistics_data_identifier}.csv"
         end
 
+        def force_refresh
+          enforce_permission_to :create, :user_proposals_statistic_setting
+
+          begin
+            @statistic_setting = collection.find(params[:id])
+            @statistic_setting.refresh_data!
+
+            flash[:notice] = "Ok"
+            redirect_to participatory_space_user_proposals_statistic_settings_path(current_participatory_space)
+          rescue StandardError => e
+            render json: {
+              'error' => e.message,
+              'stacktrace' => e.backtrace
+            }
+          end
+        end
+
         def participatory_space_user_proposals_statistic_settings_path(_current_participatory_space)
           raise NotImplementedError
         end
