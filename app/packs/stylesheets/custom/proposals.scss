@@ -538,6 +538,16 @@
   padding-right: 48px;
 }
 
+.br-announcement {
+  h2 {
+    padding: 0;
+    margin: 0 0 0.5rem 0;
+    color: var(--pure-100);
+  }
+  p {
+    color: var(--gray-60);
+  }
+}
 .proposal-card {
   display: flex;
   flex-direction: column;
@@ -563,4 +573,9 @@
 .button_to,
 .button--vote-button .button_to button {
   width: 100%;
+}
+
+
+.xmark-button {
+  height: 12px;
 }
