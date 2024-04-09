@@ -71,7 +71,7 @@ module Decidim
 
       def new
         enforce_permission_to :create, :proposal
-        
+
         @form = form(ProposalForm).instance
       end
 
