@@ -236,8 +236,9 @@
 }
 
 div.filters__section fieldset > label {
-  font-size: var(--font-size-scale-up-01);
-  font-weight: var(--font-weight-semi-bold);
+  margin-bottom: 0px;
+  font-size: var(--font-size-scale-up-01) !important;
+  font-weight: var(--font-weight-semi-bold) !important;
   color: var(--gray-90);
 }
 
