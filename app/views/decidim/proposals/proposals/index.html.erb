@@ -78,10 +78,10 @@
             <% end %>
           <% end %>
         </div>
-        <button id="showRulesButton">
+        <button id="showRulesButton" class="show-votes-rule-button">
           <span class="proposals-criteria-label" >
             <i class="fas fa-info-circle fa-lg" aria-hidden="true"></i>
-            Conheça os critérios para seleção de propostas
+            Conheça as regras e os critérios para seleção de propostas
           </span>
         </button>
       </div>
@@ -103,6 +103,7 @@
       </button>
     </div>
   </div>
+  <%= render partial: "voting_rules" %>
   <span class="br-divider <% if browser.mobile? %>my-2<% else %>my-4<% end %>"></span>
   <div class="proposals-filters">
     <%= render partial: "filters" %>

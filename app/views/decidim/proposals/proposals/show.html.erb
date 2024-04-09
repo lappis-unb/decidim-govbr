@@ -3,7 +3,6 @@
   title: present(@proposal).title,
   url: proposal_url(@proposal.id)
 }) %>
-
 <%
 edit_link(
   resource_locator(@proposal).edit,
@@ -12,7 +11,6 @@ edit_link(
   proposal: @proposal
 )
 %>
-
 <%
 extra_admin_link(
   resource_locator(@proposal).show(anchor: "proposal-answer"),
@@ -22,23 +20,27 @@ extra_admin_link(
   { name: t(".answer"), icon: "comment-square" }
 )
 %>
-
-<%= render partial: "voting_rules" %>
 <%= emendation_announcement_for @proposal %>
-
 <div class="br-container-lg">
   <%= link_to proposals_path, class: "br-button mb-4" do %>
     <i class="fas fa-chevron-left" aria-hidden="true"></i>
     <%= t(".back_to_list") %>
   <% end %>
-
+  <div class="flex-column">
+    <button id="showRulesButton" class="show-votes-rule-button">
+      <span class="proposals-criteria-label" >
+        <i class="fas fa-info-circle fa-lg" aria-hidden="true"></i>
+        Conheça as regras e os critérios para seleção de propostas
+      </span>
+    </button>
+    <%= render partial: "voting_rules" %>
+  </div>
   <div class="content-container">
     <div class="main-content">
       <!-- Tag de status da proposta. Ex: Retirada, Incorporada -->
       <% if not @proposal.emendation? and not ["section","subsection"].include? @proposal.participatory_text_level %>
         <%== cell("decidim/proposals/proposal_m", @proposal, full_badge: true).badge %>
       <% end %>
-
       <!-- Titulo da proposta -->
       <% if @proposal.emendation? %>
         <h2 class="proposal-title">
@@ -49,42 +51,33 @@ extra_admin_link(
           <%= present(@proposal).title(links: true, html_escape: true) %>
         </h2>
       <% end %>
-
       <% if not @proposal.emendation? and not ["section","subsection"].include? @proposal.participatory_text_level %>
         <%= render_proposal_body(@proposal) %>
       <% end %>
-
       <div class="proposal-extra-data">
         <!-- Autor, data de publicação e botão de denúncia -->
         <% unless component_settings.participatory_texts_enabled? %>
           <%= cell("decidim/coauthorships", @proposal, has_actions: true, size: 3, context: { current_user: current_user }) %>
         <% end %>
       </div>
-
       <!-- Tag de categoria da proposta -->
       <%= cell "decidim/proposals/proposal_tags", @proposal %>
-
       <% if component_settings.geocoding_enabled? %>
         <%= render partial: "decidim/shared/static_map",
           locals: { icon_name: "proposals", geolocalizable: @proposal } %>
       <% end %>
-
       <% if proposal_has_costs? && current_settings.answers_with_costs? %>
         <%= cell("decidim/proposals/cost_report", @proposal) %>
       <% end %>
-
       <%= cell("decidim/announcement", proposal_reason_callout_announcement,
         callout_class: proposal_reason_callout_class) if @proposal.answered? && @proposal.published_state? %>
-
       <%= linked_resources_for @proposal, :results, "included_proposals" %>
       <%= linked_resources_for @proposal, :projects, "included_proposals" %>
       <%= linked_resources_for @proposal, :meetings, "proposals_from_meeting" %>
       <%= linked_resources_for @proposal, :proposals, "copied_from_component" %>
-
       <%= cell "decidim/endorsers_list", @proposal %>
       <%= amendments_for @proposal %>
     </div>
-    
     <div class="side-content">
       <!-- Card de votos e ações -->
       <% if current_settings.votes_enabled? || show_endorsements_card? || current_user %>
@@ -108,20 +101,18 @@ extra_admin_link(
             <div class="row collapse buttons__row">
               <div class="column collapse <%= endorsements_enabled? ? "small-3" : "" %>">
                 <%= link_to "#comments", class: "button small compact hollow secondary button--nomargin expanded" do %>
-                    <span class="show-for-sr">
-                      <%= present(@proposal).title(html_escape: true) %>
-                    </span>
-                    <%= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %>
-                    <%= @proposal.comments_count %>
+                  <span class="show-for-sr">
+                    <%= present(@proposal).title(html_escape: true) %>
+                  </span>
+                  <%= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %>
+                  <%= @proposal.comments_count %>
                 <% end %>
               </div>
             </div>
           </div>
         <% end %>
       <% end %>
-
       <%= amenders_list_for(@proposal) %>
-
       <%= render partial: "decidim/shared/share_modal", locals: { resource: @proposal } %>
       <button type="button" class="br-button" data-open="flagModal" title="Denunciar"
         aria-controls="flagModal" aria-haspopup="dialog" tabindex="0">
@@ -130,7 +121,6 @@ extra_admin_link(
       </button>
       <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
       <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
-
       <% if @proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal) %>
         <%= link_to edit_proposal_path(@proposal), class: "br-button secondary black-and-white-btn" do %>
           <i class="fas fa-edit" aria-hidden="true"></i>
@@ -147,14 +137,11 @@ extra_admin_link(
       <% else %>
         <%= amend_button_for @proposal %>
       <% end %>
-
       <%= emendation_actions_for @proposal %>
     </div>
   </div>
-  
   <!-- Seção de anexos e imagens -->
   <%= attachments_for @proposal %>
-  
   <!-- Seção de comentários -->
   <% if user_full_profile_required? %>
     <% if user_survey_answered? %>
@@ -167,7 +154,5 @@ extra_admin_link(
   <% else %>
     <%= comments_for @proposal %>
   <% end %>
-
   <%= cell("decidim/flag_modal", @proposal) %>
 </div>
-
