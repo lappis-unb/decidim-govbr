@@ -19,7 +19,11 @@
     },
     callout_class: "warning"
   ) %>
-<h2 class="section-header-text"><%= proposal_wizard_step_title action_name %></h2>
+<% if edit_form %>
+  <h2 class="section-header-text">Edite sua proposta</h2>
+<% else %>
+  <h2 class="section-header-text"><%= proposal_wizard_step_title action_name %></h2>
+<% end %>
 <h3 class="section-header-help-text">
   Siga as instruções abaixo para participar ativamente e deixar sua marca nas decisões que impactam o Brasil.
 </h3>
