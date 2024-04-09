@@ -298,6 +298,7 @@ pt-BR:
           title: Editar %{singular_name}
         filters:
           category: Tema
+          state: Status
           placeholder: "Qual %{name} você procura?"
         orders:
           label: "Ordene propostas por:"
