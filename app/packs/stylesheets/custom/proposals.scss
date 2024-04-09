@@ -20,6 +20,12 @@
   padding: 0;
 }
 
+.create-proposal-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .content-container {
   display: flex;
   flex-direction: row;
@@ -251,7 +257,7 @@
   .proposals-container {
     display: flex;
     flex-direction: row;
-    margin: 1.5rem 0;
+    margin: 0;
     justify-content: space-between;
     align-items: center;
   }
@@ -581,7 +587,6 @@
   width: 100%;
 }
 
-
 .xmark-button {
   height: 12px;
 }
@@ -591,5 +596,5 @@
 }
 
 .proposal-buttons a {
-  background-color: #335BAE;
+  background-color: #335bae;
 }

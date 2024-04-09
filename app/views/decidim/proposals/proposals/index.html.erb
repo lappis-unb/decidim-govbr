@@ -3,7 +3,6 @@
     locals: {mounted_admin_engine: current_participatory_space.mounted_admin_engine,
     current_participatory_space: current_participatory_space,
     current_component: current_component} %>
-
   <% if component_settings.geocoding_enabled? %>
     <%= dynamic_map_for proposals_data_for_map(@all_geocoded_proposals) do %>
       <template id="marker-popup">
@@ -32,9 +31,7 @@
   <div class="proposals-announcement">
     <%= render partial: "decidim/shared/component_announcement" %>
   </div>
-
   <%= render partial: "voting_rules" %>
-
   <!-- TODO fazer aparecer novamente quando for necessário mostrar as estatisticas -->
   <% if false %>
     <div class="filter-container">
@@ -54,25 +51,12 @@
     <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) %>
       <div class="proposals-actions">
         <div class="br-magic-button medium">
-            <% if user_full_profile_required? %>
-              <% if user_survey_answered? %>
-                <%= action_authorized_link_to :create, new_proposal_path,
-                  class: "title-action__action br-button primary", data: { "redirect_url" => new_proposal_path } do %>
-                  <i class="fa-solid fa-plus fa-sl"></i>
-                  <span class="title-action-text">
-                    <% if translated_attribute(current_component.singular_name).present? %>
-                      <%= t("decidim.proposals.proposals.index.new_proposal", proposal: translated_attribute(current_component.singular_name).downcase) %>
-                    <% else %>
-                      <%= t("decidim.proposals.proposals.index.new_proposal", proposal: "proposta") %>
-                    <% end %>
-                  </span>
-                <% end %>
-              <% end %>
-            <% else %>
+          <% if user_full_profile_required? %>
+            <% if user_survey_answered? %>
               <%= action_authorized_link_to :create, new_proposal_path,
-                class: "br-button", data: { "redirect_url" => new_proposal_path } do %>
-                <span>
-                  <i class="fa-solid fa-plus fa-md"></i>
+                  class: "title-action__action br-button primary", data: { "redirect_url" => new_proposal_path } do %>
+                <i class="fa-solid fa-plus fa-sl"></i>
+                <span class="title-action-text">
                   <% if translated_attribute(current_component.singular_name).present? %>
                     <%= t("decidim.proposals.proposals.index.new_proposal", proposal: translated_attribute(current_component.singular_name).downcase) %>
                   <% else %>
@@ -81,6 +65,19 @@
                 </span>
               <% end %>
             <% end %>
+          <% else %>
+            <%= action_authorized_link_to :create, new_proposal_path,
+                class: "br-button", data: { "redirect_url" => new_proposal_path } do %>
+              <span class="create-proposal-text">
+                <i class="fa-solid fa-plus fa-md"></i>
+                <% if translated_attribute(current_component.singular_name).present? %>
+                  <%= t("decidim.proposals.proposals.index.new_proposal", proposal: translated_attribute(current_component.singular_name).downcase) %>
+                <% else %>
+                  <%= t("decidim.proposals.proposals.index.new_proposal", proposal: "proposta") %>
+                <% end %>
+              </span>
+            <% end %>
+          <% end %>
         </div>
         <span class="proposals-criteria-label">
           <i class="fas fa-info-circle fa-lg" aria-hidden="true"></i>
@@ -106,14 +103,13 @@
     </div>
   </div>
   <span class="br-divider <% if browser.mobile? %>my-2<% else %>my-4<% end %>"></span>
-    <div class="proposals-filters">
-      <%= render partial: "filters" %>
-    </div>
-
-    <div class="proposals-content-container">
-      <div id="proposals" class="proposals-br" aria-live="polite">
-        <%= render partial: "proposals" %>
-      </div>
+  <div class="proposals-filters">
+    <%= render partial: "filters" %>
+  </div>
+  <div class="proposals-content-container">
+    <div id="proposals" class="proposals-br" aria-live="polite">
+      <%= render partial: "proposals" %>
     </div>
   </div>
+</div>
 </div>
