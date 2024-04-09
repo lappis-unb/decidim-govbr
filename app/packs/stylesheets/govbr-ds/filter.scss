@@ -279,3 +279,11 @@
 .dropdown .is-dropdown-submenu a:hover {
   background-color: var(--blue-warm-20);
 }
+
+.is-dropdown-submenu-parent {
+  position: static !important;
+}
+
+.dropdown.menu > li.opens-right > .is-dropdown-submenu {
+  width: 100%;
+}
