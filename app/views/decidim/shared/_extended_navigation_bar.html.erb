@@ -5,25 +5,35 @@
         </button>
         <ul class="space-menu">
           <% items.each_with_index do |item, index| %>
-            <li class="tab-item <%= "active" if item[:active] %>">
-              <%= link_to item[:url] do %>
-                <% if index == 0 %>
-                  <span class="name">
-                    <i class="fa-solid fa-house"></i>
-                  </span>
-                <% else %>
-                    <%if current_participatory_space.show_mobilization && !item[:menu_name]%>
-                      <span class="name">
-                        <%= item[:name] %>
-                      </span>
-                    <% else %>
-                      <span class="name">
-                        <%= item[:menu_name] %>
-                      </span>
-                    <% end%>
+            <% if current_participatory_space.show_mobilization && !item[:menu_name] %>
+              <li class="tab-item <%= "active" if item[:active] %>">
+                <%= link_to item[:url] do %>
+                  <% if index == 0 %>
+                    <span class="name">
+                      <i class="fa-solid fa-house"></i>
+                    </span>
+                  <% else %>
+                    <span class="name">
+                      <%= item[:name] %>
+                    </span>
+                  <% end %>
                 <% end %>
-              <% end %>
-            </li>
+              </li>
+            <% elsif item[:menu_name] || index == 0 %>
+              <li class="tab-item <%= "active" if item[:active] %>">
+                <%= link_to item[:url] do %>
+                  <% if index == 0 %>
+                    <span class="name">
+                      <i class="fa-solid fa-house"></i>
+                    </span>
+                  <% else %>
+                    <span class="name">
+                      <%= item[:menu_name] %>
+                    </span>
+                  <% end %>
+                <% end %>
+              </li>
+            <% end %>
           <% end %>
         </ul>
         <button class="scroll-button scroll-right <%= "hidden" if browser.mobile? %>">
