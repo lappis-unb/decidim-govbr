@@ -323,6 +323,7 @@ pt-BR:
             success: "@%{user} foi aceito como colaborador com sucesso"
         show:
           back_to: Voltar para
+          back_to_list_proposals: Veja mais propostas
           back_to_list: Voltar
           proposal_accepted_reason: 'Esta proposta foi recebida porque:'
           proposal_in_evaluation_reason: Esta proposta está em avaliação
