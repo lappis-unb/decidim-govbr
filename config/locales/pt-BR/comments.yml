@@ -33,7 +33,7 @@ pt-BR:
             label: Contribua
             placeholder: O que você pensa sobre isso?
           form_error: O texto é obrigatório e não pode ser maior que %{length} caracteres.
-          submit: Enviar
+          submit: Contribuir
           user_group_id:
             label: Contribua como
         opinion:
@@ -46,7 +46,7 @@ pt-BR:
           positive_selected: Sua opinião sobre este tópico é positiva
         remaining_characters: "%{count} caracteres restantes"
         remaining_characters_1: "%{count} personagem à esquerda"
-        title: Adicione sua contribuição
+        title: "Adicione sua contribuição:"
       comments:
         title:
           one: "%{count} contribuição"
