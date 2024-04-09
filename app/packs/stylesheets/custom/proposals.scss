@@ -92,6 +92,11 @@
   border: 1px solid var(--gray-10);
 }
 
+.bp-result-per-page {
+  border-radius: 0.25rem;
+  border: 1px solid var(--gray-10);
+}
+
 .order-by__dropdown-container {
   display: flex;
   align-items: flex-start;
@@ -333,6 +338,7 @@
   width: 100%;
   font-weight: 400;
   color: var(--blue-warm-vivid-80);
+  text-decoration: none;
 }
 
 .proposals-br .card-grid .column,
@@ -346,6 +352,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  gap: 0.5rem;
 }
 
 .new_filter .br-input .br-button {
