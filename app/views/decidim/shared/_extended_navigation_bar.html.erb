@@ -12,9 +12,15 @@
                     <i class="fa-solid fa-house"></i>
                   </span>
                 <% else %>
-                  <span class="name">
-                    <%= item[:menu_name] ? item[:menu_name] : item[:name]%>
-                  </span>
+                    <%if current_participatory_space.show_mobilization && !item[:menu_name]%>
+                      <span class="name">
+                        <%= item[:name] %>
+                      </span>
+                    <% else %>
+                      <span class="name">
+                        <%= item[:menu_name] %>
+                      </span>
+                    <% end%>
                 <% end %>
               <% end %>
             </li>
