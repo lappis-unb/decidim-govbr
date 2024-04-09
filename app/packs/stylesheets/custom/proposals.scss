@@ -267,7 +267,7 @@
 
   .proposals-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, 352px);
     grid-gap: 24px;
   }
   .title-action__action {
@@ -461,6 +461,7 @@
 
 .card--proposal {
   max-width: 364px;
+  min-height: 498px;
 }
 
 .proposal_card__title {
