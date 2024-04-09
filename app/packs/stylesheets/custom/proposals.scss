@@ -538,6 +538,16 @@
   padding-right: 48px;
 }
 
+.br-announcement {
+  h2 {
+    padding: 0;
+    margin: 0 0 0.5rem 0;
+    color: var(--pure-100);
+  }
+  p {
+    color: var(--gray-60);
+  }
+}
 .proposal-card {
   display: flex;
   flex-direction: column;
@@ -592,4 +602,8 @@
 .br-comment.alert{
   border: 2px solid var(--Red-Vivid-red-vivid-60, #B50909);
   color: var(--red-vivid-60);
+}
+
+.xmark-button {
+  height: 12px;
 }
