@@ -119,20 +119,23 @@
   max-height: 0;
   transition: max-height 0.5s ease-in-out;
   overflow: hidden;
+  margin: 0;
 }
+
 .filters__visible {
   max-height: 500px;
 }
 
 #filters__menu legend.mini-title {
-  font-size: var(--font-size-scale-up-01);
+  font-size: 16px;
   font-weight: var(--font-weight-bold);
+  font-family: var(--font-family-base);
+  color: var(--gray-70);
 }
 
 #filters__menu fieldset {
   display: flex;
   gap: 1.25rem;
-  margin: 0.25rem 0rem;
   align-items: center;
 }
 
@@ -160,7 +163,7 @@
   width: 20px !important;
   height: 20px !important;
   appearance: none;
-  outline: 2px solid var(--blue-warm-vivid-50);
+  outline: 1px solid var(--blue-warm-vivid-50);
   box-shadow: none;
   text-align: center;
   line-height: 1em;
@@ -203,18 +206,24 @@
 
 .filters .filters__section {
   border: 0px;
-  padding: 1rem 0rem;
+  padding: 0px;
+  margin-bottom: 32px;
 }
 
 .filters__hidden {
   width: 0px;
   height: 0px;
   padding: 0px;
+  margin: 0px;
 }
 
 #filters__menu.show__filters__menu,
 #filters__triangle.show__filters__menu {
-  max-height: 500px;
+  max-height: max-content;
+}
+
+#filters__menu.show__filters__menu {
+  padding: 24px 16px;
 }
 
 #filters__triangle.show__filters__menu {
@@ -224,14 +233,22 @@
 #filters__menu div fieldset {
   align-items: flex-start;
   flex-direction: column;
-  padding: 10px;
 }
 
-#filters__menu div fieldset div {
+div.filters__section fieldset > label {
+  font-size: var(--font-size-scale-up-01);
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--gray-90);
+}
+
+#filters__menu div fieldset div.filters__subfilters {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
   width: 100%;
   gap: 16px 24px;
+  font-size: var(--font-size-scale-up-01);
+  font-weight: var(--font-weight-regular);
+  color: var(--gray-90);
 }
 
 #filters__menu div.type_collection_radio_buttons_filter fieldset {
@@ -242,12 +259,6 @@
 #filters__menu div.type_collection_radio_buttons_filter fieldset label {
   font-size: var(--font-size-scale-up-01);
   font-weight: var(--font-weight-semi-bold);
-  color: var(--gray-90);
-}
-
-#filters__menu div fieldset label {
-  font-size: var(--font-size-scale-up-01);
-  font-weight: var(--font-weight-regular);
   color: var(--gray-90);
 }
 
