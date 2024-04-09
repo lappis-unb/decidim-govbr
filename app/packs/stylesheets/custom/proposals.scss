@@ -197,6 +197,7 @@
   width: 100%;
   margin-bottom: 1.5rem;
 }
+
 .proposals-announcement .br-announcement {
   h2 {
     padding: 0;
@@ -206,15 +207,14 @@
   }
   p {
     color: var(--gray-60);
+    margin: 0;
   }
 }
 
-.proposal-extra-data {
+.proposals-announcement > div > div {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 1rem;
+  gap: 8px;
 }
 
 @media (min-width: 640px) {
