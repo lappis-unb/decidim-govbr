@@ -25,7 +25,7 @@ module Decidim
       def user_proposals_statistics_as_csv
         attributes = Decidim::Govbr::UserProposalsStatistic.csv_attributes_header_map
 
-        CSV.generate(headers: true) do |csv|
+        CSV.generate(headers: true, col_sep: ";") do |csv|
           csv << attributes.values
           user_proposals_statistics.order(score: :desc).each do |data|
             csv << attributes.keys.map{ |attr| data.send(attr) }

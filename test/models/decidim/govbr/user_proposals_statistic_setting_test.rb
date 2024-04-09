@@ -374,8 +374,8 @@ module Decidim
           score: 105.0
         )
 
-        expected_header = Decidim::Govbr::UserProposalsStatistic.csv_attributes_header_map.values.join(',')
-        expected_content = [@user1.id, 'User 1', 10, 17, 5, 21, 58, 12, 34, 105.0].join(',')
+        expected_header = Decidim::Govbr::UserProposalsStatistic.csv_attributes_header_map.values.join(';')
+        expected_content = [@user1.id, 'User 1', 10, 17, 5, 21, 58, 12, 34, 105.0].join(';')
 
         header, content = setting.user_proposals_statistics_as_csv.split("\n")
         assert_equal expected_header, header
