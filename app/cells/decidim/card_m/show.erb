@@ -6,12 +6,10 @@
     <%= render :badge if has_badge? %>
     <%= render :header if has_header? %>
 
-    <div class="card__text--paragraph <%= "proposal_text--paragraph" if current_component.manifest_name == "proposals" %>">
+    <div class="card__text--paragraph">
       <%= Decidim::ContentProcessor.render(description, "div") %>
     </div>
-    <% if current_component.manifest_name == "proposals" %>
-      <%= render :tags %>
-    <% end %>
+    <%= render :tags %>
   </div>
 
   <%= render :data %>
