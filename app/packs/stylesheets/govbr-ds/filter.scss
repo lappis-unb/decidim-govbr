@@ -4,6 +4,7 @@
   letter-spacing: 0.01em;
   text-transform: uppercase;
   font-weight: 600;
+  margin-top: 0;
   margin-bottom: 1rem;
 
   &__strong {
@@ -148,7 +149,7 @@
 #filters__menu fieldset label {
   display: flex;
   align-items: center;
-  font-size: var(--font-size-scale-up-01);
+  font-size: var(--font-size-16);
   margin-left: 5px;
 }
 
@@ -187,7 +188,7 @@
 #filter-btn-br {
   display: flex;
   justify-content: space-between;
-  width: 192px;
+  width: fit-content;
   height: 40px;
   background-color: var(--pure-0) !important;
   border: 1px solid var(--gray-80);
@@ -208,6 +209,10 @@ i.fa-solid {
 
 #filter-btn-br:hover {
   color: var(--gray-80);
+}
+
+.filters__section label {
+  margin-bottom: 0;
 }
 
 .filters .filters__section {
@@ -231,7 +236,7 @@ i.fa-solid {
 }
 
 #filters__menu.show__filters__menu {
-  padding: 24px 16px;
+  padding: 24px 16px 0px 16px;
 }
 
 #filters__triangle.show__filters__menu {
@@ -245,16 +250,19 @@ i.fa-solid {
 
 div.filters__section fieldset > label {
   margin-bottom: 0px;
-  font-size: var(--font-size-scale-up-01) !important;
   font-weight: var(--font-weight-semi-bold) !important;
   color: var(--gray-90);
+}
+
+#filters__menu div fieldset {
+  margin-bottom: 0;
 }
 
 #filters__menu div fieldset div.filters__subfilters {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
   width: 100%;
-  gap: 16px 24px;
+  gap: 16px;
   font-size: var(--font-size-scale-up-01);
   font-weight: var(--font-weight-regular);
   color: var(--gray-90);
