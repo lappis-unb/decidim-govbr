@@ -4,7 +4,7 @@
     <div class="proposals_card_stats">
       <% if !current_settings.votes_hidden? %>
       <div class="proposal_stat">
-        <span class="votes_stat"><%= progress_bar_progress %></span>
+        <span class="votes_stat" id="proposal-<%=model.id%>-votes-count"><%= progress_bar_progress %></span>
         <span class="votes_stat"><%= I18n.t("decidim.proposals.proposals.votes_count.count", count: progress_bar_progress) %></span>
       </div>
       <% end %>
@@ -17,10 +17,6 @@
     <div class="proposal-divider"></div>
 
     <div class="proposal-buttons">    
-    <% if has_actions? %>
-      
-      <%= render partial: "decidim/proposals/proposals/vote_button.html", locals: { proposal: model, from_proposals_list: true } %>
-    <% elsif has_footer? %>
       <%= link_to resource_path, class: "card__button button--sc light button small" do %>
         <%= t("decidim.proposals.proposals.view_btn.placeholder", 
         singular_name: translated_attribute(current_component.singular_name).present? ?
@@ -29,7 +25,6 @@
         ) %>
         <span class="show-for-sr"><%= title %></span>
       <% end %>
-    <% end %>
       </div>
     </div>
 <% end %>
