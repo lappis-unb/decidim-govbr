@@ -6,7 +6,7 @@ pt-BR:
       decidim/comments/comment_created_event:
         one: Contribuição
         other: Contribuições
-      decidim/comments/reply_created_event: Resposta
+      decidim/comments/reply_created_event: Responder
       decidim/comments/user_group_mentioned_event: Mencionar
       decidim/comments/user_mentioned_event: Mencionar
     contribution:
@@ -31,7 +31,7 @@ pt-BR:
         form:
           body:
             label: Contribua
-            placeholder: O que você pensa sobre isso?
+            placeholder: Digite aqui a sua contribuição...
           form_error: O texto é obrigatório e não pode ser maior que %{length} caracteres.
           submit: Contribuir
           user_group_id:
@@ -63,7 +63,7 @@ pt-BR:
         form:
           body:
             label: Contribuição
-            placeholder: O que você pensa sobre isso?
+            placeholder: Digite aqui a sua contribuição...
           submit: Enviar
         title: Editar sua contribuição
       up_vote_button:

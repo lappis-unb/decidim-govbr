@@ -590,8 +590,9 @@
 .br-comment{
   background-color: var(--Gray-gray-02);
   border-radius: 30px;
-  width: fit-content;
   font-size: 0.75rem;
+  padding: 8px 4px;
+  font-weight: 600;
 }
 
 .br-comment.accepted{
@@ -606,4 +607,23 @@
 
 .xmark-button {
   height: 12px;
+}
+
+textarea[rows]{
+  background: #F6F6F6;
+}
+
+textarea{
+  margin-bottom: 0!important;
+  border: 0!important;
+}
+
+textarea::placeholder{
+  color: rgba(12, 50, 111, 0.50)!important;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-family: Rawline;
+  font-size: 0.875rem!important;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
 }
