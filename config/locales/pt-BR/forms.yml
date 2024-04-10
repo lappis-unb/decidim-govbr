@@ -6,6 +6,10 @@ pt-BR:
         selected_choices: Escolhas selecionadas
       questionnaire:
         title: Nome do Formulário
+      questionnaire_question:
+        mandatory: Questão Obrigatória
+      question:
+        question_type: Tipo de Questão
   decidim:
     forms:
       admin:
@@ -21,6 +25,8 @@ pt-BR:
             collapse: Recolher todas as questões
           question:
             collapse: Recolher
+            statement: Questão
+            description: Informações importantes para a questão
           title_and_description:
             collapse: Recolher
             description: Descrição
