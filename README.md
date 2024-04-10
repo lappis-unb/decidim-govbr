@@ -60,7 +60,7 @@ ADMIN_PASSWORD=admin
 
 Depois de acessar a URL `localhost:3000/system`, aparecerá na tela uma área de login. Forneça a senha e o e-mail utilizado na criação do usuário _admin_.
 
-![Captura_de_Tela_2023-07-12_às_21.22.04](imagens/Captura_de_Tela_2023-07-12_às_21.22.04.png)
+![Captura_de_Tela_2023-07-12_às_21.22.04](imagens/decidim-login.png)
 
 ### Preenchendo cadastro inicial de organização
 
@@ -78,15 +78,15 @@ No primeiro _login_ você será direcionado para uma página para criar a primei
 
 Clique em `Create organization & invite admin`
 
-![Captura_de_Tela_2023-07-12_às_21.19.41](imagens/Captura_de_Tela_2023-07-12_às_21.19.41.png)
+![Captura_de_Tela_2023-07-12_às_21.19.41](imagens/new-org.png)
 
-![Captura_de_Tela_2023-07-12_às_21.18.57](imagens/Captura_de_Tela_2023-07-12_às_21.18.57.png)
+![Captura_de_Tela_2023-07-12_às_21.18.57](imagens/create-new-org.png)
 
 ### Acessando a organização com _admin_
 
 Depois de finalizar o cadastro da organização, abra o _mailcatcher_ no navegador acessando o endereço `http://localhost:1080`. Clique no e-mail enviado, e no conteúdo do e-mail clique em `Aceitar convite`.
 
-![Captura_de_Tela_2023-07-12_às_21.16.12](imagens/Captura_de_Tela_2023-07-12_às_21.16.12.png)
+![Captura_de_Tela_2023-07-12_às_21.16.12](imagens/mailcatcher.png)
 
 ---
 

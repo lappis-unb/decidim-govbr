@@ -975,7 +975,7 @@ DEPENDENCIES
   decidim-initiatives (= 0.27.2)
   devise-i18n
   dotenv-rails
-  elastic-apm (~> 4.7.2)
+  elastic-apm (~> 4.7.0)
   faker (~> 2.17)
   hiredis (= 0.6.3)
   letter_opener_web (~> 1.3)

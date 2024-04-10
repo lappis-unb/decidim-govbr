@@ -87,19 +87,20 @@ module Decidim
             initial_page_type: form.initial_page_type,
             group_chat_id: form.group_chat_id,
             publish_date: form.publish_date,
-            should_have_user_full_profile: form.should_have_user_full_profile
+            should_have_user_full_profile: form.should_have_user_full_profile,
+            show_mobilization: form.show_mobilization
           }.merge(
             attachment_attributes(:hero_image, :banner_image)
           )
         end
 
         def hide_custom_initial_page_component
-          unless @participatory_process.initial_page_component_id.zero? || @participatory_process.initial_page_component_id.nil?
+          unless @participatory_process.initial_page_component_id.nil? || @participatory_process.initial_page_component_id.zero?
             previous_initial_page_component = Decidim::Component.find(@participatory_process.initial_page_component_id)
             previous_initial_page_component.update_column(:hide_in_menu, false)
           end
 
-          return if form.initial_page_component_id.zero? || form.initial_page_component_id.nil?
+          return if form.initial_page_component_id.nil? || form.initial_page_component_id.zero?
 
           initial_page_component = Decidim::Component.find(form.initial_page_component_id)
           initial_page_component.update_column(:hide_in_menu, true)

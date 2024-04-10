@@ -1725,7 +1725,7 @@ span.flatpickr-weekday {
   --interactive-light-rgb: var(--blue-warm-vivid-70-rgb);
   --interactive-dark: var(--blue-warm-20);
   --interactive-dark-rgb: var(--blue-warm-20-rgb);
-  --interactive-alternative: var(--green-cool-vivid-50);
+  --interactive-alternative: #335BAE;
   --interactive-alternative-rgb: var(--green-cool-vivid-50-rgb);
   --info: var(--blue-warm-vivid-60);
   --info-alternative: var(--blue-warm-vivid-10);
@@ -16257,6 +16257,9 @@ template {
   overflow: hidden !important;
 }
 @media (min-width: 576px) {
+  .br-magic-button, .br-magic-button .br-button {
+    width: auto !important;
+  }
   .overflow-sm-auto {
     overflow: auto !important;
   }
@@ -16544,6 +16547,7 @@ label {
   font-weight: var(--font-weight-semi-bold);
   line-height: var(--font-line-height-medium);
   margin-bottom: var(--spacing-scale-half);
+  width: fit-content;
 }
 .fieldset,
 fieldset {
@@ -25354,7 +25358,7 @@ button.br-button.circle.search-close.ml-1 {
 .br-input input {
   background-color: var(--background-light);
   border-color: var(--border-color-alternative);
-  border-radius: var(--surface-rounder-sm);
+  border-radius: var(--surface-rounder-md);
   border-style: var(--border-style);
   border-width: var(--border-width);
   color: var(--color-light);
@@ -26827,6 +26831,7 @@ button.br-item:not(:disabled):active {
   --magic-support-medium: var(--spacing-scale-8x);
   --magic-support-large: var(--spacing-scale-9x);
   --magic-z-index: var(--z-index-layer-1);
+  width: 100%;
   align-items: center;
   background-color: var(--gray-5);
   border-radius: 100em;
@@ -26865,6 +26870,7 @@ button.br-item:not(:disabled):active {
   color: var(--color-dark);
   font-size: var(--font-size-scale-up-02);
   font-weight: var(--font-weight-semi-bold);
+  width: 100%;
 }
 .br-magic-button .br-button:not(:disabled):not(:disabled):hover {
   background-image: linear-gradient(
@@ -31101,4 +31107,17 @@ align-items: center;
 .flash.callout.alert,
 .flash.callout.warning {
   display: none;
+}
+
+[type=text], [type=password], [type=date], [type=datetime], [type=datetime-local],
+[type=month], [type=week], [type=email], [type=number], [type=search], [type=tel],
+[type=time], [type=url], [type=color], textarea {
+  box-shadow: none;
+  border: 0;
+}
+
+.black-and-white-btn {
+  border-color: var(--gray-90) !important;
+  color: var(--gray-80) !important;
+  gap: 8px;
 }

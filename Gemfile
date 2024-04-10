@@ -59,5 +59,5 @@ end
 
 group :production do
   gem 'aws-sdk-s3', require: false
-  gem 'elastic-apm', '~> 4.7.2'
+  gem 'elastic-apm', '4.7.0'
 end

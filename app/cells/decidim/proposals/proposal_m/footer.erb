@@ -1,43 +1,31 @@
 <% if has_link_to_resource? %>
-  <div class="card__footer">
-    <div class="card__support">
-    <div class="proposals_card_footer">
+  <div class="proposal_card__footer">
+    <div class="proposal-divider"></div>
+    <div class="proposals_card_stats">
       <% if !current_settings.votes_hidden? %>
-          <%= cell(
-          "decidim/progress_bar",
-          progress_bar_progress,
-          total: progress_bar_total,
-          units_name: "decidim.proposals.proposals.votes_count.count",
-          element_id: "proposal-#{model.id}-votes-count",
-          subtitle_text: progress_bar_subtitle_text,
-          small: true
+      <div class="proposal_stat">
+        <span class="votes_stat" id="proposal-<%=model.id%>-votes-count"><%= progress_bar_progress %></span>
+        <span class="votes_stat"><%= I18n.t("decidim.proposals.proposals.votes_count.count", count: progress_bar_progress) %></span>
+      </div>
+      <% end %>
+      
+      <div class="proposal_stat">
+        <span class="comments_stat"><%= comments_count %></span>
+        <span class="comments_stat"><%= I18n.t("decidim.proposals.proposals.comments_count.count", count: comments_count) %></span>
+      </div>
+    </div>
+    <div class="proposal-divider"></div>
+
+    <div class="proposal-buttons">    
+      <%= link_to resource_path, class: "card__button button--sc light button small" do %>
+        <%= t("decidim.proposals.proposals.view_btn.placeholder", 
+        singular_name: translated_attribute(current_component.singular_name).present? ?
+        translated_attribute(current_component.singular_name) :
+        t("decidim.proposals.admin.when_empty").downcase
         ) %>
+        <span class="show-for-sr"><%= title %></span>
       <% end %>
-      <%= cell(
-        "decidim/progress_bar",
-        comments_count,
-        total: progress_bar_total,
-        units_name: "decidim.proposals.proposals.comments_count.count",
-        element_id: "proposal-#{model.id}-comments-count",
-        subtitle_text: progress_bar_subtitle_text,
-        small: true
-      ) %>
+      </div>
     </div>
-      <% if has_actions? %>
-        
-        <%= render partial: "decidim/proposals/proposals/vote_button.html", locals: { proposal: model, from_proposals_list: true } %>
-      <% elsif has_footer? %>
-        <div class="card__support__data"></div>
-        <%= link_to resource_path, class: "card__button button--sc light button small" do %>
-          <%= t("decidim.proposals.proposals.view_btn.placeholder", 
-          singular_name: translated_attribute(current_component.singular_name).present? ?
-          translated_attribute(current_component.singular_name) :
-          t("decidim.proposals.admin.when_empty").downcase
-          ) %>
-          <span class="show-for-sr"><%= title %></span>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
 <% end %>
 

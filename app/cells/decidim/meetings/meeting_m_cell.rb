@@ -46,6 +46,10 @@ module Decidim
 
       delegate :online_meeting?, to: :model
 
+      def current_component
+        model.component
+      end
+
       private
 
       def cache_hash

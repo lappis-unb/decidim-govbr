@@ -280,11 +280,11 @@ pt-BR:
           discard: Descarte este rascunho
           discard_confirmation: Deseja mesmo descartar este rascunho
           send: Visualização
-          title: Editar %{sinugular_name} proposta de rascunho
+          title: Editar rascunho de %{singular_name}
         index:
           click_here: Ver todas as propostas
           collaborative_drafts_list: Acessar rascunhos colaborativos
-          new_proposal: Faça sua %{proposal}
+          new_proposal: Criar minha %{proposal}
           see_all: Ver todas as propostas
           text_banner: Está vendo a lista de propostas retiradas pelos seus próprios autores. %{go_back_link}
         new:
@@ -297,12 +297,6 @@ pt-BR:
           edit_image: Editar imagem
           select_a_category: Selecione um tema
           title: Editar %{singular_name}
-        edit_draft:
-          discard: Descartar rascunho
-          send: Continuar
-          discard_confirmation: Deseja mesmo descartar este rascunho
-          send: Visualização
-          title: Editar %{singular_name} de rascunho
         filters:
           category: Tema
           placeholder: "Qual %{name} você procura?"
@@ -330,11 +324,12 @@ pt-BR:
             success: "@%{user} foi aceito como colaborador com sucesso"
         show:
           back_to: Voltar para
+          back_to_list_proposals: Veja mais propostas
           back_to_list: Voltar
           proposal_accepted_reason: 'Esta proposta foi recebida porque:'
           proposal_in_evaluation_reason: Esta proposta está em avaliação
           report: Denunciar
-          withdraw_proposal: Retirar %{singular_name} 
+          withdraw_proposal: Remover %{singular_name} 
         vote_button:
           already_voted: Votada!
           already_voted_hover: Retirar voto
@@ -351,6 +346,8 @@ pt-BR:
             description: Para serem aceites, as propostas precisam de atingir %{limit} voto(s)
           vote_limit:
             description: Pode votar até %{limit} proposta(s).
+            left: Você tem
+            votes: votos restantes
         wizard_aside:
           back: Voltar
           back_from_step_1: Voltar

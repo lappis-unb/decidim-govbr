@@ -1,15 +1,53 @@
 .proposals-container {
   display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+.proposals-container p {
+  margin: 0;
+}
+.proposal-title {
+  color: var(--blue-warm-vivid-70);
+  font-variant-numeric: lining-nums proportional-nums;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+}
+
+.content-container {
+  display: flex;
   flex-direction: row;
-  margin-bottom: 1rem;
+  gap: 24px;
+  flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1;
+}
+
+.side-content {
+  display: flex;
+  width: 267px;
+  padding: 8px 16px;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 16px;
 }
 
 .proposals-content-container {
   display: flex;
   flex-direction: row;
-  gap: 2rem;
+  gap: 24px;
 }
 
 .proposals-filters {
@@ -22,11 +60,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 1.5rem;
-}
-
-.proposals-container p {
-  margin: 0;
+  gap: 24px;
 }
 
 .diff-view-by,
@@ -35,26 +69,35 @@
 }
 
 .proposals-counter {
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.results-per-page {
-  padding: 0;
-  font-weight: 600;
-  align-items: center;
-  justify-content: right;
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--gray-90);
 }
 
 .order-text {
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 400;
+  line-height: 1.25rem;
+  color: var(--gray-90);
+}
+
+.bp-order-by-container {
+  border-radius: 0.25rem;
+  border: 1px solid var(--gray-10);
 }
 
 .order-by__dropdown-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.order-by__dropdown-container > ul {
+  padding: 0 0.5rem;
+  width: 100%;
 }
 
 .dropdown.menu > li.is-dropdown-submenu-parent > a::after {
@@ -115,29 +158,181 @@
   background-color: rgba(var(--interactive-rgb), var(--hover));
 }
 
+.proposals-actions-admin {
+  display: flex;
+  flex-direction: row;
+  padding: 0 0 24px 0;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+}
+.proposals-actions-admin .black-and-white-btn {
+  width: 100%;
+}
+.proposals-actions {
+  display: flex;
+  gap: 24px;
+  padding: 24px 0;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  flex-direction: column;
+}
+.proposals-criteria-label {
+  color: var(--blue-warm-vivid-80);
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  gap: 4px;
+}
+
+.paginate-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.results-per-page {
+  visibility: hidden;
+}
+.order__by-text {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+.proposals-announcement .br-announcement {
+  h2 {
+    padding: 0;
+    margin: 0 0 0.5rem 0;
+    color: var(--pure-100);
+    font-size: 1.5rem;
+  }
+  p {
+    color: var(--gray-60);
+  }
+}
+
+.proposal-extra-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
 @media (min-width: 640px) {
+  .proposal-extra-data {
+    flex-direction: row;
+  }
+
+  .order-by__dropdown-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-direction: row;
+  }
+  .order-by__dropdown-container > ul {
+    width: 240px;
+  }
+  .paginate-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .results-per-page {
+    padding: 0;
+    font-weight: 400;
+    align-items: center;
+    justify-content: right;
+    display: block;
+    visibility: visible;
+  }
+  .proposals-container {
+    display: flex;
+    flex-direction: row;
+    margin: 1.5rem 0;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .order__by-text {
+    width: auto;
+  }
   .title-action-button {
     display: flex;
     align-items: center;
     justify-content: right;
   }
+  .bp-order-by-container {
+    width: 16rem;
+  }
+
   .proposals-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, 352px);
+    grid-gap: 24px;
   }
   .title-action__action {
     max-width: 250px;
+  }
+  .proposals-actions-admin {
+    padding: 0 0 16px 0;
+    gap: 8px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .proposals-actions {
+    padding: 24px 0;
+    justify-content: flex-start;
+    flex-direction: row;
+  }
+  .proposals-criteria-label {
+    color: var(--blue-warm-vivid-80);
+    font-size: 14px;
+  }
+  .proposals-actions-admin .black-and-white-btn {
+    width: auto;
+  }
+
+  .proposals-actions > button {
+    margin-bottom: 0;
+  }
+
+  .br-announcement {
+    h2 {
+      padding: 0;
+      margin: 0 0 0.5rem 0;
+      color: var(--gray-90);
+      font-size: 2rem;
+    }
+    p {
+      color: var(--gray-60);
+    }
   }
 }
 
 .proposals-br {
   width: 100%;
-  margin: 1rem 0;
+}
+
+.proposals-br .dropdown.menu > li {
+  display: flex;
+}
+
+.empyt-div {
+  width: 200px;
 }
 
 .proposals-br .dropdown.menu > li > a {
   padding: 0.7rem 0.3rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-weight: 400;
+  color: var(--blue-warm-vivid-80);
 }
 
 .proposals-br .card-grid .column,
@@ -269,6 +464,7 @@
   height: 0rem;
   padding: 0rem;
   margin-bottom: 0rem;
+  display: none;
 }
 
 #proposals {
@@ -501,4 +697,149 @@
   padding: 0 var(--spacing-scale-3x) !important;
   box-shadow: none !important;
   padding: 1rem !important;
+}
+.card--proposal {
+  max-width: 364px;
+  min-height: 498px;
+}
+
+.proposal_card__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--blue-warm-vivid-70);
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+.tags a {
+  display: flex;
+  width: 100%;
+  padding: 4px 8px;
+  border-radius: 2px;
+  border: 0;
+  background: var(--gray-2);
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--blue-warm-vivid-70);
+}
+.tags li {
+  display: flex;
+}
+
+.propposal_card__header {
+  overflow: hidden;
+}
+
+.proposal_text--paragraph {
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+  color: #555555;
+}
+
+.proposal_card__footer {
+  margin: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.proposals_card_stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.proposal-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--gray-4);
+}
+
+.proposal-buttons {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.votes_stat {
+  font-weight: 600;
+  font-size: 1.25rem;
+  text-transform: lowercase;
+  color: var(--gray-90);
+}
+
+.comments_stat {
+  font-weight: 400;
+  font-size: 0.875rem;
+  text-transform: lowercase;
+  color: #555555;
+}
+
+.proposal_vote_button {
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
+.br-announcement {
+  h2 {
+    padding: 0;
+    margin: 0 0 0.5rem 0;
+    color: var(--pure-100);
+  }
+  p {
+    color: var(--gray-60);
+  }
+}
+.proposal-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  border: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.proposal-card__content {
+  display: flex;
+  padding: 16px 0px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  background: var(--blue-warm-vivid-5);
+}
+
+.button--vote-button,
+.button_to,
+.button--vote-button .button_to button {
+  width: 100%;
+}
+
+
+.xmark-button {
+  height: 12px;
+}
+
+.author-data .author__name {
+  color: var(--blue-warm-vivid-70);
+}
+
+.proposal-buttons a {
+  background-color: #335BAE;
+}
+
+.proposal-disabled {
+  padding: 16px 14px;
+  background-color: var(--orange-vivid-5);
+  color: var(--gray-90);
+  font-size: 16px;
+}
+
+.proposals-no-actions {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
 }

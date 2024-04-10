@@ -93,11 +93,7 @@
                               include_blank: t(".select_an_area") %>
           </div>
           <div class="columns xlarge-6">
-            <% if process_groups_for_select %>
-              <%= form.select :participatory_process_group_id,
-                          process_groups_for_select,
-                          include_blank: t(".select_process_group") %>
-            <% end %>
+            <%= form.translated :text_field, :developer_group %>
           </div>
           <div class="columns xlarge-6">
             <%= form.translated :text_field, :participatory_structure %>
@@ -129,6 +125,11 @@
         </div>
         <div class="row column">
           <%= scopes_picker_field form, :scope_id, root: nil %>
+           <% if process_groups_for_select %>
+            <%= form.select :participatory_process_group_id,
+                        process_groups_for_select,
+                        include_blank: t(".select_process_group") %>
+          <% end %>
           <!--
             This element is hidden because it is not intended to be used!
             Refer to issue 138
@@ -201,6 +202,9 @@
           <%= form.check_box :should_have_user_full_profile %>
         </div>
         <div class="row column">
+          <%= form.check_box :show_mobilization %>
+        </div>
+        <div class="row column">
           <%= form.number_field :weight %>
         </div>
         <div class="columns xlarge-6">
@@ -208,9 +212,6 @@
           <p class="help-text">
             <%== t(".hash_tag_help", url: decidim_form_slug_url(:processes, form.object.slug)) %>
           </p>
-        </div>
-        <div class="columns xlarge-6" style="display: none;">
-          <%= form.translated :text_field, :developer_group %>
         </div>
       </div>
     </div>

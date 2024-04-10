@@ -92,6 +92,7 @@ module Decidim
             participatory_process_type: form.participatory_process_type,
             show_metrics: form.show_metrics,
             show_statistics: form.show_statistics,
+            show_mobilization: form.show_mobilization,
             announcement: form.announcement,
             group_chat_id: form.group_chat_id,
             publish_date: form.publish_date

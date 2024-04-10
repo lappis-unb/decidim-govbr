@@ -1,11 +1,12 @@
+<%= form.hidden_field :deleted, id: "proposal-draft-#{form.index}-deleted" %>
 <div class="grid-x">
   <div class="cell">
-    
     <%= form.hidden_field :position, class: "position" %> <%= form.text_field :title, required: true %>
   </div>
 </div>
-<% if proposal.article? %>
-  <div class="grid-x">
-    <div class="cell"><%= form.text_area :body, required: true, rows: 5 %></div>
-  </div>
-<% end %>
+<div class="grid-x">
+  <% if proposal.article? %>
+    <div class="cell"><%= form.editor :body, required: true, rows: 5 %></div>
+  <% end %>
+  <button class="remove-proposal-draft button tiny button--title alert" data-proposal-draft-id="<%= form.index %>" data-confirm="Deseja realmente remover esta seção?">Remover</button>
+</div>
