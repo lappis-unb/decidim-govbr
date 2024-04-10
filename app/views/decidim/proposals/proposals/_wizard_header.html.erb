@@ -19,7 +19,7 @@
     },
     callout_class: "warning"
   ) %>
-<% if edit_form %>
+<% if local_assigns[:edit_form_bool] %>
   <h2 class="section-header-text">Edite sua proposta</h2>
 <% else %>
   <h2 class="section-header-text"><%= proposal_wizard_step_title action_name %></h2>
