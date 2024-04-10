@@ -325,7 +325,8 @@ pt-BR:
           back_to: Voltar para
           back_to_list_proposals: Veja mais propostas
           back_to_list: Voltar
-          proposal_accepted_reason: 'Esta proposta foi recebida porque:'
+          proposal_accepted_reason: 'Esta proposta foi incorporada!'
+          proposal_accepted_why: 'Motivo:'
           proposal_in_evaluation_reason: Esta proposta está em avaliação
           report: Denunciar
           withdraw_proposal: Remover %{singular_name} 
