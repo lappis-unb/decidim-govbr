@@ -25,17 +25,17 @@
   flex-direction: row;
   gap: 24px;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .main-content {
-  flex: 3;
   display: flex;
   flex-direction: column;
   gap: 24px;
+  flex: 1;
 }
 
 .side-content {
-  flex: 1;
   display: flex;
   width: 267px;
   padding: 8px 16px;
@@ -71,12 +71,14 @@
 .proposals-counter {
   font-weight: 400;
   font-size: 1rem;
+  color: var(--gray-90);
 }
 
 .order-text {
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.25rem;
+  color: var(--gray-90);
 }
 
 .bp-order-by-container {
@@ -182,6 +184,7 @@
   display: flex;
   align-items: center;
   font-size: 12px;
+  gap: 4px;
 }
 
 .paginate-container {
@@ -267,7 +270,7 @@
 
   .proposals-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, 352px);
     grid-gap: 24px;
   }
   .title-action__action {
@@ -293,11 +296,16 @@
   .proposals-actions-admin .black-and-white-btn {
     width: auto;
   }
+
+  .proposals-actions > button {
+    margin-bottom: 0;
+  }
+
   .br-announcement {
     h2 {
       padding: 0;
       margin: 0 0 0.5rem 0;
-      color: var(--pure-100);
+      color: var(--gray-90);
       font-size: 2rem;
     }
     p {
@@ -469,6 +477,7 @@
 
 .card--proposal {
   max-width: 364px;
+  min-height: 498px;
 }
 
 .proposal_card__title {
@@ -501,6 +510,7 @@
 .proposal_text--paragraph {
   margin-bottom: 1.5rem;
   margin-top: 1.5rem;
+  color: #555555;
 }
 
 .proposal_card__footer {
@@ -533,12 +543,14 @@
   font-weight: 600;
   font-size: 1.25rem;
   text-transform: lowercase;
+  color: var(--gray-90);
 }
 
 .comments_stat {
   font-weight: 400;
   font-size: 0.875rem;
   text-transform: lowercase;
+  color: #555555;
 }
 
 .proposal_vote_button {
@@ -546,6 +558,16 @@
   padding-right: 48px;
 }
 
+.br-announcement {
+  h2 {
+    padding: 0;
+    margin: 0 0 0.5rem 0;
+    color: var(--pure-100);
+  }
+  p {
+    color: var(--gray-60);
+  }
+}
 .proposal-card {
   display: flex;
   flex-direction: column;
@@ -795,4 +817,29 @@
   padding: 0 var(--spacing-scale-3x) !important;
   box-shadow: none !important;
   padding: 1rem !important;
+}
+
+.xmark-button {
+  height: 12px;
+}
+
+.author-data .author__name {
+  color: var(--blue-warm-vivid-70);
+}
+
+.proposal-buttons a {
+  background-color: #335BAE;
+}
+
+.proposal-disabled {
+  padding: 16px 14px;
+  background-color: var(--orange-vivid-5);
+  color: var(--gray-90);
+  font-size: 16px;
+}
+
+.proposals-no-actions {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
 }
