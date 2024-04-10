@@ -5,7 +5,7 @@
         </button>
         <ul class="space-menu">
             <% items.each_with_index do |item, index| %>
-                <% if current_participatory_space.show_mobilization && !item[:menu_name] || item[:menu_name] || index == 0 %>
+                <% if current_participatory_space.try(:show_mobilization) && !item[:menu_name] || item[:menu_name] || index == 0 %>
                     <li class="tab-item <%= "active" if item[:active] %>">
                         <%= link_to item[:url] do %>
                             <span class="name">
