@@ -138,11 +138,14 @@
   text-align: center;
   margin-top: 6rem;
 }
+
 .comment-threads{
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  margin-top: 24px;
 }
+
 .add-comment .field .button--sc{
   background: var(--background);
   color: var(--Gray-gray-80, #333);
