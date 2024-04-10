@@ -87,7 +87,8 @@ module Decidim
             initial_page_type: form.initial_page_type,
             group_chat_id: form.group_chat_id,
             publish_date: form.publish_date,
-            should_have_user_full_profile: form.should_have_user_full_profile
+            should_have_user_full_profile: form.should_have_user_full_profile,
+            show_mobilization: form.show_mobilization
           }.merge(
             attachment_attributes(:hero_image, :banner_image)
           )
