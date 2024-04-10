@@ -1,0 +1,17 @@
+<div class="br-message-feedback info" role="alert">
+  <div class="content">
+    <% if has_title? %>
+      <span class="message-title">
+        <i class="fa fa-info-circle fa-md" aria-hidden="true"></i>
+        <%= clean_title %>
+      </span>
+
+      <div class="message-body">
+        <span class="message-reason"><%= t("decidim.proposals.proposals.show.proposal_accepted_why") %></span>
+        <%= clean_body %>
+      </div>
+    <% else %>
+      <%= clean_announcement %>
+    <% end %>
+  </div>
+</div>
