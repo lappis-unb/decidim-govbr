@@ -119,6 +119,8 @@
   max-height: 0;
   transition: max-height 0.5s ease-in-out;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 .filters__visible {
   max-height: 500px;
@@ -180,10 +182,14 @@
   cursor: pointer;
 }
 
+#filters__menu > div {
+  padding: 1rem;
+}
+
 #filter-btn-br {
   display: flex;
   justify-content: space-between;
-  width: 180px;
+  width: 200px;
   height: 40px;
   background-color: var(--pure-0) !important;
   border: 1px solid var(--gray-80);
@@ -259,10 +265,10 @@
   border-right: 35px solid transparent; /* Adjust the width of the triangle */
 }
 
-.filters__section label[data-global-checkbox], .filters__section--general label[data-global-checkbox] {
+.filters__section label[data-global-checkbox],
+.filters__section--general label[data-global-checkbox] {
   font-weight: var(--font-weight-semi-bold) !important;
 }
-
 
 @media screen and (max-width: 600px) {
   #filters__menu div.type_collection_radio_buttons_filter fieldset {
