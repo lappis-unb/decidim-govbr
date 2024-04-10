@@ -345,8 +345,6 @@ pt-BR:
             description: Para serem aceites, as propostas precisam de atingir %{limit} voto(s)
           vote_limit:
             description: Pode votar até %{limit} proposta(s).
-            left: Você tem
-            votes: votos restantes
         wizard_aside:
           back: Voltar
           back_from_step_1: Voltar

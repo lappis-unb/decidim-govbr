@@ -5,7 +5,6 @@
 require.context("../../images", true);
 import "../govbr-ds/core";
 import "../animations";
-import "../vote_rules";
 
 import { contrastButtonFunc } from "../acessibility_widget";
 contrastButtonFunc();
