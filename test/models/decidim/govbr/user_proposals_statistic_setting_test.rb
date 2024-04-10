@@ -237,13 +237,13 @@ module Decidim
           decidim_participatory_space_type: @participatory_process1.class.to_s,
           decidim_participatory_space_id: @participatory_process1.id,
           name: 'relatorio',
-          statistics_data_updated_at: Time.new(2020, 2, 10)
+          statistics_data_updated_at: Time.new(2020)
         )
         assert_equal 4, Decidim::Proposals::Proposal.count
         assert_equal 16, Decidim::Comments::Comment.count
         assert_equal 8, Decidim::Follow.count
 
-        travel_to Time.new(2024, 2, 10) do
+        travel_to Time.new(2024) do
           setting.refresh_data!
           setting.reload
         end
@@ -258,7 +258,8 @@ module Decidim
         assert_equal 8, statistic.comments_received
         assert_equal 4, statistic.follows_received
         assert_equal 2024, setting.statistics_data_updated_at.year
-        assert_equal 2, setting.statistics_data_updated_at.month
+        assert_equal 1, setting.statistics_data_updated_at.month
+        assert_equal 1, setting.statistics_data_updated_at.day
 
         expected_score = statistic.proposals_done + statistic.comments_done + statistic.votes_done + statistic.follows_done + statistic.votes_received + statistic.comments_received + statistic.follows_received
         assert_equal expected_score.to_f, statistic.score

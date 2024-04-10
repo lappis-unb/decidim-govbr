@@ -49,7 +49,7 @@ Testing:
     - bundle exec rails db:schema:load RAILS_ENV=$RAILS_ENV
     - yarn install
     - bundle exec rails webpacker:compile
-    - bundle exec rails test && bundle exec rspec # Executa testes do Rails e RSpec
+    - if bundle exec rails test && bundle exec rspec; then exit 0; else exit 1; fi # Executa testes do Rails e RSpec
     - echo "Finalizando."
 
 # Job para análise estática do código com Rubocop, ignorando determinadas regras
