@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
     filtersTriangle.offsetHeight;
     filtersMenu.classList.add("show__filters__menu");
     filtersTriangle.classList.add("show__filters__menu");
-    showFiltersButton.innerHTML = `<i class="fa-solid fa-sliders" style="color: #333333;"></i> Esconder Filtros`;
+    showFiltersButton.innerHTML = `<i class="fa-solid fa-sliders";"></i> Esconder Filtros`;
   }
 
   function hideFilters() {
