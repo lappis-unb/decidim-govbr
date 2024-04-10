@@ -57,7 +57,7 @@ pt-BR:
           tos_agreement: Ao participar, você aceita os seus Termos de Serviço
       step_navigation:
         show:
-          are_you_sure: Esta ação não poderá ser desfeita e não deixará editar as suas respostas. Você tem certeza?
+          are_you_sure: Esta ação não poderá ser desfeita e não poderá editar as suas respostas. Você tem certeza?
           back: Voltar
       user_answers_serializer:
         registered: Registrado
