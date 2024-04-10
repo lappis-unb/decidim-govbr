@@ -187,7 +187,7 @@
 #filter-btn-br {
   display: flex;
   justify-content: space-between;
-  width: 182px;
+  width: 192px;
   height: 40px;
   background-color: var(--pure-0) !important;
   border: 1px solid var(--gray-80);
@@ -226,7 +226,8 @@ i.fa-solid {
 
 #filters__menu.show__filters__menu,
 #filters__triangle.show__filters__menu {
-  max-height: max-content;
+  max-height: 1000px;
+  height: fit-content;
 }
 
 #filters__menu.show__filters__menu {
