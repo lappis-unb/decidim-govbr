@@ -87,6 +87,17 @@
           Conheça os critérios para seleção de propostas
         </span>
       </div>
+
+    <%else%>
+      <div class="proposals-actions proposals-no-actions">
+        <span class="proposal-disabled">
+          O período para submissão de propostas não está aberto.
+        </span>
+        <span class="proposals-criteria-label">
+          <i class="fas fa-info-circle fa-lg" aria-hidden="true"></i>
+          Conheça os critérios para seleção de propostas
+        </span>
+      </div>
     <% end %>
     <% if component_settings.collaborative_drafts_enabled? %>
       <%= link_to t(".collaborative_drafts_list"), collaborative_drafts_path, class: "title-action__action button small hollow ml-s" %>
