@@ -87,7 +87,8 @@
   border-radius: 30px;
   font-size: 0.75rem;
   font-weight: 600;
-  margin-bottom: 24px;
+  display: inline-block;
+  width: fit-content;
 }
 
 .card__text--status.accepted {
