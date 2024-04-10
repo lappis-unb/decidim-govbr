@@ -212,81 +212,6 @@
   padding: 0px;
 }
 
-.voting-rules {
-  max-height: 0;
-  transition: max-height 0.5s ease-in-out;
-  overflow: hidden;
-  padding: 0;
-}
-
-.show-votes-rule-button {
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--blue-warm-vivid-80);
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
-  -webkit-border-radius: 1rem;
-  -moz-border-radius: 1rem;
-  -ms-border-radius: 1rem;
-  -o-border-radius: 1rem;
-}
-
-.show-votes-rule-button:hover {
-  background-color: var(--blue-warm-10);
-}
-
-.voting-rules-title {
-  color: var(--gray-90);
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  margin-top: 0;
-}
-
-.voting-rules-container {
-  padding: 1.5rem;
-}
-
-.voting-rules-container > div {
-  display: flex;
-  flex-direction: column;
-}
-
-@media screen and (min-width: 600px) {
-  .voting-rules-container > div {
-    display: flex;
-    flex-direction: row;
-  }
-}
-
-.voting-rules-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.votings-rules-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.vote_rules_card_hidden {
-  max-height: 0;
-  overflow: hidden;
-}
-
-.vote_rules_card_visible {
-  max-height: 500px;
-  transition: max-height 0.5s ease-in-out;
-}
-
-.show__rules__card {
-  max-height: 500px;
-}
-
 #filters__menu.show__filters__menu,
 #filters__triangle.show__filters__menu {
   max-height: 500px;
@@ -358,10 +283,4 @@
 
 .dropdown .is-dropdown-submenu a:hover {
   background-color: var(--blue-warm-20);
-}
-
-.card__content {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
 }
