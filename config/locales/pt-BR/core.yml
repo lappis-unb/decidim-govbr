@@ -33,6 +33,7 @@ pt-BR:
         remember_me: Lembrar-me
   decidim:
     scopes:
+      prompt: Selecione uma área de interesse
       global: Selecione o tema do processo
     accessibility:
       front_page_link: Ir para a página principal
