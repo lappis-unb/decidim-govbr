@@ -1,0 +1,8 @@
+<% add_decidim_page_title(t("user_proposals_statistic_setting.new.title", scope: "decidim.admin")) %>
+<%= decidim_form_for(@form, html: { class: "form new_user_proposals_statistic_setting_link" }) do |f| %>
+  <%= render partial: "form", object: f, locals: { title: t("user_proposals_statistic_setting.new.title", scope: "decidim.admin") } %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t("user_proposals_statistic_setting.new.create", scope: "decidim.admin") %>
+  </div>
+<% end %>

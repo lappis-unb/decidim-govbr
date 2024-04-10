@@ -942,6 +942,7 @@ ActiveRecord::Schema.define(version: 2024_04_09_134438) do
     t.integer "users_to_be_exported", default: 200, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "statistics_data_updated_at", precision: 6
     t.index ["decidim_participatory_space_type", "decidim_participatory_space_id"], name: "user_proposals_statistic_settings_participatory_space_idx"
   end
 
