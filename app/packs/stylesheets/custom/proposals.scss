@@ -61,6 +61,10 @@
   height: fit-content;
 }
 
+.proposals-filters > div {
+  display: inline;
+}
+
 .proposals-content {
   display: flex;
   justify-content: center;
@@ -184,7 +188,7 @@
 .proposals-actions {
   display: flex;
   gap: 24px;
-  padding: 24px 0;
+  padding: 0px 0px 24px 0px;
   justify-content: flex-start;
   flex-direction: row;
   align-items: center;
@@ -208,7 +212,10 @@
 }
 .order__by-text {
   width: 100%;
-  margin-bottom: 1.5rem;
+}
+
+.proposals-announcement {
+  padding-bottom: 3rem;
 }
 
 .proposals-announcement .br-announcement {
@@ -262,9 +269,9 @@
   .proposals-container {
     display: flex;
     flex-direction: row;
-    margin: 0;
+    margin: 1rem 0;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
   }
   .order__by-text {
     width: auto;
@@ -287,7 +294,7 @@
     max-width: 250px;
   }
   .proposals-actions-admin {
-    padding: 0 0 16px 0;
+    padding: 0 0 24px 0;
     gap: 8px;
     flex-wrap: wrap;
     flex-direction: row;
