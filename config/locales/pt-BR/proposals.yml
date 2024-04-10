@@ -201,6 +201,9 @@ pt-BR:
           label:
             answers: Importar respostas de um arquivo
             proposals: Importar propostas de um arquivo
+          title:
+            answers: Importar respostas de propostas
+            proposals: Import propostas de arquivo
         proposals:
           pluralized_name:
             when_empty: Propostas
@@ -215,7 +218,13 @@ pt-BR:
             select_a_category: Selecione um tema
             success: "Propostas atualizadas com sucesso para o tema %{subject_name}: %{proposals}."
           update_scope:
-            select_a_scope: Selecione um âmbitosksh
+            select_a_scope: Selecione um âmbito
+        proposals_imports:
+          new:
+            create: Importar
+        proposal_notes:
+          title: Anotações privadas para o orgão
+          leave_your_note: Deixe sua anotação, apenas o órgão poderá visualizar
         proposal_answers:
           form:
             accepted: Aceita
