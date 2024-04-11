@@ -597,7 +597,7 @@
   background-color: var(--Gray-gray-02);
   border-radius: 30px;
   font-size: 0.75rem;
-  padding: 8px 4px;
+  padding: 4px 8px;
   font-weight: 600;
 }
 
@@ -653,4 +653,17 @@ textarea::placeholder{
   font-style: italic;
   font-weight: 400;
   line-height: normal;
+}
+
+.author-data{
+  padding-left: 0;
+}
+
+.ml-1{
+  margin: 0;
+}
+
+.author-data__main {
+  display: flex;
+  align-items: center;
 }
