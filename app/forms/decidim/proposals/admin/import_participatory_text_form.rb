@@ -9,9 +9,10 @@ module Decidim
         include TranslatableAttributes
         include Decidim::HasUploadValidations
 
+        DOCX_MIME_TYPE = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
         # WARNING: consider adding/removing the relative translation key at
         # decidim.assemblies.admin.new_import.accepted_types when modifying this hash
-        ACCEPTED_MIME_TYPES = Decidim::Proposals::DocToMarkdown::ACCEPTED_MIME_TYPES
+        ACCEPTED_MIME_TYPES = Decidim::Proposals::DocToMarkdown::ACCEPTED_MIME_TYPES.merge(docx: DOCX_MIME_TYPE)
 
         translatable_attribute :title, String
         translatable_attribute :description, String
