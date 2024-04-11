@@ -60,6 +60,12 @@ Rails.application.routes.draw do
     resources :participatory_processes, param: :slug, only: [] do
       resources :partners, except: [:show], controller: 'decidim/participatory_processes/admin/partners'
       resources :media_links, except: [:show], controller: 'decidim/participatory_processes/admin/media_links'
+      resources :user_proposals_statistic_settings, except: [:show], controller: 'decidim/participatory_processes/admin/user_proposals_statistic_settings' do
+        member do
+          get :export
+          get :force_refresh
+        end
+      end
     end
 
     resources :participatory_process_groups, only: [] do
