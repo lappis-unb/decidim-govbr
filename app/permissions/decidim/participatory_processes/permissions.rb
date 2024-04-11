@@ -36,6 +36,7 @@ module Decidim
         user_can_read_process_list?
         user_can_read_current_process?
         user_can_create_process?
+        user_can_copy_process?
         user_can_manage_participatory_processes_partners?
 
         # org admins and space admins can do everything in the admin section
@@ -177,6 +178,14 @@ module Decidim
                             permission_action.subject == :process
 
         toggle_allow(user.admin?)
+      end
+
+      # Only organization admins and process admins can copy processes
+      def user_can_copy_process?
+        return false unless permission_action.action == :copy &&
+                            permission_action.subject == :process
+
+        toggle_allow(user.admin? || participatory_processes_with_role_privileges(:admin).any?)
       end
 
       def user_can_manage_participatory_processes_partners?
