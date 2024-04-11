@@ -55,6 +55,7 @@ pt-BR:
             update_scope_button: Atualizar área de interesse
         proposals_imports:
           new:
+            origin_component_id: Componente de origem
             default_budget: Orçamento padrão
             import_all_accepted_proposals: Importar todas as propostas aceitas
             no_components: Não há outros componentes de propostas neste espaço participativo para importar as propostas em projetos.
