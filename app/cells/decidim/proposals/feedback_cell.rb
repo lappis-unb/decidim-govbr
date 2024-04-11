@@ -55,7 +55,7 @@ module Decidim
       def clean_body
         return unless body
 
-        Array(body).map { |paragraph| tag.p(clean(paragraph)) if !paragraph.empty? }.join
+        Array(body).map { |paragraph| tag.p(clean(paragraph)) }.join
       end
 
       def clean_announcement
