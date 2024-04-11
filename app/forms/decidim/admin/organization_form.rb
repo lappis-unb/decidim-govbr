@@ -29,6 +29,7 @@ module Decidim
       attribute :menu_links, String
       attribute :footer_menu_links, String
       attribute :user_profile_survey_id, Integer
+      attribute :template_process_id, Integer
 
       attribute :send_welcome_notification, Boolean
       attribute :customize_welcome_notification, Boolean
@@ -59,6 +60,14 @@ module Decidim
             priority,
             I18n.t("activemodel.attributes.organization.machine_translation_display_priority_#{priority}")
           ]
+        end
+      end
+
+      def possible_template_processes_for_select
+        return [] unless id
+
+        Decidim::ParticipatoryProcesses::OrganizationParticipatoryProcesses.new(current_organization).query.map do |process|
+          [translated_attribute(process.title), process.id]
         end
       end
 
