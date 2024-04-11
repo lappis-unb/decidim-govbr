@@ -289,6 +289,7 @@ pt-BR:
           text_banner: Está vendo a lista de propostas retiradas pelos seus próprios autores. %{go_back_link}
         new:
          title: Crie sua %{singular_name}
+         send: Publicar
         edit:
           add_documents: Adicionar documentos
           add_image: Adicionar imagem
@@ -355,7 +356,7 @@ pt-BR:
         wizard_steps:
           current_step: Etapa atual
           see_steps: ver etapas
-          step_1: Crie sua proposta
+          step_1: Faça a sua proposta
           step_2: Comparar
           step_3: Concluir
           step_4: Publique sua proposta
