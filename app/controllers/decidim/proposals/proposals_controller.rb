@@ -15,7 +15,7 @@ module Decidim
       include FilterResource
       include Decidim::Proposals::Orderable
       include Paginable
-      helper Decidim::Govbr::ParticipatoryProcessesHelper
+      include Decidim::Govbr::ParticipatoryProcessesHelper
 
       helper_method :proposal_presenter, :form_presenter
 
@@ -301,9 +301,9 @@ module Decidim
           survey_component_id = current_organization.user_profile_survey_id
 
           flash[:alert] = I18n.t("decidim.components.proposals.actions.action_not_allowed")
-          flash[:poll_link] = "/processes/#{params[:participatory_process_slug]}/f/#{survey_component_id}"
+          flash[:poll_link] = mount_user_profile_survey_url(survey_id:survey_component_id)
         end
-      end
+      end      
     end
   end
 end
