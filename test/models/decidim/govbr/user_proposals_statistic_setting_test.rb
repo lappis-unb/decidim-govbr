@@ -243,7 +243,7 @@ module Decidim
         assert_equal 16, Decidim::Comments::Comment.count
         assert_equal 8, Decidim::Follow.count
 
-        travel_to Time.new(2024) do
+        travel_to Time.new(2024, 1, 1, 0, 0, 0, "-03:00") do
           setting.refresh_data!
           setting.reload
         end
