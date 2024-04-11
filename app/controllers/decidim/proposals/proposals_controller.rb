@@ -217,7 +217,7 @@ module Decidim
           with_any_origin: default_filter_origin_params,
           activity: "all",
           with_any_category: default_filter_category_params,
-          with_any_state: %w(accepted evaluating state_not_published),
+          with_any_state: %w(accepted rejected evaluating state_not_published),
           with_any_scope: default_filter_scope_params,
           related_to: "",
           type: "all"
