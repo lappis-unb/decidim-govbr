@@ -222,8 +222,7 @@
 .proposals-announcement .br-announcement {
   h2 {
     padding: 0;
-    margin: 0 0 0.5rem 0;
-    color: var(--pure-100);
+    color: var(--gray-90);
     font-size: 1.5rem;
   }
   p {
@@ -317,11 +316,15 @@
   .br-announcement {
     h2 {
       padding: 0;
-      margin: 0 0 0.5rem 0;
       color: var(--gray-90);
+      margin: 0;
       font-size: 2rem !important;
     }
     p {
+      color: var(--gray-60);
+      font-size: 1.26rem !important;
+    }
+    h5 {
       color: var(--gray-60);
       font-size: 1.26rem !important;
     }
@@ -569,11 +572,16 @@
 .br-announcement {
   h2 {
     padding: 0;
-    margin: 0 0 0.5rem 0;
-    color: var(--pure-100);
+    margin: 0;
+    color: var(--gray-90);
   }
   p {
     color: var(--gray-60);
+  }
+  h5 {
+    color: var(--gray-60);
+    font-size: 1.26rem;
+    margin: 0;
   }
 }
 .proposal-card {
@@ -598,7 +606,7 @@
 }
 
 .card__content {
-  padding: 16px !important;
+  padding: 1rem 1.5rem !important;
 }
 
 .button--vote-button,
@@ -616,7 +624,7 @@
 }
 
 .proposal-buttons a {
-  background-color: #335BAE;
+  background-color: #335bae;
 }
 
 .proposal-disabled {
