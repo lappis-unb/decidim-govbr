@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_04_09_134438) do
+ActiveRecord::Schema.define(version: 2024_04_11_192042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1446,8 +1446,10 @@ ActiveRecord::Schema.define(version: 2024_04_09_134438) do
     t.jsonb "menu_links", default: "{}", null: false
     t.jsonb "footer_menu_links", default: "{}", null: false
     t.integer "user_profile_survey_id"
+    t.bigint "template_process_id"
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
+    t.index ["template_process_id"], name: "index_decidim_organizations_on_template_process_id"
   end
 
   create_table "decidim_pages_pages", id: :serial, force: :cascade do |t|

@@ -73,6 +73,14 @@
       <%= form.number_field :user_profile_survey_id %>
     </div>
   </div>
+  <div class="row">
+    <div class="columns xlarge-6">
+      <%= form.select :template_process_id,
+                      options_for_select(
+                        @form.possible_template_processes_for_select
+                      ) %>
+    </div>
+  </div>
   <% if Decidim.config.enable_machine_translations %>
     <div class="row">
       <div class="columns xlarge-6">
