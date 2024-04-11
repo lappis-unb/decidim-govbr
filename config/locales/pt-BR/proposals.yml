@@ -198,6 +198,22 @@ pt-BR:
       admin:
         when_empty: Proposta
         imports:
+          help:
+            answers: |
+              O documento de importação deve conter os seguintes nomes de colunas no caso de arquivos CSV ou Excel, ou nomes de chaves no caso de arquivos JSON:
+              <ul>
+              <li><b>id:</b> ID da proposta a ser respondida</li>
+              <li><b>estado:</b> um entre "aceito", "avaliando" ou "rejeitado"</li>
+              <li><b>answer/en:</b> Resposta em inglês. Isso dependerá da configuração do idioma da sua plataforma.</li>
+              </ul>
+            proposals: |
+              O arquivo deve ter os seguintes nomes de colunas no caso de arquivos CSV ou Excel, ou nomes de chaves no caso de arquivos JSON:
+              <ul>
+              <li><b>title/en:</b> Título no idioma inglês. Isso dependerá da configuração do idioma da sua plataforma.</li>
+              <li><b>body/en:</b> Corpo em língua inglesa. Isso dependerá da configuração do idioma da sua plataforma.</li>
+              <li><b>escopo/id:</b> ID do escopo</li>
+              <li><b>categoria/id:</b> ID da categoria</li>
+              </ul>
           label:
             answers: Importar respostas de um arquivo
             proposals: Importar propostas de um arquivo
@@ -232,6 +248,10 @@ pt-BR:
             evaluating: Em avaliação
             not_answered: Não respondida
             rejected: Rejeitada
+        participatory_texts:
+          new_import:
+            title: Importar propostas de componentekkkkkkkk
+          title: Textos participativoskkkkkkkkk
       answers:
         accepted: Recebida
         evaluating: Em avaliação
