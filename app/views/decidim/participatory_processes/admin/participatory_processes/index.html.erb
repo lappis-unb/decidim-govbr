@@ -28,7 +28,7 @@
       <% end %>
 
       <% if allowed_to? :copy, :process %>
-        <%= link_to "Novo Processo via Template", new_participatory_process_copy_path(template_process), class: "button tiny button--title" %>
+        <%= link_to "Novo Processo via Template", new_participatory_process_copy_path(current_organization.template_process), class: "button tiny button--title" %>
       <% end %>
 
       <button data-toggle="process_groups" class="dropdown button tiny button--title">
