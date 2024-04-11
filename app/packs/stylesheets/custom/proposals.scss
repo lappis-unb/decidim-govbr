@@ -837,3 +837,43 @@
   align-items: flex-start;
   gap: 8px;
 }
+
+.br-message-feedback {
+  background-color: var(--blue-warm-vivid-10);
+  border-radius: 4px;
+  padding: 16px;
+
+  .content {
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+
+    .message-title {
+      font-size: 16.8px;
+      font-weight: 400;
+      color: var(--blue-warm-vivid-80);
+    }
+  }
+
+  i {
+    color: var(--blue-warm-vivid-70);
+    width: 16px;
+    margin-right: 8px;
+  }
+
+  .message-body {
+
+    p {
+      margin: 0;
+    }
+
+    .message-reason {
+      font-weight: var(--font-weight-bold);
+      margin-bottom: 8px;
+    }
+    flex-direction: column;
+    display: flex;
+  }
+}
