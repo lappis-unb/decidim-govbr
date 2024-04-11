@@ -1,4 +1,4 @@
-<% if !has_replies? && replies_block < 1 %>
+<% if !has_replies? && depth < 1 %>
 <div class="comment__actions br-button">
   <button class="comment__hide muted-link <%= depth.zero? && has_replies_in_children? ? "" : "hide" %>" aria-controls="comment-<%= model.id %>-replies" data-toggle="comment_<%= model.id %>">
     <span class="show-comment-replies"><%= t("decidim.components.comment.show_replies", count: replies.size, replies_count: replies.size ) %></span>

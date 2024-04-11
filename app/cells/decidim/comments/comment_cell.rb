@@ -82,10 +82,6 @@ module Decidim
           current_user.admin? && !has_replies_in_children?
       end
 
-      def replies_block
-        model.depth
-      end
-
       def author_presenter
         if model.author.respond_to?(:official?) && model.author.official?
           Decidim::Core::OfficialAuthorPresenter.new

@@ -592,13 +592,18 @@
   background: var(--Gray-gray-02)!important;
   border-radius: 30px!important;
 }
+
 .label.success{
   border: 2px solid var(--green-vivid-60)!important;
   color: var(--Green-Vivid-green-vivid-60, #466C04);
+  width: fit-content;
+  padding: 4px 8px;
 }
 .label.alert{
   border: 2px solid var(--Red-Vivid-red-vivid-60, #B50909);
   color: var(--red-vivid-60);
+  width: fit-content;
+  padding: 4px 8px;
 }
 
 .br-comment{

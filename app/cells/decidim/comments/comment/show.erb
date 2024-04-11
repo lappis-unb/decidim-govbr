@@ -8,20 +8,15 @@
       <div class="author-data">
         <div class="author-data__main">
           <%= render :author %>
-          <% if model.status == "in_discussion" %>
-            <% accepted_icon = "" %>
-            <% rejected_icon = "" %>
-            <span class="br-tag status bg-warning" aria-describedby="tag-status-01"></span>
-            <span class="ml-1" id="tag-status-02">Em discussão</span>
-          <% elsif model.status == "rejected" %>
-            <% accepted_icon = "" %>
-            <% rejected_icon = "<i class='fa-solid fa-check comment_check'></i>" %>
-            <span class="ml-1 br-comment alert" id="tag-status-01">Rejeitada</span>
-          <% else %>
-            <% accepted_icon = "<i class='fa-solid fa-check comment_check'></i>" %>
-            <% rejected_icon = "" %>
-            <span class="ml-1 br-comment accepted" id="tag-status-03">Incorporada</span>
-          <% end %>
+            <% if model.status == "rejected" %>
+              <% accepted_icon = "" %>
+              <% rejected_icon = "<i class='fa-solid fa-check comment_check'></i>" %>
+              <span class="ml-1 br-comment alert" id="tag-status-01">Rejeitada</span>
+            <% elsif model.status =="accepted" %>
+              <% accepted_icon = "<i class='fa-solid fa-check comment_check'></i>" %>
+              <% rejected_icon = "" %>
+              <span class="ml-1 br-comment accepted" id="tag-status-03">Incorporada</span>
+            <% end %>
           <% if edited? %>
             <div class="author-data__extra">
               <span class="comment__edited">
@@ -43,7 +38,7 @@
     </div>
     <div class="comment__footer">      
       <div class="comment__footer_votes">
-        <% if current_user.present? && current_user.admin %>
+        <% if current_user.present? && current_user.admin && depth < 1  %>
           <div>
             <div class="d-flex align-items-center feedback-buttons">
                 <%= button_to "<i class='fa-solid fa-sm fa-x'></i> Rejeitar".html_safe,
@@ -77,7 +72,7 @@
       <%== cell("decidim/comments/comment_form", model, root_depth: root_depth, order: order) %>
     </div>
   <% end %>
-  <% if replies_block < 1 %>
+  <% if depth < 1 %>
   <span class="br-divider sm my-1"></span>
   <% end %>
 <% end %>
