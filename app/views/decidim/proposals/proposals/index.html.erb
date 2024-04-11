@@ -58,7 +58,7 @@
               <% if user_survey_answered? %>
                 <%= action_authorized_link_to :create, new_proposal_path,
                   class: "title-action__action br-button primary", data: { "redirect_url" => new_proposal_path } do %>
-                  <i class="fa-solid fa-plus fa-sl"></i>
+                  <i class="fa-solid fa-plus fa-sl mr-2"></i>
                   <span class="title-action-text">
                     <% if translated_attribute(current_component.singular_name).present? %>
                       <%= t("decidim.proposals.proposals.index.new_proposal", proposal: translated_attribute(current_component.singular_name).downcase) %>
@@ -82,6 +82,17 @@
               <% end %>
             <% end %>
         </div>
+        <span class="proposals-criteria-label">
+          <i class="fas fa-info-circle fa-lg" aria-hidden="true"></i>
+          Conheça os critérios para seleção de propostas
+        </span>
+      </div>
+
+    <%else%>
+      <div class="proposals-actions proposals-no-actions">
+        <span class="proposal-disabled">
+          O período para submissão de propostas não está aberto.
+        </span>
         <span class="proposals-criteria-label">
           <i class="fas fa-info-circle fa-lg" aria-hidden="true"></i>
           Conheça os critérios para seleção de propostas

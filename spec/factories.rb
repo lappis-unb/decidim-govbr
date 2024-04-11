@@ -41,4 +41,32 @@ FactoryBot.define do
     body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     component { build(:component, manifest_name: "pages") }
   end
+
+  factory :statistic_setting, class: "Decidim::Govbr::UserProposalsStatisticSetting" do
+    name { "User Proposals Statistic Report" }
+    proposals_done_weight { Faker::Number.between(from: 1, to: 10) }
+    comments_done_weight { Faker::Number.between(from: 1, to: 10) }
+    votes_done_weight { Faker::Number.between(from: 1, to: 10) }
+    follows_done_weight { Faker::Number.between(from: 1, to: 10) }
+    votes_received_weight { Faker::Number.between(from: 1, to: 10) }
+    comments_received_weight { Faker::Number.between(from: 1, to: 10) }
+    follows_received_weight { Faker::Number.between(from: 1, to: 10) }
+    users_to_be_exported { Faker::Number.between(from: 1, to: 10) }
+    decidim_participatory_space { create(:participatory_process) }
+  end
+
+  factory :user_proposals_statistic, class: "Decidim::Govbr::UserProposalsStatistic" do
+    user_proposals_statistic_setting { create :statistic_setting }
+    user { create :user, organization: user_proposals_statistic_setting.organization }
+    decidim_user_identification_number { Faker::Number.between(from: 100_000_000_00, to: 999_999_999_99) }
+    decidim_user_name { user.name }
+    proposals_done { Faker::Number.between(from: 0, to: 10) }
+    comments_done { Faker::Number.between(from: 0, to: 10) }
+    votes_done { Faker::Number.between(from: 0, to: 10) }
+    follows_done { Faker::Number.between(from: 0, to: 10) }
+    votes_received { Faker::Number.between(from: 0, to: 10) }
+    comments_received { Faker::Number.between(from: 0, to: 10) }
+    follows_received { Faker::Number.between(from: 0, to: 10) }
+    score { Faker::Number.between(from: 0, to: 10) }
+  end
 end

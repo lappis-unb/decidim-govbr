@@ -284,11 +284,12 @@ pt-BR:
         index:
           click_here: Ver todas as propostas
           collaborative_drafts_list: Acessar rascunhos colaborativos
-          new_proposal: Faça sua %{proposal}
+          new_proposal: Criar minha %{proposal}
           see_all: Ver todas as propostas
           text_banner: Está vendo a lista de propostas retiradas pelos seus próprios autores. %{go_back_link}
         new:
          title: Crie sua %{singular_name}
+         send: Publicar
         edit:
           add_documents: Adicionar documentos
           add_image: Adicionar imagem
@@ -323,6 +324,7 @@ pt-BR:
             success: "@%{user} foi aceito como colaborador com sucesso"
         show:
           back_to: Voltar para
+          back_to_list_proposals: Veja mais propostas
           back_to_list: Voltar
           proposal_accepted_reason: 'Esta proposta foi recebida porque:'
           proposal_in_evaluation_reason: Esta proposta está em avaliação
@@ -354,7 +356,7 @@ pt-BR:
         wizard_steps:
           current_step: Etapa atual
           see_steps: ver etapas
-          step_1: Crie sua proposta
+          step_1: Faça a sua proposta
           step_2: Comparar
           step_3: Concluir
           step_4: Publique sua proposta
