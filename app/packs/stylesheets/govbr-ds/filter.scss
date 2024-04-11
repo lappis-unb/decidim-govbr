@@ -4,6 +4,7 @@
   letter-spacing: 0.01em;
   text-transform: uppercase;
   font-weight: 600;
+  margin-top: 0;
   margin-bottom: 1rem;
 
   &__strong {
@@ -62,6 +63,7 @@
 }
 
 .filters {
+  display: flex;
   padding: 0;
   min-height: auto;
   width: 100%;
@@ -119,21 +121,23 @@
   max-height: 0;
   transition: max-height 0.5s ease-in-out;
   overflow: hidden;
+  margin: 0;
 }
+
 .filters__visible {
   max-height: 500px;
 }
 
 #filters__menu legend.mini-title {
-  font-size: var(--font-size-scale-up-01);
+  font-size: 16px;
   font-weight: var(--font-weight-bold);
+  font-family: var(--font-family-base);
+  color: var(--gray-70);
 }
 
 #filters__menu fieldset {
   display: flex;
-  gap: 1.25rem;
-  margin: 0.25rem 0rem;
-  align-items: center;
+  gap: 1rem;
 }
 
 #filters__menu fieldset div {
@@ -144,7 +148,7 @@
 #filters__menu fieldset label {
   display: flex;
   align-items: center;
-  font-size: var(--font-size-scale-up-01);
+  font-size: var(--font-size-16);
   margin-left: 5px;
 }
 
@@ -157,8 +161,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20px !important;
-  height: 20px !important;
+  width: 18px !important;
+  height: 18px !important;
   appearance: none;
   outline: 1px solid var(--blue-warm-vivid-50);
   box-shadow: none;
@@ -183,7 +187,7 @@
 #filter-btn-br {
   display: flex;
   justify-content: space-between;
-  width: 180px;
+  width: fit-content;
   height: 40px;
   background-color: var(--pure-0) !important;
   border: 1px solid var(--gray-80);
@@ -197,24 +201,41 @@
   font-weight: var(--font-weight-semi-bold);
 }
 
+#filter-btn-icon {
+  font-size: 18px;
+  color: var(--gray-80);
+}
+
 #filter-btn-br:hover {
   color: var(--gray-80);
 }
 
+.filters__section label {
+  margin-bottom: 0;
+}
+
 .filters .filters__section {
+  width: 100%;
   border: 0px;
-  padding: 1rem 0rem;
+  padding: 0px;
+  margin-bottom: 32px;
 }
 
 .filters__hidden {
   width: 0px;
   height: 0px;
   padding: 0px;
+  margin: 0px;
 }
 
 #filters__menu.show__filters__menu,
 #filters__triangle.show__filters__menu {
-  max-height: 500px;
+  max-height: 1000px;
+  height: fit-content;
+}
+
+#filters__menu.show__filters__menu {
+  padding: 24px 16px 0px 16px;
 }
 
 #filters__triangle.show__filters__menu {
@@ -224,14 +245,26 @@
 #filters__menu div fieldset {
   align-items: flex-start;
   flex-direction: column;
-  padding: 10px;
 }
 
-#filters__menu div fieldset div {
+div.filters__section fieldset > label {
+  margin-bottom: 0px;
+  font-weight: var(--font-weight-semi-bold) !important;
+  color: var(--gray-90);
+}
+
+#filters__menu div fieldset {
+  margin-bottom: 0;
+}
+
+#filters__menu div fieldset div.filters__subfilters {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
   width: 100%;
-  gap: 16px 24px;
+  gap: 16px;
+  font-size: var(--font-size-scale-up-01);
+  font-weight: var(--font-weight-regular);
+  color: var(--gray-90);
 }
 
 #filters__menu div.type_collection_radio_buttons_filter fieldset {
@@ -261,6 +294,10 @@
   border-right: 35px solid transparent; /* Adjust the width of the triangle */
 }
 
+form.new_filter{
+  width: 100%;
+}
+
 .filters__section label[data-global-checkbox], .filters__section--general label[data-global-checkbox] {
   font-weight: var(--font-weight-semi-bold) !important;
 }
@@ -270,6 +307,33 @@
   #filters__menu div.type_collection_radio_buttons_filter fieldset {
     flex-direction: column;
     gap: 16px;
+  }
+
+  div.filters form.new_filter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  #filter-btn-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  #filter-btn-br {
+    width: 100%;
+    justify-content: center;
+  }
+
+  #filter-search-box{
+    margin-bottom: 8px;
+  }
+
+  #filters__triangle {
+    margin-left: 0px;
   }
 }
 .dropdown .is-dropdown-submenu a {
