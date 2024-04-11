@@ -1,7 +1,7 @@
 .proposals-container {
   display: flex;
   flex-direction: column;
-  margin: 1rem 0;
+  margin: 3rem 0 1.5rem 0;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 1.5rem;
@@ -270,13 +270,14 @@
   .proposals-container {
     display: flex;
     flex-direction: row;
-    margin: 1rem 0;
+    margin: 3rem 0 1.5rem 0;
     justify-content: space-between;
     align-items: flex-start;
   }
   .order__by-text {
     width: auto;
   }
+
   .title-action-button {
     display: flex;
     align-items: center;
@@ -303,7 +304,6 @@
     justify-content: flex-end;
   }
   .proposals-actions {
-    padding: 24px 0;
     justify-content: flex-start;
     flex-direction: row;
   }
@@ -319,10 +319,11 @@
       padding: 0;
       margin: 0 0 0.5rem 0;
       color: var(--gray-90);
-      font-size: 2rem;
+      font-size: 2rem !important;
     }
     p {
       color: var(--gray-60);
+      font-size: 1.26rem !important;
     }
   }
 }
@@ -594,6 +595,10 @@
   gap: 8px;
   align-self: stretch;
   background: var(--blue-warm-vivid-5);
+}
+
+.card__content {
+  padding: 16px !important;
 }
 
 .button--vote-button,
