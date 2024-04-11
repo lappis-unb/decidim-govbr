@@ -36,19 +36,19 @@ module Decidim
       # Returns the page title of the given step, translated
       #
       # action_name - A string of the rendered action
-      def proposal_wizard_step_title(action_name)
-        step_title = case action_name
-                     when "create"
-                       "new"
-                     when "update_draft"
-                       "edit_draft"
-                     else
-                       action_name
-                     end
+      def proposal_wizard_step_title(_action_name)
+        # step_title = case action_name
+        #              when "create"
+        #                "new"
+        #              when "update_draft"
+        #                "edit_draft"
+        #              else
+        #                action_name
+        #              end
         if translated_attribute(current_component.singular_name).present?
-          t("decidim.proposals.proposals.#{step_title}.title", singular_name: translated_attribute(current_component.singular_name).downcase)
+          t("decidim.proposals.proposals.wizard_steps.step_1", singular_name: translated_attribute(current_component.singular_name).downcase)
         else
-          t("decidim.proposals.proposals.#{step_title}.title", singular_name: "proposta")
+          t("decidim.proposals.proposals.wizard_steps.step_1", singular_name: "proposta")
         end
       end
 
@@ -74,11 +74,11 @@ module Decidim
       def proposal_wizard_stepper(current_step)
         content_tag :ol, class: "wizard__steps" do
           %(
-            #{proposal_wizard_stepper_step(ProposalsController::STEP1, current_step)}
-            #{proposal_wizard_stepper_step(ProposalsController::STEP2, current_step)}
+              #{proposal_wizard_stepper_step(ProposalsController::STEP1, current_step)}
+#{proposal_wizard_stepper_step(ProposalsController::STEP2, current_step)}
             #{proposal_wizard_stepper_step(ProposalsController::STEP3, current_step)}
-            #{proposal_wizard_stepper_step(ProposalsController::STEP4, current_step)}
-          ).html_safe
+              #{proposal_wizard_stepper_step(ProposalsController::STEP4, current_step)}
+            ).html_safe
         end
       end
 
