@@ -4,8 +4,8 @@
 }
 
 .card__animation:hover {
-  transform: scale(1.05);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transform: scale(1.025);
+  transition: transform 0.3s, box-shadow 0.2s;
 }
 
 @keyframes slidein {
@@ -87,7 +87,8 @@
   border-radius: 30px;
   font-size: 0.75rem;
   font-weight: 600;
-  margin-bottom: 24px;
+  display: inline-block;
+  width: fit-content;
 }
 
 .card__text--status.accepted {

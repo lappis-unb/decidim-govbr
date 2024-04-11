@@ -97,6 +97,16 @@ module Decidim
         )
         @component2.save!(validate: false)
 
+        @participatory_process3 = Decidim::ParticipatoryProcess.new(
+          slug: 'pp3',
+          title: 'Processo Participativo 3',
+          subtitle: 'processo participativo 3',
+          short_description: 'processo participativo',
+          description: 'PPB participativo do Brasil',
+          organization: @org
+        )
+        @participatory_process3.save!(validate: false)
+
         @proposal1 = Decidim::Proposals::Proposal.new(
           title: 'proposal 1 user 1',
           body: 'this is the user 1 proposal 1',
@@ -226,14 +236,17 @@ module Decidim
         setting = Decidim::Govbr::UserProposalsStatisticSetting.create(
           decidim_participatory_space_type: @participatory_process1.class.to_s,
           decidim_participatory_space_id: @participatory_process1.id,
-          name: 'relatorio'
+          name: 'relatorio',
+          statistics_data_updated_at: Time.new(2020)
         )
         assert_equal 4, Decidim::Proposals::Proposal.count
         assert_equal 16, Decidim::Comments::Comment.count
         assert_equal 8, Decidim::Follow.count
 
-        setting.refresh_data!
-        setting.reload
+        travel_to Time.new(2024, 1, 1, 0, 0, 0, "-03:00") do
+          setting.refresh_data!
+          setting.reload
+        end
 
         statistic = setting.user_proposals_statistics.where(decidim_user_id: @user1.id).first
         assert_equal @user1.name, statistic.decidim_user_name
@@ -244,6 +257,9 @@ module Decidim
         assert_equal 8, statistic.votes_received
         assert_equal 8, statistic.comments_received
         assert_equal 4, statistic.follows_received
+        assert_equal 2024, setting.statistics_data_updated_at.year
+        assert_equal 1, setting.statistics_data_updated_at.month
+        assert_equal 1, setting.statistics_data_updated_at.day
 
         expected_score = statistic.proposals_done + statistic.comments_done + statistic.votes_done + statistic.follows_done + statistic.votes_received + statistic.comments_received + statistic.follows_received
         assert_equal expected_score.to_f, statistic.score
@@ -315,9 +331,9 @@ module Decidim
       end
 
       test 'should keep data from other participatory space untouched after refreshing' do
-        setting = Decidim::Govbr::UserProposalsStatisticSetting.create!(decidim_participatory_space_type: 'foo', decidim_participatory_space_id: 1)
+        setting = Decidim::Govbr::UserProposalsStatisticSetting.create!(decidim_participatory_space: @participatory_process3)
         statistics = 5.times.map do |index|
-          Decidim::Govbr::UserProposalsStatistic.create!(user_proposals_statistic_setting: setting, decidim_user_id: index, decidim_user_name: "User #{index}", decidim_user_identification_number: "CPF #{index}")
+          Decidim::Govbr::UserProposalsStatistic.create!(user_proposals_statistic_setting: setting, user: @user1, decidim_user_name: "User #{index}", decidim_user_identification_number: "CPF #{index}")
         end
 
         setting = Decidim::Govbr::UserProposalsStatisticSetting.create!(
@@ -345,7 +361,7 @@ module Decidim
         )
         Decidim::Govbr::UserProposalsStatistic.create!(
           user_proposals_statistic_setting: setting,
-          decidim_user_id: 1,
+          user: @user1,
           decidim_user_name: "User 1",
           decidim_user_identification_number: "CPF",
           proposals_done: 10,
@@ -358,8 +374,8 @@ module Decidim
           score: 105.0
         )
 
-        expected_header = Decidim::Govbr::UserProposalsStatistic.csv_attributes_header_map.values.join(',')
-        expected_content = [1, 'User 1', 10, 17, 5, 21, 58, 12, 34, 105.0].join(',')
+        expected_header = Decidim::Govbr::UserProposalsStatistic.csv_attributes_header_map.values.join(';')
+        expected_content = [@user1.id, 'User 1', 10, 17, 5, 21, 58, 12, 34, 105.0].join(';')
 
         header, content = setting.user_proposals_statistics_as_csv.split("\n")
         assert_equal expected_header, header
