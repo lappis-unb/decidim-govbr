@@ -64,7 +64,7 @@ module Decidim
           survey_component_id = current_organization.user_profile_survey_id
 
           flash[:alert] = I18n.t("decidim.components.surveys.actions.action_not_allowed")
-          flash[:poll_link] = mount_user_profile_survey_url(survey_id:survey_component_id)
+          flash[:poll_link] = mount_user_profile_survey_url(survey_id: survey_component_id)
         end
       end
     end
