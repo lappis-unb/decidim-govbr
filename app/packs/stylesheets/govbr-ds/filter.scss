@@ -1,5 +1,5 @@
 .mini-title {
-  color: #636363;
+  color: #555555;
   font-size: 0.875rem;
   letter-spacing: 0.01em;
   text-transform: uppercase;
@@ -279,6 +279,12 @@ div.filters__section fieldset > label {
   color: var(--gray-90);
 }
 
+#filters__menu div fieldset label {
+  font-size: var(--font-size-scale-up-01);
+  font-weight: var(--font-weight-medium);
+  color: var(--gray-90);
+}
+
 #filters__triangle {
   max-height: 0;
   margin-left: 55px;
@@ -292,6 +298,11 @@ div.filters__section fieldset > label {
 form.new_filter{
   width: 100%;
 }
+
+.filters__section label[data-global-checkbox], .filters__section--general label[data-global-checkbox] {
+  font-weight: var(--font-weight-semi-bold) !important;
+}
+
 
 @media screen and (max-width: 600px) {
   #filters__menu div.type_collection_radio_buttons_filter fieldset {
