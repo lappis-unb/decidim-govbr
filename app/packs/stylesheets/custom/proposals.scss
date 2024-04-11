@@ -184,7 +184,6 @@
   display: flex;
   align-items: center;
   font-size: 12px;
-  gap: 4px;
 }
 
 .paginate-container {
@@ -296,11 +295,6 @@
   .proposals-actions-admin .black-and-white-btn {
     width: auto;
   }
-
-  .proposals-actions > button {
-    margin-bottom: 0;
-  }
-
   .br-announcement {
     h2 {
       padding: 0;
