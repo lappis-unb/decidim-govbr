@@ -137,8 +137,7 @@
 
 #filters__menu fieldset {
   display: flex;
-  gap: 1.25rem;
-  align-items: center;
+  gap: 1rem;
 }
 
 #filters__menu fieldset div {
@@ -162,8 +161,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20px !important;
-  height: 20px !important;
+  width: 18px !important;
+  height: 18px !important;
   appearance: none;
   outline: 1px solid var(--blue-warm-vivid-50);
   box-shadow: none;
