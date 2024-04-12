@@ -82,7 +82,7 @@
   border: 0;
   box-shadow: none;
   margin-bottom: 0!important;
-  padding: 1rem;
+  padding-top: 1rem;
 }
 .comment__header {
   justify-content: space-between;
@@ -165,7 +165,7 @@
   flex-direction: column;
   gap: 1.5rem;
   margin-top: 24px;
-  padding: 24px 16px;
+  padding: 0 16px;
 }
 
 .add-comment .field .button--sc{
@@ -202,9 +202,10 @@
 
 .comments .row.collapse.order-by{
   margin: 24px 0;
+  padding: 0 1rem;
 }
 
-.new__comment .hashtags__container {
+.new_comment .hashtags__container {
   margin-top: 0;
   padding-bottom: 1.5rem;
 }
