@@ -117,6 +117,13 @@ pt-BR:
         show:
           topp_agreement: Concordo com a política de privacidade
     admin:
+      participatory_process_copies:
+        new:
+          copy: Salvar
+          select: Opções Avançadas
+          title: Criar Processo a Partir de %{subject} (%{subject_title})
+          template: Template
+          process: Processo Existente
       actions:
         participatory_process_group_user:
           confirm_destroy: Realmente deseja remover este usuário do grupo? Ao fazer isso, este usuário perderá todos seus papeis relacionados aos processos vinculados ao grupo.
@@ -344,6 +351,13 @@ pt:
         show:
           topp_agreement: Concordo com a política de privacidade
     admin:
+      participatory_process_copies:
+        new:
+          copy: Salvar
+          select: Opções Avançadas
+          title: Criar Processo a Partir de %{subject} (%{subject_title})
+          template: Template
+          process: Processo Existente
       participatory_texts:
         is_interactive: Interação habilitada
       actions:
@@ -574,6 +588,13 @@ en:
         show:
           topp_agreement: I agree with the privacy policy
     admin:
+      participatory_process_copies:
+        new:
+          copy: Save
+          select: Advanced Options
+          title: Create Process based on a %{subject} (%{subject_title})
+          template: Template
+          process: Existing Process
       actions:
         participatory_process_group_user:
           confirm_destroy: Do you really want to remove this user from the group? This action is going to revoke all user roles in the processes associated with this group.
@@ -764,6 +785,13 @@ es-MX:
         show:
           topp_agreement: Estoy de acuerdo con la política de privacidad
     admin:
+      participatory_process_copies:
+        new:
+          copy: Guardar
+          select: Opciones Avanzadas
+          title: Crear proceso basado en %{subject} (%{subject_title})
+          template: Plantilla
+          process: Proceso existente
       actions:
         participatory_process_group_user:
           confirm_destroy: ¿Realmente deseas eliminar a este usuario del grupo? Esta acción revocará todos los roles de usuario en los procesos asociados con este grupo.
@@ -954,6 +982,13 @@ es-PY:
         show:
           topp_agreement: Estoy de acuerdo con la política de privacidad
     admin:
+      participatory_process_copies:
+        new:
+          copy: Guardar
+          select: Opciones Avanzadas
+          title: Crear proceso basado en %{subject} (%{subject_title})
+          template: Plantilla
+          process: Proceso existente
       actions:
         participatory_process_group_user:
           confirm_destroy: ¿Realmente deseas eliminar a este usuario del grupo? Esta acción revocará todos los roles de usuario en los procesos asociados con este grupo.
@@ -1144,6 +1179,13 @@ es:
         show:
           topp_agreement: Estoy de acuerdo con la política de privacidad
     admin:
+      participatory_process_copies:
+        new:
+          copy: Guardar
+          select: Opciones Avanzadas
+          title: Crear proceso basado en %{subject} (%{subject_title})
+          template: Plantilla
+          process: Proceso existente
       actions:
         participatory_process_group_user:
           confirm_destroy: ¿Realmente deseas eliminar a este usuario del grupo? Esta acción revocará todos los roles de usuario en los procesos asociados con este grupo.
