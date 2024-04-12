@@ -64,8 +64,11 @@ extra_admin_link(
               current_user: current_user, 
               proposal_tag: proposal_tag, 
               proposal_edit_link: edit_proposal_path(@proposal),
-              ammend_button: amend_button_for(@proposal) }) %>
-
+              amendable?: @proposal.amendable?,
+              allowed?: allowed_to?(:edit, :proposal, proposal: @proposal),
+              ammend_button: amend_button_for(@proposal) 
+            })
+          %>
         <% end %>
       </div>
 
