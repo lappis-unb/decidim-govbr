@@ -205,7 +205,19 @@ module Decidim
         return false unless read_process_list_permission_action?
         return false if permission_action.subject == :process_list
 
-        toggle_allow(user.admin? || can_manage_process?)
+        toggle_allow(user.admin? || can_manage_process? || (user_has_admin_role? && process_is_a_template?))
+      end
+
+      def user_has_admin_role?
+        return false unless user
+
+        participatory_processes_with_role_privileges(:admin).any?
+      end
+
+      def process_is_a_template?
+        return false unless process
+
+        process.organization.template_process == process
       end
 
       # A moderator needs to be able to read the process they are assigned to,

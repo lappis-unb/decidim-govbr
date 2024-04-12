@@ -26,12 +26,14 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
 
           Decidim.traceability.perform_action!("duplicate", @participatory_process, @current_user) do
-            ParticipatoryProcess.transaction do
+            transaction do
               copy_participatory_process
               copy_participatory_process_attachments
               copy_participatory_process_steps if @form.copy_steps?
               copy_participatory_process_categories if @form.copy_categories?
               copy_participatory_process_components if @form.copy_components?
+              give_current_user_admin_role unless @current_user.admin?
+              add_process_to_current_user_process_group if @current_user.participatory_process_group.present?
             end
           end
 
@@ -123,6 +125,41 @@ module Decidim
               weight: component.weight
             )
             component.manifest.run_hooks(:copy, new_component: new_component, old_component: component)
+          end
+        end
+
+        def give_current_user_admin_role
+          role_params = {
+            role: :admin,
+            user: @current_user,
+            participatory_process: @copied_process
+          }
+          Decidim.traceability.create!(
+            Decidim::ParticipatoryProcessUserRole,
+            @current_user,
+            role_params,
+            resource: {
+              title: @current_user.name
+            }
+          )
+        end
+
+        def add_process_to_current_user_process_group
+          participatory_process_group = @current_user.participatory_process_group
+
+          process_group_form =
+            ParticipatoryProcessGroupForm
+            .from_model(participatory_process_group)
+            .with_context(
+              current_organization: @current_user.organization,
+              current_user: @current_user
+            )
+          process_group_form.participatory_process_ids << @copied_process.id
+
+          Decidim::ParticipatoryProcesses::Admin::UpdateParticipatoryProcessGroup.call(participatory_process_group, process_group_form) do
+            on(:invalid) do
+              raise ActiveRecord::Rollback
+            end
           end
         end
 
