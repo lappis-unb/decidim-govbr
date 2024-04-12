@@ -217,7 +217,7 @@ module Decidim
       def process_is_a_template?
         return false unless process
 
-        process.organization.template_process == process
+        process.is_template
       end
 
       # A moderator needs to be able to read the process they are assigned to,
