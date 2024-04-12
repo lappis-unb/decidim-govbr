@@ -69,6 +69,9 @@ module Decidim
         def grant_new_roles!
           users.each do |user|
             @processes_to_grant_roles.each do |process|
+              # If user already have a role for this process, what am I supposed to do? Panic
+              next if Decidim::ParticipatoryProcessUserRole.where(user: user, participatory_process: process).present?
+
               role_params = {
                 role: user.decidim_participatory_process_group_role.to_sym,
                 user: user,
