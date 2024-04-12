@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_04_11_192042) do
+ActiveRecord::Schema.define(version: 2024_04_12_152629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1446,10 +1446,8 @@ ActiveRecord::Schema.define(version: 2024_04_11_192042) do
     t.jsonb "menu_links", default: "{}", null: false
     t.jsonb "footer_menu_links", default: "{}", null: false
     t.integer "user_profile_survey_id"
-    t.bigint "template_process_id"
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
-    t.index ["template_process_id"], name: "index_decidim_organizations_on_template_process_id"
   end
 
   create_table "decidim_pages_pages", id: :serial, force: :cascade do |t|
@@ -1556,6 +1554,7 @@ ActiveRecord::Schema.define(version: 2024_04_11_192042) do
     t.boolean "should_have_user_full_profile", default: false
     t.date "publish_date"
     t.boolean "show_mobilization"
+    t.boolean "is_template", default: false, null: false
     t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id"

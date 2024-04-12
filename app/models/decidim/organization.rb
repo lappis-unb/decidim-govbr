@@ -35,8 +35,7 @@ module Decidim
 
     has_many :templates, foreign_key: "decidim_organization_id", class_name: "Decidim::Templates::Template", dependent: :destroy if defined? Decidim::Templates
 
-    # This is implemented with belongs_to because the process key is on organization table.
-    belongs_to :template_process, foreign_key: "template_process_id", class_name: "Decidim::ParticipatoryProcess", optional: true
+    has_many :template_processes, -> { where(is_template: true) }, foreign_key: "decidim_organization_id", class_name: "Decidim::ParticipatoryProcess"
 
     # Users registration mode. Whether users can register or access the system. Doesn't affect users that access through Omniauth integrations.
     #  enabled: Users registration and sign in are enabled (default value).

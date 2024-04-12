@@ -29,7 +29,7 @@ module Decidim
       attribute :menu_links, String
       attribute :footer_menu_links, String
       attribute :user_profile_survey_id, Integer
-      attribute :template_process_id, Integer
+      attribute :template_processes_ids, Array[Integer]
 
       attribute :send_welcome_notification, Boolean
       attribute :customize_welcome_notification, Boolean
@@ -63,7 +63,7 @@ module Decidim
         end
       end
 
-      def possible_template_processes_for_select
+      def template_processes_for_select
         return [] unless id
 
         Decidim::ParticipatoryProcesses::OrganizationParticipatoryProcesses.new(current_organization).query.map do |process|
@@ -85,6 +85,12 @@ module Decidim
         rescue
           self.errors.add(:footer_menu_links, :invalid)
         end
+      end
+
+      def map_model(model)
+        super
+
+        self.template_processes_ids = model.template_processes.map(&:id)
       end
 
       private

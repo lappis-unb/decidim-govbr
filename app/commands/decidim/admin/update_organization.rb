@@ -33,11 +33,10 @@ module Decidim
       attr_reader :form, :organization
 
       def update_organization
-        @organization = Decidim.traceability.update!(
-          @organization,
-          form.current_user,
-          attributes
-        )
+        transaction do
+          @organization = Decidim.traceability.update!(@organization, form.current_user, attributes)
+          update_templates_processes
+        end
       end
 
       def attributes
@@ -60,10 +59,15 @@ module Decidim
           enable_participatory_space_filters: form.enable_participatory_space_filters,
           menu_links: JSON.parse(form.menu_links.gsub('=>', ':')),
           footer_menu_links: JSON.parse(form.footer_menu_links.gsub('=>', ':')),
-          user_profile_survey_id: form.user_profile_survey_id,
-          template_process_id: form.template_process_id
+          user_profile_survey_id: form.user_profile_survey_id
         }.merge(welcome_notification_attributes).merge(machine_translation_attributes || {})
+      end
 
+      def update_templates_processes
+        Decidim::ParticipatoryProcess.where(organization: @organization).tap do |processes|
+          processes.where.not(id: form.template_processes_ids).update_all(is_template: false)
+          processes.where(id: form.template_processes_ids).update_all(is_template: true)
+        end
       end
 
       def welcome_notification_attributes
