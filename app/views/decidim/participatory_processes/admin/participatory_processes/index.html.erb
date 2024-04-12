@@ -27,7 +27,7 @@
                     class: "button tiny button--title" %>
       <% end %>
 
-      <% if allowed_to? :copy, :process %>
+      <% if allowed_to?(:copy, :process) && current_organization.template_process %>
         <%= link_to "Novo Processo via Template", new_participatory_process_copy_path(current_organization.template_process), class: "button tiny button--title" %>
       <% end %>
 

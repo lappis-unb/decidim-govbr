@@ -60,7 +60,8 @@ module Decidim
           enable_participatory_space_filters: form.enable_participatory_space_filters,
           menu_links: JSON.parse(form.menu_links.gsub('=>', ':')),
           footer_menu_links: JSON.parse(form.footer_menu_links.gsub('=>', ':')),
-          user_profile_survey_id: form.user_profile_survey_id
+          user_profile_survey_id: form.user_profile_survey_id,
+          template_process_id: form.template_process_id
         }.merge(welcome_notification_attributes).merge(machine_translation_attributes || {})
 
       end
