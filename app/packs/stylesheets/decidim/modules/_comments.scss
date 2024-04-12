@@ -268,7 +268,9 @@ $comment-nested-alt-bg: $white;
 }
 
 .add-comment{
-  padding: $comment-padding;
+  display: flex;
+  flex-direction: column;
+  padding-right: 1rem;
   border-radius: 10px;
   gap: 1rem;
 
