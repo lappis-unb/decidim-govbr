@@ -2,7 +2,7 @@
 <div class="row">
   <div class="new-proposal-header">
     <%= render partial: "decidim/proposals/proposals/wizard_aside" %>
-    <%= render partial: "decidim/proposals/proposals/wizard_header", locals: { edit_form_bool: true } %>
+    <%= render partial: "decidim/proposals/proposals/wizard_header" %>
   </div>
   <%= decidim_form_for(@form) do |form| %>
     <%= form_required_explanation %>
