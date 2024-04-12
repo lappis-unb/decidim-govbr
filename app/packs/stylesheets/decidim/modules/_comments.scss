@@ -102,7 +102,7 @@ $comment-nested-alt-bg: $white;
 }
 
 .comment__content{
-  padding: $comment-padding 0;
+  padding: 1rem 0 0;
   overflow-wrap: break-word;
   hyphens: auto;
 
@@ -132,7 +132,7 @@ $comment-nested-alt-bg: $white;
 }
 
 .comment--nested{
-  background: $comment-nested-bg;
+  background: #F6F6F6;
   padding: 16px;
 
   &.comment--nested--alt{

@@ -13,7 +13,7 @@
 }
 
 .comments-count {
-  font-weight: bold!important;
+  font-weight: var(--font-weight-semi-bold)!important;
   color: #000000!important;
   gap: 1.5rem;
 }
@@ -70,11 +70,11 @@
 }
 
 .reject-button {
-  color: var(--red-vivid-60);
+  color: #8B0A03;
   gap: 8px;
 }
 .reject-button.selected {
-  background-color: var(--red-vivid-60);
+  background-color: #8B0A03;
   color: var(--background-light);
 }
 
@@ -83,7 +83,17 @@
   box-shadow: none;
   margin-bottom: 0!important;
   padding-top: 1rem;
+
+  .fa-2x {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  .fa-comment-dots{
+    font-size: 1.25rem;
+  }
 }
+
 .comment__header {
   justify-content: space-between;
   padding: 0;
@@ -107,6 +117,10 @@
 .author.author--inline > a {
   display: flex;
 }
+
+.author--inline .author__name {
+  color: #0C326F;
+} 
 .comment-settings {
   display: flex;
   flex-direction: row;
@@ -115,6 +129,7 @@
   
   span {
     align-self: center;
+    color: #636363;
   }
 }
 .gallery {
