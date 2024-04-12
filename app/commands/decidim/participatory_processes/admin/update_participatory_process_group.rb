@@ -90,7 +90,7 @@ module Decidim
         end
 
         def users_roles
-          @user_roles ||= Decidim::ParticipatoryProcessUserRole.where(user: users)
+          @users_roles ||= Decidim::ParticipatoryProcessUserRole.where(user: users)
         end
 
         def users
