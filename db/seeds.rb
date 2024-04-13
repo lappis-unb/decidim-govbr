@@ -22,7 +22,7 @@ if !password
     puts "Não foi encontrada a variável de ambiente $ADMIN_PASSWORD, usuário criado com senha padrão 'bpadmin123'"
 end
 
-if !Decidim::System::Admin.find_or_initialize_by(email: email)
+if !Decidim::System::Admin.find_by(email: email)
     Decidim::System::Admin.new(email: email, password: password, password_confirmation: password).save!(validate: false)
 end
 
