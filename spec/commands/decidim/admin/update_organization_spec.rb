@@ -76,16 +76,24 @@ module Decidim::Admin
         end
 
         it "traces the update", versioning: true do
+          expect(previous_template_processes).to all have_attributes(is_template: true)
+          expect(template_processes).to all have_attributes(is_template: false)
+
           expect(Decidim.traceability)
             .to receive(:update!)
             .with(organization, user, a_kind_of(Hash))
             .and_call_original
 
+          expect(Decidim.traceability)
+            .to receive(:update!)
+            .exactly(6).times
+            .with(an_instance_of(Decidim::ParticipatoryProcess), user, hash_including(:is_template))
+
           expect { command.call }.to change(Decidim::ActionLog, :count)
 
-          action_log = Decidim::ActionLog.last
-          expect(action_log.version).to be_present
-          expect(action_log.version.event).to eq "update"
+          action_logs_version = Decidim::ActionLog.last(7).map(&:version)
+          expect(action_logs_version).to all be_present
+          expect(action_logs_version.map(&:event)).to all eq("update")
         end
 
         it "updates the organization in the organization" do
