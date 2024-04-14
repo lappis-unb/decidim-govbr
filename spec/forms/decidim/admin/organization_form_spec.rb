@@ -145,7 +145,7 @@ module Decidim
 
         context "when organization has template processes" do
           it "is available on form" do
-            expect(subject).to have_attributes(template_processes_ids: template_processes_ids)
+            expect(subject.template_processes_ids).to contain_exactly(*template_processes_ids)
           end
         end
       end
