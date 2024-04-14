@@ -64,9 +64,11 @@ module Decidim
       end
 
       def update_templates_processes
-        Decidim::ParticipatoryProcess.where(organization: @organization).tap do |processes|
-          processes.where.not(id: form.template_processes_ids).update_all(is_template: false)
-          processes.where(id: form.template_processes_ids).update_all(is_template: true)
+        Decidim::ParticipatoryProcess.where(organization: @organization).each do |process|
+          turn_process_into_template = process.id.in?(form.template_processes_ids)
+          if (process.is_template? && !turn_process_into_template) || (!process.is_template? && turn_process_into_template)
+            Decidim.traceability.update!(process, form.current_user, { is_template: turn_process_into_template })
+          end
         end
       end
 
