@@ -25,16 +25,16 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          Decidim.traceability.perform_action!("duplicate", @participatory_process, @current_user) do
-            transaction do
+          transaction do
+            Decidim.traceability.perform_action!("duplicate", @participatory_process, @current_user) do
               copy_participatory_process
               copy_participatory_process_attachments
               copy_participatory_process_steps if @form.copy_steps?
               copy_participatory_process_categories if @form.copy_categories?
               copy_participatory_process_components if @form.copy_components?
-              give_current_user_admin_role unless @current_user.admin?
-              add_process_to_current_user_process_group if @current_user.participatory_process_group.present?
             end
+            give_current_user_admin_role unless @current_user.admin?
+            add_process_to_current_user_process_group if @current_user.participatory_process_group.present?
           end
 
           broadcast(:ok, @copied_process)
