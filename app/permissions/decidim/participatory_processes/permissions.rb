@@ -36,6 +36,7 @@ module Decidim
         user_can_read_process_list?
         user_can_read_current_process?
         user_can_create_process?
+        user_can_copy_process?
         user_can_manage_participatory_processes_partners?
 
         # org admins and space admins can do everything in the admin section
@@ -179,6 +180,14 @@ module Decidim
         toggle_allow(user.admin?)
       end
 
+      # Only organization admins and process admins can copy processes
+      def user_can_copy_process?
+        return false unless permission_action.action == :copy &&
+                            permission_action.subject == :process
+
+        toggle_allow(user.admin? || participatory_processes_with_role_privileges(:admin).any?)
+      end
+
       def user_can_manage_participatory_processes_partners?
         return false unless permission_action.subject == :partner
 
@@ -196,7 +205,19 @@ module Decidim
         return false unless read_process_list_permission_action?
         return false if permission_action.subject == :process_list
 
-        toggle_allow(user.admin? || can_manage_process?)
+        toggle_allow(user.admin? || can_manage_process? || (user_has_admin_role? && process_is_a_template?))
+      end
+
+      def user_has_admin_role?
+        return false unless user
+
+        participatory_processes_with_role_privileges(:admin).any?
+      end
+
+      def process_is_a_template?
+        return false unless process
+
+        process.is_template
       end
 
       # A moderator needs to be able to read the process they are assigned to,

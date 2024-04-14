@@ -135,6 +135,14 @@ module Decidim::ParticipatoryProcesses
             expect { subject.call }.to change(Decidim::ParticipatoryProcessUserRole, :count).by(2)
           end
         end
+
+        context "when user already has a role within the process being added to the group" do
+          let!(:existing_user_role) { create :participatory_process_user_role, user: admin_user, participatory_process: participatory_processes.first, role: "moderator" }
+
+          it "keeps the role untouched" do
+            expect { subject.call }.to change { user_roles.call(admin_user) }.from(%w(moderator)).to(%w(moderator admin))
+          end
+        end
       end
     end
   end
