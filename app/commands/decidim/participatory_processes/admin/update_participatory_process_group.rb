@@ -69,6 +69,9 @@ module Decidim
         def grant_new_roles!
           users.each do |user|
             @processes_to_grant_roles.each do |process|
+              # If user already have a role for this process, what am I supposed to do? Panic
+              next if user_already_has_role?(user, process)
+
               role_params = {
                 role: user.decidim_participatory_process_group_role.to_sym,
                 user: user,
@@ -84,6 +87,14 @@ module Decidim
               )
             end
           end
+        end
+
+        def users_roles
+          @users_roles ||= Decidim::ParticipatoryProcessUserRole.where(user: users)
+        end
+
+        def user_already_has_role?(user, process)
+          process.id.in?(users_roles.select { |user_role| user_role.decidim_user_id == user.id }.map(&:decidim_participatory_process_id))
         end
 
         def users
