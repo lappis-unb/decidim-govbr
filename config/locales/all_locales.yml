@@ -103,6 +103,8 @@ pt-BR:
         participatory_process_group_users:
           index:
             title: Usuários Membros do Grupo
+          new:
+            needs_entity_fields: Exigir campos extras no cadastro do usuário
     forms:
       admin:
         models:
@@ -688,6 +690,10 @@ en:
         media: Media
       process_navigation:
         media: Media
+      data_consent:
+        dialog:
+          accept_all: Aceitar cookies
+          reject: Rejeitar cookies
 
 es-MX:
   activemodel:

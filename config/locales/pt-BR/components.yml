@@ -1025,6 +1025,7 @@ pt-BR:
           email: E-mail
           name: Nome
           role: Cargo
+          needs_entity_fields: Exigir campos extras no cadastro
         new:
           create: Convite
           title: Convidar novo administrador

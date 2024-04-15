@@ -11,4 +11,22 @@
       <%= form.select :role, options_for_select(@form.available_roles_for_select, selected: @form.role) %>
     </div>
   </div>
+
+  <div class="card-divider toggle-settings">
+    <h2 class="card-title">Configurações avançadas</h2>
+  </div>
+  <div class="card-section settings-section">
+    <div class="row column">
+      <%= form.check_box :needs_entity_fields, label: t("decidim.participatory_processes.admin.participatory_process_group_users.new.needs_entity_fields") %>
+    </div>
+  </div>
 </div>
+  <%= javascript_pack_tag "decidim_participatory_processes_admin" %>
+  <script>
+    $(document).ready(function() {
+      $(".settings-section").hide();
+      $(".toggle-settings").on("click", function() {
+        $(".settings-section").slideToggle();
+      });
+    });
+  </script>  
