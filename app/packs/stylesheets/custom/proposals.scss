@@ -239,6 +239,10 @@ div.author--inline {
   gap: 16px;
 }
 
+ul.tags.tags--proposal.tags--list {
+  margin: 0;
+}
+
 ul.tags.tags--proposal.tags--list li {
   font-size: var(--font-size-16) !important;
   font-weight: var(--font-weight-regular);
@@ -325,6 +329,7 @@ div.author-data__extra {
 
   .proposal__details {
     flex-direction: row;
+    align-items: center;
   }
 
   .order-by__dropdown-container {
