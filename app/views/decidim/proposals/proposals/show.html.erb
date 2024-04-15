@@ -138,24 +138,6 @@ extra_admin_link(
       </button>
       <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
       <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
-
-      <% if @proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal) %>
-        <%= link_to edit_proposal_path(@proposal), class: "br-button secondary black-and-white-btn" do %>
-          <i class="fas fa-edit" aria-hidden="true"></i>
-          <span>
-            <% if translated_attribute(current_component.singular_name).present? %>
-              <%= t("decidim.components.proposals.actions.edit_proposal",
-                singular_name_button: translated_attribute(current_component.singular_name).downcase) %>
-            <% else %>
-              <%= t("decidim.components.proposals.actions.edit_proposal",
-                singular_name_button: "proposta") %>
-            <% end %>
-          </span>
-        <% end %>
-      <% else %>
-        <%= amend_button_for @proposal %>
-      <% end %>
-
       <%= emendation_actions_for @proposal %>
     </div>
   </div>
