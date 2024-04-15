@@ -300,6 +300,24 @@ div.author-data__extra {
 @media (min-width: 640px) {
   div.author--inline {
     flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .proposal-extra-data {
+    width: 100%;
+  }
+
+  .proposal__btn__controls {
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+    padding-top: 64px;
+  }
+
+  .proposal__btn__controls .button.secondary {
+    min-width: 230px;
+    width: fit-content;
   }
 
   .proposal__details {
