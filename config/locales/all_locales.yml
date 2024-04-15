@@ -34,6 +34,7 @@ pt-BR:
         show_statistics: Mostrar Dados Participativos
         should_have_user_full_profile: Exigir Perfil de Usuário completo para responder o formulário
         show_mobilization: Mostrar mobilização
+        is_template: É um processo template?
       participatory_process_partner:
         link: Link oficial
         logo: Logotipo
@@ -46,8 +47,6 @@ pt-BR:
         title: Título
       assembly:
         initial_page_component_id: Página Principal da Assembléia
-      participatory_process:
-        initial_page_component_id: Página Principal do Processo
       participatory_space_user_proposals_statistic_setting:
         name: Nome
         proposals_done_weight: Peso das Propostas Criadas
@@ -58,6 +57,8 @@ pt-BR:
         comments_received_weight: Peso dos Comentários Recebidos
         follows_received_weight: Peso dos Follows Recebidos
         users_to_be_exported: Tamanho do Ranking de Usuários
+      organization:
+        template_processes_ids: Processos para serem usados como Template
   decidim:
     statistics:
       headline: Dados Participativos
@@ -119,6 +120,13 @@ pt-BR:
         show:
           topp_agreement: Concordo com a política de privacidade
     admin:
+      participatory_process_copies:
+        new:
+          copy: Salvar
+          select: Opções Avançadas
+          title: Criar Processo a Partir de %{subject} (%{subject_title})
+          template: Template
+          process: Processo Existente
       actions:
         participatory_process_group_user:
           confirm_destroy: Realmente deseja remover este usuário do grupo? Ao fazer isso, este usuário perderá todos seus papeis relacionados aos processos vinculados ao grupo.
@@ -279,6 +287,7 @@ pt:
         show_statistics: Mostrar Dados Participativos
         should_have_user_full_profile: Exigir Perfil de Usuário completo para responder o formulário
         show_mobilization: Mostrar mobilização
+        is_template: É um processo template?
       participatory_space_user_proposals_statistic_setting:
         name: Nome
         proposals_done_weight: Peso das Propostas Criadas
@@ -289,6 +298,8 @@ pt:
         comments_received_weight: Peso dos Comentários Recebidos
         follows_received_weight: Peso dos Follows Recebidos
         users_to_be_exported: Tamanho do Ranking de Usuários
+      organization:
+        template_processes_ids: Processos para serem usados como Template
   decidim:
     components:
       proposals:
@@ -346,6 +357,13 @@ pt:
         show:
           topp_agreement: Concordo com a política de privacidade
     admin:
+      participatory_process_copies:
+        new:
+          copy: Salvar
+          select: Opções Avançadas
+          title: Criar Processo a Partir de %{subject} (%{subject_title})
+          template: Template
+          process: Processo Existente
       participatory_texts:
         is_interactive: Interação habilitada
       actions:
@@ -527,6 +545,7 @@ en:
         initial_page_component_id: The Assembly Main Page
       participatory_process:
         initial_page_component_id: The Process Main Page
+        is_template: Is a process template?
       participatory_space_user_proposals_statistic_setting:
         name: Name
         proposals_done_weight: Proposals Done Weight
@@ -537,6 +556,8 @@ en:
         comments_received_weight: Comments Received Weight
         follows_received_weight: Follows Received Weight
         users_to_be_exported: Users Ranking Size
+      organization:
+        template_processes_ids: Processes to be used as Templates
   decidim:
     govbr:
       initial_page_type:
@@ -576,6 +597,13 @@ en:
         show:
           topp_agreement: I agree with the privacy policy
     admin:
+      participatory_process_copies:
+        new:
+          copy: Save
+          select: Advanced Options
+          title: Create Process based on a %{subject} (%{subject_title})
+          template: Template
+          process: Existing Process
       actions:
         participatory_process_group_user:
           confirm_destroy: Do you really want to remove this user from the group? This action is going to revoke all user roles in the processes associated with this group.
@@ -717,6 +745,7 @@ es-MX:
         initial_page_component_id: La página Principal de la Asamblea
       participatory_process:
         initial_page_component_id: La página Principal del Proceso
+        is_template: Es una plantilla?
       participatory_space_user_proposals_statistic_setting:
         name: Nombre
         proposals_done_weight: Peso de Propuestas Realizadas
@@ -727,6 +756,8 @@ es-MX:
         comments_received_weight: Peso de los Comentarios Recebidos
         follows_received_weight: Peso de los Follows Recebidos
         users_to_be_exported: Tamaño de Clasificación de Usuarios
+      organization:
+        template_processes_ids: Procesos a utilizar como Plantillas
   decidim:
     govbr:
       initial_page_type:
@@ -766,6 +797,13 @@ es-MX:
         show:
           topp_agreement: Estoy de acuerdo con la política de privacidad
     admin:
+      participatory_process_copies:
+        new:
+          copy: Guardar
+          select: Opciones Avanzadas
+          title: Crear proceso basado en %{subject} (%{subject_title})
+          template: Plantilla
+          process: Proceso existente
       actions:
         participatory_process_group_user:
           confirm_destroy: ¿Realmente deseas eliminar a este usuario del grupo? Esta acción revocará todos los roles de usuario en los procesos asociados con este grupo.
@@ -907,6 +945,7 @@ es-PY:
         initial_page_component_id: La página Principal de la Asamblea
       participatory_process:
         initial_page_component_id: La página Principal del Proceso
+        is_template: Es una plantilla?
       participatory_space_user_proposals_statistic_setting:
         name: Nombre
         proposals_done_weight: Peso de Propuestas Realizadas
@@ -917,6 +956,8 @@ es-PY:
         comments_received_weight: Peso de los Comentarios Recebidos
         follows_received_weight: Peso de los Follows Recebidos
         users_to_be_exported: Tamaño de Clasificación de Usuarios
+      organization:
+        template_processes_ids: Procesos a utilizar como Plantillas
   decidim:
     govbr:
       initial_page_type:
@@ -956,6 +997,13 @@ es-PY:
         show:
           topp_agreement: Estoy de acuerdo con la política de privacidad
     admin:
+      participatory_process_copies:
+        new:
+          copy: Guardar
+          select: Opciones Avanzadas
+          title: Crear proceso basado en %{subject} (%{subject_title})
+          template: Plantilla
+          process: Proceso existente
       actions:
         participatory_process_group_user:
           confirm_destroy: ¿Realmente deseas eliminar a este usuario del grupo? Esta acción revocará todos los roles de usuario en los procesos asociados con este grupo.
@@ -1097,6 +1145,7 @@ es:
         initial_page_component_id: La página Principal de la Asamblea
       participatory_process:
         initial_page_component_id: La página Principal del Proceso
+        is_template: Es una plantilla?
       participatory_space_user_proposals_statistic_setting:
         name: Nombre
         proposals_done_weight: Peso de Propuestas Realizadas
@@ -1107,6 +1156,8 @@ es:
         comments_received_weight: Peso de los Comentarios Recebidos
         follows_received_weight: Peso de los Follows Recebidos
         users_to_be_exported: Tamaño de Clasificación de Usuarios
+      organization:
+        template_processes_ids: Procesos a utilizar como Plantillas
   decidim:
     govbr:
       initial_page_type:
@@ -1146,6 +1197,13 @@ es:
         show:
           topp_agreement: Estoy de acuerdo con la política de privacidad
     admin:
+      participatory_process_copies:
+        new:
+          copy: Guardar
+          select: Opciones Avanzadas
+          title: Crear proceso basado en %{subject} (%{subject_title})
+          template: Plantilla
+          process: Proceso existente
       actions:
         participatory_process_group_user:
           confirm_destroy: ¿Realmente deseas eliminar a este usuario del grupo? Esta acción revocará todos los roles de usuario en los procesos asociados con este grupo.
