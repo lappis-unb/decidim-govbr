@@ -6,15 +6,17 @@
     cell_options: options.merge(has_actions: false),
     size: size
     ) %>
-  <%= context[:proposal_tag] %>
+  <div class="proposal__details">
+    <%= context[:proposal_tag] %>
 
-  <% if actionable? %>
-    <div class="author-data__extra">
-      Publicado em:
-      <% author_cell= cell("decidim/author", model, from: from_context) %>
-      <%= (author_cell.(:date)).gsub(':', 'h') %>
-    </div>
-  <% end %>
+    <% if actionable? %>
+      <div class="author-data__extra">
+        Publicado em:
+        <% author_cell= cell("decidim/author", model, from: from_context) %>
+        <%= (author_cell.(:date)).gsub(':', 'h') %>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <% if actionable? %>

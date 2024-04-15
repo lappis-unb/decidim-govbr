@@ -223,7 +223,7 @@
   font-family: 'Roboto', var(--font-family-base);
   font-weight: var(--font-weight-semi-bold);
   font-size: var(--font-size-14);
-  width: 100%;
+  width: fit-content;
   height: 24px;
   gap: 8px;
 }
@@ -282,12 +282,22 @@ div.author-data__extra {
   height: 40px;
 }
 
+.proposal__details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .proposal__btn__controls .button.secondary .fa-xmark{
   font-size: 20px;
 }
 
 @media (min-width: 640px) {
-  .proposal-extra-data {
+  div.author--inline {
+    flex-direction: row;
+  }
+
+  .proposal__details {
     flex-direction: row;
   }
 
