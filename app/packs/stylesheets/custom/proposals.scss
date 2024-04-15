@@ -249,7 +249,12 @@ ul.tags.tags--proposal.tags--list li {
 
 ul.tags.tags--proposal.tags--list li a {
   text-decoration: none;
+  width: fit-content;
   padding: 4px 8px;
+}
+
+ul.tags.tags--proposal.tags--list li a span{
+  padding: 0;
 }
 
 div.author-data__extra {
