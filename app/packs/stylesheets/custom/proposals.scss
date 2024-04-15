@@ -254,6 +254,9 @@ ul.tags.tags--proposal.tags--list li a {
 }
 
 ul.tags.tags--proposal.tags--list li a span{
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-regular);
   padding: 0;
 }
 
