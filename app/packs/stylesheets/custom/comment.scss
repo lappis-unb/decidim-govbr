@@ -30,12 +30,20 @@
 }
 
 .comment__footer {
-  padding: 1rem 0px;
+  padding-bottom: 1.5rem;
+  gap: 1.5rem;
   font-size: 90%;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
-  justify-content: space-between;
+  justify-content: center;
+  
+  @media (min-width: 768px)
+  {
+    gap: 0;
+    padding: 1rem 0px;
+    justify-content: space-between;
+  }
 }
 
 .comment__footer_votes {
@@ -79,10 +87,15 @@
 }
 
 .comment-thread {
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
   border: 0;
   box-shadow: none;
-  margin-bottom: 0!important;
-  padding-top: 1rem;
+  
 
   .fa-2x {
     font-size: 1.25rem;
@@ -92,12 +105,29 @@
   .fa-comment-dots{
     font-size: 1.25rem;
   }
+
+  @media (min-width: 768px)
+  {
+    display: block;
+    border: 0;
+    box-shadow: none;
+    margin-bottom: 0!important;
+    padding-top: 1rem;
+  }
 }
 
 .comment__header {
-  justify-content: space-between;
   padding: 0;
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  
+  @media (min-width: 768px)
+  {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .author__avatar {
@@ -116,6 +146,7 @@
 
 .author.author--inline > a {
   display: flex;
+  gap: 10px;
 }
 
 .author--inline .author__name {
@@ -136,7 +167,12 @@
   margin-top: 1.5rem;
 }
 .comments {
-  padding: 0 0 3rem 0;
+  padding: 0 0.5rem 3rem 0.5rem;
+
+  @media (min-width: 768px)
+  {
+    padding: 0 0 3rem 0;
+  }
 }
 .comments-container {
   border-radius: 10px;
@@ -147,7 +183,12 @@
   font-size: 1.5rem;
   text-align: center;
   padding-bottom: 0;
-  margin: 0;
+  margin: 0 0 1.5rem; 
+
+  @media (min-width: 768px)
+  {
+    margin: 0;
+  }
 }
 .add-comment-title {
   font-size: 16px;

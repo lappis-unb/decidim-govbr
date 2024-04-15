@@ -34,7 +34,7 @@
     </div>
     <div class="comment__content">
       <%= alignment_badge %>
-      <%= comment_body %>
+      <%= depth < 1? comment_body : "<strong>Resposta:</strong>\n\n".concat(comment_body).html_safe%>
     </div>
     <div class="comment__footer">      
       <div class="comment__footer_votes">

@@ -51,7 +51,9 @@ extra_admin_link(
       <% end %>
 
       <% if not @proposal.emendation? and not ["section","subsection"].include? @proposal.participatory_text_level %>
-        <%= render_proposal_body(@proposal) %>
+        <%= content_tag :div, class: 'br-proposal_body' do  %>
+        <% render_proposal_body(@proposal)%>
+        <% end%>
       <% end %>
 
       <div class="proposal-extra-data">

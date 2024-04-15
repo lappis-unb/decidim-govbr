@@ -270,7 +270,6 @@ $comment-nested-alt-bg: $white;
 .add-comment{
   display: flex;
   flex-direction: column;
-  padding-right: 1rem;
   border-radius: 10px;
   gap: 1rem;
 
@@ -280,6 +279,11 @@ $comment-nested-alt-bg: $white;
 
   .button{
     margin-bottom: 0;
+  }
+
+  @media (min-width: 768px)
+  {
+    padding-right: 1rem;
   }
 }
 
