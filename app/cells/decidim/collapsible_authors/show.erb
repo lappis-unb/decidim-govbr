@@ -7,14 +7,17 @@
     size: size
     ) %>
   <%= context[:proposal_tag] %>
-</div>
-<% if actionable? %>
-  <div class="author-data__extra">
-    Publicado em:
-    <% author_cell= cell("decidim/author", model, from: from_context) %>
-    <%= author_cell.(:date) %>
-  </div>
 
+  <% if actionable? %>
+    <div class="author-data__extra">
+      Publicado em:
+      <% author_cell= cell("decidim/author", model, from: from_context) %>
+      <%= (author_cell.(:date)).gsub(':', 'h') %>
+    </div>
+  <% end %>
+</div>
+
+<% if actionable? %>
   <div class="proposal__btn__controls">
     <% if context[:amendable?] && context[:allowed?] %>
       <%= link_to context[:proposal_edit_link], class: "button secondary" do %>
