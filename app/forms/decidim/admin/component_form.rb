@@ -12,7 +12,10 @@ module Decidim
 
       translatable_attribute :name, String
       translatable_attribute :singular_name, String
+      translatable_attribute :menu_name, String
+
       validates :name, translatable_presence: true
+      validates :singular_name, translatable_presence: true
 
       attribute :weight, Integer, default: 0
       attribute :hide_in_menu, Boolean
@@ -24,7 +27,7 @@ module Decidim
       attribute :default_step_settings, Object
       attribute(:step_settings, { String => Object })
 
-      attribute :share_tokens, Array[ShareToken]
+      attribute :share_tokens, [ShareToken]
 
       validate :validate_settings, :validate_step_settings
 

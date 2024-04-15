@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_20_181855) do
+ActiveRecord::Schema.define(version: 2024_04_12_152629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -463,6 +463,7 @@ ActiveRecord::Schema.define(version: 2024_02_20_181855) do
     t.string "decidim_participatory_space_type"
     t.integer "decidim_participatory_space_id"
     t.datetime "deleted_at"
+    t.integer "status", default: 0
     t.index ["created_at"], name: "index_decidim_comments_comments_on_created_at"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_comments_comments_on_decidim_author"
     t.index ["decidim_author_id"], name: "decidim_comments_comment_author"
@@ -483,8 +484,9 @@ ActiveRecord::Schema.define(version: 2024_02_20_181855) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "participatory_space_type", null: false
-    t.boolean "hide_in_menu"
     t.jsonb "singular_name"
+    t.boolean "hide_in_menu"
+    t.jsonb "menu_name"
     t.index ["participatory_space_id", "participatory_space_type"], name: "index_decidim_components_on_decidim_participatory_space"
   end
 
@@ -970,6 +972,7 @@ ActiveRecord::Schema.define(version: 2024_02_20_181855) do
     t.integer "users_to_be_exported", default: 200, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "statistics_data_updated_at", precision: 6
     t.index ["decidim_participatory_space_type", "decidim_participatory_space_id"], name: "user_proposals_statistic_settings_participatory_space_idx"
   end
 
@@ -1472,6 +1475,7 @@ ActiveRecord::Schema.define(version: 2024_02_20_181855) do
     t.boolean "enable_participatory_space_filters", default: true
     t.jsonb "menu_links", default: "{}", null: false
     t.jsonb "footer_menu_links", default: "{}", null: false
+    t.integer "user_profile_survey_id"
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
@@ -1577,6 +1581,10 @@ ActiveRecord::Schema.define(version: 2024_02_20_181855) do
     t.string "initial_page_type", default: "default", null: false
     t.bigint "initial_page_component_id"
     t.string "group_chat_id"
+    t.boolean "should_have_user_full_profile", default: false
+    t.date "publish_date"
+    t.boolean "show_mobilization"
+    t.boolean "is_template", default: false, null: false
     t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id"
@@ -1703,6 +1711,7 @@ ActiveRecord::Schema.define(version: 2024_02_20_181855) do
     t.jsonb "body"
     t.integer "comments_count", default: 0, null: false
     t.integer "follows_count", default: 0, null: false
+    t.boolean "is_interactive", default: true
     t.index "md5((body)::text)", name: "decidim_proposals_proposal_body_search"
     t.index "md5((title)::text)", name: "decidim_proposals_proposal_title_search"
     t.index ["created_at"], name: "index_decidim_proposals_proposals_on_created_at"
@@ -2035,8 +2044,12 @@ ActiveRecord::Schema.define(version: 2024_02_20_181855) do
     t.datetime "digest_sent_at"
     t.datetime "password_updated_at"
     t.string "previous_passwords", default: [], array: true
+    t.boolean "user_profile_poll_answered", default: false
+    t.bigint "decidim_participatory_process_group_id"
+    t.string "decidim_participatory_process_group_role"
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
+    t.index ["decidim_participatory_process_group_id"], name: "index_decidim_users_on_decidim_participatory_process_group_id"
     t.index ["email", "decidim_organization_id"], name: "index_decidim_users_on_email_and_decidim_organization_id", unique: true, where: "((deleted_at IS NULL) AND (managed = false) AND ((type)::text = 'Decidim::User'::text))"
     t.index ["id", "type"], name: "index_decidim_users_on_id_and_type"
     t.index ["invitation_token"], name: "index_decidim_users_on_invitation_token", unique: true

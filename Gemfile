@@ -40,6 +40,10 @@ gem 'whenever', require: false
 
 gem 'decidim-homes', git: 'https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-module-homes.git'
 
+gem "rest-client", "~> 2.1"
+
+gem "pandoc-ruby", '2.1.10'
+
 group :development, :test do
   gem 'byebug', '11.1.3'
   gem 'decidim-dev', DECIDIM_VERSION
@@ -58,4 +62,5 @@ end
 
 group :production do
   gem 'aws-sdk-s3', require: false
+  gem 'elastic-apm', '4.7.0'
 end

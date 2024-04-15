@@ -7,16 +7,20 @@ module Decidim
     # with no big concerns.
     # I.e. with detached it means: no direct relashionship with Decidim tables or constraints.
     class UserProposalsStatistic < ApplicationRecord
-      self.table_name = 'decidim_govbr_user_proposals_statistics'
+      self.table_name = "decidim_govbr_user_proposals_statistics"
 
-      belongs_to :user_proposals_statistic_setting, class_name: 'Decidim::Govbr::UserProposalsStatisticSetting'
+      belongs_to :user_proposals_statistic_setting, class_name: "Decidim::Govbr::UserProposalsStatisticSetting"
+
+      belongs_to :user,
+                 class_name: "Decidim::User",
+                 foreign_key: "decidim_user_id"
 
       scope :by_component, lambda { |component|
         where(
           user_proposals_statistic_setting: Decidim::Govbr::UserProposalsStatisticSetting.where(
-                                              decidim_participatory_space_type: component.participatory_space_type,
-                                              decidim_participatory_space_id: component.participatory_space_id
-                                            )
+            decidim_participatory_space_type: component.participatory_space_type,
+            decidim_participatory_space_id: component.participatory_space_id
+          )
         )
       }
 
@@ -26,16 +30,16 @@ module Decidim
 
       def self.csv_attributes_header_map
         {
-          'decidim_user_id' => 'ID do Usuário',
-          'decidim_user_name' => 'Nome',
-          'proposals_done' => 'Propostas criadas',
-          'comments_done' => 'Comentários feitos em propostas',
-          'votes_done' => 'Votos dados em propostas',
-          'follows_done' => 'Propostas que segue',
-          'votes_received' => 'Votos recebidos em suas propostas',
-          'comments_received' => 'Comentários recebidos em suas propostas',
-          'follows_received' => 'Seguidores em suas propostas',
-          'score' => 'Pontuação total'
+          "decidim_user_id" => "ID do Usuário",
+          "decidim_user_name" => "Nome",
+          "proposals_done" => "Propostas criadas",
+          "comments_done" => "Contribuições feitas em propostas",
+          "votes_done" => "Votos dados em propostas",
+          "follows_done" => "Propostas que segue",
+          "votes_received" => "Votos recebidos em suas propostas",
+          "comments_received" => "Contribuições recebidas em suas propostas",
+          "follows_received" => "Seguidores em suas propostas",
+          "score" => "Pontuação total"
         }
       end
     end

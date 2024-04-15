@@ -38,10 +38,10 @@ pt-BR:
           is_emendation_true:
             label: Tipo
             values:
-              'false': Propostas
-              'true': Modificações
+              "false": Propostas
+              "true": Modificações
           scope_id_eq:
-            label: Âmbito
+            label: Área de interesse
           state_eq:
             label: Estado
             values:
@@ -54,18 +54,27 @@ pt-BR:
           state_null:
             label: Estado
             values:
-              'true': Não respondida
+              "true": Não respondida
+      participatory_texts:
+        is_interactive: Interação habilitada
     components:
       proposals:
         actions:
           new: Novo(a) %{name}
+          action_not_allowed: Você não pode interagir com propostas. O seu Perfil de Usuário está incompleto!
+          answer_proposal: Responder proposta
+          edit_proposal: Editar %{singular_name_button}
+          import: Importar de outro componente
+          participatory_texts: Textos participativos
+          show: Mostrar proposta
+          title: Ações
         settings:
           global:
             default_sort_order: Ordem padrão das propostas
             default_sort_order_help: Padrão significa que se os apoios estiverem ativos as propostas serão ordenadas aleatóriamente, e se os apoios estiverem bloqueados serão ordenadas do maior para o menor número de apoios.
             default_sort_order_options:
               default: Padrão
-              most_commented: Mais comentadas
+              most_commented: Mais contribuições
               most_endorsed: Mais endossadas
               most_followed: Mais seguidas
               most_voted: Mais votadas
@@ -73,13 +82,19 @@ pt-BR:
               recent: Recentes
               with_more_authors: Com mais autores
             geocoding_enabled: Geolocalização ativada
-            minimum_votes_per_user: Votos mínimos por usuário
-            proposal_limit: Limite de propostas por usuário
+            minimum_votes_per_user: Quantidade mínima de votos por usuário
+            proposal_answering_enabled: Permitir que o órgão faça a devolutiva por proposta
+            proposal_limit: Quantidade máxima de propostas por usuário (deixe 0 caso não queira limitar)
+            proposal_length: Quantidade máxima de caracteres por propostas
+            official_proposals_enabled: Permitir que o órgão faça propostas oficiais
+            comments_enabled: Permitir que usuários façam comentários nas propostas
+            comments_max_length: Quantidade máxima de caracteres por comentário (deixe 0 para não limitar)
+            attachments_allowed: Permitir que o órgão crie propostas com anexos
             proposal_edit_time: Edição de propostas
             proposal_edit_time_choices:
               infinite: Permitir a edição de propostas por um período infinito de tempo
               limited: Permitir a edição de propostas dentro de um período de tempo específico
-            scopes_enabled: Âmbitos ativados
+            scopes_enabled: Áreas de interesse ativados
           step:
             creation_enabled: Participantes podem criar propostas
             creation_enabled_readonly: Essa configuração é desativada quando você ativa a funcionalidade Textos participativos. Para carregar propostas como texto participativo, clique no botão 'Textos participativos' e siga as instruções.
@@ -87,7 +102,7 @@ pt-BR:
             default_sort_order_help: Padrão significa que se os apoios estiverem ativos as propostas serão ordenadas aleatóriamente, e se os apoios estiverem bloqueados serão ordenadas do maior para o menor número de apoios.
             default_sort_order_options:
               default: Padrão
-              most_commented: Mais comentadas
+              most_commented: Mais contribuições
               most_endorsed: Mais endossadas
               most_followed: Mais seguidas
               most_voted: Mais votadas
@@ -191,9 +206,9 @@ pt-BR:
           show:
             body: Descrição
           update_category:
-            invalid: 'Estas propostas já tinham o tema %{subject_name}: %{proposals}.'
+            invalid: "Estas propostas já tinham o tema %{subject_name}: %{proposals}."
             select_a_category: Selecione um tema
-            success: 'Propostas atualizadas com sucesso para o tema %{subject_name}: %{proposals}.'
+            success: "Propostas atualizadas com sucesso para o tema %{subject_name}: %{proposals}."
         proposal_answers:
           form:
             accepted: Recebida
@@ -211,7 +226,7 @@ pt-BR:
         filter_origin_values:
           participants: Participantes
         filter_state_values:
-          accepted: Recebida
+          accepted: Incorporada
           all: Todos
           evaluating: Em avaliação
           not_answered: Não respondida
@@ -248,7 +263,7 @@ pt-BR:
           fields:
             category: Tema
       proposals:
-        count: 
+        count:
           proposals_count:
             one: "%{count} %{singular_name}"
             other: "%{count} %{pluralized_name}"
@@ -256,29 +271,39 @@ pt-BR:
           placeholder: Ver %{singular_name}
         compare:
           no_similars_found: Muito bom! Não foram encontradas propostas semelhantes
+          continue: Continuar
+          title: Propostas %{singular_name}
+        complete:
+          send: Criar
+          title: Complete sua %{singular_name}
+        edit_draft:
+          discard: Descarte este rascunho
+          discard_confirmation: Deseja mesmo descartar este rascunho
+          send: Visualização
+          title: Editar rascunho de %{singular_name}
         index:
           click_here: Ver todas as propostas
           collaborative_drafts_list: Acessar rascunhos colaborativos
-          new_proposal: Faça sua %{proposal}
+          new_proposal: Criar minha %{proposal}
           see_all: Ver todas as propostas
           text_banner: Está vendo a lista de propostas retiradas pelos seus próprios autores. %{go_back_link}
         new:
-          title: Crie sua proposta
+         title: Crie sua %{singular_name}
+         send: Publicar
         edit:
           add_documents: Adicionar documentos
           add_image: Adicionar imagem
           edit_documents: Editar documentos
           edit_image: Editar imagem
           select_a_category: Selecione um tema
-        edit_draft:
-          discard: Descartar rascunho
-          send: Continuar
+          title: Editar %{singular_name}
         filters:
           category: Tema
+          state: Status
           placeholder: "Qual %{name} você procura?"
         orders:
-          label: 'Ordene propostas por:'
-          most_commented: Mais comentadas
+          label: "Ordene propostas por:"
+          most_commented: Mais contribuições
           most_endorsed: Mais endossadas
           most_followed: Mais seguidas
           most_voted: Mais votadas
@@ -286,19 +311,28 @@ pt-BR:
           recent: Recentes
           with_more_authors: Com mais autores
         preview:
-          announcement_body: Este é um rascunho para revisão. Clique em editar para modificar ou em publicar se não desejar alterar. Após a publicação você terá 15 minutos para editar e depois não será possível modificar o conteúdo.
-          announcement_title: A sua proposta ainda não foi publicada
-          modify: Editar proposta
+          announcement_body: Sua %{singular_name} foi salva como rascunho. Precisa ser publicada para aparecer no site.
+          announcement_title: Sua %{singular_name} ainda não foi publicada
+          modify: Modificar
+          proposal_edit_before_minutes:
+            one: Você poderá editar durante o primeiro minuto após a publicação. Uma vez que esta janela de tempo passa, você não poderá editar.
+            other: Você poderá editar durante o primeiro %{count} minutos após a publicação. Uma vez que esta janela de tempo passa, você não poderá editar .
+          publish: Publicar
+          title: Publique sua %{singular_name}
         requests:
           accepted_request:
             error: Não foi possível ser aceito como colaborador, por favor tente novamente mais tarde.
             success: "@%{user} foi aceito como colaborador com sucesso"
         show:
           back_to: Voltar para
-          back_to_list: Voltar para a lista
-          proposal_accepted_reason: 'Esta proposta foi recebida porque:'
+          back_to_list_proposals: Veja mais propostas
+          back_to_list: Voltar
+          proposal_accepted_reason: 'Esta proposta foi incorporada!'
+          proposal_accepted_why: 'Motivo:'
           proposal_in_evaluation_reason: Esta proposta está em avaliação
+          proposal_rejected_reason: 'Esta proposta foi rejeitada'
           report: Denunciar
+          withdraw_proposal: Remover %{singular_name} 
         vote_button:
           already_voted: Votada!
           already_voted_hover: Retirar voto
@@ -317,15 +351,15 @@ pt-BR:
             description: Pode votar até %{limit} proposta(s).
         wizard_aside:
           back: Voltar
-          back_from_step_1: Voltar para as propostas
-          back_from_step_2: Voltar para as propostas
-          back_from_step_3: Voltar à comparação de propostas
+          back_from_step_1: Voltar
+          back_from_step_2: Voltar
+          back_from_step_3: Voltar à comparação de proposta
           back_from_step_4: Voltar para a edição do rascunho
-          info: Você está criando uma <strong>proposta</strong>.
+          info: Você está criando uma proposta
         wizard_steps:
           current_step: Etapa atual
           see_steps: ver etapas
-          step_1: Crie sua proposta
+          step_1: Faça a sua proposta
           step_2: Comparar
           step_3: Concluir
           step_4: Publique sua proposta
@@ -335,6 +369,6 @@ pt-BR:
         collaborative_drafts:
           back_to_resource: Voltar para o rascunho colaborativo
         proposals:
-          back_to_resource: Voltar para a proposta
+          back_to_resource: Voltar
     statistics:
       proposals_accepted: Propostas recebidas

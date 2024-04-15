@@ -26,10 +26,11 @@ pt-BR:
         parent_id: Superior
         weight: Posição do pedido
       component:
-        name: Nome no plural
+        name: Nome de um Conjunto do Componente
         published_at: Publicado em
         weight: Posição do pedido
-        singular_name: Nome no singular
+        singular_name: Nome do Componente
+        menu_name: Nome da Página
       external_domain:
         value: Valor
       help_section:
@@ -45,7 +46,7 @@ pt-BR:
         alert_color: Alerta
         available_authorizations: Autorizações disponíveis
         badges_enabled: Ativar emblemas
-        comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
+        comments_max_length: Quantidade máxima de caracteres por comentários (deixe 0 para não limitar a quantidade máxima)
         cta_button_path: Caminho do botão Chamar para Ação
         cta_button_text: Texto do botão Chamar para Ação
         customize_welcome_notification: Personalizar notificação de boas-vindas
@@ -75,6 +76,7 @@ pt-BR:
         machine_translation_display_priority: Prioridade na exibição da tradução automática
         machine_translation_display_priority_original: Texto original primeiro
         machine_translation_display_priority_translation: Texto traduzido primeiro
+        user_profile_survey_id: ID da Enquete de Perfil de Usuário
         name: Nome
         official_img_footer: Símbolo oficial do rodapé
         official_img_header: Cabeçalho do logotipo oficial
@@ -108,14 +110,14 @@ pt-BR:
         name: Nome
         organization: Organização
         parent_id: Pai
-        scope_type: Tipo de âmbito
-        scope_type_id: Tipo de âmbito
+        scope_type: Tipo de área de interesse
+        scope_type_id: Tipo de área de interesse
       scope_type:
         name: Nome
         organization: Organização
         plural: Plural
       settings:
-        scope_id: Escopo
+        scope_id: Área de interesse
       static_page:
         allow_public_access: Permitir acesso sem autenticação
         changed_notably: Houve mudanças notáveis.
@@ -184,6 +186,8 @@ pt-BR:
         category:
           new: Nova categoria
         export: Exportar tudo
+        export_comments: Exportar comentários
+        export_proposals: Exportar propostas
         export-selection: Exportar selecionado
         import: Importar
         manage: Gerenciar
@@ -208,7 +212,7 @@ pt-BR:
           refuse: Recusar os termos de administrador
           title: Concorde com os termos e condições de uso
         required_review:
-          alert: 'Obrigatório: Revise os termos de uso de nosso administrador'
+          alert: "Obrigatório: Revise os termos de uso de nosso administrador"
           cta: Reveja eles agora.
         title: Termos de Uso do Administrador
       area_types:
@@ -320,22 +324,22 @@ pt-BR:
           error: Ocorreu um erro ao destruir esse componente.
           success: Componente excluído com sucesso.
         edit:
-          title: Editar componente
+          title: Editar Página de Participação (Componente)
           update: Atualizar
         form:
           default_step_settings: Configurações de etapa padrão
-          global_settings: Configurações globais
-          step_settings: Configurações de etapa
+          global_settings: Configurações
+          step_settings: Configurações das Etapas do Processo
         index:
           add: Adicionar componente
           headers:
             actions: Ações
             name: Nome do componente
-            scope: Escopo de componente
+            scope: Área de interesse de componente
             type: Tipo de componente
         new:
           add: Adicionar componente
-          title: 'Adicionar componente: %{name}'
+          title: "Adicionar componente: %{name}"
         publish:
           success: O componente foi publicado com sucesso.
         title: Componentes
@@ -346,7 +350,7 @@ pt-BR:
           success: O componente foi atualizado com sucesso.
       conflicts:
         attempts: Tentativas
-        'false': 'Não'
+        "false": "Não"
         managed_user_name: Usuário gerenciado
         solved: Resolvido
         title: Conflitos de verificação
@@ -357,7 +361,7 @@ pt-BR:
           reason: Motivo
           success: A transferência atual foi concluída com sucesso.
           title: Transferência
-        'true': 'Sim'
+        "true": "Sim"
         user_name: Usuário
       dashboard:
         show:
@@ -384,13 +388,13 @@ pt-BR:
         invitation_accepted_at_present:
           label: Convite aceito
           values:
-            'false': 'Não'
-            'true': 'Sim'
+            "false": "Não"
+            "true": "Sim"
         last_sign_in_at_present:
           label: Já logado
           values:
-            'false': 'Não'
-            'true': 'Sim'
+            "false": "Não"
+            "true": "Sim"
         moderated_users:
           reports_reason_eq:
             label: Razão da denúncia
@@ -404,31 +408,31 @@ pt-BR:
         officialized_at_null:
           label: Situação
           values:
-            'false': Oficializado
-            'true': Não oficializado
+            "false": Oficializado
+            "true": Não oficializado
         participatory_space_private_users:
           user_invitation_accepted_at_not_null:
             label: Convite aceito
             values:
-              'false': Não aceito
-              'true': Aceito
+              "false": Não aceito
+              "true": Aceito
           user_invitation_sent_at_not_null:
             label: Envio de convite
             values:
-              'false': Não enviado
-              'true': Enviado
+              "false": Não enviado
+              "true": Enviado
         private_space_eq:
           label: Privado
           values:
-            'false': Público
-            'true': Privado
+            "false": Público
+            "true": Privado
         published_at_null:
           label: Publicado
           values:
-            'false': Publicado
-            'true': Não publicado
+            "false": Publicado
+            "true": Não publicado
         scope_id_eq:
-          label: Escopo
+          label: Área de interesse
         search_label: Buscar
         search_placeholder:
           name_or_nickname_or_email_cont: Pesquise %{collection} por e-mail, nome ou apelido.
@@ -447,7 +451,7 @@ pt-BR:
       forms:
         file_help:
           import:
-            explanation: 'Orientação para o arquivo:'
+            explanation: "Orientação para o arquivo:"
             message_1: Arquivos CSV, JSON e Excel (xlsx) são suportados
             message_2: Para arquivos CSV, o separador entre colunas deve ser um ponto e vírgula (";")
       help_sections:
@@ -551,8 +555,8 @@ pt-BR:
         newsletters: Newsletters
         participants: Participantes
         reported_users: Usuários Reportados
-        scope_types: Tipos de âmbito
-        scopes: Âmbitos
+        scope_types: Tipos de área de interesse
+        scopes: Áreas de interesse
         settings: Configurações
         static_pages: Páginas
         user_groups: Grupos de usuários
@@ -601,7 +605,7 @@ pt-BR:
         scope:
           fields:
             name: Nome
-            scope_type: Tipo de âmbito
+            scope_type: Tipo de área de interesse
         scope_type:
           fields:
             name: Nome
@@ -687,7 +691,7 @@ pt-BR:
           title: Modelos de Newsletter
           use_template: Utilizar este modelo
         show:
-          preview: 'Pré-visualização de modelo: %{template_name}'
+          preview: "Pré-visualização de modelo: %{template_name}"
           use_template: Utilizar este modelo
       newsletters:
         create:
@@ -697,23 +701,23 @@ pt-BR:
           error: Houve um erro na entrega deste boletim informativo.
           success: Newsletter entregue com sucesso.
         destroy:
-          error_already_sent: 'Não é possível destruir a newsletter: já foi enviada.'
+          error_already_sent: "Não é possível destruir a newsletter: já foi enviada."
           success: Newsletter excluída com sucesso.
         edit:
           save_and_preview: Salvar e visualizar
           title: Editar boletim
         index:
           all: todos
-          all_users: 'Todos usuários '
-          and: 'e '
+          all_users: "Todos usuários "
+          and: "e "
           confirm_delete: Deseja mesmo excluir esta newsletter?
-          followers: 'seguidores '
-          has_been_sent_to: 'Foi enviado para: '
-          no_scopes: Nenhum escopo
+          followers: "seguidores "
+          has_been_sent_to: "Foi enviado para: "
+          no_scopes: Nenhuma área de interesse
           not_sent: Não enviado
-          participants: 'participantes '
-          segmented_to: 'Segmentado para %{subject}: '
-          subscribed_count: 'Inscrever-se:'
+          participants: "participantes "
+          segmented_to: "Segmentado para %{subject}: "
+          subscribed_count: "Inscrever-se:"
           title: Newsletters
         new:
           save: Salvar
@@ -727,8 +731,8 @@ pt-BR:
           none: Nenhum
           participants_help: Enviar newsletter para todos os usuários confirmados que participaram de qualquer um dos espaços participativos selecionados na lista.
           recipients_count: Esta newsletter será enviada para <strong id='recipients_count'>%{count}</strong> usuários.
-          scopes_help: Enviar newsletter para os usuários que tenham qualquer um dos escopos selecionados nas configurações "Meus Interesses" de sua conta.
-          select_scopes: Filtrar por usuários que ativaram qualquer escopo selecionado nas configurações de meus interesses em sua conta.
+          scopes_help: Enviar newsletter para os usuários que tenham qualquer uma das áreas de interesse selecionadas nas configurações "Meus Interesses" de sua conta.
+          select_scopes: Filtrar por usuários que ativaram qualquer área de interesse selecionada nas configurações de meus interesses em sua conta.
           select_spaces: Selecionar espaços para segmentar a newsletter
           select_users: Selecione quais usuários você deseja enviar a newsletter
           send_to_all_users: Enviar para todos os usuários
@@ -807,7 +811,7 @@ pt-BR:
             colors_title: Cores da organização
             colors_warning_html: Aviso! Mudando essas cores pode quebrar os contrastes de acessibilidade. Você pode verificar o contraste de sua escolha com o <a href="%{link}">Verificador de Contrastes WebAIM</a> ou outras ferramentas similares.
             header_snippets_help: Use este campo para adicionar coisas ao cabeçalho HTML. O uso mais comum é integrar serviços de terceiros que exigem algum JavaScript ou CSS extra. Além disso, você pode usá-lo para adicionar meta tags adicionais ao HTML. Observe que isso só será exibido em páginas públicas, não na seção de administração.
-          cta_button_path_help: 'Você pode substituir onde o botão Chamar para Ação na página inicial liga. Use caminhos parciais, não URLs completas aqui. Aceita letras, números, traços e barras e deve começar com uma letra. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}'
+          cta_button_path_help: "Você pode substituir onde o botão Chamar para Ação na página inicial liga. Use caminhos parciais, não URLs completas aqui. Aceita letras, números, traços e barras e deve começar com uma letra. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}"
           cta_button_text_help: Você pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível em sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
           homepage_appearance_title: Editar a aparência da página inicial
           homepage_highlighted_content_banner_title: Banner de conteúdo elevado
@@ -877,38 +881,38 @@ pt-BR:
       resources:
         index:
           headers:
-            scope: Escopo
+            scope: Área de interesse
       scope_types:
         create:
-          error: Ocorreu um erro ao criar um novo tipo de âmbito.
-          success: Tipo de âmbito criado com sucesso.
+          error: Ocorreu um erro ao criar um novo tipo de área de interesse.
+          success: Tipo de área de interesse criada com sucesso.
         destroy:
-          success: Tipo de âmbito excluído com sucesso
+          success: Tipo de área de interesse excluída com sucesso
         edit:
-          title: Editar tipo de âmbito
+          title: Editar tipo de área de interesse
           update: Atualizar
         new:
-          create: Criar tipo de âmbito
-          title: Novo âmbito
+          create: Criar tipo de área de interesse
+          title: Nova área de interesse
         update:
-          error: Ocorreu um erro ao atualizar este tipo de âmbito.
-          success: Tipo de âmbito atualizado com sucesso
+          error: Ocorreu um erro ao atualizar este tipo de área de interesse.
+          success: Tipo de área de interesse atualizada com sucesso
       scopes:
         create:
-          error: Ocorreu um erro ao criar um novo âmbito.
-          success: Âmbito criado com sucesso.
+          error: Ocorreu um erro ao criar uma nova área de interesse.
+          success: Área de interesse criada com sucesso.
         destroy:
-          success: Âmbito excluído com sucesso
+          success: Área de interesse excluída com sucesso
         edit:
-          title: Editar âmbito
+          title: Editar área de interesse
           update: Atualizar
         new:
-          create: Criar âmbito
-          title: Novo âmbito
-        no_scopes: Nenhum âmbito neste nível.
+          create: Criar área de interesse
+          title: Nova área de interesse
+        no_scopes: Nenhuma área de interesse neste nível.
         update:
-          error: Ocorreu um erro ao atualizar este âmbito.
-          success: Âmbito atualizado com sucesso
+          error: Ocorreu um erro ao atualizar esta área de interesse.
+          success: Área de interesse atualizada com sucesso
       share_tokens:
         actions:
           confirm_destroy: Você tem certeza que quer excluir este token?
@@ -982,8 +986,8 @@ pt-BR:
         metrics: Métricas
         panel: Administrador
         participants: Comercial
-        scope_types: Tipos de âmbito
-        scopes: Âmbitos
+        scope_types: Tipos de área de interesse
+        scopes: Áreas de interesse
         static_pages: Páginas
         statistics: Atividade
         user_groups: Grupos de usuários

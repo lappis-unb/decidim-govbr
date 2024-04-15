@@ -6,7 +6,6 @@ import fixDropdownMenus from "src/decidim/dropdowns_menus";
 import createQuillEditor from "src/decidim/editor";
 import Configuration from "src/decidim/configuration";
 import ExternalLink from "src/decidim/external_link";
-import updateExternalDomainLinks from "src/decidim/external_domain_warning";
 import InputCharacterCounter from "src/decidim/input_character_counter";
 import FormValidator from "src/decidim/form_validator";
 import CommentsComponent from "src/decidim/comments/comments.component";

@@ -9,8 +9,9 @@
 </div>
 <% if actionable? %>
   <div class="author-data__extra">
+    Publicado em:
     <% author_cell= cell("decidim/author", model, from: from_context) %>
     <%= author_cell.(:date) %>
-    <%= author_cell.(:withdraw) %>
   </div>
+  <%= author_cell.(:withdraw) %>
 <% end %>

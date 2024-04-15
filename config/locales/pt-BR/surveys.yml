@@ -12,16 +12,32 @@ pt-BR:
   decidim:
     components:
       surveys:
+        actions:
+          action_not_allowed: Você não pode interagir com enquetes. O seu Perfil de Usuário está incompleto!
         name: Enquetes
         settings:
           global:
             clean_after_publish: Excluir respostas ao publicar a enquete
-            ends_at: Respostas aceitas até
+            ends_at: Possível responder o formulário até o dia
             scopes_enabled: Âmbitos ativados
-            starts_at: Respostas aceitas a partir de
+            starts_at: Possível responder o formulário a partir do dia
           step:
             allow_unregistered: Permitir que usuários não registrados respondam a enquete
             allow_unregistered_help: Se ativo, nenhum login será necessário para responder a enquete. Isto pode levar a dados pouco fidedignos ou não confiáveis e será mais vulnerável a ataques automatizados. Use com cautela! Lembre-se que um participante pode responder a mesma enquete várias vezes, usando diferentes navegadores ou o recurso de "navegação privada" de seu navegador da Web.
+    forms:
+      questionnaires:
+        questionnaire_form:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Entre com sua conta</a> ou <a href="%{sign_up_link}">inscreva-se</a> para responder ao questionário.
+            title: Responda o questionário
+          questionnaire_js_disabled:
+            body: Algumas das funcionalidades deste formulário serão desativadas. Para melhorar sua experiência, por favor ative o JavaScript no seu navegador.
+            title: JavaScript está desativado
+          tos_agreement: Ao participar você aceita seus Termos de Serviço
+          questionnaire_answered:
+            body: Você já respondeu esta pesquisa.
+            title: Já respondido
+      incomplete_profile: Completar Perfil de Usuário
     events:
       surveys:
         survey_closed:
@@ -29,7 +45,7 @@ pt-BR:
           email_subject: Uma enquete finalizou em %{participatory_space_title}
           notification_title: A enquete <a href="%{resource_path}">%{resource_title}</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a> finalizou.
         survey_opened:
-          email_intro: 'A enquete %{resource_title} em %{participatory_space_title} está aberta agora. Você pode participar a partir desta página:'
+          email_intro: "A enquete %{resource_title} em %{participatory_space_title} está aberta agora. Você pode participar a partir desta página:"
           email_subject: Uma nova enquete em %{participatory_space_title}
           notification_title: A enquete <a href="%{resource_path}">%{resource_title}</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a> está aberta agora.
     metrics:

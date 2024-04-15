@@ -4,12 +4,37 @@
 pt-BR:
   activemodel:
     attributes:
+      assembly:
+        initial_page_component_id: Página Inicial da Assembléia
       assembly_partner:
         link: Link oficial
         logo: Logotipo
         name: Nome
         partner_type: Tipo
         weight: Weight (posição de exibição)
+      participatory_process:
+        area_id: Órgão/Instituição
+        participatory_process_group_id: Setor
+        decidim_area_id: Órgão/Instituição
+        initial_page_component_id: Página Inicial do Processo Participativo
+        scope_id: Áreas de interesse
+        scopes_enabled: Áreas de interesse ativadas
+        slug: URL Amigável
+        developer_group: Órgão/Instituição
+        local_area: Setor
+        meta_scope: Selecione o Status deste processo participativo
+        target: Responsável pela consulta
+        participatory_scope: Link da publicação do processo no DOU
+        publish_date: Data de publicação do processo no DOU
+        hashtag: Palavras-chave
+        description: Resumo do Processo Participativo
+        hero_image: Imagem de capa (mobile)
+        banner_image: Imagem de capa (desktop)
+        participatory_structure: Telefone ou E-mail Institucional do Setor
+        show_statistics: Mostrar Dados Participativos
+        should_have_user_full_profile: Exigir Perfil de Usuário completo para responder o formulário
+        show_mobilization: Mostrar mobilização
+        is_template: É um processo template?
       participatory_process_partner:
         link: Link oficial
         logo: Logotipo
@@ -22,9 +47,34 @@ pt-BR:
         title: Título
       assembly:
         initial_page_component_id: Página Principal da Assembléia
-      participatory_process:
-        initial_page_component_id: Página Principal do Processo
+      participatory_space_user_proposals_statistic_setting:
+        name: Nome
+        proposals_done_weight: Peso das Propostas Criadas
+        comments_done_weight: Peso dos Comentários Feitos
+        votes_done_weight: Peso dos Votos Dados
+        follows_done_weight: Peso dos Follows Dados
+        votes_received_weight: Peso dos Votos Recebidos
+        comments_received_weight: Peso dos Comentários Recebidos
+        follows_received_weight: Peso dos Follows Recebidos
+        users_to_be_exported: Tamanho do Ranking de Usuários
+      organization:
+        template_processes_ids: Processos para serem usados como Template
   decidim:
+    statistics:
+      headline: Dados Participativos
+    components:
+      proposals:
+        settings:
+          global:
+            vote_limit: Quantidade máxima de votos por usuário
+            minimum_votes_per_user: Quantidade mínima de votos por usuário
+            proposal_limit: Quantidade máxima de propostas por usuário (deixe 0 caso não queira limitar)
+            proposal_length: Quantidade máxima de caracteres por propostas
+            proposal_answering_enabled: Permitir que o órgão faça a devolutiva por proposta
+            official_proposals_enabled: Permitir que o órgão faça propostas oficiais
+            comments_enabled: Permitir que usuários façam comentários nas propostas
+            comments_max_length: Quantidade máxima de caracteres por comentário (deixe 0 para não limitar)
+            attachments_allowed: Permitir que o órgão crie propostas com anexos
     govbr:
       initial_page_type:
         default: Página Padrão
@@ -43,7 +93,17 @@ pt-BR:
             title: Organizadores e Apoiadores
         participatory_processes:
           form:
+            metadata: Dados do Processo
             initial_page_component_id_help: Selecione qual componente será utilizado como a página principal deste Processo. Apenas Páginas Estáticas e Páginas Iniciais serão exibidas aqui como opção. Caso não queira uma página inicial customizada, deixe marcada a opção "Página Padrão"
+            group_chat_id_help: Coloque o ID do grupo de chat que será utilizado para este processo.
+            hash_tag_help: Adicione palavras-chave separadas por vírgulas para identificar este processo nos campos de pesquisa.
+            slug_help: "A URL amigável é usada para gerar a URL para acessar o processo participativo. Apenas aceita letra, números e traços, e deve começar com uma letra. Exemplo: %{url}"
+            duration: Prazo do Processo Participativo
+            select_process_group: Selecione um Orgão/Instituição
+            select_an_area: Selecione um Secretaria
+        participatory_process_group_users:
+          index:
+            title: Usuários Membros do Grupo
     forms:
       admin:
         models:
@@ -58,6 +118,18 @@ pt-BR:
         show:
           topp_agreement: Concordo com a política de privacidade
     admin:
+      participatory_process_copies:
+        new:
+          copy: Salvar
+          select: Opções Avançadas
+          title: Criar Processo a Partir de %{subject} (%{subject_title})
+          template: Template
+          process: Processo Existente
+      actions:
+        participatory_process_group_user:
+          confirm_destroy: Realmente deseja remover este usuário do grupo? Ao fazer isso, este usuário perderá todos seus papeis relacionados aos processos vinculados ao grupo.
+        create: Criar
+        update: Atualizar %{name}
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Pesquisar %{collection} por e-mail, nome, nome de usuário ou CPF.
@@ -65,7 +137,11 @@ pt-BR:
         assemblies_submenu:
           partners: Organizadores e Apoiadores
           media_links: Links de Multimídia
+        participatory_processes_submenu:
+          user_proposals_statistic_settings: Relatórios de Participação dos Usuários
       models:
+        participatory_process_group_user:
+          name: Usuário Membro do Grupo
         partner:
           types:
             supporter: Apoiador
@@ -75,6 +151,21 @@ pt-BR:
             date: Data
             link: Link
             title: Título
+        user_proposals_statistic_setting:
+          name: Relatório de Participação dos Usuários
+          fields:
+            name: Nome
+            proposals_done_weight: Peso das Propostas Criadas
+            comments_done_weight: Peso dos Comentários Feitos
+            votes_done_weight: Peso dos Votos Dados
+            follows_done_weight: Peso dos Follows Dados
+            votes_received_weight: Peso dos Votos Recebidos
+            comments_received_weight: Peso dos Comentários Recebidos
+            follows_received_weight: Peso dos Follows Recebidos
+            users_to_be_exported: Tamanho do Ranking de Usuários
+            created_at: Criado em
+            updated_at: Editado em
+            statistics_data_updated_at: Ranking Atualizado em
       partners:
         update:
           success: Parceiro atualizado com sucesso
@@ -85,6 +176,36 @@ pt-BR:
         destroy:
           success: Parceiro excluído com sucesso
           error: Não foi possível excluir o parceiro
+      user_proposals_statistic_settings:
+        index:
+          user_proposals_statistic_settings_title: Relatórios de Participação dos Usuários
+          statistics_data_updated_at_blank: Nunca
+        create:
+          success: Relatório de Participação de Usuários criado com sucesso
+          error: Não foi possível criar o Relatório de Participação de Usuários
+        update:
+          success: Relatório de Participação de Usuários editado com sucesso
+          error: Não foi possível editar o Relatório de Participação de Usuários
+        destroy:
+          success: Relatório de Participação de Usuários excluído com sucesso
+          error: Não foi possível excluir o Relatório de Participação de Usuários
+      user_proposals_statistic_setting:
+        new:
+          title: Novo Relatório de Participação dos Usuários
+          create: Criar
+        edit:
+          title: Editar Relatório de Participação dos Usuários
+          update: Salvar
+      participatory_process_group_users:
+        create:
+          success: Usuário adicionado ao grupo com sucesso
+          error: Não foi possível adicionar o usuário ao grupo
+        destroy:
+          success: Usuário foi removido do grupo com sucesso
+          error: Não foi possível remover o usuário do grupo
+        update:
+          success: Usuário do grupo atualizado com sucesso
+          error: Não foi possível atulizar o usuário do grupo
     admin_log:
       govbr:
         partner:
@@ -95,6 +216,23 @@ pt-BR:
           create: "%{user_name} criou o link externo %{resource_name} no espaço participativo %{space_name}"
           delete: "%{user_name} removeu o link externo %{resource_name} do espaço participativo %{space_name}"
           update: "%{user_name} atualizou o link externo %{resource_name} do espaço participativo %{space_name}"
+        user_proposals_statistic_setting:
+          create: "%{user_name} criou o relatório de participação de usuários %{resource_name} no espaço participativo %{space_name}"
+          delete: "%{user_name} removeu o relatório de participação de usuários %{resource_name} do espaço participativo %{space_name}"
+          update: "%{user_name} atualizou o relatório de participação de usuários %{resource_name} do espaço participativo %{space_name}"
+    proposals:
+      admin:
+        participatory_texts:
+          section:
+            levels:
+              section: Seção
+              sub-section: Subseção
+              article: Artigo
+      proposals:
+        comments_count:
+          count:
+            one: COMENTÁRIO
+            other: COMENTÁRIOS
   layouts:
     decidim:
       assembly_navigation:
@@ -121,11 +259,59 @@ pt:
         date: Data
         link: Link
         title: Título
+      participatory_process_group_user:
+        email: E-mail do Usuário
+        role: Cargo
       assembly:
-        initial_page_component_id: Página Principal da Assembléia
+        initial_page_component_id: Página Inicial da Assembléia
       participatory_process:
-        initial_page_component_id: Página Principal do Processo
+        initial_page_component_id: Página Inicial do Processo Participativo
+        scope_id: Áreas de interesse
+        scopes_enabled: Áreas de interesse ativadas
+        slug: URL Amigável
+        developer_group: Órgão/Instituição
+        local_area: Setor
+        meta_scope: Status do Processo
+        target: Responsável pela consulta
+        participatory_scope: Publicação no DOU (DIA E LINK DA PUBLICAÇÃO)
+        area_id: Órgão/Instituição
+        decidim_area_id: Órgão/Instituição
+        hashtag: Palavras-chave
+        description: Resumo do Processo Participativo
+        hero_image: Imagem de capa (mobile)
+        banner_image: Imagem de capa (desktop)
+        participatory_structure: Telefone ou E-mail Institucional do Setor
+        participatory_process_group_id: Setor
+        show_statistics: Mostrar Dados Participativos
+        should_have_user_full_profile: Exigir Perfil de Usuário completo para responder o formulário
+        show_mobilization: Mostrar mobilização
+        is_template: É um processo template?
+      participatory_space_user_proposals_statistic_setting:
+        name: Nome
+        proposals_done_weight: Peso das Propostas Criadas
+        comments_done_weight: Peso dos Comentários Feitos
+        votes_done_weight: Peso dos Votos Dados
+        follows_done_weight: Peso dos Follows Dados
+        votes_received_weight: Peso dos Votos Recebidos
+        comments_received_weight: Peso dos Comentários Recebidos
+        follows_received_weight: Peso dos Follows Recebidos
+        users_to_be_exported: Tamanho do Ranking de Usuários
+      organization:
+        template_processes_ids: Processos para serem usados como Template
   decidim:
+    components:
+      proposals:
+        settings:
+          global:
+            vote_limit: Quantidade máxima de votos por usuário
+            minimum_votes_per_user: Quantidade mínima de votos por usuário
+            proposal_limit: Quantidade máxima de propostas por usuário (deixe 0 caso não queira limitar)
+            proposal_length: Quantidade máxima de caracteres por propostas
+            proposal_answering_enabled: Permitir que o órgão faça a devolutiva por proposta
+            official_proposals_enabled: Permitir que o órgão faça propostas oficiais
+            comments_enabled: Permitir que usuários façam comentários nas propostas
+            comments_max_length: Quantidade máxima de caracteres por comentário (deixe 0 para não limitar)
+            attachments_allowed: Permitir que o órgão crie propostas com anexos
     govbr:
       initial_page_type:
         default: Página Padrão
@@ -145,6 +331,16 @@ pt:
         participatory_processes:
           form:
             initial_page_component_id_help: Selecione qual componente será utilizado como a página principal deste Processo. Apenas Páginas Estáticas e Páginas Iniciais serão exibidas aqui como opção. Caso não queira uma página inicial customizada, deixe marcada a opção "Página Padrão"
+            metadata: Dados do Processo
+            group_chat_id_help: Coloque o ID do grupo de chat que será utilizado para este processo.
+            hash_tag_help: Adicione palavras-chave separadas por vírgulas para identificar este processo nos campos de pesquisa.
+            slug_help: "A URL amigável é usada para gerar a URL para acessar o processo participativo. Apenas aceita letra, números e traços, e deve começar com uma letra. Exemplo: %{url}"
+            duration: Prazo do Processo Participativo
+            select_process_group: Selecione um Setor
+            select_an_area: Selecione um Orgão/Instituição
+        participatory_process_group_users:
+          index:
+            title: Usuários Membros do Grupo
     forms:
       admin:
         models:
@@ -159,18 +355,42 @@ pt:
         show:
           topp_agreement: Concordo com a política de privacidade
     admin:
+      participatory_process_copies:
+        new:
+          copy: Salvar
+          select: Opções Avançadas
+          title: Criar Processo a Partir de %{subject} (%{subject_title})
+          template: Template
+          process: Processo Existente
+      participatory_texts:
+        is_interactive: Interação habilitada
+      actions:
+        participatory_process_group_user:
+          confirm_destroy: Realmente deseja remover este usuário do grupo? Ao fazer isso, este usuário perderá todos seus papeis relacionados aos processos vinculados ao grupo.
+        create: Criar
+        update: Atualizar %{name}
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Pesquisar %{collection} por e-mail, nome, nome de usuário ou CPF.
       components:
+        proposals:
+          actions:
+            new: Novo(a) %{name}
+        meetings:
+          actions:
+            new: "Novo(a) %{singular_name}"
         form:
-          pluralized_name_field: Preencha com o nome no plural
+          pluralized_name_field: "Preencha com o nome que represente o conjunto desse componente. Exemplo de nome para componente Moção: Moções"
           name_field: Preencha com o nome no singular
       menu:
         assemblies_submenu:
           partners: Organizadores e Apoiadores
           media_links: Links de Multimídia
+        participatory_processes_submenu:
+          user_proposals_statistic_settings: Relatórios de Participação dos Usuários
       models:
+        participatory_process_group_user:
+          name: Usuário Membro do Grupo
         partner:
           types:
             supporter: Apoiador
@@ -180,6 +400,61 @@ pt:
             date: Data
             link: Link
             title: Título
+        user_proposals_statistic_setting:
+          name: Relatório de Participação dos Usuários
+          fields:
+            name: Nome
+            proposals_done_weight: Peso das Propostas Criadas
+            comments_done_weight: Peso dos Comentários Feitos
+            votes_done_weight: Peso dos Votos Dados
+            follows_done_weight: Peso dos Follows Dados
+            votes_received_weight: Peso dos Votos Recebidos
+            comments_received_weight: Peso dos Comentários Recebidos
+            follows_received_weight: Peso dos Follows Recebidos
+            users_to_be_exported: Tamanho do Ranking de Usuários
+            created_at: Criado em
+            updated_at: Editado em
+            statistics_data_updated_at: Ranking Atualizado em
+      user_proposals_statistic_settings:
+        index:
+          user_proposals_statistic_settings_title: Relatórios de Participação dos Usuários
+          statistics_data_updated_at_blank: Nunca
+        create:
+          success: Relatório de Participação de Usuários criado com sucesso
+          error: Não foi possível criar o Relatório de Participação de Usuários
+        update:
+          success: Relatório de Participação de Usuários editado com sucesso
+          error: Não foi possível editar o Relatório de Participação de Usuários
+        destroy:
+          success: Relatório de Participação de Usuários excluído com sucesso
+          error: Não foi possível excluir o Relatório de Participação de Usuários
+      user_proposals_statistic_setting:
+        new:
+          title: Novo Relatório de Participação dos Usuários
+          create: Criar
+        edit:
+          title: Editar Relatório de Participação dos Usuários
+          update: Salvar
+      partners:
+        update:
+          success: Parceiro atualizado com sucesso
+          error: Não foi possível atualizar o parceiro
+        create:
+          success: Parceiro criado com sucesso
+          error: Não foi possível criar o parceiro
+        destroy:
+          success: Parceiro excluído com sucesso
+          error: Não foi possível excluir o parceiro
+      participatory_process_group_users:
+        create:
+          success: Usuário adicionado ao grupo com sucesso
+          error: Não foi possível adicionar o usuário ao grupo
+        destroy:
+          success: Usuário foi removido do grupo com sucesso
+          error: Não foi possível remover o usuário do grupo
+        update:
+          success: Usuário do grupo atualizado com sucesso
+          error: Não foi possível atulizar o usuário do grupo
     admin_log:
       govbr:
         partner:
@@ -190,6 +465,10 @@ pt:
           create: "%{user_name} criou o link externo %{resource_name} no espaço participativo %{space_name}"
           delete: "%{user_name} removeu o link externo %{resource_name} do espaço participativo %{space_name}"
           update: "%{user_name} atualizou o link externo %{resource_name} do espaço participativo %{space_name}"
+        user_proposals_statistic_setting:
+          create: "%{user_name} criou o relatório de participação de usuários %{resource_name} no espaço participativo %{space_name}"
+          delete: "%{user_name} removeu o relatório de participação de usuários %{resource_name} do espaço participativo %{space_name}"
+          update: "%{user_name} atualizou o relatório de participação de usuários %{resource_name} do espaço participativo %{space_name}"
     components:
       proposals:
         actions:
@@ -204,6 +483,12 @@ pt:
             when_empty: Reuniões
     proposals:
       admin:
+        participatory_texts:
+          section:
+            levels:
+              section: Seção
+              sub-section: Subseção
+              article: Artigo
         when_empty: Proposta
         proposals:
           pluralized_name:
@@ -211,6 +496,10 @@ pt:
           singular_name:
             when_empty: Proposta
       proposals:
+        comments_count:
+          count:
+            one: COMENTÁRIO
+            other: COMENTÁRIOS
         count:
           proposals_count:
             one: "%{count} %{singular_name}"
@@ -247,10 +536,26 @@ en:
         date: Date
         link: Link
         title: Title
+      participatory_process_group_user:
+        email: User E-mail
+        role: Role
       assembly:
         initial_page_component_id: The Assembly Main Page
       participatory_process:
         initial_page_component_id: The Process Main Page
+        is_template: Is a process template?
+      participatory_space_user_proposals_statistic_setting:
+        name: Name
+        proposals_done_weight: Proposals Done Weight
+        comments_done_weight: Comments Done Weight
+        votes_done_weight: Votes Done Weight
+        follows_done_weight: Follows Done Weight
+        votes_received_weight: Votes Received Weight
+        comments_received_weight: Comments Received Weight
+        follows_received_weight: Follows Received Weight
+        users_to_be_exported: Users Ranking Size
+      organization:
+        template_processes_ids: Processes to be used as Templates
   decidim:
     govbr:
       initial_page_type:
@@ -263,14 +568,19 @@ en:
         assemblies:
           form:
             initial_page_component_id_help: Select the component to be used as the assembly main page. Only Static Pages and Initial Pages are displayed here as options. If a custom main page is not necessary, keep the option "Default Page" selected.
-        participatory_processes:
-          form:
-            initial_page_component_id_help: Select the component to be used as the process main page. Only Static Pages and Initial Pages are displayed here as options. If a custom main page is not necessary, keep the option "Default Page" selected.
     participatory_processes:
       admin:
         partners:
           index:
             title: Organizers and Supporters
+        participatory_processes:
+          form:
+            initial_page_component_id_help: Select the component to be used as the process main page. Only Static Pages and Initial Pages are displayed here as options. If a custom main page is not necessary, keep the option "Default Page" selected.
+            group_chat_id_help: The Telegram group ID to be used on this process
+            hash_tag_help: The key-words to be used to identify this process on searching
+        participatory_process_group_users:
+          index:
+            title: Group Member Users
     forms:
       admin:
         models:
@@ -285,6 +595,18 @@ en:
         show:
           topp_agreement: I agree with the privacy policy
     admin:
+      participatory_process_copies:
+        new:
+          copy: Save
+          select: Advanced Options
+          title: Create Process based on a %{subject} (%{subject_title})
+          template: Template
+          process: Existing Process
+      actions:
+        participatory_process_group_user:
+          confirm_destroy: Do you really want to remove this user from the group? This action is going to revoke all user roles in the processes associated with this group.
+        create: Create
+        update: Update %{name}
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Search %{collection} by email, name, nickname or identification number.
@@ -292,7 +614,11 @@ en:
         assemblies_submenu:
           partners: Organizers and Supporters
           media_links: Media Links
+        participatory_processes_submenu:
+          user_proposals_statistic_settings: Users Participation Reports
       models:
+        participatory_process_group_user:
+          name: Group Member User
         partner:
           types:
             supporter: Supporter
@@ -302,6 +628,61 @@ en:
             date: Date
             link: Link
             title: Title
+        user_proposals_statistic_setting:
+          name: Users Participation Report
+          fields:
+            name: Name
+            proposals_done_weight: Proposals Done Weight
+            comments_done_weight: Comments Done Weight
+            votes_done_weight: Votes Done Weight
+            follows_done_weight: Follows Done Weight
+            votes_received_weight: Votes Received Weight
+            comments_received_weight: Comments Received Weight
+            follows_received_weight: Follows Received Weight
+            users_to_be_exported: Users Ranking Size
+            created_at: Created at
+            updated_at: Updated at
+            statistics_data_updated_at: Ranking Refreshed at
+      user_proposals_statistic_settings:
+        index:
+          user_proposals_statistic_settings_title: Users Participation Reports
+          statistics_data_updated_at_blank: Never
+        create:
+          success: Users Participation Report created successfully
+          error: Could not create the Users Participation Report
+        update:
+          success: Users Participation Report edited successfully
+          error: Could not edit the Users Participation Report
+        destroy:
+          success: Users Participation Report removed successfully
+          error: Could not remove the Users Participation Report
+      user_proposals_statistic_setting:
+        new:
+          title: New Users Participation Report
+          create: Create
+        edit:
+          title: Edit Users Participation Report
+          update: Save
+      partners:
+        update:
+          success: Partner updated successfully
+          error: Could not update partner
+        create:
+          success: Partner created successfully
+          error: Could not create partner
+        destroy:
+          success: Partner delete successfully
+          error: Could not delete partner
+      participatory_process_group_users:
+        create:
+          success: User added to the group successfully
+          error: Could not add user to the group
+        destroy:
+          success: User removed from the group successfully
+          error: Could not remove user from the group
+        update:
+          success: Group user updated successfully
+          error: Could not update group user
     admin_log:
       govbr:
         partner:
@@ -312,6 +693,23 @@ en:
           create: "%{user_name} created an external link %{resource_name} in the participatory space %{space_name}"
           delete: "%{user_name} removed the external link %{resource_name} from the participatory space %{space_name}"
           update: "%{user_name} updated the external link %{resource_name} from the participatory space %{space_name}"
+        user_proposals_statistic_setting:
+          create: "%{user_name} created an user participation report %{resource_name} in the participatory space %{space_name}"
+          delete: "%{user_name} removed the user participation report %{resource_name} from the participatory space %{space_name}"
+          update: "%{user_name} updated the user participation report %{resource_name} from the participatory space %{space_name}"
+    proposals:
+      admin:
+        participatory_texts:
+          section:
+            levels:
+              section: Section
+              sub-section: Sub Section
+              article: Article
+      proposals:
+        comments_count:
+          count:
+            one: COMMENT
+            other: COMMENTS
   layouts:
     decidim:
       assembly_navigation:
@@ -338,10 +736,26 @@ es-MX:
         date: Fecha
         link: Enlace
         title: Título
+      participatory_process_group_user:
+        email: Dirección de Correo Electrónico del Usuario
+        role: Role
       assembly:
         initial_page_component_id: La página Principal de la Asamblea
       participatory_process:
         initial_page_component_id: La página Principal del Proceso
+        is_template: Es una plantilla?
+      participatory_space_user_proposals_statistic_setting:
+        name: Nombre
+        proposals_done_weight: Peso de Propuestas Realizadas
+        comments_done_weight: Peso de Comentarios Realizados
+        votes_done_weight: Peso de los Votos Realizados
+        follows_done_weight: Peso de los Follows Realizados
+        votes_received_weight: Peso de los Votos Recebidos
+        comments_received_weight: Peso de los Comentarios Recebidos
+        follows_received_weight: Peso de los Follows Recebidos
+        users_to_be_exported: Tamaño de Clasificación de Usuarios
+      organization:
+        template_processes_ids: Procesos a utilizar como Plantillas
   decidim:
     govbr:
       initial_page_type:
@@ -362,6 +776,11 @@ es-MX:
         participatory_processes:
           form:
             initial_page_component_id_help: Seleccione el componente que se utilizará como página principal del proceso. Aquí sólo se muestran como opciones Páginas estáticas y Páginas iniciales. Si no es necesaria una página principal personalizada, mantenga seleccionada la opción "Página Predeterminada".
+            group_chat_id_help: El ID del grupo de Telegram que se utilizará en este proceso.
+            hash_tag_help: Las palabras clave que se utilizarán para identificar este proceso en la búsqueda.
+        participatory_process_group_users:
+          index:
+            title: Usuarios Miembros del Grupo
     forms:
       admin:
         models:
@@ -376,6 +795,18 @@ es-MX:
         show:
           topp_agreement: Estoy de acuerdo con la política de privacidad
     admin:
+      participatory_process_copies:
+        new:
+          copy: Guardar
+          select: Opciones Avanzadas
+          title: Crear proceso basado en %{subject} (%{subject_title})
+          template: Plantilla
+          process: Proceso existente
+      actions:
+        participatory_process_group_user:
+          confirm_destroy: ¿Realmente deseas eliminar a este usuario del grupo? Esta acción revocará todos los roles de usuario en los procesos asociados con este grupo.
+        create: Crear
+        update: Actualizar %{name}
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Buscar %{collection} por correo electrónico, nombre o alias.
@@ -383,7 +814,11 @@ es-MX:
         assemblies_submenu:
           partners: Organizadores y Simpatizantes
           media_links: Enlaces de Medios
+        participatory_processes_submenu:
+          user_proposals_statistic_settings: Informes de Participación de los Usuarios
       models:
+        participatory_process_group_user:
+          name: Usuario Miembro del Grupo
         partner:
           types:
             supporter: Simpatizantes
@@ -393,6 +828,61 @@ es-MX:
             date: Fecha
             link: Enlace
             title: Título
+        user_proposals_statistic_setting:
+          name: Informe de Participación de los Usuarios
+          fields:
+            name: Nombre
+            proposals_done_weight: Peso de Propuestas Realizadas
+            comments_done_weight: Peso de Comentarios Realizados
+            votes_done_weight: Peso de los Votos Realizados
+            follows_done_weight: Peso de los Follows Realizados
+            votes_received_weight: Peso de los Votos Recebidos
+            comments_received_weight: Peso de los Comentarios Recebidos
+            follows_received_weight: Peso de los Follows Recebidos
+            users_to_be_exported: Tamaño de Clasificación de Usuarios
+            created_at: Creado en
+            updated_at: Actualizado en
+            statistics_data_updated_at: Clasificación Actualizada en
+      user_proposals_statistic_settings:
+        index:
+          user_proposals_statistic_settings_title: Informes de Participación de los Usuarios
+          statistics_data_updated_at_blank: Nunca
+        create:
+          success: Informe de Participación de los Usuarios creado con éxito
+          error: No fue posible crear el Informe de Participación de los Usuarios
+        update:
+          success: Informe de Participación de los Usuarios editado con éxito
+          error: No fue posible editar el Informe de Participación de los Usuarios
+        destroy:
+          success: Informe de Participación de los Usuarios eliminado con éxito
+          error: No fue posible eliminar el Informe de Participación de los Usuarios
+      user_proposals_statistic_setting:
+        new:
+          title: Nuevo Informe de Participación de los Usuarios
+          create: Crear
+        edit:
+          title: Editar el Informe de Participación de los Usuarios
+          update: Actualizar
+      partners:
+        update:
+          success: Colaborador actualizado exitosamente
+          error: No se pudo actualizar el colaborador
+        create:
+          success: Colaborador creado con éxito
+          error: No se pudo crear el colaborador
+        destroy:
+          success: Colaborador eliminado con éxito
+          error: No se pudo eliminar el colaborador
+      participatory_process_group_users:
+        create:
+          success: Usuario agregado al grupo exitosamente
+          error: No se pudo agregar usuario al grupo
+        destroy:
+          success: Usuario eliminado del grupo con éxito
+          error: No se pudo eliminar el usuario del grupo
+        update:
+          success: Usuario del grupo actualizado con éxito
+          error: No se pudo actualizar el usuario del grupo
     admin_log:
       govbr:
         partner:
@@ -403,6 +893,23 @@ es-MX:
           create: "%{user_name} creó un enlace externo %{resource_name} en el espacio participativo %{space_name}"
           delete: "%{user_name} eliminó el enlace externo %{resource_name} del espacio participativo %{space_name}"
           update: "%{user_name} actualizó el enlace externo %{resource_name} del espacio participativo %{space_name}"
+        user_proposals_statistic_setting:
+          create: "%{user_name} creó un informe de participación de los usuarios %{resource_name} en el espacio participativo %{space_name}"
+          delete: "%{user_name} eliminó el informe de participación de los usuarios %{resource_name} del espacio participativo %{space_name}"
+          update: "%{user_name} actualizó el informe de participación de los usuarios %{resource_name} del espacio participativo %{space_name}"
+    proposals:
+      admin:
+        participatory_texts:
+          section:
+            levels:
+              section: Sección
+              sub-section: Subsección
+              article: Artículo
+      proposals:
+        comments_count:
+          count:
+            one: COMENTARIO
+            other: COMENTARIOS
   layouts:
     decidim:
       assembly_navigation:
@@ -429,10 +936,26 @@ es-PY:
         date: Fecha
         link: Enlace
         title: Título
+      participatory_process_group_user:
+        email: Dirección de Correo Electrónico del Usuario
+        role: Role
       assembly:
         initial_page_component_id: La página Principal de la Asamblea
       participatory_process:
         initial_page_component_id: La página Principal del Proceso
+        is_template: Es una plantilla?
+      participatory_space_user_proposals_statistic_setting:
+        name: Nombre
+        proposals_done_weight: Peso de Propuestas Realizadas
+        comments_done_weight: Peso de Comentarios Realizados
+        votes_done_weight: Peso de los Votos Realizados
+        follows_done_weight: Peso de los Follows Realizados
+        votes_received_weight: Peso de los Votos Recebidos
+        comments_received_weight: Peso de los Comentarios Recebidos
+        follows_received_weight: Peso de los Follows Recebidos
+        users_to_be_exported: Tamaño de Clasificación de Usuarios
+      organization:
+        template_processes_ids: Procesos a utilizar como Plantillas
   decidim:
     govbr:
       initial_page_type:
@@ -453,6 +976,11 @@ es-PY:
         participatory_processes:
           form:
             initial_page_component_id_help: Seleccione el componente que se utilizará como página principal del proceso. Aquí sólo se muestran como opciones Páginas estáticas y Páginas iniciales. Si no es necesaria una página principal personalizada, mantenga seleccionada la opción "Página Predeterminada".
+            group_chat_id_help: El ID del grupo de Telegram que se utilizará en este proceso.
+            hash_tag_help: Las palabras clave que se utilizarán para identificar este proceso en la búsqueda.
+        participatory_process_group_users:
+          index:
+            title: Usuarios Miembros del Grupo
     forms:
       admin:
         models:
@@ -467,6 +995,18 @@ es-PY:
         show:
           topp_agreement: Estoy de acuerdo con la política de privacidad
     admin:
+      participatory_process_copies:
+        new:
+          copy: Guardar
+          select: Opciones Avanzadas
+          title: Crear proceso basado en %{subject} (%{subject_title})
+          template: Plantilla
+          process: Proceso existente
+      actions:
+        participatory_process_group_user:
+          confirm_destroy: ¿Realmente deseas eliminar a este usuario del grupo? Esta acción revocará todos los roles de usuario en los procesos asociados con este grupo.
+        create: Crear
+        update: Actualizar %{name}
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Buscar %{collection} por correo electrónico, nombre o alias.
@@ -474,7 +1014,11 @@ es-PY:
         assemblies_submenu:
           partners: Organizadores y Simpatizantes
           media_links: Enlaces de Medios
+        participatory_processes_submenu:
+          user_proposals_statistic_settings: Informes de Participación de los Usuarios
       models:
+        participatory_process_group_user:
+          name: Usuario Miembro del Grupo
         partner:
           types:
             supporter: Simpatizantes
@@ -484,6 +1028,61 @@ es-PY:
             date: Fecha
             link: Enlace
             title: Título
+        user_proposals_statistic_setting:
+          name: Informe de Participación de los Usuarios
+          fields:
+            name: Nombre
+            proposals_done_weight: Peso de Propuestas Realizadas
+            comments_done_weight: Peso de Comentarios Realizados
+            votes_done_weight: Peso de los Votos Realizados
+            follows_done_weight: Peso de los Follows Realizados
+            votes_received_weight: Peso de los Votos Recebidos
+            comments_received_weight: Peso de los Comentarios Recebidos
+            follows_received_weight: Peso de los Follows Recebidos
+            users_to_be_exported: Tamaño de Clasificación de Usuarios
+            created_at: Creado en
+            updated_at: Actualizado en
+            statistics_data_updated_at: Clasificación Actualizada en
+      user_proposals_statistic_settings:
+        index:
+          user_proposals_statistic_settings_title: Informes de Participación de los Usuarios
+          statistics_data_updated_at_blank: Nunca
+        create:
+          success: Informe de Participación de los Usuarios creado con éxito
+          error: No fue posible crear el Informe de Participación de los Usuarios
+        update:
+          success: Informe de Participación de los Usuarios editado con éxito
+          error: No fue posible editar el Informe de Participación de los Usuarios
+        destroy:
+          success: Informe de Participación de los Usuarios eliminado con éxito
+          error: No fue posible eliminar el Informe de Participación de los Usuarios
+      user_proposals_statistic_setting:
+        new:
+          title: Nuevo Informe de Participación de los Usuarios
+          create: Crear
+        edit:
+          title: Editar el Informe de Participación de los Usuarios
+          update: Actualizar
+      partners:
+        update:
+          success: Colaborador actualizado exitosamente
+          error: No se pudo actualizar el colaborador
+        create:
+          success: Colaborador creado con éxito
+          error: No se pudo crear el colaborador
+        destroy:
+          success: Colaborador eliminado con éxito
+          error: No se pudo eliminar el colaborador
+      participatory_process_group_users:
+        create:
+          success: Usuario agregado al grupo exitosamente
+          error: No se pudo agregar usuario al grupo
+        destroy:
+          success: Usuario eliminado del grupo con éxito
+          error: No se pudo eliminar el usuario del grupo
+        update:
+          success: Usuario del grupo actualizado con éxito
+          error: No se pudo actualizar el usuario del grupo
     admin_log:
       govbr:
         partner:
@@ -494,6 +1093,23 @@ es-PY:
           create: "%{user_name} creó un enlace externo %{resource_name} en el espacio participativo %{space_name}"
           delete: "%{user_name} eliminó el enlace externo %{resource_name} del espacio participativo %{space_name}"
           update: "%{user_name} actualizó el enlace externo %{resource_name} del espacio participativo %{space_name}"
+        user_proposals_statistic_setting:
+          create: "%{user_name} creó un informe de participación de los usuarios %{resource_name} en el espacio participativo %{space_name}"
+          delete: "%{user_name} eliminó el informe de participación de los usuarios %{resource_name} del espacio participativo %{space_name}"
+          update: "%{user_name} actualizó el informe de participación de los usuarios %{resource_name} del espacio participativo %{space_name}"
+    proposals:
+      admin:
+        participatory_texts:
+          section:
+            levels:
+              section: Sección
+              sub-section: Subsección
+              article: Artículo
+      proposals:
+        comments_count:
+          count:
+            one: COMENTARIO
+            other: COMENTARIOS
   layouts:
     decidim:
       assembly_navigation:
@@ -520,10 +1136,26 @@ es:
         date: Fecha
         link: Enlace
         title: Título
+      participatory_process_group_user:
+        email: Dirección de Correo Electrónico del Usuario
+        role: Role
       assembly:
         initial_page_component_id: La página Principal de la Asamblea
       participatory_process:
         initial_page_component_id: La página Principal del Proceso
+        is_template: Es una plantilla?
+      participatory_space_user_proposals_statistic_setting:
+        name: Nombre
+        proposals_done_weight: Peso de Propuestas Realizadas
+        comments_done_weight: Peso de Comentarios Realizados
+        votes_done_weight: Peso de los Votos Realizados
+        follows_done_weight: Peso de los Follows Realizados
+        votes_received_weight: Peso de los Votos Recebidos
+        comments_received_weight: Peso de los Comentarios Recebidos
+        follows_received_weight: Peso de los Follows Recebidos
+        users_to_be_exported: Tamaño de Clasificación de Usuarios
+      organization:
+        template_processes_ids: Procesos a utilizar como Plantillas
   decidim:
     govbr:
       initial_page_type:
@@ -544,6 +1176,11 @@ es:
         participatory_processes:
           form:
             initial_page_component_id_help: Seleccione el componente que se utilizará como página principal del proceso. Aquí sólo se muestran como opciones Páginas estáticas y Páginas iniciales. Si no es necesaria una página principal personalizada, mantenga seleccionada la opción "Página Predeterminada".
+            group_chat_id_help: El ID del grupo de Telegram que se utilizará en este proceso.
+            hash_tag_help: Las palabras clave que se utilizarán para identificar este proceso en la búsqueda.
+        participatory_process_group_users:
+          index:
+            title: Usuarios Miembros del Grupo
     forms:
       admin:
         models:
@@ -558,6 +1195,18 @@ es:
         show:
           topp_agreement: Estoy de acuerdo con la política de privacidad
     admin:
+      participatory_process_copies:
+        new:
+          copy: Guardar
+          select: Opciones Avanzadas
+          title: Crear proceso basado en %{subject} (%{subject_title})
+          template: Plantilla
+          process: Proceso existente
+      actions:
+        participatory_process_group_user:
+          confirm_destroy: ¿Realmente deseas eliminar a este usuario del grupo? Esta acción revocará todos los roles de usuario en los procesos asociados con este grupo.
+        create: Crear
+        update: Actualizar %{name}
       filters:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Buscar %{collection} por correo electrónico, nombre o alias.
@@ -565,7 +1214,11 @@ es:
         assemblies_submenu:
           partners: Organizadores y Simpatizantes
           media_links: Enlaces de Medios
+        participatory_processes_submenu:
+          user_proposals_statistic_settings: Informes de Participación de los Usuarios
       models:
+        participatory_process_group_user:
+          name: Usuario Miembro del Grupo
         partner:
           types:
             supporter: Simpatizantes
@@ -575,6 +1228,61 @@ es:
             date: Fecha
             link: Enlace
             title: Título
+        user_proposals_statistic_setting:
+          name: Informe de Participación de los Usuarios
+          fields:
+            name: Nombre
+            proposals_done_weight: Peso de Propuestas Realizadas
+            comments_done_weight: Peso de Comentarios Realizados
+            votes_done_weight: Peso de los Votos Realizados
+            follows_done_weight: Peso de los Follows Realizados
+            votes_received_weight: Peso de los Votos Recebidos
+            comments_received_weight: Peso de los Comentarios Recebidos
+            follows_received_weight: Peso de los Follows Recebidos
+            users_to_be_exported: Tamaño de Clasificación de Usuarios
+            created_at: Creado en
+            updated_at: Actualizado en
+            statistics_data_updated_at: Clasificación Actualizada en
+      user_proposals_statistic_settings:
+        index:
+          user_proposals_statistic_settings_title: Informes de Participación de los Usuarios
+          statistics_data_updated_at_blank: Nunca
+        create:
+          success: Informe de Participación de los Usuarios creado con éxito
+          error: No fue posible crear el Informe de Participación de los Usuarios
+        update:
+          success: Informe de Participación de los Usuarios editado con éxito
+          error: No fue posible editar el Informe de Participación de los Usuarios
+        destroy:
+          success: Informe de Participación de los Usuarios eliminado con éxito
+          error: No fue posible eliminar el Informe de Participación de los Usuarios
+      user_proposals_statistic_setting:
+        new:
+          title: Nuevo Informe de Participación de los Usuarios
+          create: Crear
+        edit:
+          title: Editar el Informe de Participación de los Usuarios
+          update: Actualizar
+      partners:
+        update:
+          success: Colaborador actualizado exitosamente
+          error: No se pudo actualizar el colaborador
+        create:
+          success: Colaborador creado con éxito
+          error: No se pudo crear el colaborador
+        destroy:
+          success: Colaborador eliminado con éxito
+          error: No se pudo eliminar el colaborador
+      participatory_process_group_users:
+        create:
+          success: Usuario agregado al grupo exitosamente
+          error: No se pudo agregar usuario al grupo
+        destroy:
+          success: Usuario eliminado del grupo con éxito
+          error: No se pudo eliminar el usuario del grupo
+        update:
+          success: Usuario del grupo actualizado con éxito
+          error: No se pudo actualizar el usuario del grupo
     admin_log:
       govbr:
         partner:
@@ -585,6 +1293,23 @@ es:
           create: "%{user_name} creó un enlace externo %{resource_name} en el espacio participativo %{space_name}"
           delete: "%{user_name} eliminó el enlace externo %{resource_name} del espacio participativo %{space_name}"
           update: "%{user_name} actualizó el enlace externo %{resource_name} del espacio participativo %{space_name}"
+        user_proposals_statistic_setting:
+          create: "%{user_name} creó un informe de participación de los usuarios %{resource_name} en el espacio participativo %{space_name}"
+          delete: "%{user_name} eliminó el informe de participación de los usuarios %{resource_name} del espacio participativo %{space_name}"
+          update: "%{user_name} actualizó el informe de participación de los usuarios %{resource_name} del espacio participativo %{space_name}"
+    proposals:
+      admin:
+        participatory_texts:
+          section:
+            levels:
+              section: Sección
+              sub-section: Subsección
+              article: Artículo
+      proposals:
+        comments_count:
+          count:
+            one: COMENTARIO
+            other: COMENTARIOS
   layouts:
     decidim:
       assembly_navigation:

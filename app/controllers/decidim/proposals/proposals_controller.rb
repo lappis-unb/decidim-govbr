@@ -15,6 +15,7 @@ module Decidim
       include FilterResource
       include Decidim::Proposals::Orderable
       include Paginable
+      helper Decidim::Govbr::ParticipatoryProcessesHelper
 
       helper_method :proposal_presenter, :form_presenter
 
@@ -24,12 +25,9 @@ module Decidim
       before_action :edit_form, only: [:edit_draft, :edit]
 
       before_action :set_participatory_text
+      before_action :display_user_profile_poll_warning, only: [:index, :show]
 
       # rubocop:disable Naming/VariableNumber
-      STEP1 = :step_1
-      STEP2 = :step_2
-      STEP3 = :step_3
-      STEP4 = :step_4
       # rubocop:enable Naming/VariableNumber
 
       def index
@@ -73,24 +71,30 @@ module Decidim
 
       def new
         enforce_permission_to :create, :proposal
-        @step = STEP1
-        if proposal_draft.present?
-          redirect_to edit_draft_proposal_path(proposal_draft, component_id: proposal_draft.component.id, question_slug: proposal_draft.component.participatory_space.slug)
-        else
-          @form = form(ProposalWizardCreateStepForm).from_params(body: translated_proposal_body_template)
-        end
+
+        @form = form(ProposalForm).instance
       end
 
       def create
         enforce_permission_to :create, :proposal
-        @step = STEP1
-        @form = form(ProposalWizardCreateStepForm).from_params(proposal_creation_params)
+        @form = form(ProposalForm).from_params(proposal_creation_params)
+        @form.attachment = form_attachment_new
 
         CreateProposal.call(@form, current_user) do
-          on(:ok) do |proposal|
+          on(:ok) do
             flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
 
-            redirect_to "#{Decidim::ResourceLocatorPresenter.new(proposal).path}/compare"
+            PublishProposal.call(@proposal, current_user) do
+              on(:ok) do
+                flash[:notice] = I18n.t("proposals.publish.success", scope: "decidim")
+                redirect_to proposal_path(@proposal)
+              end
+
+              on(:invalid) do
+                flash.now[:alert] = I18n.t("proposals.publish.error", scope: "decidim")
+                render :edit_draft
+              end
+            end
           end
 
           on(:invalid) do
@@ -100,57 +104,39 @@ module Decidim
         end
       end
 
-      def compare
-        enforce_permission_to :edit, :proposal, proposal: @proposal
-        @step = STEP2
-        @similar_proposals ||= Decidim::Proposals::SimilarProposals
-                               .for(current_component, @proposal)
-                               .all
+      # def compare
+      #   enforce_permission_to :edit, :proposal, proposal: @proposal
+      #   @similar_proposals ||= Decidim::Proposals::SimilarProposals
+      #                          .for(current_component, @proposal)
+      #                          .all
 
-        if @similar_proposals.blank?
-          flash[:notice] = I18n.t("proposals.proposals.compare.no_similars_found", scope: "decidim")
-          redirect_to "#{Decidim::ResourceLocatorPresenter.new(@proposal).path}/complete"
-        end
-      end
+      #   if @similar_proposals.blank?
+      #     flash[:notice] = I18n.t("proposals.proposals.compare.no_similars_found", scope: "decidim")
+      #     redirect_to "#{Decidim::ResourceLocatorPresenter.new(@proposal).path}/complete"
+      #   end
+      # end
 
-      def complete
-        enforce_permission_to :edit, :proposal, proposal: @proposal
-        @step = STEP3
+      # def complete
+      #   enforce_permission_to :edit, :proposal, proposal: @proposal
 
-        @form = form_proposal_model
+      #   @form = form_proposal_model
 
-        @form.attachment = form_attachment_new
-      end
+      #   @form.attachment = form_attachment_new
+      # end
 
-      def preview
-        enforce_permission_to :edit, :proposal, proposal: @proposal
-        @step = STEP4
-        @form = form(ProposalForm).from_model(@proposal)
-      end
+      # def preview
+      #   enforce_permission_to :edit, :proposal, proposal: @proposal
+      # end
 
-      def publish
-        enforce_permission_to :edit, :proposal, proposal: @proposal
-        @step = STEP4
-        PublishProposal.call(@proposal, current_user) do
-          on(:ok) do
-            flash[:notice] = I18n.t("proposals.publish.success", scope: "decidim")
-            redirect_to proposal_path(@proposal)
-          end
-
-          on(:invalid) do
-            flash.now[:alert] = I18n.t("proposals.publish.error", scope: "decidim")
-            render :edit_draft
-          end
-        end
-      end
+      # def publish
+      #   enforce_permission_to :edit, :proposal, proposal: @proposal
+      # end
 
       def edit_draft
-        @step = STEP3
         enforce_permission_to :edit, :proposal, proposal: @proposal
       end
 
       def update_draft
-        @step = STEP1
         enforce_permission_to :edit, :proposal, proposal: @proposal
 
         @form = form_proposal_params
@@ -231,7 +217,7 @@ module Decidim
           with_any_origin: default_filter_origin_params,
           activity: "all",
           with_any_category: default_filter_category_params,
-          with_any_state: %w(accepted evaluating state_not_published),
+          with_any_state: %w(accepted rejected evaluating state_not_published),
           with_any_scope: default_filter_scope_params,
           related_to: "",
           type: "all"
@@ -305,6 +291,18 @@ module Decidim
 
       def proposal_creation_params
         params[:proposal].merge(body_template: translated_proposal_body_template)
+      end
+
+      def display_user_profile_poll_warning
+        return unless current_participatory_space.is_a? Decidim::ParticipatoryProcess
+
+        if current_participatory_space.should_have_user_full_profile && current_user.present? &&
+           !current_user.user_profile_poll_answered
+          survey_component_id = current_organization.user_profile_survey_id
+
+          flash[:alert] = I18n.t("decidim.components.proposals.actions.action_not_allowed")
+          flash[:poll_link] = "/processes/#{params[:participatory_process_slug]}/f/#{survey_component_id}"
+        end
       end
     end
   end

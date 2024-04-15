@@ -13,9 +13,15 @@
 
   <div class="order__by-text">
     <%= order_selector available_orders, i18n_scope: "decidim.proposals.proposals.orders" %>
-  </div>  
+  </div>
 </div>
 
+<div class="card-grid">
+  <% if flash[:alert].present? && !user_survey_answered? && current_participatory_space.should_have_user_full_profile %>
+    <span class="message-title"><%= flash[:alert] %></span>
+    <a target="_blank" href=<%= flash[:poll_link] %>> <%= t("decidim.forms.incomplete_profile") %></a>
+  <% end %>
+</div>
 <div class="card-grid proposals-content">
   <%= render @proposals %>
 
@@ -30,9 +36,11 @@
   </div>
 </div>
 
-<%= render partial: "decidim/shared/results_per_page" %>
-
-<%= decidim_paginate @proposals %>
+<div class="paginate-container">
+  <div class="empyt-div"></div>
+  <%= decidim_paginate @proposals %>
+  <%= render partial: "decidim/shared/results_per_page" %>
+</div>
 
 <div class="row">
   <div class="text-right">
