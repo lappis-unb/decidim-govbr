@@ -375,16 +375,18 @@ form.new_filter {
   align-items: center;
   gap: 8px;
   color: var(--blue-warm-vivid-80);
-  padding: 0.5rem 1rem;
   border-radius: 1rem;
+  border: 0;
+  margin-bottom: 4px;
   -webkit-border-radius: 1rem;
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
   -o-border-radius: 1rem;
 }
 
-.show-votes-rule-button:hover {
-  background-color: var(--blue-warm-10);
+.show-votes-rule-button i {
+  line-height: 0;
+  width: fit-content;
 }
 
 .voting-rules-title {

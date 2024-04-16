@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     rulesCard.classList.add("vote_rules_card_visible");
     rulesCard.offsetHeight;
     rulesCard.classList.add("show__rules__card");
-    showRulesCardButton.innerHTML = `<i class="fa-solid fa-info-circle fa-lg" style="color: var(--blue-warm-vivid-80);"></i> Esconder Regras`;
+    showRulesCardButton.innerHTML = `<i class="fa-solid fa-info-circle fa-lg" style="color: var(--blue-warm-vivid-80);"></i> Conheça as regras e os critérios para seleção de propostas <i class="fa-solid fa-chevron-up"></i>`;
   }
 
   function hideRulesCard() {
@@ -30,6 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
     rulesCard.classList.remove("vote_rules_card_visible");
     rulesCard.classList.remove("show__rules__card");
     rulesCard.classList.add("vote_rules_card_hidden");
-    showRulesCardButton.innerHTML = `<i class="fa-solid fa-info-circle fa-lg" style="color: var(--blue-warm-vivid-80);"></i> Conheça os critérios para a seleção de proposta`;
+    showRulesCardButton.innerHTML = `<i class="fa-solid fa-info-circle fa-lg" style="color: var(--blue-warm-vivid-80);"></i> Conheça as regras e os critérios para seleção de propostas <i class="fa-solid fa-chevron-down"></i>`;
   }
 });
