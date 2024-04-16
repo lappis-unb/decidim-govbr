@@ -117,10 +117,16 @@ pt-BR:
       user_answers_serializer:
         email: E-mail
         uid: CPF
-        anonymous_answer: Usuário não quis informar
+        anonymous_answer: Usuário não quis informar  
       questionnaires:
         show:
           topp_agreement: Concordo com a política de privacidade
+        questionnaire_form:
+          questionnaire_not_published:
+            body: Pré-visualização da enquete
+          current_step: Passo %{step}
+          of_total_steps: de %{total_steps}
+      
     admin:
       participatory_process_copies:
         new:
