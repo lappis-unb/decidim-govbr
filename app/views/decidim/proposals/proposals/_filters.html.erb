@@ -1,18 +1,16 @@
 <%= filter_form_for filter do |form| %>
-  <% if not browser.mobile? %>
-    <div class="filters__section br-input input-highlight">
-      <%= form.search_field :search_text_cont, type: "search",
+  <div class="filters__section br-input input-highlight">
+    <%= form.search_field :search_text_cont, type: "search",
         label: false, class: "input-group-field", placeholder: t("decidim.proposals.proposals.filters.placeholder", 
         name: translated_attribute(current_component.singular_name).present? ? 
         translated_attribute(current_component.singular_name).downcase : 
         "proposta"),
         "aria-label": "Buscar", id: "input-search-large",
         data: { disable_dynamic_change: true } %>
-      <button class="br-button" type="submit" aria-label="Buscar">
-        <i class="fas fa-search" aria-hidden="true"></i>
-      </button>
-    </div>
-  <% end %>
+    <button class="br-button" type="submit" aria-label="Buscar">
+      <i class="fas fa-search" aria-hidden="true"></i>
+    </button>
+  </div>
   <div>
     <span id="filter-btn-br" class="button">
       <i class="fa-solid fa-sliders fa-lg" style="color: var(--gray-80);"></i>
