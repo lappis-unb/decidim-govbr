@@ -1,8 +1,13 @@
 <div class="news-title-container">
-  <h1 class="page-title"><%= translated_attribute(current_component.name) %></h1>
-   <% if current_user && current_user.admin? %>
-   <%= link_to t("actions.new", scope: "decidim.blogs", name: t("models.post.name", scope: "decidim.blogs.admin")), send(current_component.mounted_admin_engine).new_post_path, class: "br-button secondary black-and-white-btn" %>
-   <% end %> 
+  <h1 class="page-title"><%= translated_attribute(current_component.name)  %></h1>
+  
+  <% if current_user && current_user.admin? %>
+  <%= link_to send(current_component.mounted_admin_engine).new_post_path, class: "br-button secondary black-and-white-btn" do %>
+    <i class="fa fa-solid fa-plus fa-md"></i>
+    <%= t("actions.new", scope: "decidim.blogs") %>
+  <% end %>
+<% end %>
+
 </div>
 <%= render partial: "medias-section" %>
 <% if browser.mobile? %>

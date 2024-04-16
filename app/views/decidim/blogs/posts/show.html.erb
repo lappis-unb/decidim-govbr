@@ -22,12 +22,15 @@
             <%= t(".back") %>
             <% end %>
         </div>
-    <div class="news-title-container">
-        <h2 class="blog-title"><%= translated_attribute post.title %></h2>
-        <% if current_user && current_user.admin? %>
-            <%= link_to "Editar Notícia", send(current_component.mounted_admin_engine).edit_post_path(post), class: "br-button secondary black-and-white-btn" %>
-        <% end %>   
-    </div>
+        <div class="news-title-container">
+            <h2 class="blog-title"><%= translated_attribute(post.title) %></h2>
+            <% if current_user && current_user.admin? %>
+              <%= link_to send(current_component.mounted_admin_engine).edit_post_path(post), class: "br-button secondary black-and-white-btn" do %>
+                <i class="fas fa-edit"></i>
+                Editar Notícia
+              <% end %>
+            <% end %>   
+          </div>
 
     <h2 class="blog-subtitle"><%= translated_attribute post.subtitle %></h2>
 
