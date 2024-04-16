@@ -313,6 +313,21 @@ form.new_filter {
   flex-direction: row;
 }
 
+#filters__menu div.activity_collection_radio_buttons_filter fieldset >
+label:first-of-type
+{
+  font-weight: var(--font-weight-semi-bold) !important;
+}
+
+#filters__menu div.activity_collection_radio_buttons_filter fieldset >
+label
+{
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-medium) !important;
+  font-size: var(--font-size-16);
+  color: var(--gray-90);
+}
+
 @media screen and (max-width: 600px) {
   #filters__menu div.type_collection_radio_buttons_filter fieldset, 
   #filters__menu div.activity_collection_radio_buttons_filter fieldset {
