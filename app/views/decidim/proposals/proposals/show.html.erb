@@ -59,11 +59,20 @@ extra_admin_link(
       <div class="proposal-extra-data">
         <!-- Autor, data de publicação e botão de denúncia -->
         <% unless component_settings.participatory_texts_enabled? %>
-          <%= cell("decidim/coauthorships", @proposal, has_actions: true, size: 3, context: { current_user: current_user }) %>
+          <!-- Tag de categoria da proposta -->
+          <% proposal_tag = cell "decidim/proposals/proposal_tags", @proposal %>
+          <%= cell("decidim/coauthorships", @proposal, has_actions: true, size: 3, 
+            context: { 
+              current_user: current_user, 
+              proposal_tag: proposal_tag, 
+              proposal_edit_link: edit_proposal_path(@proposal),
+              amendable?: @proposal.amendable?,
+              allowed?: allowed_to?(:edit, :proposal, proposal: @proposal),
+              ammend_button: amend_button_for(@proposal) 
+            })
+          %>
         <% end %>
       </div>
-      <!-- Tag de categoria da proposta -->
-      <%= cell "decidim/proposals/proposal_tags", @proposal %>
       <% if component_settings.geocoding_enabled? %>
         <%= render partial: "decidim/shared/static_map",
           locals: { icon_name: "proposals", geolocalizable: @proposal } %>
@@ -123,22 +132,6 @@ extra_admin_link(
       </button>
       <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
       <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
-      <% if @proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal) %>
-        <%= link_to edit_proposal_path(@proposal), class: "br-button secondary black-and-white-btn" do %>
-          <i class="fas fa-edit" aria-hidden="true"></i>
-          <span>
-            <% if translated_attribute(current_component.singular_name).present? %>
-              <%= t("decidim.components.proposals.actions.edit_proposal",
-                singular_name_button: translated_attribute(current_component.singular_name).downcase) %>
-            <% else %>
-              <%= t("decidim.components.proposals.actions.edit_proposal",
-                singular_name_button: "proposta") %>
-            <% end %>
-          </span>
-        <% end %>
-      <% else %>
-        <%= amend_button_for @proposal %>
-      <% end %>
       <%= emendation_actions_for @proposal %>
     </div>
   </div>
