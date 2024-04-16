@@ -63,6 +63,8 @@ pt-BR:
     statistics:
       headline: Dados Participativos
     components:
+      comment:
+        reply: Responder
       proposals:
         settings:
           global:

@@ -1,13 +1,18 @@
 <% @proposals.each do |proposal| %>
   (function() {
 
-    var $proposalVotesCount = $('#proposal-<%= proposal.id %>-votes-count');
+    var $proposalVotesCount = $('#proposal-<%= proposal.id %>-votes-count-number');
 
     if($proposalVotesCount[0]) {
 
       $proposalVotesCount.text('<%= proposal.proposal_votes_count %>');
 
       morphdom($proposalVotesCount[0], $proposalVotesCount[0]);
+    }
+
+    var $proposalVotesCountText = $('#proposal-<%= proposal.id %>-votes-count-text');
+    if($proposalVotesCountText[0]) {
+      $proposalVotesCountText.text('<%= I18n.t("decidim.proposals.proposals.votes_count.count", count: proposal.proposal_votes_count) %>');
     }
 
     var $proposalVoteButton = $('#proposal-<%= proposal.id %>-vote-button');

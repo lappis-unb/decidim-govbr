@@ -1,4 +1,4 @@
-<div class="author--inline">
+<div class="author--inline proposal--show">
   <%= cell(
     "decidim/collapsible_list",
     list,
@@ -6,12 +6,29 @@
     cell_options: options.merge(has_actions: false),
     size: size
     ) %>
-</div>
-<% if actionable? %>
-  <div class="author-data__extra">
-    Publicado em:
-    <% author_cell= cell("decidim/author", model, from: from_context) %>
-    <%= author_cell.(:date) %>
+  <div class="proposal__details">
+    <%= context[:proposal_tag] %>
+
+    <% if actionable? %>
+      <div class="author-data__extra">
+        Publicado em:
+        <% author_cell= cell("decidim/author", model, from: from_context) %>
+        <%= (author_cell.(:date)).gsub(':', 'h') %>
+      </div>
+    <% end %>
   </div>
-  <%= author_cell.(:withdraw) %>
+</div>
+
+<% if actionable? %>
+  <div class="proposal__btn__controls">
+    <% if context[:amendable?] && context[:allowed?] %>
+      <%= link_to context[:proposal_edit_link], class: "button secondary" do %>
+        <%= t("decidim.components.proposals.actions.edit_proposal") %>
+      <% end %>
+    <% else %>
+      <%= context[:ammend_button] %>
+    <% end %>
+
+    <%= author_cell.(:withdraw) %>
+  </div>
 <% end %>
