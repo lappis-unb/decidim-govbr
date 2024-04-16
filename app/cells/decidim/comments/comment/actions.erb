@@ -1,0 +1,13 @@
+<% if !has_replies? && depth < 1 %>
+<div class="comment__actions br-button">
+  <button class="comment__hide muted-link <%= depth.zero? && has_replies_in_children? ? "" : "hide" %>" aria-controls="comment-<%= model.id %>-replies" data-toggle="comment_<%= model.id %>">
+    <span class="show-comment-replies"><%= t("decidim.components.comment.show_replies", count: replies.size, replies_count: replies.size ) %></span>
+  </button>
+  <% if can_reply? %>
+    <button class="comment__reply muted-link" aria-controls="<%= reply_id %>" data-toggle="<%= reply_id %>">
+      <i class="fa-solid fa-comment-dots">&nbsp;</i>
+      <%= t("decidim.components.comment.reply") %>
+    </button>
+  <% end %>
+</div>
+<% end %>

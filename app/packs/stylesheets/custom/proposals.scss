@@ -234,13 +234,25 @@
 .proposals-announcement > div > div {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .proposal-extra-data {
     flex-direction: row;
+
+  @media (min-width: 768px) {
+    .proposal-extra-data{
+      justify-content: flex-start;
+      align-items: center;
+    }
   }
+  }
+
+  
+
 
   .order-by__dropdown-container {
     display: flex;
@@ -622,7 +634,41 @@
 .button--vote-button .button_to button {
   width: 100%;
 }
+.proposal-status {
+  background: var(--Gray-gray-02)!important;
+  border-radius: 30px!important;
+}
 
+.label.success{
+  border: 2px solid var(--green-vivid-60)!important;
+  color: var(--Green-Vivid-green-vivid-60, #466C04);
+  width: fit-content;
+  padding: 4px 8px;
+}
+.label.alert{
+  border: 2px solid var(--Red-Vivid-red-vivid-60, #B50909);
+  color: var(--red-vivid-60);
+  width: fit-content;
+  padding: 4px 8px;
+}
+
+.br-comment{
+  background-color: var(--Gray-gray-02);
+  border-radius: 30px;
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  font-weight: 600;
+}
+
+.br-comment.accepted{
+  border: 2px solid var(--green-vivid-60)!important;
+  color: var(--Green-Vivid-green-vivid-60, #466C04);
+}
+
+.br-comment.alert{
+  border: 2px solid var(--Red-Vivid-red-vivid-60, #B50909);
+  color: var(--red-vivid-60);
+}
 .new-proposal-button {
   max-width: 250px;
 }
@@ -910,4 +956,65 @@
     flex-direction: column;
     display: flex;
   }
+}
+
+
+textarea[rows]{
+  background: #F6F6F6;
+  height: 9.5rem;
+}
+
+textarea{
+  margin-bottom: 0!important;
+  border: 0!important;
+}
+
+textarea::placeholder{
+  color: rgba(12, 50, 111, 0.50)!important;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-family: Rawline;
+  font-size: 0.875rem!important;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.author-data{
+  padding-left: 0;
+  width: 100%;
+  justify-content: space-between;
+
+  @media (min-width: 768px)
+  {
+    width: auto;
+    justify-content: flex-start;
+  }
+}
+
+.ml-1{
+  margin: 0;
+}
+
+.author-data__main {
+  display: flex;
+  align-items: center;
+}
+
+.comments-container .section-heading {
+  @media (min-width: 768px)
+  {
+    margin: 0;
+  }
+}
+
+.br-button.mb-4{
+  @media(max-width: 768px)
+  {
+    padding: 0;
+  }
+}
+
+.br-proposal_body p {
+  color: var(--gray-90);
+  line-height: normal;
 }

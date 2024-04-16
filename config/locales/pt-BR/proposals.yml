@@ -217,7 +217,7 @@ pt-BR:
             not_answered: Não respondida
             rejected: Rejeitada
       answers:
-        accepted: Recebida
+        accepted: Incorporada
         evaluating: Em avaliação
         not_answered: Não respondida
         rejected: Rejeitada
@@ -325,7 +325,7 @@ pt-BR:
             success: "@%{user} foi aceito como colaborador com sucesso"
         show:
           back_to: Voltar para
-          back_to_list_proposals: Veja mais propostas
+          back_to_list_proposals: Voltar
           back_to_list: Voltar
           proposal_accepted_reason: 'Esta proposta foi incorporada!'
           proposal_accepted_why: 'Motivo:'
