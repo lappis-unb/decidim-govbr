@@ -32,9 +32,7 @@
           <% else %>
             <% endpoint_value = 'generate_report_proposals' %>
           <% end %>
-<%= hidden_field_tag :airflow_endpoint, value: endpoint_value %>
-
-
+          <%= hidden_field_tag :airflow_endpoint, value: endpoint_value %>
           <%= f.submit "Enviar" %>
         </div>
       <% end %>
