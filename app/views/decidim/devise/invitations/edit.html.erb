@@ -37,19 +37,27 @@
               <% if resource.needs_entity_fields %>
                 <div class="field">
                   <%= label_tag 'user[entity_fields][cpf]', "CPF" %>
-                  <%= text_field_tag 'user[entity_fields][cpf]' %>
+                  <%= text_field_tag 'user[entity_fields][cpf]', nil, :required => true %>
+                </div>
 
+                <div class="field">
                   <%= label_tag 'user[entity_fields][sipae_number]', "Número SIPAE" %> 
-                  <%= text_field_tag 'user[entity_fields][sipae_number]' %>
+                  <%= text_field_tag 'user[entity_fields][sipae_number]', nil, :required => true %>
+                </div>
 
+                <div class="field">
                   <%= label_tag 'user[entity_fields][functional_phone]', "Número Funcional" %> 
-                  <%= text_field_tag 'user[entity_fields][functional_phone]' %>
+                  <%= text_field_tag 'user[entity_fields][functional_phone]', nil, :required => true %>
+                </div>
 
+                <div class="field">
                   <%= label_tag 'user[entity_fields][functional_email]', "Email Funcional" %> 
-                  <%= text_field_tag 'user[entity_fields][functional_email]' %>
+                  <%= text_field_tag 'user[entity_fields][functional_email]', nil, :required => true %>
+                </div>
 
+                <div class="field">
                   <%= label_tag 'user[entity_fields][entity]', "Órgão/Entidade" %> 
-                  <%= text_field_tag 'user[entity_fields][entity]' %>
+                  <%= text_field_tag 'user[entity_fields][entity]', nil, :required => true %>
                 </div>
               <% end %>
             </div>

@@ -685,6 +685,9 @@ en:
         update:
           success: Group user updated successfully
           error: Could not update group user
+      users:
+        form:
+          needs_entity_fields: Exigir campos extras no cadastro do usuário
     admin_log:
       govbr:
         partner:
