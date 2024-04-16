@@ -94,8 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const showFiltersButton = document.getElementById("filter-btn-br");
-  const filtersMenu = document.getElementById("filters__menu");
-  const filtersTriangle = document.getElementById("filters__triangle");
+  const filtersMenu = document.getElementById("filters__menu__container");
 
   if (showFiltersButton) {
     showFiltersButton.addEventListener("click", toggleFilters);
@@ -114,19 +113,14 @@ document.addEventListener("DOMContentLoaded", function () {
   function showFilters() {
     filtersMenu.classList.remove("filters__hidden");
     filtersMenu.classList.add("filters__visible");
-    filtersTriangle.classList.remove("filters__hidden");
     filtersMenu.offsetHeight;
-    filtersTriangle.offsetHeight;
     filtersMenu.classList.add("show__filters__menu");
-    filtersTriangle.classList.add("show__filters__menu");
     showFiltersButton.innerHTML = `<i class="fa-solid fa-sliders fa-lg" style="color: #333333;"></i> Esconder Filtros`;
   }
 
   function hideFilters() {
     filtersMenu.classList.remove("filters__visible");
     filtersMenu.classList.remove("show__filters__menu");
-    filtersTriangle.classList.add("filters__hidden");
-    filtersTriangle.classList.remove("show__filters__menu");
     showFiltersButton.innerHTML = `<i class="fa-solid fa-sliders fa-lg" style="color: #333333;"></i> Mostrar Filtros`;
 
     setTimeout(() => {
