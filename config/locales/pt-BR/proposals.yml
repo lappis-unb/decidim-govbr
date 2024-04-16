@@ -64,7 +64,7 @@ pt-BR:
           new: Novo(a) %{name}
           action_not_allowed: Você não pode interagir com propostas. O seu Perfil de Usuário está incompleto!
           answer_proposal: Responder proposta
-          edit_proposal: Editar %{singular_name_button}
+          edit_proposal: Editar
           import: Importar de outro componente
           participatory_texts: Textos participativos
           show: Mostrar proposta
@@ -218,7 +218,7 @@ pt-BR:
             not_answered: Não respondida
             rejected: Rejeitada
       answers:
-        accepted: Recebida
+        accepted: Incorporada
         evaluating: Em avaliação
         not_answered: Não respondida
         rejected: Rejeitada
@@ -326,7 +326,7 @@ pt-BR:
             success: "@%{user} foi aceito como colaborador com sucesso"
         show:
           back_to: Voltar para
-          back_to_list_proposals: Veja mais propostas
+          back_to_list_proposals: Voltar
           back_to_list: Voltar
           proposal_accepted_reason: 'Esta proposta foi incorporada!'
           proposal_accepted_why: 'Motivo:'
@@ -350,6 +350,8 @@ pt-BR:
             description: Para serem aceites, as propostas precisam de atingir %{limit} voto(s)
           vote_limit:
             description: Pode votar até %{limit} proposta(s).
+            left: Você tem
+            votes: votos restantes
         wizard_aside:
           back: Voltar
           back_from_step_1: Voltar

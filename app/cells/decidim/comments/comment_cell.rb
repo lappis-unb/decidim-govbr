@@ -79,7 +79,7 @@ module Decidim
       def can_reply?
         user_signed_in? && accepts_new_comments? &&
           root_commentable.user_allowed_to_comment?(current_user) &&
-          current_user.admin?
+          current_user.admin? && !has_replies_in_children?
       end
 
       def author_presenter
