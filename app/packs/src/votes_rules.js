@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
   const showRulesCardButton = document.getElementById("showRulesButton");
 
-  showRulesCardButton.addEventListener("click", toggleRulesCard);
+  if (showRulesCardButton) {
+    showRulesCardButton.addEventListener("click", toggleRulesCard);
+  }
 
   function toggleRulesCard() {
     const rulesCard = document.getElementById("voting_rules");
