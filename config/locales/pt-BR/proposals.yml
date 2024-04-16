@@ -217,7 +217,7 @@ pt-BR:
             not_answered: Não respondida
             rejected: Rejeitada
       answers:
-        accepted: Recebida
+        accepted: Incorporada
         evaluating: Em avaliação
         not_answered: Não respondida
         rejected: Rejeitada
@@ -299,6 +299,7 @@ pt-BR:
           title: Editar %{singular_name}
         filters:
           category: Tema
+          state: Status
           placeholder: "Qual %{name} você procura?"
         orders:
           label: "Ordene propostas por:"
@@ -324,10 +325,12 @@ pt-BR:
             success: "@%{user} foi aceito como colaborador com sucesso"
         show:
           back_to: Voltar para
-          back_to_list_proposals: Veja mais propostas
+          back_to_list_proposals: Voltar
           back_to_list: Voltar
-          proposal_accepted_reason: 'Esta proposta foi recebida porque:'
+          proposal_accepted_reason: 'Esta proposta foi incorporada!'
+          proposal_accepted_why: 'Motivo:'
           proposal_in_evaluation_reason: Esta proposta está em avaliação
+          proposal_rejected_reason: 'Esta proposta foi rejeitada'
           report: Denunciar
           withdraw_proposal: Remover %{singular_name} 
         vote_button:
@@ -346,6 +349,8 @@ pt-BR:
             description: Para serem aceites, as propostas precisam de atingir %{limit} voto(s)
           vote_limit:
             description: Pode votar até %{limit} proposta(s).
+            left: Você tem
+            votes: votos restantes
         wizard_aside:
           back: Voltar
           back_from_step_1: Voltar

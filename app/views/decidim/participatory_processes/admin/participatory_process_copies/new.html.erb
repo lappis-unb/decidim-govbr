@@ -1,0 +1,15 @@
+<% title = t("participatory_process_copies.new.title",
+             scope: "decidim.admin",
+             subject: t("participatory_process_copies.new.#{@form.from_template? ? "template" : "process"}", scope: "decidim.admin"),
+             subject_title: translated_attribute(current_participatory_process.title)
+            ) %>
+
+<% add_decidim_page_title(title) %>
+
+<%= decidim_form_for(@form, url: participatory_process_copies_path(current_participatory_process), method: :post, html: { class: "form copy_participatory_process" }) do |f| %>
+  <%= render partial: "form", object: f, locals: { title: title, select: t("participatory_process_copies.new.select", scope: "decidim.admin") } %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t("participatory_process_copies.new.copy", scope: "decidim.admin") %>
+  </div>
+<% end %>

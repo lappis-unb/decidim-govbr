@@ -1,45 +1,42 @@
 <%= filter_form_for filter do |form| %>
-  <div id="filter-search-box" class="filters__section br-input input-highlight">
-    <%= form.search_field :search_text_cont, type: "search",
-      label: false, class: "input-group-field", placeholder: t("decidim.proposals.proposals.filters.placeholder", 
-      name: translated_attribute(current_component.singular_name).present? ? 
-      translated_attribute(current_component.singular_name).downcase : 
-      "proposta"),
-      "aria-label": "Buscar", id: "input-search-large",
-      data: { disable_dynamic_change: true } %>
+  <% if not browser.mobile? %>
+    <div class="filters__section br-input input-highlight">
+      <%= form.search_field :search_text_cont, type: "search",
+        label: false, class: "input-group-field", placeholder: t("decidim.proposals.proposals.filters.placeholder", 
+        name: translated_attribute(current_component.singular_name).present? ? 
+        translated_attribute(current_component.singular_name).downcase : 
+        "proposta"),
+        "aria-label": "Buscar", id: "input-search-large",
+        data: { disable_dynamic_change: true } %>
       <button class="br-button" type="submit" aria-label="Buscar">
         <i class="fas fa-search" aria-hidden="true"></i>
       </button>
-  </div>
-
-  <div id="filter-btn-container">
+    </div>
+  <% end %>
+  <div>
     <span id="filter-btn-br" class="button">
-      <i id="filter-btn-icon" class="fa-solid fa-sliders"></i>
+      <i class="fa-solid fa-sliders fa-lg" style="color: var(--gray-80);"></i>
       Mostrar Filtros
     </span>
-
     <div id="filters__triangle" class="filters__hidden"></div>
   </div>
-  
   <div id="filters__menu" class="filters__hidden">
     <%= form.hidden_field "state_withdraw", value: params.dig("filter", "state_withdraw") %>
-
     <% if @proposals.only_emendations.any? %>
       <%= form.collection_radio_buttons :type, filter_type_values, :first, :last, { legend_title: t(".amendment_type") }, "aria-controls": "proposals" %>
     <% end %>
-
     <% if component_settings.proposal_answering_enabled && current_settings.proposal_answering_enabled %>
       <%= form.check_boxes_tree :with_any_state, filter_proposals_state_values, legend_title: t(".state"), "aria-controls": "proposals" %>
     <% end %>
-
+    <% if current_component.has_subscopes? %>
+      <%= form.check_boxes_tree :with_any_scope, filter_scopes_values, legend_title: t(".scope"), "aria-controls": "proposals" %>
+    <% end %>
     <% if current_component.categories.any? %>
       <%= form.check_boxes_tree :with_any_category, filter_categories_values, legend_title: t(".category"), "aria-controls": "proposals" %>
     <% end %>
-
     <% if linked_classes_for(Decidim::Proposals::Proposal).any? %>
       <%= form.collection_radio_buttons :related_to, linked_classes_filter_values_for(Decidim::Proposals::Proposal), :first, :last, { legend_title: t(".related_to") }, "aria-controls": "proposals" %>
     <% end %>
-
     <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
   </div>
 <% end %>

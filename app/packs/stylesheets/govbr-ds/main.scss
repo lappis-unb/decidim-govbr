@@ -242,7 +242,12 @@ h6 {
 }
 
 .author--inline span {
-  padding-right: 10px;
+  padding-right: 0px;
+  
+  @media (min-width: 768px)
+  {
+    padding-right: 10px;
+  }
 }
 
 .input-group-button {
@@ -466,7 +471,6 @@ h6 {
 .home-stats__lowlight .statistic__data {
   margin: 0 auto;
 }
-
 
 .card {
   border-radius: 0;
@@ -730,7 +734,7 @@ label {
 
 .filters__section {
   border-bottom: 1px solid #e8e8e8;
-  padding: 1rem 1rem;
+  padding: 1rem 0 1.5rem 0;
 }
 
 .card__footer {
