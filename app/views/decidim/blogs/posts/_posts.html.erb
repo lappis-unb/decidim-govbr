@@ -1,5 +1,8 @@
 <div class="news-title-container">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ffa87f43 (colocando icones no botao)
   <h1 class="page-title"><%= translated_attribute(current_component.name)  %></h1>
   
   <% if current_user && current_user.admin? %>
@@ -9,12 +12,15 @@
   <% end %>
 <% end %>
 
+<<<<<<< HEAD
 =======
   <h1 class="page-title"><%= translated_attribute(current_component.name) %></h1>
    <% if current_user && current_user.admin? %>
    <%= link_to t("actions.new", scope: "decidim.blogs", name: t("models.post.name", scope: "decidim.blogs.admin")), send(current_component.mounted_admin_engine).new_post_path, class: "br-button secondary black-and-white-btn" %>
    <% end %> 
 >>>>>>> 52f421a2 (Atualizar o design dos botões de admin das notícias)
+=======
+>>>>>>> ffa87f43 (colocando icones no botao)
 </div>
 <%= render partial: "medias-section" %>
 <% if browser.mobile? %>
