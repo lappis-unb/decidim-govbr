@@ -1,6 +1,7 @@
 <%= filter_form_for filter do |form| %>
   <div class="filters__section br-input input-highlight">
     <%= form.search_field :search_text_cont, type: "search",
+<<<<<<< HEAD
         label: false, class: "input-group-field", placeholder: t("decidim.proposals.proposals.filters.placeholder", 
         name: translated_attribute(current_component.singular_name).present? ? 
         translated_attribute(current_component.singular_name).downcase : 
@@ -8,10 +9,19 @@
         "aria-label": "Buscar", id: "input-search-large",
         data: { disable_dynamic_change: true } %>
 <<<<<<< HEAD
+=======
+      label: false, class: "input-group-field", placeholder: t("decidim.proposals.proposals.filters.placeholder", 
+      name: translated_attribute(current_component.singular_name).present? ? 
+      translated_attribute(current_component.singular_name).downcase : 
+      "proposta"),
+      "aria-label": "Buscar", id: "input-search-large",
+      data: { disable_dynamic_change: true } %>
+>>>>>>> 5badcc7e (fix: (mobile) caixa de pesquisa não some mais)
     <button class="br-button" type="submit" aria-label="Buscar">
       <i class="fas fa-search" aria-hidden="true"></i>
     </button>
   </div>
+<<<<<<< HEAD
   <div>
     <span id="filter-btn-br" class="button">
       <i class="fa-solid fa-sliders fa-lg" style="color: var(--gray-80);"></i>
@@ -33,6 +43,9 @@
     </div>
   <% end %>
   
+=======
+
+>>>>>>> 5badcc7e (fix: (mobile) caixa de pesquisa não some mais)
   <span id="filter-btn-br" class="button">
     <i class="fa-solid fa-sliders fa-lg" style="color: var(--gray-80);"></i>
     Mostrar Filtros
