@@ -308,8 +308,13 @@ form.new_filter {
   font-weight: var(--font-weight-semi-bold) !important;
 }
 
+#filters__menu div.activity_collection_radio_buttons_filter fieldset {
+  flex-direction: row;
+}
+
 @media screen and (max-width: 600px) {
-  #filters__menu div.type_collection_radio_buttons_filter fieldset {
+  #filters__menu div.type_collection_radio_buttons_filter fieldset, 
+  #filters__menu div.activity_collection_radio_buttons_filter fieldset {
     flex-direction: column;
     gap: 16px;
   }
