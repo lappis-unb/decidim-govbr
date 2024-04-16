@@ -190,8 +190,7 @@
 
 #filter-btn-br {
   display: flex;
-  justify-content: space-between;
-  width: 200px;
+  width: fit-content;
   height: 40px;
   background-color: var(--pure-0) !important;
   border: 1px solid var(--gray-80);
@@ -224,7 +223,7 @@
   width: 100%;
   border: 0px;
   padding: 0px;
-  margin-bottom: 32px;
+  margin: 48px 0 32px 0;
 }
 
 .filters__hidden {
@@ -372,21 +371,22 @@ form.new_filter {
 }
 
 .show-votes-rule-button {
-  margin-bottom: 1rem;
   display: flex;
   align-items: center;
   gap: 8px;
   color: var(--blue-warm-vivid-80);
-  padding: 0.5rem 1rem;
   border-radius: 1rem;
+  border: 0;
+  margin-bottom: 4px;
   -webkit-border-radius: 1rem;
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
   -o-border-radius: 1rem;
 }
 
-.show-votes-rule-button:hover {
-  background-color: var(--blue-warm-10);
+.show-votes-rule-button i {
+  line-height: 0;
+  width: fit-content;
 }
 
 .voting-rules-title {
@@ -417,6 +417,11 @@ form.new_filter {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  ul {
+    margin-bottom: 0;
+    margin-left: 1.75rem;
+  }
 }
 
 .votings-rules-list {

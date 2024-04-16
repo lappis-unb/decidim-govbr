@@ -8,6 +8,7 @@ pt-BR:
       proposal:
         automatic_hashtags: Iniciativas
         body: Descrição
+        title: Título da Proposta
         category_id: Tema
         suggested_hashtags: Tipos de propostas
       proposals_import:
@@ -63,7 +64,7 @@ pt-BR:
           new: Novo(a) %{name}
           action_not_allowed: Você não pode interagir com propostas. O seu Perfil de Usuário está incompleto!
           answer_proposal: Responder proposta
-          edit_proposal: Editar %{singular_name_button}
+          edit_proposal: Editar
           import: Importar de outro componente
           participatory_texts: Textos participativos
           show: Mostrar proposta
