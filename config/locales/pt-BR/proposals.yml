@@ -301,6 +301,7 @@ pt-BR:
         filters:
           category: Tema
           state: Status
+          activity: Minhas Atividades
           placeholder: "Qual %{name} você procura?"
         orders:
           label: "Ordene propostas por:"

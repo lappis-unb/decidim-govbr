@@ -116,11 +116,14 @@
   margin-top: 16px;
 }
 
-#filters__menu {
-  background-color: var(--gray-2);
-  max-height: 0;
+#filters__menu__container {
   transition: max-height 0.5s ease-in-out;
   overflow: hidden;
+  max-height: 0;
+}
+
+#filters__menu {
+  background-color: var(--gray-2);
   margin: 0;
 }
 
@@ -190,7 +193,8 @@
 
 #filter-btn-br {
   display: flex;
-  width: fit-content;
+  justify-content: space-between;
+  width: fit-content !important;
   height: 40px;
   background-color: var(--pure-0) !important;
   border: 1px solid var(--gray-80);
@@ -223,7 +227,7 @@
   width: 100%;
   border: 0px;
   padding: 0px;
-  margin: 48px 0 32px 0;
+  margin-bottom: 24px;
 }
 
 .filters__hidden {
@@ -233,18 +237,13 @@
   margin: 0px;
 }
 
-#filters__menu.show__filters__menu,
-#filters__triangle.show__filters__menu {
+#filters__menu__container.show__filters__menu {
   max-height: 1000px;
   height: fit-content;
 }
 
 #filters__menu.show__filters__menu {
   padding: 24px 16px 0px 16px;
-}
-
-#filters__triangle.show__filters__menu {
-  border-bottom: 24px solid var(--gray-2); /* Adjust the height and color of the triangle */
 }
 
 #filters__menu div fieldset {
@@ -291,12 +290,12 @@ div.filters__section fieldset > label {
 
 #filters__triangle {
   max-height: 0;
-  margin-left: 55px;
   padding: 0;
   width: 0;
   height: 0;
   border-left: 35px solid transparent; /* Adjust the width of the triangle */
   border-right: 35px solid transparent; /* Adjust the width of the triangle */
+  border-bottom: 24px solid var(--gray-2); /* Adjust the height and color of the triangle */
 }
 
 form.new_filter {
@@ -308,8 +307,39 @@ form.new_filter {
   font-weight: var(--font-weight-semi-bold) !important;
 }
 
+#filters__menu div.activity_collection_radio_buttons_filter fieldset {
+  flex-direction: row;
+}
+
+#filters__menu div.activity_collection_radio_buttons_filter fieldset >
+label:first-of-type
+{
+  font-weight: var(--font-weight-semi-bold) !important;
+}
+
+#filters__menu div.activity_collection_radio_buttons_filter fieldset >
+label
+{
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-medium) !important;
+  font-size: var(--font-size-16);
+  color: var(--gray-90);
+}
+
+.triangle__position {
+  margin-left: 56px;
+}
+
 @media screen and (max-width: 600px) {
-  #filters__menu div.type_collection_radio_buttons_filter fieldset {
+  .triangle__position {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-left: 0;
+  }
+
+  #filters__menu div.type_collection_radio_buttons_filter fieldset, 
+  #filters__menu div.activity_collection_radio_buttons_filter fieldset {
     flex-direction: column;
     gap: 16px;
   }
@@ -329,16 +359,13 @@ form.new_filter {
   }
 
   #filter-btn-br {
-    width: 100%;
+    display: flex;
+    width: 100% !important;
     justify-content: center;
   }
 
   #filter-search-box {
     margin-bottom: 8px;
-  }
-
-  #filters__triangle {
-    margin-left: 0px;
   }
 }
 .dropdown .is-dropdown-submenu a {
