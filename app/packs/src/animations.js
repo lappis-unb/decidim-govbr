@@ -96,7 +96,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const showFiltersButton = document.getElementById("filter-btn-br");
   const filtersMenu = document.getElementById("filters__menu__container");
 
-  showFiltersButton.addEventListener("click", toggleFilters);
+  if (showFiltersButton) {
+    showFiltersButton.addEventListener("click", toggleFilters);
+  }
 
   function toggleFilters() {
     const isMenuHidden = filtersMenu.classList.contains("filters__hidden");
