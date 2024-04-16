@@ -31,7 +31,7 @@
   flex-direction: row;
   gap: 24px;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .main-content {
@@ -48,6 +48,15 @@
   flex-direction: column;
   justify-content: flex-start;
   gap: 16px;
+}
+
+@media (max-width: 768px) {
+
+  .side-content {
+
+    width: 100%;
+
+  }
 }
 
 .proposals-content-container {
