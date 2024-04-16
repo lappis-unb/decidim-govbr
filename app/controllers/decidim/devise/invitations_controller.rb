@@ -28,8 +28,6 @@ module Decidim
       def accept_resource
         resource = resource_class.accept_invitation!(update_resource_params)
 
-        binding.pry
-
         if resource.valid? && resource.invitation_accepted?
           resource.update!(newsletter_notifications_at: Time.current) if update_resource_params[:newsletter_notifications]
           resource.update!(managed: false) if resource.managed?
@@ -51,7 +49,6 @@ module Decidim
       end
 
       def configure_permitted_parameters
-        binding.pry
         devise_parameter_sanitizer.permit(:accept_invitation, keys: [:nickname, :tos_agreement, :newsletter_notifications, entity_fields: [:cpf,:sipae_number,:functional_phone,:functional_email,:entity]])
       end
     end

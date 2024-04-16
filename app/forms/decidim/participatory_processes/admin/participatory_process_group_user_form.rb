@@ -10,7 +10,6 @@ module Decidim
         attribute :email, String
         attribute :role, String
         attribute :participatory_process_group_id, Integer
-        attribute :needs_entity_fields, Boolean
 
         validates :email, :role, :participatory_process_group_id, presence: true
         validates :role, inclusion: Decidim::ParticipatoryProcessUserRole::ROLES

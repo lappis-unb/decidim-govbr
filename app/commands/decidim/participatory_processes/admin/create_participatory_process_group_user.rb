@@ -31,7 +31,6 @@ module Decidim
 
             user.participatory_process_group = participatory_process_group
             user.decidim_participatory_process_group_role = form.role
-            user.needs_entity_fields = form.needs_entity_fields
             user.save!
           end
 
