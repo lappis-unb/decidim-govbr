@@ -27,13 +27,6 @@ extra_admin_link(
     <%= t(".back_to_list_proposals") %>
   <% end %>
   <div class="flex-column">
-    <button id="showRulesButton" class="show-votes-rule-button">
-      <span class="proposals-criteria-label" >
-        <i class="fas fa-info-circle fa-lg" aria-hidden="true"></i>
-        Conheça as regras e os critérios para seleção de propostas
-        <i class="fa-solid fa-chevron-down"></i>
-      </span>
-    </button>
     <%= render partial: "voting_rules" %>
   </div>
   <span class="br-divider my-5"></span>
