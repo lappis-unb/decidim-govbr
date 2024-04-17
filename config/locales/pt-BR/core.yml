@@ -292,8 +292,10 @@ pt-BR:
       mentions_modal:
         remove_recipient: Remover o destinatário %{name}
       share_modal:
-        share: Compartilhar
+        share: Compartilhe sua contribuição
         share_link: Compartilhar link
+        share_button: Compartilhar
+        share_text: Selecione abaixo o local que deseja compartilhar
     follows:
       create:
         participatory_space: Seguir <span class="show-for-sr">%{resource_name}</span>
