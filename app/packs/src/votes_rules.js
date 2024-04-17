@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
   const showRulesCardButton = document.getElementById("showRulesButton");
+  const rulesCard = document.getElementById("voting_rules");
 
-  if (showRulesCardButton) {
+  if (showRulesCardButton && rulesCard) {
     showRulesCardButton.addEventListener("click", toggleRulesCard);
   }
 
   function toggleRulesCard() {
-    const rulesCard = document.getElementById("voting_rules");
     const isCardHidden = rulesCard.classList.contains("vote_rules_card_hidden");
 
     if (isCardHidden) {
@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function showRulesCard() {
-    const rulesCard = document.getElementById("voting_rules");
     rulesCard.classList.remove("vote_rules_card_hidden");
     rulesCard.classList.add("vote_rules_card_visible");
     rulesCard.offsetHeight;
@@ -26,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function hideRulesCard() {
-    const rulesCard = document.getElementById("voting_rules");
     rulesCard.classList.remove("vote_rules_card_visible");
     rulesCard.classList.remove("show__rules__card");
     rulesCard.classList.add("vote_rules_card_hidden");
