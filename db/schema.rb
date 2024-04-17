@@ -942,6 +942,7 @@ ActiveRecord::Schema.define(version: 2024_03_26_181857) do
     t.integer "users_to_be_exported", default: 200, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "statistics_data_updated_at", precision: 6
     t.index ["decidim_participatory_space_type", "decidim_participatory_space_id"], name: "user_proposals_statistic_settings_participatory_space_idx"
   end
 
@@ -1558,6 +1559,9 @@ ActiveRecord::Schema.define(version: 2024_03_26_181857) do
     t.string "dou_link"
     t.string "contact"
     t.boolean "should_have_user_full_profile", default: false
+    t.date "publish_date"
+    t.boolean "show_mobilization"
+    t.boolean "is_template", default: false, null: false
     t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id"
@@ -2018,8 +2022,11 @@ ActiveRecord::Schema.define(version: 2024_03_26_181857) do
     t.datetime "password_updated_at"
     t.string "previous_passwords", default: [], array: true
     t.boolean "user_profile_poll_answered", default: false
+    t.bigint "decidim_participatory_process_group_id"
+    t.string "decidim_participatory_process_group_role"
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
+    t.index ["decidim_participatory_process_group_id"], name: "index_decidim_users_on_decidim_participatory_process_group_id"
     t.index ["email", "decidim_organization_id"], name: "index_decidim_users_on_email_and_decidim_organization_id", unique: true, where: "((deleted_at IS NULL) AND (managed = false) AND ((type)::text = 'Decidim::User'::text))"
     t.index ["id", "type"], name: "index_decidim_users_on_id_and_type"
     t.index ["invitation_token"], name: "index_decidim_users_on_invitation_token", unique: true

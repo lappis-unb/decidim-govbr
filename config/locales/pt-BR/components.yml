@@ -26,10 +26,11 @@ pt-BR:
         parent_id: Superior
         weight: Posição do pedido
       component:
-        name: Nome no plural
+        name: Nome de um Conjunto do Componente
         published_at: Publicado em
         weight: Posição do pedido
-        singular_name: Nome no singular
+        singular_name: Nome do Componente
+        menu_name: Nome da Página
       external_domain:
         value: Valor
       help_section:
@@ -45,7 +46,7 @@ pt-BR:
         alert_color: Alerta
         available_authorizations: Autorizações disponíveis
         badges_enabled: Ativar emblemas
-        comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
+        comments_max_length: Quantidade máxima de caracteres por comentários (deixe 0 para não limitar a quantidade máxima)
         cta_button_path: Caminho do botão Chamar para Ação
         cta_button_text: Texto do botão Chamar para Ação
         customize_welcome_notification: Personalizar notificação de boas-vindas
@@ -185,6 +186,8 @@ pt-BR:
         category:
           new: Nova categoria
         export: Exportar tudo
+        export_comments: Exportar comentários
+        export_proposals: Exportar propostas
         export-selection: Exportar selecionado
         import: Importar
         manage: Gerenciar
@@ -321,12 +324,12 @@ pt-BR:
           error: Ocorreu um erro ao destruir esse componente.
           success: Componente excluído com sucesso.
         edit:
-          title: Editar componente
+          title: Editar Página de Participação (Componente)
           update: Atualizar
         form:
           default_step_settings: Configurações de etapa padrão
-          global_settings: Configurações globais
-          step_settings: Configurações de etapa
+          global_settings: Configurações
+          step_settings: Configurações das Etapas do Processo
         index:
           add: Adicionar componente
           headers:

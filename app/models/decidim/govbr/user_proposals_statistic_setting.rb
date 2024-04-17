@@ -6,66 +6,76 @@ module Decidim
     class UserProposalsStatisticSetting < ApplicationRecord
       self.table_name = 'decidim_govbr_user_proposals_statistic_settings'
 
-      has_many :user_proposals_statistics, class_name: 'Decidim::Govbr::UserProposalsStatistic'
+      include Decidim::Traceable
+      include Decidim::Loggable
+
+      STATISTIC_FIELDS = %w(proposals_done votes_received comments_received follows_received comments_done votes_done follows_done).freeze
+
+      belongs_to :decidim_participatory_space, polymorphic: true
+      has_many :user_proposals_statistics, class_name: 'Decidim::Govbr::UserProposalsStatistic', dependent: :destroy
+
+      delegate :organization, to: :decidim_participatory_space
+
+      # Return the identifier for last calculated statistics
+      #
+      def last_generated_statistics_data_identifier
+        "#{name.delete(",;").parameterize}-#{statistics_data_updated_at}"
+      end
 
       def user_proposals_statistics_as_csv
         attributes = Decidim::Govbr::UserProposalsStatistic.csv_attributes_header_map
 
-        CSV.generate(headers: true) do |csv|
+        CSV.generate(headers: true, col_sep: ";") do |csv|
           csv << attributes.values
-          user_proposals_statistics.each do |data|
+          user_proposals_statistics.order(score: :desc).each do |data|
             csv << attributes.keys.map{ |attr| data.send(attr) }
           end
         end
       end
 
       # Rebuild entire table from scratch with updated decidim database content for the specified participatory_space
-      # TODO refactor this
-      # rubocop:disable Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity,Layout/ExtraSpacing
+      # This is a heavy weight method!!!
+      #
       def refresh_data!
         user_proposals_statistics.delete_all
+        generate_and_persist_updated_statistics_data
+      end
 
-        compilied_data = [
-          get_user_proposals_data,
-          get_user_comments_data,
-          get_user_votes_data,
-          get_user_follows_data
-        ]
+      # Fire database queries to fetch statistic data and return them in an array, where each position represents
+      # a unique user related statistics data
+      #
+      def statistics_data
+        return @statistics_data if @statistics_data
 
-        statistic_data = {}
-        compilied_data.each do |data|
-          data.to_a.each { |user_data|
-            statistic_data[user_data['decidim_user_id']] = (statistic_data[user_data['decidim_user_id']] || {}).merge(user_data)
-          }
+        @statistics_data = Hash.new { |hash, key| hash[key] = {} }
+        [get_user_proposals_data, get_user_comments_data, get_user_votes_data, get_user_follows_data].each do |data|
+          data.each { |user_data| @statistics_data[user_data['decidim_user_id']].merge!(user_data) }
         end
 
-        statistic_data.each do |user_id, data|
-          data['proposals_done'] =    data['proposals_done'].presence     || 0
-          data['votes_received'] =    data['votes_received'].presence     || 0
-          data['comments_received'] = data['comments_received'].presence  || 0
-          data['follows_received'] =  data['follows_received'].presence   || 0
-          data['comments_done'] =     data['comments_done'].presence      || 0
-          data['votes_done'] =        data['votes_done'].presence         || 0
-          data['follows_done'] =      data['follows_done'].presence       || 0
+        @statistics_data = @statistics_data.values
+      end
 
-          proposals_done        = data['proposals_done'].to_f     * self.proposals_done_weight
-          comments_done_weight  = data['comments_done'].to_f      * self.comments_done_weight
-          votes_done            = data['votes_done'].to_f         * self.votes_done_weight
-          follows_done          = data['follows_done'].to_f       * self.follows_done_weight
-          votes_received        = data['votes_received'].to_f     * self.votes_received_weight
-          comments_received     = data['comments_received'].to_f  * self.comments_received_weight
-          follows_received      = data['follows_received'].to_f   * self.follows_received_weight
+      # Generate statistics data and then post process it by filling absent fields and calculating the user score
+      #
+      def generate_and_process_statistics_data
+        statistics_data.each do |data|
+          data["score"] = 0.0
 
-          data['score'] = (proposals_done + votes_done + comments_received + follows_received + comments_done_weight + follows_done + votes_received)
-          data['created_at'] = Time.current
-          data['updated_at'] = Time.current
-          data['user_proposals_statistic_setting_id'] = id
+          STATISTIC_FIELDS.each do |field|
+            data[field] = data[field].presence || 0.0
+            data["score"] += data[field] * send("#{field}_weight").to_f
+          end
+
+          data["created_at"] = Time.current
+          data["updated_at"] = Time.current
+          data["user_proposals_statistic_setting_id"] = id
         end
+      end
 
-        Decidim::Govbr::UserProposalsStatistic.insert_all(statistic_data.values)
-
-        self.touch
-        # rubocop:enable Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity,Layout/ExtraSpacing
+      def generate_and_persist_updated_statistics_data
+        generate_and_process_statistics_data
+        Decidim::Govbr::UserProposalsStatistic.insert_all(statistics_data) if statistics_data.present?
+        update_column(:statistics_data_updated_at, Time.zone.now)
       end
 
       def get_user_proposals_data
@@ -141,6 +151,13 @@ module Decidim
           SQL
         )
       end
+
+      def self.log_presenter_class_for(_log)
+        Decidim::Govbr::AdminLog::UserProposalsStatisticSettingPresenter
+      end
+
+      alias participatory_space decidim_participatory_space
+      alias participatory_space= decidim_participatory_space=
     end
   end
 end

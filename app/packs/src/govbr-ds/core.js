@@ -16082,15 +16082,3 @@ reference element's position.
   })();
 });
 //# sourceMappingURL=core-init.js.map
-
-import { contrastButtonFunc } from "../acessibility_widget";
-contrastButtonFunc();
-
-//import { textToSpeechFunc } from "../tts_widget";
-//textToSpeechFunc();
-
-import { getNavBar } from "../submenu_navbar";
-getNavBar();
-
-import { copyLinkToClipboard } from "../copy_link_to_clipboard";
-copyLinkToClipboard();

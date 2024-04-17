@@ -33,7 +33,7 @@ module Decidim
         attribute :area_id, Integer
         attribute :participatory_process_group_id, Integer
         attribute :scope_id, Integer
-        attribute :related_process_ids, Array[Integer] # Deprecated in Brasil Participativo
+        attribute :related_process_ids, [Integer] # Deprecated in Brasil Participativo
         attribute :scope_type_max_depth_id, Integer # Deprecated in Brasil Participativo
         attribute :weight, Integer, default: 0
 
@@ -46,6 +46,7 @@ module Decidim
 
         attribute :end_date, Decidim::Attributes::LocalizedDate
         attribute :start_date, Decidim::Attributes::LocalizedDate
+        attribute :publish_date, Decidim::Attributes::LocalizedDate
 
         attribute :banner_image
         attribute :hero_image
@@ -53,6 +54,7 @@ module Decidim
         attribute :remove_hero_image, Boolean, default: false
         attribute :group_chat_id, String
         attribute :should_have_user_full_profile, Boolean
+        attribute :show_mobilization, Boolean, default: false
 
         validate :initial_page_component_existence
 

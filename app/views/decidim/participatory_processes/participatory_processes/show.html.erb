@@ -25,14 +25,8 @@
 <%= cell("decidim/announcement", current_participatory_space.announcement) %>
 
 <div>
-  <div class="meta-card">
-    <p><strong>Órgão/Instituição</strong>: <%= translated_attribute(current_participatory_space.developer_group) %></p>
-    <p><strong>Setor</strong>: <%= translated_attribute(current_participatory_space.local_area) %></p>
-    <p><strong>Status do processo</strong>: <%= translated_attribute(current_participatory_space.meta_scope) %></p>
-    <p><strong>Responsável pela consulta</strong>: <%= translated_attribute(current_participatory_space.target) %></p>
-    <p><strong>Publicação no DOU</strong>: <%= translated_attribute(current_participatory_space.participatory_scope) %></p>
-    <p><strong>Contato</strong>: <%= translated_attribute(current_participatory_space.participatory_structure) %></p>
-  </div>
+  <h1 class="page-title"><%= translated_attribute(current_participatory_space&.title) %></h1>
+  <%= render partial: 'metadata', locals: { current_participatory_space: current_participatory_space } %>
 
   <div>
     <div class="section">

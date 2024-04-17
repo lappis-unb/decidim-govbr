@@ -47,7 +47,7 @@ module Decidim
         attribute :decidim_assemblies_type_id, Integer
         attribute :area_id, Integer
         attribute :parent_id, Integer
-        attribute :participatory_processes_ids, Array[Integer]
+        attribute :participatory_processes_ids, [Integer]
         attribute :scope_id, Integer
         attribute :weight, Integer, default: 0
 
@@ -122,7 +122,7 @@ module Decidim
 
         def assembly_types_for_select
           @assembly_types_for_select ||= organization_assembly_types
-                                             &.map { |type| [translated_attribute(type.title), type.id] }
+                                         &.map { |type| [translated_attribute(type.title), type.id] }
         end
 
         def created_by_for_select
@@ -140,8 +140,8 @@ module Decidim
 
         def processes_for_select
           @processes_for_select ||= organization_participatory_processes
-                                        &.map { |pp| [translated_attribute(pp.title), pp.id] }
-                                        &.sort_by { |arr| arr[0] }
+                                    &.map { |pp| [translated_attribute(pp.title), pp.id] }
+                                    &.sort_by { |arr| arr[0] }
         end
 
         def assembly_type

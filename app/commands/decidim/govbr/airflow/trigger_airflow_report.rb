@@ -33,7 +33,7 @@ module Decidim
         end
 
         def invalid_params?
-          return true unless endpoint && start_date && end_date && component_id && current_user
+          true unless endpoint && start_date && end_date && component_id && current_user
         end
 
         def username
@@ -49,7 +49,7 @@ module Decidim
         end
 
         def fire_request!
-          uri = "http://#{airflow_host}/api/v1/dags/#{endpoint}/dagRuns"
+          uri = "#{airflow_host}/api/v1/dags/#{endpoint}/dagRuns"
           headers = {
             "Authorization" => "Basic #{Base64.encode64("#{username}:#{password}")}",
             "Content-Type" => "application/json"

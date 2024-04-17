@@ -5,10 +5,9 @@
     </h2>
   <% end %>
   <div class="home-sections-content stats-container">
-
-    <% if stats.present?%>
-      <%= cell("decidim/statistic", collection: stats, design: design) %>
-
+    <% filtered_stats = stats.reject { |stat| stat[:stat_title] == :followers_count } %>
+    <% if filtered_stats.present? %>
+      <%= cell("decidim/statistic", collection: filtered_stats, design: design) %>
     <% else %>
       <span class="muted">Ainda não há estatísticas.</span>
     <% end %>

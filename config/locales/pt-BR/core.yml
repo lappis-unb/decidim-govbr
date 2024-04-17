@@ -32,6 +32,8 @@ pt-BR:
         password_confirmation: Confirmação da senha
         remember_me: Lembrar-me
   decidim:
+    scopes:
+      global: Selecione o tema do processo
     accessibility:
       front_page_link: Ir para a página principal
     account:
@@ -174,7 +176,7 @@ pt-BR:
       create:
         error: Erro ao carregar a imagem
         success: Imagem carregada com sucesso
-      drag_and_drop_help: Adicione imagens arrastando e soltando-as ou colando-as.
+      drag_and_drop_help: Descreva resumidamente o seu Processo Participativo. Adicione imagens arrastando e soltando-as ou colando-as.
     forms:
       current_file: Arquivo atual
       current_image: Imagem atual
@@ -370,19 +372,12 @@ pt-BR:
       not_found_in_database: '%{authentication_keys} ou senha inválidos(as).'
       timeout: Sua sessão expirou. Faça login novamente para continuar.
       unauthenticated: Você precisa entrar ou se cadastrar antes de continuar.
-    sessions:
-      already_signed_out: Desconectado com sucesso.
-      new:
-        sign_in: Conecte-se
-      signed_in: Conectado com sucesso.
-      signed_out: Desconectado com sucesso.
     invitations:
       updated_not_active: Sua senha foi definida com sucesso.
       edit:
         nickname_help: Seu nome de usuário em %{organization}. Só pode conter letras, números, '-' e '_'.
         subtitle: Se você aceitar o convite, por favor defina seu nome de usuário e senha.
       updated: A sua senha foi configurada corretamente. Agora você tem sessão iniciada.
-      updated_not_active: A sua senha foi configurada com sucesso.
     mailer:
       confirmation_instructions:
         instruction: 'Você pode confirmar o e-mail da sua conta através do link abaixo:'
@@ -447,6 +442,8 @@ pt-BR:
       already_signed_out: Sessão terminada com sucesso.
       signed_in: Sessão iniciada com sucesso.
       signed_out: Sessão terminada com sucesso.
+      new:
+        sign_in: Conecte-se
     shared:
       links:
         back: Voltar
@@ -485,7 +482,7 @@ pt-BR:
           settings: Gerenciador cookies
           title: Informações sobre os cookies utilizados no site
         modal:
-          accept_all: Salvar 
+          accept_all: Salvar
           reject: Rejeitar cookies
           accept_only_essential: Rejeitar cookies
           analytics:

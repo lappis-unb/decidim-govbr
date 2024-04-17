@@ -1,0 +1,32 @@
+  <% body_messages = [if translated_attribute(current_component.singular_name).present?
+          t("decidim.proposals.proposals.preview.announcement_body", singular_name: translated_attribute(current_component.singular_name).downcase)
+        else
+          t("decidim.proposals.proposals.preview.announcement_body", singular_name: "proposta")
+        end]
+    if component_settings.proposal_edit_time == "limited"
+      body_messages << t("decidim.proposals.proposals.preview.proposal_edit_before_minutes", count: component_settings.proposal_edit_before_minutes)
+    end %>
+<%# <%= cell(
+    "decidim/announcement",
+    {
+      title: 
+      if translated_attribute(current_component.singular_name).present?
+        t("decidim.proposals.proposals.preview.announcement_title", singular_name: translated_attribute(current_component.singular_name).downcase)
+      else
+        t("decidim.proposals.proposals.preview.announcement_title", singular_name: "proposta")
+      end,
+      body: body_messages
+    },
+    callout_class: "warning"
+  ) %>
+<% if local_assigns[:edit_form_bool] %>
+  <h2 class="section-header-text">Edite sua proposta</h2>
+<% else %>
+  <h2 class="section-header-text"><%= proposal_wizard_step_title action_name %></h2>
+<% end %>
+<h3 class="section-header-help-text">
+  Siga as instruções abaixo para participar ativamente e deixar sua marca nas decisões que impactam o Brasil.
+</h3>
+<p class="help-new-proposal-header">
+  Revise o seu conteúdo e tenha certeza que está tudo correto antes de publicar. Após a publicação, você poderá editar ou apagar a proposta somente se não tiver recebido nenhum voto.
+</p>
