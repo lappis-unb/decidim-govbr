@@ -64,6 +64,11 @@
   color: var(--gray-80);
 }
 
+.wrapper {
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+}
+
 .heading4 {
   font-family: var(--unnamed-font-family-rawline);
   font-style: var(--unnamed-font-style-normal);
@@ -243,6 +248,13 @@ h6 {
 
 .author--inline span {
   padding-right: 0px;
+<<<<<<< HEAD
+=======
+
+  @media (min-width: 768px) {
+    padding-right: 10px;
+  }
+>>>>>>> cff124c8 (fix: mudando estilo do formulario e tela de criação de proposta)
 }
 
 .input-group-button {
