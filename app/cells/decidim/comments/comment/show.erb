@@ -11,11 +11,11 @@
             <% if model.status == "rejected" %>
               <% accepted_icon = "" %>
               <% rejected_icon = "<i class='fa-solid fa-check comment_check'></i>" %>
-              <span class="ml-1 br-comment alert" id="tag-status-01">Rejeitada</span>
+              <span class="ml-2 br-comment alert" id="tag-status-01">Rejeitada</span>
             <% elsif model.status =="accepted" %>
               <% accepted_icon = "<i class='fa-solid fa-check comment_check'></i>" %>
               <% rejected_icon = "" %>
-              <span class="ml-1 br-comment accepted" id="tag-status-03">Incorporada</span>
+              <span class="ml-2 br-comment accepted" id="tag-status-03">Incorporada</span>
             <% end %>
           <% if edited? %>
             <div class="author-data__extra">

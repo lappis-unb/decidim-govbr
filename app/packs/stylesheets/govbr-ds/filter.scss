@@ -413,6 +413,8 @@ label
   border-radius: 1rem;
   border: 0;
   margin-bottom: 4px;
+  text-align: left;
+  font-size: 0.75rem;
   -webkit-border-radius: 1rem;
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
@@ -433,18 +435,39 @@ label
 }
 
 .voting-rules-container {
-  padding: 1.5rem;
-}
-
-.voting-rules-container > div {
   display: flex;
   flex-direction: column;
+  padding: 1.5rem;
+  gap: 2rem;
+}
+.voting-rules-container::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -10px; /* Ajuste a posição horizontal conforme necessário */
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #ff0000 transparent; /* Ajuste a cor conforme necessário */
+}
+.voting-rules-counter {
+  width: auto;
 }
 
 @media screen and (min-width: 600px) {
-  .voting-rules-container > div {
+  .show-votes-rule-button {
+    font-size: 1rem;
+  }
+  .voting-rules-container {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    padding: 1.5rem;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .voting-rules-counter {
+    width: 200px;
   }
 }
 

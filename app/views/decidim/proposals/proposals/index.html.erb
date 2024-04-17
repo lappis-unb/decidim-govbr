@@ -78,26 +78,16 @@
             <% end %>
           <% end %>
         </div>
-        <button id="showRulesButton" class="show-votes-rule-button">
-          <span class="proposals-criteria-label" >
-            <i class="fas fa-info-circle fa-lg" aria-hidden="true"></i>
-            Conheça as regras e os critérios para seleção de propostas
-            <i class="fa-solid fa-chevron-down"></i>
-          </span>
-        </button>
+        <%= render partial: "voting_rules" %>
       </div>
     <%else%>
       <div class="proposals-actions proposals-no-actions">
         <span class="proposal-disabled">
           O período para submissão de propostas não está aberto.
         </span>
-        <span class="proposals-criteria-label">
-          <i class="fas fa-info-circle fa-lg" aria-hidden="true"></i>
-          Conheça as regras e os critérios para seleção de propostas
-        </span>
+        <%= render partial: "voting_rules" %>
       </div>
     <% end %>
-    <%= render partial: "voting_rules" %>
     <% if component_settings.collaborative_drafts_enabled? %>
       <%= link_to t(".collaborative_drafts_list"), collaborative_drafts_path, class: "title-action__action button small hollow ml-s" %>
     <% end %>
