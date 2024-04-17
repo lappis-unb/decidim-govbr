@@ -51,8 +51,8 @@
 .meetings-list {
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
-    height: 400px;
+    overflow-y: auto;
+    height: 500px;
     gap: 32px;
     width: 40%;
 }
@@ -62,11 +62,15 @@
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
+    flex-wrap: wrap;
+}
+.br_mine {
+    max-width: 500px;
 }
 
 .regions-map {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 80%;
     flex-wrap: wrap;
 }
