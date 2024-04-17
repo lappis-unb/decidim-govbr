@@ -135,6 +135,7 @@
         const _init = () => {
             _stylesheet();
             let content = document.querySelector(_options.wrapper);
+            if (!content) return;
             let svg = document.createElement("svg");
             let desc = document.createElement("desc");
             desc.innerHTML = 'Brasil';
