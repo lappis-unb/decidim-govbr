@@ -235,6 +235,8 @@ pt-BR:
           count:
             one: COMENTÁRIO
             other: COMENTÁRIOS
+    participatory_process_group:
+      participatory_process_group_id: Setor
   layouts:
     decidim:
       assembly_navigation:

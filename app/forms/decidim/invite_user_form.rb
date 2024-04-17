@@ -6,6 +6,8 @@ module Decidim
   class InviteUserForm < Form
     mimic :user
 
+    include Decidim::TranslatableAttributes
+
     attribute :email, String
     attribute :name, String
     attribute :invitation_instructions, String
@@ -13,7 +15,9 @@ module Decidim
     attribute :invited_by, Decidim::User
     attribute :role, String
     attribute :needs_entity_fields, Boolean
+    attribute :participatory_process_group_id, Integer
 
+    validates :participatory_process_group_id, presence: true
     validates :email, :name, :organization, :invitation_instructions, presence: true
     validates :role, inclusion: { in: Decidim::User::Roles.all }
 
@@ -37,6 +41,15 @@ module Decidim
         [
           I18n.t("models.user.fields.roles.#{role}", scope: "decidim.admin"),
           role
+        ]
+      end
+    end
+
+    def available_processes_group_for_select
+      ParticipatoryProcessGroup.all.map do |process_group|
+        [
+          translated_attribute(process_group.title),
+          process_group.id
         ]
       end
     end
