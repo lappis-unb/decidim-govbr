@@ -43,13 +43,21 @@ module Decidim
       Decidim::Govbr::PromotedToAdminMailer.notification(user).deliver_later
     end
 
+    def participatory_process_group
+      @participatory_process_group ||= ParticipatoryProcessGroup.find_by(id: form.participatory_process_group_id)
+    end
+
+    def participatory_processes
+      @participatory_processes ||= participatory_process_group.participatory_processes
+    end
+
     def invite_user
       @user = Decidim::User.new(
         name: form.name,
         email: form.email.downcase,
         nickname: UserBaseEntity.nicknamize(form.name, organization: form.organization),
         organization: form.organization,
-        admin: form.role == "admin",
+        admin: form.role == "admin" && !form.needs_entity_fields,
         roles: form.role == "admin" ? [] : [form.role].compact,
         needs_entity_fields: form.needs_entity_fields
       )
@@ -57,6 +65,23 @@ module Decidim
         form.invited_by,
         invitation_instructions: form.invitation_instructions
       )
+
+      if form.needs_entity_fields
+        participatory_processes.each do |participatory_process|
+          Decidim.traceability.create!(
+            Decidim::ParticipatoryProcessUserRole,
+            current_user,
+            {
+              role: form.role.to_sym,
+              user: @user,
+              participatory_process: participatory_process
+            },
+            resource: {
+              title: @user.name
+            }
+          )
+        end
+      end
     end
   end
 end
