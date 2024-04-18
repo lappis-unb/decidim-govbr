@@ -14,6 +14,9 @@ describe Decidim::ParticipatoryProcesses::Permissions do
   let(:process_collaborator) { create :process_collaborator, participatory_process: process }
   let(:process_moderator) { create :process_moderator, participatory_process: process }
   let(:process_valuator) { create :process_valuator, participatory_process: process }
+  let(:participatory_process_group) { create :participatory_process_group, organization: organization, participatory_processes: [process] }
+  let(:group_admin) { create :user, participatory_process_group: participatory_process_group, decidim_participatory_process_group_role: :admin }
+  let(:group_member) { create :user, participatory_process_group: participatory_process_group, decidim_participatory_process_group_role: :valuator }
 
   shared_examples "allows any action on subject" do |action_subject|
     context "when action subject is #{action_subject}" do
@@ -64,6 +67,18 @@ describe Decidim::ParticipatoryProcesses::Permissions do
 
       it_behaves_like "access for role", access[:valuator]
     end
+
+    context "when user is a process group member" do
+      let(:user) { group_member }
+
+      it_behaves_like "access for role", access[:group_member]
+    end
+
+    context "when user is a process group admin" do
+      let(:user) { group_admin }
+
+      it_behaves_like "access for role", access[:group_admin]
+    end
   end
 
   context "when the action is for the public part" do
@@ -78,7 +93,9 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         admin: true,
         collaborator: true,
         moderator: true,
-        valuator: true
+        valuator: true,
+        group_member: true,
+        group_admin: true
       )
     end
 
@@ -95,7 +112,9 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         admin: true,
         collaborator: false,
         moderator: true,
-        valuator: false
+        valuator: false,
+        group_member: :not_set,
+        group_admin: :not_set
       )
     end
 
@@ -189,7 +208,9 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       admin: true,
       collaborator: true,
       moderator: true,
-      valuator: true
+      valuator: true,
+      group_member: true,
+      group_admin: true
     )
   end
 
@@ -204,7 +225,9 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       admin: true,
       collaborator: true,
       moderator: true,
-      valuator: true
+      valuator: true,
+      group_member: true,
+      group_admin: true
     )
   end
 
@@ -219,7 +242,9 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       admin: false,
       collaborator: false,
       moderator: false,
-      valuator: false
+      valuator: false,
+      group_member: false,
+      group_admin: false
     )
   end
 
@@ -236,7 +261,9 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         admin: true,
         collaborator: :not_set,
         moderator: :not_set,
-        valuator: true
+        valuator: true,
+        group_member: :not_set,
+        group_admin: :not_set
       )
     end
 
@@ -252,7 +279,9 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         admin: true,
         collaborator: :not_set,
         moderator: :not_set,
-        valuator: :not_set
+        valuator: :not_set,
+        group_member: :not_set,
+        group_admin: :not_set
       )
     end
   end
@@ -268,7 +297,9 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       admin: true,
       collaborator: true,
       moderator: true,
-      valuator: true
+      valuator: true,
+      group_member: true,
+      group_admin: true
     )
   end
 
@@ -284,7 +315,9 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       admin: true,
       collaborator: true,
       moderator: true,
-      valuator: true
+      valuator: true,
+      group_member: false,
+      group_admin: false
     )
   end
 
@@ -300,7 +333,9 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       admin: true,
       collaborator: false,
       moderator: false,
-      valuator: false
+      valuator: false,
+      group_member: false,
+      group_admin: true
     )
   end
 
@@ -316,7 +351,9 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       admin: true,
       collaborator: false,
       moderator: false,
-      valuator: false
+      valuator: false,
+      group_member: false,
+      group_admin: true
     )
   end
 
@@ -332,7 +369,9 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       admin: true,
       collaborator: true,
       moderator: true,
-      valuator: true
+      valuator: true,
+      group_member: false,
+      group_admin: false
     )
   end
 
@@ -347,7 +386,9 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       admin: false,
       collaborator: false,
       moderator: false,
-      valuator: false
+      valuator: false,
+      group_member: false,
+      group_admin: false
     )
   end
 
@@ -365,7 +406,9 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         admin: true,
         collaborator: :not_set,
         moderator: true,
-        valuator: :not_set
+        valuator: :not_set,
+        group_member: :not_set,
+        group_admin: :not_set
       )
     end
 
@@ -380,7 +423,9 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         admin: true,
         collaborator: :not_set,
         moderator: :not_set,
-        valuator: :not_set
+        valuator: :not_set,
+        group_member: :not_set,
+        group_admin: :not_set
       )
     end
 
@@ -395,7 +440,9 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         admin: true,
         collaborator: :not_set,
         moderator: :not_set,
-        valuator: :not_set
+        valuator: :not_set,
+        group_member: :not_set,
+        group_admin: :not_set
       )
     end
 
