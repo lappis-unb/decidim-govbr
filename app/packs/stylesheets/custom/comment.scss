@@ -140,7 +140,8 @@
   padding-right: 8px;
 }
 
-.author.author--inline > a {
+.author.author--inline > a,
+.author.author--inline {
   display: flex;
   gap: 10px;
 }
@@ -240,6 +241,10 @@
   color: var(--blue-warm-vivid-70);
   width: 20px;
   height: 20px;
+}
+
+.comment__header__context-menu__content-item {
+  align-items: center;
 }
 
 .comments-order-menu {

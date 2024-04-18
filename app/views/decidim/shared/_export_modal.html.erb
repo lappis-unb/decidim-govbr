@@ -16,7 +16,7 @@
     <div class="col-sm-6 col-md-4 col-lg-3">
       <%= form_with url: main_app.reports_path, method: :post, local: true do |f| %>
         <div class="br-datetimepicker" data-mode="range" data-type="text">
-        <%= f.label :range_input, "Escolha as datas para o recebimento do relatório deste processo" %>
+         <%= f.label :range_input, "Escolha as datas para o recebimento do relatório deste processo" %>
           <div class="br-input">
             <button class="br-button circle small" type="button" aria-label="Abrir Timepicker" data-toggle="data-toggle" id="range-input-btn" tabindex="-1" aria-hidden="true">
               <i class="fas fa-calendar-alt calendar-export" aria-hidden="true"></i>
@@ -25,11 +25,14 @@
               <input id="range-input" type="text" name="date_range" placeholder="exemplo: 02/02/2024 até 03/02/2025" data-input="data-input" />
             </div>
           </div>
-
           <%= f.hidden_field :component_id, value: current_component.id %>
           <%= f.hidden_field :email, value: current_user.email %>
-          <%= f.hidden_field :airflow_endpoint, value: 'generate_report_proposals' %>
-
+          <% if current_component.settings['participatory_texts_enabled'] %>
+            <% endpoint_value = 'generate_report_participatory_texts' %>
+          <% else %>
+            <% endpoint_value = 'generate_report_proposals' %>
+          <% end %>
+          <%= hidden_field_tag :airflow_endpoint, value: endpoint_value %>
           <%= f.submit "Enviar" %>
         </div>
       <% end %>

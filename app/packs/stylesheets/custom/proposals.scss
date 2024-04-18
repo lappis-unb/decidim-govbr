@@ -73,7 +73,7 @@
 
 .proposals-content {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   gap: 24px;
@@ -193,11 +193,12 @@
 }
 .proposals-actions {
   display: flex;
-  gap: 24px;
+  gap: 8px 24px;
   padding: 0px 0px 24px 0px;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 .proposals-criteria-label {
   color: var(--blue-warm-vivid-80);
@@ -258,10 +259,14 @@ span.author__avatar img {
   height: 24px;
 }
 
-div.author--inline {
+div.author--inline.proposal--show {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.author-data .author__avatar {
+  position: relative !important;
 }
 
 ul.tags.tags--proposal.tags--list {
@@ -333,7 +338,12 @@ div.author-data__extra {
   div.author--inline {
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
+  }
+  div.author--inline.proposal--show {
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 1;
+    align-items: center;
   }
 
   .proposal-extra-data {

@@ -116,11 +116,14 @@
   margin-top: 16px;
 }
 
-#filters__menu {
-  background-color: var(--gray-2);
-  max-height: 0;
+#filters__menu__container {
   transition: max-height 0.5s ease-in-out;
   overflow: hidden;
+  max-height: 0;
+}
+
+#filters__menu {
+  background-color: var(--gray-2);
   margin: 0;
 }
 
@@ -191,7 +194,7 @@
 #filter-btn-br {
   display: flex;
   justify-content: space-between;
-  width: 200px;
+  width: fit-content !important;
   height: 40px;
   background-color: var(--pure-0) !important;
   border: 1px solid var(--gray-80);
@@ -224,7 +227,7 @@
   width: 100%;
   border: 0px;
   padding: 0px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .filters__hidden {
@@ -234,18 +237,13 @@
   margin: 0px;
 }
 
-#filters__menu.show__filters__menu,
-#filters__triangle.show__filters__menu {
+#filters__menu__container.show__filters__menu {
   max-height: 1000px;
   height: fit-content;
 }
 
 #filters__menu.show__filters__menu {
   padding: 24px 16px 0px 16px;
-}
-
-#filters__triangle.show__filters__menu {
-  border-bottom: 24px solid var(--gray-2); /* Adjust the height and color of the triangle */
 }
 
 #filters__menu div fieldset {
@@ -292,12 +290,12 @@ div.filters__section fieldset > label {
 
 #filters__triangle {
   max-height: 0;
-  margin-left: 55px;
   padding: 0;
   width: 0;
   height: 0;
   border-left: 35px solid transparent; /* Adjust the width of the triangle */
   border-right: 35px solid transparent; /* Adjust the width of the triangle */
+  border-bottom: 24px solid var(--gray-2); /* Adjust the height and color of the triangle */
 }
 
 form.new_filter {
@@ -309,8 +307,39 @@ form.new_filter {
   font-weight: var(--font-weight-semi-bold) !important;
 }
 
+#filters__menu div.activity_collection_radio_buttons_filter fieldset {
+  flex-direction: row;
+}
+
+#filters__menu div.activity_collection_radio_buttons_filter fieldset >
+label:first-of-type
+{
+  font-weight: var(--font-weight-semi-bold) !important;
+}
+
+#filters__menu div.activity_collection_radio_buttons_filter fieldset >
+label
+{
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-medium) !important;
+  font-size: var(--font-size-16);
+  color: var(--gray-90);
+}
+
+.triangle__position {
+  margin-left: 56px;
+}
+
 @media screen and (max-width: 600px) {
-  #filters__menu div.type_collection_radio_buttons_filter fieldset {
+  .triangle__position {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-left: 0;
+  }
+
+  #filters__menu div.type_collection_radio_buttons_filter fieldset, 
+  #filters__menu div.activity_collection_radio_buttons_filter fieldset {
     flex-direction: column;
     gap: 16px;
   }
@@ -330,16 +359,13 @@ form.new_filter {
   }
 
   #filter-btn-br {
-    width: 100%;
+    display: flex;
+    width: 100% !important;
     justify-content: center;
   }
 
   #filter-search-box {
     margin-bottom: 8px;
-  }
-
-  #filters__triangle {
-    margin-left: 0px;
   }
 }
 .dropdown .is-dropdown-submenu a {
@@ -372,21 +398,24 @@ form.new_filter {
 }
 
 .show-votes-rule-button {
-  margin-bottom: 1rem;
   display: flex;
   align-items: center;
   gap: 8px;
   color: var(--blue-warm-vivid-80);
-  padding: 0.5rem 1rem;
   border-radius: 1rem;
+  border: 0;
+  margin-bottom: 4px;
+  text-align: left;
+  font-size: 0.75rem;
   -webkit-border-radius: 1rem;
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
   -o-border-radius: 1rem;
 }
 
-.show-votes-rule-button:hover {
-  background-color: var(--blue-warm-10);
+.show-votes-rule-button i {
+  line-height: 0;
+  width: fit-content;
 }
 
 .voting-rules-title {
@@ -398,18 +427,39 @@ form.new_filter {
 }
 
 .voting-rules-container {
-  padding: 1.5rem;
-}
-
-.voting-rules-container > div {
   display: flex;
   flex-direction: column;
+  padding: 1.5rem;
+  gap: 2rem;
+}
+.voting-rules-container::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -10px; /* Ajuste a posição horizontal conforme necessário */
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #ff0000 transparent; /* Ajuste a cor conforme necessário */
+}
+.voting-rules-counter {
+  width: auto;
 }
 
 @media screen and (min-width: 600px) {
-  .voting-rules-container > div {
+  .show-votes-rule-button {
+    font-size: 1rem;
+  }
+  .voting-rules-container {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    padding: 1.5rem;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .voting-rules-counter {
+    width: 200px;
   }
 }
 
@@ -417,6 +467,11 @@ form.new_filter {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  ul {
+    margin-bottom: 0;
+    margin-left: 1.75rem;
+  }
 }
 
 .votings-rules-list {

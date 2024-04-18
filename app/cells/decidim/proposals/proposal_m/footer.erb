@@ -4,8 +4,8 @@
     <div class="proposals_card_stats">
       <% if !current_settings.votes_hidden? %>
       <div class="proposal_stat">
-        <span class="votes_stat" id="proposal-<%=model.id%>-votes-count"><%= progress_bar_progress %></span>
-        <span class="votes_stat"><%= I18n.t("decidim.proposals.proposals.votes_count.count", count: progress_bar_progress) %></span>
+        <span class="votes_stat" id="proposal-<%=model.id%>-votes-count-number"><%= progress_bar_progress %></span>
+        <span class="votes_stat" id="proposal-<%=model.id%>-votes-count-text"><%= I18n.t("decidim.proposals.proposals.votes_count.count", count: progress_bar_progress) %></span>
       </div>
       <% end %>
       
