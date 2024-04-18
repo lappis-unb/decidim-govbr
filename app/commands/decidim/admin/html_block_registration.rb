@@ -6,7 +6,7 @@ module Decidim
           content_block.cell = "decidim/content_blocks/html"
           content_block.public_name_key = "decidim.content_blocks.html.name"
           content_block.settings_form_cell = "decidim/content_blocks/html_settings_form"
-          active_blocks = Decidim::ContentBlock.for_scope(:homepage, organization: Decidim::Organization.first).published
+          # active_blocks = Decidim::active_blocks.for_scope(:homepage, organization: Decidim::Organization.first).published
 
           content_block.settings do |settings|
             settings.attribute :html_content, type: :text, translated: true

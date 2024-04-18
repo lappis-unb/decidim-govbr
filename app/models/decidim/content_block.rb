@@ -26,7 +26,9 @@ module Decidim
     end
 
     def manifest
-      @manifest ||= Decidim.content_blocks.for(scope_name).find { |manifest| manifest.name.to_s == manifest_name }
+      binding.pry
+      @manifest ||= self.for_scope(:homepage, organization: 1).find { |manifest| manifest.name.to_s == manifest_name }
+      # @manifest ||= Decidim.content_blocks.for(scope_name).find { |manifest| manifest.name.to_s == manifest_name }
     end
 
     # Public: Uses the `SettingsManifest` class to generate a settings schema
