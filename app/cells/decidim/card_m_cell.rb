@@ -96,7 +96,7 @@ module Decidim
       classes = classes.concat(["card--stack"]).join(" ") if has_children?
       return classes unless has_state?
 
-      classes.concat(status_classes).join(" ")
+      classes.concat(status_classes).join(" ") if dom_class(model) == "proposal"
     end
 
     def badge_classes

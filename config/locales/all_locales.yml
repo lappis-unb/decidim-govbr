@@ -5,7 +5,7 @@ pt-BR:
   activemodel:
     attributes:
       assembly:
-        initial_page_component_id: Página Inicial da Assembléia
+        initial_page_component_id: Página Principal da Assembléia
       assembly_partner:
         link: Link oficial
         logo: Logotipo
@@ -45,8 +45,6 @@ pt-BR:
         date: Data
         link: Link
         title: Título
-      assembly:
-        initial_page_component_id: Página Principal da Assembléia
       participatory_space_user_proposals_statistic_setting:
         name: Nome
         proposals_done_weight: Peso das Propostas Criadas
@@ -235,6 +233,8 @@ pt-BR:
           count:
             one: COMENTÁRIO
             other: COMENTÁRIOS
+        show:
+          proposal_withdrawn_reason: Proposta removida
   layouts:
     decidim:
       assembly_navigation:
@@ -471,13 +471,7 @@ pt:
           create: "%{user_name} criou o relatório de participação de usuários %{resource_name} no espaço participativo %{space_name}"
           delete: "%{user_name} removeu o relatório de participação de usuários %{resource_name} do espaço participativo %{space_name}"
           update: "%{user_name} atualizou o relatório de participação de usuários %{resource_name} do espaço participativo %{space_name}"
-    components:
-      proposals:
-        actions:
-          new: Novo(a) %{name}
-      meetings:
-        actions:
-          new: 'Novo(a) %{singular_name}'
+                
     meetings:
       admin:
         meetings:
