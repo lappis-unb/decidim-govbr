@@ -70,7 +70,7 @@ module Decidim
         participatory_processes.each do |participatory_process|
           Decidim.traceability.create!(
             Decidim::ParticipatoryProcessUserRole,
-            current_user,
+            form.current_user,
             {
               role: form.role.to_sym,
               user: @user,

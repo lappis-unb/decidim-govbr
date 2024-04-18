@@ -13,12 +13,18 @@ module Decidim
         organization: organization,
         role: "admin",
         invited_by: admin,
-        invitation_instructions: "invite_admin"
+        invitation_instructions: "invite_admin",
+        needs_entity_fields: needs_entity_fields,
+        participatory_process_group_id: participatory_process_group_id
+      ).with_context(
+        organization:organization,current_user:admin
       )
     end
     let!(:command) { described_class.new(form) }
+    let(:needs_entity_fields) { false }
+    let(:participatory_process_group_id) { nil }
     let(:invited_user) { User.where(organization: organization).last }
-
+    
     context "when a user with the given email already exists in the same organization" do
       let!(:user) { create(:user, email: form.email, organization: organization) }
 
@@ -101,6 +107,22 @@ module Decidim
 
         expect(queued_user).to eq(invited_user)
         expect(queued_options).to eq(invitation_instructions: "invite_admin")
+      end
+    end
+
+    context "when a user needs entity fields" do
+      let(:participatory_process_group) { create :participatory_process_group, :with_participatory_processes, organization: organization }
+      let(:needs_entity_fields) { true }
+      let(:participatory_process_group_id) { participatory_process_group&.id }
+
+      it "adds a user to process group" do
+        command.call
+
+        invited_user.reload
+
+        Decidim::ParticipatoryProcessUserRole.all.each do |user_role|
+          expect(user_role.decidim_user_id).to eq(invited_user.id)
+        end
       end
     end
   end
