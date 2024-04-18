@@ -1,4 +1,4 @@
-<% if withdrawable? %>
+<% if withdrawable? && context[:amendable?] && context[:allowed?] %>
   <%= action_authorized_link_to :withdraw, withdraw_path, method: :put,
     class: "button secondary hollow",
     title: t("withdraw_btn_hint", scope: resource_i18n_scope ),
