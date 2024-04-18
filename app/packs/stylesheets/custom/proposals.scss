@@ -1222,3 +1222,67 @@ textarea::placeholder {
 .close_share_modal_button:hover {
   background-color: var(--gray-10);
 }
+
+.report_modal_container {
+  padding: 1.5rem 1rem 0 1rem;
+}
+
+.report_modal_content {
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  legend {
+    font-size: 0.875rem;
+    color: var(--gray-90);
+    font-weight: 400;
+    margin: 0 0 0.5rem 0 !important;
+  }
+}
+
+.report_modal_reader {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.report_modal_title {
+  font-size: 1.25rem;
+  color: var(--blue-warm-vivid-70);
+  font-weight: 600;
+  margin: 0;
+}
+
+.report_modal_subtitle {
+  font-size: 0.875rem;
+  color: var(--gray-90);
+  margin: 0;
+}
+
+.report_modal_bottom {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.report_modal_comment {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--blue-warm-vivid-80);
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.character_limit_text {
+  font-size: 0.875rem;
+  color: var(--blue-warm-vivid-80);
+  font-weight: 300;
+  text-align: right;
+  margin-bottom: 0.5rem 0 1.5rem 0;
+}
