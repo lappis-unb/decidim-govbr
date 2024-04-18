@@ -32,7 +32,11 @@ pt-BR:
       decidim/proposals/rejected_proposal_event: Proposta rejeitada
   decidim:
     admin:
+      generate_report: Gerar relatório
+      edit_component: Editar componente
       filters:
+        show_filters: Mostrar filtros 
+        Order: "Ordenar :"
         proposals:
           category_id_eq:
             label: Tema
@@ -42,6 +46,7 @@ pt-BR:
               "false": Propostas
               "true": Modificações
           scope_id_eq:
+            rules: Conheça as regras e os critérios para seleção de propostas
             label: Área de interesse
           state_eq:
             label: Estado
@@ -285,7 +290,7 @@ pt-BR:
         index:
           click_here: Ver todas as propostas
           collaborative_drafts_list: Acessar rascunhos colaborativos
-          new_proposal: Criar minha %{proposal}
+          new_proposal: Criar minha %{proposal} 
           see_all: Ver todas as propostas
           text_banner: Está vendo a lista de propostas retiradas pelos seus próprios autores. %{go_back_link}
         new:

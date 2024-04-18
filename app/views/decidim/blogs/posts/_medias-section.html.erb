@@ -6,8 +6,8 @@
   <% end %>
   <div class="social-links">
       <% if not browser.mobile? %>
-        <label>Compartilhe:</label>
-      <% end %>
+      <%= t("decidim.blogs.admin_log.post.share") %>
+        <% end %>
       <a href="http://www.facebook.com/sharer.php?u=<%= request.original_url %>" title="Facebook">
         <span aria-hidden="true" class="fab fa-facebook-f fa-md"></span>
         <span class="sr-only">Compartilhe por Facebook</span>
