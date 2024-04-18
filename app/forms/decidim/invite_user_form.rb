@@ -17,7 +17,6 @@ module Decidim
     attribute :needs_entity_fields, Boolean
     attribute :participatory_process_group_id, Integer
 
-    validates :participatory_process_group_id, presence: true
     validates :email, :name, :organization, :invitation_instructions, presence: true
     validates :role, inclusion: { in: Decidim::User::Roles.all }
 
