@@ -1,0 +1,45 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= title %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="row column">
+      <%= form.number_field :proposals_done_weight %>
+    </div>
+
+    <div class="row column">
+      <%= form.number_field :comments_done_weight %>
+    </div>
+
+    <div class="row column">
+      <%= form.number_field :votes_done_weight %>
+    </div>
+
+    <div class="row column">
+      <%= form.number_field :follows_done_weight %>
+    </div>
+
+    <div class="row column">
+      <%= form.number_field :votes_received_weight %>
+    </div>
+
+    <div class="row column">
+      <%= form.number_field :comments_received_weight %>
+    </div>
+
+    <div class="row column">
+      <%= form.number_field :follows_received_weight %>
+    </div>
+
+    <div class="row column">
+      <%= form.number_field :users_to_be_exported %>
+    </div>
+  </div>
+</div>

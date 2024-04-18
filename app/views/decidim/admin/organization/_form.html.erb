@@ -73,6 +73,18 @@
       <%= form.number_field :user_profile_survey_id %>
     </div>
   </div>
+  <div class="row">
+    <div class="columns xlarge-6">
+      <%= form.select :template_processes_ids,
+                       options_for_select(
+                        @form.template_processes_for_select,
+                        selected: @form.template_processes_ids
+                       ),
+                       { include_blank: false },
+                       { multiple: true, class: "chosen-select" } %>
+      <p class="help-text">Segure a tecla Control (Ctrl) para selecionar vários</p>
+    </div>
+  </div>
   <% if Decidim.config.enable_machine_translations %>
     <div class="row">
       <div class="columns xlarge-6">

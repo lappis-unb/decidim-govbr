@@ -288,6 +288,38 @@ describe Decidim::ParticipatoryProcesses::Permissions do
     )
   end
 
+  context "when reading a template process" do
+    let(:action) do
+      { scope: :admin, action: :read, subject: :process }
+    end
+    let(:context) { { process: create(:participatory_process, organization: organization, is_template: true) } }
+
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true,
+      collaborator: false,
+      moderator: false,
+      valuator: false
+    )
+  end
+
+  context "when copying a process" do
+    let(:action) do
+      { scope: :admin, action: :copy, subject: :process }
+    end
+    let(:context) { { process: process } }
+
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true,
+      collaborator: false,
+      moderator: false,
+      valuator: false
+    )
+  end
+
   context "when reading a participatory_space" do
     let(:action) do
       { scope: :admin, action: :read, subject: :participatory_space }
