@@ -65,21 +65,20 @@ module Decidim
         invitation_instructions: form.invitation_instructions
       )
 
-      if form.role == 'group_admin'
-        participatory_processes.each do |participatory_process|
-          Decidim.traceability.create!(
-            Decidim::ParticipatoryProcessUserRole,
-            form.current_user,
-            {
-              role: :admin,
-              user: @user,
-              participatory_process: participatory_process
-            },
-            resource: {
-              title: @user.name
-            }
-          )
-        end
+      return unless form.role == 'group_admin'
+      participatory_processes.each do |participatory_process|
+        Decidim.traceability.create!(
+          Decidim::ParticipatoryProcessUserRole,
+          form.current_user,
+          {
+            role: :admin,
+            user: @user,
+            participatory_process: participatory_process
+          },
+          resource: {
+            title: @user.name
+          }
+        )
       end
     end
   end

@@ -16,13 +16,13 @@ module Decidim
         invitation_instructions: "invite_admin",
         participatory_process_group_id: participatory_process_group_id
       ).with_context(
-        organization:organization,current_user:admin
+        organization: organization, current_user: admin
       )
     end
     let!(:command) { described_class.new(form) }
     let(:participatory_process_group_id) { nil }
     let(:invited_user) { User.where(organization: organization).last }
-    
+
     context "when a user with the given email already exists in the same organization" do
       let!(:user) { create(:user, email: form.email, organization: organization) }
 
