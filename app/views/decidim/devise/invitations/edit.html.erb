@@ -33,8 +33,7 @@
                   <p><%= f.password_field :password_confirmation, password_field_options_for(:user).except(:help_text) %></p>
                 </div>
               <% end %>
-
-              <% if resource.roles.include? 'group_admin' || resource.admin %>
+              <% if resource.roles.include?('group_admin') || resource.admin %>
                 <div class="field">
                   <%= label_tag 'user[entity_fields][cpf]', "CPF" %>
                   <%= text_field_tag 'user[entity_fields][cpf]', nil, :required => true %>
