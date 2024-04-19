@@ -14,14 +14,12 @@ module Decidim
         role: "admin",
         invited_by: admin,
         invitation_instructions: "invite_admin",
-        needs_entity_fields: needs_entity_fields,
         participatory_process_group_id: participatory_process_group_id
       ).with_context(
         organization:organization,current_user:admin
       )
     end
     let!(:command) { described_class.new(form) }
-    let(:needs_entity_fields) { false }
     let(:participatory_process_group_id) { nil }
     let(:invited_user) { User.where(organization: organization).last }
     
@@ -112,7 +110,6 @@ module Decidim
 
     context "when a user needs entity fields" do
       let(:participatory_process_group) { create :participatory_process_group, :with_participatory_processes, organization: organization }
-      let(:needs_entity_fields) { true }
       let(:participatory_process_group_id) { participatory_process_group&.id }
 
       it "adds a user to process group" do
