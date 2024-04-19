@@ -14,7 +14,6 @@ module Decidim
     attribute :organization, Decidim::Organization
     attribute :invited_by, Decidim::User
     attribute :role, String
-    attribute :needs_entity_fields, Boolean
     attribute :participatory_process_group_id, Integer
 
     validates :email, :name, :organization, :invitation_instructions, presence: true

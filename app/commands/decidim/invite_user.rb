@@ -57,22 +57,21 @@ module Decidim
         email: form.email.downcase,
         nickname: UserBaseEntity.nicknamize(form.name, organization: form.organization),
         organization: form.organization,
-        admin: form.role == "admin" && !form.needs_entity_fields,
-        roles: form.role == "admin" ? [] : [form.role].compact,
-        needs_entity_fields: form.needs_entity_fields
+        admin: form.role == "admin",
+        roles: form.role == "admin" ? [] : [form.role].compact
       )
       @user.invite!(
         form.invited_by,
         invitation_instructions: form.invitation_instructions
       )
 
-      if form.needs_entity_fields
+      if form.role == 'group_admin'
         participatory_processes.each do |participatory_process|
           Decidim.traceability.create!(
             Decidim::ParticipatoryProcessUserRole,
             form.current_user,
             {
-              role: form.role.to_sym,
+              role: :admin,
               user: @user,
               participatory_process: participatory_process
             },
