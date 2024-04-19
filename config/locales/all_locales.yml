@@ -236,7 +236,7 @@ pt-BR:
             one: COMENTÁRIO
             other: COMENTÁRIOS
     participatory_process_group:
-      participatory_process_group_id: Setor
+      participatory_process_group_id: Grupo de Processo
   layouts:
     decidim:
       assembly_navigation:

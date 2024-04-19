@@ -632,6 +632,7 @@ pt-BR:
             roles:
               admin: Admin
               user_manager: Gerente de usuário
+              group_admin: Membro de grupo de processo
           name: Usuário
         user_group:
           fields:
