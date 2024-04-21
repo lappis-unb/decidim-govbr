@@ -59,6 +59,8 @@ pt-BR:
         users_to_be_exported: Tamanho do Ranking de Usuários
       organization:
         template_processes_ids: Processos para serem usados como Template
+      participatory_process_group:
+        decidim_area_id: Órgão/Instituição
   decidim:
     statistics:
       headline: Dados Participativos
@@ -308,6 +310,8 @@ pt:
         users_to_be_exported: Tamanho do Ranking de Usuários
       organization:
         template_processes_ids: Processos para serem usados como Template
+      participatory_process_group:
+        decidim_area_id: Órgão/Instituição
   decidim:
     components:
       proposals:
@@ -566,6 +570,8 @@ en:
         users_to_be_exported: Users Ranking Size
       organization:
         template_processes_ids: Processes to be used as Templates
+      participatory_process_group:
+        decidim_area_id: Participatory Process Group
   decidim:
     govbr:
       initial_page_type:
@@ -766,6 +772,8 @@ es-MX:
         users_to_be_exported: Tamaño de Clasificación de Usuarios
       organization:
         template_processes_ids: Procesos a utilizar como Plantillas
+      participatory_process_group:
+        decidim_area_id: Grupo de Proceso Participativo
   decidim:
     govbr:
       initial_page_type:
@@ -966,6 +974,8 @@ es-PY:
         users_to_be_exported: Tamaño de Clasificación de Usuarios
       organization:
         template_processes_ids: Procesos a utilizar como Plantillas
+      participatory_process_group:
+        decidim_area_id: Grupo de Proceso Participativo
   decidim:
     govbr:
       initial_page_type:
@@ -1166,6 +1176,8 @@ es:
         users_to_be_exported: Tamaño de Clasificación de Usuarios
       organization:
         template_processes_ids: Procesos a utilizar como Plantillas
+      participatory_process_group:
+        decidim_area_id: Grupo de Proceso Participativo
   decidim:
     govbr:
       initial_page_type:
