@@ -34,7 +34,7 @@ module Decidim
               copy_participatory_process_components if @form.copy_components?
             end
             give_current_user_admin_role unless @current_user.admin?
-            add_process_to_current_user_process_group if @current_user.participatory_process_group.present?
+            add_process_to_current_user_process_group if user_process_group.present?
           end
 
           broadcast(:ok, @copied_process)
@@ -43,6 +43,10 @@ module Decidim
         private
 
         attr_reader :form
+
+        def user_process_group
+          @user_process_group ||= @current_user.participatory_process_group
+        end
 
         def copy_participatory_process
           @copied_process = ParticipatoryProcess.create!(
@@ -57,7 +61,7 @@ module Decidim
             scope: @participatory_process.scope,
             developer_group: @participatory_process.developer_group,
             local_area: @participatory_process.local_area,
-            area: @participatory_process.area,
+            area: user_process_group.area,
             target: @participatory_process.target,
             participatory_scope: @participatory_process.participatory_scope,
             participatory_structure: @participatory_process.participatory_structure,
