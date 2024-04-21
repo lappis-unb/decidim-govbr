@@ -11,7 +11,7 @@ module Decidim::ParticipatoryProcesses
     let(:participatory_process_group) { create :participatory_process_group, organization: organization }
     let(:scope) { create :scope, organization: organization }
     let(:errors) { double.as_null_object }
-    let!(:participatory_process) { create :participatory_process, :with_steps, organization: organization }
+    let!(:participatory_process) { create :participatory_process, :with_steps, organization: organization, participatory_process_type: participatory_process_type }
     let!(:component) { create :component, manifest_name: :dummy, participatory_space: participatory_process }
     let(:form) do
       instance_double(
@@ -30,6 +30,7 @@ module Decidim::ParticipatoryProcesses
         participatory_space: participatory_process
       )
     end
+    let(:participatory_process_type) { create(:participatory_process_type, organization: organization) }
 
     let(:invalid) { false }
     let(:copy_steps) { false }
@@ -68,6 +69,7 @@ module Decidim::ParticipatoryProcesses
         expect(new_participatory_process.end_date).to eq(old_participatory_process.end_date)
         expect(new_participatory_process.participatory_process_group).to eq(old_participatory_process.participatory_process_group)
         expect(new_participatory_process.private_space).to eq(old_participatory_process.private_space)
+        expect(new_participatory_process.participatory_process_type).to eq(old_participatory_process.participatory_process_type)
       end
 
       it "broadcasts ok" do

@@ -65,7 +65,8 @@ module Decidim
             start_date: @participatory_process.start_date,
             end_date: @participatory_process.end_date,
             participatory_process_group: @participatory_process.participatory_process_group,
-            private_space: @participatory_process.private_space
+            private_space: @participatory_process.private_space,
+            participatory_process_type: @participatory_process.participatory_process_type
           )
         end
 
