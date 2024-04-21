@@ -7,8 +7,8 @@ module Decidim::ParticipatoryProcesses
     subject { described_class.new(form, participatory_process, user) }
 
     let(:organization) { create :organization }
-    let(:user) { create :user, organization: organization }
-    let(:participatory_process_group) { create :participatory_process_group, organization: organization }
+    let(:user) { create :user, organization: organization, participatory_process_group: participatory_process_group, decidim_participatory_process_group_role: :admin }
+    let(:participatory_process_group) { create :participatory_process_group, organization: organization, area: area }
     let(:scope) { create :scope, organization: organization }
     let(:errors) { double.as_null_object }
     let!(:participatory_process) { create :participatory_process, :with_steps, organization: organization, participatory_process_type: participatory_process_type }
@@ -31,6 +31,7 @@ module Decidim::ParticipatoryProcesses
       )
     end
     let(:participatory_process_type) { create(:participatory_process_type, organization: organization) }
+    let(:area) { create :area, organization: organization }
 
     let(:invalid) { false }
     let(:copy_steps) { false }
@@ -67,9 +68,10 @@ module Decidim::ParticipatoryProcesses
         expect(new_participatory_process.participatory_scope).to eq(old_participatory_process.participatory_scope)
         expect(new_participatory_process.meta_scope).to eq(old_participatory_process.meta_scope)
         expect(new_participatory_process.end_date).to eq(old_participatory_process.end_date)
-        expect(new_participatory_process.participatory_process_group).to eq(old_participatory_process.participatory_process_group)
+        expect(new_participatory_process.participatory_process_group).not_to eq(old_participatory_process.participatory_process_group)
         expect(new_participatory_process.private_space).to eq(old_participatory_process.private_space)
         expect(new_participatory_process.participatory_process_type).to eq(old_participatory_process.participatory_process_type)
+        expect(new_participatory_process.area).to eq(participatory_process_group.area)
       end
 
       it "broadcasts ok" do
@@ -87,14 +89,23 @@ module Decidim::ParticipatoryProcesses
           .with(:create, Decidim::ParticipatoryProcessUserRole, user, hash_including(resource: hash_including(:title)))
           .and_call_original
 
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with("update", participatory_process_group, user)
+          .and_call_original
+
         expect { subject.call }.to change(Decidim::ActionLog, :count)
-        duplicating_log, creating_log = Decidim::ActionLog.last(2)
+
+        duplicating_log, creating_log, process_group_log = Decidim::ActionLog.all
 
         expect(duplicating_log.action).to eq("duplicate")
         expect(duplicating_log.version).to be_present
 
         expect(creating_log.action).to eq("create")
         expect(creating_log.version).to be_present
+
+        expect(process_group_log.action).to eq("update")
+        expect(process_group_log.version).to be_present
       end
     end
 
@@ -166,7 +177,6 @@ module Decidim::ParticipatoryProcesses
     end
 
     context "when user belongs to process group" do
-      let(:user) { create :user, organization: organization, participatory_process_group: participatory_process_group, decidim_participatory_process_group_role: :admin }
       let(:duplicated_process) { Decidim::ParticipatoryProcess.last }
 
       it "pushes the duplicated process into the group" do

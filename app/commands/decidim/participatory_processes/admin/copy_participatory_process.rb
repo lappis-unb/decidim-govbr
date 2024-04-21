@@ -61,7 +61,7 @@ module Decidim
             scope: @participatory_process.scope,
             developer_group: @participatory_process.developer_group,
             local_area: @participatory_process.local_area,
-            area: user_process_group.area,
+            area: user_process_group&.area,
             target: @participatory_process.target,
             participatory_scope: @participatory_process.participatory_scope,
             participatory_structure: @participatory_process.participatory_structure,
@@ -150,18 +150,16 @@ module Decidim
         end
 
         def add_process_to_current_user_process_group
-          participatory_process_group = @current_user.participatory_process_group
-
           process_group_form =
             ParticipatoryProcessGroupForm
-            .from_model(participatory_process_group)
+            .from_model(user_process_group)
             .with_context(
               current_organization: @current_user.organization,
               current_user: @current_user
             )
           process_group_form.participatory_process_ids << @copied_process.id
 
-          Decidim::ParticipatoryProcesses::Admin::UpdateParticipatoryProcessGroup.call(participatory_process_group, process_group_form) do
+          Decidim::ParticipatoryProcesses::Admin::UpdateParticipatoryProcessGroup.call(user_process_group, process_group_form) do
             on(:invalid) do
               raise ActiveRecord::Rollback
             end
