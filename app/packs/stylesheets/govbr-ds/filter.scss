@@ -435,8 +435,8 @@ label
 
 .voting-rules-title {
   color: var(--gray-90);
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-20);
   margin-bottom: 1rem;
   margin-top: 0;
 }
@@ -470,6 +470,7 @@ label
 
 .voting-rules-container {
   box-shadow: none;
+  border-radius: 4px;
 }
 
 @media screen and (min-width: 600px) {
@@ -495,6 +496,8 @@ label
   justify-content: center;
 
   ul {
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-regular);
     margin-bottom: 0;
     margin-left: 1.75rem;
   }
@@ -520,8 +523,10 @@ label
   max-height: 500px;
 }
 
-.card__content {
+.voting-rules-counter .remaining-votes-counter div.card__content {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  border-radius: 2px;
+  padding: 16px 40px !important;
 }
