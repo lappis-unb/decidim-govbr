@@ -1223,7 +1223,8 @@ textarea::placeholder {
 .close_share_modal_button {
   color: var(--gray-80);
   border: 1px solid var(--gray-80);
-  border-radius: 1rem;
+  border-radius: 2rem;
+  min-width: 10rem;
   padding: 0.25rem 1.5rem;
   font-weight: 700;
   font-size: 1rem;
@@ -1266,10 +1267,14 @@ textarea::placeholder {
   margin: 0;
 }
 
+.already__reported_modal {
+  padding-bottom: 1rem;
+}
+
 .report_modal_subtitle {
   font-size: 0.875rem;
   color: var(--gray-90);
-  margin: 0;
+  margin: 0 0 1.5rem 0;
 }
 
 .report_modal_bottom {
@@ -1278,6 +1283,11 @@ textarea::placeholder {
   gap: 1rem;
   justify-content: center;
   margin: 1rem 0;
+
+  button {
+    min-width: 10rem;
+    border-radius: 2rem;
+  }
 }
 
 .report_modal_comment {
