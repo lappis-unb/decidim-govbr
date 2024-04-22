@@ -1319,9 +1319,15 @@ textarea::placeholder {
   color: var(--blue-warm-vivid-80);
 }
 
-li a.results-per-page-button {
+ul.dropdown.menu.bp-result-per-page li a.results-per-page-button {
   font-size: var(--font-size-scale-up-01) !important;
+<<<<<<< HEAD
   font-weight: var(--font-weight-regular) !important;
   color: var(--blue-warm-vivid-80) !important;
 >>>>>>> 2541c518 (feat: alterando layout e aplicando padrão figma)
 }
+=======
+  font-weight: var(--font-weight-regular);
+  color: var(--blue-warm-vivid-80);
+}
+>>>>>>> 5abdbb5c (refactor: alterando seletores para estilização do texto do botão)
