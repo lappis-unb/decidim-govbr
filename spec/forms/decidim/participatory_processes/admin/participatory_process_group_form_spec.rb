@@ -1,0 +1,130 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+
+module Decidim
+  module ParticipatoryProcesses
+    module Admin
+      describe ParticipatoryProcessGroupForm do
+        subject { described_class.from_params(attributes).with_context(current_organization: organization) }
+
+        let(:organization) { create :organization }
+        let(:participatory_processes) { create_list :participatory_process, 3, organization: organization }
+        let(:title) do
+          {
+            en: "Title",
+            es: "Título",
+            ca: "Títol"
+          }
+        end
+        let(:description) do
+          {
+            en: "Description",
+            es: "Descripción",
+            ca: "Descripció"
+          }
+        end
+        let(:meta_attributes) do
+          %w(
+            developer_group
+            local_area
+            meta_scope
+            target
+            participatory_scope
+            participatory_structure
+          ).each_with_object({}) do |attr, attrs|
+            [:en, :es, :ca].each do |locale|
+              attrs.update("#{attr}_#{locale}" => "#{attr.titleize} #{locale}")
+            end
+          end
+        end
+        let(:hashtag) { "hashtag" }
+        let(:group_url) { "http://example.org" }
+        let(:attachment) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
+        let(:area) { create :area, organization: organization }
+        let(:area_id) { area.id }
+
+        let(:attributes) do
+          {
+            "title_en" => title[:en],
+            "title_es" => title[:es],
+            "title_ca" => title[:ca],
+            "description_en" => description[:en],
+            "description_es" => description[:es],
+            "description_ca" => description[:ca],
+            "hashtag" => hashtag,
+            "group_url" => group_url,
+            "hero_image" => attachment,
+            "participatory_processes" => participatory_processes,
+            "decidim_area_id" => area_id
+          }.merge(meta_attributes)
+        end
+
+        context "when everything is OK" do
+          it { is_expected.to be_valid }
+        end
+
+        context "when area id is not valid" do
+          let(:area_id) { area.id + 1 }
+
+          it "add blank errors" do
+            expect(subject).to be_invalid
+            expect(subject.errors.details.has_key?(:area)).to be(true)
+            expect(subject.errors.details[:area]).to contain_exactly({ error: :blank })
+          end
+        end
+
+        context "when hero_image is too big" do
+          before do
+            organization.settings.tap do |settings|
+              settings.upload.maximum_file_size.default = 5
+            end
+            ActiveStorage::Blob.find_signed(attachment).update(byte_size: 6.megabytes)
+          end
+
+          it { is_expected.not_to be_valid }
+        end
+
+        context "when images are not the expected type" do
+          let(:attachment) { upload_test_file(Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")) }
+
+          it { is_expected.not_to be_valid }
+        end
+
+        context "when default language in title is missing" do
+          let(:title) do
+            {
+              ca: "Títol"
+            }
+          end
+
+          it { is_expected.to be_invalid }
+        end
+
+        context "when default language in description is missing" do
+          let(:description) do
+            {
+              ca: "Descripció"
+            }
+          end
+
+          it { is_expected.to be_invalid }
+        end
+
+        context "when group_url doesn't start with http" do
+          let(:group_url) { "example.org" }
+
+          it "adds it" do
+            expect(subject.group_url).to eq("http://example.org")
+          end
+        end
+
+        context "when it's not a valid URL" do
+          let(:group_url) { "Groundhog Day" }
+
+          it { is_expected.to be_invalid }
+        end
+      end
+    end
+  end
+end
