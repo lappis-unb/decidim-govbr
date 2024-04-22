@@ -1164,6 +1164,7 @@ textarea::placeholder {
   color: var(--gray-90);
   line-height: normal;
 }
+<<<<<<< HEAD
 .reveal__header {
   display: flex;
   flex-direction: column;
@@ -1305,4 +1306,22 @@ textarea::placeholder {
   font-weight: 300;
   text-align: right;
   margin-bottom: 0.5rem 0 1.5rem 0;
+=======
+
+.is-dropdown-submenu {
+  width: fit-content;
+  min-width: 0 !important;
+}
+
+.is-dropdown-submenu li a.results-per-page__link {
+  font-size: var(--font-size-scale-up-01) !important;
+  font-weight: var(--font-weight-regular);
+  color: var(--blue-warm-vivid-80);
+}
+
+li a.results-per-page-button {
+  font-size: var(--font-size-scale-up-01) !important;
+  font-weight: var(--font-weight-regular) !important;
+  color: var(--blue-warm-vivid-80) !important;
+>>>>>>> 2541c518 (feat: alterando layout e aplicando padrão figma)
 }
