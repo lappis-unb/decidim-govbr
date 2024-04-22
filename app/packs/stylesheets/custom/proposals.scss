@@ -1144,3 +1144,20 @@ textarea::placeholder {
   color: var(--gray-90);
   line-height: normal;
 }
+
+.is-dropdown-submenu {
+  width: fit-content;
+  min-width: 0 !important;
+}
+
+.is-dropdown-submenu li a.results-per-page__link {
+  font-size: var(--font-size-scale-up-01) !important;
+  font-weight: var(--font-weight-regular);
+  color: var(--blue-warm-vivid-80);
+}
+
+li a.results-per-page-button {
+  font-size: var(--font-size-scale-up-01) !important;
+  font-weight: var(--font-weight-regular) !important;
+  color: var(--blue-warm-vivid-80) !important;
+}
