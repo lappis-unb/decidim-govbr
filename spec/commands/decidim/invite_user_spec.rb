@@ -117,9 +117,7 @@ module Decidim
 
         invited_user.reload
 
-        Decidim::ParticipatoryProcessUserRole.all.each do |user_role|
-          expect(user_role.decidim_user_id).to eq(invited_user.id)
-        end
+        expect(Decidim::ParticipatoryProcessUserRole.all.map(&:decidim_user_id)).to all eq(invited_user.id)
       end
     end
   end
