@@ -80,6 +80,10 @@ module Decidim
           }
         )
       end
+      
+      user.participatory_process_group = participatory_process_group
+      user.decidim_participatory_process_group_role = form.role
+      user.save!
     end
   end
 end
