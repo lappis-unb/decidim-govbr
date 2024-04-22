@@ -481,6 +481,15 @@ label
     align-items: flex-start;
   }
 
+  .triangle__border{
+    margin-left: 42px;
+  }
+
+  .br-magic-button + #showRulesButton + #voting_rules > #voting__rules__border {
+    align-self: center;
+    margin-left: 0px;
+  }
+
   .voting-rules-container {
     display: flex;
     flex-direction: row;
