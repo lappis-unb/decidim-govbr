@@ -298,6 +298,13 @@ div.filters__section fieldset > label {
   border-bottom: 24px solid var(--gray-2); /* Adjust the height and color of the triangle */
 }
 
+.triangle__border {
+  width: 70px;
+  border-left: 35px solid transparent; /* Adjust the width of the triangle */
+  border-right: 35px solid transparent; /* Adjust the width of the triangle */
+  border-bottom: 16px solid #e3edfc; /* Adjust the height and color of the triangle */
+}
+
 form.new_filter {
   width: 100%;
 }
@@ -444,6 +451,17 @@ label
 }
 .voting-rules-counter {
   width: auto;
+}
+
+.voting-rules {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.voting-rules-container {
+  box-shadow: none;
 }
 
 @media screen and (min-width: 600px) {
