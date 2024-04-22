@@ -457,7 +457,6 @@ label
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .voting-rules-container {
@@ -469,6 +468,11 @@ label
   .show-votes-rule-button {
     font-size: 1rem;
   }
+
+  .voting-rules {
+    align-items: flex-start;
+  }
+
   .voting-rules-container {
     display: flex;
     flex-direction: row;
@@ -476,6 +480,7 @@ label
     padding: 1.5rem;
     align-items: flex-start;
     gap: 2rem;
+    width: 100%;
   }
   .voting-rules-counter {
     width: 200px;
