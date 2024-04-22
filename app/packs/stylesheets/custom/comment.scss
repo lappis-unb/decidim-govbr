@@ -135,10 +135,17 @@
 >>>>>>> e6ea58f5 (feat: conserta posicionamento avatar)
 }
 
+<<<<<<< HEAD
 .author__avatar img {
   width: 36px !important;
   height: 36px !important;
   margin-top: 0 !important;
+=======
+.author__avatar img{
+  width: 20px!important;
+  height: 20px!important;
+  margin-top: 0!important;
+>>>>>>> 50110d50 (fix: arrumando texto de autoria de proposta)
 }
 
 .author__avatar img > span {
