@@ -12,6 +12,11 @@
   padding: 0;
 }
 
+.comments-count {
+  font-weight: var(--font-weight-semi-bold) !important;
+  color: #000000 !important;
+  gap: 1.5rem;
+}
 .comments_blocked_warning {
   display: flex;
   flex-direction: column;
@@ -25,12 +30,19 @@
 }
 
 .comment__footer {
-  padding: 1rem;
+  padding-bottom: 1.5rem;
+  gap: 1.5rem;
   font-size: 90%;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
-  justify-content: space-between;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    gap: 0;
+    padding: 1rem 0px;
+    justify-content: space-between;
+  }
 }
 
 .comment__footer_votes {
@@ -65,30 +77,203 @@
 }
 
 .reject-button {
-  color: var(--red-vivid-60);
+  color: #8b0a03;
   gap: 8px;
 }
 .reject-button.selected {
-  background-color: var(--red-vivid-60);
+  background-color: #8b0a03;
   color: var(--background-light);
 }
 
 .comment-thread {
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
   border: 0;
   box-shadow: none;
+
+  .fa-2x {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  .fa-comment-dots {
+    font-size: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    display: block;
+    border: 0;
+    box-shadow: none;
+    margin-bottom: 0 !important;
+    padding-top: 1rem;
+  }
 }
+
 .comment__header {
-  justify-content: space-between;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.author__avatar {
+  margin-left: 0!important;
+  position: relative;
+}
+
+.author__avatar img{
+  width: 20px!important;
+  height: 20px!important;
+  margin-top: 0!important;
+}
+
+.author__avatar img > span {
+  padding-right: 8px;
+}
+
+.author.author--inline > a,
+.author.author--inline {
+  display: flex;
+  gap: 10px;
+}
+
+.author--inline .author__name {
+  color: #0c326f;
 }
 .comment-settings {
   display: flex;
   flex-direction: row;
-  gap: 16px;
+  gap: 1rem;
+  font-size: 16px;
+
+  span {
+    align-self: center;
+    color: #636363;
+  }
 }
 .gallery {
   margin-top: 1.5rem;
 }
 .comments {
-  padding: 0 0 3rem 0;
+  padding: 0 0.5rem 3rem 0.5rem;
+
+  @media (min-width: 768px) {
+    padding: 0 0 3rem 0;
+  }
+}
+.comments-container {
+  border-radius: 10px;
+  padding: 0 0 1.5rem 0;
+}
+
+.comments-section-title {
+  font-size: 1.5rem;
+  text-align: center;
+  padding-bottom: 0;
+  margin: 0 0 1.5rem;
+
+  @media (min-width: 768px) {
+    margin: 0;
+  }
+}
+.add-comment-title {
+  font-size: 16px;
+  margin: 0;
+  padding-bottom: 0;
+}
+.add-comment .field {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: var(--background);
+  text-align: right;
+}
+.add-comment .remaining-character-count {
+  color: var(--Blue-Warm-Vivid-blue-warm-vivid-80, #0c326f) !important;
+  font-family: Rawline;
+  font-size: 0.88rem !important;
+  font-style: normal;
+  font-weight: 300;
+  padding: 0.5rem 0 0;
+}
+.comments-thread-title {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 6rem;
+}
+
+.comment-threads {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 24px;
+  padding: 0 16px;
+}
+
+.add-comment .field .button--sc {
+  background: var(--background);
+  color: var(--Gray-gray-80, #333);
+  font-weight: 700;
+  border: 1px solid var(--Gray-gray-90, #1b1b1b);
+  font-size: 0.88rem;
+  padding: 0 20px;
+}
+
+.comment__actions.br-button {
+  border: 1px solid var(--blue-warm-vivid-70, #1351b4);
+}
+
+.comment__content p {
+  padding: 0;
+  font-size: 1rem;
+}
+
+.comment__header__context-menu .fa-ellipsis {
+  color: var(--blue-warm-vivid-70);
+  width: 20px;
+  height: 20px;
+}
+
+.comment__header__context-menu__content-item {
+  align-items: center;
+}
+
+.comments-order-menu {
+  padding-right: 0 !important;
+}
+
+.order-by__text section-heading {
+  margin: 0;
+}
+
+.comments .row.collapse.order-by {
+  margin: 24px 0;
+  padding: 0 1rem;
+}
+
+.new_comment .hashtags__container {
+  margin-top: 0;
+  padding-bottom: 1.5rem;
+}
+
+.comment__header__context-menu__content-item {
+  align-items: center;
+}
+.link-alt:hover {
+  text-decoration: none;
+}
+
+.comment__header__context-menu__content-item > span,
+.link-alt > span {
+  color: var(--blue-warm-vivid-70);
 }

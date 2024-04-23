@@ -25,7 +25,7 @@ module Decidim
 
         return permission_action unless user
 
-        if !has_manageable_processes? && !user.admin?
+        if !has_manageable_processes? && !user.admin? && !user_belongs_to_a_process_group?
           disallow!
           return permission_action
         end
@@ -147,7 +147,7 @@ module Decidim
                             permission_action.subject == :space_area &&
                             context.fetch(:space_name, nil) == :processes
 
-        toggle_allow(user.admin? || has_manageable_processes?)
+        toggle_allow(user.admin? || has_manageable_processes? || user_belongs_to_a_process_group?)
       end
 
       # Only organization admins can manage process groups.
@@ -169,7 +169,7 @@ module Decidim
 
       # Any user that can enter the space area can read the admin dashboard.
       def user_can_read_admin_dashboard?
-        allow! if user.admin? || has_manageable_processes?
+        allow! if user.admin? || has_manageable_processes? || user_belongs_to_a_process_group?
       end
 
       # Only organization admins can create a process
@@ -185,7 +185,7 @@ module Decidim
         return false unless permission_action.action == :copy &&
                             permission_action.subject == :process
 
-        toggle_allow(user.admin? || participatory_processes_with_role_privileges(:admin).any?)
+        toggle_allow(user.admin? || participatory_processes_with_role_privileges(:admin).any? || user_is_process_group_admin?)
       end
 
       def user_can_manage_participatory_processes_partners?
@@ -198,14 +198,26 @@ module Decidim
       def user_can_read_process_list?
         return false unless read_process_list_permission_action?
 
-        toggle_allow(user.admin? || has_manageable_processes?)
+        toggle_allow(user.admin? || has_manageable_processes? || user_belongs_to_a_process_group?)
       end
 
       def user_can_read_current_process?
         return false unless read_process_list_permission_action?
         return false if permission_action.subject == :process_list
 
-        toggle_allow(user.admin? || can_manage_process? || (user_has_admin_role? && process_is_a_template?))
+        toggle_allow(user.admin? || can_manage_process? || ((user_has_admin_role? || user_is_process_group_admin?) && process_is_a_template?))
+      end
+
+      def user_belongs_to_a_process_group?
+        return false unless user
+
+        user.participatory_process_group.present? && user.decidim_participatory_process_group_role.to_s.in?(Decidim::ParticipatoryProcessUserRole::ROLES)
+      end
+
+      def user_is_process_group_admin?
+        return false unless user
+
+        user.participatory_process_group.present? && user.decidim_participatory_process_group_role.to_s == "admin"
       end
 
       def user_has_admin_role?
