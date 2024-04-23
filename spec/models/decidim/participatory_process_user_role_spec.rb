@@ -6,7 +6,7 @@ module Decidim
     let(:organization) { create(:organization) }
     let(:user) { create(:user, organization: organization) }
     let(:participatory_process) { create(:participatory_process, slug: "example", organization: organization) }
-    let(:participatory_process_user_role) { create(:participatory_process_user_role, user: user, participatory_process: participatory_process) }
+    let(:participatory_process_user_role) { build(:participatory_process_user_role, user: user, participatory_process: participatory_process) }
 
     context "User and participatory process are in same organization" do
 
@@ -18,14 +18,26 @@ module Decidim
     end
     
     context "User and participatory process are not unique" do
-      let(:new_participatory_process_user_role) { create(
+      let!(:new_participatory_process_user_role) { create(
         :participatory_process_user_role, user: user, 
         participatory_process: participatory_process, 
         role: "admin"
       )}
+
       
       it "does not create a role" do
-        expect(new_participatory_process_user_role).to be_invalid
+        expect(subject).to be_invalid
+        expect(subject.errors[:role]).to eq ["has already been taken"]
+      end
+    end
+
+    context "User and process are not in same organization" do
+      let(:new_organization) { create(:organization) }
+      let(:user) { create(:user, organization: new_organization) }
+
+      it "does not create a role" do
+        expect(subject).to be_invalid
+        expect(subject.errors.any?).to be true
       end
     end
   end
