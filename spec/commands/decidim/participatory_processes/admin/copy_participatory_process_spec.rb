@@ -96,16 +96,11 @@ module Decidim::ParticipatoryProcesses
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
 
-        duplicating_log, creating_log, process_group_log = Decidim::ActionLog.all
+        logs_action = Decidim::ActionLog.all.map(&:action)
+        logs_version = Decidim::ActionLog.all.map(&:version)
 
-        expect(duplicating_log.action).to eq("duplicate")
-        expect(duplicating_log.version).to be_present
-
-        expect(creating_log.action).to eq("create")
-        expect(creating_log.version).to be_present
-
-        expect(process_group_log.action).to eq("update")
-        expect(process_group_log.version).to be_present
+        expect(logs_action).to contain_exactly("duplicate", "create", "update")
+        expect(logs_version).to all be_present
       end
     end
 
