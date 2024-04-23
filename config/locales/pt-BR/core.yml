@@ -293,6 +293,8 @@ pt-BR:
         help: Ajuda
       mentions_modal:
         remove_recipient: Remover o destinatário %{name}
+      results_per_page:
+        label: 'Resultados por página:'
       share_modal:
         share: Compartilhe sua contribuição
         share_link: Compartilhar link
@@ -530,3 +532,4 @@ pt-BR:
     formats:
       ddmm: "%d/%m"
       ddmmyyyy: "%d/%m/%Y"
+  
