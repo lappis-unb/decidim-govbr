@@ -301,7 +301,7 @@ pt-BR:
         filters:
           category: Temas
           state: Status
-          activity: Minhas Atividades
+          activity: Minha Atividade
           placeholder: "Qual %{name} você procura?"
           all: Todas as propostas
           my_proposals: Minhas propostas
