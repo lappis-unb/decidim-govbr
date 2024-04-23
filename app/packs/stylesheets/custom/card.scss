@@ -110,3 +110,12 @@
   border: 2px solid var(--blue-warm-vivid-60);
   color: var(--blue-warm-vivid-60);
 }
+
+.br-author-name {
+  display: inline-block; 
+  width: 250px; 
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--blue-warm-vivid-70);
+}

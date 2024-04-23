@@ -15,15 +15,20 @@
       </div>
     </div>
     <div class="proposal-divider"></div>
-
     <div class="proposal-buttons">    
-      <%= link_to resource_path, class: "card__button button--sc light button small" do %>
+      <%if  has_actions? %>
+
+        
+        <%= render partial: "decidim/proposals/proposals/vote_button.html" , locals: { proposal: model, from_proposals_list: true } %>
+      <% elsif has_footer? %>
+        <%= link_to resource_path, class: "card__button button--sc light button small" do %>
         <%= t("decidim.proposals.proposals.view_btn.placeholder", 
         singular_name: translated_attribute(current_component.singular_name).present? ?
         translated_attribute(current_component.singular_name) :
         t("decidim.proposals.admin.when_empty").downcase
         ) %>
         <span class="show-for-sr"><%= title %></span>
+        <% end %>
       <% end %>
       </div>
     </div>
