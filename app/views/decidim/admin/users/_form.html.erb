@@ -1,0 +1,32 @@
+<div class="row column">
+  <%= form.text_field :name, label: t(".name") %>
+</div>
+
+<div class="row column">
+  <%= form.email_field :email, label: t(".email") %>
+</div>
+
+<div class="row column">
+  <%= form.select :role, options_for_select(@form.available_roles_for_select, selected: @form.role), label: t(".role") %>
+</div>
+
+<div class="row column process-group-section" style="display:none;">
+  <%= form.select :participatory_process_group_id, options_for_select(
+    @form.available_processes_group_for_select, selected: @form.participatory_process_group_id
+  ), label: t("decidim.participatory_process_group.participatory_process_group_id") %>
+</div>
+
+<%= javascript_pack_tag "decidim_participatory_processes_admin" %>
+<script>
+  $(document).ready(function() {
+    $('#user_role').change(function(){
+      let role = $(this).val();
+      let process_group_section = $('.process-group-section');
+      
+      if (role == 'group_admin')
+        process_group_section.css('display','block');
+      else
+        process_group_section.css('display','none');
+    })
+  });
+</script>

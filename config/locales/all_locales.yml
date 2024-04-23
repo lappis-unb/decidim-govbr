@@ -110,6 +110,8 @@ pt-BR:
         participatory_process_group_users:
           index:
             title: Usuários Membros do Grupo
+          new:
+            needs_entity_fields: Exigir campos extras no cadastro do usuário
     forms:
       admin:
         models:
@@ -245,6 +247,8 @@ pt-BR:
           count:
             one: COMENTÁRIO
             other: COMENTÁRIOS
+    participatory_process_group:
+      participatory_process_group_id: Grupo de Processo
   layouts:
     decidim:
       assembly_navigation:
@@ -699,6 +703,9 @@ en:
         update:
           success: Group user updated successfully
           error: Could not update group user
+      users:
+        form:
+          needs_entity_fields: Exigir campos extras no cadastro do usuário
     admin_log:
       govbr:
         partner:
@@ -732,6 +739,10 @@ en:
         media: Media
       process_navigation:
         media: Media
+      data_consent:
+        dialog:
+          accept_all: Aceitar cookies
+          reject: Rejeitar cookies
 
 es-MX:
   activemodel:
