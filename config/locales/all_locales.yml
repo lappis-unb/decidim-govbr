@@ -67,6 +67,8 @@ pt-BR:
     components:
       comment:
         reply: Responder
+        report:
+          action: Moderação
       proposals:
         settings:
           global:

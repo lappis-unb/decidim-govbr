@@ -1,0 +1,24 @@
+<div class="social_media_icons_container">
+  <%= link_to "https://www.facebook.com/sharer/sharer.php?u=#{social_media_path}", class: "facebook-share-button", target: "_blank" do %>
+    <i class="fab fa-facebook-f fa-xl"></i>
+  <% end %>
+  <%= link_to "https://twitter.com/intent/tweet?text=#{social_media_text}%20#{social_media_path}", class: "twitter-share-button", target: "_blank" do %>
+    <i class="fab fa-x-twitter fa-xl"></i>
+  <% end %>
+  <%= link_to "https://www.linkedin.com/shareArticle?mini=true&url=#{social_media_path}&title=#{social_media_text}", class: "linkedin-share-button", target: "_blank" do %>
+    <i class="fab fa-linkedin-in fa-xl"></i>
+  <% end %>
+  <%= link_to "https://api.whatsapp.com/send?text=#{social_media_text}%20#{social_media_path}", class: "whatsapp-share-button", target: "_blank" do %>
+    <i class="fab fa-whatsapp fa-xl"></i>
+  <% end %>
+  <input id="urlShareLink" class="input-group-field display-none" type="text" value="<%= "#{social_media_path}" %>" readonly>
+  <button class="button copy-link-button"
+              data-clipboard-copy="#urlShareLink"
+              data-clipboard-copy-label="✓"
+              data-clipboard-copy-message="✓"
+              aria-label="ta"
+              id="copy-proposal-link-button"
+              >
+    <i class="fas fa-link" aria-hidden="true"></i>
+  </button>
+</div>
