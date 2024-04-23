@@ -299,10 +299,13 @@ pt-BR:
           select_a_category: Selecione um tema
           title: Editar %{singular_name}
         filters:
-          category: Tema
+          category: Temas
           state: Status
           activity: Minhas Atividades
           placeholder: "Qual %{name} você procura?"
+          all: Todas as propostas
+          my_proposals: Minhas propostas
+          voted: Propostas que apoio
         orders:
           label: "Ordene propostas por:"
           most_commented: Mais contribuições
