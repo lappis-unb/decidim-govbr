@@ -1198,6 +1198,10 @@ ul.dropdown.menu.bp-result-per-page li a.results-per-page-button div.filters-per
   margin-left: 1.67px;
 }
 
+#filters__menu div.activity_collection_radio_buttons_filter fieldset label > [type=radio] {
+  accent-color: #2670E8;
+}
+
 #filters__menu div.activity_collection_radio_buttons_filter fieldset label:first-of-type{
   @media (min-width: 600px) {
     grid-column: 1 / span 1; /* Starts at column 1, spans 1 column */
