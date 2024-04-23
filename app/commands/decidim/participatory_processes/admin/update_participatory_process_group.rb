@@ -125,7 +125,8 @@ module Decidim
             participatory_scope: form.participatory_scope,
             participatory_structure: form.participatory_structure,
             target: form.target,
-            promoted: form.promoted
+            promoted: form.promoted,
+            decidim_area_id: form.decidim_area_id
           }.merge(attachment_attributes(:hero_image))
         end
 

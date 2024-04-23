@@ -43,6 +43,14 @@ module Decidim
       Decidim::Govbr::PromotedToAdminMailer.notification(user).deliver_later
     end
 
+    def participatory_process_group
+      @participatory_process_group ||= ParticipatoryProcessGroup.find_by(id: form.participatory_process_group_id)
+    end
+
+    def participatory_processes
+      @participatory_processes ||= participatory_process_group.participatory_processes
+    end
+
     def invite_user
       @user = Decidim::User.new(
         name: form.name,
@@ -56,6 +64,26 @@ module Decidim
         form.invited_by,
         invitation_instructions: form.invitation_instructions
       )
+
+      return unless form.role == 'group_admin'
+      participatory_processes.each do |participatory_process|
+        Decidim.traceability.create!(
+          Decidim::ParticipatoryProcessUserRole,
+          form.current_user,
+          {
+            role: :admin,
+            user: @user,
+            participatory_process: participatory_process
+          },
+          resource: {
+            title: @user.name
+          }
+        )
+      end
+
+      user.participatory_process_group = participatory_process_group
+      user.decidim_participatory_process_group_role = :admin
+      user.save!
     end
   end
 end

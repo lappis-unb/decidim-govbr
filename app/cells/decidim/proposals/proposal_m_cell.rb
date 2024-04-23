@@ -46,6 +46,21 @@ module Decidim
         true
       end
 
+      def state_classes
+        case state
+        when "accepted"
+          ["accepted"]
+        when "rejected", "withdrawn"
+          ["rejected"]
+        when "evaluating"
+          ["warning"]
+        else
+          return ["voted"] if current_user && model.voted_by?(current_user)
+
+          ["default"]
+        end
+      end
+
       def description
         strip_tags(body).truncate(100, separator: /\s/)
       end
