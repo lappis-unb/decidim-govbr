@@ -353,6 +353,8 @@ pt-BR:
             description: Pode votar até %{limit} proposta(s).
             left: Você tem
             votes: votos restantes
+          most_voted:
+            description: As %{limit} propostas mais votadas de cada tema seguirão para análise do Ministério do Meio Ambiente, podendo ou não ser incorporadas ao Plano Clima.
         wizard_aside:
           back: Voltar
           back_from_step_1: Voltar

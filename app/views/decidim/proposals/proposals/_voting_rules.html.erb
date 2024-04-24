@@ -34,6 +34,10 @@
               <% end %>
             </li>
           <% end %>
+          
+          <li>
+            <%= t(".most_voted.description", limit: 10) %>
+          </li>
         </ul>
       </div>
       <% if current_user_can_vote? %>
