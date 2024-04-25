@@ -38,10 +38,9 @@
 
     <span class="br-divider sm my-4"></span>
     <%# render partial: 'hero_info', locals: { current_participatory_space: current_participatory_space } %>
-
-    <% if current_participatory_space.show_statistics? or current_participatory_space.show_metrics? %>
-      <span class="br-divider sm my-4"></span>
-    <% end %>
+    <%# if current_participatory_space.show_statistics? or current_participatory_space.show_metrics? %>
+    <%#  <span class="br-divider sm my-4"></span> %>
+    <%# end %>
     <% if current_participatory_space.show_statistics? %>
       <%= cell "decidim/statistics", stats.collection %>
     <% end %>
