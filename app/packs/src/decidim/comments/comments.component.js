@@ -95,6 +95,21 @@ export default class CommentsComponent {
     this._finalizeCommentCreation($parent, fromCurrentUser);
   }
 
+  anchor() {
+    setTimeout(() => {
+      const $newComment = $("#comment_" + this.lastCommentId);
+      if ($newComment.length) {
+        const commentTop = $newComment.offset().top;
+        const commentHeight = $newComment.height();
+        $('html, body').animate({
+          scrollTop: commentTop - commentHeight
+        }, 150);
+      } else {
+        console.error("Comentario nao achado:", "comment_" + this.lastCommentId);
+      }
+    }, 180);
+  }
+
   /**
    * Adds a new reply to an existing comment.
    * @public
