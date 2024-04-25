@@ -230,6 +230,7 @@ pt-BR:
       export_data: Gerar relatório
       select_date: Selecione as datas para a geração do relatório deste processo.
       export_confirmation: Relatório solicitado! Em breve enviaremos para o seu e-mail cadastrado. Por favor, verifique sua caixa de entrada e spam.
+      export_error: Ocorreu um erro ao gerar o relatório. Por favor, tente novamente mais tarde.
       submit: Enviar
       cancel: Cancelar
       close: Fechar
