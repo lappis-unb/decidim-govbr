@@ -58,3 +58,6 @@ pt-BR:
         session_token: Identificador do usuário
         unregistered: Não registrado
         user_status: Estado do usuário
+      errors:
+        answer:
+          body: Este campo não pode ficar em branco

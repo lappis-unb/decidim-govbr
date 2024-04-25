@@ -96,30 +96,15 @@ module Decidim
       classes = classes.concat(["card--stack"]).join(" ") if has_children?
       return classes unless has_state?
 
-      classes.concat(status_classes).join(" ")
+      classes.concat(state_classes).join(" ")
     end
 
     def badge_classes
-      status_classes.concat(["card__text--status"]).join(" ")
+      state_classes.concat(["card__text--status"]).join(" ")
     end
 
     def state_classes
       ["muted"]
-    end
-
-    def status_classes
-      case state
-      when "accepted"
-        ["accepted"]
-      when "rejected", "withdrawn"
-        ["rejected"]
-      when "evaluating"
-        ["warning"]
-      else
-        return ["voted"] if current_user && model.voted_by?(current_user)
-
-        ["default"]
-      end
     end
 
     def comments_count
