@@ -494,3 +494,9 @@ Rails.application.config.i18n.default_locale = Decidim.default_locale
 
 # Inform Decidim about the assets folder
 Decidim.register_assets_path File.expand_path('app/packs', Rails.application.root)
+
+Decidim.module_eval do
+  config_accessor :user_roles do
+    %w(admin user_manager group_admin)
+  end
+end
