@@ -56,7 +56,7 @@ pt-BR:
         confirm_destroy: Tem certeza que deseja excluir esta contribuição?
         loading: Carregando contribuições ...
       comment:
-        delete: deletar
+        delete: Deletar
         deleted_at: Contribuição excluída em %{date}
       edit_comment_modal_form:
         close: Fechar

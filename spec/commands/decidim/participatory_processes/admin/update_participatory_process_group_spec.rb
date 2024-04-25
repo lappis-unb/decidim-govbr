@@ -7,7 +7,7 @@ module Decidim::ParticipatoryProcesses
     subject { described_class.new(participatory_process_group, form) }
 
     let(:organization) { create :organization }
-    let(:participatory_process_group) { create :participatory_process_group, organization: organization }
+    let(:participatory_process_group) { create :participatory_process_group, organization: organization, area: old_area }
     let(:current_user) { create :user, :admin, :confirmed, organization: organization }
     let(:invalid) { false }
     let(:title_en) { "title es" }
@@ -34,10 +34,13 @@ module Decidim::ParticipatoryProcesses
           meta_scope: participatory_process_group.meta_scope,
           target: participatory_process_group.target,
           participatory_scope: participatory_process_group.participatory_scope,
-          participatory_structure: participatory_process_group.participatory_structure
+          participatory_structure: participatory_process_group.participatory_structure,
+          decidim_area_id: new_area.id
         }
       }
     end
+    let(:new_area) { create :area, organization: organization }
+    let(:old_area) { create :area, organization: organization }
     let(:context) do
       {
         current_organization: organization,
@@ -99,6 +102,10 @@ module Decidim::ParticipatoryProcesses
         action_log = Decidim::ActionLog.last
         expect(action_log.version).to be_present
         expect(action_log.version.event).to eq "update"
+      end
+
+      it "updates area" do
+        expect { subject.call }.to change(participatory_process_group, :area).from(old_area).to(new_area)
       end
 
       context "when it has relationship with users" do
