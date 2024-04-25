@@ -1,5 +1,8 @@
 <% add_decidim_page_title(proposal_wizard_step_title(action_name)) %>
-<div class="br-container-lg">
+<% if flash.any? %>
+  <input value="<%= flash.first.last.to_s %>" readonly style="display: none;" id="new-proposal-error-alert">
+<% end %>
+<div class="row">
   <div class="new-proposal-header">
     <%= render partial: "decidim/proposals/proposals/wizard_aside" %>
     <%= render partial: "decidim/proposals/proposals/wizard_header" %>
