@@ -84,15 +84,21 @@ module Decidim
           on(:ok) do
             flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
 
-            PublishProposal.call(@proposal, current_user) do
-              on(:ok) do
-                flash[:notice] = I18n.t("proposals.publish.success", scope: "decidim")
-                redirect_to proposal_path(@proposal)
-              end
+            if params[:proposal][:commit] == "pre-view"
+              binding.pry
+              flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
+              redirect_to "#{Decidim::ResourceLocatorPresenter.new(proposal).path}/preview"
+            else
+              PublishProposal.call(@proposal, current_user) do
+                on(:ok) do
+                  flash[:notice] = I18n.t("proposals.publish.success", scope: "decidim")
+                  redirect_to proposal_path(@proposal)
+                end
 
-              on(:invalid) do
-                flash.now[:alert] = I18n.t("proposals.publish.error", scope: "decidim")
-                render :edit_draft
+                on(:invalid) do
+                  flash.now[:alert] = I18n.t("proposals.publish.error", scope: "decidim")
+                  render :edit_draft
+                end
               end
             end
           end

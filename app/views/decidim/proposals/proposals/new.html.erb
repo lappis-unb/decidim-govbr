@@ -50,7 +50,9 @@
       <% end %>
       <div class="actions bp-new-proposal-container">
         <%# <%= form.button "Pré-visualização", class: "button expanded mt-s mb-none new-proposal-button pre-view-button" %>
-        <%= form.submit t(".send"), class: "button expanded mt-s mb-none new-proposal-button", data: { disable: true } %>
+        <%= form.hidden_field :commit, id: "commit" %>
+        <%= form.button "Pré-visualizar", type: "button", id: "preview-button", class: "button expanded mt-s mb-none new-proposal-button" %>
+        <%= form.button "Publicar", type: "button", id: "publish-button", class: "button expanded mt-s mb-none new-proposal-button" %>
       </div>
     </div>
   <% end %>
@@ -59,3 +61,14 @@
 <% content_for :js_content do %>
   <%= javascript_pack_tag "decidim_proposals" %>
 <% end %>
+<script>
+  document.getElementById('preview-button').addEventListener('click', function() {
+    document.getElementById('commit').value = 'pre-view';
+    this.form.submit();
+  });
+
+  document.getElementById('publish-button').addEventListener('click', function() {
+    document.getElementById('commit').value = 'publish';
+    this.form.submit();
+  });
+</script>
