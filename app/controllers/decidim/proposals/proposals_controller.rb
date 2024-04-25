@@ -202,7 +202,7 @@ module Decidim
 
       def handle_error(event, message)
         flash.now[event] = message
-        render  :new
+        render :new
       end
 
       def search_collection
