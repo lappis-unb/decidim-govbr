@@ -5,7 +5,7 @@
 </button>
 
 <div class="reveal export-reveal" id="export_data" data-reveal>
-  <%= form_with url: main_app.reports_path, method: :post, local: true, remote: true do |f|%>
+  <%= form_with url: main_app.reports_path, id:"report-form", method: :post, remote: true do |f|%>
 
   <div class="export-form">
     <span class="modal_title"><%=t("decidim.modal.export_data") %></span>
@@ -60,7 +60,7 @@
 
   <div class="export-modal-buttons">
     <button class="br-button secondary black-and-white-btn" data-close><%=t("decidim.modal.cancel") %></button>
-    <button class="br-button primary" type="submit"><%=t("decidim.modal.submit") %></button>
+    <button class="br-button primary" type="submit" ><%=t("decidim.modal.submit") %></button>
   </div>
   <% end %>
 </div>
@@ -79,4 +79,67 @@
     <button class="br-button secondary black-and-white-btn" data-close><%=t("decidim.modal.close") %></button>
   </div>
 </div>
+
+<div class="reveal export-reveal" id="error_export_data" data-reveal>
+
+  <div class="export-form">
+    <span class="modal_title">
+      <%=t("decidim.modal.export_data") %>
+    </span>
+    <span class="modal_description"> <%=t("decidim.modal.export_error") %> </span>
+  </div>
+  <div class="proposal-divider"></div>
+
+  <div class="export-modal-buttons">
+    <button class="br-button secondary black-and-white-btn" data-close><%=t("decidim.modal.close") %></button>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (window.jQuery) {
+      $(document).foundation();
+
+      $('form').on('submit', function(event) {
+        event.preventDefault(); 
+
+        var formData = {
+          date_range: $('#range-input').val(),
+          email: $('input[name="email"]').val(),
+          component_id: $('input[name="component_id"]').val(),
+          airflow_endpoint: $('input[name="airflow_endpoint"]').val()
+        };
+
+        $.ajax({
+          url: $(this).attr('action'), 
+          type: 'POST', 
+          data: formData,
+          dataType: 'json',
+          success: function(response) {
+          
+            if (response.status === 'Sucesso!') {
+              $('#sucess_export_data').foundation('open');
+            } else {
+              $('#error_export_data').foundation('open');
+            }
+          },
+          error: function(xhr) {
+  
+            if (xhr.status === 200) {
+              $('#error_export_data').foundation('open');
+              console.error("Erro: " + xhr.responseText);
+            } else {
+              var errorMessage = xhr.status + ': ' + xhr.statusText;
+              $('#error_export_data').foundation('open');
+              console.error("Erro: " + errorMessage);
+            }
+          }
+        });
+      });
+    } else {
+      console.error("jQuery is not loaded");
+    }
+  });
+</script>
+
 <% end %>
