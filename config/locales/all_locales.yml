@@ -68,7 +68,7 @@ pt-BR:
       comment:
         reply: Responder
         report:
-          action: Moderação
+          action: Denunciar
       proposals:
         settings:
           global:
