@@ -346,15 +346,21 @@ pt-BR:
             description: Deve distribuir um mínimo de %{votes} voto(s) entre diferentes propostas.
             supports_remaining: Tem que votar em mais %{remaining_votes} proposta(s) para os seus votos serem levados em conta.
           proposal_limit:
-            description: Pode criar até %{limit} proposta(s).
+            start_description: Cada participante pode 
+            important: criar 
+            end_description: até %{limit} proposta(s);
           threshold_per_proposal:
             description: Para serem aceites, as propostas precisam de atingir %{limit} voto(s)
           vote_limit:
-            description: Pode votar até %{limit} proposta(s).
+            start_description: Cada participante pode 
+            important: votar 
+            end_description: em até %{limit} proposta(s);
             left: Você tem
             votes: votos restantes
-          most_voted:
-            description: As %{limit} propostas mais votadas de cada tema seguirão para análise do Ministério do Meio Ambiente, podendo ou não ser incorporadas ao Plano Clima.
+          most_voted_rule:
+            start_description: As %{limit} propostas 
+            important: mais votadas 
+            end_description: de cada tema seguirão para análise do Ministério do Meio Ambiente, podendo ou não ser incorporadas ao Plano Clima.
         wizard_aside:
           back: Voltar
           back_from_step_1: Voltar
