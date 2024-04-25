@@ -1,49 +1,83 @@
-.ql-editor-display h1, h2, h3, h4, h5, h6{
-    color: var(--blue-warm-vivid-80);
-    font-family: Rawline;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
+.ql-editor-display h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--blue-warm-vivid-80);
+  font-family: Rawline;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
 .ql-editor-display p {
-    color: var(--blue-warm-vivid-90);
-    text-align: justify;
+  color: var(--blue-warm-vivid-90);
+  text-align: justify;
 }
 
 .lead {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    margin: 10px 0px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  margin: 10px 0px;
 }
-
 
 @media (max-width: 800px) {
-    .lead{
+  .lead {
     flex-direction: column;
-}
+  }
 }
 
-.assemblie-props{
-    color: var(--blue-warm-vivid-80);
-    font-variant-numeric: lining-nums proportional-nums;
-    font-family: Rawline;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-transform: uppercase;
-    margin-right: 6px;
+.assemblie-props {
+  color: var(--blue-warm-vivid-80);
+  font-variant-numeric: lining-nums proportional-nums;
+  font-family: Rawline;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  margin-right: 6px;
 }
 
 .extra__date-container {
-    margin-bottom: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-info-content {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.hero-info-img {
+  width: 50%;
+}
+
+.hero-info-right-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+.hero-info-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  align-self: stretch;
+}
+.process-home-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
