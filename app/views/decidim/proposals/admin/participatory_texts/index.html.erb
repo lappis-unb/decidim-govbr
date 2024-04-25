@@ -1,5 +1,5 @@
 <%= decidim_form_for(@preview_form, url: participatory_texts_path, class: "form grid-container") do |form| %>
-<div class="card">
+  <div class="card">
   <div class="card-divider">
     <h2 class="card-title">
       <%= t(".title") %>
@@ -81,8 +81,6 @@ $(window).on("load", function() {
     form.submit();
   });
 
-  $(() => {
-      $(".jq-sortable").sortable();
-  });
+  $(".jq-sortable").sortable();
 })
 </script>
