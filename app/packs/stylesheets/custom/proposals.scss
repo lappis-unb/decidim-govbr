@@ -1153,6 +1153,20 @@ textarea::placeholder {
   align-items: center;
 }
 
+.new-proposal-error {
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+
+  button,
+  i {
+    color: var(--danger);
+  }
+  .close {
+    margin: 0;
+  }
+}
+
 .comments-container .section-heading {
   @media (min-width: 768px) {
     margin: 0;
