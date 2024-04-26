@@ -1,5 +1,5 @@
 <% add_decidim_page_title(proposal_wizard_step_title(action_name)) %>
-<div class="row">
+<div class="br-container-lg">
   <% if flash.any? %>
     <div class="br-message danger new-proposal-error">
       <i class="fas fa-times-circle fa-lg" aria-hidden="true"></i>
@@ -14,7 +14,7 @@
     <%= render partial: "decidim/proposals/proposals/wizard_aside" %>
     <%= render partial: "decidim/proposals/proposals/wizard_header" %>
   </div>
-  <%= decidim_form_for(@form) do |form| %>
+  <%= decidim_form_for(@form, html: { id: "new-proposal-form-sub" }) do |form| %>
     <%= form_required_explanation %>
     <div class="new-proposal-form">
       <div class="br-input input-highlight bp-input" >
@@ -60,7 +60,7 @@
       <% end %>
       <div class="actions bp-new-proposal-container">
         <%# <%= form.button "Pré-visualização", class: "button expanded mt-s mb-none new-proposal-button pre-view-button" %>
-        <%= form.submit t(".send"), class: "button expanded mt-s mb-none new-proposal-button", data: { disable: true } %>
+        <%= form.submit t(".send"), class: "button expanded mt-s mb-none new-proposal-button force-submit-button", data: { disable: true } %>
       </div>
     </div>
   <% end %>
@@ -68,4 +68,10 @@
 </div>
 <% content_for :js_content do %>
   <%= javascript_pack_tag "decidim_proposals" %>
+  <script>
+    document.querySelector('#new-proposal-form-sub .force-submit-button').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.querySelector('#new-proposal-form-sub').submit();
+    });
+  </script>
 <% end %>
