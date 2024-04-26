@@ -16,6 +16,7 @@ module Decidim
       include Decidim::Proposals::Orderable
       include Paginable
       include Decidim::Govbr::ParticipatoryProcessesHelper
+      include Decidim::Proposals
 
       helper_method :proposal_presenter, :form_presenter
 
@@ -82,8 +83,6 @@ module Decidim
 
         CreateProposal.call(@form, current_user) do
           on(:ok) do
-            flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
-
             PublishProposal.call(@proposal, current_user) do
               on(:ok) do
                 flash[:notice] = I18n.t("proposals.publish.success", scope: "decidim")
@@ -91,16 +90,14 @@ module Decidim
               end
 
               on(:invalid) do
-                flash.now[:alert] = I18n.t("proposals.publish.error", scope: "decidim")
-                render :edit_draft
+                handle_error(:invalid, "Erro ao publicar sua proposta.")
+                redirect_to proposal_path(@proposal)
               end
             end
           end
-
-          on(:invalid) do
-            flash.now[:alert] = I18n.t("proposals.create.error", scope: "decidim")
-            render :new
-          end
+          on(:invalid) { handle_error(:invalid, "Erro ao criar proposta. Verifique os campos obrigatórios.") }
+          on(:attachment_invalid) { handle_error(:attachment_invalid, "Erro ao criar proposta. Anexo inválido.") }
+          on(:limit_reached) { handle_error(:limit_reached, "Erro ao criar proposta. Você chegou ao limite da criação de propostas.") }
         end
       end
 
@@ -122,10 +119,6 @@ module Decidim
       #   @form = form_proposal_model
 
       #   @form.attachment = form_attachment_new
-      # end
-
-      # def preview
-      #   enforce_permission_to :edit, :proposal, proposal: @proposal
       # end
 
       # def publish
@@ -206,6 +199,11 @@ module Decidim
       end
 
       private
+
+      def handle_error(event, message)
+        flash.now[event] = message
+        render :new
+      end
 
       def search_collection
         Proposal.where(component: current_component).published.not_hidden.with_availability(params[:filter].try(:[], :with_availability))
