@@ -368,7 +368,7 @@ module Decidim
       data = { datepicker: "" }
       data[:startdate] = I18n.l(value, format: :decidim_short) if value.present? && value.is_a?(Date)
       datepicker_format = ruby_format_to_datepicker(I18n.t("date.formats.decidim_short"))
-      data[:"date-format"] = datepicker_format
+      data[:'date-format'] = datepicker_format
 
       template = text_field(
         attribute,
@@ -393,7 +393,7 @@ module Decidim
         end
       end
       datepicker_format = ruby_format_to_datepicker(I18n.t("time.formats.decidim_short"))
-      data[:"date-format"] = datepicker_format
+      data[:'date-format'] = datepicker_format
 
       template = text_field(
         attribute,
@@ -722,7 +722,7 @@ module Decidim
       defaults << :"decidim.forms.errors.#{object.class.model_name.i18n_key}.#{attribute}"
       defaults << :"decidim.forms.errors.#{attribute}"
       defaults << :"forms.errors.#{attribute}"
-      defaults << :"decidim.forms.errors.error"
+      defaults << :'decidim.forms.errors.error'
 
       options = { count: 1, default: defaults }
 
@@ -796,7 +796,7 @@ module Decidim
     end
 
     def required_indicator
-      visible_title = content_tag(:span, "*", "aria-hidden": true)
+      visible_title = content_tag(:span, "*", 'aria-hidden': true)
       screenreader_title = content_tag(
         :span,
         I18n.t("required", scope: "forms"),
