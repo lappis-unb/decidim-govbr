@@ -54,16 +54,8 @@
         $notVotedButtons.text('<%= t("decidim.proposals.proposals.vote_button.no_votes_remaining") %>');
     <% else %>
       $notVotedButtons.attr('disabled', false);
-      $notVotedButtons.addClass('button proposal_vote_button card__button');
-      $notVotedButtons.html('<%= icon("check") %> <%= t("decidim.proposals.proposals.vote_button.vote") %>');
+      $notVotedButtons.addClass('button secundary hollow proposal_vote_button card__button');
+      $notVotedButtons.html('<%= t("decidim.proposals.proposals.vote_button.vote") %>');
     <% end %>
-  }());
-<% end %>
-
-<% if show_voting_rules? %>
-  (function() {
-    var $votingRules = $('.voting-rules');
-    if(!$votingRules[0]) { return; }
-    morphdom($votingRules[0], '<%= j(render partial: "decidim/proposals/proposals/voting_rules").strip.html_safe %>');
   }());
 <% end %>
