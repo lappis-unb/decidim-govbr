@@ -63,7 +63,7 @@ module Decidim
         rich_text_editor_in_public_views? || @meeting.official?
       end
 
-      def safe_content_admin?
+      def safe_content_admin_meeting?
         @meeting.try(:official?)
       end
 
