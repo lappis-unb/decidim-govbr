@@ -149,6 +149,7 @@
 
 .author--inline .author__name {
   color: #0c326f;
+  font-size: 16px;
 }
 .comment-settings {
   display: flex;
@@ -217,7 +218,7 @@
   flex-direction: column;
   gap: 1.5rem;
   margin-top: 24px;
-  padding: 0 16px;
+  padding: 0px;
 }
 
 .add-comment .field .button--sc {
