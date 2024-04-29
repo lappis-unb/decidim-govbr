@@ -21,7 +21,7 @@ module Decidim
 
       before_action :authenticate_user!, only: [:new, :create, :complete]
       before_action :ensure_is_draft, only: [:compare, :complete, :preview, :publish, :edit_draft, :update_draft, :destroy_draft]
-      before_action :set_proposal, only: [:show, :edit, :update, :withdraw]
+      before_action :set_proposal, only: [:show, :edit, :update, :destroy, :preview]
       before_action :edit_form, only: [:edit_draft, :edit]
 
       before_action :set_participatory_text
@@ -85,7 +85,6 @@ module Decidim
             flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
 
             if params[:proposal][:commit] == "pre-view"
-              binding.pry
               flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
               redirect_to "#{Decidim::ResourceLocatorPresenter.new(proposal).path}/preview"
             else
@@ -130,13 +129,25 @@ module Decidim
       #   @form.attachment = form_attachment_new
       # end
 
-      # def preview
-      #   enforce_permission_to :edit, :proposal, proposal: @proposal
-      # end
+      def preview
+        @proposal = Proposal.find(params[:id])
+        enforce_permission_to :edit, :proposal, proposal: @proposal
+      end
 
-      # def publish
-      #   enforce_permission_to :edit, :proposal, proposal: @proposal
-      # end
+      def publish
+        enforce_permission_to :edit, :proposal, proposal: @proposal
+
+        PublishProposal.call(@proposal, current_user) do
+          on(:ok) do
+            redirect_to proposal_path(@proposal)
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("proposals.publish.error", scope: "decidim")
+            render :edit_draft
+          end
+        end
+      end
 
       def edit_draft
         enforce_permission_to :edit, :proposal, proposal: @proposal
@@ -144,7 +155,6 @@ module Decidim
 
       def update_draft
         enforce_permission_to :edit, :proposal, proposal: @proposal
-
         @form = form_proposal_params
         UpdateProposal.call(@form, current_user, @proposal) do
           on(:ok) do |proposal|
@@ -248,7 +258,7 @@ module Decidim
       end
 
       def set_proposal
-        @proposal = Proposal.published.not_hidden.where(component: current_component).find_by(id: params[:id])
+        @proposal = Proposal.find(params[:id])
       end
 
       # Returns true if the proposal is NOT an emendation or the user IS an admin.
