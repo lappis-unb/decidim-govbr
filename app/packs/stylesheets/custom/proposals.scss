@@ -213,6 +213,10 @@
   gap: 0.5rem;
 }
 
+#showRulesButton span.proposals-criteria-label {
+  font-size: var(--font-size-16);
+}
+
 .paginate-container {
   display: flex;
   flex-direction: column;

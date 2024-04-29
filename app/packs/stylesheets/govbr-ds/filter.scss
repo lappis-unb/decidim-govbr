@@ -413,7 +413,7 @@ label
   border: 0;
   margin-bottom: 4px;
   text-align: left;
-  font-size: 0.75rem;
+  font-size: var(--font-size-16);
   -webkit-border-radius: 1rem;
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
@@ -466,7 +466,7 @@ label
 
 @media screen and (min-width: 600px) {
   .show-votes-rule-button {
-    font-size: 1rem;
+    font-size: var(--font-size-16);
   }
 
   .voting-rules {
