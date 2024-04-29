@@ -85,7 +85,7 @@ module Decidim
           on(:ok) do
             flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
 
-            if params[:proposal][:commit] == "pre-view"
+            if params[:proposal][:should_preview] == "preview"
               flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
               redirect_to "#{Decidim::ResourceLocatorPresenter.new(proposal).path}/preview"
             else
