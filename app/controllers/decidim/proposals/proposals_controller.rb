@@ -22,7 +22,7 @@ module Decidim
 
       before_action :authenticate_user!, only: [:new, :create, :complete]
       before_action :ensure_is_draft, only: [:compare, :complete, :preview, :publish, :edit_draft, :update_draft, :destroy_draft]
-      before_action :set_proposal, only: [:show, :edit, :update, :destroy, :preview]
+      before_action :set_proposal, only: [:show, :edit, :update, :destroy, :preview, :withdraw]
       before_action :edit_form, only: [:edit_draft, :edit]
 
       before_action :set_participatory_text
