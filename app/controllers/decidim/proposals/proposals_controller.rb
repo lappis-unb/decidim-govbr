@@ -23,6 +23,7 @@ module Decidim
       before_action :authenticate_user!, only: [:new, :create, :complete]
       before_action :ensure_is_draft, only: [:compare, :complete, :preview, :publish, :edit_draft, :update_draft, :destroy_draft]
       before_action :set_proposal, only: [:show, :edit, :update, :destroy, :preview]
+      before_action :set_proposal, only: [:show, :edit, :update, :destroy, :preview]
       before_action :edit_form, only: [:edit_draft, :edit]
 
       before_action :set_participatory_text
@@ -128,9 +129,25 @@ module Decidim
       #   @form.attachment = form_attachment_new
       # end
 
-      # def publish
-      #   enforce_permission_to :edit, :proposal, proposal: @proposal
-      # end
+      def preview
+        @proposal = Proposal.find(params[:id])
+        enforce_permission_to :edit, :proposal, proposal: @proposal
+      end
+
+      def publish
+        enforce_permission_to :edit, :proposal, proposal: @proposal
+
+        PublishProposal.call(@proposal, current_user) do
+          on(:ok) do
+            redirect_to proposal_path(@proposal)
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("proposals.publish.error", scope: "decidim")
+            render :edit_draft
+          end
+        end
+      end
 
       def edit_draft
         enforce_permission_to :edit, :proposal, proposal: @proposal
@@ -138,7 +155,6 @@ module Decidim
 
       def update_draft
         enforce_permission_to :edit, :proposal, proposal: @proposal
-
         @form = form_proposal_params
         UpdateProposal.call(@form, current_user, @proposal) do
           on(:ok) do |proposal|
