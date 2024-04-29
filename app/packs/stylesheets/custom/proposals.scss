@@ -1352,12 +1352,23 @@ ul.dropdown.menu.bp-result-per-page
   li
   a.results-per-page-button
   div.filters-per-page-button {
+ul.dropdown.menu.bp-result-per-page
+  li
+  a.results-per-page-button
+  div.filters-per-page-button {
   justify-content: center;
   align-items: center;
   width: 20px;
   height: 20px;
   padding: 0 !important;
   margin: 0;
+}
+
+.pre-view-help-text {
+  font-size: 0.875rem;
+  color: var(--blue-warm-vivid-70);
+  font-weight: 400;
+  margin-bottom: 1.5rem;
 }
 .back-to-list-button {
   display: inline-flex;
