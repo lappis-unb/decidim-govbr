@@ -35,8 +35,8 @@
     $notVotedButtons.text('<%= t("decidim.proposals.proposals.vote_button.no_votes_remaining") %>');
   <% else %>
     $notVotedButtons.attr('disabled', false);
-    $notVotedButtons.addClass('button proposal_vote_button card__button');
-    $notVotedButtons.html('<%= icon("check") %> <%= t("decidim.proposals.proposals.vote_button.vote") %>');
+    $notVotedButtons.addClass('button secundary hollow proposal_vote_button card__button');
+    $notVotedButtons.html('<%= t("decidim.proposals.proposals.vote_button.vote") %>');
   <% end %>
   }());
 <% end %>
