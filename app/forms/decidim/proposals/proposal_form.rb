@@ -18,6 +18,7 @@ module Decidim
       attribute :has_address, Boolean
       attribute :attachment, AttachmentForm
       attribute :suggested_hashtags, Array[String]
+      attribute :commit , String
 
       attachments_attribute :photos
       attachments_attribute :documents

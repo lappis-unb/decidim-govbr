@@ -22,7 +22,7 @@ module Decidim
 
       before_action :authenticate_user!, only: [:new, :create, :complete]
       before_action :ensure_is_draft, only: [:compare, :complete, :preview, :publish, :edit_draft, :update_draft, :destroy_draft]
-      before_action :set_proposal, only: [:show, :edit, :update, :withdraw]
+      before_action :set_proposal, only: [:show, :edit, :update, :destroy, :preview]
       before_action :edit_form, only: [:edit_draft, :edit]
 
       before_action :set_participatory_text
@@ -83,15 +83,22 @@ module Decidim
 
         CreateProposal.call(@form, current_user) do
           on(:ok) do
-            PublishProposal.call(@proposal, current_user) do
-              on(:ok) do
-                flash[:notice] = I18n.t("proposals.publish.success", scope: "decidim")
-                redirect_to proposal_path(@proposal)
-              end
+            flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
 
-              on(:invalid) do
-                handle_error(:invalid, "Erro ao publicar sua proposta.")
-                redirect_to proposal_path(@proposal)
+            if params[:proposal][:commit] == "pre-view"
+              flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
+              redirect_to "#{Decidim::ResourceLocatorPresenter.new(proposal).path}/preview"
+            else
+              PublishProposal.call(@proposal, current_user) do
+                on(:ok) do
+                  flash[:notice] = I18n.t("proposals.publish.success", scope: "decidim")
+                  redirect_to proposal_path(@proposal)
+                end
+
+                on(:invalid) do
+                  handle_error(:invalid, "Erro ao publicar sua proposta.")
+                  redirect_to proposal_path(@proposal)
+                end
               end
             end
           end
@@ -240,7 +247,7 @@ module Decidim
       end
 
       def set_proposal
-        @proposal = Proposal.published.not_hidden.where(component: current_component).find_by(id: params[:id])
+        @proposal = Proposal.find(params[:id])
       end
 
       # Returns true if the proposal is NOT an emendation or the user IS an admin.
