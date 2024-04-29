@@ -70,6 +70,9 @@
 .proposals-filters > div {
   display: inline;
 }
+.br-button.mb-4{
+  font-size: 16px;
+}
 
 .proposals-content {
   display: flex;
@@ -359,7 +362,7 @@ div.author-data__extra {
     justify-content: center;
     align-items: center;
     flex-direction: row-reverse;
-    padding-top: 64px;
+    padding-top: 24px;
   }
 
   .proposal__btn__controls .button.secondary {
@@ -757,6 +760,8 @@ div.author-data__extra {
 .proposal-status {
   background: var(--Gray-gray-02) !important;
   border-radius: 30px !important;
+  float: left;
+  margin-right: 0rem;
 }
 
 .gallery__container {
@@ -1182,6 +1187,7 @@ textarea::placeholder {
 .br-proposal_body p {
   color: var(--gray-90);
   line-height: normal;
+  margin-bottom: 0rem;
 }
 
 .reveal__header {
