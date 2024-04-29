@@ -3802,7 +3802,7 @@ template {
   margin-right: calc(var(--spacing-scale-3x) * -1) !important;
 }
 .mb-4 {
-  margin-bottom: var(--spacing-scale-3x) !important;
+  margin-bottom: var(--spacing-scale-4x) !important;
 }
 .mb-n4 {
   margin-bottom: calc(var(--spacing-scale-3x) * -1) !important;
@@ -3832,11 +3832,11 @@ template {
   margin-right: var(--spacing-scale-4x) !important;
 }
 .my-5 {
-  margin-bottom: var(--spacing-scale-4x) !important;
+  margin-bottom: var(--spacing-scale-3x) !important;
 }
 .mt-5,
 .my-5 {
-  margin-top: var(--spacing-scale-4x) !important;
+  margin-top: var(--spacing-scale-3x) !important;
 }
 .mt-n5 {
   margin-top: calc(var(--spacing-scale-4x) * -1) !important;
@@ -16548,8 +16548,9 @@ label {
   font-size: var(--font-size-scale-base);
   font-weight: var(--font-weight-semi-bold);
   line-height: var(--font-line-height-medium);
-  margin-bottom: var(--spacing-scale-half);
 }
+
+
 .fieldset,
 fieldset {
   border: var(--surface-width-none);
