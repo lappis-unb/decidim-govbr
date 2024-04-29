@@ -1,0 +1,14 @@
+<%= filter_form_for filter do |form| %>
+  <div id="br-filter">
+    
+    <% for item in radio_collection %>
+      <% if item[:status] %>
+        <div class="br-filter-container">
+          <%= form.collection_radio_buttons item[:attribute] , item[:collection], :first, :last, legend_title: item[:legend] %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
+  </div>
+<% end %>
