@@ -28,7 +28,7 @@ module Decidim
         )
       end
 
-      def filter_type_values
+      def filter_type_values_meetings
         type_values = []
         Decidim::Meetings::Meeting::TYPE_OF_MEETING.each do |type|
           type_values << TreePoint.new(type, t("decidim.meetings.meetings.filters.type_values.#{type}"))
