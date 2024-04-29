@@ -25,7 +25,7 @@ extra_admin_link(
   <%= render partial: "wizard_aside" %>
   <div class="content-container">
     <div class="main-content">
-      <p class="pre-view-help-text">Esta é uma pré-visualização da sua proposta no Plano Clima. Revise o seu conteúdo e tenha certeza que está tudo correto antes de publicar. Após a publicação, você poderá editar ou apagar a proposta somente se não tiver recebido nenhum voto.</p>
+      <p class="pre-view-help-text"><%= t(".help_preview") %></p>
       <!-- Tag de status da proposta. Ex: Retirada, Incorporada -->
       <% if not @proposal.emendation? and not ["section","subsection"].include? @proposal.participatory_text_level %>
         <%== cell("decidim/proposals/proposal_m", @proposal, full_badge: true).badge %>
@@ -107,7 +107,7 @@ extra_admin_link(
                   <span class="show-for-sr">
                     <%= present(@proposal).title(html_escape: true) %>
                   </span>
-                  <%= icon "comment-square", class: "icon--small", aria_label:"teste", role: "img" %>
+                  <%= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %>
                   <%= @proposal.comments_count %>
                 <% end %>
               </div>
