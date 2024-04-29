@@ -9,6 +9,7 @@ require "decidim/accountability/test/factories"
 require "decidim/meetings/test/factories"
 require "decidim/homes/test/factories"
 require "decidim/blogs/test/factories"
+require "decidim/surveys/test/factories"
 
 FactoryBot.define do
   factory :partner, class: "Decidim::Govbr::Partner" do
