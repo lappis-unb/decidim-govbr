@@ -1,9 +1,36 @@
 <%= filter_form_for filter do |form| %>
-  <div id="br-filter">
+
+  <% if search_field[:status] %>
+    <div class="filters__section br-input input-highlight">
+      <%= 
+        form.search_field :search_text_cont, 
+        type: "search",
+        label: false, 
+        class: "input-group-field", 
+        placeholder: search_field[:placeholder], 
+        name: search_field[:name],
+        "aria-label": "Buscar", 
+        id: "input-search-large",
+        data: { disable_dynamic_change: true } 
+      %>
+      
+      <button class="br-button" type="submit" aria-label="Buscar">
+        <i class="fas fa-search" aria-hidden="true"></i>
+      </button>
+    </div>
+  <% end %>
+
+  <div id="br-filter-menu">
     <% for item in radio_collection %>
       <% if item[:status] %>
         <div class="br-filter-container">
-          <%= form.collection_radio_buttons item[:attribute] , item[:collection], :first, :last, legend_title: item[:legend] %>
+          <%= 
+            form.collection_radio_buttons item[:attribute], 
+            item[:collection], 
+            :first, 
+            :last, 
+            legend_title: item[:legend] 
+          %>
         </div>
       <% end %>
     <% end %>
@@ -11,7 +38,12 @@
     <% for item in check_boxes %>
       <% if item[:status] %>
         <div class="br-filter-container">
-          <%= form.check_boxes_tree item[:attribute], item[:collection], legend_title: item[:legend], "aria-controls": item[:aria_controls] %>
+          <%= 
+            form.check_boxes_tree item[:attribute], 
+            item[:collection], 
+            legend_title: item[:legend], 
+            "aria-controls": item[:aria_controls] 
+          %>
         </div>
       <% end %>
     <% end %>
