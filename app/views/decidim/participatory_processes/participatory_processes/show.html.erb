@@ -1,4 +1,10 @@
 <div class="br-container-lg">
+
+  <%= link_to participatory_processes_path, class: "br-button mb-4" do %>
+    <i class="fas fa-chevron-left" aria-hidden="true"></i>
+    <%= t(".back_to_list_participatory_processes") %>
+  <% end %>
+
   <% add_decidim_meta_tags({
                             image_url: current_participatory_space.attached_uploader(:hero_image).path,
                             description: translated_attribute(current_participatory_space.short_description),

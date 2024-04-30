@@ -187,6 +187,7 @@ pt-BR:
           filter_by: Tipo de processo
         show:
           title: Sobre este processo
+          back_to_list_participatory_processes: Voltar
   layouts:
     decidim:
       participatory_process_widgets:
