@@ -3,7 +3,7 @@ pt-BR:
   activemodel:
     attributes:
       participatory_process:
-        title: Nome do Processo Participativo 
+        title: Nome do Processo Participativo
         document: Documento
         import_attachments: Importar anexos
         slug: URL amigável
@@ -31,7 +31,7 @@ pt-BR:
         meta_scope: Selecione o Status deste processo participativo
         participatory_process_group_id: Secretaria
         participatory_scope: Link da publicação do processo no DOU
-        participatory_structure:  Telefone ou E-mail Institucional do Setor
+        participatory_structure: Telefone ou E-mail Institucional do Setor
         promoted: Destacado
         publish_date: Data de publicação do processo no DOU
         published_at: Publicado em
@@ -151,12 +151,12 @@ pt-BR:
           email_subject: Você foi atribuído como %{role} para "%{resource_title}".
           notification_title: Você foi atribuído como %{role} no processo participativo <a href="%{resource_url}">%{resource_title}</a>.
         step_activated:
-          email_intro: 'A etapa %{resource_title} está agora ativa para %{participatory_space_title}. Você pode vê-la a partir desta página:'
+          email_intro: "A etapa %{resource_title} está agora ativa para %{participatory_space_title}. Você pode vê-la a partir desta página:"
           email_outro: Você recebeu esta notificação porque segue %{participatory_space_title}. Você pode parar de receber notificações seguindo o link anterior.
           email_subject: Uma atualização para %{participatory_space_title}
           notification_title: A etapa %{resource_title} está agora ativa para <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'As datas para a etapa %{resource_title} em %{participatory_space_title} foram atualizadas. Você pode vê-las a partir desta página:'
+          email_intro: "As datas para a etapa %{resource_title} em %{participatory_space_title} foram atualizadas. Você pode vê-las a partir desta página:"
           email_outro: Você recebeu esta notificação porque segue %{participatory_space_title}. Você pode parar de receber notificações seguindo o link anterior.
           email_subject: Uma atualização para %{participatory_space_title}
           notification_title: As datas para a etapa <a href="%{resource_path}">%{resource_title}</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a> foram atualizadas.
@@ -174,7 +174,7 @@ pt-BR:
             select_an_area: Selecione um Órgão/Instituição
             select_process_group: Selecione um Setor
             duration: Prazo do Processo Participativo
-            slug_help: 'A URL Amigável é usada para gerar a URL para acessar o processo participativo. Apenas aceita letras, números e traços, e deve começar com uma letra. Exemplo: https://brasilparticipativo.presidencia.gov.br/nome do processo participativo/nome-da-conferência'
+            slug_help: "A URL Amigável é usada para gerar a URL para acessar o processo participativo. Apenas aceita letras, números e traços, e deve começar com uma letra. Exemplo: https://brasilparticipativo.presidencia.gov.br/nome do processo participativo/nome-da-conferência"
             announcement_help: O texto que insere aqui será mostrado ao usuário logo abaixo das informações do processo.
             select_participatory_process_type: Selecione um tipo de processo
       pages:
@@ -187,6 +187,7 @@ pt-BR:
           filter_by: Exibir
         show:
           title: Sobre este processo
+          participate: Participar
   layouts:
     decidim:
       participatory_process_widgets:
