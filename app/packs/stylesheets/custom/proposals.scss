@@ -781,6 +781,7 @@ div.author-data__extra {
   font-size: 0.75rem;
   padding: 4px 8px;
   font-weight: 600;
+  min-width: 4rem;
 }
 
 .br-comment.accepted {
@@ -789,8 +790,15 @@ div.author-data__extra {
 }
 
 .br-comment.alert {
-  border: 2px solid var(--Red-Vivid-red-vivid-60, #b50909);
+  border: 2px solid var(--red-vivid-60, #b50909);
   color: var(--red-vivid-60);
+}
+
+.br-comment.blue {
+  border: 2px solid var(--blue-warm-vivid-70);
+  color: var(--blue-warm-vivid-70);
+  display: inline-flex;
+  justify-content: center;
 }
 .new-proposal-button {
   max-width: 250px;
