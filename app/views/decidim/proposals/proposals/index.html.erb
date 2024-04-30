@@ -122,7 +122,7 @@
               attribute: :activity, 
               collection: activity_filter_values, 
               legend: t("decidim.proposals.proposals.filters.activity"),
-              status: true
+              status: current_user
             }
           ],
           check_boxes: [
@@ -131,14 +131,17 @@
               collection: filter_proposals_state_values, 
               legend: t("decidim.proposals.proposals.filters.state"),
               aria_controls: "proposals",
-              status: true
+              status: (
+                component_settings.proposal_answering_enabled && 
+                current_settings.proposal_answering_enabled
+              )
             },
             {
               attribute: :with_any_category, 
               collection: filter_categories_values, 
               legend: t("decidim.proposals.proposals.filters.category"),
               aria_controls: "proposals",
-              status: true
+              status: (current_component.categories.any?)
             }
           ],
           hidden_tag: {
