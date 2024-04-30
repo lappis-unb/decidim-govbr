@@ -116,9 +116,8 @@ module Decidim
     def render_sanitized_meeting(resource, method)
       content = present(resource).send(method, links: true)
 
-      return decidim_sanitize(content, {}) unless try(:safe_content?)
+      return decidim_sanitize(content, {}) unless try(:safe_content_meeting?)
       return decidim_sanitize_editor_admin(content, {}) if try(:safe_content_admin_meeting?)
-
       decidim_sanitize_editor(content)
     end
 

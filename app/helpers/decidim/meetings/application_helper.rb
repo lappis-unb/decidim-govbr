@@ -59,7 +59,7 @@ module Decidim
       # If the meeting is official or the rich text editor is enabled on the
       # frontend, the meeting body is considered as safe content; that's unless
       # the meeting comes from a collaborative_draft or a participatory_text.
-      def safe_content?
+      def safe_content_meeting?
         rich_text_editor_in_public_views? || @meeting.official?
       end
 
@@ -71,7 +71,7 @@ module Decidim
       def render_meeting_body(meeting)
         sanitized = render_sanitized_meeting(meeting, :description)
 
-        if safe_content?
+        if safe_content_meeting?
           Decidim::ContentProcessor.render_without_format(sanitized).html_safe
         else
           Decidim::ContentProcessor.render(sanitized, "div")
