@@ -15,3 +15,5 @@ import { getNavBar } from "../submenu_navbar";
 getNavBar();
 
 import "../snippet";
+
+//= require "jquery-ui";
