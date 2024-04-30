@@ -159,6 +159,10 @@ module Decidim
       start_date <= Date.current && (end_date.blank? || end_date >= Date.current)
     end
 
+    def state
+      past? || upcoming? || active?
+    end
+
     def past?
       return false if end_date.blank?
 

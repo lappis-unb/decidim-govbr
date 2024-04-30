@@ -1,0 +1,7 @@
+<% if current_participatory_space.past? %>
+ <span class="ml-2 br-comment alert" id="tag-status-01">Encerrada</span>
+<% elsif current_participatory_space.upcoming? %>
+  <span class="ml-2 br-comment evaluating" id="tag-status-03">A chegar</span>
+<% elsif current_participatory_space.active? %>
+  <span class="ml-2 br-comment blue" id="tag-status-05">Ativa</span>
+<% end %>

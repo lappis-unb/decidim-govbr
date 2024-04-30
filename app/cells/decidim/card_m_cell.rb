@@ -84,7 +84,19 @@ module Decidim
     end
 
     def badge_name
-      model.state
+      if model.class == Decidim::ParticipatoryProcess
+        if model.state
+          if model.upcoming?
+            "A chegar"
+          elsif model.active?
+            "Ativa"
+          else
+            "Encerrada"
+          end
+        end
+      else
+        model.state
+      end
     end
 
     def base_card_class
