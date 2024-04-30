@@ -1,5 +1,6 @@
+<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 <%= decidim_form_for(@preview_form, url: participatory_texts_path, class: "form grid-container") do |form| %>
-<div class="card">
+  <div class="card">
   <div class="card-divider">
     <h2 class="card-title">
       <%= t(".title") %>
@@ -9,7 +10,7 @@
   <div class="card-section">
     <% if @drafts.any? %>
       <p><%= t(".info_1") %></p>
-      <ul id="participatory-text" class="accordion js-sortable mb-m"
+      <ul id="participatory-text" class="accordion jq-sortable mb-m"
         data-accordion
         data-multi-expand="true"
         data-allow-all-closed="true">
@@ -42,6 +43,7 @@
   </div>
 <% end %>
 <% end -%>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script>
 $(window).on("load", function() {
   // Not all browsers submit the buttons as form data.
@@ -79,5 +81,8 @@ $(window).on("load", function() {
     form.append('<input type="hidden" name="save_draft" value="true" />');
     form.submit();
   });
+
+  $(".jq-sortable").sortable();
+
 })
 </script>
