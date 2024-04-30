@@ -49,7 +49,7 @@ module Decidim
       end
 
       # Options to filter meetings by activity.
-      def activity_filter_values
+      def activity_filter_values_meetings
         [
           ["all", t("decidim.meetings.meetings.filters.all")],
           ["my_meetings", t("decidim.meetings.meetings.filters.my_meetings")]
@@ -69,7 +69,8 @@ module Decidim
 
       # If the content is safe, HTML tags are sanitized, otherwise, they are stripped.
       def render_meeting_body(meeting)
-        sanitized = render_sanitized_content(meeting, :description)
+        sanitized = render_sanitized_meeting(meeting, :description)
+
         if safe_content?
           Decidim::ContentProcessor.render_without_format(sanitized).html_safe
         else

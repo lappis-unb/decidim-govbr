@@ -113,16 +113,11 @@ module Decidim
     # @param method [Symbol] Method name
     #
     # @return ActiveSupport::SafeBuffer
-    def render_sanitized_content(resource, method)
-      content = present(resource).send(method, links: true, strip_tags: !try(:safe_content?))
+    def render_sanitized_meeting(resource, method)
+      content = present(resource).send(method, links: true)
 
       return decidim_sanitize(content, {}) unless try(:safe_content?)
-
-      if resource.instance_of?(Decidim::Proposals::Proposal)
-        return decidim_sanitize_editor_admin(content, {}) if try(:safe_content_admin?)
-      elsif try(:safe_content_admin_meeting?)
-        return decidim_sanitize_editor_admin(content, {})
-      end
+      return decidim_sanitize_editor_admin(content, {}) if try(:safe_content_admin_meeting?)
 
       decidim_sanitize_editor(content)
     end
