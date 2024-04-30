@@ -64,11 +64,12 @@ pt-BR:
           new: Novo(a) %{name}
           action_not_allowed: Você não pode interagir com propostas. O seu Perfil de Usuário está incompleto!
           answer_proposal: Responder proposta
-          edit_proposal: Editar
+          edit_proposal: Editar Proposta
           import: Importar de outro componente
           participatory_texts: Textos participativos
           show: Mostrar proposta
           title: Ações
+          publish: Publicar
         settings:
           global:
             default_sort_order: Ordem padrão das propostas
@@ -318,7 +319,9 @@ pt-BR:
         preview:
           announcement_body: Sua %{singular_name} foi salva como rascunho. Precisa ser publicada para aparecer no site.
           announcement_title: Sua %{singular_name} ainda não foi publicada
+          comments: Comentários
           modify: Modificar
+          help_preview: Esta é uma pré-visualização da sua proposta no Plano Clima. Revise o seu conteúdo e tenha certeza que está tudo correto antes de publicar. Após a publicação, você poderá editar ou apagar a proposta somente se não tiver recebido nenhum voto.
           proposal_edit_before_minutes:
             one: Você poderá editar durante o primeiro minuto após a publicação. Uma vez que esta janela de tempo passa, você não poderá editar.
             other: Você poderá editar durante o primeiro %{count} minutos após a publicação. Uma vez que esta janela de tempo passa, você não poderá editar .

@@ -1393,6 +1393,12 @@ ul.dropdown.menu.bp-result-per-page
   margin: 0;
 }
 
+.pre-view-help-text {
+  font-size: 0.875rem;
+  color: var(--blue-warm-vivid-70);
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
 #filters__menu div.activity_collection_radio_buttons_filter fieldset {
   @media (min-width: 600px){
     display: grid;
