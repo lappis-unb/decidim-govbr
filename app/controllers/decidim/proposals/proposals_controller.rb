@@ -16,12 +16,13 @@ module Decidim
       include Decidim::Proposals::Orderable
       include Paginable
       include Decidim::Govbr::ParticipatoryProcessesHelper
+      include Decidim::Proposals
 
       helper_method :proposal_presenter, :form_presenter
 
       before_action :authenticate_user!, only: [:new, :create, :complete]
       before_action :ensure_is_draft, only: [:compare, :complete, :preview, :publish, :edit_draft, :update_draft, :destroy_draft]
-      before_action :set_proposal, only: [:show, :edit, :update, :withdraw]
+      before_action :set_proposal, only: [:show, :edit, :update, :destroy, :preview, :withdraw]
       before_action :edit_form, only: [:edit_draft, :edit]
 
       before_action :set_participatory_text
@@ -84,23 +85,26 @@ module Decidim
           on(:ok) do
             flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
 
-            PublishProposal.call(@proposal, current_user) do
-              on(:ok) do
-                flash[:notice] = I18n.t("proposals.publish.success", scope: "decidim")
-                redirect_to proposal_path(@proposal)
-              end
+            if params[:proposal][:should_preview] == "preview"
+              flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
+              redirect_to "#{Decidim::ResourceLocatorPresenter.new(proposal).path}/preview"
+            else
+              PublishProposal.call(@proposal, current_user) do
+                on(:ok) do
+                  flash[:notice] = I18n.t("proposals.publish.success", scope: "decidim")
+                  redirect_to proposal_path(@proposal)
+                end
 
-              on(:invalid) do
-                flash.now[:alert] = I18n.t("proposals.publish.error", scope: "decidim")
-                render :edit_draft
+                on(:invalid) do
+                  handle_error(:invalid, "Erro ao publicar sua proposta.")
+                  redirect_to proposal_path(@proposal)
+                end
               end
             end
           end
-
-          on(:invalid) do
-            flash.now[:alert] = I18n.t("proposals.create.error", scope: "decidim")
-            render :new
-          end
+          on(:invalid) { handle_error(:invalid, "Erro ao criar proposta. Verifique os campos obrigatórios.") }
+          on(:attachment_invalid) { handle_error(:attachment_invalid, "Erro ao criar proposta. Anexo inválido.") }
+          on(:limit_reached) { handle_error(:limit_reached, "Erro ao criar proposta. Você chegou ao limite da criação de propostas.") }
         end
       end
 
@@ -124,13 +128,25 @@ module Decidim
       #   @form.attachment = form_attachment_new
       # end
 
-      # def preview
-      #   enforce_permission_to :edit, :proposal, proposal: @proposal
-      # end
+      def preview
+        @proposal = Proposal.find(params[:id])
+        enforce_permission_to :edit, :proposal, proposal: @proposal
+      end
 
-      # def publish
-      #   enforce_permission_to :edit, :proposal, proposal: @proposal
-      # end
+      def publish
+        enforce_permission_to :edit, :proposal, proposal: @proposal
+
+        PublishProposal.call(@proposal, current_user) do
+          on(:ok) do
+            redirect_to proposal_path(@proposal)
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("proposals.publish.error", scope: "decidim")
+            render :edit_draft
+          end
+        end
+      end
 
       def edit_draft
         enforce_permission_to :edit, :proposal, proposal: @proposal
@@ -138,7 +154,6 @@ module Decidim
 
       def update_draft
         enforce_permission_to :edit, :proposal, proposal: @proposal
-
         @form = form_proposal_params
         UpdateProposal.call(@form, current_user, @proposal) do
           on(:ok) do |proposal|
@@ -207,6 +222,11 @@ module Decidim
 
       private
 
+      def handle_error(event, message)
+        flash.now[event] = message
+        render :new
+      end
+
       def search_collection
         Proposal.where(component: current_component).published.not_hidden.with_availability(params[:filter].try(:[], :with_availability))
       end
@@ -242,7 +262,7 @@ module Decidim
       end
 
       def set_proposal
-        @proposal = Proposal.published.not_hidden.where(component: current_component).find_by(id: params[:id])
+        @proposal = Proposal.find(params[:id])
       end
 
       # Returns true if the proposal is NOT an emendation or the user IS an admin.

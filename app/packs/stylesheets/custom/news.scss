@@ -1,8 +1,11 @@
-.news-title-container{
+.news-title-container {
   display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
   justify-content: space-between;
 
   @media (max-width: 768px) {
+    margin-bottom: 32px;
     flex-direction: column-reverse;
   }
 }
