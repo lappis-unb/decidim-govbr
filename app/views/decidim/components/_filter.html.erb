@@ -57,8 +57,10 @@
           </div>
         <% end %>
       <% end %>
-
-      <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
+      
+      <% if hidden_tag[:status] %>
+        <%= hidden_field_tag :order, hidden_tag[:order], id: nil, class: "order_filter" %>
+      <% end %>
     </div>
   </div>
 <% end %>
