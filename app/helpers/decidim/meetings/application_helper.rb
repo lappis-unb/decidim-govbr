@@ -28,7 +28,7 @@ module Decidim
         )
       end
 
-      def filter_type_values
+      def filter_type_values_meetings
         type_values = []
         Decidim::Meetings::Meeting::TYPE_OF_MEETING.each do |type|
           type_values << TreePoint.new(type, t("decidim.meetings.meetings.filters.type_values.#{type}"))
@@ -49,7 +49,7 @@ module Decidim
       end
 
       # Options to filter meetings by activity.
-      def activity_filter_values
+      def activity_filter_values_meetings
         [
           ["all", t("decidim.meetings.meetings.filters.all")],
           ["my_meetings", t("decidim.meetings.meetings.filters.my_meetings")]
@@ -59,18 +59,19 @@ module Decidim
       # If the meeting is official or the rich text editor is enabled on the
       # frontend, the meeting body is considered as safe content; that's unless
       # the meeting comes from a collaborative_draft or a participatory_text.
-      def safe_content?
+      def safe_content_meeting?
         rich_text_editor_in_public_views? || @meeting.official?
       end
 
-      def safe_content_admin?
+      def safe_content_admin_meeting?
         @meeting.try(:official?)
       end
 
       # If the content is safe, HTML tags are sanitized, otherwise, they are stripped.
       def render_meeting_body(meeting)
-        sanitized = render_sanitized_content(meeting, :description)
-        if safe_content?
+        sanitized = render_sanitized_meeting(meeting, :description)
+
+        if safe_content_meeting?
           Decidim::ContentProcessor.render_without_format(sanitized).html_safe
         else
           Decidim::ContentProcessor.render(sanitized, "div")
