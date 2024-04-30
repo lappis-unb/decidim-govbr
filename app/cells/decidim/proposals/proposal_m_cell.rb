@@ -49,14 +49,14 @@ module Decidim
       def state_classes
         case state
         when "accepted"
-          ["accepted"]
+          ["green"]
         when "rejected", "withdrawn"
-          ["rejected"]
+          ["red"]
         when "evaluating"
-          ["warning"]
+          ["orange"]
         else
-          return ["voted"] if current_user && model.voted_by?(current_user)
-
+          return ["blue"] if current_user && model.voted_by?(current_user)
+          
           ["default"]
         end
       end

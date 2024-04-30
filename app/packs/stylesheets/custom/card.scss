@@ -62,22 +62,22 @@
   border-top-width: 8px; 
 }
 
-.card.voted {
+.card.blue {
   border-top-color: var(--blue-warm-vivid-60);
   border-top-width: 8px; 
 }
 
-.card.rejected {
+.card.red {
   border-top-color: var(--red-vivid-60);
   border-top-width: 8px; 
 }
 
-.card.accepted {
+.card.green {
   border-top-color: var(--green-vivid-60);
   border-top-width: 8px; 
 }
 
-.card.refused {
+.card.orange {
   border-top-color: var(--orange-vivid-50);
   border-top-width: 8px; 
 }
@@ -118,4 +118,43 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   color: var(--blue-warm-vivid-70);
+}
+
+.component-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .component-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 352px);
+    grid-gap: 24px;
+  }
+}
+
+.component_card__header {
+  overflow: hidden;
+}
+
+.component_card__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--blue-warm-vivid-70);
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+.component_card__footer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 0 1rem;
+}
+
+.component_buttons {
+  padding: 1rem 0 1rem 0;
 }
