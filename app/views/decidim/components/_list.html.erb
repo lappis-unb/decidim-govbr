@@ -41,3 +41,11 @@
     <%= card_for item %>
   <% end %>
 </div>
+
+<% if defined?(current_component) %>
+    <div class="paginate-container">
+    <div class="empyt-div"></div>
+    <%= decidim_paginate collection %>
+    <%= render partial: "decidim/shared/results_per_page" %>
+    </div>
+<% end %>
