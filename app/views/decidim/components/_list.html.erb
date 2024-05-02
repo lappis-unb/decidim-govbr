@@ -1,7 +1,7 @@
 <% if defined?(current_component) %>
     <% if params.dig("filter", "with_availability").present? && params["filter"]["with_availability"] == "withdrawn" %>
         <div class="callout warning">
-            <% if current_component.manifest_name == "proposals"%>
+            <% if elements_name == "proposals"%>
                 <%= t("decidim.proposals.proposals.index.text_banner",
                     go_back_link: link_to(t("decidim.proposals.proposals.index.click_here"), 
                     proposals_path("filter[with_availability]" => nil)),
@@ -9,7 +9,7 @@
                 %>
             <% end %>
 
-            <% if current_component.manifest_name == "meetings" %>
+            <% if elements_name == "meetings" %>
                 <%= t("decidim.meetings.meetings.index.text_banner",
                     go_back_link: link_to(t("decidim.meetings.meetings.index.click_here"), 
                     meetings_path("filter[with_availability]" => nil)),
@@ -19,10 +19,12 @@
         </div>
     <% end %>
 
-    <div class="<%= current_component.manifest_name %>-container">
-        <p id="<%= current_component.manifest_name %>-count" class="<% current_component.manifest_name %>-counter">
+    <div class="<%= elements_name %>-container">
+        <p id="<%= elements_name %>-count" class="<% elements_name %>-counter">
             <%= render partial: "count" %>
         </p>
+
+        <div class="order__by-text"></div>
     </div>
 <% else %>
     <section id="processes-grid" class="section row collapse">
@@ -33,3 +35,9 @@
         <%= render partial: "decidim/shared/participatory_space_filters/show" %>
     </section>
 <% end %>
+
+<div class="card-grid <%= elements_name %>-content">
+  <% collection.each do |item| %>
+    <%= card_for item %>
+  <% end %>
+</div>
