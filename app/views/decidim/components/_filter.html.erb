@@ -31,6 +31,10 @@
     </div>
 
     <div id="filters__menu">
+      <% if hidden_field[:status] %>
+        <%= form.hidden_field hidden_field[:value], value: params.dig("filter", hidden_field[:value]) %>
+      <% end %>
+
       <% for item in radio_collection %>
         <% if item[:status] %>
           <div class="br-filter-container">
