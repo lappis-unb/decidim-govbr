@@ -18,6 +18,7 @@ module Decidim
       include Decidim::CheckBoxesTreeHelper
 
       delegate :minimum_votes_per_user, to: :component_settings
+      delegate :most_voted_rule, to: :component_settings
 
       # Public: The state of a proposal in a way a human can understand.
       #
