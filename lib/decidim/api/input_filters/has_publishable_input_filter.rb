@@ -51,6 +51,16 @@ module Decidim
                                  )
                                end
                              }
+
+        child_class.argument :id,
+                             type: GraphQL::Types::ID,
+                             description: "List result with this id",
+                             required: false,
+                             prepare: lambda { |id, _ctx|
+                                        proc do |model_class|
+                                          model_class.arel_table[:id].eq(id)
+                                        end
+                                      }
       end
 
       def self.date_to_iso8601(date, key)
