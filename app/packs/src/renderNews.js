@@ -50,7 +50,16 @@ function renderNews(apiData, href) {
 
   return resultHTMLArray.join("\n");
 }
-
+  /**
+   * Busca dados de notícias da API GraphQL e os renderiza na página.
+   *
+   * @param {string} apiUrl - A URL da API GraphQL. em localhost é http://localhost:3000/api
+   * @param {string} href - O valor href para o link de mais notícias. ex: "http://localhost:3000/processes/teste/f/32/" 
+   * @param {number} idComponent - O ID do componente. ex: 1
+   * @param {number} idProcess - O ID do processo participativo. ex: 32
+   * @param {string} title - O título da seção de notícias. ex: "Notícias"
+   * @param {string} descButton - A descrição do botão de notícias. ex: "Mais notícias"
+   */
 function manageNews(apiUrl, href, idComponent, idProcess, title) {
   const confNoticias = document.querySelector("#confnoticias");
   if (!confNoticias) {
