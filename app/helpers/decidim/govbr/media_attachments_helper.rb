@@ -24,6 +24,10 @@ module Decidim
       def attachment_title(attachment)
         attachment.title.is_a?(Hash) ? translated_attribute(attachment.title) : attachment.title
       end
+
+      def blob(signed_id)
+        ActiveStorage::Blob.find_signed(signed_id)
+      end
     end
   end
 end
