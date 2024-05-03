@@ -107,7 +107,53 @@
   </div>
   <span class="br-divider <% if browser.mobile? %>my-2<% else %>my-4<% end %>"></span>
   <div class="proposals-filters">
-    <%= render partial: "filters" %>
+    <%= render partial: "decidim/components/filter", locals: { 
+          show_filters: false,
+          search_field: {
+            placeholder: t("decidim.proposals.proposals.filters.placeholder", 
+            name: translated_attribute(current_component.singular_name).present? ? 
+                  translated_attribute(current_component.singular_name).downcase : 
+                  "proposta"
+            ),
+            status: true
+          },
+          radio_collection: [
+            {
+              attribute: :activity, 
+              collection: activity_filter_values, 
+              legend: t("decidim.proposals.proposals.filters.activity"),
+              status: current_user
+            }
+          ],
+          check_boxes: [
+            {
+              attribute: :with_any_state, 
+              collection: filter_proposals_state_values, 
+              legend: t("decidim.proposals.proposals.filters.state"),
+              aria_controls: "proposals",
+              status: (
+                component_settings.proposal_answering_enabled && 
+                current_settings.proposal_answering_enabled
+              )
+            },
+            {
+              attribute: :with_any_category, 
+              collection: filter_categories_values, 
+              legend: t("decidim.proposals.proposals.filters.category"),
+              aria_controls: "proposals",
+              status: (current_component.categories.any?)
+            }
+          ],
+          hidden_tag: {
+            status: true,
+            order: order
+          },
+          hidden_field: {
+            status: true,
+            value: "state_withdraw"
+          }
+        }
+    %>
   </div>
   <div class="proposals-content-container">
     <div id="proposals" class="proposals-br" aria-live="polite">
