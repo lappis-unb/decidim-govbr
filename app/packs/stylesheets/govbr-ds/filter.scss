@@ -416,7 +416,7 @@ label
   border: 0;
   margin-bottom: 4px;
   text-align: left;
-  font-size: 0.75rem;
+  font-size: var(--font-size-16);
   -webkit-border-radius: 1rem;
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
@@ -469,7 +469,7 @@ label
 
 @media screen and (min-width: 600px) {
   .show-votes-rule-button {
-    font-size: 1rem;
+    font-size: var(--font-size-16);
   }
 
   .voting-rules {
@@ -524,12 +524,12 @@ label
 }
 
 .vote_rules_card_visible {
-  max-height: 500px;
+  max-height: 600px;
   transition: max-height 0.5s ease-in-out;
 }
 
 .show__rules__card {
-  max-height: 500px;
+  max-height: 600px;
 }
 
 .voting-rules-counter .remaining-votes-counter div.card__content {
