@@ -13,7 +13,7 @@ module Decidim
       include Decidim::CheckBoxesTreeHelper
       include Decidim::RichTextEditorHelper
 
-      def filter_origin_values
+      def filter_origin_values_meetings
         origin_values = []
         origin_values << TreePoint.new("official", t("decidim.meetings.meetings.filters.origin_values.official"))
         origin_values << TreePoint.new("participants", t("decidim.meetings.meetings.filters.origin_values.participants")) # todo
@@ -40,7 +40,7 @@ module Decidim
         )
       end
 
-      def filter_date_values
+      def filter_date_values_meetings
         [
           ["all", t("decidim.meetings.meetings.filters.date_values.all")],
           ["upcoming", t("decidim.meetings.meetings.filters.date_values.upcoming")],
