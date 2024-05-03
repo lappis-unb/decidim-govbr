@@ -22,6 +22,29 @@ extra_admin_link(
 %>
 <%= emendation_announcement_for @proposal %>
 <div class="br-container-lg">
+  <% if flash.any? %>
+    <% if flash[:alert] %>
+      <div class="br-message warning new-proposal-error">
+        <div class="icon"><i class="fas fa-check-circle fa-lg" aria-hidden="true"></i>
+        </div>
+        <div class="content" aria-label="Data de início do afastamento inválida. A data não pode ser superior à data atual." role="alert"><span class="message-title"><%= flash.first.last %></span></div>
+        <div class="close">
+          <button class="br-button circle small" type="button" aria-label="Fechar a messagem alterta"><i class="fas fa-times" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    <% else %>
+      <div class="br-message success">
+        <div class="icon"><i class="fas fa-check-circle fa-lg" aria-hidden="true"></i>
+        </div>
+        <div class="content" aria-label="Sucesso. Seus dados foram alterados conforme preenchimento do formulário." role="alert"><span class="message-title"><%= flash.first.last %></span></div>
+        <div class="close">
+          <button class="br-button circle small" type="button" aria-label="Fechar a messagem alterta"><i class="fas fa-times" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
   <%= link_to proposals_path, class: "br-button mb-4" do %>
     <i class="fas fa-chevron-left" aria-hidden="true"></i>
     <%= t(".back_to_list_proposals") %>
@@ -56,13 +79,15 @@ extra_admin_link(
         <% unless component_settings.participatory_texts_enabled? %>
           <!-- Tag de categoria da proposta -->
           <% proposal_tag = cell "decidim/proposals/proposal_tags", @proposal %>
+          <% not_allow = true %>
+          <% not_allow = false if @proposal.proposal_votes_count.positive? || @proposal.state == "withdrawn" || @proposal.comments_count.positive? %>
           <%= cell("decidim/coauthorships", @proposal, has_actions: true, size: 3, 
             context: { 
               current_user: current_user, 
               proposal_tag: proposal_tag, 
               proposal_edit_link: edit_proposal_path(@proposal),
               amendable?: @proposal.amendable?,
-              allowed?: allowed_to?(:edit, :proposal, proposal: @proposal),
+              allowed?: not_allow,
               ammend_button: amend_button_for(@proposal) 
             })
           %>
