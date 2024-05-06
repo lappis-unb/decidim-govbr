@@ -33,6 +33,14 @@
           <%= user_group_select_field form, :user_group_id %>
         </div>
       <% end %>
+      <% if @form.geocoding_enabled? %>
+        <div class="field">
+          <%= form.check_box :has_address, checked: form_has_address? %>
+        </div>
+        <div class="field" id="address_input">
+          <%= form.geocoding_field :address, placeholder: t("decidim.proposals.proposals.placeholder.address") %>
+        </div>
+      <% end %>
       <% if component_settings.attachments_allowed? %>
         <fieldset class="gallery__container photos_container">
           <legend><%= t("gallery_legend", scope: "decidim.proposals.proposals.edit") %></legend>
@@ -62,7 +70,7 @@
         <%# <%= form.button "Pré-visualização", class: "button expanded mt-s mb-none new-proposal-button pre-view-button" %>
         <%= form.hidden_field :should_preview, id: "should_preview" %>
         <%= form.button "Pré-visualizar", type: "button", id: "preview-button", class: "button expanded mt-s mb-none new-proposal-button" %>
-        <%= form.button "Publicar", type: "button", class: "button expanded mt-s mb-none new-proposal-button" %>
+        <%= form.button "Publicar", type: "button",id: "publish-button", class: "button expanded mt-s mb-none new-proposal-button" %>
       </div>
     </div>
   <% end %>
@@ -73,6 +81,9 @@
   <script>
     document.getElementById('preview-button').addEventListener('click', function() {
       document.getElementById('should_preview').value = "preview";
+      this.form.submit();
+    });
+    document.getElementById('publish-button').addEventListener('click', function() {
       this.form.submit();
     });
   </script>
