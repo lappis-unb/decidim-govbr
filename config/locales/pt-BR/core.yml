@@ -305,7 +305,7 @@ pt-BR:
         share: Compartilhe sua contribuição
         share_link: Compartilhar link
         share_button: Compartilhar
-        share_text: Selecione abaixo o local que deseja compartilhar
+        share_text: Compartilhe para que votem e contribuam com a sua proposta %{proposal_name} do %{resource_name} no Brasil Participativo
     follows:
       create:
         participatory_space: Seguir <span class="show-for-sr">%{resource_name}</span>

@@ -8,7 +8,7 @@
 <div class="reveal" id="socialShare" data-reveal>
   <div class="reveal__header">
     <h3 class="reveal__title"><%= t(".share") %>:</h3>
-    <p class="reveal__subtitle"><%= t(".share_text")%></p>
+    <p class="reveal__subtitle"><%= t(".share_text", proposal_name: resource_title(resource), resource_name: resource_title(current_participatory_space))%></p>
     <%= render partial: "decidim/shared/social_media_icons", locals: { social_media_text: decidim_page_title ,social_media_path: decidim_meta_url } %>
   </div>
   <div class="reveal__body">
