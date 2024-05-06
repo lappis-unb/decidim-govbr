@@ -50,14 +50,12 @@ extra_admin_link(
         <% unless component_settings.participatory_texts_enabled? %>
           <!-- Tag de categoria da proposta -->
           <% proposal_tag = cell "decidim/proposals/proposal_tags", @proposal %>
-          <% not_allow = true %>
-          <% not_allow = false if @proposal.proposal_votes_count.positive? %>
           <%= cell("decidim/coauthorships", @proposal, has_actions: true, size: 3, 
               context: { 
                 current_user: current_user, 
                 proposal_tag: proposal_tag, 
                 amendable?: @proposal.amendable?,
-                allowed?: not_allow,
+                allowed?: allowed_to?(:edit, :proposal, proposal: @proposal) && @proposal.proposal_votes_count.positive?,
                 proposal_edit_link: edit_proposal_path(@proposal),
                 proposal_publish_link: publish_proposal_path(@proposal),
                 proposal: @proposal
