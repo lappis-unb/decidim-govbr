@@ -186,7 +186,7 @@ pt-BR:
         category:
           new: Nova categoria
         export: Exportar tudo
-        export_comments: Exportar comentários
+        export_comments: Exportar contribuições
         export_proposals: Exportar propostas
         export-selection: Exportar selecionado
         import: Importar
