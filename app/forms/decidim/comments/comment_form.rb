@@ -44,7 +44,6 @@ module Decidim
       end
 
       def document_type_must_be_valid
-        binding.pry
         document_type = blob(attachment_file).content_type
         return if ACCEPTED_TYPES.include?(document_type)
 
