@@ -246,14 +246,6 @@ h6 {
   margin: 0 4px -1px 0.175rem;
 }
 
-.author--inline span {
-  padding-right: 0px;
-
-  @media (min-width: 768px) {
-    padding-right: 10px;
-  }
-}
-
 .input-group-button {
   background: var(--gray-2);
   padding: 0 6px;
@@ -1267,7 +1259,15 @@ div.columns.large-12
   display: none;
 }
 
+.rich-text-display a {
+  max-width: 320px;
+  display: inline-block;
+}
+
 @media (min-width: 768px) {
+  .rich-text-display a {
+    max-width: auto;
+  }
   .ppa-process {
     display: flex;
     flex-direction: row;

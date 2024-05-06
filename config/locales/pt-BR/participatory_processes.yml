@@ -184,7 +184,7 @@ pt-BR:
       participatory_processes:
         filters:
           all_types: Todos os tipos
-          filter_by: Exibir
+          filter_by: Tipo de processo
         show:
           title: Sobre este processo
           participate: Participar
