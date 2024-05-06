@@ -22,7 +22,7 @@ pt-BR:
         description: Resumo do Processo Participativo
         developer_group: Setor
         domain: Domínio
-        end_date: Data final
+        end_date: Encerramento
         hashtag: Palavras-chave
         hero_image: Imagem da capa (mobile)
         import_categories: Importar categorias
@@ -41,7 +41,7 @@ pt-BR:
         scopes_enabled: Áreas de interesse ativadas
         show_metrics: Mostrar métricas
         show_statistics: Mostrar Dados Participativos
-        start_date: Data de início
+        start_date: Início
         target: Responsável pela consulta
         should_have_user_full_profile: Exigir Perfil de Usuário completo para responder o formulário
         show_mobilization: Mostrar mobilização
@@ -188,6 +188,11 @@ pt-BR:
         show:
           title: Sobre este processo
           participate: Participar
+      card:
+        status:
+          active: Ativa
+          closed: Encerrada
+          finished: Encerrada - Resultado
   layouts:
     decidim:
       participatory_process_widgets:

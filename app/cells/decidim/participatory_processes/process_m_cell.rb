@@ -26,16 +26,31 @@ module Decidim
       end
 
       def has_badge?
-        false
+        true
       end
+
+      def has_developer_group?
+        translated_attribute(model.developer_group).present?
+      end
+
+      def badge_name
+        state
+      end
+
+      def state
+        return t("decidim.participatory_processes.card.status.finished") if model.past? && model.active_step&.active == false 
+
+        return t("decidim.participatory_processes.card.status.closed") if model.past?
+
+        t("decidim.participatory_processes.card.status.active")
+      end 
 
       def has_step?
         model.active_step.present?
       end
 
       def state_classes
-
-        return ["green"] if model.past? && model.active_step&.state == "finished"
+        return ["green"] if model.past? && model.active_step&.active == false 
 
         return ["red"] if model.past?
 
