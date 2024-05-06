@@ -110,10 +110,12 @@ module Decidim
           on(:ok) do |comment|
             handle_success(comment)
 
-            @attachment = build_attachment(comment)
-            
-            Decidim.traceability.perform_action!(:create, Decidim::Attachment, @user) do
-              @attachment.save!
+            if form.attachment_file.present?
+              @attachment = build_attachment(comment)
+              
+              Decidim.traceability.perform_action!(:create, Decidim::Attachment, @user) do
+                @attachment.save!
+              end
             end
             
             respond_to do |format|
