@@ -67,6 +67,11 @@
   border-top-width: 8px; 
 }
 
+.card.evaluating {
+  border-top-color: var(--blue-warm-vivid-70);
+  border-top-width: 8px;
+}
+
 .card.rejected {
   border-top-color: var(--red-vivid-60);
   border-top-width: 8px; 
@@ -94,6 +99,11 @@
 .card__text--status.accepted {
   border: 2px solid var(--green-vivid-60);
   color: var(--green-vivid-60);
+}
+
+.card__text--status.evaluating {
+  border: 2px solid var(--blue-warm-vivid-70);
+  color: var(--blue-warm-vivid-70);
 }
 
 .card__text--status.rejected {
