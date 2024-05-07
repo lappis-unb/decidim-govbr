@@ -395,7 +395,11 @@ div.author-data__extra {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
+  }
+  .paginate-container > div.results-per-page {
+    margin-bottom: 0;
   }
   .results-per-page {
     padding: 0;
