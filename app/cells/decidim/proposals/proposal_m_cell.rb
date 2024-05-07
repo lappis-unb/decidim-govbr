@@ -56,7 +56,7 @@ module Decidim
           ["orange"]
         else
           return ["blue"] if current_user && model.voted_by?(current_user)
-          
+
           ["default"]
         end
       end

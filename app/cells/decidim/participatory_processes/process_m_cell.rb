@@ -16,7 +16,6 @@ module Decidim
         strip_tags(text).truncate(100, separator: /\s/)
       end
 
-
       def has_image?
         true
       end
@@ -38,19 +37,19 @@ module Decidim
       end
 
       def state
-        return t("decidim.participatory_processes.card.status.finished") if model.past? && model.active_step&.active == false 
+        return t("decidim.participatory_processes.card.status.finished") if model.past? && model.active_step&.active == false
 
         return t("decidim.participatory_processes.card.status.closed") if model.past?
 
         t("decidim.participatory_processes.card.status.active")
-      end 
+      end
 
       def has_step?
         model.active_step.present?
       end
 
       def state_classes
-        return ["green"] if model.past? && model.active_step&.active == false 
+        return ["green"] if model.past? && model.active_step&.active == false
 
         return ["red"] if model.past?
 
