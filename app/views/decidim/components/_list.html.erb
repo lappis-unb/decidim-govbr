@@ -24,28 +24,26 @@
             <%= render partial: "count" %>
         </p>
 
-        <div class="order__by-text"></div>
+        <div class="order__by-text">
+            <% if elements_name == "proposals"%>
+                <%= order_selector available_orders, i18n_scope: "decidim.proposals.proposals.orders" %>
+            <% end %>
+        </div>
+    </div>
+
+    <div class="card-grid <%= elements_name %>-content">
+        <% collection.each do |item| %>
+            <%= card_for item %>
+        <% end %>
+    </div>
+
+    <div class="paginate-container">
+        <div class="empyt-div"></div>
+        <%= decidim_paginate collection %>
+        <%= render partial: "decidim/shared/results_per_page" %>
     </div>
 <% else %>
-    <section id="processes-grid" class="section row collapse">
-        <div class="processes-grid-order-by">
-            <%= render partial: "order_by_processes" %>
-        </div>
-
-        <%= render partial: "decidim/shared/participatory_space_filters/show" %>
-    </section>
-<% end %>
-
-<div class="card-grid <%= elements_name %>-content">
-  <% collection.each do |item| %>
-    <%= card_for item %>
-  <% end %>
-</div>
-
-<% if defined?(current_component) %>
-    <div class="paginate-container">
-    <div class="empyt-div"></div>
-    <%= decidim_paginate collection %>
-    <%= render partial: "decidim/shared/results_per_page" %>
-    </div>
+    <% collection.each do |item| %>
+        <%= card_for item %>
+    <% end %>
 <% end %>

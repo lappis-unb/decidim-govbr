@@ -81,8 +81,11 @@
 
 <div class="br-row">
   <div id="meetings" class="columns mediumlarge-8 large-9" aria-live="polite">
-    <%= render partial: "decidim/components/list", locals: {elements_name: current_component.manifest_name, collection: meetings} %>
-    <%= render partial: "meetings" %>
+    <%= render partial: "decidim/components/list", locals: {
+          elements_name: current_component.manifest_name, 
+          collection: meetings
+        } 
+    %>
   </div>
 </div>
 </div>
