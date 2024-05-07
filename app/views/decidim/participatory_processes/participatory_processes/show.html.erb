@@ -31,7 +31,6 @@
   <%= cell("decidim/announcement", current_participatory_space.announcement) %>
 
   <div>
-    <%= render partial: "process_badge" %>
     <h1 class="page-title"><%= translated_attribute(current_participatory_space&.title) %></h1>
 
     <%= render partial: 'metadata', locals: { current_participatory_space: current_participatory_space } %>
