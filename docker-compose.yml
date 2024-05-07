@@ -32,6 +32,8 @@ services:
         - postgres
         - redis-queue
         - redis-cache
+    tty: true
+    stdin_open: true
 
   redis-queue:
     container_name: redis-queue
