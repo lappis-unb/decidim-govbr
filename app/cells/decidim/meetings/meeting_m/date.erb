@@ -1,8 +1,11 @@
-<div class="card__icondata">
-  <ul class="card-data">
-    <li class="card-data__item">
-      <i class="fa-solid fa-clock fa-xl" style="color: #2670e8;"></i>
-    </li>
-    <%= meeting_date %>
-  </ul>
+<div class="component-card-data">
+  <div class="component-card-data-item">
+    <span class="component-card-data-label"><%= t("activemodel.attributes.participatory_process.start_date") %></span>
+    <span class="component-card-data-value"> <%= start_date ? l(start_date, format: :decidim_short) : t("decidim.participatory_processes.show.unspecified") %> </span>
+  </div>
+  <i class="fa fa-arrow-right"> </i>
+  <div class="component-card-data-item">
+    <span class="component-card-data-label"><%= t("activemodel.attributes.participatory_process.end_date") %></span>
+    <span class="component-card-data-value" ><%= end_date ? l(end_date, format: :decidim_short) : t("decidim.participatory_processes.show.unspecified") %> </span>
+  </div>
 </div>
