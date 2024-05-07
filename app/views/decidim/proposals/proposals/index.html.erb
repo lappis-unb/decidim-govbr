@@ -78,14 +78,14 @@
             <% end %>
           <% end %>
         </div>
-        <%= render partial: "voting_rules" %>
+        <%= render partial: "voting_rules" , locals: { isRuleVotes: true, helpButtonText: t("decidim.proposals.proposals.voting_rules.help_button_text") } %>
       </div>
     <% else %>
       <div class="proposals-actions proposals-no-actions">
         <span class="proposal-disabled">
           O período para submissão de propostas não está aberto.
         </span>
-        <%= render partial: "voting_rules" %>
+        <%= render partial: "voting_rules" , locals: { isRuleVotes: true, helpButtonText: t("decidim.proposals.proposals.voting_rules.help_button_text") } %>
       </div>
     <% end %>
     <% if component_settings.collaborative_drafts_enabled? %>
