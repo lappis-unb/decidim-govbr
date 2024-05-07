@@ -32,12 +32,14 @@ module Decidim
         end
   
         def state_classes
-          if model.active?
+          if model.past_result?
             ["accepted"]
+          elsif model.active?
+            ["evaluating"]
           elsif model.past?
             ["rejected"]
           else
-            ["evaluating"]
+            ["refused"]
           end
         end
   
