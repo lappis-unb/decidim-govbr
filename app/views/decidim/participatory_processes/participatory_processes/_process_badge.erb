@@ -1,9 +1,9 @@
 <% if current_participatory_space.past_result? %>
- <span class="ml-2 br-comment accepted" id="tag-status-01">Encerrada - Resultado</span>
+ <span class="ml-2 br-comment accepted" id="tag-status-03">Encerrada - Resultado</span>
 <% elsif current_participatory_space.past?%>
  <span class="ml-2 br-comment alert" id="tag-status-01">Encerrada</span>
 <% elsif current_participatory_space.upcoming? %>
-  <span class="ml-2 br-comment orange" id="tag-status-03">Não iniciada</span>
+  <span class="ml-2 br-comment orange" id="tag-status-07">Não iniciada</span>
 <% elsif current_participatory_space.active? %>
   <span class="ml-2 br-comment blue" id="tag-status-05">Ativa</span>
 <% end %>

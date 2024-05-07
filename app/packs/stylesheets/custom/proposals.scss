@@ -810,6 +810,11 @@ div.author-data__extra {
   display: inline-flex;
   justify-content: center;
 }
+
+.br-comment.orange {
+  border: 2px solid var(--orange-vivid-50);
+  color: var(--orange-vivid-50);
+}
 .new-proposal-button {
   max-width: 250px;
   margin-top: 0.5rem !important;
