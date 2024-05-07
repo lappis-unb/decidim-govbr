@@ -767,8 +767,20 @@ div.author-data__extra {
 .proposal-status {
   background: var(--gray-2) !important;
   border-radius: 30px !important;
+  max-width: fit-content;
+  padding: 4px 8px;
+  font-size: 12px;
 }
 
+.proposal-status.accepted {
+  border: 2px solid var(--green-vivid-60) !important;
+  color: var(--green-vivid-60);
+}
+
+.proposal-status.alert {
+  border: 2px solid var(--red-vivid-60);
+  color: var(--red-vivid-60);
+}
 .gallery__container {
   margin: 0 !important;
 }
