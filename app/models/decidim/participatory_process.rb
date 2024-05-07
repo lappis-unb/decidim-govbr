@@ -160,7 +160,21 @@ module Decidim
     end
 
     def state
-      past? || upcoming? || active?
+      if past_result?
+        "Encerrada - Resultado"
+      elsif past? 
+        "Encerrada"
+      elsif upcoming? 
+        "Não iniciada"
+      else
+        "Ativa"
+      end
+    end
+
+    def past_result?
+      return false if end_date.blank?
+
+      end_date < Date.current && hashtag.include?("resultado")
     end
 
     def past?
