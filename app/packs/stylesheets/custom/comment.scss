@@ -14,7 +14,7 @@
 
 .comments-count {
   font-weight: var(--font-weight-semi-bold) !important;
-  color: #000000 !important;
+  color: var(--pure-0) !important;
   gap: 1.5rem;
 }
 .comments_blocked_warning {
@@ -230,15 +230,15 @@
 
 .add-comment .field .button--sc {
   background: var(--background);
-  color: var(--Gray-gray-80, #333);
+  color: var(--gray-80);
   font-weight: 700;
-  border: 1px solid var(--Gray-gray-90, #1b1b1b);
+  border: 1px solid var(--gray-90);
   font-size: 0.88rem;
   padding: 0 20px;
 }
 
 .comment__actions.br-button {
-  border: 1px solid var(--blue-warm-vivid-70, #1351b4);
+  border: 1px solid var(--blue-warm-vivid-70);
 }
 
 .comment__content p {

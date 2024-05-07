@@ -48,7 +48,7 @@ extra_admin_link(
       <% end %>
       <% if not @proposal.emendation? and not ["section","subsection"].include? @proposal.participatory_text_level %>
         <%= content_tag :div, class: 'br-proposal_body' do  %>
-        <% render_proposal_body(@proposal)%>
+          <% render_proposal_body(@proposal)%>
         <% end%>
       <% end %>
       <div class="proposal-extra-data">
@@ -120,12 +120,12 @@ extra_admin_link(
       <% end %>
       <%= amenders_list_for(@proposal) %>
       <%= render partial: "decidim/shared/share_modal", locals: { resource: @proposal } %>
-      <% if current_user.admin? %>
+      <% if current_user.try(:admin?) %>
         <button type="button" class="br-button" data-open="flagModal" title="Denunciar"
-          aria-controls="flagModal" aria-haspopup="dialog" tabindex="0">
+    aria-controls="flagModal" aria-haspopup="dialog" tabindex="0">
           <i class="fas fa-flag mr-2" aria-hidden="true"></i>
           Moderação
-      </button>
+        </button>
       <% end %>
       <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
       <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
