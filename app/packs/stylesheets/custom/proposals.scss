@@ -73,7 +73,7 @@
 
 .proposals-content {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
   gap: 24px;
@@ -1124,7 +1124,7 @@ div.author-data__extra {
 }
 
 textarea[rows] {
-  background: #f6f6f6;
+  background: var(--gray-3);
   height: 9.5rem;
 }
 
