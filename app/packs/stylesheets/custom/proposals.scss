@@ -775,11 +775,13 @@ div.author-data__extra {
 .proposal-status.accepted {
   border: 2px solid var(--green-vivid-60) !important;
   color: var(--green-vivid-60);
+  max-width: fit-content;
 }
 
 .proposal-status.alert {
   border: 2px solid var(--red-vivid-60);
   color: var(--red-vivid-60);
+  max-width: fit-content;
 }
 .gallery__container {
   margin: 0 !important;
