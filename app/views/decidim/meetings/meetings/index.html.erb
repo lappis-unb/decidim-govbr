@@ -5,16 +5,15 @@
 <% end %>
 
 <div class="br-container-lg">
-<div class="row columns">
-  <div class="title-action">
-    
-
-    <% if allowed_to?(:create, :meeting) %>
-      <%= action_authorized_link_to :create, new_meeting_path, class: "title-action__action button small", data: { "redirect_url" => new_meeting_path } do %>
-        <%= t("new_meeting", scope: "decidim.meetings.meetings.index") %>
-        <%= icon "plus", role: "img", "aria-hidden": true %>
+  <div class="row columns">
+    <div class="title-action">
+      <% if allowed_to?(:create, :meeting) %>
+        <%= action_authorized_link_to :create, new_meeting_path, class: "title-action__action button small", data: { "redirect_url" => new_meeting_path } do %>
+          <%= t("new_meeting", scope: "decidim.meetings.meetings.index") %>
+          <%= icon "plus", role: "img", "aria-hidden": true %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
 
@@ -87,5 +86,4 @@
         } 
     %>
   </div>
-</div>
 </div>

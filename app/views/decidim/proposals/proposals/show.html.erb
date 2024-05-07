@@ -119,7 +119,7 @@ extra_admin_link(
         <% end %>
       <% end %>
       <%= amenders_list_for(@proposal) %>
-      <%= render partial: "decidim/shared/share_modal", locals: { resource: @proposal } %>
+      <%= render partial: "decidim/shared/share_modal", locals: {  translation_component: t("decidim.shared.share_modal.share_text_proposal" ,resource_name: resource_title(@proposal), component_name: resource_title(current_participatory_space)) } %>
       <% if current_user.try(:admin?) %>
         <button type="button" class="br-button" data-open="flagModal" title="Denunciar"
     aria-controls="flagModal" aria-haspopup="dialog" tabindex="0">
@@ -130,21 +130,21 @@ extra_admin_link(
       <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
       <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
       <%= emendation_actions_for @proposal %>
-    </div>
-  </div>
-  <!-- Seção de anexos e imagens -->
-  <%= attachments_for @proposal %>
-  <!-- Seção de comentários -->
-  <% if user_full_profile_required? %>
-    <% if user_survey_answered? %>
-      <%= comments_for @proposal %>
-    <% else %>
-      <%= comments_for(@proposal, {
+      <!-- Seção de anexos e imagens -->
+      <%= attachments_for @proposal %>
+      <!-- Seção de comentários -->
+      <% if user_full_profile_required? %>
+        <% if user_survey_answered? %>
+          <%= comments_for @proposal %>
+        <% else %>
+          <%= comments_for(@proposal, {
         :hide_comment_action => true, :alert => flash[:alert], :poll_link => flash[:poll_link]}) 
       %>
-    <% end %>
-  <% else %>
-    <%= comments_for @proposal %>
-  <% end %>
-  <%= cell("decidim/flag_modal", @proposal) %>
+        <% end %>
+      <% else %>
+        <%= comments_for @proposal %>
+      <% end %>
+      <%= cell("decidim/flag_modal", @proposal) %>
+    </div>
+  </div>
 </div>

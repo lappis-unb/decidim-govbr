@@ -140,6 +140,10 @@ module Decidim
         ).count
       end
 
+      def form_has_address?
+        @form.address.present? || @form.has_address
+      end
+
       def show_voting_rules?
         return false unless votes_enabled?
 
