@@ -68,12 +68,13 @@ pt-BR:
       comment:
         reply: Responder
         report:
-          action: Moderação
+          action: Moderar
       proposals:
         settings:
           global:
             vote_limit: Quantidade máxima de votos por usuário
             minimum_votes_per_user: Quantidade mínima de votos por usuário
+            most_voted_rule: Quantas propostas (mais votadas) serão selecionadas?
             proposal_limit: Quantidade máxima de propostas por usuário (deixe 0 caso não queira limitar)
             proposal_length: Quantidade máxima de caracteres por propostas
             proposal_answering_enabled: Permitir que o órgão faça a devolutiva por proposta

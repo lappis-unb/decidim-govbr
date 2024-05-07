@@ -123,9 +123,14 @@
 
 .br-author-name {
   display: inline-block; 
-  width: 250px; 
-  overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis;
+  max-width: 150px; 
+  overflow: hidden;
+  text-overflow: hidden;
   color: var(--blue-warm-vivid-70);
+
+  @media(min-width: 768px)
+  {
+    max-width: 400px;
+  }
 }

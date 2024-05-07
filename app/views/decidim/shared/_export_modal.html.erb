@@ -59,7 +59,7 @@
   <div class="proposal-divider"></div>
 
   <div class="export-modal-buttons">
-    <button class="br-button secondary black-and-white-btn" data-close><%=t("decidim.modal.cancel") %></button>
+    <button class="br-button secondary black-and-white-btn" type="button" data-close><%=t("decidim.modal.cancel") %></button>
     <button class="br-button primary" type="submit" ><%=t("decidim.modal.submit") %></button>
   </div>
   <% end %>
@@ -100,7 +100,7 @@
     if (window.jQuery) {
       $(document).foundation();
 
-      $('form').on('submit', function(event) {
+      $('#report-form').on('submit', function(event) {
         event.preventDefault(); 
 
         var formData = {
