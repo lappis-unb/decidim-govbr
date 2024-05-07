@@ -162,9 +162,9 @@ module Decidim
     def state
       if past_result?
         "Encerrada - Resultado"
-      elsif past? 
+      elsif past?
         "Encerrada"
-      elsif upcoming? 
+      elsif upcoming?
         "Não iniciada"
       else
         "Ativa"
