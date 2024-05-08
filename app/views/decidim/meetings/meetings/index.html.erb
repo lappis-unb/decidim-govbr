@@ -3,6 +3,32 @@
     <%= cell "decidim/meetings/meetings_map", search.result %>
   <% end %>
 
+  <div class="meeting-container">
+    <div class="export-buttons">
+      <%= render partial: "decidim/shared/export_modal" %>
+      <%= render partial: "decidim/meetings/calendar_modal", locals: {
+        path: short_url(
+          route_name: "calendar",
+          params: { filter: params.fetch(:filter, {}).try(:to_unsafe_hash) }
+        )}
+      %>
+      <% if current_user %>
+        <% if current_user.admin? %>
+            <div class="proposals-actions-admin">
+              <%= render partial: 'decidim/govbr/exports/dropdown', locals: { 
+                component: current_component, 
+                resource_id: nil, 
+                is_comments: false} 
+              %>   
+            </div>
+            <% if browser.mobile? %>
+                <span class="br-divider my-2"></span>
+            <% end %>
+        <% end %>
+      <% end %>
+   </div>
+  </div>
+
   <div class="meeting__actions__container">
     <%= render partial: "decidim/shared/component_announcement" %>
 
@@ -15,7 +41,6 @@
       </div>
     <% end %>
   </div>
-  
 
   <div class="br-row">
     <div id="meetings" class="columns mediumlarge-8 large-9" aria-live="polite">

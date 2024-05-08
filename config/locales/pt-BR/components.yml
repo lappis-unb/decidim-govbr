@@ -188,6 +188,7 @@ pt-BR:
         export: Exportar tudo
         export_comments: Exportar contribuições
         export_proposals: Exportar propostas
+        export_meetings: Exportar dados
         export-selection: Exportar selecionado
         import: Importar
         manage: Gerenciar
