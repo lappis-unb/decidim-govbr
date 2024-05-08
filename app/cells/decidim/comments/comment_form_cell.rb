@@ -15,6 +15,10 @@ module Decidim
         render view: :comment_as, locals: { form: form }
       end
 
+      def enable_comments_attachment
+        model.component.try(:settings).try(:[],:enable_comments_attachment)
+      end
+
       private
 
       def cache_hash
