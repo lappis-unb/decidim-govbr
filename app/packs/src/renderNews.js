@@ -60,7 +60,7 @@ function renderNews(apiData, href) {
    * @param {string} title - O título da seção de notícias. ex: "Notícias"
    * @param {string} descButton - A descrição do botão de notícias. ex: "Mais notícias"
    */
-function manageNews(apiUrl, href, idComponent, idProcess, title) {
+function manageNews(apiUrl, href, idComponent, idProcess, title, descButton) {
   const confNoticias = document.querySelector("#confnoticias");
   if (!confNoticias) {
     console.error('Elemento com id "confnoticias" não encontrado.');
@@ -116,6 +116,9 @@ function manageNews(apiUrl, href, idComponent, idProcess, title) {
                                   <div class="home-sections-content br-container-lg">
                                     <div class="news-container">
                                       ${renderedNewsHTML}
+                                    </div>
+                                    <div class="centered-content">
+                                      <a href="${href}" class="br-button secondary">${descButton}</a>
                                     </div>
                                   </div>
                                </section>`;
