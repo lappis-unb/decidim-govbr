@@ -1,10 +1,12 @@
 <div class="br-container-lg">
   <%= render partial: "decidim/shared/component_announcement" %>
-  <h1>
+  <h1 class="participatory-text-title">
     <%= render_participatory_text_title(@participatory_text) %>
   </h1>
   <div class="participatory_texts_buttons">
+    <% if @proposals.count > 0 %>
     <%= render partial: "decidim/shared/export_modal" %>
+    <% end %>
   </div>
   <ul class="participatory-text-list" id="proposals-text">
     <% @proposals.each do |proposal| %>
