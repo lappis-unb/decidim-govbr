@@ -1,20 +1,21 @@
-<%= render partial: "decidim/shared/component_announcement" %>
+<div class="br-container-lg meetings__container">
+  <% if current_component.settings.maps_enabled? && search.result.not_online.exists? %>
+    <%= cell "decidim/meetings/meetings_map", search.result %>
+  <% end %>
 
-<% if current_component.settings.maps_enabled? && search.result.not_online.exists? %>
-  <%= cell "decidim/meetings/meetings_map", search.result %>
-<% end %>
+  <div class="meeting__actions__container">
+    <%= render partial: "decidim/shared/component_announcement" %>
 
-<div class="br-container-lg">
-  <div class="row columns">
-    <div class="title-action">
-      <% if allowed_to?(:create, :meeting) %>
+    <% if allowed_to?(:create, :meeting) %>
+      <div class="br-magic-button medium">
         <%= action_authorized_link_to :create, new_meeting_path, class: "title-action__action button small", data: { "redirect_url" => new_meeting_path } do %>
           <%= t("new_meeting", scope: "decidim.meetings.meetings.index") %>
           <%= icon "plus", role: "img", "aria-hidden": true %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
+  
 
   <div class="br-row">
     <div id="meetings" class="columns mediumlarge-8 large-9" aria-live="polite">

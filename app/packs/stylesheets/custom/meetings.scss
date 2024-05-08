@@ -310,3 +310,45 @@
   }
 
 }
+
+.meeting__actions__container {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--gray-20);
+  border-bottom: 1px solid var(--gray-20);
+  padding-top: 24px;
+  padding-bottom: 32px;
+  gap: 32px;
+}
+
+.meetings__container div.br-announcement h1,
+.meetings__container div.br-announcement h2,
+.meetings__container div.br-announcement h3 {
+  text-align: left;
+  color: var(--pure-100);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: var(--font-weight-semi-bold);
+  line-height: normal;
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
+.meetings__container div.br-announcement p {
+  color: var(--gray-60);
+  font-size: var(--font-size-14);
+  font-style: normal;
+  font-weight: var(--font-weight-regular);
+  line-height: 140%; /* 19.6px */
+  margin-bottom: 0;
+}
+
+.meetings__container div.br-magic-button {
+  width: 100%;
+  max-width: 350px;
+  align-self: center;
+}
+
+.meetings__container div.br-magic-button > a.title-action__action {
+  width: 100%;
+}
