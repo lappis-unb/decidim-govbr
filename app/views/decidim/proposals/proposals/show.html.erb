@@ -1,150 +1,255 @@
-<% add_decidim_meta_tags({
-  description: present(@proposal).body,
-  title: present(@proposal).title,
-  url: proposal_url(@proposal.id)
-}) %>
-<%
-edit_link(
-  resource_locator(@proposal).edit,
-  :edit,
-  :proposal,
-  proposal: @proposal
-)
-%>
-<%
-extra_admin_link(
-  resource_locator(@proposal).show(anchor: "proposal-answer"),
-  :create,
-  :proposal_answer,
-  { proposal: @proposal },
-  { name: t(".answer"), icon: "comment-square" }
-)
-%>
-<%= emendation_announcement_for @proposal %>
-<div class="br-container-lg">
-  <%= link_to proposals_path, class: "br-button mb-4" do %>
-    <i class="fas fa-chevron-left" aria-hidden="true"></i>
-    <%= t(".back_to_list_proposals") %>
-  <% end %>
-  <div class="flex-column">
-    <%= render partial: "voting_rules" %>
-  </div>
-  <span class="br-divider my-5"></span>
-  <div class="content-container">
-    <div class="main-content">
-      <!-- Tag de status da proposta. Ex: Retirada, Incorporada -->
-      <% if not @proposal.emendation? and not ["section","subsection"].include? @proposal.participatory_text_level %>
-        <%== cell("decidim/proposals/proposal_m", @proposal, full_badge: true).badge %>
-      <% end %>
-      <!-- Titulo da proposta -->
-      <% if @proposal.emendation? %>
-        <h2 class="proposal-title">
-          <%= t(".changes_at_title", title: present(@proposal.amendable).title(links: true, html_escape: true)) %>
-        </h2>
-      <% else %>
-        <h2 class="proposal-title">
-          <%= present(@proposal).title(links: true, html_escape: true) %>
-        </h2>
-      <% end %>
-      <% if not @proposal.emendation? and not ["section","subsection"].include? @proposal.participatory_text_level %>
-        <%= content_tag :div, class: 'br-proposal_body' do  %>
-          <% render_proposal_body(@proposal)%>
-        <% end%>
-      <% end %>
-      <div class="proposal-extra-data">
-        <!-- Autor, data de publicação e botão de denúncia -->
-        <% unless component_settings.participatory_texts_enabled? %>
-          <!-- Tag de categoria da proposta -->
-          <% proposal_tag = cell "decidim/proposals/proposal_tags", @proposal %>
-          <%= cell("decidim/coauthorships", @proposal, has_actions: true, size: 3, 
-            context: { 
-              current_user: current_user, 
-              proposal_tag: proposal_tag, 
-              proposal_edit_link: edit_proposal_path(@proposal),
-              amendable?: @proposal.amendable?,
-              allowed?: allowed_to?(:edit, :proposal, proposal: @proposal),
-              ammend_button: amend_button_for(@proposal) 
-            })
-          %>
-        <% end %>
-      </div>
-      <% if component_settings.geocoding_enabled? %>
-        <%= render partial: "decidim/shared/static_map",
-          locals: { icon_name: "proposals", geolocalizable: @proposal } %>
-      <% end %>
-      <% if proposal_has_costs? && current_settings.answers_with_costs? %>
-        <%= cell("decidim/proposals/cost_report", @proposal) %>
-      <% end %>
-      <%= cell("decidim/proposals/feedback", proposal_reason_callout_announcement,
-        callout_class: proposal_reason_callout_class) if @proposal.answered? && @proposal.published_state? %>
-      <%= linked_resources_for @proposal, :results, "included_proposals" %>
-      <%= linked_resources_for @proposal, :projects, "included_proposals" %>
-      <%= linked_resources_for @proposal, :meetings, "proposals_from_meeting" %>
-      <%= linked_resources_for @proposal, :proposals, "copied_from_component" %>
-      <%= cell "decidim/endorsers_list", @proposal %>
-      <%= amendments_for @proposal %>
-    </div>
-    <div class="side-content">
-      <!-- Card de votos e ações -->
-      <% if current_settings.votes_enabled? || show_endorsements_card? || current_user %>
-        <% if @proposal.withdrawn? %>
-          <div class="card">
-            <div class="card__content">
-              <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
-              <% if current_settings.votes_enabled? %>
-                <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
-              <% end %>
-            </div>
+<% add_decidim_meta_tags({ description: present(@proposal).body, title: present(@proposal).title, url:
+  proposal_url(@proposal.id) }) %>
+  <% edit_link( resource_locator(@proposal).edit, :edit, :proposal, proposal: @proposal ) %>
+    <% extra_admin_link( resource_locator(@proposal).show(anchor: "proposal-answer" ), :create, :proposal_answer, {
+      proposal: @proposal }, { name: t(".answer"), icon: "comment-square" } ) %>
+      <%= emendation_announcement_for @proposal %>
+        <section class="br-container">
+          <div class="br-container-lg home-sections-content information-section information-section-inverse-desktop">
+            <img style=height:240px;width:100%;object-fit:cover; alt=imagers
+              src=https://lab-decide.dataprev.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBa0lIIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--081399e66f06d9cc4a6d4f069b8b8d4cc333f618/53699605057_df601fa62f_k.jpg
+              class=image-content></img>
           </div>
-        <% else %>
-          <div class="proposal-card">
-            <div class="proposal-card__content">
-              <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
-            </div>
-            <% if current_settings.votes_enabled? %>
-              <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
-            <% end %>
-            <div class="row collapse buttons__row">
-              <div class="column collapse <%= endorsements_enabled? ? "small-3" : "" %>">
-                <%= link_to "#comments", class: "button small compact hollow secondary button--nomargin expanded" do %>
-                  <span class="show-for-sr">
-                    <%= present(@proposal).title(html_escape: true) %>
-                  </span>
-                  <%= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %>
-                  <%= @proposal.comments_count %>
-                <% end %>
+          <section class="home-sections-container subcontent-section">
+            <div class="br-container-lg home-sections-content information-section">
+              <div class="right-content text-content">
+                <h2 class="titulo-rs">Unindo Forças Frente às Enchentes no Rio Grande do Sul</h2>
+                <p class="paragrafo-rs">O Rio Grande do Sul enfrenta uma situação crítica com chuvas intensas, afetando
+                  principalmente a região sudeste do estado. Conforme o alerta vermelho do Instituto Nacional de
+                  Meteorologia (INMET), os municípios estão experimentando precipitações que podem chegar a 100
+                  milímetros por dia, acompanhadas de ventos de até 100 km/h. Esta iniciativa busca mobilizar recursos e
+                  esforços coordenados para ajudar os afetados, priorizando a segurança e o bem-estar de todos, enquanto
+                  trabalhamos juntos para mitigar os impactos dessas severas condições meteorológicas.</p>
               </div>
             </div>
-          </div>
-        <% end %>
-      <% end %>
-      <%= amenders_list_for(@proposal) %>
-      <%= render partial: "decidim/shared/share_modal", locals: { resource: @proposal } %>
-      <% if current_user.try(:admin?) %>
-        <button type="button" class="br-button" data-open="flagModal" title="Denunciar"
-    aria-controls="flagModal" aria-haspopup="dialog" tabindex="0">
-          <i class="fas fa-flag mr-2" aria-hidden="true"></i>
-          Moderação
-        </button>
-      <% end %>
-      <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
-      <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
-      <%= emendation_actions_for @proposal %>
-    </div>
-  </div>
-  <!-- Seção de anexos e imagens -->
-  <%= attachments_for @proposal %>
-  <!-- Seção de comentários -->
-  <% if user_full_profile_required? %>
-    <% if user_survey_answered? %>
-      <%= comments_for @proposal %>
-    <% else %>
-      <%= comments_for(@proposal, {
-        :hide_comment_action => true, :alert => flash[:alert], :poll_link => flash[:poll_link]}) 
-      %>
-    <% end %>
-  <% else %>
-    <%= comments_for @proposal %>
-  <% end %>
-  <%= cell("decidim/flag_modal", @proposal) %>
-</div>
+          </section>
+          <section class="home-sections-container subcontent-section">
+            <img style=height:24px;width:100%;object-fit:cover; alt=imagers
+              src=http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5dae246099fb457cc4c652e79d17bca2da100578/6.png
+              class=image-content></img>
+            <div class="br-container-lg home-sections-content information-section cards-section">
+              <div class="left-content box-card">
+                <div class="card-title-box">
+                  <i class="fa-solid card-icon fa-file-signature"></i>
+                  <p class="card-title">Cadastre sua Iniciativa</p>
+                </div>
+                <p class="paragrafo-rs card-content">O consectetur adipiscing elit. Nullam gravida augue id velit
+                  interdum malesuada.
+                  Nam hendrerit metus vel sapien luctus consectetur. Aenean sagittis lectus quis nisi lobortis
+                  dignissim. Suspendisse elementum lacus a pharetra ornare. Duis fermentum, enim ut tempor scelerisque,
+                  lectus nunc pellentesque lorem, vel gravida mi dui quis nibh.</p>
+                <div class="card-button-box">
+                  <a href=/processes/planoclima/f/285/ class="active br-button primary">Cadastre iniciativas</a>
+                </div>
+              </div>
+              <div class="right-content box-card">
+                <div class="card-title-box">
+                  <i class="fa-solid card-icon fa-hand-holding-heart"></i>
+                  <p class="card-title">Seja voluntário</p>
+                </div>
+                <p class="paragrafo-rs card-content">O consectetur adipiscing elit. Nullam gravida augue id velit
+                  interdum malesuada.
+                  Nam hendrerit metus vel sapien luctus consectetur. Aenean sagittis lectus quis nisi lobortis
+                  dignissim. Suspendisse elementum lacus a pharetra ornare. Duis fermentum, enim ut tempor scelerisque,
+                  lectus nunc pellentesque lorem, vel gravida mi dui quis nibh.</p>
+                <div class="card-button-box">
+                  <a href=/processes/planoclima/f/285/ class="active br-button primary">Cadastre-se</a>
+                </div>
+              </div>
+            </div>
+            <img style=height:24px;width:100%;object-fit:cover; alt=imagers
+              src=http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5dae246099fb457cc4c652e79d17bca2da100578/6.png
+              class=image-content></img>
+          </section>
+          <section class="home-sections-container subcontent-section">
+            <div class="br-container-lg home-sections-content information-section">
+              <div class="text-content doacao-container">
+                <h2 class="titulo-doacao">Faça sua doação</h2>
+                <p class="paragrafo-rs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam gravida augue id
+                  velit interdum malesuada. Nam hendrerit metus vel sapien luctus consectetur.</p>
+              </div>
+              <div class="container-pix">
+                <div class="info-instituicao">
+                  <p class="titulo-instituicao">Banco XXXXXXXXX</p>
+                  <p class="intuito-instituicao">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam gravida
+                    augue id velit interdum malesuada. Nam hendrerit metus vel sapien luctus consectetur.</p>
+                </div>
+                <div class="box-pix">
+                  <div style=padding-right:16px;>
+                    <p class="titulo-pix">PIX</p>
+                    <p class="instituicao">Banco XXXX</p>
+                    <p class="chave">Chave CNPJ: 123456/0001.3</p>
+                  </div>
+                  <img style=height:92px;width:92px;object-fit:cover; alt=imagers
+                    src=http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a7cf4af823ecd797b8229ed2dad662dce05e02f5/QR%20code.png
+                    class=image-content></img>
+                </div>
+              </div>
+              <div class="container-pix">
+                <div class="info-instituicao">
+                  <p class="titulo-instituicao">Banco XXXXXXXXX</p>
+                  <p class="intuito-instituicao">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam gravida
+                    augue id velit interdum malesuada. Nam hendrerit metus vel sapien luctus consectetur.</p>
+                </div>
+                <div class="box-pix">
+                  <div style=padding-right:16px;>
+                    <p class="titulo-pix">PIX</p>
+                    <p class="instituicao">Banco XXXX</p>
+                    <p class="chave">Chave CNPJ: 123456/0001.3</p>
+                  </div>
+                  <img style=height:100px;width:100px;object-fit:cover; alt=imagers
+                    src=http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a7cf4af823ecd797b8229ed2dad662dce05e02f5/QR%20code.png
+                    class=image-content></img>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="home-sections-container subcontent-section"></section>
+          <div class="divider"></div>
+          </section>
+          <section class="bp-logo-container br-container-lg"><a href=https://www.gov.br/brasilparticipativo><img
+            alt=logo-brasil-participativo
+            src=https://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBZ0VpIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--83a2abd12f5092b982cfdec5938eb1296f17c1d2/novo_bp_logo.png
+            class=bp-logo style=filter:invert(0);width:194.13px></a></section>
+          <section class=logos__section>
+            <div class=logos__container><a href=https://www.unb.br/ data-asw-orgfontsize=14 style=font-size:14px><img
+              alt="unb logo"
+              src=https://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBGZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--76ef1c7950a4004478f2873e319b6f78971c9c40/logo_unb.png
+              style=filter:invert(0) id=unb-logo> </a>
+              <a href=https://www.gov.br/gestao/pt-br data-asw-orgfontsize=14 style=font-size:14px><img
+                alt="secretaria nacional de participação social logo"
+                src=http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--972151436e4f3bb40b1d633e33d801aa39d6c785/snps.png
+                style=filter:invert(0) id=unb-snps> </a>
+              <a href=https://www.gov.br/sg/pt-br data-asw-orgfontsize=14 style=font-size:14px><img
+                alt="secretaria geral logo"
+                src=http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--3f37c2a4287684c6afbd2a36a3b82f0010cba793/secretaria-geral.png
+                style=filter:invert(0) id=logo-sg> </a>
+              <a href=https://www.gov.br/secom/pt-br data-asw-orgfontsize=14 style=font-size:14px><img
+                alt="secretaria de comunicação social logo"
+                src=http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--eb745861e12dc75d5985512e5a6e5b96fdf621c0/Camada%201.png
+                style=filter:invert(0) id=secom-logo> </a>
+              <a href=https://www.gov.br/pt-br data-asw-orgfontsize=14 style=font-size:14px><img
+                alt="governo federal logo"
+                src=http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--712225327e551df4757a749e72cc28ed2d911404/Governo%20Federal.png
+                style=filter:invert(0) id=logo-governo-federal> </a>
+            </div>
+          </section>
+          <script> const brItems = document.querySelectorAll(".br-item"); brItems.forEach((item) => { item.addEventListener("click", () => { const targetId = item.getAttribute("data-target"); const brList = document.getElementById(targetId); const icon = item.querySelector("i"); if (brList) { brList.style.display = brList.style.display === "block" ? "none" : "block"; if (icon.classList.contains("fa-chevron-down")) { icon.classList.replace("fa-chevron-down", "fa-chevron-up"); } else { icon.classList.replace("fa-chevron-up", "fa-chevron-down"); } } }); }); </script>
+          <style>
+            .divider {
+              border-bottom: 1px solid #CCCCCC;
+              margin: 64px 0px;
+            }
+
+            .logos__container {
+              gap: 32px;
+            }
+
+            .info-instituicao {
+              width: 100%;
+              padding-right: 24px;
+            }
+
+            .doacao-container {
+              margin-bottom: 32px;
+            }
+
+            .container-pix {
+              display: flex;
+              margin-top: 24px;
+            }
+
+            .box-pix {
+              padding: 16px;
+              background-color: #EDF5FF;
+              border-radius: 8px;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              text-align: center;
+            }
+
+            .titulo-pix {
+              font-size: 16px;
+              font-weight: bold;
+              color: #0C326F;
+            }
+
+            .instituicao {
+              font-weight: 600;
+              font-size: 16px;
+            }
+
+            .chave {
+              font-weight: 500;
+              font-size: 16px;
+            }
+
+            .titulo-instituicao {
+              color: #0C326F;
+              font-size: 16px;
+              font-weight: bold;
+              margin-bottom: 5px;
+            }
+
+            .intuito-instituicao {
+              font-size: 16px;
+            }
+
+            .subcontent-section {
+              margin-bottom: 32px;
+            }
+
+            .titulo-rs {
+              margin: 32px 0px;
+              padding: 0px;
+            }
+
+            .paragrafo-rs {
+              font-size: 16px;
+            }
+
+            .box-card {
+              padding: 16px;
+              background-color: white;
+              border-radius: 4px;
+            }
+
+            .card-title-box {
+              display: flex;
+              border-bottom: 1px solid #1351B4;
+            }
+
+            .card-title {
+              color: #1351B4;
+              font-size: 16px;
+            }
+
+            .cards-section {
+              display: flex;
+              padding: 24px 0px;
+              justify-content: space-evenly;
+              background-color: #F3F7FB;
+            }
+
+            .card-icon {
+              color: #1351B4;
+              font-size: 20px;
+              padding-right: 12px;
+            }
+
+            .card-content {
+              padding-top: 16px;
+              text-align: left;
+            }
+
+            .card-button-box {
+              display: flex;
+              justify-content: center;
+            }
+
+            .titulo-doacao {
+              margin-bottom: 5px;
+              padding: 0px;
+            }
+          </style>

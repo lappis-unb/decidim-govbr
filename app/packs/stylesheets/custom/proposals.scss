@@ -770,7 +770,12 @@ div.author-data__extra {
 }
 
 .gallery__container {
+  border: none !important;
   margin: 0 !important;
+}
+.gallery__container .column {
+  padding-right: 0px;
+  padding-left: 0px;
 }
 .label.success {
   border: 2px solid var(--green-vivid-60) !important;
