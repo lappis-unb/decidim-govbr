@@ -85,6 +85,10 @@ pt-BR:
     govbr:
       initial_page_type:
         default: Página Padrão
+    meetings:
+      meetings:
+        index:
+            new_meeting: Criar Evento
     assemblies:
       admin:
         partners:
