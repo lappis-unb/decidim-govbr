@@ -43,7 +43,7 @@ module Decidim
         display_title = content_tag(
           :span,
           category_name,
-          "aria-hidden": true
+          'aria-hidden': true
         )
 
         sr_title + display_title
@@ -74,7 +74,7 @@ module Decidim
         display_title = content_tag(
           :span,
           scope_name,
-          "aria-hidden": true
+          'aria-hidden': true
         )
 
         sr_title + display_title
