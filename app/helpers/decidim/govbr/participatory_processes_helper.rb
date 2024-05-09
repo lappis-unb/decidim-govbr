@@ -6,7 +6,7 @@ module Decidim
       end
 
       def user_full_profile_required?
-        current_user.present? && current_participatory_space.should_have_user_full_profile
+        current_user.present? && current_participatory_space.try(:should_have_user_full_profile)
       end
 
       def mount_user_profile_survey_url(survey_id:)

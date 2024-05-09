@@ -52,14 +52,14 @@ module Decidim
 
       def should_update_user_poll_answered
         (current_organization.user_profile_survey_id == current_component.id) &&
-          current_participatory_space.should_have_user_full_profile
+          current_participatory_space.try(:should_have_user_full_profile)
       end
 
       def should_have_user_full_profile
         return unless current_participatory_space.is_a? Decidim::ParticipatoryProcess
 
         if (current_organization.user_profile_survey_id != current_component.id) &&
-           current_participatory_space.should_have_user_full_profile &&
+           current_participatory_space.try(:should_have_user_full_profile) &&
            current_user.present? && !current_user.user_profile_poll_answered
           survey_component_id = current_organization.user_profile_survey_id
 

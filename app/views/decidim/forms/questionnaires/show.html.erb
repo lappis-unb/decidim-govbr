@@ -2,21 +2,18 @@
   title: translated_attribute(questionnaire.title),
   description: translated_attribute(questionnaire.description),
 }) %>
-
 <%= render partial: "decidim/shared/component_announcement" if current_component.manifest_name == "surveys" %>
-
-<% if user_full_profile_required? && 
+<% if defined?(user_full_profile_required?) && user_full_profile_required? && 
   current_organization.user_profile_survey_id != current_component.id %>
-  <% if user_survey_answered? %>
-    <%= render partial: 'decidim/forms/questionnaires/questionnaire_form' %>
-  <% else %>
-    <span class="message-title"><%= flash[:alert] %></span>
-    <a target="_blank" href=<%= flash[:poll_link] %>> <%= t("decidim.forms.incomplete_profile") %></a>
+<% if user_survey_answered? %>
+  <%= render partial: 'decidim/forms/questionnaires/questionnaire_form' %>
+<% else %>
+  <span class="message-title"><%= flash[:alert] %></span>
+  <a target="_blank" href=<%= flash[:poll_link] %>> <%= t("decidim.forms.incomplete_profile") %></a>
   <% end %>
 <% else %>
   <%= render partial: 'decidim/forms/questionnaires/questionnaire_form' %>
 <% end %>
-
 <% content_for :js_content do %>
   <%= javascript_pack_tag "decidim_forms" %>
 <% end %>

@@ -14,7 +14,7 @@
   </div>
 </div>
 <div class="card-grid">
-  <% if flash[:alert].present? && !user_survey_answered? && current_participatory_space.should_have_user_full_profile %>
+  <% if flash[:alert].present? && !user_survey_answered? && current_participatory_space.try(:should_have_user_full_profile) %>
     <span class="message-title"><%= flash[:alert] %></span>
     <a target="_blank" href=<%= flash[:poll_link] %>> <%= t("decidim.forms.incomplete_profile") %></a>
     <% end %>
