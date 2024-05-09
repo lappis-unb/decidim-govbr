@@ -405,3 +405,11 @@
 .meetings-actions-admin ul.vertical.menu.add-components .br-divider{
   width: 100%;
 }
+
+#meetings {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+  margin: 48px;
+}
