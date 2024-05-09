@@ -24,6 +24,7 @@ module Decidim
     include Decidim::HasArea
     include Decidim::FilterableResource
     include Decidim::Govbr::HasPartners
+    include Decidim::Govbr::ParticipatoryProcessesHelper
 
     translatable_fields :title, :subtitle, :short_description, :description, :developer_group, :meta_scope, :local_area,
                         :target, :participatory_scope, :participatory_structure, :announcement
