@@ -1,1 +1,4 @@
-<%= t(".meetings_count", count: search.result.count) %>
+<%= search.result.count > 1 ? 
+    t(".meetings_count.other", count: search.result.count) : 
+    t(".meetings_count.one", count: search.result.count)
+%>

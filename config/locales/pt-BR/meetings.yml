@@ -175,6 +175,10 @@ pt-BR:
             hybrid: Ambas
             in_person: Presencial
             online: Virtual
+        count:
+          meetings_count: 
+            one: "%{count} evento encontrado"
+            other: "%{count} eventos encontrados"
         index:
           click_here: Ver todos os eventos
           see_all: Ver todos os eventos

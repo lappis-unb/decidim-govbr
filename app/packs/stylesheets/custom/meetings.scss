@@ -305,6 +305,12 @@
     gap: 12px;
     margin: 0;
   }
+  #meetings .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 364px);
+    grid-gap: 24px;
+    justify-content: center;
+  }
   .meetings-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -411,5 +417,17 @@
   flex-direction: column;
   width: 100%;
   padding: 0;
-  margin: 48px;
+  margin: 48px 0px;
+}
+
+#meetings-count {
+  color: var(--gray-90);
+  font-variant-numeric: lining-nums proportional-nums;
+  font-size: var(--font-size-16) !important;
+  font-weight: var(--font-weight-regular);
+}
+
+#meetings .card-grid {
+  margin-top: 24px;
+  grid-template-columns: repeat(auto-fit, 328px);
 }
