@@ -18,7 +18,7 @@
           type="text"
           name="date_range"
           placeholder="exemplo: 02/02/2024 até 03/02/2025"
-          value="<%= current_participatory_space.start_date %> até <%= Time.now.strftime("%d/%m/%Y") %>"
+          value="<%= current_participatory_space.try(:start_date) ? current_participatory_space.start_date : "02/02/2024" %> até <%= Time.now.strftime("%d/%m/%Y") %>"
           data-input="data-input"
         />
 
