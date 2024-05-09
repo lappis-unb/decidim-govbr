@@ -11,3 +11,23 @@
 .pagination a:hover, .pagination button:hover {
     border-radius: 100rem;
 }
+
+ul li.pagination-next a,
+ul li.pagination-previous a {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 100rem;
+}
+
+ul li.pagination-next a i, 
+ul li.pagination-previous a i {
+    color: var(--blue-warm-vivid-70);
+    text-align: center;
+    font-variant-numeric: lining-nums proportional-nums;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-black);
+    line-height: normal;
+}

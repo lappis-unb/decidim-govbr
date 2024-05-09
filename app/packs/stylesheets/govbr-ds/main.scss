@@ -619,13 +619,31 @@ h6 {
   background-color: var(---white);
 }
 
-.pagination .current {
+.pagination .page.current {
   padding: 0.1875rem 0.625rem;
   background: var(--blue-warm-vivid-80);
-  color: var(---white);
+  color: var(--pure-0);
   cursor: default;
   border-radius: 100rem;
-  min-width: 30px;
+  font-weight: var(--font-weight-semi-bold);
+}
+
+.pagination-br-container .page a,
+.pagination-br-container .page {
+  width: 32px;
+  height: 32px;
+  color: var(--blue-warm-vivid-70);
+  text-align: center;
+  font-size: var(--font-size-scale-up-01) !important;
+  font-weight: var(--font-weight-regular);
+  line-height: normal;
+}
+
+.pagination-br-container {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
 }
 
 textarea,
