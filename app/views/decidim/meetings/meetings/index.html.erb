@@ -4,29 +4,12 @@
   <% end %>
 
   <div class="meeting-container">
-    <div class="export-buttons">
-      <%= render partial: "decidim/shared/export_modal" %>
-      <%= render partial: "decidim/meetings/calendar_modal", locals: {
-        path: short_url(
-          route_name: "calendar",
-          params: { filter: params.fetch(:filter, {}).try(:to_unsafe_hash) }
-        )}
-      %>
-      <% if current_user %>
-        <% if current_user.admin? %>
-            <div class="proposals-actions-admin">
-              <%= render partial: 'decidim/govbr/exports/dropdown', locals: { 
-                component: current_component, 
-                resource_id: nil, 
-                is_comments: false} 
-              %>   
-            </div>
-            <% if browser.mobile? %>
-                <span class="br-divider my-2"></span>
-            <% end %>
-        <% end %>
-      <% end %>
-   </div>
+    <%= render partial: "admin_actions", locals: {
+        mounted_admin_engine: current_participatory_space.mounted_admin_engine,
+        current_participatory_space: current_participatory_space,
+        current_component: current_component
+      } 
+    %>
   </div>
 
   <div class="meeting__actions__container">

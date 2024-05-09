@@ -1,0 +1,22 @@
+<% if current_user %>
+    <% if current_user.admin? %>
+        <div class="meetings-actions-admin">
+            <%= link_to "<i class='fas fa-edit' aria-hidden='true'></i> Editar componente".html_safe,
+                send(mounted_admin_engine).edit_component_path(
+                        current_participatory_space, 
+                        current_component
+                    ),
+                class: "br-button secondary black-and-white-btn" 
+            %>
+
+            <%= render partial: "decidim/shared/export_modal" %>
+
+            <%= render partial: 'decidim/govbr/exports/dropdown', locals: { 
+                    component: current_component, 
+                    resource_id: nil, 
+                    is_comments: false
+                } 
+            %>
+        </div>
+    <% end %>
+<% end %>
