@@ -100,6 +100,8 @@ pt-BR:
             invalid: Ocorreu um problema ao atualizar a enquete deste evento
             success: Enquete do evento atualizado com sucesso
         exports:
+          meetings: Exportar eventos
+          meeting_comments: Exportar contribuições
           registrations: Inscrições
         invite_join_meeting_mailer:
           invite:

@@ -35,6 +35,10 @@
                 exports_path(component, id: manifest.name, format: format, resource_id: resource_id),
                 method: :post, remote: true%>
             </li>
+
+            <% if format.downcase == "excel" %>
+              <span class="br-divider sm my-1"></span>
+            <% end %>
           <% end %>
 
           <% if manifest.name.to_s == "meeting_comments" %>
