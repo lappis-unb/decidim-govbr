@@ -33,7 +33,7 @@
     margin: 0;
   }
 
-  padding: 1rem 0;
+  padding: 0;
 }
 
 .meetings-button__container {
@@ -299,6 +299,12 @@
   .meetings__container div.br-magic-button {
     align-self: flex-start;
   }
+  .meeting-container > .meetings-actions-admin {
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 12px;
+    margin: 0;
+  }
   .meetings-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -372,4 +378,12 @@
   width: 18px;
   height: 18px;
   margin: 0;
+}
+
+.meetings-actions-admin {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+  margin: 24px 0px;
 }
