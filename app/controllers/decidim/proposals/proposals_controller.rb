@@ -92,7 +92,8 @@ module Decidim
               PublishProposal.call(@proposal, current_user) do
                 on(:ok) do
                   if @proposal.reload.hidden?
-                    flash[:notice] = "Sua #{translated_attribute(@proposal.component.singular_name || {})} foi criada com sucesso. No momento ela está sendo avaliada, e assim que for aprovada ela aparecerá publicamente."
+                    flash[:notice] =
+                      "Sua #{translated_attribute(@proposal.component.singular_name || {})} foi criada com sucesso. No momento ela está sendo avaliada, e assim que for aprovada ela aparecerá publicamente."
                   else
                     flash[:notice] = I18n.t("proposals.publish.success", scope: "decidim")
                   end
