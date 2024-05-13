@@ -124,9 +124,14 @@ module Decidim
           end
 
           on(:invalid) do
-            @error = t("create.error", scope: "decidim.comments.comments")
+            if @form.errors[:attachment_file].present?
+              @error = @form.errors[:attachment_file]
+            else 
+              @error = t("create.error", scope: "decidim.comments.comments")
+            end
+            
             respond_to do |format|
-              format.js { render :error }
+              format.js { render :error, locals: { error_message: @error } }
             end
           end
         end
