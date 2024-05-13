@@ -106,30 +106,29 @@ module Decidim
         )
 
         Decidim::Comments::CreateComment.call(@form, current_user) do
-          
           on(:ok) do |comment|
             handle_success(comment)
 
             if form.attachment_file.present?
               @attachment = build_attachment(comment)
-              
+
               Decidim.traceability.perform_action!(:create, Decidim::Attachment, @user) do
                 @attachment.save!
               end
             end
-            
+
             respond_to do |format|
               format.js { render :create }
             end
           end
 
           on(:invalid) do
-            if @form.errors[:attachment_file].present?
-              @error = @form.errors[:attachment_file]
-            else 
-              @error = t("create.error", scope: "decidim.comments.comments")
-            end
-            
+            @error = if @form.errors[:attachment_file].present?
+                       @form.errors[:attachment_file]
+                     else
+                       t("create.error", scope: "decidim.comments.comments")
+                     end
+
             respond_to do |format|
               format.js { render :error, locals: { error_message: @error } }
             end
@@ -234,7 +233,7 @@ module Decidim
       def build_attachment(attached_to)
         file = blob(form.attachment_file)
         Attachment.new(
-          title: { :"pt-BR" => file.filename },
+          title: { 'pt-BR': file.filename },
           attached_to: attached_to,
           file: form.attachment_file, # Define attached_to before this
           content_type: file.content_type

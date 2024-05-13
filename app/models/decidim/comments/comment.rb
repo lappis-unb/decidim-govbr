@@ -63,10 +63,10 @@ module Decidim
       translatable_fields :body
 
       has_one :attachment,
-               class_name: "Decidim::Attachment",
-               dependent: :destroy,
-               inverse_of: :attached_to,
-               as: :attached_to
+              class_name: "Decidim::Attachment",
+              dependent: :destroy,
+              inverse_of: :attached_to,
+              as: :attached_to
 
       searchable_fields({
                           participatory_space: :itself,

@@ -109,9 +109,9 @@ module Decidim
 
       describe "#attachment_file" do
         context "when file is valid" do
-          let(:attachment_file) do 
+          let(:attachment_file) do
             blob = ActiveStorage::Blob.create_and_upload!(
-              io: File.open(Rails.root.join('lib','decidim','dev','assets','teste.pdf')),
+              io: File.open(Rails.root.join('lib', 'decidim', 'dev', 'assets', 'teste.pdf')),
               filename: "teste.pdf",
               content_type: "application/pdf"
             )
@@ -120,14 +120,14 @@ module Decidim
           end
 
           it "creates comment with attachment" do
-            is_expected.to be_valid
+            expect(subject).to be_valid
           end
         end
 
         context "when file is invalid" do
-          let(:attachment_file) do 
+          let(:attachment_file) do
             blob = ActiveStorage::Blob.create_and_upload!(
-              io: File.open(Rails.root.join('lib','decidim','dev','assets','logo.png')),
+              io: File.open(Rails.root.join('lib', 'decidim', 'dev', 'assets', 'logo.png')),
               filename: "logo.png",
               content_type: "image/png"
             )
@@ -136,7 +136,7 @@ module Decidim
           end
 
           it "does not create comment" do
-            is_expected.not_to be_valid
+            expect(subject).not_to be_valid
           end
         end
       end
