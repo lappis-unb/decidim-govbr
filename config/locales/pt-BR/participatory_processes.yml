@@ -3,15 +3,9 @@ pt-BR:
   activemodel:
     attributes:
       participatory_process:
-<<<<<<< HEAD
-<<<<<<< HEAD
         title: Nome do Processo Participativo
-=======
         make_your_voice: "Faça sua Voz Contar: Participe da Consulta Pública Agora!"
-=======
->>>>>>> 043bfdc5 (tradução2)
         title: Nome do Processo Participativo 
->>>>>>> d26471d0 (tradução)
         document: Documento
         import_attachments: Importar anexos
         slug: URL amigável
