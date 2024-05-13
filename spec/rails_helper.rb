@@ -96,4 +96,6 @@ RSpec.configure do |config|
   RSpec::Matchers.define :be_partnerable do
     match { |actual| actual.is_a?(Decidim::Govbr::HasPartners) }
   end
+
+  config.include ActiveSupport::Testing::TimeHelpers
 end

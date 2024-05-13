@@ -15,6 +15,11 @@ module Decidim
 
       private
 
+      def description
+        text = translated_attribute(model.description)
+        strip_tags(text).truncate(100, separator: /\s/)
+      end
+
       def has_image?
         true
       end
@@ -27,20 +32,36 @@ module Decidim
         true
       end
 
+      def has_developer_group?
+        translated_attribute(model.developer_group).present?
+      end
+
+      def badge_name
+        state
+      end
+
+      def state
+        return t("decidim.participatory_processes.card.status.finished") if model.past_result?
+
+        return t("decidim.participatory_processes.card.status.upcoming") if model.upcoming?
+
+        return t("decidim.participatory_processes.card.status.closed") if model.past?
+
+        t("decidim.participatory_processes.card.status.active")
+      end
+
       def has_step?
         model.active_step.present?
       end
 
       def state_classes
-        if model.past_result?
-          ["accepted"]
-        elsif model.active?
-          ["evaluating"]
-        elsif model.past?
-          ["rejected"]
-        else
-          ["refused"]
-        end
+        return ["green"] if model.past_result?
+
+        return ["blue"] if model.active?
+
+        return ["red"] if model.past?
+
+        ["orange"]
       end
 
       def resource_path
@@ -75,6 +96,11 @@ module Decidim
 
       def base_card_class
         "card--process"
+      end
+
+      def card_classes
+        classes = [base_card_class]
+        classes.concat(state_classes).join(" ")
       end
 
       def statuses

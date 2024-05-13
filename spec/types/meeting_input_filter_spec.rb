@@ -17,6 +17,14 @@ module Decidim
       let(:model) { create(:meeting_component) }
       let!(:models) { create_list(:meeting, 3, :published, component: model) }
 
+      before do
+        freeze_time
+      end
+
+      after do
+        travel_back
+      end
+
       context "when filtered by published_at" do
         include_examples "connection has before/since input filter", "meetings", "published"
       end

@@ -90,7 +90,7 @@ edit_link(
       <% end %>
       <%= resource_reference(meeting) %>
       <%= resource_version(meeting, versions_path: meeting_versions_path(meeting)) %>
-      <%= render partial: "decidim/shared/share_modal" %>
+      <%= render partial: "decidim/shared/share_modal", locals: { translation_component: t("decidim.shared.share_modal.share_text_meeting" ,resource_name: resource_title(@meeting), component_name: resource_title(current_participatory_space)) } %>
       <%= embed_modal_for meeting_widget_url(meeting, format: :js) %>
       <%= render partial: "calendar_modal", locals: { ics_url: calendar_meeting_url(meeting), google_url: google_calendar_event_url(meeting) } %>
     </div>
