@@ -32,9 +32,9 @@
   <% end %>
 </div>
 
-<%= decidim_paginate meetings, order_start_time: params[:order_start_time], with_any_scope: params[:with_any_scope] %>
-
-<div class="column">
+<div id="meetings-paginate">
+  <div class="empyt-div"></div>
+  <%= decidim_paginate meetings, order_start_time: params[:order_start_time], with_any_scope: params[:with_any_scope] %>
   <%= render partial: "decidim/shared/results_per_page" %>
 </div>
 
@@ -46,5 +46,4 @@
       <%= link_to t("decidim.meetings.meetings.index.see_all_withdrawn"), meetings_path("filter[with_availability]" => "withdrawn") %>
     <% end %>
   </div>
-
 </div>

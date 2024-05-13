@@ -113,7 +113,7 @@ module Decidim
       end
 
       def meetings
-        is_past_meetings = params.dig("filter", "with_any_date")&.include?("past")
+        #is_past_meetings = params.dig("filter", "with_any_date")&.include?("past")
         @base_query = search
         .result
         .includes(:component)
