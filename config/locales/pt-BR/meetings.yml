@@ -7,6 +7,7 @@ pt-BR:
         duration: Duração
         title: Título
         registered: Inscritos
+        filter_only_applies_Agenda_meetings: Este filtro refere-se, apenas para as reuniões da Agenda
       close_meeting:
         proposals: Propostas criadas no evento
       meeting:

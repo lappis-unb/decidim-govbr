@@ -36,6 +36,13 @@ pt-BR:
             reject: Rejeitar
             rejected: Rejeitada
             incorporated: Incorporada
+            contributions_received: Contribuições recebidas
+            Number_proposals_created: Número de propostas criadas
+            Number_contributions_made: Número de contribuições feitas
+            Number_votes_cast: Número de votos dados
+            Votes_received_your_proposals: Votos recebidos nas suas propostas
+            Number_proposals_followed: Número de propostas seguidas
+            Followers_your_proposals: Seguidores nas suas propostas
             label: Contribua
             placeholder: Digite aqui a sua contribuição...
           form_error: O texto é obrigatório e não pode ser maior que %{length} caracteres.

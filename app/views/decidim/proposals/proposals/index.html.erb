@@ -83,7 +83,7 @@
     <% else %>
       <div class="proposals-actions proposals-no-actions">
         <span class="proposal-disabled">
-          O período para submissão de propostas não está aberto.
+         <%=t("decidim.proposals.admin.period_submitting_proposals_is_not_open")%>
         </span>
         <%= render partial: "voting_rules" %>
       </div>
@@ -96,7 +96,7 @@
         <div class="message-icon-br"><i class="fas fa-check-circle fa-lg" aria-hidden="true"></i></div>
         <div class="content-br">
           <span class="message-title-br">
-            A sua exportação está em curso. Receberá um e-mail quando estiver completa.
+            <%=t("decidim.proposals.admin.Its_export_is_underway")%>
           </span>
         </div>
       </div>

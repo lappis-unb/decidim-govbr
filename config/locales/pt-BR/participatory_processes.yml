@@ -4,14 +4,18 @@ pt-BR:
     attributes:
       participatory_process:
 <<<<<<< HEAD
+<<<<<<< HEAD
         title: Nome do Processo Participativo
 =======
         make_your_voice: "Faça sua Voz Contar: Participe da Consulta Pública Agora!"
+=======
+>>>>>>> 043bfdc5 (tradução2)
         title: Nome do Processo Participativo 
 >>>>>>> d26471d0 (tradução)
         document: Documento
         import_attachments: Importar anexos
         slug: URL amigável
+        index: Índices
         import_components: Importar componentes
         participatory_process_type_id: Tipo de Processo Participativo
         private_space: Espaço privado
@@ -33,6 +37,11 @@ pt-BR:
         import_categories: Importar categorias
         import_steps: Importar etapas
         local_area: Setor
+        start: INÍCIO
+        closure: ENCERRAMENTO
+        make_your_voice: "Faça sua Voz Contar: Participe da Consulta Pública Agora!"
+        poll: Enquete
+        participatory_process: Texto participativo 
         meta_scope: Selecione o Status deste processo participativo
         participatory_process_group_id: Secretaria
         participatory_scope: Link da publicação do processo no DOU
@@ -50,6 +59,7 @@ pt-BR:
         target: Responsável pela consulta
         should_have_user_full_profile: Exigir Perfil de Usuário completo para responder o formulário
         show_mobilization: Mostrar mobilização
+        express_your_opinion: Expresse suas opiniões e ideias sobre questões que importam para você e sua comunidade. Sua contribuição é fundamental para promover um diálogo transparente e eficaz entre a administração pública e os cidadãos. Ao participar da consulta pública, você está exercendo seu direito democrático e ajudando a moldar políticas públicas que refletem as necessidades e desejos da sociedade. Não deixe sua voz ficar em silêncio. Junte-se a nós e faça a diferença!
       participatory_process_group:
         group_url: Site
         promoted: Promovido

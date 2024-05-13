@@ -121,6 +121,11 @@ pt-BR:
           components:
             topp: Termos de Privacidade
             collect_user_data: Habilitar termos de privacidade para coleta de dados dos usuarios (e-mail e CPF).
+            My_stats: Minhas estatísticas
+            Learn_about_the_rules_proposals: Conheça as regras e os critérios para seleção de propostas
+            Edit_your_proposal: Edite sua proposta
+            follow_the_instructions: Siga as instruções abaixo para participar ativamente e deixar sua marca nas decisões que impactam o Brasil.
+            Review_your_content: Revise o seu conteúdo e tenha certeza que está tudo correto antes de publicar. Após a publicação, você poderá editar ou apagar a proposta somente se não tiver recebido nenhum voto. 
       user_answers_serializer:
         email: E-mail
         uid: CPF
