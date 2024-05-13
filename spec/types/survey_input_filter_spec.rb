@@ -16,6 +16,14 @@ module Decidim
       let(:model) { create(:surveys_component) }
       let!(:models) { create_list(:survey, 3, component: model) }
 
+      before do
+        freeze_time
+      end
+
+      after do
+        travel_back
+      end
+
       context "when date is before the creation date of the proposals" do
         let(:query) do
           %(
