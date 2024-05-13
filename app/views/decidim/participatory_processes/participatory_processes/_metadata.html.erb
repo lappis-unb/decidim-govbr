@@ -38,14 +38,14 @@
       <% if translated_attribute(current_participatory_space&.publish_date).present? && translated_attribute(current_participatory_space&.participatory_scope).present? %>
         <div class="dou-section">
           <span class="dou-container">
-            <span class="label-dou">Publicação no DOU</span>
+            <span class="label-dou">Publicação no DOU</span> 
             <a class="br-button secondary" href="<%= translated_attribute(current_participatory_space.participatory_scope) %>">
               <i class="fa-solid fa-sm fa-external-link-alt mr-2"></i>
               Acessar
             </a>
           </span>
           <p class="publish-date-dou">
-            publicado em: <%= l(current_participatory_space.publish_date) %>
+            <%=t("decidim.blogs.posts.show.published_in_")%> <%= l(current_participatory_space.publish_date) %>
           </p>
         </div>
       <% end %>

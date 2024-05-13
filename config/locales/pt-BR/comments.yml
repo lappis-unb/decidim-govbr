@@ -3,6 +3,8 @@ pt-BR:
   activemodel:
     models:
       decidim/comments/comment_by_followed_user_event: Contribua
+      Participate_with_comment: Participe com um comentário
+      Collaborations_Received: Colaborações Recebidas
       decidim/comments/comment_created_event:
         one: Contribuição
         other: Contribuições
@@ -30,6 +32,10 @@ pt-BR:
         account_message: <a href="%{sign_in_url}">Entre com sua conta</a> ou <a href="%{sign_up_url}">inscreva-se</a> para adicionar sua contribuição.
         form:
           body:
+            Incorporate: Incorporar
+            reject: Rejeitar
+            rejected: Rejeitada
+            incorporated: Incorporada
             label: Contribua
             placeholder: Digite aqui a sua contribuição...
           form_error: O texto é obrigatório e não pode ser maior que %{length} caracteres.

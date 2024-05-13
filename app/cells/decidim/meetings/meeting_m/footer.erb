@@ -1,9 +1,19 @@
+<<<<<<< HEAD
 <div class="component_card__footer">
   <div class="bp-divider"> </div>
   <div class="meetings-card-count-container">
     <span class="meetings-card-count-text">
       <%= render partial: "/decidim/meetings/meeting_m/count" %> <%= t("decidim.meetings.card.subscriber_count", count: subscribers_count) %>
     </span>
+=======
+<div class="card__footer">
+  <div class="card__support">
+  <div class="meetings-count-container">
+    <p class="meetings-count-text">
+      <%= render partial: "/decidim/meetings/meeting_m/count" %>
+    </p>
+      <%=t("activemodel.attributes.agenda.registered")%>
+>>>>>>> d26471d0 (tradução)
   </div>
   <div class="bp-divider"></div>
   <% if can_join? %>

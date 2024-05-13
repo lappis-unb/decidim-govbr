@@ -6,6 +6,7 @@ pt-BR:
         description: Descrição
         duration: Duração
         title: Título
+        registered: Inscritos
       close_meeting:
         proposals: Propostas criadas no evento
       meeting:

@@ -13,6 +13,7 @@ pt-BR:
         partner_type: Tipo
         weight: Weight (posição de exibição)
       participatory_process:
+        Order: 'Ordenar:'
         area_id: Órgão/Instituição
         participatory_process_group_id: Setor
         decidim_area_id: Órgão/Instituição
@@ -751,6 +752,10 @@ en:
         dialog:
           accept_all: Aceitar cookies
           reject: Rejeitar cookies
+          Advanced_cookie_settings: Configurações avançadas de cookies
+          Cookie_Declaration: Ver Declaração de Cookies
+          To_improve_your_experience: Para melhorar a sua experiência na plataforma e prover serviços personalizados, utilizamos cookies.
+
 
 es-MX:
   activemodel:

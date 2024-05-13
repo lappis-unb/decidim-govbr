@@ -3,7 +3,12 @@ pt-BR:
   activemodel:
     attributes:
       participatory_process:
+<<<<<<< HEAD
         title: Nome do Processo Participativo
+=======
+        make_your_voice: "Faça sua Voz Contar: Participe da Consulta Pública Agora!"
+        title: Nome do Processo Participativo 
+>>>>>>> d26471d0 (tradução)
         document: Documento
         import_attachments: Importar anexos
         slug: URL amigável
@@ -70,6 +75,8 @@ pt-BR:
         new_process_step: Nova etapa
         new_process_type: Novo tipo de processo
         unpublish: Cancelar publicação
+        New_Process_Template: Novo Processo via Template
+        No_Process_Template: Não há templates 
       menu:
         participatory_processes_submenu:
           attachment_files: Arquivos
