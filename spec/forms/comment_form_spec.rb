@@ -123,6 +123,22 @@ module Decidim
             is_expected.to be_valid
           end
         end
+
+        context "when file is invalid" do
+          let(:attachment_file) do 
+            blob = ActiveStorage::Blob.create_and_upload!(
+              io: File.open(Rails.root.join('lib','decidim','dev','assets','logo.png')),
+              filename: "logo.png",
+              content_type: "image/png"
+            )
+
+            blob.signed_id
+          end
+
+          it "does not create comment" do
+            is_expected.not_to be_valid
+          end
+        end
       end
     end
   end
