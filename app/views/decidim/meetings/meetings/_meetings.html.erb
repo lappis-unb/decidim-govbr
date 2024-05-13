@@ -24,16 +24,6 @@
     <div class="order__by-text">
       <%= order_selector available_orders, i18n_scope: "decidim.meetings.meetings.orders" %>
     </div>
-
-    <div class="export-buttons">
-      <%= render partial: "decidim/shared/export_modal" %>
-      <%= render partial: "decidim/meetings/calendar_modal", locals: {
-        path: short_url(
-          route_name: "calendar",
-          params: { filter: params.fetch(:filter, {}).try(:to_unsafe_hash) }
-        )}
-      %>
-   </div>
 </div>
 
 <div class="card-grid meetings-content">

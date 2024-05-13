@@ -117,7 +117,7 @@ module Decidim
         @base_query = search
         .result
         .includes(:component)
-        @meetings ||= reorder(@base_query)
+        @meetings = reorder(@base_query)
         @meetings = paginate(@meetings)
       end
 

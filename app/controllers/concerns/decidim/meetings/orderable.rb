@@ -33,7 +33,7 @@ module Decidim
             when "recent"
               meetings.order(published_at: :desc)
             when "random"
-              meetings.order_randomly(random_seed)
+              meetings ||= meetings.order_randomly(random_seed)
           end
         end
       end
