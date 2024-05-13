@@ -175,6 +175,12 @@ pt-BR:
             hybrid: Ambas
             in_person: Presencial
             online: Virtual
+        orders:
+          label: "Ordene por:"
+          most_commented: Mais contribuições
+          most_followed: Mais seguidas
+          random: Aleatório
+          recent: Recentes
         count:
           meetings_count: 
             one: "%{count} evento encontrado"

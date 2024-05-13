@@ -12,6 +12,7 @@ module Decidim
       include Withdrawable
       include FormFactory
       include Paginable
+      include Meetings::Orderable
 
       helper Decidim::WidgetUrlsHelper
       helper Decidim::ResourceVersionsHelper
@@ -46,7 +47,7 @@ module Decidim
       def index
 
         return unless search.result.blank? && params.dig("filter", "date") != %w(past)
-
+        
         @past_meetings ||= search_with(filter_params.merge(with_any_date: %w(past)))
 
         if @past_meetings.result.present?
@@ -113,7 +114,11 @@ module Decidim
 
       def meetings
         is_past_meetings = params.dig("filter", "with_any_date")&.include?("past")
-        @meetings ||= paginate(search.result.order(start_time: is_past_meetings ? :desc : :asc))
+        @base_query = search
+        .result
+        .includes(:component)
+        @meetings ||= reorder(@base_query)
+        @meetings = paginate(@meetings)
       end
 
       def registration
@@ -132,8 +137,6 @@ module Decidim
       def meeting_form
         form(Decidim::Meetings::MeetingForm)
       end
-
-
     end
   end
 end
