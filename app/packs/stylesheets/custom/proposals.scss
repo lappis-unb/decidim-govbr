@@ -71,14 +71,6 @@
   display: inline;
 }
 
-.proposals-content {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
-  gap: 24px;
-}
-
 .diff-view-by,
 .order-by {
   margin: 0;
@@ -429,11 +421,6 @@ div.author-data__extra {
     width: 16rem;
   }
 
-  .proposals-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 352px);
-    grid-gap: 24px;
-  }
   .title-action__action {
     max-width: 250px;
   }

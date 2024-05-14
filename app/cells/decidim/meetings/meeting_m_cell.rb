@@ -57,7 +57,7 @@ module Decidim
       end
 
       def base_card_class
-        "card--meeting"
+        "card--component"
       end
 
       def card_classes
