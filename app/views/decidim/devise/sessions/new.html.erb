@@ -1,0 +1,75 @@
+<% add_decidim_page_title(t("devise.sessions.new.sign_in")) %>
+
+<div class="wrapper">
+  <div class="row collapse">
+    <div class="row collapse">
+      <div class="columns large-8 large-centered text-center page-title">
+        <h1><%= t("devise.sessions.new.sign_in") %></h1>
+      </div>
+    </div>
+    <% cache current_organization do %>
+      <%= render "decidim/devise/shared/omniauth_buttons" %>
+    <% end %>
+
+    <% if current_organization.sign_in_enabled? %>
+      <div class="row mb-4">
+        <div class="columns large-3 mediumlarge-6 medium-8 medium-centered">
+          <a href="#" class="button tiny foreign-sign-in" id="foreign-sign-in">
+            Foreign Sign In/Up (Login Estrangeiro)
+          </a>
+        </div>
+      </div>
+
+      <% I18n.with_locale(:en) do %>
+        <div class="row devise-sign-in-area">
+          <div class="columns large-6 medium-centered">
+            <div class="card">
+              <div class="card__content">
+                <%= decidim_form_for(resource, namespace: "session", as: resource_name, url: session_path(resource_name), html: { class: "register-form new_user" }) do |f| %>
+                  <div>
+                    <div class="field">
+                      <%= f.email_field :email, autocomplete: "email" %>
+                    </div>
+                    <div class="field">
+                      <%= f.password_field :password, autocomplete: "current-password" %>
+                    </div>
+                  </div>
+                    <% if devise_mapping.rememberable? %>
+                      <div class="field">
+                        <%= f.check_box :remember_me %>
+                      </div>
+                    <% end %>
+                  <div class="actions">
+                    <%= f.submit t("devise.sessions.new.sign_in"), class: "button expanded" %>
+                  </div>
+                <% end %>
+                <%= render "decidim/devise/shared/links" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get the button and the div
+    var button = document.querySelector('.foreign-sign-in');
+    var signInArea = document.querySelector('.devise-sign-in-area');
+
+    // Sign in Area is hidden by default
+    signInArea.style.display = 'none';
+
+    // Add click event listener to the button
+    button.addEventListener('click', function() {
+      // Toggle the visibility of the div
+      if (signInArea.style.display === 'none') {
+        signInArea.style.display = 'block';
+      } else {
+        signInArea.style.display = 'none';
+      }
+    });
+  });
+</script>

@@ -5,6 +5,18 @@ const { InjectManifest } = require("workbox-webpack-plugin");
 module.exports = {
   module: {
     rules: [
+      // add raw files to vendor when they don't have extension
+      {
+        test: [
+          /face_landmark_68_model.*/,
+          /face_recognition_model.*/,
+          /ssd_mobilenetv1_model.*/,
+	      ],
+        type: 'asset/resource',
+        generator: {
+          filename: 'weights/[base]'
+        }
+      },
       {
         test: require.resolve("quill"),
         loader: "expose-loader",
