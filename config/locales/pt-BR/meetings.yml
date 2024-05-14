@@ -178,6 +178,8 @@ pt-BR:
           see_all: Ver todos os eventos
           see_all_withdrawn: Ver todos os eventos retiradas
           text_banner: Você está vendo a lista de eventos retiradas por seus autores. %{go_back_link}.
+        moderation: 
+          label: Moderação
       models:
         meeting:
           fields:
