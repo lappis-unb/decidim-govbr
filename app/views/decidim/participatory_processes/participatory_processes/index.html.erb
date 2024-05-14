@@ -1,8 +1,4 @@
 <% add_decidim_meta_tags(title: t("participatory_processes.index.title", scope: "decidim")) %>
-<<<<<<< HEAD
-=======
-
->>>>>>> b7031426 (feat: copiando lista de processos)
 <%
 edit_link(
   decidim_admin_participatory_processes.participatory_processes_path,
@@ -10,10 +6,6 @@ edit_link(
   :process_list
 )
 %>
-<<<<<<< HEAD
-=======
-
->>>>>>> b7031426 (feat: copiando lista de processos)
 <%= participatory_space_wrapper do %>
   <% if promoted_collection.any? %>
     <section id="highlighted-processes" class="row section">
@@ -23,17 +15,12 @@ edit_link(
       <% end %>
     </section>
   <% end %>
-<<<<<<< HEAD
-=======
-
->>>>>>> b7031426 (feat: copiando lista de processos)
   <section id="processes-grid" class="section row collapse">
     <div class="processes-grid-order-by">
       <%= render partial: "order_by_processes" %>
     </div>
     <%= render partial: "decidim/shared/participatory_space_filters/show" %>
     <p class="loading"><%= t(".loading") %></p>
-<<<<<<< HEAD
     <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
       <%= render partial: "decidim/components/list", locals: {
           elements_name: "process", 
@@ -43,30 +30,6 @@ edit_link(
     </div>
   </section>
 <% end %>
-
-=======
-<<<<<<< HEAD
-    <div class="component-content card-grid">
-=======
-    <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
-<<<<<<< HEAD
->>>>>>> b7031426 (feat: copiando lista de processos)
-      <%= render(collection) %>
-=======
-      <%= render partial: "decidim/components/list", locals: {
-          elements_name: "process", 
-          collection: collection
-        } 
-      %>
->>>>>>> 4ef76d54 (feat: chamando componente generico para as listas)
-    </div>
-  </section>
-<% end %>
-<<<<<<< HEAD
-=======
-
->>>>>>> b7031426 (feat: copiando lista de processos)
->>>>>>> fff1777a (feat: copiando lista de processos)
 <% content_for :js_content do %>
   <%= javascript_pack_tag "decidim_participatory_processes" %>
 <% end %>
