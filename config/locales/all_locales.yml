@@ -236,6 +236,10 @@ pt-BR:
           create: "%{user_name} criou o relatório de participação de usuários %{resource_name} no espaço participativo %{space_name}"
           delete: "%{user_name} removeu o relatório de participação de usuários %{resource_name} do espaço participativo %{space_name}"
           update: "%{user_name} atualizou o relatório de participação de usuários %{resource_name} do espaço participativo %{space_name}"
+    meetings:
+      meetings:
+        calendar_modal:
+          add_to_calendar: Adicionar na agenda
     proposals:
       admin:
         participatory_texts:

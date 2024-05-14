@@ -67,6 +67,19 @@ edit_link(
           </div>
         <% end %>
       </div>
+      <div class="card extra">
+        <div class="card__content">
+          <div class="meetings-subs-count">
+            <div class="subs-count">
+              <%= meeting.subscribers_count %>
+            </div>
+
+            <div class="subs-legend">
+              Inscritos
+            </div>
+          </div>
+        </div>
+      </div>
       <% if meeting.services.any? %>
         <div class="card card--list">
           <% meeting.services.each do |service| %>

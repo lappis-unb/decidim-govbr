@@ -340,3 +340,28 @@
   width: 20px;
   height: 20px;
 }
+
+.card.extra .card__content {
+  border-radius: 0.25rem;
+  padding: 1rem;
+}
+
+.meetings-subs-count {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.meetings-subs-count .subs-count {
+  color: var(--pure-100);
+  text-align: center;
+  font-size: 41.8px;
+  font-weight: var(--font-weight-regular);
+}
+
+.meetings-subs-count .subs-legend {
+  color: var(--gray-90);
+  text-align: center;
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-regular);
+}
