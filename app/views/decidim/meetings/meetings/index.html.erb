@@ -24,10 +24,75 @@
       </div>
     <% end %>
   </div>
+</div>
 
-  <div class="br-row">
-    <div id="meetings" class="columns mediumlarge-8 large-9" aria-live="polite">
-      <%= render partial: "meetings" %>
-    </div>
+<div class="meetings-filters">
+  <%= render partial: "decidim/components/filter", locals: { 
+        show_filters: false,
+        search_field: {
+          placeholder: t("decidim.proposals.proposals.filters.placeholder", 
+          name: translated_attribute(current_component.singular_name).present? ? 
+                translated_attribute(current_component.singular_name).downcase : 
+                "evento"
+          ),
+          status: true
+        },
+        radio_collection: [
+          {
+            attribute: :with_any_date,
+            collection: filter_date_values_meetings,
+            legend: t("decidim.meetings.meetings.filters.date"),
+            status: !@forced_past_meetings
+          },
+          {
+            attribute: :activity,
+            collection: activity_filter_values_meetings,
+            legend: t("decidim.meetings.meetings.filters.activity"),
+            status: current_user
+          }
+        ],
+        check_boxes: [
+          {
+            attribute: :with_any_type,
+            collection: filter_type_values_meetings,
+            legend: t("decidim.meetings.meetings.filters.type"),
+            status: true
+          },
+          {
+            attribute: :with_any_scope,
+            collection: filter_scopes_values,
+            legend: t("decidim.meetings.meetings.filters.scope"),
+            status: current_component.has_subscopes?
+          },
+          {
+            attribute: :with_any_category,
+            collection: filter_categories_values,
+            legend: t("decidim.meetings.meetings.filters.category"),
+            status: current_component.categories.any?
+          },
+          {
+            attribute: :with_any_origin,
+            collection: filter_origin_values_meetings,
+            legend: t("decidim.meetings.meetings.filters.origin"),
+            status: component_settings.creation_enabled_for_participants?
+          }
+        ],
+        hidden_tag: {
+          status: false,
+        },
+        hidden_field: {
+          status: false,
+        }
+      }
+  %>
+</div>
+
+<div class="br-row">
+  <div id="meetings" class="columns mediumlarge-8 large-9" aria-live="polite">
+    <%= render partial: "decidim/components/list", locals: {
+          elements_name: current_component.manifest_name, 
+          collection: meetings
+        } 
+    %>
   </div>
 </div>
