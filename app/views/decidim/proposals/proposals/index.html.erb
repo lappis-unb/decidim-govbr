@@ -153,11 +153,15 @@
           }
         }
     %>
-    </div>
-    <div class="proposals-content-container">
-      <div id="proposals" class="proposals-br" aria-live="polite">
-        <%= render partial: "proposals" %>
-      </div>
+  </div>
+  <div class="proposals-content-container">
+    <div id="proposals" class="proposals-br" aria-live="polite">
+      <%= render partial: "decidim/components/list", locals: {
+          elements_name: current_component.manifest_name, 
+          collection: @proposals
+        } 
+      %>
     </div>
   </div>
+</div>
 </div>
