@@ -29,7 +29,7 @@
 
       <% if allowed_to?(:copy, :process) %>
         <button data-toggle="process_templates" class="dropdown button tiny button--title">
-          Novo Processo via Template 
+          <%=t("actions.New_Process_Template", scope: "decidim.admin")%>
         </button>
         <div id="process_templates" class="dropdown-pane" data-position="bottom" data-dropdown data-auto-focus="true">
           <% if current_organization.template_processes.any? %>

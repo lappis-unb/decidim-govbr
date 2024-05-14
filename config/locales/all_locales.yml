@@ -23,6 +23,9 @@ pt-BR:
         slug: URL Amigável
         developer_group: Órgão/Instituição
         local_area: Setor
+        Responsible: 'Responsável:'
+        contact: 'Contato:'
+        Publication_in_the_DOU: Publicação no DOU
         meta_scope: Selecione o Status deste processo participativo
         target: Responsável pela consulta
         participatory_scope: Link da publicação do processo no DOU
