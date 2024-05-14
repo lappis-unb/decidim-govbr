@@ -37,6 +37,11 @@ edit_link(
         <div class="card__content">
           <%= cell("decidim/date_range", { start: meeting.start_time, end: meeting.end_time }) %>
           <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
+          <%= render partial: "calendar_modal", locals: {
+              ics_url: calendar_meeting_url(meeting),
+              google_url: google_calendar_event_url(meeting) 
+            } 
+          %>
         </div>
         <% if meeting.closed? && meeting.closing_visible? %>
           <% double = meeting.has_contributions? && meeting.has_attendees? %>
@@ -62,17 +67,6 @@ edit_link(
           </div>
         <% end %>
       </div>
-      <% if registration.present? && registration.meeting.component.settings.registration_code_enabled %>
-        <div class="card extra">
-          <div class="card__content">
-            <div class="registration_code">
-              <span><%= registration_code_help_text %></span>
-              <span><strong><%= registration.code %></strong></span>
-              <div class="text-small"><%= validation_state_for(registration) %></div>
-            </div>
-          </div>
-        </div>
-      <% end %>
       <% if meeting.services.any? %>
         <div class="card card--list">
           <% meeting.services.each do |service| %>
@@ -88,11 +82,14 @@ edit_link(
           <% end %>
         </div>
       <% end %>
-      <%= resource_reference(meeting) %>
-      <%= resource_version(meeting, versions_path: meeting_versions_path(meeting)) %>
-      <%= render partial: "decidim/shared/share_modal", locals: { translation_component: t("decidim.shared.share_modal.share_text_meeting" ,resource_name: resource_title(@meeting), component_name: resource_title(current_participatory_space)) } %>
-      <%= embed_modal_for meeting_widget_url(meeting, format: :js) %>
-      <%= render partial: "calendar_modal", locals: { ics_url: calendar_meeting_url(meeting), google_url: google_calendar_event_url(meeting) } %>
+      <div class="meetings-br-actions-buttons">
+        <%= render partial: "decidim/shared/share_modal", locals: {
+              translation_component: t("decidim.shared.share_modal.share_text_meeting",
+              resource_name: resource_title(@meeting),
+              component_name: resource_title(current_participatory_space)) 
+            } 
+        %>
+      </div>
     </div>
     <div class="columns mediumlarge-8 mediumlarge-pull-4">
       <div class="section">
