@@ -14,7 +14,7 @@ module Decidim
             :participatory_process,
             organization: organization,
             description: { en: "Description", ca: "Descripció", es: "Descripción", pt_BR: "Descrição" },
-            short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta", pt_BR: "Descrição curta" },
+            short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta", pt_BR: "Descrição" },
             published_at: Date.new(2022, 3, 1),
             start_date: Date.new(2022, 3, 1),
             end_date: Date.new(2022, 3, 15)
@@ -52,12 +52,21 @@ module Decidim
 
         context "with two overlaping steps" do
           let!(:step_one) do
-            create(:participatory_process_step, participatory_process: participatory_process,
-                                                active: true, start_date: Time.zone.local(2022, 3, 15, 10, 0, 0), end_date: Time.zone.local(2022, 3, 15, 22, 0, 0))
+            create(
+              :participatory_process_step,
+              participatory_process: participatory_process,
+              active: true,
+              start_date: Time.zone.local(2022, 3, 15, 10, 0, 0),
+              end_date: Time.zone.local(2022, 3, 15, 22, 0, 0)
+            )
           end
           let!(:step_two) do
-            create(:participatory_process_step, participatory_process: participatory_process,
-                                                start_date: Time.zone.local(2022, 3, 15, 10, 30, 0), end_date: Time.zone.local(2022, 3, 15, 20, 0, 0))
+            create(
+              :participatory_process_step,
+              participatory_process: participatory_process,
+              start_date: Time.zone.local(2022, 3, 15, 10, 30, 0),
+              end_date: Time.zone.local(2022, 3, 15, 20, 0, 0)
+            )
           end
 
           before { subject.change_active_step }
@@ -158,6 +167,42 @@ module Decidim
               expect(step_three.reload).to be_active
             end
           end
+
+          context "and all phases has finished" do
+            let!(:step_one) do
+              create(
+                :participatory_process_step,
+                participatory_process: participatory_process,
+                start_date: Time.zone.local(2022, 3, 15, 10, 0, 0),
+                end_date: Time.zone.local(2022, 3, 15, 10, 59, 59)
+              )
+            end
+            let!(:step_two) do
+              create(
+                :participatory_process_step,
+                participatory_process: participatory_process,
+                active: true,
+                start_date: Time.zone.local(2022, 3, 15, 8, 0, 0),
+                end_date: Time.zone.local(2022, 3, 15, 10, 0, 0)
+              )
+            end
+            let!(:step_three) do
+              create(
+                :participatory_process_step,
+                participatory_process: participatory_process,
+                start_date: Time.zone.local(2022, 3, 14, 10, 0, 0),
+                end_date: Time.zone.local(2022, 3, 15, 10, 59, 59)
+              )
+            end
+
+            before { subject.change_active_step }
+
+            it "still activate step three" do
+              expect(step_one.reload).not_to be_active
+              expect(step_two.reload).not_to be_active
+              expect(step_three.reload).to be_active
+            end
+          end
         end
 
         context "with two steps but not all have dates" do
@@ -210,8 +255,8 @@ module Decidim
             before { subject.change_active_step }
 
             it "step two stays active" do
-              expect(step_one.reload).to be_active
-              expect(step_two.reload).not_to be_active
+              expect(step_one.reload).not_to be_active
+              expect(step_two.reload).to be_active
             end
           end
         end
