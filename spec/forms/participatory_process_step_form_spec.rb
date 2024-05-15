@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 require "spec_helper"
 
 module Decidim
@@ -24,8 +23,10 @@ module Decidim
             pt_BR: "Descrição"
           }
         end
+        # rubocop:disable Lint/EmptyBlock
         let(:start_date) {}
         let(:end_date) {}
+        # rubocop:enable Lint/EmptyBlock
         let(:cta_path) { nil }
         let(:attributes) do
           {
