@@ -83,6 +83,7 @@ pt-BR:
             comments_max_length: Quantidade máxima de caracteres por comentário (deixe 0 para não limitar)
             attachments_allowed: Permitir que o órgão crie propostas com anexos
             requires_previous_moderation: Requerer moderação prévia de novas propostas
+      publish_date_text: Publicado em
     govbr:
       initial_page_type:
         default: Página Padrão
