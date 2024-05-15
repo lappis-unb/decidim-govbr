@@ -306,3 +306,9 @@
     font-weight: 600;
   }
 }
+
+.component-card_badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
