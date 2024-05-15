@@ -1,14 +1,3 @@
-.proposals-container {
-  display: flex;
-  flex-direction: column;
-  margin: 3rem 0 1.5rem 0;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 1.5rem;
-}
-.proposals-container p {
-  margin: 0;
-}
 .proposal-title {
   color: var(--blue-warm-vivid-70);
   font-variant-numeric: lining-nums proportional-nums;
@@ -625,11 +614,6 @@ div.author-data__extra {
   width: 100%;
 }
 
-.card--proposal {
-  max-width: 364px;
-  min-height: 498px;
-}
-
 .proposal_card__title {
   font-size: 1.25rem;
   font-weight: 600;
@@ -676,12 +660,6 @@ div.author-data__extra {
   align-items: center;
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-.proposal-divider {
-  width: 100%;
-  height: 1px;
-  background-color: var(--gray-4);
 }
 
 .proposal-buttons {
