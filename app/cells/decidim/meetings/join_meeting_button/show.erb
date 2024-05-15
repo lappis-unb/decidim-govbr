@@ -35,7 +35,13 @@
     <% end %>
   <% end %>
   <% if shows_remaining_slots? %>
-    <span><%= t("remaining_slots", scope: "decidim.meetings.meetings.show", count: model.remaining_slots) %></span>
+    <span class="meeting-remaining-slots">
+      <div class="remaining-slots-count">
+        <%= model.remaining_slots %>
+      </div>
+      
+      <%= t("remaining_slots", scope: "decidim.meetings.meetings.show") %>
+    </span>
   <% end %>
 <% elsif model.on_different_platform? %>
   <%= action_authorized_link_to(

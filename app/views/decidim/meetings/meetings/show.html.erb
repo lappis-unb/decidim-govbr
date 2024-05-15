@@ -36,7 +36,7 @@ edit_link(
       <div class="card extra">
         <div class="card__content">
           <%= cell("decidim/date_range", { start: meeting.start_time, end: meeting.end_time }) %>
-          <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
+          
           <%= render partial: "calendar_modal", locals: {
               ics_url: calendar_meeting_url(meeting),
               google_url: google_calendar_event_url(meeting) 
@@ -68,7 +68,7 @@ edit_link(
         <% end %>
       </div>
       <div class="card extra">
-        <div class="card__content">
+        <div class="card__content meetings-info-container">
           <div class="meetings-subs-count">
             <div class="subs-count">
               <%= meeting.subscribers_count %>
@@ -77,6 +77,10 @@ edit_link(
             <div class="subs-legend">
               Inscritos
             </div>
+          </div>
+
+          <div class="meetings-available-slots">
+            <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
           </div>
         </div>
       </div>

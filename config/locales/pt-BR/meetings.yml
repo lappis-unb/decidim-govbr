@@ -161,6 +161,7 @@ pt-BR:
           join: Inscreva-se
           registration_code_help_text: O seu código de inscrição
           back: Voltar à lista
+          remaining_slots: vagas disponíveis
         filters:
           activity: Minha atividade
           all: Todas
