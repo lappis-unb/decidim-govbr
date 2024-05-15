@@ -32,20 +32,12 @@
                 </td>
                 <td>
                   <% if step.start_date %>
-                    <% if current_organization.automate_steps_in_processes? %>
                       <%= l step.start_date, format: :long %>
-                    <% else %>
-                      <%= l step.start_date.to_date, format: :long %>
-                    <% end %>
                   <% end %>
                 </td>
                 <td>
                   <% if step.end_date %>
-                    <% if current_organization.automate_steps_in_processes? %>
                       <%= l step.end_date, format: :long %>
-                    <% else %>
-                      <%= l step.end_date.to_date, format: :long %>
-                    <% end %>
                   <% end %>
                 </td>
                 <td class="table-list__actions">
