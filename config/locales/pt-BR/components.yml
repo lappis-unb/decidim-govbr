@@ -44,6 +44,7 @@ pt-BR:
       organization:
         admin_terms_of_use_body: Corpo para os termos de uso do administrador
         alert_color: Alerta
+        automate_steps_in_process: Automatizar etapas em processos
         available_authorizations: Autorizações disponíveis
         badges_enabled: Ativar emblemas
         comments_max_length: Quantidade máxima de caracteres por comentários (deixe 0 para não limitar a quantidade máxima)
