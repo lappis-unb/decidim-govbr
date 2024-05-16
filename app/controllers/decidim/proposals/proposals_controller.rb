@@ -273,7 +273,6 @@ module Decidim
         @proposal = Proposal.find(params[:id])
       end
 
-
       # Returns true if the proposal is NOT an emendation or the user IS an admin.
       # Returns false if the proposal is not found or the proposal IS an emendation
       # and is NOT visible to the user based on the component's amendments settings.
