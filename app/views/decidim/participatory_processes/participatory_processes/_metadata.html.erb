@@ -18,18 +18,20 @@
           <strong>Setor</strong>: <%= translated_attribute(current_participatory_space.developer_group) %>
         </p>
       <% end %>
-      <div class="colorful-card">
-        <% if translated_attribute(current_participatory_space&.target).present? %>
-          <p>
-            <strong>Responsável:</strong> <%= translated_attribute(current_participatory_space.target) %>
-          </p>
-        <% end %>
-        <% if translated_attribute(current_participatory_space&.participatory_structure).present? %>
-          <p>
-            <strong>Contato:</strong> <%= translated_attribute(current_participatory_space.participatory_structure) %>
-          </p>
-        <% end %>
-      </div>
+      <% if translated_attribute(current_participatory_space&.target).present? %>
+        <div class="colorful-card">
+          <% if translated_attribute(current_participatory_space&.target).present? %>
+            <p>
+              <strong>Responsável:</strong> <%= translated_attribute(current_participatory_space.target) %>
+            </p>
+          <% end %>
+          <% if translated_attribute(current_participatory_space&.participatory_structure).present? %>
+            <p>
+              <strong>Contato:</strong> <%= translated_attribute(current_participatory_space.participatory_structure) %>
+            </p>
+          <% end %>
+        </div>
+      <% end %>
     </div>
     <div class="second-content">
       <%= render partial: 'decidim/shared/initial_and_end_date', locals: { current_participatory_space: current_participatory_space } %>

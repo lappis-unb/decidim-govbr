@@ -1,14 +1,3 @@
-.meetings-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 2rem;
-
-  .column > .card {
-    border-top-width: 8px;
-    border-top-color: var(--blue-vivid-10);
-  }
-}
-
 .meetings-count-container {
   display: flex;
   flex-direction: row;
@@ -291,11 +280,6 @@
 }
 
 @media (min-width: 640px) {
-  .meetings-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 2rem;
-  }
   .process-home-content {
     display: flex;
     flex-direction: row;

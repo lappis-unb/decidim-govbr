@@ -1,6 +1,6 @@
 <% if has_link_to_resource? %>
   <div class="proposal_card__footer">
-    <div class="proposal-divider"></div>
+    <div class="bp-divider"></div>
     <div class="proposals_card_stats">
       <% if !current_settings.votes_hidden? %>
       <div class="proposal_stat">
@@ -14,7 +14,7 @@
         <span class="comments_stat"><%= I18n.t("decidim.proposals.proposals.comments_count.count", count: comments_count) %></span>
       </div>
     </div>
-    <div class="proposal-divider"></div>
+    <div class="bp-divider"></div>
     <div class="proposal-buttons">    
       <%if  has_actions? %>
 

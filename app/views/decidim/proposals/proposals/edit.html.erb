@@ -33,6 +33,14 @@
           <%= user_group_select_field form, :user_group_id %>
         </div>
       <% end %>
+      <% if @form.geocoding_enabled? %>
+        <div class="field">
+          <%= form.check_box :has_address, checked: form_has_address? %>
+        </div>
+        <div class="field" id="address_input">
+          <%= form.geocoding_field :address, placeholder: t("decidim.proposals.proposals.placeholder.address") %>
+        </div>
+      <% end %>
       <% if component_settings.attachments_allowed? %>
         <fieldset class="gallery__container photos_container">
           <legend><%= t("gallery_legend", scope: "decidim.proposals.proposals.edit") %></legend>
