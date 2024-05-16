@@ -255,6 +255,10 @@ h6 {
   border: none !important;
   margin: 0 !important;
 }
+.gallery__container .column {
+  padding-right: 0px;
+  padding-left: 0px;
+}
 
 .input-group-button button {
   height: 2.5rem;
@@ -1411,3 +1415,8 @@ div.columns.large-12
   margin-bottom: 0;
 }
 
+.bp-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--gray-4);
+}

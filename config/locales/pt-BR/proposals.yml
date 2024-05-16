@@ -321,7 +321,7 @@ pt-BR:
           announcement_title: Sua %{singular_name} ainda não foi publicada
           comments: Comentários
           modify: Modificar
-          help_preview: Esta é uma pré-visualização da sua proposta no Plano Clima. Revise o seu conteúdo e tenha certeza que está tudo correto antes de publicar. Após a publicação, você poderá editar ou apagar a proposta somente se não tiver recebido nenhum voto.
+          help_preview: Esta é uma pré-visualização da sua proposta. Revise o seu conteúdo e tenha certeza que está tudo correto antes de publicar. Após a publicação, você poderá editar ou apagar a proposta enquanto não tiver contribuições.
           proposal_edit_before_minutes:
             one: Você poderá editar durante o primeiro minuto após a publicação. Uma vez que esta janela de tempo passa, você não poderá editar.
             other: Você poderá editar durante o primeiro %{count} minutos após a publicação. Uma vez que esta janela de tempo passa, você não poderá editar .
@@ -366,7 +366,7 @@ pt-BR:
           most_voted_rule:
             start_description: As %{limit} propostas 
             important: mais votadas 
-            end_description: de cada tema seguirão para análise do Ministério do Meio Ambiente, podendo ou não ser incorporadas ao Plano Clima.
+            end_description: de cada tema seguirão para análise, podendo ou não ser incorporadas.
         wizard_aside:
           back: Voltar
           back_from_step_1: Voltar

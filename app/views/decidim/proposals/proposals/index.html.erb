@@ -104,10 +104,9 @@
         <i class="fas fa-times" aria-hidden="true"></i>
       </button>
     </div>
-  </div>
-  <span class="br-divider <% if browser.mobile? %>my-2<% else %>my-4<% end %>"></span>
-  <div class="proposals-filters">
-    <%= render partial: "decidim/components/filter", locals: { 
+    <span class="br-divider <% if browser.mobile? %>my-2<% else %>my-4<% end %>"></span>
+    <div class="proposals-filters">
+      <%= render partial: "decidim/components/filter", locals: { 
           show_filters: false,
           search_field: {
             placeholder: t("decidim.proposals.proposals.filters.placeholder", 
@@ -157,7 +156,11 @@
   </div>
   <div class="proposals-content-container">
     <div id="proposals" class="proposals-br" aria-live="polite">
-      <%= render partial: "proposals" %>
+      <%= render partial: "decidim/components/list", locals: {
+          elements_name: current_component.manifest_name, 
+          collection: @proposals
+        } 
+      %>
     </div>
   </div>
 </div>

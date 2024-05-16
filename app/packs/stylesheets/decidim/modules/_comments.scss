@@ -288,9 +288,8 @@ $comment-nested-alt-bg: $white;
 }
 
 .add-comment-bg {
-  background: var(--gray-3);
   border-radius: 10px;
-  padding: 1rem;
+  padding: 0;
 }
 
 .add-comment--reply {

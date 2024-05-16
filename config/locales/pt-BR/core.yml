@@ -308,7 +308,8 @@ pt-BR:
         share: Compartilhe sua contribuição
         share_link: Compartilhar link
         share_button: Compartilhar
-        share_text: Compartilhe para que votem e contribuam com a sua proposta %{proposal_name} do %{resource_name} no Brasil Participativo
+        share_text_proposal: Compartilhe para que votem e contribuam com a sua proposta %{resource_name} do %{component_name} no Brasil Participativo
+        share_text_meeting: Compartilhe para que participem da sua reunião %{resource_name} do %{component_name} no Brasil Participativo
     follows:
       create:
         participatory_space: Seguir <span class="show-for-sr">%{resource_name}</span>

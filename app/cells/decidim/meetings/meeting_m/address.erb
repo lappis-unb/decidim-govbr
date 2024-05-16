@@ -1,0 +1,6 @@
+<% unless online_meeting? && model.try(:address) %>
+  <div class="component_card_address">
+    <i class="fa-solid fa-md fa-map-location-dot"></i>
+    <span><%= model.address %></span>
+  </div>
+<% end %>
