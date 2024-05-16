@@ -1482,8 +1482,8 @@ ActiveRecord::Schema.define(version: 2024_05_14_194423) do
   create_table "decidim_participatory_process_steps", id: :serial, force: :cascade do |t|
     t.jsonb "title", null: false
     t.jsonb "description"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.date "start_date"
+    t.date "end_date"
     t.integer "decidim_participatory_process_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
