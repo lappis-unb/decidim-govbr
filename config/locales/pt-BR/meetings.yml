@@ -221,6 +221,9 @@ pt-BR:
         subscriber_count:
           one: pessoa inscrita
           other: pessoas inscritas
+        location:
+          online: Online
+          in_person: Presencial
     participatory_spaces:
       highlighted_meetings:
         upcoming_meetings: Próximos eventos

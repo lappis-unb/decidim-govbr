@@ -29,7 +29,7 @@
 
       const proposalState = '<%= update_status_classes(proposal) %>';
 
-      $proposalCard.addClass(`card card--proposal ${proposalState}`);
+      $proposalCard.addClass(`card card__animation column card--component ${proposalState}`);
 
 
       morphdom($proposalCard[0], $proposalCard[0]);
