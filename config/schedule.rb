@@ -1,7 +1,6 @@
 set :output, "log/cron_log.log"
 env :PATH, ENV['PATH']
 
-
 every :day, at: '00:00am' do
   rake 'decidim:delete_download_your_data_files'
 end
