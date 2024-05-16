@@ -25,8 +25,14 @@
         </p>
 
         <div class="order__by-text">
-            <% if elements_name == "proposals"%>
+            <% if elements_name == "proposals" %>
                 <%= order_selector available_orders, i18n_scope: "decidim.proposals.proposals.orders" %>
+            <% end %>
+
+            <% if elements_name == "meetings" %>
+                <div class="order__by-text">
+                    <%= order_selector available_orders, i18n_scope: "decidim.meetings.meetings.orders" %>
+                </div>
             <% end %>
         </div>
     </div>
