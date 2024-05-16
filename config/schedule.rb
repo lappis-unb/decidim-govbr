@@ -1,3 +1,7 @@
+set :output, "log/cron_log.log"
+env :PATH, ENV['PATH']
+
+
 every :day, at: '00:00am' do
   rake 'decidim:delete_download_your_data_files'
 end
@@ -40,4 +44,8 @@ end
 
 every :day, at: '01:00am' do
   rake 'decidim:govbr:update_user_proposals_statistics_data'
+end
+
+every :hour do
+  rake 'decidim_participatory_processes:change_active_step'
 end
