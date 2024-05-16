@@ -102,13 +102,13 @@ module Decidim
       def update_status_classes(current_proposal)
         case current_proposal.state
         when "accepted"
-          "accepted"
+          "green"
         when "rejected", "withdrawn"
-          "rejected"
+          "red"
         when "evaluating"
-          "warning"
+          "orange"
         else
-          return "voted" if current_user && current_proposal.voted_by?(current_user)
+          return "blue" if current_user && current_proposal.voted_by?(current_user)
 
           "default"
         end
