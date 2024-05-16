@@ -22,7 +22,7 @@ module Decidim
 
       before_action :authenticate_user!, only: [:new, :create, :complete]
       before_action :ensure_is_draft, only: [:compare, :complete, :preview, :publish, :edit_draft, :update_draft, :destroy_draft]
-      before_action :set_proposal, :allowed_to_edit?, only: [:show, :edit, :update, :destroy, :preview, :withdraw]
+      before_action :set_proposal, only: [:show, :edit, :update, :destroy, :preview, :withdraw]
       before_action :edit_form, only: [:edit_draft, :edit]
 
       before_action :set_participatory_text
@@ -162,20 +162,15 @@ module Decidim
         enforce_permission_to :edit, :proposal, proposal: @proposal
         @form = form_proposal_params
 
-        if @not_authorized
-          flash[:alert] = I18n.t("proposals.update_draft.errors.has_supports", scope: "decidim")
-          redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
-        else
-          UpdateProposal.call(@form, current_user, @proposal) do
-            on(:ok) do |proposal|
-              flash[:notice] = I18n.t("proposals.update_draft.success", scope: "decidim")
-              redirect_to "#{Decidim::ResourceLocatorPresenter.new(proposal).path}/preview"
-            end
+        UpdateProposal.call(@form, current_user, @proposal) do
+          on(:ok) do |proposal|
+            flash[:notice] = I18n.t("proposals.update_draft.success", scope: "decidim")
+            redirect_to "#{Decidim::ResourceLocatorPresenter.new(proposal).path}/preview"
+          end
 
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("proposals.update_draft.error", scope: "decidim")
-              render :edit_draft
-            end
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("proposals.update_draft.error", scope: "decidim")
+            render :edit_draft
           end
         end
       end
@@ -205,20 +200,15 @@ module Decidim
 
         @form = form_proposal_params
 
-        if @not_authorized
-          flash[:alert] = "Erro ao editar proposta. Sua proposta já tem votos ou coméntarios e não pode ser editada."
-          render :edit
-        else
-          UpdateProposal.call(@form, current_user, @proposal) do
-            on(:ok) do |proposal|
-              flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
-              redirect_to Decidim::ResourceLocatorPresenter.new(proposal).path
-            end
+        UpdateProposal.call(@form, current_user, @proposal) do
+          on(:ok) do |proposal|
+            flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+            redirect_to Decidim::ResourceLocatorPresenter.new(proposal).path
+          end
 
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("proposals.update.error", scope: "decidim")
-              render :edit
-            end
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("proposals.update.error", scope: "decidim")
+            render :edit
           end
         end
       end
@@ -226,19 +216,14 @@ module Decidim
       def withdraw
         enforce_permission_to :withdraw, :proposal, proposal: @proposal
 
-        if @not_authorized
-          flash[:alert] = "Erro ao retirar proposta. Sua proposta já tem votos ou coméntarios e não pode ser retirar."
-          redirect_to proposal_path(@proposal)
-        else
-          WithdrawProposal.call(@proposal, current_user) do
-            on(:ok) do
-              flash[:sucess] = "Sucesso ao retirar sua proposta, ela não será exibida na lista de proposta."
-              redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
-            end
-            on(:has_supports) do
-              flash[:alert] = I18n.t("proposals.withdraw.errors.has_supports", scope: "decidim")
-              redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
-            end
+        WithdrawProposal.call(@proposal, current_user) do
+          on(:ok) do
+            flash[:sucess] = "Sucesso ao retirar sua proposta, ela não será exibida na lista de proposta."
+            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+          end
+          on(:has_supports) do
+            flash[:alert] = I18n.t("proposals.withdraw.errors.has_supports", scope: "decidim")
+            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
           end
         end
       end
@@ -288,10 +273,6 @@ module Decidim
         @proposal = Proposal.find(params[:id])
       end
 
-      def allowed_to_edit?
-        @not_authorized = false
-        @not_authorized = true if @proposal.proposal_votes_count.positive? || @proposal.comments_count.positive?
-      end
 
       # Returns true if the proposal is NOT an emendation or the user IS an admin.
       # Returns false if the proposal is not found or the proposal IS an emendation
