@@ -5,7 +5,7 @@
           ).html_safe %>
   </div>
 <% end %>
-<div class="proposals-container">
+<div class="component-container">
   <p id="proposals-count" class="proposals-counter">
     <%= render partial: "count" %>
   </p>
@@ -19,7 +19,7 @@
     <a target="_blank" href=<%= flash[:poll_link] %>> <%= t("decidim.forms.incomplete_profile") %></a>
     <% end %>
   </div>
-  <div class="card-grid proposals-content">
+  <div class="card-grid component-content">
     <%= render @proposals %>
     <div class="br-row">
       <% if @proposals.empty? %>
