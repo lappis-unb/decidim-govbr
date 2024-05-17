@@ -45,6 +45,6 @@ every :day, at: '01:00am' do
   rake 'decidim:govbr:update_user_proposals_statistics_data'
 end
 
-every :hour do
+every :day do
   rake 'decidim_participatory_processes:change_active_step'
 end
