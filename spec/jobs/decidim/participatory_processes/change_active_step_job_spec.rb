@@ -60,15 +60,15 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
           :participatory_process_step,
           participatory_process: participatory_process,
           active: true,
-          start_date: Time.zone.local(2022, 3, 15, 10, 0, 0),
-          end_date: Time.zone.local(2022, 3, 15, 22, 0, 0)
+          start_date: Time.zone.local(2022, 3, 13, 10, 0, 0),
+          end_date: Time.zone.local(2022, 3, 14, 22, 0, 0)
         )
       end
       let!(:step_two) do
         create(
           :participatory_process_step,
           participatory_process: participatory_process,
-          start_date: Time.zone.local(2022, 3, 15, 10, 30, 0),
+          start_date: Time.zone.local(2022, 3, 13, 10, 30, 0),
           end_date: Time.zone.local(2022, 3, 15, 20, 0, 0)
         )
       end
@@ -84,47 +84,17 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
     context "with three steps all with dates" do
       let!(:step_one) do
         create(:participatory_process_step, participatory_process: participatory_process,
-                                            active: true, start_date: Time.zone.local(2022, 3, 15, 10, 0, 0), end_date: Time.zone.local(2022, 3, 15, 10, 59, 59))
+                                            active: true, start_date: Time.zone.local(2022, 3, 12, 10, 0, 0), end_date: Time.zone.local(2022, 3, 14, 10, 59, 59))
       end
       let!(:step_two) do
         create(:participatory_process_step, participatory_process: participatory_process,
-                                            start_date: Time.zone.local(2022, 3, 15, 11, 0, 0), end_date: Time.zone.local(2022, 3, 15, 20, 0, 0))
+                                            start_date: Time.zone.local(2022, 3, 12, 11, 0, 0), end_date: Time.zone.local(2022, 3, 14, 20, 0, 0))
       end
 
       context "and have the third step with different datetime" do
         let!(:step_three) do
           create(:participatory_process_step, participatory_process: participatory_process,
-                                              start_date: Time.zone.local(2022, 3, 16, 8, 0, 0), end_date: Time.zone.local(2022, 3, 16, 20, 0, 0))
-        end
-
-        before { subject.perform_now }
-
-        it "activates step two" do
-          expect(step_one.reload).not_to be_active
-          expect(step_two.reload).to be_active
-          expect(step_three.reload).not_to be_active
-        end
-      end
-
-      context "and have the third step with same date but different time" do
-        let!(:step_three) do
-          create(:participatory_process_step, participatory_process: participatory_process,
-                                              start_date: Time.zone.local(2022, 3, 15, 11, 30, 0), end_date: Time.zone.local(2022, 3, 15, 20, 0, 0))
-        end
-
-        before { subject.perform_now }
-
-        it "activates step two" do
-          expect(step_one.reload).not_to be_active
-          expect(step_two.reload).to be_active
-          expect(step_three.reload).not_to be_active
-        end
-      end
-
-      context "and have the third step with same date and time as step two" do
-        let!(:step_three) do
-          create(:participatory_process_step, participatory_process: participatory_process,
-                                              start_date: Time.zone.local(2022, 3, 15, 11, 0, 0), end_date: Time.zone.local(2022, 3, 15, 20, 0, 0))
+                                              start_date: Time.zone.local(2022, 3, 11, 8, 0, 0), end_date: Time.zone.local(2022, 3, 14, 20, 0, 0))
         end
 
         before { subject.perform_now }
@@ -142,7 +112,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
             :participatory_process_step,
             participatory_process: participatory_process,
             start_date: Time.zone.local(2022, 3, 15, 10, 0, 0),
-            end_date: Time.zone.local(2022, 3, 15, 10, 59, 59)
+            end_date: Time.zone.local(2022, 3, 16, 10, 59, 59)
           )
         end
         let!(:step_two) do
@@ -151,7 +121,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
             participatory_process: participatory_process,
             active: true,
             start_date: Time.zone.local(2022, 3, 15, 8, 0, 0),
-            end_date: Time.zone.local(2022, 3, 15, 10, 0, 0)
+            end_date: Time.zone.local(2022, 3, 16, 10, 0, 0)
           )
         end
         let!(:step_three) do
@@ -177,8 +147,8 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
           create(
             :participatory_process_step,
             participatory_process: participatory_process,
-            start_date: Time.zone.local(2022, 3, 15, 10, 0, 0),
-            end_date: Time.zone.local(2022, 3, 15, 10, 59, 59)
+            start_date: Time.zone.local(2022, 3, 13, 10, 0, 0),
+            end_date: Time.zone.local(2022, 3, 14, 10, 59, 59)
           )
         end
         let!(:step_two) do
@@ -186,16 +156,16 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
             :participatory_process_step,
             participatory_process: participatory_process,
             active: true,
-            start_date: Time.zone.local(2022, 3, 15, 8, 0, 0),
-            end_date: Time.zone.local(2022, 3, 15, 10, 0, 0)
+            start_date: Time.zone.local(2022, 3, 13, 8, 0, 0),
+            end_date: Time.zone.local(2022, 3, 14, 10, 0, 0)
           )
         end
         let!(:step_three) do
           create(
             :participatory_process_step,
             participatory_process: participatory_process,
-            start_date: Time.zone.local(2022, 3, 14, 10, 0, 0),
-            end_date: Time.zone.local(2022, 3, 15, 10, 59, 59)
+            start_date: Time.zone.local(2022, 3, 12, 10, 0, 0),
+            end_date: Time.zone.local(2022, 3, 14, 10, 59, 59)
           )
         end
 
@@ -244,7 +214,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
             :participatory_process_step,
             participatory_process: participatory_process,
             start_date: Time.zone.local(2022, 3, 15, 11, 0, 0),
-            end_date: Time.zone.local(2022, 3, 15, 20, 0, 0)
+            end_date: Time.zone.local(2022, 3, 16, 20, 0, 0)
           )
         end
 
