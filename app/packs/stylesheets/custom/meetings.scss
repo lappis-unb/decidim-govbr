@@ -294,3 +294,56 @@
   }
 
 }
+
+.new-meetings-header {
+  margin-top: 48px;
+  margin-bottom: 24px;
+}
+
+.new-meetings-header .section-header-text {
+  color: var(--gray-80);
+  font-size: var(--font-size-32);
+  font-weight: var(--font-weight-semi-bold);
+  margin-bottom: 0.5rem;
+}
+
+.new-meetings-header .section-header-help-text {
+  color: var(--Gray-gray-90, #1B1B1B);
+  font-size: var(--font-size-scale-up-02);
+  font-weight: var(--font-weight-regular);
+  margin-bottom: 1rem;
+}
+
+.new-meetings-header .help-new-proposal-header {
+  color: var(--blue-warm-vivid-70);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-regular);
+  margin-bottom: 1rem;
+}
+
+.new-meetings-header > a {
+  display: inline-flex;
+  color: var(--blue-warm-vivid-70);
+  text-align: center;
+  font-family: Roboto, var(--font-family-base);
+  font-size: var(--font-size-scale-up-01) !important;
+  font-weight: var(--font-weight-semi-bold);
+  height: 39px;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.new-meetings-header .fa-chevron-left {
+  width: 20px;
+  height: 20px;
+}
+
+.new-meetings-header .help-text-form-required-fields {
+  color: var(--pure-100);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-semi-bold);
+  text-decoration: none;
+  margin: 0;
+}
