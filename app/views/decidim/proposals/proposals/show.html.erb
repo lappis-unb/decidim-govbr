@@ -48,7 +48,7 @@ extra_admin_link(
     <%= t(".back_to_list_proposals") %>
   <% end %>
   <div class="flex-column">
-    <%= render partial: "voting_rules" , locals: { isRuleVotes: false, helpButtonText: t("decidim.proposals.proposals.voting_rules.help_button_text") } %>
+    <%= render partial: "voting_rules" , locals: { isRuleVotes: true, trianglePosition: "flex-start" ,helpButtonText: t("decidim.proposals.proposals.voting_rules.help_button_text"), infomTextHelp: t("decidim.proposals.proposals.voting_rules.infom_text_help") } %>
   </div>
   <span class="br-divider my-5"></span>
   <div class="content-container">
