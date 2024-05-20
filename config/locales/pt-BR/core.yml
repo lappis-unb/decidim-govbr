@@ -15,6 +15,8 @@ pt-BR:
         password_confirmation: Confirme a sua senha
         personal_url: Site pessoal
         locale: Idioma
+      comment:
+        attachment_file: anexo
     models:
       decidim/invited_to_group_event: Convidado para o grupo
       decidim/join_request_accepted_event: Pedido de adesão aceita
@@ -195,6 +197,7 @@ pt-BR:
         allowed_file_extensions: "Extensões de arquivo permitidas: %{extensions}"
         max_file_dimension: "Dimensões máximas do arquivo: %{resolution} pixels"
         max_file_size: "Tamanho máximo do arquivo: %{megabytes}MB"
+        comments_attachment_extension:  Escolha o arquivo da contribuição. Somente PDF.
       remove_this_file: Remover este arquivo
       upload:
         labels:
@@ -305,7 +308,8 @@ pt-BR:
         share: Compartilhe sua contribuição
         share_link: Compartilhar link
         share_button: Compartilhar
-        share_text: Compartilhe para que votem e contribuam com a sua proposta %{proposal_name} do %{resource_name} no Brasil Participativo
+        share_text_proposal: Compartilhe para que votem e contribuam com a sua proposta %{resource_name} do %{component_name} no Brasil Participativo
+        share_text_meeting: Compartilhe para que participem da sua reunião %{resource_name} do %{component_name} no Brasil Participativo
     follows:
       create:
         participatory_space: Seguir <span class="show-for-sr">%{resource_name}</span>

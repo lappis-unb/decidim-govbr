@@ -82,6 +82,16 @@ pt-BR:
             comments_enabled: Permitir que usuários façam comentários nas propostas
             comments_max_length: Quantidade máxima de caracteres por comentário (deixe 0 para não limitar)
             attachments_allowed: Permitir que o órgão crie propostas com anexos
+            enable_comments_attachment: Permitir anexos em contribuições
+      blogs:
+        settings:
+          global:
+            enable_comments_attachment: Permitir anexos em contribuições
+      meetings:
+        settings:
+          global:
+            enable_comments_attachment: Permitir anexos em contribuições
+            requires_previous_moderation: Requerer moderação prévia de novas propostas
     govbr:
       initial_page_type:
         default: Página Padrão
@@ -122,7 +132,7 @@ pt-BR:
       user_answers_serializer:
         email: E-mail
         uid: CPF
-        anonymous_answer: Usuário não quis informar  
+        anonymous_answer: Usuário não quis informar
       questionnaires:
         show:
           topp_agreement: Concordo com a política de privacidade
@@ -131,7 +141,7 @@ pt-BR:
             body: Pré-visualização da enquete
           current_step: Passo %{step}
           of_total_steps: de %{total_steps}
-      
+
     admin:
       participatory_process_copies:
         new:
@@ -331,6 +341,7 @@ pt:
             comments_enabled: Permitir que usuários façam comentários nas propostas
             comments_max_length: Quantidade máxima de caracteres por comentário (deixe 0 para não limitar)
             attachments_allowed: Permitir que o órgão crie propostas com anexos
+            requires_previous_moderation: Requerer moderação prévia de novas propostas
     govbr:
       initial_page_type:
         default: Página Padrão
@@ -578,6 +589,11 @@ en:
       participatory_process_group:
         decidim_area_id: Participatory Process Group
   decidim:
+    components:
+      proposals:
+        settings:
+          global:
+            requires_previous_moderation: New proposals requires previous moderation
     govbr:
       initial_page_type:
         default: Default Page

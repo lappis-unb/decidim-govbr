@@ -1,0 +1,8 @@
+<% if model.hashtag.present? %>
+  <%= link_to(
+    "##{decidim_html_escape(model.hashtag)}",
+    twitter_hashtag_url(decidim_html_escape(model.hashtag)),
+    class: "component_card_tag",
+    target: "_blank"
+   ) %>
+<% end %>
