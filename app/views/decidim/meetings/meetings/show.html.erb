@@ -4,14 +4,18 @@
   description: present(meeting).description,
   url: meeting_url(meeting.id)
 }) %>
-<%
-edit_link(
+<% edit_link(
   resource_locator(meeting).edit,
   :update,
   :meeting,
   meeting: meeting
 )
 %>
+
+<a href="<%=resource_locator(meeting).edit%>">
+  EDITAR
+</a>
+
 <div class="br-container-lg">
   <div class="view-header">
     <div class="m-bottom">
