@@ -347,6 +347,7 @@ pt-BR:
           vote: Votar
         voting_rules:
           help_button_text: Conheça as regras e os critérios para seleção de propostas
+          infom_text_help: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, vestibulum mi id, lacinia nunc. Nullam nec nulla a nunc tincidunt aliquam. Nullam nec nulla a nunc tincidunt aliquam.
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pode acumular mais de %{limit} voto(s)
           minimum_votes_per_user:

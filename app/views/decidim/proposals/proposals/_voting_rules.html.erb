@@ -1,77 +1,79 @@
-<button id="showRulesButton" class="show-votes-rule-button">
-  <span class="proposals-criteria-label" >
-    <i class="fas fa-info-circle fa-lg" aria-hidden="true"></i>
-    <%= helpButtonText %>
-    <i class="fa-solid fa-chevron-down"></i>
-  </span>
-</button>
-<input value="<%= helpButtonText %>" type="text" style="display:none;" id="helpButtonIdText" readonly/>
-<% if isRuleVotes %>
-  <div class="row column voting-rules vote_rules_card_hidden" id="info_card">
-    <div id="voting__rules__border" class="triangle__border"></div>
-    <div class="callout secondary voting-rules-container">
-      <div class="voting-rules-content">
-        <h3 class="voting-rules-title"><%= t(".title") %></h3>
-        <ul class="votings-rules-list">
-          <% if vote_limit_enabled? %>
+<% if show_voting_rules? %>
+  <button id="showRulesButton" class="show-votes-rule-button">
+    <span class="proposals-criteria-label" >
+      <i class="fas fa-info-circle fa-lg" aria-hidden="true"></i>
+      <%= helpButtonText %>
+      <i class="fa-solid fa-chevron-down"></i>
+    </span>
+  </button>
+  <input value="<%= helpButtonText %>" type="text" style="display:none;" id="helpButtonIdText" readonly/>
+  <% if isRuleVotes %>
+    <div class="row column voting-rules vote_rules_card_hidden" id="info_card">
+      <div id="voting__rules__border" class="triangle__border align-self-<%= trianglePosition %>"></div>
+      <div class="callout secondary voting-rules-container">
+        <div class="voting-rules-content">
+          <h3 class="voting-rules-title"><%= t(".title") %></h3>
+          <ul class="votings-rules-list">
+            <% if vote_limit_enabled? %>
+              <li>
+                <%= t(".vote_limit.start_description") %>
+                <b><%= t(".vote_limit.important") %></b></b>
+              <%= t(".vote_limit.end_description", limit: component_settings.vote_limit) %>
+            </li>
+          <% end %>
+          <% if proposal_limit_enabled? %>
             <li>
-              <%= t(".vote_limit.start_description") %>
-              <b><%= t(".vote_limit.important") %></b></b>
-            <%= t(".vote_limit.end_description", limit: component_settings.vote_limit) %>
-          </li>
-        <% end %>
-        <% if proposal_limit_enabled? %>
+              <%= t(".proposal_limit.start_description") %>
+              <b><%= t(".proposal_limit.important") %></b>
+              <%= t(".proposal_limit.end_description", limit: proposal_limit) %>
+            </li>
+          <% end %>
+          <% if threshold_per_proposal_enabled? %>
+            <li><%= t(".threshold_per_proposal.description", limit: threshold_per_proposal) %></li>
+          <% end %>
+          <% if can_accumulate_supports_beyond_threshold? %>
+            <li><%= t(".can_accumulate_supports_beyond_threshold.description", limit: threshold_per_proposal) %></li>
+          <% end %>
+          <% if minimum_votes_per_user_enabled? %>
+            <li>
+              <%= t(".minimum_votes_per_user.description", votes: minimum_votes_per_user) %>
+              <% if votes_given >= minimum_votes_per_user %>
+                <%= t(".minimum_votes_per_user.given_enough_votes") %>
+              <% else %>
+                <%= t(".minimum_votes_per_user.supports_remaining", remaining_votes: minimum_votes_per_user - votes_given) %>
+              <% end %>
+            </li>
+          <% end %>
           <li>
-            <%= t(".proposal_limit.start_description") %>
-            <b><%= t(".proposal_limit.important") %></b>
-            <%= t(".proposal_limit.end_description", limit: proposal_limit) %>
+            <%= t(".most_voted_rule.start_description", limit: most_voted_rule) %>
+            <b><%= t(".most_voted_rule.important") %></b>
+            <%= t(".most_voted_rule.end_description") %>
           </li>
-        <% end %>
-        <% if threshold_per_proposal_enabled? %>
-          <li><%= t(".threshold_per_proposal.description", limit: threshold_per_proposal) %></li>
-        <% end %>
-        <% if can_accumulate_supports_beyond_threshold? %>
-          <li><%= t(".can_accumulate_supports_beyond_threshold.description", limit: threshold_per_proposal) %></li>
-        <% end %>
-        <% if minimum_votes_per_user_enabled? %>
-          <li>
-            <%= t(".minimum_votes_per_user.description", votes: minimum_votes_per_user) %>
-            <% if votes_given >= minimum_votes_per_user %>
-              <%= t(".minimum_votes_per_user.given_enough_votes") %>
-            <% else %>
-              <%= t(".minimum_votes_per_user.supports_remaining", remaining_votes: minimum_votes_per_user - votes_given) %>
-            <% end %>
-          </li>
-        <% end %>
-        <li>
-          <%= t(".most_voted_rule.start_description", limit: most_voted_rule) %>
-          <b><%= t(".most_voted_rule.important") %></b>
-          <%= t(".most_voted_rule.end_description") %>
-        </li>
-      </ul>
-    </div>
-    <% if current_user_can_vote? %>
-      <div class="voting-rules-counter">
-        <div class="card card--nomargin text-center remaining-votes-counter">
-          <div class="card__content">
-            <span class="definition-data__title"><%= t(".vote_limit.left", limit: component_settings.vote_limit) %></span>
-            <%= render partial: "decidim/proposals/proposals/remaining_votes_count" %>
-            <span class="extra__suport-text"><%= t(".vote_limit.votes") %></span>
+        </ul>
+      </div>
+      <% if current_user_can_vote? %>
+        <div class="voting-rules-counter">
+          <div class="card card--nomargin text-center remaining-votes-counter">
+            <div class="card__content">
+              <span class="definition-data__title"><%= t(".vote_limit.left", limit: component_settings.vote_limit) %></span>
+              <%= render partial: "decidim/proposals/proposals/remaining_votes_count" %>
+              <span class="extra__suport-text"><%= t(".vote_limit.votes") %></span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
-</div>
-</div>
+    <% end %>
+  </div>
 <% else %>
   <div class="row column voting-rules vote_rules_card_hidden" id="info_card">
-    <div id="voting__rules__border" class="triangle__border"></div>
+    <div id="voting__rules__border" class="triangle__border align-self-<%= trianglePosition %>"></div>
     <div class="callout secondary voting-rules-container">
       <div class="voting-rules-content">
         <p class="votings-rules-list m-0">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec ultricies ultricies, nunc odio ultricies nunc, nec ultricies nunc odio nec ultricies nunc. Nullam auctor, nunc nec ultricies ultricies, nunc odio ultricies nunc, nec ultricies nunc odio nec ultricies nunc.
+          <%= infomTextHelp %>
         </p>
       </div>
-    </div>
-  <% end %>
+    </div >
+  </div>
+<% end %>
+<% end %>
