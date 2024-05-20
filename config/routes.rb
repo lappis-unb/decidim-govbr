@@ -79,6 +79,21 @@ Rails.application.routes.draw do
   end
 
   scope :admin do
+    resource :organization, only: [:edit, :update], controller: "organization" do
+      resource :appearance, only: [:edit, :update], controller: "organization_appearance"
+      resource :homepage, only: [:edit, :update], controller: "organization_homepage" do
+        resources :content_blocks, only: [:edit, :update, :destroy, :create], controller: "organization_homepage_content_blocks"
+      end
+      resource :external_domain_whitelist, only: [:edit, :update], controller: "organization_external_domain_whitelist"
+
+      member do
+        get :users
+        get :user_entities
+      end
+    end
+  end
+
+  scope :admin do
     resources :participatory_processes, param: :slug, only: [] do
       resources :partners, except: [:show], controller: 'decidim/participatory_processes/admin/partners'
       resources :media_links, except: [:show], controller: 'decidim/participatory_processes/admin/media_links'
