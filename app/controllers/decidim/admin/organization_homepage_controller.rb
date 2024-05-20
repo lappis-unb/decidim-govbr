@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # Controller that allows managing the organization homepage
     class OrganizationHomepageController < Decidim::Admin::ApplicationController
-      include Decidim::Admin::LandingPage
+      include Decidim::Admin::ContentBlocks::LandingPage
 
       layout "decidim/admin/settings"
 
@@ -50,10 +50,6 @@ module Decidim
 
       def resource_content_block_cell
         "decidim/admin/homepage_content_block"
-      end
-
-      def edit
-        enforce_permission_to :update, :organization, organization: current_organization
       end
     end
   end
