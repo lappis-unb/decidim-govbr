@@ -1,4 +1,3 @@
-<% if show_voting_rules? %>
   <button id="showRulesButton" class="show-votes-rule-button">
     <span class="proposals-criteria-label" >
       <i class="fas fa-info-circle fa-lg" aria-hidden="true"></i>
@@ -7,15 +6,24 @@
     </span>
   </button>
   <div class="row column voting-rules vote_rules_card_hidden" id="voting_rules">
+    <div id="voting__rules__border" class="triangle__border"></div>
     <div class="callout secondary voting-rules-container">
       <div class="voting-rules-content">
         <h3 class="voting-rules-title"><%= t(".title") %></h3>
         <ul class="votings-rules-list">
           <% if vote_limit_enabled? %>
-            <li><%= t(".vote_limit.description", limit: component_settings.vote_limit) %></li>
+            <li>
+              <%= t(".vote_limit.start_description") %>
+              <b><%= t(".vote_limit.important") %></b></b>
+              <%= t(".vote_limit.end_description", limit: component_settings.vote_limit) %>
+            </li>
           <% end %>
           <% if proposal_limit_enabled? %>
-            <li><%= t(".proposal_limit.description", limit: proposal_limit) %></li>
+            <li>
+              <%= t(".proposal_limit.start_description") %>
+              <b><%= t(".proposal_limit.important") %></b>
+              <%= t(".proposal_limit.end_description", limit: proposal_limit) %>
+            </li>
           <% end %>
           <% if threshold_per_proposal_enabled? %>
             <li><%= t(".threshold_per_proposal.description", limit: threshold_per_proposal) %></li>
@@ -33,6 +41,12 @@
               <% end %>
             </li>
           <% end %>
+          
+          <li>
+            <%= t(".most_voted_rule.start_description", limit: most_voted_rule) %>
+            <b><%= t(".most_voted_rule.important") %></b>
+            <%= t(".most_voted_rule.end_description") %>
+          </li>
         </ul>
       </div>
       <% if current_user_can_vote? %>
@@ -45,7 +59,7 @@
             </div>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

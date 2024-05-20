@@ -37,6 +37,7 @@ shared_examples "a proposal form" do |options|
   let(:attachment_params) { nil }
   let(:meeting_as_author) { false }
   let(:is_interactive) { false }
+  let(:should_preview) { "preview" }
   let(:params) do
     {
       title: title,
@@ -49,7 +50,8 @@ shared_examples "a proposal form" do |options|
       meeting_as_author: meeting_as_author,
       attachment: attachment_params,
       suggested_hashtags: suggested_hashtags,
-      is_interactive: is_interactive
+      is_interactive: is_interactive,
+      should_preview: "preview"
     }
   end
 

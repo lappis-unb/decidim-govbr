@@ -69,7 +69,8 @@ Rails.application.configure do
   config.webpacker.check_yarn_integrity = false
 
   config.hosts << ENV.fetch('ALLOW_HOSTS')
-  config.log_formatter = proc do |severity, datetime, progname, msg| # rubocop:disable Lint/UnusedBlockArgument
+
+  config.log_formatter = proc do |severity, datetime, _progname, msg|
     if %w(ERROR FATAL).include?(severity)
       "\e[31m[#{datetime}] #{severity} -- #{msg}\e[0m\n"
     else

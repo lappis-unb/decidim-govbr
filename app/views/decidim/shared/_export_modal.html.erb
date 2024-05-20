@@ -1,52 +1,145 @@
 <% if current_user.present? && current_user.admin? %>
-  <button
-    class="br-button secondary black-and-white-btn"
-    data-open="export_data"
-  >
-    <i class="fa-solid fa-file-alt"></i>
-    Gerar relatório
-  </button>
-  <div class="reveal" id="export_data" data-reveal>
-    <div class="reveal__header">
-      <h2 class="reveal__title">Gerar Relatório</h2>
-      <button class="close-button" data-close aria-label="Close window" type="button">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <%= form_with url: main_app.reports_path, method: :post, local: true do |f| %>
-        <div class="br-datetimepicker" data-mode="range" data-type="text">
-         <%= f.label :range_input, "Escolha as datas para o recebimento do relatório deste processo" %>
-          <div class="br-input">
-            <button class="br-button circle small" type="button" aria-label="Abrir Timepicker" data-toggle="data-toggle" id="range-input-btn" tabindex="-1" aria-hidden="true">
-              <i class="fas fa-calendar-alt calendar-export" aria-hidden="true"></i>
-            </button>
-            <div class="export-calendar-input">
-              <input id="range-input" type="text" name="date_range" placeholder="exemplo: 02/02/2024 até 03/02/2025" data-input="data-input" />
-            </div>
-          </div>
-          <%= f.hidden_field :component_id, value: current_component.id %>
-          <%= f.hidden_field :email, value: current_user.email %>
-          <% if current_component.settings['participatory_texts_enabled'] %>
-            <% endpoint_value = 'generate_report_participatory_texts' %>
-          <% else %>
-            <% endpoint_value = 'generate_report_proposals' %>
-          <% end %>
-          <%= hidden_field_tag :airflow_endpoint, value: endpoint_value %>
-          <%= f.submit "Enviar" %>
-        </div>
-      <% end %>
+<button class="br-button secondary black-and-white-btn" data-open="export_data">
+  <i class="fa-solid fa-file-alt"></i>
+  <%=t("decidim.modal.export_data") %>
+</button>
+
+<div class="reveal export-reveal" id="export_data" data-reveal>
+  <%= form_with url: main_app.reports_path, id:"report-form", method: :post, remote: true do |f|%>
+
+  <div class="export-form">
+    <span class="modal_title"><%=t("decidim.modal.export_data") %></span>
+    <span class="modal_description"> <%=t("decidim.modal.select_date") %> </span>
+    <div class="br-datetimepicker" data-mode="range" data-type="text">
+      <div class="br-input has-icon br-date-input">
+        <input
+          id="range-input"
+          class="bp-date-input input-group-field"
+          type="text"
+          name="date_range"
+          placeholder="exemplo: 02/02/2024 até 03/02/2025"
+          value="<%= current_participatory_space.start_date %> até <%= Time.now.strftime("%d/%m/%Y") %>"
+          data-input="data-input"
+        />
+
+        <button
+          class="datepicker-icon"
+          type="button"
+          aria-label="Abrir Timepicker"
+          data-toggle="data-toggle"
+          id="range-input-btn"
+          aria-hidden="true"
+        >
+          <i
+            class="fas fa-calendar-alt calendar-export fa-xl"
+            aria-hidden="true"
+          ></i>
+        </button>
+      </div>
+
+      <input
+        type="hidden"
+        name="component_id"
+        value="<%= current_component.id %>"
+      />
+
+      <input type="hidden" name="email" value="<%= current_user.email %>" />
+      <% if current_component.settings['participatory_texts_enabled'] %> <%
+      endpoint_value = 'generate_report_participatory_texts' %> <% else %> <%
+      endpoint_value = 'generate_report_proposals' %> <% end %>
+
+      <input
+        type="hidden"
+        name="airflow_endpoint"
+        value="<%= endpoint_value %>"
+      />
     </div>
   </div>
 
-  <div class="reveal" id="sucess_export_data" data-reveal>
-    <h2 class="reveal__title">
-      O relatório será enviado ao seu email em até duas horas
-    </h2>
-    <div class="export-close-button">
-      <button class="button button--title share-link text-center" data-close>
-        fechar
-      </button>
-    </div>
+  <div class="bp-divider"></div>
+
+  <div class="export-modal-buttons">
+    <button class="br-button secondary black-and-white-btn" type="button" data-close><%=t("decidim.modal.cancel") %></button>
+    <button class="br-button primary" type="submit" ><%=t("decidim.modal.submit") %></button>
   </div>
+  <% end %>
+</div>
+
+<div class="reveal export-reveal" id="sucess_export_data" data-reveal>
+
+  <div class="export-form">
+    <span class="modal_title">
+      <%=t("decidim.modal.export_data") %>
+    </span>
+    <span class="modal_description"> <%=t("decidim.modal.export_confirmation") %> </span>
+  </div>
+  <div class="bp-divider"></div>
+
+  <div class="export-modal-buttons">
+    <button class="br-button secondary black-and-white-btn" data-close><%=t("decidim.modal.close") %></button>
+  </div>
+</div>
+
+<div class="reveal export-reveal" id="error_export_data" data-reveal>
+
+  <div class="export-form">
+    <span class="modal_title">
+      <%=t("decidim.modal.export_data") %>
+    </span>
+    <span class="modal_description"> <%=t("decidim.modal.export_error") %> </span>
+  </div>
+  <div class="bp-divider"></div>
+
+  <div class="export-modal-buttons">
+    <button class="br-button secondary black-and-white-btn" data-close><%=t("decidim.modal.close") %></button>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (window.jQuery) {
+      $(document).foundation();
+
+      $('#report-form').on('submit', function(event) {
+        event.preventDefault(); 
+
+        var formData = {
+          date_range: $('#range-input').val(),
+          email: $('input[name="email"]').val(),
+          component_id: $('input[name="component_id"]').val(),
+          airflow_endpoint: $('input[name="airflow_endpoint"]').val()
+        };
+
+        $.ajax({
+          url: $(this).attr('action'), 
+          type: 'POST', 
+          data: formData,
+          dataType: 'json',
+          success: function(response) {
+          
+            if (response.status === 'Sucesso!') {
+              $('#sucess_export_data').foundation('open');
+            } else {
+              $('#error_export_data').foundation('open');
+            }
+          },
+          error: function(xhr) {
+  
+            if (xhr.status === 200) {
+              $('#error_export_data').foundation('open');
+              console.error("Erro: " + xhr.responseText);
+            } else {
+              var errorMessage = xhr.status + ': ' + xhr.statusText;
+              $('#error_export_data').foundation('open');
+              console.error("Erro: " + errorMessage);
+            }
+          }
+        });
+      });
+    } else {
+      console.error("jQuery is not loaded");
+    }
+  });
+</script>
+
 <% end %>

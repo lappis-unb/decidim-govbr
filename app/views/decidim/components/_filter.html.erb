@@ -1,0 +1,70 @@
+<%= filter_form_for filter do |form| %>
+  <% if search_field[:status] %>
+    <div class="filters__section br-input input-highlight">
+      <%= 
+        form.search_field :search_text_cont, 
+        type: "search",
+        label: false, 
+        class: "input-group-field", 
+        placeholder: search_field[:placeholder],
+        "aria-label": "Buscar", 
+        id: "input-search-large",
+        data: { disable_dynamic_change: true } 
+      %>
+
+      <button class="br-button" type="submit" aria-label="Buscar">
+        <i class="fas fa-search" aria-hidden="true"></i>
+      </button>
+    </div>
+  <% end %>
+
+  <span id="filter-btn-br" class="button">
+    <i class="fa-solid fa-sliders fa-lg" style="color: var(--gray-80);"></i>
+    Mostrar Filtros
+  </span>
+
+  <div id="filters__menu__container" 
+    class = <%= show_filters ? "show__filters__menu" : "filters__hidden" %>
+  >
+    <div class="triangle__position">
+      <div id="filters__triangle"></div>
+    </div>
+
+    <div id="filters__menu">
+      <% if hidden_field[:status] %>
+        <%= form.hidden_field hidden_field[:value], value: params.dig("filter", hidden_field[:value]) %>
+      <% end %>
+
+      <% for item in radio_collection %>
+        <% if item[:status] %>
+          <div class="br-filter-container">
+            <%= 
+              form.collection_radio_buttons item[:attribute], 
+              item[:collection], 
+              :first, 
+              :last, 
+              legend_title: item[:legend] 
+            %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <% for item in check_boxes %>
+        <% if item[:status] %>
+          <div class="br-filter-container">
+            <%= 
+              form.check_boxes_tree item[:attribute], 
+              item[:collection], 
+              legend_title: item[:legend], 
+              "aria-controls": item[:aria_controls] 
+            %>
+          </div>
+        <% end %>
+      <% end %>
+      
+      <% if hidden_tag[:status] %>
+        <%= hidden_field_tag :order, hidden_tag[:order], id: nil, class: "order_filter" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

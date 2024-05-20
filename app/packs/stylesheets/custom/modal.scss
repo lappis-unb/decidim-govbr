@@ -1,0 +1,80 @@
+.modal_title {
+  font-size: 1.25rem;
+  color: var(--blue-warm-vivid-70);
+  font-weight: 600;
+}
+
+.export-reveal {
+  padding: 0;
+}
+
+.export-form {
+  padding: 1.5rem 1rem;
+  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+
+  .modal_description {
+    overflow: hidden;
+    color: var(--gray-90);
+    text-overflow: ellipsis;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .br-datetimepicker {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+}
+
+.br-date-input {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  gap: 1.5rem;
+
+  .bp-date-input {
+    background: var(--gray-2);
+    border-color: transparent;
+    border: none;
+    border-radius: 10px;
+    color: var(--gray-90);
+    display: block;
+    font-size: var(--font-weight-medium);
+    font-weight: var(--font-weight-regular);
+    padding: 1rem 0.75rem;
+    width: 100%;
+    height: 3.5rem;
+
+  }
+  .bp-date-input::placeholder {
+    color: rgba(12, 50, 111, 0.50) !important;
+    font-weight: var(--font-weight-regular);
+  }
+
+  .form-input-extra-before {
+    display: none;
+  }
+
+  .datepicker-icon {
+    margin-top: -0.75rem;
+    position: absolute;
+    right: 1rem;
+    top: 1.3rem;
+    color: var(--blue-warm-vivid-70);
+  }
+}
+
+.export-modal-buttons {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  button {
+    width: 10rem;
+  }
+}

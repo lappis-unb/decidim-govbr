@@ -27,20 +27,16 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if form.invalid?
-
-        if proposal_limit_reached?
-          form.errors.add(:base, I18n.t("decidim.proposals.new.limit_reached"))
-          return broadcast(:invalid)
-        end
+        return broadcast(:limit_reached) if proposal_limit_reached?
 
         if process_attachments?
           build_attachments
-          return broadcast(:invalid) if attachments_invalid?
+          return broadcast(:attachment_invalid) if attachments_invalid?
         end
 
         if process_gallery?
           build_gallery
-          return broadcast(:invalid) if gallery_invalid?
+          return broadcast(:attachment_invalid) if gallery_invalid?
         end
 
         transaction do

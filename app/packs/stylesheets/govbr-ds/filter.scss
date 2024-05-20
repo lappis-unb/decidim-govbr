@@ -123,6 +123,7 @@
 }
 
 #filters__menu {
+  padding: 24px 16px;
   background-color: var(--gray-2);
   margin: 0;
 }
@@ -152,7 +153,7 @@
   display: flex;
   align-items: center;
   font-size: var(--font-size-16);
-  margin-left: 5px;
+  margin-left: 1px;
 }
 
 #filters__menu fieldset div {
@@ -173,6 +174,7 @@
   line-height: 1em;
   background: var(--pure-0);
   font-size: var(--font-size-scale-up-02);
+  min-width: 18px;
 }
 
 #filters__menu fieldset label > input[type="checkbox"]:checked::after {
@@ -188,7 +190,7 @@
 }
 
 #filters__menu > div {
-  padding: 1rem;
+  margin-bottom: 32px;
 }
 
 #filter-btn-br {
@@ -289,6 +291,7 @@ div.filters__section fieldset > label {
 }
 
 #filters__triangle {
+  margin-top: 4px;
   max-height: 0;
   padding: 0;
   width: 0;
@@ -296,6 +299,13 @@ div.filters__section fieldset > label {
   border-left: 35px solid transparent; /* Adjust the width of the triangle */
   border-right: 35px solid transparent; /* Adjust the width of the triangle */
   border-bottom: 24px solid var(--gray-2); /* Adjust the height and color of the triangle */
+}
+
+.triangle__border {
+  width: 70px;
+  border-left: 35px solid transparent; /* Adjust the width of the triangle */
+  border-right: 35px solid transparent; /* Adjust the width of the triangle */
+  border-bottom: 16px solid #e3edfc; /* Adjust the height and color of the triangle */
 }
 
 form.new_filter {
@@ -406,7 +416,7 @@ label
   border: 0;
   margin-bottom: 4px;
   text-align: left;
-  font-size: 0.75rem;
+  font-size: var(--font-size-16);
   -webkit-border-radius: 1rem;
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
@@ -420,8 +430,8 @@ label
 
 .voting-rules-title {
   color: var(--gray-90);
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-20);
   margin-bottom: 1rem;
   margin-top: 0;
 }
@@ -446,10 +456,35 @@ label
   width: auto;
 }
 
+.voting-rules {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.voting-rules-container {
+  box-shadow: none;
+  border-radius: 4px;
+}
+
 @media screen and (min-width: 600px) {
   .show-votes-rule-button {
-    font-size: 1rem;
+    font-size: var(--font-size-16);
   }
+
+  .voting-rules {
+    align-items: flex-start;
+  }
+
+  .triangle__border{
+    margin-left: 42px;
+  }
+
+  .br-magic-button + #showRulesButton + #voting_rules > #voting__rules__border {
+    align-self: center;
+    margin-left: 0px;
+  }
+
   .voting-rules-container {
     display: flex;
     flex-direction: row;
@@ -457,6 +492,7 @@ label
     padding: 1.5rem;
     align-items: flex-start;
     gap: 2rem;
+    width: 100%;
   }
   .voting-rules-counter {
     width: 200px;
@@ -469,6 +505,8 @@ label
   justify-content: center;
 
   ul {
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-regular);
     margin-bottom: 0;
     margin-left: 1.75rem;
   }
@@ -486,16 +524,18 @@ label
 }
 
 .vote_rules_card_visible {
-  max-height: 500px;
+  max-height: 600px;
   transition: max-height 0.5s ease-in-out;
 }
 
 .show__rules__card {
-  max-height: 500px;
+  max-height: 600px;
 }
 
-.card__content {
+.voting-rules-counter .remaining-votes-counter div.card__content {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  border-radius: 2px;
+  padding: 16px 40px !important;
 }

@@ -47,7 +47,7 @@ pt-BR:
           positive_selected: Sua opinião sobre este tópico é positiva
         remaining_characters: "%{count} caracteres restantes"
         remaining_characters_1: "%{count} personagem à esquerda"
-        title: "Adicione sua contribuição:"
+        title: "Compartilhe sua contribuição:"
       comments:
         title:
           one: "%{count} contribuição"
@@ -57,7 +57,7 @@ pt-BR:
         confirm_destroy: Tem certeza que deseja excluir esta contribuição?
         loading: Carregando contribuições ...
       comment:
-        delete: deletar
+        delete: Deletar
         deleted_at: Contribuição excluída em %{date}
       edit_comment_modal_form:
         close: Fechar

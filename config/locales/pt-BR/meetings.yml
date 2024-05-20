@@ -201,6 +201,17 @@ pt-BR:
           name: Próximos eventos
           upcoming_meetings: Próximos eventos
           view_all_meetings: Ver todas
+      card:
+        status:
+          upcoming: Próximo
+          finished: Encerrado
+          active: Acontecendo
+        subscriber_count:
+          one: pessoa inscrita
+          other: pessoas inscritas
+        location:
+          online: Online
+          in_person: Presencial
     participatory_spaces:
       highlighted_meetings:
         upcoming_meetings: Próximos eventos
