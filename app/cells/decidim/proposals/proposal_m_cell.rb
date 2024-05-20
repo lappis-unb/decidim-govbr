@@ -68,7 +68,7 @@ module Decidim
       def badge_classes
         return super unless options[:full_badge]
 
-        state_classes.concat(["label", "proposal-status"]).join(" ")
+        state_classes.concat(["card__text--status"]).join(" ")
       end
 
       def base_statuses
