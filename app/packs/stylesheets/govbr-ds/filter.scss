@@ -321,15 +321,14 @@ form.new_filter {
   flex-direction: row;
 }
 
-#filters__menu div.activity_collection_radio_buttons_filter fieldset >
-label:first-of-type
-{
+#filters__menu
+  div.activity_collection_radio_buttons_filter
+  fieldset
+  > label:first-of-type {
   font-weight: var(--font-weight-semi-bold) !important;
 }
 
-#filters__menu div.activity_collection_radio_buttons_filter fieldset >
-label
-{
+#filters__menu div.activity_collection_radio_buttons_filter fieldset > label {
   font-family: var(--font-family-base);
   font-weight: var(--font-weight-medium) !important;
   font-size: var(--font-size-16);
@@ -348,7 +347,7 @@ label
     margin-left: 0;
   }
 
-  #filters__menu div.type_collection_radio_buttons_filter fieldset, 
+  #filters__menu div.type_collection_radio_buttons_filter fieldset,
   #filters__menu div.activity_collection_radio_buttons_filter fieldset {
     flex-direction: column;
     gap: 16px;
@@ -476,8 +475,8 @@ label
     align-items: flex-start;
   }
 
-  .triangle__border{
-    margin-left: 42px;
+  .triangle__border {
+    margin: 0 42px;
   }
 
   .br-magic-button + #showRulesButton + #voting_rules > #voting__rules__border {
