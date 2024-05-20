@@ -104,6 +104,8 @@ extra_admin_link(
       <%= linked_resources_for @proposal, :proposals, "copied_from_component" %>
       <%= cell "decidim/endorsers_list", @proposal %>
       <%= amendments_for @proposal %>
+      <!-- Seção de anexos e imagens -->
+      <%= attachments_for @proposal %>
     </div>
     <div class="side-content">
       <!-- Card de votos e ações -->
@@ -143,16 +145,14 @@ extra_admin_link(
       <%= render partial: "decidim/shared/share_modal", locals: {  translation_component: t("decidim.shared.share_modal.share_text_proposal" ,resource_name: resource_title(@proposal), component_name: resource_title(current_participatory_space)) } %>
       <% if current_user.try(:admin?) %>
         <button type="button" class="br-button" data-open="flagModal" title="Denunciar"
-    aria-controls="flagModal" aria-haspopup="dialog" tabindex="0">
-          <i class="fas fa-flag mr-2" aria-hidden="true"></i>
-          Moderação
+          aria-controls="flagModal" aria-haspopup="dialog" tabindex="0">
+            <i class="fas fa-flag mr-2" aria-hidden="true"></i>
+            Moderação
         </button>
       <% end %>
       <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
       <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
       <%= emendation_actions_for @proposal %>
-      <!-- Seção de anexos e imagens -->
-      <%= attachments_for @proposal %>
       <!-- Seção de comentários -->
       <% if user_full_profile_required? %>
         <% if user_survey_answered? %>

@@ -236,6 +236,8 @@ pt-BR:
       create:
         error: Ocorreu um problema ao salvar a proposta.
         success: Proposta criada com sucesso. Salva como rascunho.
+      withdraw:
+        success: Proposta retirada com sucesso
       collaborative_drafts:
         edit:
           back: Voltar

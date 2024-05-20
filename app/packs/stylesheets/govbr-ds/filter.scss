@@ -242,6 +242,7 @@
 #filters__menu__container.show__filters__menu {
   max-height: 1000px;
   height: fit-content;
+  overflow-y: auto;
 }
 
 #filters__menu.show__filters__menu {
