@@ -218,7 +218,7 @@ module Decidim
 
         WithdrawProposal.call(@proposal, current_user) do
           on(:ok) do
-            flash[:sucess] = "Sucesso ao retirar sua proposta, ela não será exibida na lista de proposta."
+            flash[:sucess] = I18n.t("proposals.withdraw.success", scope: "decidim")
             redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
           end
           on(:has_supports) do
