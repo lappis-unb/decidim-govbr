@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 module Decidim
-    module Admin
+  module Admin
+    module ContentBlocks
       # This command gets called when a content block is updated from the admin
       # panel.
       class UpdateContentBlock < Decidim::Command
         attr_reader :form, :content_block, :scope
-  
+
         # Public: Initializes the command.
         #
         # form    - The form from which the data in this component comes from.
@@ -17,20 +18,19 @@ module Decidim
           @content_block = content_block
           @scope = scope
         end
-  
+
         # Public: Updates the content block settings and its attachments.
         #
         # Broadcasts :ok if created, :invalid otherwise.
         def call
-            binding.pry
           return broadcast(:invalid) if form.invalid?
-  
+
           images_valid = true
-  
+
           transaction do
             update_content_block_settings
             content_block.save!
-  
+
             # Saving the images will cause the image file validations to run
             # according to their uploader settings and the organization settings.
             # The content block validation will fail in case there are processing
@@ -47,27 +47,27 @@ module Decidim
               images_valid = false
               raise ActiveRecord::Rollback
             end
-  
+
             # The save method needs to be called another time in order to store
             # the image information.
             content_block.save!
           end
-  
+
           return broadcast(:invalid) unless images_valid
-  
+
           broadcast(:ok, content_block)
         end
-  
+
         private
-  
+
         def update_content_block_settings
           content_block.settings = form.settings
         end
-  
+
         def update_content_block_images
           content_block.manifest.images.each do |image_config|
             image_name = image_config[:name]
-  
+
             if form.images[image_name]
               content_block.images_container.send("#{image_name}=", form.images[image_name])
             elsif form.images["remove_#{image_name}".to_sym] == "1"
@@ -78,4 +78,4 @@ module Decidim
       end
     end
   end
-  
+end
