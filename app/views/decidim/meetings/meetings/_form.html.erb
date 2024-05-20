@@ -67,7 +67,7 @@
   <%= form.categories_select :decidim_category_id, current_participatory_space.categories, prompt: t(".select_a_category"), disable_parents: false %>
 </div>
 
-<div class="row column">
+<div class="field">
   <%= form.select :registration_type,
     @form.registration_type_select,
     { include_blank: t(".select_a_registration_type") },

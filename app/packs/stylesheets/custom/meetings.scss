@@ -365,3 +365,35 @@
   padding: 0;
   gap: 24px;
 }
+
+.new-meeting-form .meetings_form.new_meeting .field > label {
+  color: var(--blue-warm-vivid-80);
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-semi-bold);
+}
+
+.new-meeting-form .meetings_form.new_meeting .field > label input {
+  display: flex;
+  height: 63px;
+  padding: 0.5rem 1rem;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  border: none;
+  background: var(--gray-3);
+  margin: 0;
+}
+
+.new-meeting-form .meetings_form.new_meeting .field > label textarea {
+  display: flex;
+  padding: 12px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  background: var(--gray-3);
+}
+
+.new-meeting-form .meetings_form.new_meeting .field > label input:hover,
+.new-meeting-form .meetings_form.new_meeting .field > label textarea:hover {
+  background-image: linear-gradient(rgba(var(--color-rgb), var(--hover)), rgba(var(--color-rgb), var(--hover)));
+}
