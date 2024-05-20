@@ -2,14 +2,14 @@
   <button id="showRulesButton" class="show-votes-rule-button">
     <span class="proposals-criteria-label" >
       <i class="fas fa-info-circle fa-lg" aria-hidden="true"></i>
-      <%= helpButtonText %>
+      <%= help_button_text %>
       <i class="fa-solid fa-chevron-down"></i>
     </span>
   </button>
-  <input value="<%= helpButtonText %>" type="text" style="display:none;" id="helpButtonIdText" readonly/>
-  <% if isRuleVotes %>
+  <input value="<%= help_button_text %>" type="text" style="display:none;" id="helpButtonIdText" readonly/>
+  <% if is_vote_rule %>
     <div class="row column voting-rules vote_rules_card_hidden" id="info_card">
-      <div id="voting__rules__border" class="triangle__border align-self-<%= trianglePosition %>"></div>
+      <div id="voting__rules__border" class="triangle__border align-self-<%= triangle_position %>"></div>
       <div class="callout secondary voting-rules-container">
         <div class="voting-rules-content">
           <h3 class="voting-rules-title"><%= t(".title") %></h3>
@@ -66,11 +66,11 @@
   </div>
 <% else %>
   <div class="row column voting-rules vote_rules_card_hidden" id="info_card">
-    <div id="voting__rules__border" class="triangle__border align-self-<%= trianglePosition %>"></div>
+    <div id="voting__rules__border" class="triangle__border align-self-<%= triangle_position %>"></div>
     <div class="callout secondary voting-rules-container">
       <div class="voting-rules-content">
         <p class="votings-rules-list m-0">
-          <%= infomTextHelp %>
+          <%= inform_text_help %>
         </p>
       </div>
     </div >
