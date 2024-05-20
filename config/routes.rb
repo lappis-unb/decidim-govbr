@@ -45,8 +45,6 @@ Rails.application.routes.draw do
 
   patch '/update_status_comment/:id/', to: 'decidim/comments/comments#update_status', as: 'update_comment_status'
 
-  post 'admin/organization/homepage/edit', to: 'decidim/admin/organization_homepage#add_html_block', as: 'new_html_block'
-
   resources :assemblies, param: :slug, only: [] do
     resources :media, only: :index, controller: 'decidim/assemblies/media'
   end
@@ -59,6 +57,21 @@ Rails.application.routes.draw do
     resources :assemblies, param: :slug, only: [] do
       resources :partners, except: [:show], controller: 'decidim/assemblies/admin/partners'
       resources :media_links, except: [:show], controller: 'decidim/assemblies/admin/media_links'
+    end
+  end
+
+  scope :admin do
+    resource :organization, only: [:edit, :update], controller: "organization" do
+      resource :appearance, only: [:edit, :update], controller: "organization_appearance"
+      resource :homepage, only: [:edit, :update], controller: "organization_homepage" do
+        resources :content_blocks, only: [:edit, :update, :destroy, :create], controller: "organization_homepage_content_blocks"
+      end
+      resource :external_domain_whitelist, only: [:edit, :update], controller: "organization_external_domain_whitelist"
+
+      member do
+        get :users
+        get :user_entities
+      end
     end
   end
 
