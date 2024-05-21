@@ -404,6 +404,18 @@ module Decidim
       template.html_safe
     end
 
+    def time_field(attribute, options = {})
+      value = object.send(attribute)
+      input_id = "#{attribute}-input"
+      options[:id] ||= input_id
+      options[:type] = 'time'
+      options[:placeholder] ||= 'exemplo: 02:40'
+      options[:data] ||= {}
+      options[:data][:input] = 'data-input'
+  
+      text_field(attribute, options)
+    end
+
     # Public: Generates a file upload field for Decidim::Attachment type of attachment.
     # It is similar to upload method, but it changes some options so that attachment can
     # have title and different upload validations.
