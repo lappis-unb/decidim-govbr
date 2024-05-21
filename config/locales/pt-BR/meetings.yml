@@ -173,6 +173,20 @@ pt-BR:
             hybrid: Ambas
             in_person: Presencial
             online: Virtual
+        form:
+          about_meeting_title: Sobre o evento
+          meeting_format_title: Formato do evento
+          meeting_location_title: Local do evento
+          meeting_duration_title: Duração do evento
+          placeholder:
+            geocoding:
+              address: "Exemplo: Casa do Sol, São Paulo"
+              location: "Exemplo: Av. das Flores, Jardim Primavera, São Paulo - SP, 04567-890"
+              tips: "Exemplo: Próximo à estação de metrô Primavera."
+          start_date: Data de início
+          end_date: Data de fim
+          start_time: Horário de início
+          end_time: Horário de fim
         index:
           click_here: Ver todos os eventos
           see_all: Ver todos os eventos
