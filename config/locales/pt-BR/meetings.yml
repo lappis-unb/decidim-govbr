@@ -24,6 +24,7 @@ pt-BR:
         end_time: "Horário de fim:"
         type_of_meeting: "Formato:"
         description: "Descrição:"
+        location: "Dicas:"
       meeting_agenda:
         title: Título
         visible: Visível
@@ -184,6 +185,9 @@ pt-BR:
         form:
           new:
             title: Sobre o evento
+          placeholder:
+            title: Digite aqui
+            description: Descreva detalhadamente a sua proposta...
       models:
         meeting:
           fields:

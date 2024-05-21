@@ -372,16 +372,38 @@
   font-weight: var(--font-weight-semi-bold);
 }
 
-.new-meeting-form .meetings_form.new_meeting .field > label input {
+.new-meeting-form .meetings_form.new_meeting .field > label input{
   display: flex;
   height: 63px;
   padding: 0.5rem 1rem;
   align-items: center;
-  gap: 10px;
   border-radius: 10px;
   border: none;
-  background: var(--gray-3);
+  background-color: var(--gray-3);
   margin: 0;
+}
+
+.new-meeting-form .meetings_form.new_meeting .field.select-field-br > label {
+  position: relative;
+  display: inline-block;
+  width: 100%; /* Adjust as needed */
+}
+
+.new-meeting-form .meetings_form.new_meeting .field.select-field-br > label select {
+  height: 63px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #F6F6F6;
+  background-position: right 10px center;
+  padding: 8px 16px;
+}
+
+.new-meeting-form .meetings_form.new_meeting .field > label input::placeholder, 
+.new-meeting-form .meetings_form.new_meeting .field > label textarea::placeholder{
+  color: rgba(12, 50, 111, 0.50) !important;
+  font-size: var(--font-size-14);
+  font-style: italic;
+  font-weight: var(--font-weight-regular);
 }
 
 .new-meeting-form .meetings_form.new_meeting .field > label textarea {

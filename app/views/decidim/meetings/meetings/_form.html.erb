@@ -1,12 +1,21 @@
 <div class="field hashtags__container">
-  <%= form.text_field :title, autofocus: true, class: "js-hashtags", hashtaggable: true %>
+  <%= form.text_field :title, 
+      autofocus: true, class: "js-hashtags", hashtaggable: true, placeholder: 
+      t("title", scope: "decidim.meetings.meetings.form.placeholder")
+  %>
 </div>
 
 <div class="field hashtags__container">
-  <%= text_editor_for(form, :description, hashtaggable: true) %>
+  <%= text_editor_for(form, :description, hashtaggable: true, 
+        placeholder: t(
+          "description", 
+          scope: "decidim.meetings.meetings.form.placeholder"
+        )
+      )
+  %>
 </div>
 
-<div class="field">
+<div class="field select-field-br">
   <%= form.select :type_of_meeting,
                   @form.type_of_meeting_select,
                   { include_blank: t(".select_a_meeting_type") },
@@ -34,7 +43,7 @@
 </div>
 
 <div class="iframe-fields">
-  <div class="field" data-meeting-type="online">
+  <div class="field select-field-br" data-meeting-type="online">
     <%= form.select :iframe_embed_type,
       @form.iframe_embed_type_select,
       { multiple: false } %>
@@ -63,11 +72,11 @@
   </div>
 <% end %>
 
-<div class="field">
+<div class="field select-field-br">
   <%= form.categories_select :decidim_category_id, current_participatory_space.categories, prompt: t(".select_a_category"), disable_parents: false %>
 </div>
 
-<div class="field">
+<div class="field select-field-br">
   <%= form.select :registration_type,
     @form.registration_type_select,
     { include_blank: t(".select_a_registration_type") },
@@ -89,7 +98,7 @@
   <label><%= t(".disclaimer", organization: current_component.organization.name) %></label><br>
 </div>
 
-<div class="field">
+<div class="field select-field-br">
   <%= form.select(
     :user_group_id,
     Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map{|g| [g.name, g.id]},
