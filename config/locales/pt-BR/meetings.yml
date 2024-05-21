@@ -24,7 +24,9 @@ pt-BR:
         end_time: "Horário de fim:"
         type_of_meeting: "Formato:"
         description: "Descrição:"
-        location: "Dicas:"
+        address: "Endereço:"
+        location: "Localização:"
+        location_hints: "Dicas:"
       meeting_agenda:
         title: Título
         visible: Visível

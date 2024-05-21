@@ -15,6 +15,10 @@
   %>
 </div>
 
+<span class="br-divider"></span>
+
+<h2 class="new-meeting-title">Formato do evento</h2>
+
 <div class="field select-field-br">
   <%= form.select :type_of_meeting,
                   @form.type_of_meeting_select,
@@ -22,48 +26,54 @@
                   { multiple: false } %>
 </div>
 
-<div class="field" data-meeting-type="in_person">
-  <%= form.geocoding_field :address, input_html: { required: false } %>
-  <p class="help-text"><%= t(".address_help") %></p>
-</div>
-
-<div class="field" data-meeting-type="in_person">
-  <%= form.text_area :location %>
-  <p class="help-text"><%= t(".location_help") %></p>
-</div>
-
-<div class="field">
-  <%= form.text_area :location_hints %>
-  <p class="help-text"><%= t(".location_hints_help") %></p>
-</div>
-
 <div class="field" data-meeting-type="online">
   <%= form.text_field :online_meeting_url %>
   <p class="help-text"><%= t(".online_meeting_url_help") %></p>
 </div>
 
-<div class="iframe-fields">
-  <div class="field select-field-br" data-meeting-type="online">
-    <%= form.select :iframe_embed_type,
-      @form.iframe_embed_type_select,
-      { multiple: false } %>
-    <p class="help-text"><%= t(".show_embedded_iframe_help", domains: Decidim::Meetings.embeddable_services&.join(" ")) %></p>
-  </div>
+<iframe class="meeting_iframe" src="" id="meeting_url_iframe" style="display: none;"></iframe>
 
-  <div class="field iframe-fields--access-level" id="meeting_iframe_embed_type" data-meeting-type="online-access-level">
-    <%= form.select :iframe_access_level,
-      @form.iframe_access_level_select,
-      { include_blank: t(".select_an_iframe_access_level") },
-      { multiple: false } %>
+<div id="presential-meeting" style="display: none;">
+  <span class="br-divider"></span>
+  <h2 class="new-meeting-title">Local do evento</h2>
+
+  <div class="presential-meeting-inputs">
+    <div class="field" data-meeting-type="in_person">
+      <%= form.geocoding_field :address,
+       input_html: { required: false }, 
+       placeholder: "Exemplo:  Casa do Sol, São Paulo" 
+      %>
+      <p class="help-text"><%= t(".address_help") %></p>
+    </div>
+
+    <div class="field" data-meeting-type="in_person">
+      <%= form.text_area :location, 
+        placeholder: "Exemplo: Av. das Flores, Jardim Primavera, São Paulo - SP, 04567-890" 
+      %>
+      <p class="help-text"><%= t(".location_help") %></p>
+    </div>
+
+    <div class="field" id="location-hints-meeting">
+      <%= form.text_area :location_hints, 
+        placeholder: "Exemplo: Próximo à estação de metrô Primavera." 
+      %>
+      <p class="help-text"><%= t(".location_hints_help") %></p>
+    </div>
   </div>
 </div>
 
-<div class="field">
-  <%= form.datetime_field :start_time %>
-</div>
+<span class="br-divider"></span>
 
-<div class="field">
-  <%= form.datetime_field :end_time %>
+<h2 class="new-meeting-title">Duração do evento</h2>
+
+<div class="meeting-duration-time">
+  <div class="field new-meeting-start-time">
+    <%= form.datetime_field :start_time, placeholder: "Selecione..." %>
+  </div>
+
+  <div class="field new-meeting-end-time">
+    <%= form.datetime_field :end_time, placeholder: "Selecione..."  %>
+  </div>
 </div>
 
 <% if current_participatory_space.has_subscopes? %>
@@ -72,18 +82,24 @@
   </div>
 <% end %>
 
+<span class="br-divider"></span>
+
 <div class="field select-field-br">
   <%= form.categories_select :decidim_category_id, current_participatory_space.categories, prompt: t(".select_a_category"), disable_parents: false %>
 </div>
 
 <div class="field select-field-br">
-  <%= form.select :registration_type,
-    @form.registration_type_select,
-    { include_blank: t(".select_a_registration_type") },
-    { multiple: false } %>
+  <% @form.registration_type_select.each do |label, value| %>
+    <div class="radio">
+      <label class="metting-registration-type">
+        <%= form.radio_button :registration_type, value ,class:"meeting_registration_type" %>
+        <%= label %>
+      </label>
+    </div>
+  <% end %>
 </div>
 
-<div class="row column" id="meeting_available_slots">
+<div class="field" id="meeting_available_slots">
   <%= form.number_field :available_slots %>
   <p class="help-text"><%= t(".available_slots_help") %></p>
 </div>

@@ -17,9 +17,16 @@
       <%= render partial: "form", object: f %>
 
       <div class="actions">
-        <%= f.submit t(".create"), class: "button expanded", data: { disable: true } %>
+        <%= f.submit t(".create"), class: "button expanded", data: { disable: true } , id:"submit_meeting_form"%>
       </div>
     <% end %>
   </div>
-  
 </div>
+
+<% content_for :js_content do %>
+  <script>
+    document.getElementById('submit_meeting_form').addEventListener('click', function() {
+      this.form.submit();
+    });
+  </script>
+<% end %>
