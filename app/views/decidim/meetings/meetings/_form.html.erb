@@ -1,7 +1,7 @@
 <span class="meetings-form-section-title"><%= t('.about_meeting_title') %></span>
 
 <div class="br-input input-highlight bp-input">
-  <%= form.text_field :title, autofocus: true, class: "js-hashtags", hashtaggable: true %>
+  <%= form.text_field :title, {autofocus: true, class: "js-hashtags", hashtaggable: true, label_options: { class: 'bp-form-label' } } %>
 </div>
 
 <div class="bp-text-area">
@@ -15,7 +15,7 @@
 <div class="bp-select input-highlight">
   <%= form.select :type_of_meeting,
                   @form.type_of_meeting_select,
-                  { include_blank: t(".select_a_meeting_type"), label_options: { class: 'test_label' } },
+                  { include_blank: t(".select_a_meeting_type"), label_options: { class: 'bp-form-label' } },
                   { multiple: false, class: "meeting-form-input" } %>
 </div>
 

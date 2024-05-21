@@ -1,17 +1,27 @@
-    <%= link_to :back do %>
-      <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-      <%= t(".back") %>
-    <% end %>
-
-    <h2 class="section-heading"><%= t(".title") %></h2>
-      <div class="card__content">
-        <%= decidim_form_for(@form, html: { class: "meetings_form new_meeting" }) do |f| %>
-          <%= render partial: "form", object: f %>
-
-          <div class="actions">
-            <%= f.submit t(".create"), class: "button expanded", data: { disable: true } %>
-          </div>
+    
+    <div class="new-proposal-header">
+      <div class="m-bottom">
+        <%= link_to :back, class: "back-to-list-button" do %>
+          <i class="fa-solid fa-chevron-left fa-md"></i>
+          <%= t(".back") %>
         <% end %>
       </div>
+
+      <% if local_assigns[:edit_form_bool] %>
+        <h2 class="section-header-text"><%= t(".edit") %></h2>
+      <% else %>
+        <h2 class="section-header-text"><%= t(".title") %></h2>
+      <% end %>
+      <h3 class="section-header-help-text"><%= t(".description") %></h3>
+      <p class="help-new-proposal-header"><%= t(".review_warning") %></p>
+
+    </div>
+    <%= decidim_form_for(@form, html: { class: "meetings_form new_meeting" }) do |f| %>
+      <%= render partial: "form", object: f %>
+
+      <div class="actions">
+        <%= f.submit t(".create"), class: "button expanded", data: { disable: true } %>
+      </div>
+    <% end %>
 
   <div class="columns large-3"></div>
