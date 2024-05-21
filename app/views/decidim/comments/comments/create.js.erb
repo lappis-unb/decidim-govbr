@@ -9,11 +9,11 @@
     component.addReply(inReplyTo, commentHtml, true);
   } else {
     component.addNewThread(commentHtml, true);
+    $(".comments-section-title").text(<%== t("decidim.components.comments_section_title.title", count: @comments_count).to_json %>);
   }
 
-  // Update the comments count
+  // Update the comments count and title
   $(".comments-count", $comments).text(<%== t("decidim.components.comments.title", count: @comments_count).to_json %>);
-
   Decidim.addInputEmoji();
 
   component.anchor();
