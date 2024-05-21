@@ -1,3 +1,21 @@
+.agenda-section-heading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--blue-warm-vivid-70);
+  padding: 1rem 0;
+}
+
+.agenda-card-title {
+  color: var(--blue-warm-vivid-70);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.agenda-card-content {
+  padding: 0.5rem;
+  
+}
+
 .meetings-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -367,6 +385,7 @@
   border-radius: 0.25rem;
   padding: 1rem;
 }
+
 
 .meetings-subs-count {
   display: flex;
