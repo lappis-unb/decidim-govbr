@@ -1,9 +1,12 @@
 <div class="header">
+  <div>
     <i class="fas fa-globe data-icon"></i>
     <p>EVENTO ONLINE</p>
+  </div>  
+  <hr>  
 </div>
 <div class="extra__date-container">
-  <i class="fas fa-calendar-alt"></i>
+  <i class="fas fa-calendar-alt data-icon"></i>
   <% if same_day? %>
     <div class="extra__date">
       <%= l start_time, format: "%d" %>
@@ -19,7 +22,6 @@
         <span class="extra__month"><%= l start_time, format: "%B#{ " %Y" if show_year?}" %></span>
       </div>
       <div class="extra__time">
-        <%# NAO APARECE %>
         <i class="fa-solid fa-clock"></i> 
         <%= l start_time, format: "%H:%M" %>
       </div>
