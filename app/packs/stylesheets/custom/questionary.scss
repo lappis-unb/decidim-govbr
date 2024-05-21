@@ -42,3 +42,57 @@
   margin-top: 1rem;
   align-items: flex-end;
 }
+
+.form-foreground-section {
+  padding: 1.5rem;
+  background: var(--blue-warm-vivid-5);
+  margin: 1.5rem 0;
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.two-column-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.bp-help-text {
+  color: var(--blue-warm-vivid-80);
+  font-weight: 300;
+  margin: 0;
+}
+
+.bp-foreground-field {
+  background-color: var(--pure-0) !important;
+  border-color: transparent !important;
+  padding: 0 var(--spacing-scale-3x) !important;
+  box-shadow: none !important;
+  margin: 1rem 0 0 0 !important;
+}
+
+.bp-geocoding-field::placeholder {
+  color: #0c326f80 !important;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-family: Rawline;
+  font-size: 0.875rem !important;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.bp-form-label {
+  color: var(--blue-warm-vivid-80);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.bp-form-label .form-input-extra-before {
+  display: none;
+}
+
+.no_help-text .help-text {
+  display: none;
+}
+
