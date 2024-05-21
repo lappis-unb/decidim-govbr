@@ -5,7 +5,9 @@
       <%= add_comment %>
       <%= user_comments_blocked_warning %>
       <div class="comments-thread-title">
-        <h3 class="section-heading comments-section-title">Contribuições Recebidas</h3>
+        <h3 class="section-heading comments-section-title">
+          <%= t("decidim.components.comments_section_title.title", count: comments_count )%>
+        </h3>
       </div>
       <div class="row collapse order-by">
         <div class="bp-row-collapse-space">
