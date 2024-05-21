@@ -4,7 +4,6 @@
       t("title", scope: "decidim.meetings.meetings.form.placeholder")
   %>
 </div>
-
 <div class="field hashtags__container">
   <%= text_editor_for(form, :description, hashtaggable: true, 
         placeholder: t(
@@ -14,29 +13,33 @@
       )
   %>
 </div>
-
+<fieldset class="attachments_container gallery__container documents_container">
+  <legend><%= t("attachment_legend", scope: "decidim.proposals.proposals.edit") %></legend>
+  <div class="row column">
+    <%= form.attachment :documents,
+                  multiple: true,
+                  label: t("decidim.proposals.proposals.edit.add_documents"),
+                  button_label: t("decidim.proposals.proposals.edit.add_documents"),
+                  button_edit_label: t("decidim.proposals.proposals.edit.edit_documents"),
+                  help_i18n_scope: "decidim.forms.file_help.file" %>
+  </div>
+</fieldset>
 <span class="br-divider"></span>
-
 <h2 class="new-meeting-title">Formato do evento</h2>
-
 <div class="field select-field-br">
   <%= form.select :type_of_meeting,
                   @form.type_of_meeting_select,
                   { include_blank: t(".select_a_meeting_type") },
                   { multiple: false } %>
 </div>
-
 <div class="field" data-meeting-type="online">
   <%= form.text_field :online_meeting_url %>
   <p class="help-text"><%= t(".online_meeting_url_help") %></p>
 </div>
-
 <iframe class="meeting_iframe" src="" id="meeting_url_iframe" style="display: none;"></iframe>
-
 <div id="presential-meeting" style="display: none;">
   <span class="br-divider"></span>
   <h2 class="new-meeting-title">Local do evento</h2>
-
   <div class="presential-meeting-inputs">
     <div class="field" data-meeting-type="in_person">
       <%= form.geocoding_field :address,
@@ -45,14 +48,12 @@
       %>
       <p class="help-text"><%= t(".address_help") %></p>
     </div>
-
     <div class="field" data-meeting-type="in_person">
       <%= form.text_area :location, 
         placeholder: "Exemplo: Av. das Flores, Jardim Primavera, São Paulo - SP, 04567-890" 
       %>
       <p class="help-text"><%= t(".location_help") %></p>
     </div>
-
     <div class="field" id="location-hints-meeting">
       <%= form.text_area :location_hints, 
         placeholder: "Exemplo: Próximo à estação de metrô Primavera." 
@@ -61,33 +62,25 @@
     </div>
   </div>
 </div>
-
 <span class="br-divider"></span>
-
 <h2 class="new-meeting-title">Duração do evento</h2>
-
 <div class="meeting-duration-time">
   <div class="field new-meeting-start-time">
     <%= form.datetime_field :start_time, placeholder: "Selecione..." %>
   </div>
-
   <div class="field new-meeting-end-time">
     <%= form.datetime_field :end_time, placeholder: "Selecione..."  %>
   </div>
 </div>
-
 <% if current_participatory_space.has_subscopes? %>
   <div class="field">
     <%= scopes_picker_field form, :decidim_scope_id %>
   </div>
 <% end %>
-
 <span class="br-divider"></span>
-
 <div class="field select-field-br">
   <%= form.categories_select :decidim_category_id, current_participatory_space.categories, prompt: t(".select_a_category"), disable_parents: false %>
 </div>
-
 <div class="field select-field-br">
   <% @form.registration_type_select.each do |label, value| %>
     <div class="radio">
@@ -98,22 +91,18 @@
     </div>
   <% end %>
 </div>
-
 <div class="field" id="meeting_available_slots">
   <%= form.number_field :available_slots %>
   <p class="help-text"><%= t(".available_slots_help") %></p>
 </div>
-
 <div class="field" id="meeting_registration_terms">
   <%= text_editor_for(form, :registration_terms) %>
 </div>
-
 <div class="field" id="meeting_registration_url">
   <%= form.text_field :registration_url %>
   <p class="help-text"><%= t(".registration_url_help") %></p>
   <label><%= t(".disclaimer", organization: current_component.organization.name) %></label><br>
 </div>
-
 <div class="field select-field-br">
   <%= form.select(
     :user_group_id,
@@ -122,7 +111,6 @@
     label: t(".create_as")
   ) %>
 </div>
-
 <% content_for :js_content do %>
   <%= javascript_pack_tag "decidim_meetings" %>
 <% end %>

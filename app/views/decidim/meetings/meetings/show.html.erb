@@ -13,6 +13,7 @@ edit_link(
 )
 %>
 <div class="br-container-lg">
+  <%= attachments_for @meeting %>
   <div class="view-header">
     <div class="m-bottom">
       <%= link_to meetings_path, class: "small hollow js-back-to-list" do %>
