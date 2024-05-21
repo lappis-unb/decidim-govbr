@@ -1,39 +1,51 @@
 <div class="header">
-  <div>
-    <i class="fas fa-globe data-icon"></i>
-    <p>EVENTO ONLINE</p>
-  </div>  
-  <hr>  
+  <i class="fas fa-globe data-icon"></i>
+  <p>EVENTO ONLINE</p>
 </div>
-<div class="extra__date-container">
+<span class="br-divider"></span>
+<div class="date-container">
   <i class="fas fa-calendar-alt data-icon"></i>
   <% if same_day? %>
     <div class="extra__date">
-      <%= l start_time, format: "%d" %>
-      <span class="extra__month"><%= l start_time, format: "%B#{ " %Y" if show_year?}" %></span>
-    </div>
-    <div class="extra__time">
-      <%= l start_time, format: "%H:%M" %> - <%= l end_time, format: "%H:%M" %>
+      <div class="day">
+        <%= l start_time, format: "%d" %>
+      </div>
+      <span class="extra__month">
+        <%= l start_time, format: "%B %Y" %>
+      </span>
+      <div class="extra__time">
+        <i class="fa-solid fa-clock fa-sm"></i>
+        <span>
+          <%= l start_time, format: "%H:%M" %> às <%= l end_time, format: "%H:%M" %>
+        <span>
+      </div>
     </div>
   <% else %>
-    <div>
+    <div class="date-set">
       <div class="extra__date">
-        <%= l start_time, format: "%d" %>
-        <span class="extra__month"><%= l start_time, format: "%B#{ " %Y" if show_year?}" %></span>
+        <span class="extra__time-title">
+          Início
+        </span>
+        <span class="extra__month">
+          <%= l start_time, format: "%d/%m/%Y" %>
+        </span>
+        <div class="extra__time">
+          <i class="fa-solid fa-clock fa-sm"></i> 
+          <span><%= l start_time, format: "%H:%M" %></span>
+        </div>
       </div>
-      <div class="extra__time">
-        <i class="fa-solid fa-clock"></i> 
-        <%= l start_time, format: "%H:%M" %>
-      </div>
-    </div>
-    <%= icon "arrow-thin-right" %>
-    <div>
+      <i class="fa-solid fa-arrow-down fa-sm"></i>
       <div class="extra__date">
-        <%= l end_time, format: "%d" %>
-        <span class="extra__month"><%= l end_time, format: "%B#{ " %Y" if show_year?}" %></span>
-      </div>
-      <div class="extra__time">
-        <%= l end_time, format: "%H:%M" %>
+        <span class="extra__time-title">
+          Encerramento
+        </span>
+        <span class="extra__month">
+          <%= l end_time, format: "%d/%m/%Y" %>
+        </span>
+        <div class="extra__time">
+          <i class="fa-solid fa-clock fa-sm"></i>
+          <span><%= l end_time, format: "%H:%M" %></span>
+        </div>
       </div>
     </div>
   <% end %>

@@ -77,6 +77,21 @@
       <% end %>
       <%= linked_resources_for meeting, :proposals, "proposals_from_meeting" %>
       <%= linked_resources_for meeting, :results, "meetings_through_proposals" %>
+      <% if meeting.services.any? %>
+        <div class="card card--list">
+          <% meeting.services.each do |service| %>
+            <div class="card--list__item">
+              <div class="card--list__text card--list__text--top">
+                <%= icon "actions", class: "card--list__icon alert", role: "img", "aria-hidden": true %>
+                <div>
+                  <h3 class="card--list__heading heading-small"><%= translated_attribute(service["title"]) %></h3>
+                  <span class="text-medium"><%= translated_attribute(service["description"]) %></span>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
     <div class="side-content">
       <% if allowed_to?(:update, :meeting, meeting: meeting) %>
@@ -86,8 +101,8 @@
         <% caption =  meeting.closed? ? t(".edit_close_meeting") : t(".close_meeting") %>
         <%= link_to caption, edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "button hollow expanded button-sc button--icon follow-button" %>
       <% end %>
-      <div class="card extra">
-        <div class="card__content">
+      <div class="card-component">
+        <div class="card-component__content">
           <%= cell("decidim/date_range", { start: meeting.start_time, end: meeting.end_time }) %>
           
           <%= render partial: "calendar_modal", locals: {
@@ -97,8 +112,9 @@
           %>
         </div>
         <% if meeting.closed? && meeting.closing_visible? %>
+          <span class="br-divider"></span>
           <% double = meeting.has_contributions? && meeting.has_attendees? %>
-          <div class="card card--secondary extra definition-data">
+          <div>
             <% if meeting.has_contributions? %>
               <div class="definition-data__item <%= "definition-data__item--double" if double %>">
                 <span class="definition-data__title"><%= t(".contributions") %></span>
@@ -120,38 +136,17 @@
           </div>
         <% end %>
       </div>
-      <div class="card extra">
-        <div class="card__content meetings-info-container">
-          <div class="meetings-subs-count">
-            <div class="subs-count">
-              <%= meeting.subscribers_count %>
-            </div>
-
-            <div class="subs-legend">
-              Inscritos
-            </div>
+      <div class="card-component">
+        <div class="meetings-subs-count">
+          <div class="subs-count">
+            <%= meeting.subscribers_count %>
           </div>
-
-          <div class="meetings-available-slots">
-            <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
+          <div class="subs-legend">
+            inscritos
           </div>
         </div>
+        <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
       </div>
-      <% if meeting.services.any? %>
-        <div class="card card--list">
-          <% meeting.services.each do |service| %>
-            <div class="card--list__item">
-              <div class="card--list__text card--list__text--top">
-                <%= icon "actions", class: "card--list__icon alert", role: "img", "aria-hidden": true %>
-                <div>
-                  <h3 class="card--list__heading heading-small"><%= translated_attribute(service["title"]) %></h3>
-                  <span class="text-medium"><%= translated_attribute(service["description"]) %></span>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
       <div class="meetings-br-actions-buttons">
         <%= render partial: "decidim/shared/share_modal", locals: {
               translation_component: t("decidim.shared.share_modal.share_text_meeting",
