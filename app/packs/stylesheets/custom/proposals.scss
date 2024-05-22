@@ -334,6 +334,13 @@ div.author-data__extra {
   font-size: 20px;
 }
 
+.proposals-container {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem 0 1.5rem 0;
+  align-items: flex-start;
+}
+
 @media (min-width: 640px) {
   div.author--inline {
     flex-direction: row;
@@ -398,7 +405,6 @@ div.author-data__extra {
   .proposals-container {
     display: flex;
     flex-direction: row;
-    margin: 3rem 0 1.5rem 0;
     justify-content: space-between;
     align-items: flex-start;
   }

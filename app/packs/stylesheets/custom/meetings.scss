@@ -688,64 +688,69 @@ div.meetings-author-info-br span.author__name {
 
 .meetings-container {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  @media (min-width: 648px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
-  .date-container {
+
+.date-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4;
+  justify-content: center;
+
+  .extra__date {
     display: flex;
     flex-direction: column;
-    gap: 4;
     justify-content: center;
+    gap: 12px;
 
-    .extra__date {
+    .day {
+      color: var(--gray-90);
+      text-align: center;
+      font-variant-numeric: lining-nums proportional-nums;
+      font-size: 2.613rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 46px;
+    }
+
+    .extra__month {
+      color: var(--gray-90);
+      text-align: center;
+      font-variant-numeric: lining-nums proportional-nums;
+      font-size: 0.875rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      text-transform: capitalize;
+    }
+    .extra__time {
       display: flex;
-      flex-direction: column;
+      gap: 8px;
+      margin: 0;
+      color: var(--gray-90);
+      text-align: center;
+      font-variant-numeric: lining-nums proportional-nums;
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      align-items: center;
       justify-content: center;
-      gap: 12px;
 
-      .day {
-        color: var(--gray-90);
-        text-align: center;
-        font-variant-numeric: lining-nums proportional-nums;
-        font-size: 2.613rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 46px;
+      i {
+        margin-top: 2px;
       }
-
-      .extra__month {
-        color: var(--gray-90);
-        text-align: center;
-        font-variant-numeric: lining-nums proportional-nums;
-        font-size: 0.875rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        text-transform: capitalize;
-      }
-      .extra__time {
-        display: flex;
-        gap: 8px;
-        margin: 0;
-        color: var(--gray-90);
-        text-align: center;
-        font-variant-numeric: lining-nums proportional-nums;
-        font-size: 1rem;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
-        align-items: center;
-        justify-content: center;
-
-        i {
-          margin-top: 2px;
-        }
-        span {
-          line-height: 22px;
-        }
+      span {
+        line-height: 22px;
       }
     }
   }
+}
 
 .extra__time-title {
   color: var(--blue-warm-vivid-70);
