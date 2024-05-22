@@ -236,6 +236,8 @@ pt-BR:
       create:
         error: Ocorreu um problema ao salvar a proposta.
         success: Proposta criada com sucesso. Salva como rascunho.
+      withdraw:
+        success: Proposta retirada com sucesso
       collaborative_drafts:
         edit:
           back: Voltar
@@ -346,6 +348,8 @@ pt-BR:
           already_voted_hover: Retirar voto
           vote: Votar
         voting_rules:
+          help_button_text: Conheça as regras e os critérios para seleção de propostas
+          infom_text_help: ""
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pode acumular mais de %{limit} voto(s)
           minimum_votes_per_user:
