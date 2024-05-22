@@ -23,6 +23,10 @@
   gap: 1rem;
 }
 
+.agenda-card-row-parent {
+  background-color: var(--gray-1);
+}
+
 .agenda-card-column {
   display: flex;
   flex-direction: column;
@@ -177,14 +181,17 @@
   }
 }
 
-.data-icon{
-  color: #1351B4;
+.data-icon {
+  color: #1351b4;
 }
 
 .row-gallery {
   margin-right: auto;
   margin-left: auto;
   max-width: auto;
+}
+
+.title {
 }
 
 .header-meetings {
@@ -241,7 +248,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
   font-size: 1rem;
   color: var(--blue-warm-vivid-70);
   justify-content: center;
@@ -379,10 +386,9 @@
     justify-content: flex-end;
   }
 
-.publish-date-dou {
-  text-align: right;
+  .publish-date-dou {
+    text-align: right;
   }
-
 }
 
 .meetings-br-actions-buttons {
@@ -420,7 +426,6 @@
   border-radius: 0.25rem;
   padding: 1rem;
 }
-
 
 .meetings-subs-count {
   display: flex;
@@ -471,7 +476,7 @@
 }
 
 .meetings-author-info-br {
-  margin: 24px 0;
+  margin: 0px;
 }
 
 div.meetings-author-info-br div.author-data__extra {
@@ -508,4 +513,146 @@ div.meetings-author-info-br span.author__name {
 
 .meetings-author-info-br .author-data__extra {
   margin: 0;
+}
+
+.card-component {
+  padding: 16px;
+  border-radius: 4px;
+  background: var(--blue-warm-vivid-5);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card-component__content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+
+  .header {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      margin: 0;
+      padding: 0;
+      color: var(--gray-90);
+      font-variant-numeric: lining-nums proportional-nums;
+      font-family: Rawline;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      text-transform: uppercase;
+    }
+  }
+
+  .date-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4;
+    justify-content: center;
+
+    .extra__date {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+
+      .day {
+        color: var(--gray-90);
+        text-align: center;
+        font-variant-numeric: lining-nums proportional-nums;
+        font-size: 2.613rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 46px;
+      }
+
+      .extra__month {
+        color: var(--gray-90);
+        text-align: center;
+        font-variant-numeric: lining-nums proportional-nums;
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-transform: capitalize;
+      }
+      .extra__time {
+        display: flex;
+        gap: 8px;
+        margin: 0;
+        color: var(--gray-90);
+        text-align: center;
+        font-variant-numeric: lining-nums proportional-nums;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        align-items: center;
+        justify-content: center;
+
+        i {
+          margin-top: 2px;
+        }
+        span {
+          line-height: 22px;
+        }
+      }
+    }
+  }
+}
+
+.extra__time-title {
+  color: var(--blue-warm-vivid-70);
+  text-align: center;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-size: 0.825rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.card-component__content .date-container .date-set .extra__date {
+  gap: 4px;
+  .extra__month {
+    font-weight: 500;
+  }
+}
+.date-set {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  align-items: center;
+}
+.definition-data__item {
+  text-align: center;
+  padding: 0;
+}
+.meeting-actions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  .button_to {
+    width: fit-content;
+  }
+  .black-and-white-btn {
+    background: none;
+    color: var(--gray-80);
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+  }
 }

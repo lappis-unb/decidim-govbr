@@ -23,7 +23,7 @@ module Decidim
       end
 
       def comments_loading
-        return if single_comment?
+        return if single_comment? || comments_count < 2
 
         render :comments_loading
       end
