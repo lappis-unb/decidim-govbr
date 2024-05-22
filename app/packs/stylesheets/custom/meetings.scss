@@ -1,7 +1,7 @@
 .agenda-section-heading {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--blue-warm-vivid-70);
+  color: var(--blue-warm-vivid-80);
   padding: 1rem 0;
 }
 
@@ -13,7 +13,42 @@
 
 .agenda-card-content {
   padding: 0.5rem;
-  
+}
+
+.agenda-card-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.agenda-card-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.agenda-time-hours {
+  font-size: 0.875rem;
+  color: var(--blue-warm-vivid-70);
+  white-space: nowrap;
+}
+
+.agenda-time-minutes {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--blue-warm-vivid-70);
+}
+
+.agenda-time {
+  align-items: center;
+}
+
+.agenda-right-arrow {
+  color: #1351b3;
+  height: 1rem;
+  width: 1rem;
 }
 
 .meetings-content {
@@ -436,7 +471,7 @@
 }
 
 .meetings-author-info-br {
-  margin: 24px 0px;
+  margin: 24px 0;
 }
 
 div.meetings-author-info-br div.author-data__extra {

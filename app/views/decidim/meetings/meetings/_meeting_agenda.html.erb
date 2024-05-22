@@ -1,27 +1,37 @@
 <div class="section agenda-section">
-  <div class="flex--sbe">
-    <div class="agenda-section-heading"><%= t("itinerary", scope: "decidim.meetings" ) %></div>
-  </div>
-  
+  <div class="agenda-section-heading"><%= t("itinerary", scope: "decidim.meetings" ) %></div>
   <div class="agenda-card-content">
     <% agenda_items_times = calculate_start_and_end_time_of_agenda_items(meeting.agenda.agenda_items.first_class, meeting) %>
     <% meeting.agenda.agenda_items.first_class.each_with_index do |agenda_item, index| %>
-      <div class="agenda-card-title">
-        <%= translated_attribute(agenda_item.title) %>
-        <span class="text-small"><%= display_duration_agenda_items(agenda_item.id, index, agenda_items_times) %>
+      <div class="agenda-card-row">
+        <div class="agenda-card-column">
+          <div class="agenda-card-title">
+            <%= translated_attribute(agenda_item.title) %>
+          </div>
+          <p><%= translated_attribute(agenda_item.description).html_safe %></p>
+        </div>
+        <div class="agenda-card-column agenda-time">
+          <span class="agenda-time-minutes"><%= agenda_item.duration %> min</span>
+          <span class="agenda-time-hours"><%= display_duration_agenda_items(agenda_item.id, index, agenda_items_times) %> </span>
+        </div>
       </div>
-      <p><%= translated_attribute(agenda_item.description).html_safe %></p>
-      <span class="text-small"><%= display_duration_agenda_items(agenda_item.id, index, agenda_items_times) %>
       <% if agenda_item.agenda_item_children.presence %>
         <% parent_start_time = agenda_items_times[index][:start_time] %>
         <% agenda_item_children_times = calculate_start_and_end_time_of_agenda_items(agenda_item.agenda_item_children, meeting, parent_start_time) %>
-
         <% agenda_item.agenda_item_children.each_with_index do |agenda_item_child, index_child| %>
-          <div class="agenda-card-title">
-            <%= translated_attribute(agenda_item_child.title) %>
+          <div class="agenda-card-row">
+            <i class="fas fa-arrow-circle-right agenda-right-arrow"></i>
+            <div class="agenda-card-column">
+              <div class="agenda-card-title">
+                <%= translated_attribute(agenda_item_child.title) %>
+              </div>
+              <p><%= translated_attribute(agenda_item_child.description).html_safe %></p>
+            </div>
+            <div class="agenda-card-column agenda-time">
+              <span class="agenda-time-minutes"><%= agenda_item_child.duration %> min</span>
+              <span class="agenda-time-hours"><%= display_duration_agenda_items(agenda_item_child.id, index_child, agenda_item_children_times) %></span>
+            </div>
           </div>
-          <p><%= translated_attribute(agenda_item_child.description).html_safe %></p>
-          <span class="text-small"><%= display_duration_agenda_items(agenda_item_child.id, index_child, agenda_item_children_times) %>
         <% end %>
       <% end %>
     <% end %>
