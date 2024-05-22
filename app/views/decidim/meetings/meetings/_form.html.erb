@@ -113,4 +113,9 @@
 </div>
 <% content_for :js_content do %>
   <%= javascript_pack_tag "decidim_meetings" %>
+  <script>
+    $(document).ready(function() {
+      $('#meeting_documents_button').append('<i class="fas fa-cloud-arrow-up"></i>');
+    });
+  </script>
 <% end %>

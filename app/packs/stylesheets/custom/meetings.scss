@@ -329,7 +329,7 @@
 }
 
 .new-meetings-header .section-header-help-text {
-  color: var(--Gray-gray-90, #1B1B1B);
+  color: var(--Gray-gray-90, #1b1b1b);
   font-size: var(--font-size-scale-up-02);
   font-weight: var(--font-weight-regular);
   margin-bottom: 1rem;
@@ -393,7 +393,7 @@
   font-weight: var(--font-weight-semi-bold);
 }
 
-.new-meeting-form .meetings_form.new_meeting .field > label input{
+.new-meeting-form .meetings_form.new_meeting .field > label input {
   display: flex;
   height: 63px;
   padding: 0.5rem 1rem;
@@ -411,26 +411,38 @@
   width: 100%; /* Adjust as needed */
 }
 
-.new-meeting-form .meetings_form.new_meeting .field.select-field-br > label select {
+.new-meeting-form
+  .meetings_form.new_meeting
+  .field.select-field-br
+  > label
+  select {
   height: 63px;
   width: 100%;
   border-radius: 10px;
-  background-color: #F6F6F6;
+  background-color: #f6f6f6;
   padding: 8px 16px;
   margin-top: 1rem;
   border: 0;
 }
 
-.new-meeting-form .meetings_form.new_meeting .field.select-field-br > label select {
-  background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2221%22%20viewBox%3D%220%200%2020%2021%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M9.35263%2015.289L1.93529%207.87167C1.57756%207.51394%201.57756%206.93397%201.93529%206.57627L2.8004%205.71116C3.15753%205.35404%203.73632%205.35335%204.09428%205.70963L10.0003%2011.588L15.9064%205.70963C16.2643%205.35335%2016.8431%205.35404%2017.2002%205.71116L18.0654%206.57627C18.4231%206.93401%2018.4231%207.51398%2018.0654%207.87167L10.6481%2015.289C10.2903%2015.6467%209.71036%2015.6467%209.35263%2015.289Z%22%20fill%3D%22%230C326F%22%2F%3E%0A%3C%2Fsvg%3E') !important;
+.new-meeting-form
+  .meetings_form.new_meeting
+  .field.select-field-br
+  > label
+  select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2221%22%20viewBox%3D%220%200%2020%2021%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M9.35263%2015.289L1.93529%207.87167C1.57756%207.51394%201.57756%206.93397%201.93529%206.57627L2.8004%205.71116C3.15753%205.35404%203.73632%205.35335%204.09428%205.70963L10.0003%2011.588L15.9064%205.70963C16.2643%205.35335%2016.8431%205.35404%2017.2002%205.71116L18.0654%206.57627C18.4231%206.93401%2018.4231%207.51398%2018.0654%207.87167L10.6481%2015.289C10.2903%2015.6467%209.71036%2015.6467%209.35263%2015.289Z%22%20fill%3D%22%230C326F%22%2F%3E%0A%3C%2Fsvg%3E") !important;
   background-repeat: no-repeat;
   background-position: right 10px center;
   background-size: 16px 16px;
 }
 
-.new-meeting-form .meetings_form.new_meeting .field > label input::placeholder, 
-.new-meeting-form .meetings_form.new_meeting .field > label textarea::placeholder{
-  color: rgba(12, 50, 111, 0.50) !important;
+.new-meeting-form .meetings_form.new_meeting .field > label input::placeholder,
+.new-meeting-form
+  .meetings_form.new_meeting
+  .field
+  > label
+  textarea::placeholder {
+  color: rgba(12, 50, 111, 0.5) !important;
   font-size: var(--font-size-14);
   font-style: italic;
   font-weight: var(--font-weight-regular);
@@ -448,10 +460,13 @@
 
 .new-meeting-form .meetings_form.new_meeting .field > label input:hover,
 .new-meeting-form .meetings_form.new_meeting .field > label textarea:hover {
-  background-image: linear-gradient(rgba(var(--color-rgb), var(--hover)), rgba(var(--color-rgb), var(--hover)));
+  background-image: linear-gradient(
+    rgba(var(--color-rgb), var(--hover)),
+    rgba(var(--color-rgb), var(--hover))
+  );
 }
 
-.help-text{
+.help-text {
   margin-top: 0.25rem;
 }
 
@@ -481,8 +496,6 @@
   display: none;
 }
 
-
-
 .presential-meeting-inputs {
   display: flex;
   padding: 1.5rem;
@@ -503,3 +516,17 @@
   width: 100%;
 }
 
+#meeting_end_time,
+#meeting_start_time {
+  background-color: var(--pure-0);
+}
+
+#meeting_documents_button {
+  width: 100%;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gray-2);
+  color: var(--blue-warm-vivid-80);
+  border-radius: 0.5rem;
+}
