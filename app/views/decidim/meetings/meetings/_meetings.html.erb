@@ -15,13 +15,18 @@
   </div>
 <% end %>
 <div class="meeting-container">
-    <p id="meetings-count" class="title-action__title section-heading meeting-counter-text">
-      <%= render partial: "count" %>
-    </p>
-
-    <div class="order__by-text">
-      <%= order_selector available_orders, i18n_scope: "decidim.meetings.meetings.orders" %>
-    </div>
+  <p id="meetings-count" class="title-action__title section-heading meeting-counter-text">
+    <%= render partial: "count" %>
+  </p>
+  <div class="export-buttons">
+    <%= render partial: "decidim/shared/export_modal" %>
+    <%= render partial: "decidim/meetings/calendar_modal", locals: {
+        path: short_url(
+          route_name: "calendar",
+          params: { filter: params.fetch(:filter, {}).try(:to_unsafe_hash) }
+        )}
+      %>
+  </div>
 </div>
 <div class="card-grid component-content">
   <% meetings.each do |meeting| %>
@@ -29,8 +34,8 @@
   <% end %>
 </div>
 
-<div id="meetings-paginate">
-  <div class="empyt-div"></div>
+<%= decidim_paginate meetings, order_start_time: params[:order_start_time], with_any_scope: params[:with_any_scope] %>
+<div class="column">
   <%= decidim_paginate meetings, order_start_time: params[:order_start_time], with_any_scope: params[:with_any_scope] %>
   <%= render partial: "decidim/shared/results_per_page" %>
 </div>
