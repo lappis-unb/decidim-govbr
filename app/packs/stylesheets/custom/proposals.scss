@@ -48,11 +48,13 @@
   display: flex;
   flex-direction: row;
   gap: 24px;
+  width: 100%;
 }
 
 .proposals-filters {
   min-width: 300px;
   height: fit-content;
+  width: 100%;
 }
 
 .proposals-filters > div {
