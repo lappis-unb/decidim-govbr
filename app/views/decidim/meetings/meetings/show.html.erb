@@ -119,27 +119,24 @@
         </div>
         <% if meeting.closed? && meeting.closing_visible? %>
           <span class="br-divider"></span>
-          <% double = meeting.has_contributions? && meeting.has_attendees? %>
-          <div>
-            <% if meeting.has_contributions? %>
-              <div class="definition-data__item <%= "definition-data__item--double" if double %>">
-                <span class="definition-data__title"><%= t(".contributions") %></span>
-                <span class="definition-data__number"><%= meeting.contributions_count %></span>
-              </div>
-            <% end %>
-            <% if meeting.has_attendees? %>
-              <div class="definition-data__item <%= "definition-data__item--double" if double %>">
-                <span class="definition-data__title"><%= t(".attendees") %></span>
-                <span class="definition-data__number"><%= meeting.attendees_count %></span>
-              </div>
-            <% end %>
-            <% if meeting.attending_organizations.present? %>
-              <div class="definition-data__item">
-                <span class="definition-data__title"><%= t(".organizations") %></span>
-                <span class="definition-data__text"><%= simple_format(meeting.attending_organizations) %></span>
-              </div>
-            <% end %>
-          </div>
+          <% if meeting.has_contributions? %>
+            <div class="definition-data__item">
+              <span><%= t(".contributions") %></span>
+              <span class="definition-data__number"><%= meeting.contributions_count %></span>
+            </div>
+          <% end %>
+          <% if meeting.has_attendees? %>
+            <div class="definition-data__item">
+              <span><%= t(".attendees") %></span>
+              <span class="definition-data__number"><%= meeting.attendees_count %></span>
+            </div>
+          <% end %>
+          <% if meeting.attending_organizations.present? %>
+            <div class="definition-data__item">
+              <span><%= t(".organizations") %></span>
+              <span class="definition-data__text"><%= simple_format(meeting.attending_organizations) %></span>
+            </div>
+          <% end %>
         <% end %>
       </div>
       <div class="card-component">
@@ -152,21 +149,21 @@
           </div>
         </div>
         <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
-      </div>
-      <div class="meetings-br-actions-buttons">
-        <%= render partial: "decidim/shared/share_modal", locals: {
-              translation_component: t("decidim.shared.share_modal.share_text_meeting",
-              resource_name: resource_title(@meeting),
-              component_name: resource_title(current_participatory_space)) 
-            } 
-        %>
-        <% if current_user.try(:admin?) %>
-          <button type="button" class="br-button" data-open="flagModal" title="Denunciar"
-            aria-controls="flagModal" aria-haspopup="dialog" tabindex="0">
-            <i class="fas fa-flag mr-2" aria-hidden="true"></i>
-            <%= t("decidim.meetings.meetings.moderation.label") %>
-          </button>
-        <% end %>
+        <div class="meetings-br-actions-buttons">
+          <%= render partial: "decidim/shared/share_modal", locals: {
+                translation_component: t("decidim.shared.share_modal.share_text_meeting",
+                resource_name: resource_title(@meeting),
+                component_name: resource_title(current_participatory_space))
+              }
+          %>
+          <% if current_user.try(:admin?) %>
+            <button type="button" class="br-button" data-open="flagModal" title="Denunciar"
+              aria-controls="flagModal" aria-haspopup="dialog" tabindex="0">
+              <i class="fas fa-flag mr-2" aria-hidden="true"></i>
+              <%= t("decidim.meetings.meetings.moderation.label") %>
+            </button>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
