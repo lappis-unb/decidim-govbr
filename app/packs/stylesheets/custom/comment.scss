@@ -14,8 +14,8 @@
 
 .comments-count {
   font-weight: var(--font-weight-semi-bold) !important;
-  color: var(--pure-0) !important;
-  gap: 1.5rem;
+  color: var(pure-100);
+  margin-left: 1rem;
 }
 .comments_blocked_warning {
   display: flex;

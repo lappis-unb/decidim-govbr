@@ -1,0 +1,47 @@
+<div class="date-container">
+  <i class="fas fa-calendar-alt data-icon"></i>
+  <% if same_day? %>
+    <div class="extra__date">
+      <div class="day">
+        <%= l start_time, format: "%d" %>
+      </div>
+      <span class="extra__month">
+        <%= l start_time, format: "%B %Y" %>
+      </span>
+      <div class="extra__time">
+        <i class="fa-solid fa-clock fa-sm"></i>
+        <span>
+          <%= l start_time, format: "%H:%M" %> às <%= l end_time, format: "%H:%M" %>
+        <span>
+      </div>
+    </div>
+  <% else %>
+    <div class="date-set">
+      <div class="extra__date">
+        <span class="extra__time-title">
+          Início
+        </span>
+        <span class="extra__month">
+          <%= l start_time, format: "%d/%m/%Y" %>
+        </span>
+        <div class="extra__time">
+          <i class="fa-solid fa-clock fa-sm"></i> 
+          <span><%= l start_time, format: "%H:%M" %></span>
+        </div>
+      </div>
+      <i class="fa-solid fa-arrow-down fa-sm"></i>
+      <div class="extra__date">
+        <span class="extra__time-title">
+          Encerramento
+        </span>
+        <span class="extra__month">
+          <%= l end_time, format: "%d/%m/%Y" %>
+        </span>
+        <div class="extra__time">
+          <i class="fa-solid fa-clock fa-sm"></i>
+          <span><%= l end_time, format: "%H:%M" %></span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
