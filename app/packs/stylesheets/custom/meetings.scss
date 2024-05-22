@@ -490,3 +490,9 @@
 #meetings-paginate .empyt-div{
   width: 255px;
 }
+
+.meetings-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
