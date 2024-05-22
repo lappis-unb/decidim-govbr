@@ -33,7 +33,6 @@
 .side-content {
   display: flex;
   width: 267px;
-  padding: 8px 16px;
   flex-direction: column;
   justify-content: flex-start;
   gap: 16px;
@@ -113,10 +112,14 @@
   font-weight: 700;
 }
 
-.title-action-text {
-  font-size: 18px;
+.title {
+  color: var(--blue-warm-vivid-70);
+  font-size: 1.25rem;
+  padding: 0;
+  margin: 0;
+  font-style: normal;
   font-weight: 600;
-  line-height: 21px;
+  line-height: normal;
 }
 
 .title-action-button {
@@ -883,7 +886,7 @@ div.author-data__extra {
   line-height: normal;
 }
 #proposal_category_id {
-  color: #0c326f80 !important;
+  //color: #0c326f80 !important;
   font-variant-numeric: lining-nums proportional-nums;
   font-family: Rawline;
   font-size: 0.875rem !important;

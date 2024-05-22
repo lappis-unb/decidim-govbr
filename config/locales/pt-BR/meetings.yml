@@ -77,6 +77,7 @@ pt-BR:
           notification_title: O evento <a href="%{resource_path}">%{resource_title}</a> abriu inscrições.
 
     meetings:
+      itinerary: Cronograma do Evento
       actions:
         close: Encerrar Evento
         registrations: Inscrições
@@ -163,6 +164,7 @@ pt-BR:
           join: Inscreva-se
           registration_code_help_text: O seu código de inscrição
           back: Voltar à lista
+          remaining_slots: vagas disponíveis
         filters:
           activity: Minha atividade
           all: Todas
@@ -190,6 +192,8 @@ pt-BR:
           see_all: Ver todos os eventos
           see_all_withdrawn: Ver todos os eventos retiradas
           text_banner: Você está vendo a lista de eventos retiradas por seus autores. %{go_back_link}.
+        moderation: 
+          label: Moderação
       models:
         meeting:
           fields:
