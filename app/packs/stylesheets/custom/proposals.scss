@@ -33,7 +33,6 @@
 .side-content {
   display: flex;
   width: 267px;
-  padding: 8px 16px;
   flex-direction: column;
   justify-content: flex-start;
   gap: 16px;
@@ -113,10 +112,14 @@
   font-weight: 700;
 }
 
-.title-action-text {
-  font-size: 18px;
+.title {
+  color: var(--blue-warm-vivid-70);
+  font-size: 1.25rem;
+  padding: 0;
+  margin: 0;
+  font-style: normal;
   font-weight: 600;
-  line-height: 21px;
+  line-height: normal;
 }
 
 .title-action-button {
@@ -182,7 +185,6 @@
   gap: 8px 24px;
   padding: 0px 0px 24px 0px;
   justify-content: flex-start;
-  align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
 }
@@ -421,10 +423,6 @@ div.author-data__extra {
     align-items: center;
     justify-content: flex-end;
   }
-  .proposals-actions {
-    justify-content: flex-start;
-    flex-direction: row;
-  }
   .proposals-criteria-label {
     color: var(--blue-warm-vivid-80);
     font-size: 14px;
@@ -612,6 +610,10 @@ div.author-data__extra {
 
 #proposals {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 3rem 0;
 }
 
 .proposal_card__title {
@@ -883,7 +885,7 @@ div.author-data__extra {
   line-height: normal;
 }
 #proposal_category_id {
-  color: #0c326f80 !important;
+  //color: #0c326f80 !important;
   font-variant-numeric: lining-nums proportional-nums;
   font-family: Rawline;
   font-size: 0.875rem !important;

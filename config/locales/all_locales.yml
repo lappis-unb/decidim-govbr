@@ -92,6 +92,7 @@ pt-BR:
           global:
             enable_comments_attachment: Permitir anexos em contribuições
             requires_previous_moderation: Requerer moderação prévia de novas propostas
+      publish_date_text: Publicado em
     govbr:
       initial_page_type:
         default: Página Padrão
@@ -245,6 +246,10 @@ pt-BR:
           create: "%{user_name} criou o relatório de participação de usuários %{resource_name} no espaço participativo %{space_name}"
           delete: "%{user_name} removeu o relatório de participação de usuários %{resource_name} do espaço participativo %{space_name}"
           update: "%{user_name} atualizou o relatório de participação de usuários %{resource_name} do espaço participativo %{space_name}"
+    meetings:
+      meetings:
+        calendar_modal:
+          add_to_calendar: Adicionar na agenda
     proposals:
       admin:
         participatory_texts:
