@@ -116,6 +116,7 @@ module Decidim
         # is_past_meetings = params.dig("filter", "with_any_date")&.include?("past")
         @base_query = search
                       .result
+                      .published
                       .includes(:component)
         @meetings = reorder(@base_query)
         @meetings = paginate(@meetings)
@@ -126,7 +127,7 @@ module Decidim
       end
 
       def search_collection
-        Meeting.where(component: current_component).published.not_hidden.visible_for(current_user).with_availability(
+        Meeting.where(component: current_component).published.not_hidden.with_availability(
           filter_params[:with_availability]
         ).includes(
           :component,
