@@ -348,6 +348,8 @@ pt-BR:
           already_voted_hover: Retirar voto
           vote: Votar
         voting_rules:
+          help_button_text: Conheça as regras e os critérios para seleção de propostas
+          infom_text_help: ""
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pode acumular mais de %{limit} voto(s)
           minimum_votes_per_user:
