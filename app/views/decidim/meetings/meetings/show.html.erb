@@ -103,6 +103,12 @@
       <% end %>
       <div class="card-component">
         <div class="card-component__content">
+          <div class="header">
+          <i class="fas fa-globe data-icon"></i>
+          <%# TODO add translation %>
+          <p>Evento <%= meeting.type_of_meeting %></p>
+        </div>
+        <span class="br-divider"></span>
           <%= cell("decidim/date_range", { start: meeting.start_time, end: meeting.end_time }) %>
           
           <%= render partial: "calendar_modal", locals: {

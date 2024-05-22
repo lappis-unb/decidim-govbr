@@ -22,6 +22,16 @@ module Decidim
         end
       end
 
+      def state_classes
+        if Date.current > end_date
+          ["gray"]
+        elsif Date.current.between?(start_date, end_date)
+          ["green"]
+        else
+          ["blue"]
+        end
+      end
+
       def render_authorship
         cell "decidim/author", author_presenter_for(model.normalized_author)
       end
@@ -44,16 +54,6 @@ module Decidim
 
       def badge
         render if has_badge?
-      end
-
-      def state_classes
-        if Date.current > end_date
-          ["gray"]
-        elsif Date.current.between?(start_date, end_date)
-          ["green"]
-        else
-          ["blue"]
-        end
       end
 
       def base_card_class
