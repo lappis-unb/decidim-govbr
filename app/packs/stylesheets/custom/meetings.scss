@@ -20,7 +20,11 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  gap: 8px;
+}
+
+.teste-card{
+  background: var(--Blue-Warm-Vivid-blue-warm-vivid-05, #EDF5FF);
 }
 
 .agenda-card-row-parent {

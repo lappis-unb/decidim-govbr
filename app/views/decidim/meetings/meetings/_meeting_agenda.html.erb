@@ -3,7 +3,7 @@
   <div class="agenda-card-content">
     <% agenda_items_times = calculate_start_and_end_time_of_agenda_items(meeting.agenda.agenda_items.first_class, meeting) %>
     <% meeting.agenda.agenda_items.first_class.each_with_index do |agenda_item, index| %>
-      <div class="agenda-card-row">
+      <div class="agenda-card-row teste-card">
         <div class="agenda-card-column">
           <div class="agenda-card-title">
             <%= translated_attribute(agenda_item.title) %>
