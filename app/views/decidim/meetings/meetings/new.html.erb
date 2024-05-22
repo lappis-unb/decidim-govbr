@@ -1,28 +1,20 @@
 <div class="br-container-lg">
-  <%= link_to :back do %>
-    <i class="fa-solid fa-chevron-left"></i>
-    <%= t(".back") %>
-  <% end %>
-
+  <%= render partial: "wizard_aside" %>
   <div class="new-meetings-header">
-    <%= render partial: "wizard_header" %>
+    <%= render partial: "wizard_header", locals: { is_edit_form: false } %>
   </div>
-
   <div class="new-meeting-form">
     <h2 class="new-meeting-title">
       <%= t("title", scope: "decidim.meetings.meetings.form.new")%>
     </h2>
-
     <%= decidim_form_for(@form, html: { class: "meetings_form new_meeting" }) do |f| %>
       <%= render partial: "form", object: f %>
-
       <div class="actions">
         <%= f.submit t(".create"), class: "button expanded", data: { disable: true } , id:"submit_meeting_form"%>
       </div>
     <% end %>
   </div>
 </div>
-
 <% content_for :js_content do %>
   <script>
     document.getElementById('submit_meeting_form').addEventListener('click', function() {
