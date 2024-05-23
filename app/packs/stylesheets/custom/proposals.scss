@@ -21,6 +21,7 @@
   gap: 24px;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 2rem;
 }
 
 .main-content {
@@ -185,9 +186,7 @@
   gap: 8px 24px;
   padding: 0px 0px 24px 0px;
   justify-content: flex-start;
-  align-items: center;
   flex-direction: column;
-  flex-wrap: wrap;
 }
 .proposals-criteria-label {
   color: var(--blue-warm-vivid-80);
@@ -396,7 +395,6 @@ div.author-data__extra {
   .proposals-container {
     display: flex;
     flex-direction: row;
-    margin: 3rem 0 1.5rem 0;
     justify-content: space-between;
     align-items: flex-start;
   }
@@ -423,10 +421,6 @@ div.author-data__extra {
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-  }
-  .proposals-actions {
-    justify-content: flex-start;
-    flex-direction: row;
   }
   .proposals-criteria-label {
     color: var(--blue-warm-vivid-80);
@@ -455,6 +449,10 @@ div.author-data__extra {
 
 .proposals-br {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 3rem 0;
 }
 
 .proposals-br .dropdown.menu > li {
@@ -1054,7 +1052,6 @@ div.author-data__extra {
 
 .proposals-no-actions {
   flex-direction: column;
-  align-items: flex-start;
   gap: 8px;
 }
 

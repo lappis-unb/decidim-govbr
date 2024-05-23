@@ -16261,7 +16261,7 @@ template {
 @media (min-width: 576px) {
   .br-magic-button,
   .br-magic-button .br-button {
-    width: auto !important;
+    width: fit-content !important;
   }
   .overflow-sm-auto {
     overflow: auto !important;
