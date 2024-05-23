@@ -13,17 +13,19 @@
       )
   %>
 </div>
-<fieldset class="attachments_container gallery__container documents_container">
-  <legend><%= t("attachment_legend", scope: "decidim.proposals.proposals.edit") %></legend>
-  <div class="row column">
-    <%= form.attachment :documents,
+<% if component_settings.attachments_allowed? %>
+  <fieldset class="attachments_container gallery__container documents_container">
+    <legend><%= t("attachment_legend", scope: "decidim.proposals.proposals.edit") %></legend>
+    <div class="row column">
+      <%= form.attachment :documents,
                   multiple: true,
                   label: t("decidim.proposals.proposals.edit.add_documents"),
                   button_label: t("decidim.proposals.proposals.edit.add_documents"),
                   button_edit_label: t("decidim.proposals.proposals.edit.edit_documents"),
                   help_i18n_scope: "decidim.forms.file_help.file" %>
-  </div>
-</fieldset>
+    </div>
+  </fieldset>
+<% end %>
 <span class="br-divider"></span>
 <h2 class="new-meeting-title">Formato do evento</h2>
 <div class="field select-field-br">
