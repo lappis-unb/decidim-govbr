@@ -1,0 +1,55 @@
+<% if online_meeting_url? %>
+  <% if live? || future? %>
+    <div class="card--secondary">
+      <div class="card__content online-meeting-container">
+        <% if live? %>
+          <div class="online-meeting-transmission-title">
+            <i class="fa-solid fa-tower-broadcast online-transmission-icon"></i>
+            <span class="online-meeting-transmission-title-text"><%= t("live_event", scope: "decidim.meetings.meetings.show") %></span>
+          </div>
+          <div>
+            <% unless show_embed? %>
+              <p><small><%= t("micro_camera_permissions_warning", scope: "decidim.meetings.meetings.show") %></small></p>
+            <% end %>
+          </div>
+          <div class="online-meeting-transmission-permission-text">
+            <span><%= t("live_permission_notice", scope: "decidim.meetings.meetings.show") %></span>
+          </div>
+        <% end %>
+
+        <% if show_embed? && live? %>
+          <div class="<%= "margin-top-3" if live? %> absolutes aspect-ratio-16-9">
+            <%== embed_code(request.host) %>
+          </div>
+          <div>
+            <span class="online-meeting-link">
+              <%= t("live_link", scope: "decidim.meetings.meetings.show") %>
+            </span>
+            <span>
+              <%= model.online_meeting_url %>
+            </span>
+          </div>
+        <% elsif live? || future? %>
+          <div class="absolutes">
+            <% if live? %>
+              <%= link_to t("join", scope: "decidim.meetings.meetings.show"), live_event_url, target: "_blank", class: "button button--sc" %>
+            <% elsif future? %>
+              <span><%= t("link_closed", scope: "decidim.meetings.meetings.show") %></span>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <div class="card--secondary">
+    <div class="card__content address">
+      <div class="address__info">
+        <%= icon "timer", role: "img", "aria-hidden": true, remove_icon_class: true, width: 40, height: 70 %>
+        <div class="address__details">
+          <span><%= t("link_available_soon", scope: "decidim.meetings.meetings.show") %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
