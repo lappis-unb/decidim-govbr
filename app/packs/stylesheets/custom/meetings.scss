@@ -258,7 +258,7 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 390px;
+  max-width: 340px;
   padding: 28px 0 0 0;
 }
 
@@ -711,16 +711,6 @@
   font-size: 26px;
 }
 
-.date-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 8px;
-  font-size: 1rem;
-  color: var(--blue-warm-vivid-70);
-  justify-content: center;
-}
-
 .date-content {
   display: flex;
   flex-direction: column;
@@ -762,23 +752,6 @@
   margin-bottom: 8px;
 }
 
-.publish-date-dou {
-  color: var(--gray-60);
-  text-align: center;
-  font-variant-numeric: lining-nums proportional-nums;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  text-transform: lowercase;
-}
-
-.process-home-content {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
 .colorful-card {
   display: flex;
   padding: 16px;
@@ -794,14 +767,6 @@
 .colorful-card p {
   margin: 0;
   padding: 0;
-}
-
-.second-content {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 390px;
-  padding: 28px 0 0 0;
 }
 
 .ministry-text {
@@ -859,18 +824,6 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         grid-gap: 2rem;
-      }
-      .process-home-content {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-      }
-      .date-container {
-        justify-content: flex-end;
-      }
-
-      .publish-date-dou {
-        text-align: right;
       }
 
       .meeting_iframe {
