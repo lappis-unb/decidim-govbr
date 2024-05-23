@@ -9,6 +9,7 @@ pt-BR:
       close_meeting:
         proposals: Propostas criadas no evento
       meeting:
+        title: "Título do evento:"
         available_slots: Vagas disponíveis para este evento
         customize_registration_email: Personalizar o e-mail de inscrição
         iframe_access_level: Nível de acesso do iframe
@@ -16,11 +17,16 @@ pt-BR:
         registration_type: Tipo de inscrição
         registration_form_enabled: Formulário de inscrição ativado
         registration_terms: Termos de inscrição
-        registrations_enabled: Inscrição ativados
-        reserved_slots: Vagas reservadas para este evento
-        start_time: Hora de início
-        end_time: Hora de término
-        type_of_meeting: Tipo
+        registrations_enabled: "Inscrição ativados:"
+        reserved_slots: "Vagas reservadas para este evento:"
+        online_meeting_url: "URL do evento:"
+        start_time: "Horário de início:"
+        end_time: "Horário de fim:"
+        type_of_meeting: "Formato:"
+        description: "Descrição:"
+        address: "Endereço:"
+        location: "Localização:"
+        location_hints: "Dicas:"
       meeting_agenda:
         title: Título
         visible: Visível
@@ -180,6 +186,12 @@ pt-BR:
           see_all: Ver todos os eventos
           see_all_withdrawn: Ver todos os eventos retiradas
           text_banner: Você está vendo a lista de eventos retiradas por seus autores. %{go_back_link}.
+        form:
+          new:
+            title: Sobre o evento
+          placeholder:
+            title: Digite aqui
+            description: Descreva detalhadamente a sua proposta...
         moderation: 
           label: Moderação
       models:
