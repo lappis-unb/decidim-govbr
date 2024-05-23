@@ -52,60 +52,44 @@ AAAAAAAAAAAAAAA
       <input type="text" id="city" name="city">
       <br><br>
       <label for="state">State:</label>
-      <input type="text" id="state" name="state">
+      <select id="state" name="state">
+        <% if defined?(@list) %>
+          <% @list.each do |estado| %>
+            <option><%= estado.nome %></option>
+          <% end %>
+        <% end %>
+      </select>
       <br><br>
+      
     </div>
 
     <script>
+      $.ajax({
+            url: statesURL, 
+            type: 'GET', 
+            success: function(response) {
+              <%@list%>
+            },
+            error: function(xhr) {
+            }
+          });
+          
       document.addEventListener("DOMContentLoaded", function() {
         const cityInput = document.getElementById('city');
         const stateInput = document.getElementById('state');
         const addressInput = document.getElementById('meeting_address');
-        const ajaxButton = document.getElementById('ajax-request');
         const statesURL = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/";
 
-        ajaxButton.addEventListener('click', () => {
-          console.log("AAAAA")
-          $.ajax({
-                    url: statesURL, 
-                    type: 'GET', 
-                    data: formData
-                    dataType: 'json',
-                    success: function(response) {
-                    
-                      if (response.status === 'Sucesso!') {
-                        $('#sucess_export_data').foundation('open');
-                      } else {
-                        $('#error_export_data').foundation('open');
-                      }
-                    },
-                    error: function(xhr) {
-            
-                      if (xhr.status === 200) {
-                        $('#error_export_data').foundation('open');
-                        console.error("Erro: " + xhr.responseText);
-                      } else {
-                        var errorMessage = xhr.status + ': ' + xhr.statusText;
-                        $('#error_export_data').foundation('open');
-                        console.error("Erro: " + errorMessage);
-                      }
-                    }
-                  });
-        })
+        
 
         function updateAddress() {
-            const city = cityInput.value;
-            const state = stateInput.value;
-            addressInput.value = `${city}, ${state}`;
-            console.log(addressInput);
+          const city = cityInput.value;
+          const state = stateInput.value;
+          addressInput.value = `${city}, ${state}`;
         }
 
         cityInput.addEventListener('input', updateAddress);
         stateInput.addEventListener('input', updateAddress);
-
-        var formData = {};
-
-        
       });
     </script>
 
