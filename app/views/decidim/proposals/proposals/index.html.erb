@@ -84,7 +84,10 @@
       <span class="proposal-disabled">
         O período para submissão de propostas não está aberto.
       </span>
-      <%= render partial: "voting_rules" , locals: { is_vote_rule: true, triangle_position: "flex-start" ,help_button_text: t("decidim.proposals.proposals.voting_rules.help_button_text"), inform_text_help: t("decidim.proposals.proposals.voting_rules.infom_text_help") } %>
+      <%= render partial: "voting_rules" ,
+        locals: { is_vote_rule: true, triangle_position: "flex-start" ,
+        help_button_text: t("decidim.proposals.proposals.voting_rules.help_button_text"),
+        inform_text_help: t("decidim.proposals.proposals.voting_rules.infom_text_help") } %>
     </div>
   <% end %>
   <% if component_settings.collaborative_drafts_enabled? %>
