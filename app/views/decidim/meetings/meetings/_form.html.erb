@@ -5,9 +5,6 @@
   %>
 </div>
 
-<button id="ajax-request" type="button">
-AAAAAAAAAAAAAAA
-</button>
 <div class="field hashtags__container">
   <%= text_editor_for(form, :description, hashtaggable: true, 
         placeholder: t(
@@ -62,37 +59,6 @@ AAAAAAAAAAAAAAA
       <br><br>
       
     </div>
-
-    <script>
-      $.ajax({
-            url: statesURL, 
-            type: 'GET', 
-            success: function(response) {
-              <%@list%>
-            },
-            error: function(xhr) {
-            }
-          });
-          
-      document.addEventListener("DOMContentLoaded", function() {
-        const cityInput = document.getElementById('city');
-        const stateInput = document.getElementById('state');
-        const addressInput = document.getElementById('meeting_address');
-        const statesURL = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/";
-
-        
-
-        function updateAddress() {
-          const city = cityInput.value;
-          const state = stateInput.value;
-          addressInput.value = `${city}, ${state}`;
-        }
-
-        cityInput.addEventListener('input', updateAddress);
-        stateInput.addEventListener('input', updateAddress);
-      });
-    </script>
-
     <div class="field" data-meeting-type="in_person">
       <%= form.geocoding_field :address,
        input_html: { required: false }, 
