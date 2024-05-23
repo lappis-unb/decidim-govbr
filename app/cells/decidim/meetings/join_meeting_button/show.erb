@@ -39,12 +39,12 @@
         ) %>
       <% end %>
     <% end %>
-  <% elsif model.on_different_platform? %>
-    <%= action_authorized_link_to(
-      :join,
-      i18n_join_text,
-      model.registration_url,
-      class: button_classes
-    ) %>
-  <% end %>
-</div>
+  </div>
+<% elsif model.on_different_platform? %>
+  <%= action_authorized_link_to(
+    :join,
+    i18n_join_text,
+    model.registration_url,
+    class: button_classes
+  ) %>
+<% end %>
