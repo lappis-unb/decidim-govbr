@@ -1,7 +1,6 @@
 <%= content_tag :div, id: node_id, data: { decidim_comments: comments_data } do %>
   <div class="columns comments-container" id="comments">
     <div class="comments">
-      <h3 class="section-heading comments-section-title">Contribuições</h3>
       <%= add_comment %>
       <%= user_comments_blocked_warning %>
       <div class="comments-thread-title">
