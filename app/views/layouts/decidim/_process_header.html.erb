@@ -1,4 +1,4 @@
-<% if current_participatory_space.attached_uploader(:banner_image).path %>
+<% if !current_participatory_space.attached_uploader(:banner_image).path.blank? %>
   <div class="process-header br-container-lg">
     <div class="process-header__inner">
         <% if browser.mobile?%>
