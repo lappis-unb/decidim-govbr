@@ -334,6 +334,7 @@ pt-BR:
             error: Não foi possível ser aceito como colaborador, por favor tente novamente mais tarde.
             success: "@%{user} foi aceito como colaborador com sucesso"
         show:
+          answer: Dar devolutiva
           back_to: Voltar para
           back_to_list_proposals: Voltar
           back_to_list: Voltar
