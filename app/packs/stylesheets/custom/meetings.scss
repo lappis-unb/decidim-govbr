@@ -508,6 +508,10 @@
   margin-top: 24px;
 }
 
+.presential-meeting-inputs textarea{
+  background-color: var(--pure-0) !important;
+}
+
 #presential-meeting .new-meeting-title,
 .presential-meeting-inputs input {
   margin-top: 24px !important;
@@ -832,6 +836,16 @@
   height: 20rem;
   background-color: #000;
   border: none;
+}
+
+.meeting-address {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.meeting-address select {
+  background-color: var(--pure-0) !important;
 }
 
 @media (min-width: 640px) {
@@ -1265,5 +1279,8 @@
       line-height: 20px;
       letter-spacing: 0.1px;
     }
+  }
+  .meeting-address {
+    flex-direction: row;
   }
 }
