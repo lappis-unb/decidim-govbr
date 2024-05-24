@@ -521,6 +521,14 @@ pt-BR:
           all_categories: Todos os cookies
           change_settings: Alterar configurações de cookies
           consent_required: Você precisa habilitar %{categories} para poder ver este conteúdo.
+      map:
+        dynamic:
+          screen_reader_explanation: O elemento a seguir é um mapa que apresenta os itens nesta página como pontos de mapa. O elemento pode ser usado com um leitor de tela, mas pode ser difícil de entender.
+          skip_button: Pular mapa
+        static:
+          latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
+          map_service_brand: OpenStreetMap
+          arrive_instructions: "Como chegar:"
       footer:
         data_consent_settings: Configurações de cookies
         download_open_data: Baixar arquivos de Dados Abertos

@@ -1,0 +1,25 @@
+.map_location_address {
+    font-size: 1rem;
+    font-family: Rawline;
+}
+
+.address__info {
+    display: flex;
+    flex-grow: 1;
+    margin-left: 1rem;
+}
+
+.address__details_container {
+    float: left;
+    max-width: 100%;
+    align-self: center;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.card__content, .badge-card__content {
+    padding: 1.5rem 0;
+    background: var(--pure-0);
+}
