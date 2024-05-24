@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+Rails.logger.info "Starting carrierwave"
+
 # Default CarrierWave setup.
 #
 CarrierWave.configure do |config|
@@ -29,3 +31,5 @@ end
 #     'X-Content-Type-Options' => "nosniff"
 #   }
 # end
+
+Rails.logger.info "Finished carrierwave"

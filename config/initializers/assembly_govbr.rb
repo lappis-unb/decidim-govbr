@@ -1,3 +1,6 @@
+# config/initializers/some_initializer.rb
+Rails.logger.info "Starting assembly_govbr"
+
 Decidim::Assemblies::AdminEngine.class_eval do
   routes do
     resources :assemblies, param: :slug, only: [] do
@@ -30,3 +33,5 @@ Decidim.menu :admin_assembly_menu do |menu|
                 active: is_active_link?(main_app.assembly_media_links_path(current_participatory_space)),
                 position: 6
 end
+
+Rails.logger.info "Finished assembly_govbr"

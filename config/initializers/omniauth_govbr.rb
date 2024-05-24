@@ -1,3 +1,5 @@
+Rails.logger.info "Starting omnioauth_govbr"
+
 module OmniAuth
   module Strategies
     class OpenIDConnect
@@ -35,3 +37,5 @@ Devise.setup do |config|
     }
   }
 end
+
+Rails.logger.info "Finished omnioauth_govbr"

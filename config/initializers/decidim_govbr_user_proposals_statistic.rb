@@ -1,3 +1,5 @@
+Rails.logger.info "Starting decidim_govbr_user_proposals_statistic"
+
 begin
   # Add link to export user statistics in Decidim Admin Menu
   Decidim.menu :admin_menu do |menu|
@@ -12,3 +14,6 @@ begin
 rescue
   # Ensure APP initializes even if this task breaks
 end
+
+
+Rails.logger.info "Finished decidim_govbr_user_proposals_statistic"

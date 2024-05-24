@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+Rails.logger.info "Starting decidim"
+
 Decidim.configure do |config|
   # The name of the application
   config.application_name = Rails.application.secrets.decidim[:application_name]
@@ -503,3 +505,6 @@ end
 
 # This is necessary because user can break the proposals page if no minimum votes per user is provided
 Decidim.find_component_manifest(:proposals).settings(:global).attributes[:minimum_votes_per_user].required = true
+
+
+Rails.logger.info "Finished decidim"

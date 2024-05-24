@@ -1,3 +1,6 @@
+Rails.logger.info "Starting participatory_process_govbr"
+
+
 Decidim::ParticipatoryProcesses::AdminEngine.class_eval do
   routes do
     resources :participatory_processes, param: :slug, only: [] do
@@ -55,3 +58,6 @@ Decidim.menu :admin_participatory_process_group_menu do |menu|
                 if: allowed_to?(:create, :process_user_role),
                 active: is_active_link?(main_app.participatory_process_group_users_path(participatory_process_group))
 end
+
+
+Rails.logger.info "Finished participatory_process_govbr"
