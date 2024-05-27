@@ -3,10 +3,14 @@
     font-family: Rawline;
 }
 
+.address__arrive_title {
+    color: var(--blue-warm-vivid-80);
+    margin: 0;
+}
+
 .address__info {
     display: flex;
     flex-grow: 1;
-    margin-left: 1rem;
 }
 
 .address__details_container {
@@ -21,4 +25,22 @@
 
 .card__content, .badge-card__content {
     background: var(--pure-0);
+}
+
+.address__map_container {
+    display: flex;
+    gap: 1rem;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+}
+
+.static__map-map {
+    width: auto;
+    height: 10.875rem;
+
+    @media (min-width: 768px) {
+        width: 26rem;
+    }
 }
