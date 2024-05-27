@@ -159,6 +159,10 @@ pt-BR:
         none: Nenhum
         open_in_live_event_page: Abrir na página de eventos ao vivo (com enquetes opcionais)
         open_in_new_tab: Abrir URL em uma nova aba
+      join_meeting_button:
+        modal:
+          confirm_registration:
+            title: Confirmar inscrição
       mailer:
         registration_mailer:
           confirmation:
@@ -195,7 +199,7 @@ pt-BR:
           placeholder:
             title: Digite aqui
             description: Descreva detalhadamente a sua proposta...
-        moderation: 
+        moderation:
           label: Moderação
       models:
         meeting:
