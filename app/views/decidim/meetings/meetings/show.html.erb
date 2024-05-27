@@ -21,6 +21,7 @@
   </div>
   <div class="content-container">
     <div class="main-content">
+      <%== cell("decidim/meetings/meeting_m", @meeting, full_badge: true).badge %>
       <h2 class="title"><%= present(meeting).title(links: true, html_escape: true ) %></h2>
       <div class="section">
         <% if meeting.private_meeting? %>
