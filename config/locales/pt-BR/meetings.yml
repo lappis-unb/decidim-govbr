@@ -179,6 +179,7 @@ pt-BR:
           type: Tipo
           date_values:
             all: Todas
+            now: Acontecendo
           type_values:
             all: Todas
             hybrid: Ambas
