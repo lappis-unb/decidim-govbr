@@ -1424,3 +1424,14 @@ ul.dropdown.menu.bp-result-per-page
     align-items: center;
   }
 }
+
+.proposals-br .card-grid .column,
+.proposals-br .card-grid .columns {
+  height: fit-content;
+}
+@media (min-width: 768px) {
+  .proposals-br .card-grid .column,
+  .proposals-br .card-grid .columns {
+    height: 100%;
+  }
+}

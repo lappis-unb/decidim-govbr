@@ -40,7 +40,9 @@
         <% end %>
         <%= render_meeting_body(@meeting) %>
         <% if meeting.maps_enabled? && !meeting.online_meeting? %>
+          <div class="br-divider space-above"></div>
           <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
+          <div class="br-divider"></div>
         <% end %>
         <% unless meeting.in_person_meeting? || meeting.withdrawn? %>
           <%= cell "decidim/meetings/online_meeting_link", meeting %>
