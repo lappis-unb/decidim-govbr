@@ -185,6 +185,7 @@ pt-BR:
             in_person: Presencial
             online: Virtual
         index:
+          new_meeting: Criar evento
           click_here: Ver todos os eventos
           see_all: Ver todos os eventos
           see_all_withdrawn: Ver todos os eventos retiradas
