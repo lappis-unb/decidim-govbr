@@ -271,8 +271,8 @@ pt-BR:
       proposals:
         count:
           proposals_count:
-            one: "%{count} %{singular_name}"
-            other: "%{count} %{pluralized_name}"
+            one: "%{count} %{singular_name} encontrada"
+            other: "%{count} %{pluralized_name} encontradas"
         view_btn:
           placeholder: Ver %{singular_name}
         compare:
