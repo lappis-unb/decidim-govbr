@@ -529,6 +529,7 @@ pt-BR:
           latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
           map_service_brand: OpenStreetMap
           arrive_instructions: "Como chegar:"
+          see_map: "Ver mapa"
       footer:
         data_consent_settings: Configurações de cookies
         download_open_data: Baixar arquivos de Dados Abertos
