@@ -14,6 +14,8 @@ pt-BR:
       proposals_import:
         origin_component_id: Componente de origem
     errors:
+      messages:
+        too_much_caps: O campo contém muitas letras maiúsculas
       models:
         proposal:
           attributes:
