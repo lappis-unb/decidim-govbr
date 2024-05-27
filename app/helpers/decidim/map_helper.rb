@@ -31,8 +31,8 @@ module Decidim
           return link_to map_url, target: "_blank", rel: "noopener" do
                    image_tag decidim.static_map_path(sgid: resource.to_sgid.to_s), alt: "#{map_service_brand} - #{address_text}"
                  end
+        end
       end
-    end
 
       # Fall back to the dynamic map utility in case static maps are not
       # provided.
@@ -59,7 +59,7 @@ module Decidim
         { class: "static-map", tabindex: "0" }.merge(map_html_options),
         &block
       )
-  end
+    end
 
     def map_url_string(resource)
       return unless resource.geocoded_and_valid?
@@ -67,9 +67,9 @@ module Decidim
 
       map_utility_static.link(
         latitude: resource.latitude,
-        longitude: resource.longitude,
+        longitude: resource.longitude
       )
-      end
+    end
 
     def dynamic_map_for(options_or_markers = {}, html_options = {}, &block)
       return unless map_utility_dynamic
