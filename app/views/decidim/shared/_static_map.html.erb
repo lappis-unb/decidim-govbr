@@ -10,7 +10,7 @@
         <div class="address__details_container">
           <h5 class="section-heading add-comment-title"><%=t("layouts.decidim.map.static.arrive_instructions")%></h5>
           <%= render partial: "decidim/shared/address_details", locals: { geolocalizable: geolocalizable } %>
-          <a class="button secondary hollow button-sc button--icon follow-button">
+          <a class="button secondary hollow button-sc button--icon follow-button" href="<%= map_utility_static.link(latitude: geolocalizable.latitude, longitude: geolocalizable.longitude)%>">
             <i class="fas fa-map-marked-alt"></i>
             Ver mapa
           </a>
