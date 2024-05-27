@@ -21,6 +21,7 @@
   </div>
   <div class="content-container">
     <div class="main-content">
+      <%== cell("decidim/meetings/meeting_m", @meeting, full_badge: true).badge %>
       <h2 class="title"><%= present(meeting).title(links: true, html_escape: true ) %></h2>
       <div class="section">
         <% if meeting.private_meeting? %>
@@ -107,8 +108,7 @@
         <div class="card-component__content">
           <div class="header">
           <i class="fas fa-globe data-icon"></i>
-          <%# TODO add translation %>
-          <p>Evento <%= meeting.type_of_meeting %></p>
+          <p>Evento <%= t("decidim.meetings.type_of_meeting.#{meeting.type_of_meeting}") %></p>
         </div>
         <span class="br-divider"></span>
           <%= cell("decidim/date_range", { start: meeting.start_time, end: meeting.end_time }) %>
