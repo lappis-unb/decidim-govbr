@@ -208,7 +208,7 @@ pt-BR:
           confirmed_html: A sua inscrição para o evento <a href="%{url}">%{title}</a> foi confirmado.
           registration_code: O seu código de inscrição é %{code}.
       type_of_meeting:
-        hybrid: Ambas
+        hybrid: Híbrido
         in_person: Presencial
         online: Virtual
       registration_type:
