@@ -165,6 +165,7 @@ pt-BR:
             subject: A sua inscrição do evento foi confirmada
       meetings:
         show:
+          edit_meeting: Editar evento
           join: Inscreva-se
           registration_code_help_text: O seu código de inscrição
           back: Voltar à lista
@@ -185,6 +186,7 @@ pt-BR:
             in_person: Presencial
             online: Virtual
         index:
+          new_meeting: Criar evento
           click_here: Ver todos os eventos
           see_all: Ver todos os eventos
           see_all_withdrawn: Ver todos os eventos retiradas
