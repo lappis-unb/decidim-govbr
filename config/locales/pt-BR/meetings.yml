@@ -169,6 +169,9 @@ pt-BR:
           registration_code_help_text: O seu código de inscrição
           back: Voltar à lista
           remaining_slots: vagas disponíveis
+          live_event: Este evento está acontecendo agora
+          live_permission_notice: Ao clicar no botão abaixo, serão solicitadas permissões de microfone e/ou câmera e você entrará na videoconferência.
+          live_link: "Link do evento:"
         filters:
           activity: Minha atividade
           all: Todas
