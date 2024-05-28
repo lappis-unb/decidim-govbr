@@ -15,6 +15,8 @@ pt-BR:
         password_confirmation: Confirme a sua senha
         personal_url: Site pessoal
         locale: Idioma
+      comment:
+        attachment_file: anexo
     models:
       decidim/invited_to_group_event: Convidado para o grupo
       decidim/join_request_accepted_event: Pedido de adesão aceita
@@ -165,7 +167,7 @@ pt-BR:
         badge_earned:
           email_intro: Parabéns! Você ganhou o <a href="%{resource_url}">distintivo %{badge_name}</a> (nível %{current_level}).
           email_outro: Você recebeu esta notificação porque realizou uma atividade em nossa plataforma.
-          email_subject: 'Você ganhou um novo distintivo: %{badge_name}!'
+          email_subject: "Você ganhou um novo distintivo: %{badge_name}!"
           notification_title: Parabéns! Você ganhou o <a href="%{resource_path}">distintivo %{badge_name}</a> (nível %{current_level}).
         level_up:
           email_intro: Parabéns! Você atingiu o nível %{current_level} no <a href="%{resource_url}">distintivo %{badge_name}</a>!
@@ -183,18 +185,19 @@ pt-BR:
       default_image: Imagem padrão
       file_help:
         file:
-          explanation: 'Orientação para o arquivo:'
+          explanation: "Orientação para o arquivo:"
           message_2: Para imagens, use de preferência imagens em paisagem, o serviço corta a imagem. Para arquivos CSV, o separador entre colunas deve ser uma vírgula (",")
         icon:
-          explanation: 'Orientação para o ícone:'
+          explanation: "Orientação para o ícone:"
           message_1: Tem que ser uma imagem quadrada.
           message_2: O tamanho recomendado para esta imagem é 512x512.
         image:
           message_1: Preferencialmente, uma imagem de paisagem que não tenha nenhum texto.
       file_validation:
-        allowed_file_extensions: 'Extensões de arquivo permitidas: %{extensions}'
-        max_file_dimension: 'Dimensões máximas do arquivo: %{resolution} pixels'
-        max_file_size: 'Tamanho máximo do arquivo: %{megabytes}MB'
+        allowed_file_extensions: "Extensões de arquivo permitidas: %{extensions}"
+        max_file_dimension: "Dimensões máximas do arquivo: %{resolution} pixels"
+        max_file_size: "Tamanho máximo do arquivo: %{megabytes}MB"
+        comments_attachment_extension:  Escolha o arquivo da contribuição. Somente PDF.
       remove_this_file: Remover este arquivo
       upload:
         labels:
@@ -204,7 +207,7 @@ pt-BR:
           cancel: Cancelar
           edit_image: Editar imagem
           error: Erro!
-          file_size_too_large: 'O tamanho do arquivo é muito grande! Tamanho máximo do arquivo: %{megabytes}MB'
+          file_size_too_large: "O tamanho do arquivo é muito grande! Tamanho máximo do arquivo: %{megabytes}MB"
           remove: Remover
           replace: Substituir
           save: Salvar
@@ -226,6 +229,14 @@ pt-BR:
         unpublish: "%{user_name} removeu a publicação %{resource_name}"
         unpublish_with_space: "%{user_name} removeu a publicação %{resource_name} em %{space_name}"
         update_permissions_with_space: "%{user_name} atualizou as permissões de %{resource_name} em %{space_name}"
+    modal:
+      export_data: Gerar relatório
+      select_date: Selecione as datas para a geração do relatório deste processo.
+      export_confirmation: Relatório solicitado! Em breve enviaremos para o seu e-mail cadastrado. Por favor, verifique sua caixa de entrada e spam.
+      export_error: Ocorreu um erro ao gerar o relatório. Por favor, tente novamente mais tarde.
+      submit: Enviar
+      cancel: Cancelar
+      close: Fechar
     pages:
       home:
         footer_sub_hero:
@@ -270,10 +281,12 @@ pt-BR:
       flag_modal:
         already_reported: Este conteúdo já foi reportado e será revisado por um administrador.
         close: Fechar
-        description: Este conteúdo é impróprio?
+        cancel: Cancelar
+        comment_placeholder: Digite aqui...
+        description: Este conteúdo é impróprio? A proposta será encaminhada para a moderação. 
         does_not_belong: Conteúdo violento ou perigoso (discurso de ódio; discriminação ou preconceito de raça, cor, etnia, religião ou procedência nacional; condutas homofóbicas e transfóbicas; conteúdo perigoso ou nocivo; conteúdo violento ou explícito; organizações extremistas ou criminosas; assédio e bullyng virtual).
         offensive: Conteúdo sensível (linguagem vulgar ou imprópria; conteúdo sexual ou pornográfico).
-        reason: Motivo
+        reason: Selecione o motivo
         report: Reportar
         spam: Conteúdo que pode configurar calúnia, ao imputar/divulgar falsamente fato definido como crime; difamação, imputando a alguém fato ofensivo à sua reputação;  injúria, ao ofender a dignidade ou o decoro de alguém (Código Penal, arts. 138, 139 e 140) ou desinformação (notícias falsas/fake news).
         title: Reportar um problema
@@ -292,8 +305,11 @@ pt-BR:
       mentions_modal:
         remove_recipient: Remover o destinatário %{name}
       share_modal:
-        share: Compartilhar
+        share: Compartilhe sua contribuição
         share_link: Compartilhar link
+        share_button: Compartilhar
+        share_text_proposal: Compartilhe para que votem e contribuam com a sua proposta %{resource_name} do %{component_name} no Brasil Participativo
+        share_text_meeting: Compartilhe para que participem da sua reunião %{resource_name} do %{component_name} no Brasil Participativo
     follows:
       create:
         participatory_space: Seguir <span class="show-for-sr">%{resource_name}</span>
@@ -310,8 +326,8 @@ pt-BR:
         weekly: Boletim de Notificação Semanal
       hello: Olá %{name},
       intro:
-        daily: 'Estas são as notificações do último dia com base na atividade que você está acompanhando:'
-        weekly: 'Estas são as notificações da última semana com base na atividade que você está acompanhando:'
+        daily: "Estas são as notificações do último dia com base na atividade que você está acompanhando:"
+        weekly: "Estas são as notificações da última semana com base na atividade que você está acompanhando:"
       outro: Você recebeu estas notificações porque está seguindo este conteúdo ou seus autores. Você pode deixar de segui-los em suas respectivas páginas.
       see_more: Veja mais notificações
       subject: Este é o seu e-mail de resumo
@@ -353,11 +369,11 @@ pt-BR:
           subject: "%{sender} iniciou uma conversa com você"
       conversations:
         add_conversation_users:
-          add_max_users: 'Adicionar usuários à conversa: 9 usuários no máximo'
+          add_max_users: "Adicionar usuários à conversa: 9 usuários no máximo"
         index:
           to: Para
     tags:
-      filter_results_for_category: 'Filtrar resultados para o tema: %{resource}'
+      filter_results_for_category: "Filtrar resultados para o tema: %{resource}"
     welcome_notification:
       default_body: <p>Olá {{name}}, agradecemos por se juntar a {{organization}} e seja bem-vindo(a)!</p><ul><li>Se quiser ter uma ideia rápida do que pode fazer aqui, veja a seção <a href="{{help_url}}">Ajuda</a> .</li><li>Depois de lê-la, receberá o seu primeiro distintivo. Aqui está uma <a href="{{badges_url}}">lista de todos os distintivos</a> que pode obter como participante de {{organization}}</li><li>Por último, mas não menos importante, junte-se a outras pessoas, compartilhe com elas a sua experiência de estar envolvido e participar em {{organization}}. Faça propostas, comentários, debata, pense em como contribuir para o bem comum, forneça argumentos para convencer, escute e leia para ser convencido, expresse as suas ideias de maneira concreta e direta, responda com paciência e decisão, defenda as suas ideias e mantenha uma mente aberta para colaborar e juntar-se às ideias de outras pessoas.</li></ul>
     wizard_step_form:
@@ -367,9 +383,9 @@ pt-BR:
     failure:
       already_authenticated: Você já está conectado.
       inactive: Sua conta ainda não está ativada.
-      invalid: '%{authentication_keys} ou senha inválidos(as).'
+      invalid: "%{authentication_keys} ou senha inválidos(as)."
       locked: Sua conta está bloqueada.
-      not_found_in_database: '%{authentication_keys} ou senha inválidos(as).'
+      not_found_in_database: "%{authentication_keys} ou senha inválidos(as)."
       timeout: Sua sessão expirou. Faça login novamente para continuar.
       unauthenticated: Você precisa entrar ou se cadastrar antes de continuar.
     invitations:
@@ -380,7 +396,7 @@ pt-BR:
       updated: A sua senha foi configurada corretamente. Agora você tem sessão iniciada.
     mailer:
       confirmation_instructions:
-        instruction: 'Você pode confirmar o e-mail da sua conta através do link abaixo:'
+        instruction: "Você pode confirmar o e-mail da sua conta através do link abaixo:"
       email_changed:
         message: Estamos entrando em contato com você para notificar a mudança de seu e-mail para %{email}.
         subject: E-mail modificado
@@ -505,6 +521,15 @@ pt-BR:
           all_categories: Todos os cookies
           change_settings: Alterar configurações de cookies
           consent_required: Você precisa habilitar %{categories} para poder ver este conteúdo.
+      map:
+        dynamic:
+          screen_reader_explanation: O elemento a seguir é um mapa que apresenta os itens nesta página como pontos de mapa. O elemento pode ser usado com um leitor de tela, mas pode ser difícil de entender.
+          skip_button: Pular mapa
+        static:
+          latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
+          map_service_brand: OpenStreetMap
+          arrive_instructions: "Como chegar:"
+          see_map: "Ver mapa"
       footer:
         data_consent_settings: Configurações de cookies
         download_open_data: Baixar arquivos de Dados Abertos

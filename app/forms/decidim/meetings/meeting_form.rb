@@ -4,10 +4,13 @@ module Decidim
   module Meetings
     # This class holds a Form to create/update meetings for Participants and UserGroups.
     class MeetingForm < ::Decidim::Meetings::BaseMeetingForm
+      include Decidim::AttachmentAttributes
+
       attribute :title, String
       attribute :description, String
       attribute :location, String
       attribute :location_hints, String
+      attribute :attachment, AttachmentForm
 
       attribute :decidim_scope_id, Integer
       attribute :decidim_category_id, Integer
@@ -22,6 +25,10 @@ module Decidim
       attribute :associated_state, String
 
       validates :associated_state, presence: true
+
+      attachments_attribute :photos
+      attachments_attribute :documents
+
       validates :iframe_embed_type, inclusion: { in: Decidim::Meetings::Meeting.participants_iframe_embed_types }
       validates :title, presence: true
       validates :description, presence: true

@@ -59,17 +59,22 @@ pt-BR:
         users_to_be_exported: Tamanho do Ranking de Usuários
       organization:
         template_processes_ids: Processos para serem usados como Template
+      participatory_process_group:
+        decidim_area_id: Órgão/Instituição
   decidim:
     statistics:
       headline: Dados Participativos
     components:
       comment:
         reply: Responder
+        report:
+          action: Moderar
       proposals:
         settings:
           global:
             vote_limit: Quantidade máxima de votos por usuário
             minimum_votes_per_user: Quantidade mínima de votos por usuário
+            most_voted_rule: Quantas propostas (mais votadas) serão selecionadas?
             proposal_limit: Quantidade máxima de propostas por usuário (deixe 0 caso não queira limitar)
             proposal_length: Quantidade máxima de caracteres por propostas
             proposal_answering_enabled: Permitir que o órgão faça a devolutiva por proposta
@@ -77,6 +82,18 @@ pt-BR:
             comments_enabled: Permitir que usuários façam comentários nas propostas
             comments_max_length: Quantidade máxima de caracteres por comentário (deixe 0 para não limitar)
             attachments_allowed: Permitir que o órgão crie propostas com anexos
+            enable_comments_attachment: Permitir anexos em contribuições
+      blogs:
+        settings:
+          global:
+            enable_comments_attachment: Permitir anexos em contribuições
+      meetings:
+        settings:
+          global:
+            attachments_allowed: Permitir que o órgão crie reuniões com anexos
+            enable_comments_attachment: Permitir anexos em contribuições
+            requires_previous_moderation: Requerer moderação prévia de novas propostas
+      publish_date_text: Publicado em
     govbr:
       initial_page_type:
         default: Página Padrão
@@ -106,6 +123,8 @@ pt-BR:
         participatory_process_group_users:
           index:
             title: Usuários Membros do Grupo
+          new:
+            needs_entity_fields: Exigir campos extras no cadastro do usuário
     forms:
       admin:
         models:
@@ -119,6 +138,12 @@ pt-BR:
       questionnaires:
         show:
           topp_agreement: Concordo com a política de privacidade
+        questionnaire_form:
+          questionnaire_not_published:
+            body: Pré-visualização da enquete
+          current_step: Passo %{step}
+          of_total_steps: de %{total_steps}
+
     admin:
       participatory_process_copies:
         new:
@@ -222,6 +247,10 @@ pt-BR:
           create: "%{user_name} criou o relatório de participação de usuários %{resource_name} no espaço participativo %{space_name}"
           delete: "%{user_name} removeu o relatório de participação de usuários %{resource_name} do espaço participativo %{space_name}"
           update: "%{user_name} atualizou o relatório de participação de usuários %{resource_name} do espaço participativo %{space_name}"
+    meetings:
+      meetings:
+        calendar_modal:
+          add_to_calendar: Adicionar na agenda
     proposals:
       admin:
         participatory_texts:
@@ -235,6 +264,8 @@ pt-BR:
           count:
             one: COMENTÁRIO
             other: COMENTÁRIOS
+    participatory_process_group:
+      participatory_process_group_id: Grupo de Processo
   layouts:
     decidim:
       assembly_navigation:
@@ -300,6 +331,8 @@ pt:
         users_to_be_exported: Tamanho do Ranking de Usuários
       organization:
         template_processes_ids: Processos para serem usados como Template
+      participatory_process_group:
+        decidim_area_id: Órgão/Instituição
   decidim:
     components:
       proposals:
@@ -314,6 +347,7 @@ pt:
             comments_enabled: Permitir que usuários façam comentários nas propostas
             comments_max_length: Quantidade máxima de caracteres por comentário (deixe 0 para não limitar)
             attachments_allowed: Permitir que o órgão crie propostas com anexos
+            requires_previous_moderation: Requerer moderação prévia de novas propostas
     govbr:
       initial_page_type:
         default: Página Padrão
@@ -558,7 +592,14 @@ en:
         users_to_be_exported: Users Ranking Size
       organization:
         template_processes_ids: Processes to be used as Templates
+      participatory_process_group:
+        decidim_area_id: Participatory Process Group
   decidim:
+    components:
+      proposals:
+        settings:
+          global:
+            requires_previous_moderation: New proposals requires previous moderation
     govbr:
       initial_page_type:
         default: Default Page
@@ -685,6 +726,9 @@ en:
         update:
           success: Group user updated successfully
           error: Could not update group user
+      users:
+        form:
+          needs_entity_fields: Exigir campos extras no cadastro do usuário
     admin_log:
       govbr:
         partner:
@@ -718,6 +762,10 @@ en:
         media: Media
       process_navigation:
         media: Media
+      data_consent:
+        dialog:
+          accept_all: Aceitar cookies
+          reject: Rejeitar cookies
 
 es-MX:
   activemodel:
@@ -758,6 +806,8 @@ es-MX:
         users_to_be_exported: Tamaño de Clasificación de Usuarios
       organization:
         template_processes_ids: Procesos a utilizar como Plantillas
+      participatory_process_group:
+        decidim_area_id: Grupo de Proceso Participativo
   decidim:
     govbr:
       initial_page_type:
@@ -958,6 +1008,8 @@ es-PY:
         users_to_be_exported: Tamaño de Clasificación de Usuarios
       organization:
         template_processes_ids: Procesos a utilizar como Plantillas
+      participatory_process_group:
+        decidim_area_id: Grupo de Proceso Participativo
   decidim:
     govbr:
       initial_page_type:
@@ -1158,6 +1210,8 @@ es:
         users_to_be_exported: Tamaño de Clasificación de Usuarios
       organization:
         template_processes_ids: Procesos a utilizar como Plantillas
+      participatory_process_group:
+        decidim_area_id: Grupo de Proceso Participativo
   decidim:
     govbr:
       initial_page_type:

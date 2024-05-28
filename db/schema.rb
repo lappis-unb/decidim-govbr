@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_03_26_181857) do
+ActiveRecord::Schema.define(version: 2024_04_21_213322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1475,6 +1475,8 @@ ActiveRecord::Schema.define(version: 2024_03_26_181857) do
     t.jsonb "participatory_scope"
     t.jsonb "participatory_structure"
     t.boolean "promoted", default: false
+    t.bigint "decidim_area_id"
+    t.index ["decidim_area_id"], name: "index_decidim_participatory_process_groups_on_decidim_area_id"
     t.index ["decidim_organization_id"], name: "decidim_participatory_process_group_organization"
   end
 
@@ -2024,6 +2026,8 @@ ActiveRecord::Schema.define(version: 2024_03_26_181857) do
     t.boolean "user_profile_poll_answered", default: false
     t.bigint "decidim_participatory_process_group_id"
     t.string "decidim_participatory_process_group_role"
+    t.jsonb "entity_fields"
+    t.boolean "needs_entity_fields", default: false
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
     t.index ["decidim_participatory_process_group_id"], name: "index_decidim_users_on_decidim_participatory_process_group_id"
@@ -2143,6 +2147,7 @@ ActiveRecord::Schema.define(version: 2024_03_26_181857) do
   add_foreign_key "decidim_identities", "decidim_organizations"
   add_foreign_key "decidim_initiatives_settings", "decidim_organizations"
   add_foreign_key "decidim_newsletters", "decidim_users", column: "author_id"
+  add_foreign_key "decidim_participatory_process_groups", "decidim_areas"
   add_foreign_key "decidim_participatory_process_steps", "decidim_participatory_processes"
   add_foreign_key "decidim_participatory_process_types", "decidim_organizations"
   add_foreign_key "decidim_participatory_processes", "decidim_organizations"

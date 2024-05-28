@@ -64,11 +64,12 @@ pt-BR:
           new: Novo(a) %{name}
           action_not_allowed: Você não pode interagir com propostas. O seu Perfil de Usuário está incompleto!
           answer_proposal: Responder proposta
-          edit_proposal: Editar
+          edit_proposal: Editar Proposta
           import: Importar de outro componente
           participatory_texts: Textos participativos
           show: Mostrar proposta
           title: Ações
+          publish: Publicar
         settings:
           global:
             default_sort_order: Ordem padrão das propostas
@@ -235,6 +236,8 @@ pt-BR:
       create:
         error: Ocorreu um problema ao salvar a proposta.
         success: Proposta criada com sucesso. Salva como rascunho.
+      withdraw:
+        success: Proposta retirada com sucesso
       collaborative_drafts:
         edit:
           back: Voltar
@@ -299,10 +302,13 @@ pt-BR:
           select_a_category: Selecione um tema
           title: Editar %{singular_name}
         filters:
-          category: Tema
+          category: Temas
           state: Status
-          activity: Minhas Atividades
+          activity: Minha Atividade
           placeholder: "Qual %{name} você procura?"
+          all: Todas as propostas
+          my_proposals: Minhas propostas
+          voted: Propostas que apoio
         orders:
           label: "Ordene propostas por:"
           most_commented: Mais contribuições
@@ -315,7 +321,9 @@ pt-BR:
         preview:
           announcement_body: Sua %{singular_name} foi salva como rascunho. Precisa ser publicada para aparecer no site.
           announcement_title: Sua %{singular_name} ainda não foi publicada
+          comments: Comentários
           modify: Modificar
+          help_preview: Esta é uma pré-visualização da sua proposta. Revise o seu conteúdo e tenha certeza que está tudo correto antes de publicar. Após a publicação, você poderá editar ou apagar a proposta enquanto não tiver contribuições.
           proposal_edit_before_minutes:
             one: Você poderá editar durante o primeiro minuto após a publicação. Uma vez que esta janela de tempo passa, você não poderá editar.
             other: Você poderá editar durante o primeiro %{count} minutos após a publicação. Uma vez que esta janela de tempo passa, você não poderá editar .
@@ -340,19 +348,29 @@ pt-BR:
           already_voted_hover: Retirar voto
           vote: Votar
         voting_rules:
+          help_button_text: Conheça as regras e os critérios para seleção de propostas
+          infom_text_help: ""
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pode acumular mais de %{limit} voto(s)
           minimum_votes_per_user:
             description: Deve distribuir um mínimo de %{votes} voto(s) entre diferentes propostas.
             supports_remaining: Tem que votar em mais %{remaining_votes} proposta(s) para os seus votos serem levados em conta.
           proposal_limit:
-            description: Pode criar até %{limit} proposta(s).
+            start_description: Cada participante pode 
+            important: criar 
+            end_description: até %{limit} proposta(s);
           threshold_per_proposal:
             description: Para serem aceites, as propostas precisam de atingir %{limit} voto(s)
           vote_limit:
-            description: Pode votar até %{limit} proposta(s).
+            start_description: Cada participante pode 
+            important: votar 
+            end_description: em até %{limit} proposta(s);
             left: Você tem
             votes: votos restantes
+          most_voted_rule:
+            start_description: As %{limit} propostas 
+            important: mais votadas 
+            end_description: de cada tema seguirão para análise, podendo ou não ser incorporadas.
         wizard_aside:
           back: Voltar
           back_from_step_1: Voltar

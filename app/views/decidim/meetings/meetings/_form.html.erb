@@ -1,12 +1,34 @@
 <div class="field hashtags__container">
-  <%= form.text_field :title, autofocus: true, class: "js-hashtags", hashtaggable: true %>
+  <%= form.text_field :title, 
+      autofocus: true, class: "js-hashtags", hashtaggable: true, placeholder: 
+      t("title", scope: "decidim.meetings.meetings.form.placeholder")
+  %>
 </div>
-
 <div class="field hashtags__container">
-  <%= text_editor_for(form, :description, hashtaggable: true) %>
+  <%= text_editor_for(form, :description, hashtaggable: true, 
+        placeholder: t(
+          "description", 
+          scope: "decidim.meetings.meetings.form.placeholder"
+        )
+      )
+  %>
 </div>
-
-<div class="field">
+<% if component_settings.attachments_allowed? %>
+  <fieldset class="attachments_container gallery__container documents_container">
+    <legend><%= t("attachment_legend", scope: "decidim.proposals.proposals.edit") %></legend>
+    <div class="row column">
+      <%= form.attachment :documents,
+                  multiple: true,
+                  label: t("decidim.proposals.proposals.edit.add_documents"),
+                  button_label: t("decidim.proposals.proposals.edit.add_documents"),
+                  button_edit_label: t("decidim.proposals.proposals.edit.edit_documents"),
+                  help_i18n_scope: "decidim.forms.file_help.file" %>
+    </div>
+  </fieldset>
+<% end %>
+<span class="br-divider"></span>
+<h2 class="new-meeting-title">Formato do evento</h2>
+<div class="field select-field-br">
   <%= form.select :type_of_meeting,
                   @form.type_of_meeting_select,
                   { include_blank: t(".select_a_meeting_type") },
@@ -20,83 +42,87 @@
                   { multiple: false } %>
 </div>
 
-<div class="field" data-meeting-type="in_person">
-  <%= form.geocoding_field :address, input_html: { required: false } %>
-  <p class="help-text"><%= t(".address_help") %></p>
-</div>
-
-<div class="field" data-meeting-type="in_person">
-  <%= form.text_area :location %>
-  <p class="help-text"><%= t(".location_help") %></p>
-</div>
-
-<div class="field">
-  <%= form.text_area :location_hints %>
-  <p class="help-text"><%= t(".location_hints_help") %></p>
-</div>
-
 <div class="field" data-meeting-type="online">
   <%= form.text_field :online_meeting_url %>
   <p class="help-text"><%= t(".online_meeting_url_help") %></p>
 </div>
+<iframe class="meeting_iframe" src="" id="meeting_url_iframe" style="display: none;"></iframe>
 
-<div class="iframe-fields">
-  <div class="field" data-meeting-type="online">
-    <%= form.select :iframe_embed_type,
-      @form.iframe_embed_type_select,
-      { multiple: false } %>
-    <p class="help-text"><%= t(".show_embedded_iframe_help", domains: Decidim::Meetings.embeddable_services&.join(" ")) %></p>
+<div id="presential-meeting" style="display: none;">
+  <span class="br-divider"></span>
+  <h2 class="new-meeting-title">Local do evento</h2>
+  <div class="field" data-meeting-type="in_person" style="display: none;">
+    <%= form.hidden_field :address,
+    input_html: { required: false }
+    %>
   </div>
-
-  <div class="field iframe-fields--access-level" id="meeting_iframe_embed_type" data-meeting-type="online-access-level">
-    <%= form.select :iframe_access_level,
-      @form.iframe_access_level_select,
-      { include_blank: t(".select_an_iframe_access_level") },
-      { multiple: false } %>
+  <div class="presential-meeting-inputs">
+    <div class="field select-field-br meeting-address">
+      <label for="state">Estado:
+        <select id="state" name="state" autocomplete="on"></select>
+      </label>
+      <label for="city">Cidade:
+        <select id="city" name="city" autocomplete="on" disabled>
+          <option>Selecione um estado</option>
+        </select>
+      </label>
+    </div>
+    <div class="field" data-meeting-type="in_person">
+      <%= form.text_area :location, 
+        placeholder: "Exemplo: Av. das Flores, Jardim Primavera, São Paulo - SP, 04567-890" 
+      %>
+      <p class="help-text"><%= t(".location_help") %></p>
+    </div>
+    <div class="field" id="location-hints-meeting">
+      <%= form.text_area :location_hints, 
+        placeholder: "Exemplo: Próximo à estação de metrô Primavera." 
+      %>
+      <p class="help-text"><%= t(".location_hints_help") %></p>
+    </div>
   </div>
 </div>
-
-<div class="field">
-  <%= form.datetime_field :start_time %>
+<span class="br-divider"></span>
+<h2 class="new-meeting-title">Duração do evento</h2>
+<div class="meeting-duration-time">
+  <div class="field new-meeting-start-time">
+    <%= form.datetime_field :start_time, placeholder: "Selecione..." %>
+  </div>
+  <div class="field new-meeting-end-time">
+    <%= form.datetime_field :end_time, placeholder: "Selecione..."  %>
+  </div>
 </div>
-
-<div class="field">
-  <%= form.datetime_field :end_time %>
-</div>
-
 <% if current_participatory_space.has_subscopes? %>
   <div class="field">
     <%= scopes_picker_field form, :decidim_scope_id %>
   </div>
 <% end %>
-
-<div class="field">
+<span class="br-divider"></span>
+<div class="field select-field-br">
   <%= form.categories_select :decidim_category_id, current_participatory_space.categories, prompt: t(".select_a_category"), disable_parents: false %>
 </div>
-
-<div class="row column">
-  <%= form.select :registration_type,
-    @form.registration_type_select,
-    { include_blank: t(".select_a_registration_type") },
-    { multiple: false } %>
+<div class="field select-field-br">
+  <% @form.registration_type_select.each do |label, value| %>
+    <div class="radio">
+      <label class="metting-registration-type">
+        <%= form.radio_button :registration_type, value ,class:"meeting_registration_type" %>
+        <%= label %>
+      </label>
+    </div>
+  <% end %>
 </div>
-
-<div class="row column" id="meeting_available_slots">
+<div class="field" id="meeting_available_slots">
   <%= form.number_field :available_slots %>
   <p class="help-text"><%= t(".available_slots_help") %></p>
 </div>
-
 <div class="field" id="meeting_registration_terms">
   <%= text_editor_for(form, :registration_terms) %>
 </div>
-
 <div class="field" id="meeting_registration_url">
   <%= form.text_field :registration_url %>
   <p class="help-text"><%= t(".registration_url_help") %></p>
   <label><%= t(".disclaimer", organization: current_component.organization.name) %></label><br>
 </div>
-
-<div class="field">
+<div class="field select-field-br">
   <%= form.select(
     :user_group_id,
     Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map{|g| [g.name, g.id]},
@@ -104,7 +130,113 @@
     label: t(".create_as")
   ) %>
 </div>
-
 <% content_for :js_content do %>
   <%= javascript_pack_tag "decidim_meetings" %>
+  <script>
+    $(document).ready(function() {
+      $('#meeting_documents_button').append('<i class="fas fa-cloud-arrow-up"></i>');
+    });
+  </script>
 <% end %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    function ordenarPorNome(estados) {
+      return estados.sort((a, b) => {
+          if (a.nome < b.nome) {
+              return -1;
+          }
+          if (a.nome > b.nome) {
+              return 1;
+          }
+          return 0;
+      });
+    }
+
+    function removeAllChildren(parentElement) {
+      while (parentElement.firstChild) {
+          parentElement.removeChild(parentElement.firstChild);
+      }
+    }
+
+    function updateAddress(cidades) {
+      var city = cityInput.value;
+      var state = stateInput.value;
+
+      for(let i = 0; i < cidades.length; i++){
+        if(cidades[i].id == city){
+          city = cidades[i].nome
+          break;
+        }
+      }
+
+      for(let i = 0; i < estados.length; i++){
+        if(estados[i].id == state){
+          state = estados[i].nome
+          break;
+        }
+      }
+      preencherCampos(city, state);
+    }
+
+    function preencherCampos(cidade, estado) {
+      addressInput.value = `${cidade}, ${estado}`;
+    }
+
+    const cityInput = document.getElementById('city');
+    const stateInput = document.getElementById('state');
+    const addressInput = document.getElementById('meeting_address');
+    const statesURL = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/";
+    const estados = [];
+    let cidadesResponde = []
+
+    $.ajax({
+      url: statesURL, 
+      type: 'GET', 
+      success: function(response) {
+        response = ordenarPorNome(response);
+        
+        for(let i = 0; i < response.length; i++){
+          let state = document.createElement("option");
+          estados[i] = response[i];
+          state.value = response[i].id;
+          state.innerHTML = response[i].nome;
+          stateInput.appendChild(state);
+        }
+        
+      },
+        error: function(xhr) {
+      }
+    });
+
+    function setCitys() {
+      const stateId = stateInput.value
+      const cityURL = statesURL.concat(stateId, "/municipios");
+      
+      cityInput.disabled = false;
+      removeAllChildren(cityInput);
+      $.ajax({
+        url: cityURL, 
+        type: 'GET', 
+        success: function(response) {
+          response = ordenarPorNome(response);
+          for(let i = 0; i < response.length; i++){
+            let city = document.createElement("option");
+
+            cidadesResponde[i] = response[i]
+            
+            city.value = response[i].id;
+            city.innerHTML = response[i].nome;
+            cityInput.appendChild(city);
+          }
+          updateAddress(cidadesResponde)
+        },
+          error: function(xhr) {
+        }
+      });
+    }
+
+    cityInput.addEventListener('change', () => updateAddress(cidadesResponde));
+    stateInput.addEventListener('change', setCitys);
+  });
+</script>

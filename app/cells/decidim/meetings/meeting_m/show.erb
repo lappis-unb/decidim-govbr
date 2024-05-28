@@ -1,0 +1,19 @@
+<div class="card card__animation column <%= card_classes %>" id="<%= dom_id(model) %>">
+  <%= render :label if has_label? %>
+  <%= render :top if render_top? %>
+  <%= render :image if has_image? %>
+  <div class="component-card__content">
+    <div class="component-card_badges">
+      <%= render :badge if has_badge? %>
+      <%= render :location_badge %>  
+    </div>
+    <%= render :header if has_header? %>
+    <div class="card__text--paragraph">
+      <%= Decidim::ContentProcessor.render(description, "div") %>
+    </div>
+  </div>
+  <div>
+    <%= render :data %>
+    <%= render :footer %>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<% if creation_date? %>
+  <span>
+    <%= t("decidim.components.publish_date_text") %>
+    <%= creation_date.gsub(':', 'h') %>
+  </span>
+<% end %>

@@ -46,6 +46,21 @@ module Decidim
         true
       end
 
+      def state_classes
+        case state
+        when "accepted"
+          ["green"]
+        when "rejected", "withdrawn"
+          ["red"]
+        when "evaluating"
+          ["orange"]
+        else
+          return ["blue"] if current_user && model.voted_by?(current_user)
+
+          ["default"]
+        end
+      end
+
       def description
         strip_tags(body).truncate(100, separator: /\s/)
       end
@@ -53,7 +68,7 @@ module Decidim
       def badge_classes
         return super unless options[:full_badge]
 
-        state_classes.concat(["label", "proposal-status"]).join(" ")
+        state_classes.concat(["card__text--status"]).join(" ")
       end
 
       def base_statuses

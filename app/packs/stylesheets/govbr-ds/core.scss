@@ -16261,7 +16261,7 @@ template {
 @media (min-width: 576px) {
   .br-magic-button,
   .br-magic-button .br-button {
-    width: auto !important;
+    width: fit-content !important;
   }
   .overflow-sm-auto {
     overflow: auto !important;
@@ -31137,4 +31137,8 @@ textarea {
   border-color: var(--gray-90) !important;
   color: var(--gray-80) !important;
   gap: 8px;
+}
+
+.large-button {
+  width: 100%;
 }

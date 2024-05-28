@@ -1,18 +1,14 @@
-<div class="card__footer">
-  <div class="card__support">
-  <div class="meetings-count-container">
-    <p class="meetings-count-text">
-      <%= render partial: "/decidim/meetings/meeting_m/count" %>
-    </p>
-      inscritos  
+<div class="component_card__footer">
+  <div class="bp-divider"> </div>
+  <div class="meetings-card-count-container">
+    <span class="meetings-card-count-text">
+      <%= render partial: "/decidim/meetings/meeting_m/count" %> <%= t("decidim.meetings.card.subscriber_count", count: subscribers_count) %>
+    </span>
   </div>
-  
-    <% if can_join? && show_footer_actions? %>
+  <div class="bp-divider"></div>
+  <% if can_join? %>
+    <div class="component_buttons">
       <%= cell "decidim/meetings/join_meeting_button", model %>
-    <% else %>
-      <div class="footer_button_text">
-        <%= link_to "Participar", resource_path, class: "card__button button--sc light button small" %>
-      </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>

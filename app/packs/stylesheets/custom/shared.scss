@@ -1,0 +1,46 @@
+.map_location_address {
+    font-size: 1rem;
+    font-family: Rawline;
+}
+
+.address__arrive_title {
+    color: var(--blue-warm-vivid-80);
+    margin: 0;
+}
+
+.address__info {
+    display: flex;
+    flex-grow: 1;
+}
+
+.address__details_container {
+    float: left;
+    max-width: 100%;
+    align-self: center;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.card__content, .badge-card__content {
+    background: var(--pure-0);
+}
+
+.address__map_container {
+    display: flex;
+    gap: 1rem;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+}
+
+.static__map-map {
+    width: auto;
+    height: 10.875rem;
+
+    @media (min-width: 768px) {
+        width: 26rem;
+    }
+}

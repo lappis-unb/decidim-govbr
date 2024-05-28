@@ -1,0 +1,35 @@
+<div class="reveal flag-modal report_modal_container" id="<%= modal_id %>" data-reveal role="dialog" aria-modal="true" aria-labelledby="<%= modal_id %>-label">
+  <div class="report_modal_reader">
+    <h3 id="<%= modal_id %>-label" class="report_modal_title"><%= t("decidim.shared.flag_modal.title") %></h3>
+  </div>
+  <% if model.reported_by? current_user %>
+    <div class="already__reported_modal">
+      <p ><%= t("decidim.shared.flag_modal.already_reported") %></p>
+      <button class="close_share_modal_button" data-close aria-label="<%= t("decidim.shared.flag_modal.close") %>" type="button">
+        <%= t("decidim.shared.flag_modal.cancel") %>
+      </button>
+    </div>
+  <% else %>
+    <p class="report_modal_subtitle"><%= t("decidim.shared.flag_modal.description") %></p>
+    <%= decidim_form_for report_form, url: decidim.report_path(sgid: model.to_sgid.to_s), method: :post, html: { id: nil } do |f| %>
+      <fieldset class="report_modal_content">
+        <legend><%= t("decidim.shared.flag_modal.reason") %></legend>
+        <%= f.collection_radio_buttons :reason, [
+          [:spam, t("decidim.shared.flag_modal.spam")],
+          [:offensive, t("decidim.shared.flag_modal.offensive")],
+          [:does_not_belong, t("decidim.shared.flag_modal.does_not_belong", organization_name: current_organization.name)]
+        ], :first, :last do |builder| %>
+          <label><%= builder.radio_button(id: nil) + builder.text %></label>
+        <% end %>
+      </fieldset>
+      <%= f.text_area :details, rows: 4, id: "#{modal_id}_details", label_options: { for: "#{modal_id}_details" , class:"report_modal_comment"}, placeholder: t("decidim.shared.flag_modal.comment_placeholder") %>
+      <p class="character_limit_text">Até 2000 caracteres</p>
+      <div class="report_modal_bottom">
+        <button class="close_share_modal_button" data-close aria-label="<%= t("decidim.shared.flag_modal.close") %>" type="button">
+          <%= t("decidim.shared.flag_modal.cancel") %>
+        </button>
+        <%= f.submit t("decidim.shared.flag_modal.report") %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

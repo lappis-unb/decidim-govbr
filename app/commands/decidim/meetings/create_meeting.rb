@@ -5,6 +5,9 @@ module Decidim
     # This command is executed when a participant or user group creates a Meeting from the public
     # views.
     class CreateMeeting < Decidim::Command
+      include ::Decidim::MultipleAttachmentsMethods
+      include GalleryMethods
+
       def initialize(form)
         @form = form
       end
@@ -15,8 +18,19 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
+        if process_attachments?
+          build_attachments
+          return broadcast(:attachment_invalid) if attachments_invalid?
+        end
+
         transaction do
           create_meeting!
+
+          document_cleanup!
+
+          create_gallery if process_gallery?
+          create_attachments(first_weight: first_attachment_weight) if process_attachments?
+
           schedule_upcoming_meeting_notification
           send_notification
         end
@@ -70,6 +84,7 @@ module Decidim
         Decidim.traceability.perform_action!(:publish, meeting, form.current_user, visibility: "all") do
           meeting.publish!
         end
+        @attached_to = meeting
       end
 
       def schedule_upcoming_meeting_notification
@@ -94,6 +109,12 @@ module Decidim
       def create_follow_form_resource(user)
         follow_form = Decidim::FollowForm.from_params(followable_gid: meeting.to_signed_global_id.to_s).with_context(current_user: user)
         Decidim::CreateFollow.call(follow_form, user)
+      end
+
+      def first_attachment_weight
+        return 1 if meeting.photos.count.zero?
+
+        1
       end
     end
   end
