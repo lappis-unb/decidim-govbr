@@ -225,8 +225,8 @@
             
             city.value = response[i].id;
             city.innerHTML = response[i].nome;
-            if(address[1] == response[i].nome){
-              state.selected = true;
+            if(address[0] == response[i].nome){
+              city.selected = true;
             }
             cityInput.appendChild(city);
           }
