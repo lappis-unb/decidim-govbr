@@ -1,6 +1,6 @@
 <footer class="br-footer">
   <div class="br-container-lg">
-    <div class="logo"><%= image_tag current_organization.attached_uploader(:logo).variant_path(:medium), alt: t("logo", scope: "decidim.accessibility", organization: current_organization.name) %></div>
+    <div class="logo"><%= image_tag current_organization.attached_uploader(:official_img_footer).variant_path(:medium), alt: t("logo", scope: "decidim.accessibility", organization: current_organization.name) %></div>
     <div class="br-list horizontal" data-toggle="data-toggle" data-sub="data-sub">
       
      <%= render_footer_menu_links(current_organization)%>
@@ -9,7 +9,7 @@
   </div>
   <div class="br-footer-container">
       <%= link_to "https://www.lappis.rocks", target: "_blank" do %>
-        <%= image_tag 'lappis_logo.png', width: "20px" %>
+        <%= image_tag 'https://gsoc.lappis.rocks/files/logo6.png', width: "20px" %>
       <% end %>
       <%= link_to root_path, target: "_blank" do %>
         <%= image_tag current_organization.attached_uploader(:logo).variant_path(:medium), alt: t("logo", scope: "decidim.accessibility", organization: current_organization.name), width: "20px" %>
