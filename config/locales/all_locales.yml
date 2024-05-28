@@ -411,9 +411,6 @@ pt:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Pesquisar %{collection} por e-mail, nome, nome de usuário ou CPF.
       components:
-        proposals:
-          actions:
-            
         meetings:
           actions:
             new: "Novo(a) %{singular_name}"
