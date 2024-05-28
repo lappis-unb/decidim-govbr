@@ -81,3 +81,17 @@ h6 {
   flex-direction: column;
   gap: 24px;
 }
+
+.meeting-map-title{
+  color: var(--blue-warm-vivid-80);
+  text-align: center;
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+.meeting-map-subtitle{
+  color: var(--blue-warm-vivid-70);
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+}
