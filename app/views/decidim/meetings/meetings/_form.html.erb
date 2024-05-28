@@ -53,7 +53,7 @@
         <select id="state" name="state" autocomplete="on"></select>
       </label>
       <label for="city">Cidade:
-        <select id="city" name="city" autocomplete="on">
+        <select id="city" name="city" autocomplete="on" disabled>
           <option>Selecione um estado</option>
         </select>
       </label>
@@ -179,16 +179,17 @@
     const statesURL = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/";
     const estados = [];
     let cidadesResponde = []
-    const address = document.getElementById("meeting_address")
-    
+    let address = document.getElementById("meeting_address")
+
     if(address != null){
-      address.value.split(", ");
+      address = address.value.split(", ");
     }
 
     $.ajax({
       url: statesURL,
       type: 'GET',
       success: function(response) {
+        let edit = false;
         response = ordenarPorNome(response);
 
         for(let i = 0; i < response.length; i++){
@@ -196,13 +197,17 @@
           estados[i] = response[i];
           state.value = response[i].id;
           state.innerHTML = response[i].nome;
+
           if(address[1] == response[i].nome){
             state.selected = true;
+            edit = true;
           }
           stateInput.appendChild(state);
         }
 
-        setCitys();
+        if(edit){
+          setCitys();
+        }
         
       },
         error: function(xhr) {
