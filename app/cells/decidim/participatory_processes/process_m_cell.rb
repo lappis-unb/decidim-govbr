@@ -95,7 +95,7 @@ module Decidim
       end
 
       def base_card_class
-        "card--process"
+        "card--component"
       end
 
       def card_classes

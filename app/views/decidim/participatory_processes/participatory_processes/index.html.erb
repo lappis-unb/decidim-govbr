@@ -22,10 +22,15 @@ edit_link(
     <%= render partial: "decidim/shared/participatory_space_filters/show" %>
     <p class="loading"><%= t(".loading") %></p>
     <div class="component-content card-grid">
-      <%= render(collection) %>
+      <%= render partial: "decidim/components/list", locals: {
+          elements_name: "process", 
+          collection: collection
+        } 
+      %>
     </div>
   </section>
 <% end %>
+
 <% content_for :js_content do %>
   <%= javascript_pack_tag "decidim_participatory_processes" %>
 <% end %>

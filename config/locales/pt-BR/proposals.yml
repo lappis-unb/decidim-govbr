@@ -14,6 +14,8 @@ pt-BR:
       proposals_import:
         origin_component_id: Componente de origem
     errors:
+      messages:
+        too_much_caps: O campo contém muitas letras maiúsculas
       models:
         proposal:
           attributes:
@@ -236,6 +238,8 @@ pt-BR:
       create:
         error: Ocorreu um problema ao salvar a proposta.
         success: Proposta criada com sucesso. Salva como rascunho.
+      withdraw:
+        success: Proposta retirada com sucesso
       collaborative_drafts:
         edit:
           back: Voltar
@@ -267,8 +271,8 @@ pt-BR:
       proposals:
         count:
           proposals_count:
-            one: "%{count} %{singular_name}"
-            other: "%{count} %{pluralized_name}"
+            one: "%{count} %{singular_name} encontrada"
+            other: "%{count} %{pluralized_name} encontradas"
         view_btn:
           placeholder: Ver %{singular_name}
         compare:
@@ -304,9 +308,9 @@ pt-BR:
           state: Status
           activity: Minha Atividade
           placeholder: "Qual %{name} você procura?"
-          all: Todas as propostas
-          my_proposals: Minhas propostas
-          voted: Propostas que apoio
+          all: Todas as %{component_name}
+          my_proposals: Minhas %{component_name}
+          voted: "%{component_name} que apoio"
         orders:
           label: "Ordene propostas por:"
           most_commented: Mais contribuições
@@ -346,6 +350,8 @@ pt-BR:
           already_voted_hover: Retirar voto
           vote: Votar
         voting_rules:
+          help_button_text: Conheça as regras e os critérios para seleção de propostas
+          infom_text_help: ""
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pode acumular mais de %{limit} voto(s)
           minimum_votes_per_user:

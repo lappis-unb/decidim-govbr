@@ -61,6 +61,13 @@ module Decidim
       scope :not_deleted, -> { where(deleted_at: nil) }
 
       translatable_fields :body
+
+      has_one :attachment,
+              class_name: "Decidim::Attachment",
+              dependent: :destroy,
+              inverse_of: :attached_to,
+              as: :attached_to
+
       searchable_fields({
                           participatory_space: :itself,
                           A: :body,

@@ -22,6 +22,26 @@ module Decidim
         end
       end
 
+      def state_classes
+        if Date.current > end_date
+          ["gray"]
+        elsif Date.current.between?(start_date, end_date)
+          ["green"]
+        else
+          ["blue"]
+        end
+      end
+
+      def location_badge_name
+        return t("decidim.meetings.card.location.online") if online_meeting?
+
+        t("decidim.meetings.card.location.in_person")
+      end
+
+      def location_badge_classes
+        "gray card__text--status"
+      end
+
       def render_authorship
         cell "decidim/author", author_presenter_for(model.normalized_author)
       end
@@ -46,18 +66,12 @@ module Decidim
         render if has_badge?
       end
 
-      def state_classes
-        if Date.current > end_date
-          ["gray"]
-        elsif Date.current.between?(start_date, end_date)
-          ["green"]
-        else
-          ["blue"]
-        end
+      def location_badge
+        render
       end
 
       def base_card_class
-        "card--meeting"
+        "card--component"
       end
 
       def card_classes

@@ -44,7 +44,8 @@ module Decidim
         [
           ["all", t("decidim.meetings.meetings.filters.date_values.all")],
           ["upcoming", t("decidim.meetings.meetings.filters.date_values.upcoming")],
-          ["past", t("decidim.meetings.meetings.filters.date_values.past")]
+          ["past", t("decidim.meetings.meetings.filters.date_values.past")],
+          ["now", t("decidim.meetings.meetings.filters.date_values.now")]
         ]
       end
 

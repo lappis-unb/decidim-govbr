@@ -1,11 +1,11 @@
 <div class="component-card-data">
   <div class="component-card-data-item">
     <span class="component-card-data-label"><%= t("activemodel.attributes.participatory_process.start_date") %></span>
-    <span class="component-card-data-value"> <%= start_date ? l(start_date, format: :decidim_short) : t("decidim.participatory_processes.show.unspecified") %> </span>
+    <span class="component-card-data-value"> <%= start_date ? l(start_date, format: "%d/%m/%Y %H:%M") : t("decidim.participatory_processes.show.unspecified") %> </span>
   </div>
   <i class="fa fa-arrow-right"> </i>
   <div class="component-card-data-item">
     <span class="component-card-data-label"><%= t("activemodel.attributes.participatory_process.end_date") %></span>
-    <span class="component-card-data-value" ><%= end_date ? l(end_date, format: :decidim_short) : t("decidim.participatory_processes.show.unspecified") %> </span>
+    <span class="component-card-data-value" ><%= end_date ? l(end_date, format: "%d/%m/%Y %H:%M") : t("decidim.participatory_processes.show.unspecified") %> </span>
   </div>
 </div>

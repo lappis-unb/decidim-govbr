@@ -1,0 +1,44 @@
+.online-meeting-container {
+    margin: 1rem;
+  }
+  
+  .online-meeting-transmission-title {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+  
+  .online-meeting-transmission-title-text {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--blue-warm-vivid-80);
+  }
+  
+  .online-meeting-link {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--Gray-gray-90);
+  }
+  
+  .online-meeting-transmission-permission-text {
+    font-size: 0.875rem;
+    font-weight: 400;
+  }
+  
+  .online-transmission-icon {
+    color: var(--blue-warm-vivid-70);
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .space-above {
+    margin-top: 1rem;
+  }
+  
+  .space-bellow {
+    margin-bottom: 1rem;
+  }
+
+.online_video_link {
+  color: var(--gray-90)
+}

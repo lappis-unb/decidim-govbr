@@ -1,11 +1,12 @@
 <%= content_tag :div, id: node_id, data: { decidim_comments: comments_data } do %>
   <div class="columns comments-container" id="comments">
     <div class="comments">
-      <h3 class="section-heading comments-section-title">Participe com um comentário</h3>
       <%= add_comment %>
       <%= user_comments_blocked_warning %>
       <div class="comments-thread-title">
-        <h3 class="section-heading comments-section-title">Colaborações Recebidas</h3>
+        <h3 class="section-heading comments-section-title">
+          <%= t("decidim.components.comments_section_title.title", count: comments_count )%>
+        </h3>
       </div>
       <div class="row collapse order-by">
         <div class="bp-row-collapse-space">
