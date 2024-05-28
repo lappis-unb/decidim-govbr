@@ -71,17 +71,17 @@ module Decidim
       )
     end
 
-  def g_maps_link(latitude:, longitude:, options: {})
-    zoom = options.fetch(:zoom, 17)
-    base_url = "https://www.google.com.br/maps/"
+    def g_maps_link(latitude:, longitude:, options: {})
+      zoom = options.fetch(:zoom, 17)
+      base_url = "https://www.google.com.br/maps/"
 
-    lat_long = "#{latitude}, #{longitude}"
+      lat_long = "#{latitude}, #{longitude}"
 
-    params = { q: lat_long, zoom: zoom }
-    URI.parse(base_url).tap do |uri|
-      uri.query = URI.encode_www_form(params)
-    end.to_s
-  end
+      params = { q: lat_long, zoom: zoom }
+      URI.parse(base_url).tap do |uri|
+        uri.query = URI.encode_www_form(params)
+      end.to_s
+    end
 
     def dynamic_map_for(options_or_markers = {}, html_options = {}, &block)
       return unless map_utility_dynamic
