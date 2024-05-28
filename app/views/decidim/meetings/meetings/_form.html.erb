@@ -179,7 +179,11 @@
     const statesURL = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/";
     const estados = [];
     let cidadesResponde = []
-    const address = (document.getElementById("meeting_address").value).split(", ");
+    const address = document.getElementById("meeting_address")
+    
+    if(address != null){
+      address.value.split(", ");
+    }
 
     $.ajax({
       url: statesURL,
