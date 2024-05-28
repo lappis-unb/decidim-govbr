@@ -38,7 +38,7 @@
 <div class="field">
   <%= form.select :associated_state,
                   @form.meeting_state_select,
-                  { include_blank: t(".select_a_meeting_associated_state") },
+                  { include_blank:'Por favor, selecione um tipo de evento' },
                   { multiple: false } %>
 </div>
 
