@@ -28,8 +28,17 @@
     </div>
   </div>
   <div class="card-grid component-content">
-    <% collection.each do |item| %>
-      <%= card_for item %>
+    <% if collection.length != 0 %>
+      <% collection.each do |item| %>
+        <%= card_for item %>
+      <% end %>
+    <% else %>
+      <p>
+        Ainda não há nenhuma 
+        <%=
+          translated_attribute(current_component.singular_name).downcase
+        %>
+      </p>
     <% end %>
   </div>
   <div class="paginate-container">

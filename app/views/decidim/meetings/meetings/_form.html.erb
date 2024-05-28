@@ -39,7 +39,6 @@
   <p class="help-text"><%= t(".online_meeting_url_help") %></p>
 </div>
 <iframe class="meeting_iframe" src="" id="meeting_url_iframe" style="display: none;"></iframe>
-
 <div id="presential-meeting" style="display: none;">
   <span class="br-divider"></span>
   <h2 class="new-meeting-title">Local do evento</h2>
@@ -84,7 +83,7 @@
   </div>
 </div>
 <% if current_participatory_space.has_subscopes? %>
-  <div class="field">
+  <div class="field bp-scope">
     <%= scopes_picker_field form, :decidim_scope_id %>
   </div>
 <% end %>
@@ -130,7 +129,6 @@
     });
   </script>
 <% end %>
-
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     function ordenarPorNome(estados) {
@@ -184,11 +182,11 @@
     const address = (document.getElementById("meeting_address").value).split(", ");
 
     $.ajax({
-      url: statesURL, 
-      type: 'GET', 
+      url: statesURL,
+      type: 'GET',
       success: function(response) {
         response = ordenarPorNome(response);
-        
+
         for(let i = 0; i < response.length; i++){
           let state = document.createElement("option");
           estados[i] = response[i];
@@ -210,19 +208,19 @@
     function setCitys() {
       const stateId = stateInput.value
       const cityURL = statesURL.concat(stateId, "/municipios");
-      
+
       cityInput.disabled = false;
       removeAllChildren(cityInput);
       $.ajax({
-        url: cityURL, 
-        type: 'GET', 
+        url: cityURL,
+        type: 'GET',
         success: function(response) {
           response = ordenarPorNome(response);
           for(let i = 0; i < response.length; i++){
             let city = document.createElement("option");
 
             cidadesResponde[i] = response[i]
-            
+
             city.value = response[i].id;
             city.innerHTML = response[i].nome;
             if(address[0] == response[i].nome){
