@@ -45,7 +45,7 @@
   <h2 class="new-meeting-title">Local do evento</h2>
   <div class="field" data-meeting-type="in_person" style="display: none;">
     <%= form.hidden_field :address,
-    input_html: { required: false }
+      input_html: { required: false }
     %>
   </div>
   <div class="presential-meeting-inputs">
@@ -54,7 +54,7 @@
         <select id="state" name="state" autocomplete="on"></select>
       </label>
       <label for="city">Cidade:
-        <select id="city" name="city" autocomplete="on" disabled>
+        <select id="city" name="city" autocomplete="on">
           <option>Selecione um estado</option>
         </select>
       </label>
@@ -181,6 +181,7 @@
     const statesURL = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/";
     const estados = [];
     let cidadesResponde = []
+    const address = (document.getElementById("meeting_address").value).split(", ");
 
     $.ajax({
       url: statesURL, 
@@ -193,8 +194,13 @@
           estados[i] = response[i];
           state.value = response[i].id;
           state.innerHTML = response[i].nome;
+          if(address[1] == response[i].nome){
+            state.selected = true;
+          }
           stateInput.appendChild(state);
         }
+
+        setCitys();
         
       },
         error: function(xhr) {
@@ -219,6 +225,9 @@
             
             city.value = response[i].id;
             city.innerHTML = response[i].nome;
+            if(address[1] == response[i].nome){
+              state.selected = true;
+            }
             cityInput.appendChild(city);
           }
           updateAddress(cidadesResponde)
