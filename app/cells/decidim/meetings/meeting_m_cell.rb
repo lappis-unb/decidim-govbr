@@ -12,6 +12,10 @@ module Decidim
         true
       end
 
+      def finished?
+        Date.current > end_date
+      end
+
       def badge_name
         if Date.current > end_date
           t("decidim.meetings.card.status.finished")

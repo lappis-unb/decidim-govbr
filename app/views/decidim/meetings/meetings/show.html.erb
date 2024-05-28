@@ -21,7 +21,8 @@
   </div>
   <div class="content-container">
     <div class="main-content">
-      <%== cell("decidim/meetings/meeting_m", @meeting, full_badge: true).badge %>
+      <% @meeting_cell = cell("decidim/meetings/meeting_m", @meeting, full_badge: true) %>
+      <%== @meeting_cell.badge %>
       <h2 class="title"><%= present(meeting).title(links: true, html_escape: true ) %></h2>
       <div class="section">
         <% if meeting.private_meeting? %>
@@ -97,9 +98,13 @@
       <% end %>
     </div>
     <div class="side-content">
-      <% if allowed_to?(:update, :meeting, meeting: meeting) %>
-        <%= link_to t(".edit_meeting"), edit_meeting_path(meeting), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
+      
+      <% if !@meeting_cell.finished? %>
+        <% if allowed_to?(:update, :meeting, meeting: meeting) %>
+          <%= link_to t(".edit_meeting"), edit_meeting_path(meeting), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
+        <% end %>
       <% end %>
+
       <% if allowed_to?(:close, :meeting, meeting: meeting) %>
         <% caption =  meeting.closed? ? t(".edit_close_meeting") : t(".close_meeting") %>
         <%= link_to caption, edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "button hollow expanded button-sc button--icon follow-button" %>
