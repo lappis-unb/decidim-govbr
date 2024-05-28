@@ -4,7 +4,6 @@
       t("title", scope: "decidim.meetings.meetings.form.placeholder")
   %>
 </div>
-
 <div class="field hashtags__container">
   <%= text_editor_for(form, :description, hashtaggable: true, 
         placeholder: t(
@@ -43,28 +42,21 @@
 <div id="presential-meeting" style="display: none;">
   <span class="br-divider"></span>
   <h2 class="new-meeting-title">Local do evento</h2>
+  <div class="field" data-meeting-type="in_person" style="display: none;">
+    <%= form.hidden_field :address,
+    input_html: { required: false }
+    %>
+  </div>
   <div class="presential-meeting-inputs">
-    <div class="field">
-      <label for="city">City:</label>
-      <input type="text" id="city" name="city">
-      <br><br>
-      <label for="state">State:</label>
-      <select id="state" name="state">
-        <% if defined?(@list) %>
-          <% @list.each do |estado| %>
-            <option><%= estado.nome %></option>
-          <% end %>
-        <% end %>
-      </select>
-      <br><br>
-      
-    </div>
-    <div class="field" data-meeting-type="in_person">
-      <%= form.geocoding_field :address,
-       input_html: { required: false }, 
-       placeholder: "Exemplo:  Casa do Sol, São Paulo" 
-      %>
-      <p class="help-text"><%= t(".address_help") %></p>
+    <div class="field select-field-br meeting-address">
+      <label for="state">Estado:
+        <select id="state" name="state" autocomplete="on"></select>
+      </label>
+      <label for="city">Cidade:
+        <select id="city" name="city" autocomplete="on" disabled>
+          <option>Selecione um estado</option>
+        </select>
+      </label>
     </div>
     <div class="field" data-meeting-type="in_person">
       <%= form.text_area :location, 
@@ -91,7 +83,7 @@
   </div>
 </div>
 <% if current_participatory_space.has_subscopes? %>
-  <div class="field">
+  <div class="field bp-scope">
     <%= scopes_picker_field form, :decidim_scope_id %>
   </div>
 <% end %>
@@ -137,3 +129,104 @@
     });
   </script>
 <% end %>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    function ordenarPorNome(estados) {
+      return estados.sort((a, b) => {
+          if (a.nome < b.nome) {
+              return -1;
+          }
+          if (a.nome > b.nome) {
+              return 1;
+          }
+          return 0;
+      });
+    }
+
+    function removeAllChildren(parentElement) {
+      while (parentElement.firstChild) {
+          parentElement.removeChild(parentElement.firstChild);
+      }
+    }
+
+    function updateAddress(cidades) {
+      var city = cityInput.value;
+      var state = stateInput.value;
+
+      for(let i = 0; i < cidades.length; i++){
+        if(cidades[i].id == city){
+          city = cidades[i].nome
+          break;
+        }
+      }
+
+      for(let i = 0; i < estados.length; i++){
+        if(estados[i].id == state){
+          state = estados[i].nome
+          break;
+        }
+      }
+      preencherCampos(city, state);
+    }
+
+    function preencherCampos(cidade, estado) {
+      addressInput.value = `${cidade}, ${estado}`;
+    }
+
+    const cityInput = document.getElementById('city');
+    const stateInput = document.getElementById('state');
+    const addressInput = document.getElementById('meeting_address');
+    const statesURL = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/";
+    const estados = [];
+    let cidadesResponde = []
+
+    $.ajax({
+      url: statesURL,
+      type: 'GET',
+      success: function(response) {
+        response = ordenarPorNome(response);
+
+        for(let i = 0; i < response.length; i++){
+          let state = document.createElement("option");
+          estados[i] = response[i];
+          state.value = response[i].id;
+          state.innerHTML = response[i].nome;
+          stateInput.appendChild(state);
+        }
+
+      },
+        error: function(xhr) {
+      }
+    });
+
+    function setCitys() {
+      const stateId = stateInput.value
+      const cityURL = statesURL.concat(stateId, "/municipios");
+
+      cityInput.disabled = false;
+      removeAllChildren(cityInput);
+      $.ajax({
+        url: cityURL,
+        type: 'GET',
+        success: function(response) {
+          response = ordenarPorNome(response);
+          for(let i = 0; i < response.length; i++){
+            let city = document.createElement("option");
+
+            cidadesResponde[i] = response[i]
+
+            city.value = response[i].id;
+            city.innerHTML = response[i].nome;
+            cityInput.appendChild(city);
+          }
+          updateAddress(cidadesResponde)
+        },
+          error: function(xhr) {
+        }
+      });
+    }
+
+    cityInput.addEventListener('change', () => updateAddress(cidadesResponde));
+    stateInput.addEventListener('change', setCitys);
+  });
+</script>

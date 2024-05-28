@@ -1,19 +1,16 @@
 <div class="br-container-lg">
   <%= render partial: "decidim/shared/component_announcement" %>
-
   <% if current_component.settings.maps_enabled? && search.result.not_online.exists? %>
     <%= cell "decidim/meetings/meetings_map", search.result %>
   <% end %>
-
-  <div class="title-action">
+  <div class="title-action br-magic-button medium">
     <% if allowed_to?(:create, :meeting) %>
-      <%= action_authorized_link_to :create, new_meeting_path, class: "title-action__action button small", data: { "redirect_url" => new_meeting_path } do %>
+      <%= action_authorized_link_to :create, new_meeting_path, class: "title-action__action br-button ", data: { "redirect_url" => new_meeting_path } do %>
+        <i class="fa-solid fa-plus fa-md"></i>
         <%= t("new_meeting", scope: "decidim.meetings.meetings.index") %>
-        <%= icon "plus", role: "img", "aria-hidden": true %>
       <% end %>
     <% end %>
   </div>
-
   <div class="proposals-filters">
     <%= render partial: "decidim/components/filter", locals: { 
           show_filters: false,
@@ -30,7 +27,7 @@
               attribute: :with_any_date,
               collection: filter_date_values_meetings,
               legend: t("decidim.meetings.meetings.filters.date"),
-              status: !@forced_past_meetings
+              status: true
             },
             {
               attribute: :activity,
@@ -74,7 +71,6 @@
         }
     %>
   </div>
-
   <div class="proposals-content-container">
     <div id="meetings" class="proposals-br" aria-live="polite">
       <%= render partial: "decidim/components/list", locals: {

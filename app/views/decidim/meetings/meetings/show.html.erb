@@ -21,6 +21,7 @@
   </div>
   <div class="content-container">
     <div class="main-content">
+      <%== cell("decidim/meetings/meeting_m", @meeting, full_badge: true).badge %>
       <h2 class="title"><%= present(meeting).title(links: true, html_escape: true ) %></h2>
       <div class="section">
         <% if meeting.private_meeting? %>
@@ -39,15 +40,17 @@
           </span>
         <% end %>
         <%= render_meeting_body(@meeting) %>
+        <div class="meetings-author-info-br">
+          <%= cell "decidim/author", author_presenter_for(meeting.normalized_author), has_actions: true, from: meeting, context: { extra_classes: ["author-data--small"] } %>
+        </div>
         <% if meeting.maps_enabled? && !meeting.online_meeting? %>
+          <div class="br-divider space-above"></div>
           <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
+          <div class="br-divider"></div>
         <% end %>
         <% unless meeting.in_person_meeting? || meeting.withdrawn? %>
           <%= cell "decidim/meetings/online_meeting_link", meeting %>
         <% end %>
-      </div>
-      <div class="meetings-author-info-br">
-        <%= cell "decidim/author", author_presenter_for(meeting.normalized_author), has_actions: true, from: meeting, context: { extra_classes: ["author-data--small"] } %>
       </div>
       <%= render partial: "decidim/shared/tags", locals: { resource: meeting, tags_class_extra: "tags--meeting" } %>
       <% if meeting.agenda.present? && meeting.agenda.visible? %>
@@ -105,8 +108,7 @@
         <div class="card-component__content">
           <div class="header">
           <i class="fas fa-globe data-icon"></i>
-          <%# TODO add translation %>
-          <p>Evento <%= meeting.type_of_meeting %></p>
+          <p>Evento <%= t("decidim.meetings.type_of_meeting.#{meeting.type_of_meeting}") %></p>
         </div>
         <span class="br-divider"></span>
           <%= cell("decidim/date_range", { start: meeting.start_time, end: meeting.end_time }) %>
