@@ -27,6 +27,7 @@ pt-BR:
         address: "Endereço:"
         location: "Localização:"
         location_hints: "Dicas:"
+        decidim_scope_id: "Área de interesse:"
       meeting_agenda:
         title: Título
         visible: Visível
