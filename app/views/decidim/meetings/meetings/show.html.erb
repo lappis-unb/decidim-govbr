@@ -41,7 +41,7 @@
           <% end %>
         <% end %>
       
-        <% if !@meeting_cell.finished? && !(meeting.state == "withdrawn") %>
+        <% if !@meeting_cell.finished? && !@cancelled %>
           <% if allowed_to?(:update, :meeting, meeting: meeting) %>
             <%= link_to edit_meeting_path(meeting), class: "br-button secondary black-and-white-btn" do %>
               <i class="fa-solid fa-pen-to-square" style="color: #333333;"></i>
@@ -50,7 +50,7 @@
           <% end %>
         <% end %>
 
-        <% if allowed_to?(:close, :meeting, meeting: meeting) %>
+        <% if allowed_to?(:close, :meeting, meeting: meeting) && !@cancelled %>
           <%= link_to edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "br-button secondary black-and-white-btn" do %>
             <%= caption =  meeting.closed? ? t(".edit_close_meeting") : t(".close_meeting") %>
           <% end %>
@@ -66,7 +66,6 @@
           </span>
         <% end %>
       </div>
-      
 
       <h2 class="title"><%= present(meeting).title(links: true, html_escape: true ) %></h2>
       <div class="section">
