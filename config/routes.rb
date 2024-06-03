@@ -57,8 +57,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources 
-
   resources :participatory_processes, param: :slug, only: [], path: :processes do
     resources :media, only: :index, controller: 'decidim/participatory_processes/media'
   end
