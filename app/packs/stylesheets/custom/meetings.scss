@@ -1,5 +1,5 @@
 .meetings-list {
-  display: flex;
+  display: none;
   flex-direction: column;
   overflow-y: auto;
   height: 500px;
@@ -13,17 +13,25 @@
   width: 100%;
   flex-wrap: wrap;
   gap: 2rem;
+  margin-top: 0.75rem;
+  margin-bottom: 4rem;
 }
 
 .br_mine {
-  max-width: 500px;
+  width: auto;
+  display: flex;
+  justify-content: center;
 }
 
 .regions-map {
   display: flex;
   flex-direction: column;
   width: 100%;
-  flex-wrap: wrap;
+}
+
+.brmap {
+  max-width: 38rem;
+  max-height: 33rem;
 }
 
 .meetings-content {

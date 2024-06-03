@@ -1,8 +1,11 @@
-<span class="meeting-map-title"><%= t(".meeting_map_title")%></span>
+<div class="meeting-map-header">
+  <span class="meeting-map-title"><%= t(".meeting_map_title")%></span>
+  <span class="meeting-map-subtitle"><%= t(".meeting_map_subtitle")%></span>
+</div>
 <div id="region-meetings-map-container" class="region-meetings"  data-meetings-path="<%= main_app.get_all_meetings_of_a_participatory_process_path %>">
   <div id="regions" class="regions-map">
     <div id="br_mine"></div>
   </div>
-  <div id="meetings-list" class="meetings-list meetings-content">
+  <div id="meetings-list" class="meetings-not-visible">
   </div>
 </div>
