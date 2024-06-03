@@ -45,8 +45,6 @@ pt-BR:
         date: Data
         link: Link
         title: Título
-      assembly:
-        initial_page_component_id: Página Principal da Assembléia
       participatory_space_user_proposals_statistic_setting:
         name: Nome
         proposals_done_weight: Peso das Propostas Criadas
@@ -249,6 +247,7 @@ pt-BR:
           update: "%{user_name} atualizou o relatório de participação de usuários %{resource_name} do espaço participativo %{space_name}"
     meetings:
       meetings:
+        confirm_destroy: "Você tem certeza que deseja deletar esta reunião?"
         calendar_modal:
           add_to_calendar: Adicionar na agenda
     proposals:
@@ -335,7 +334,12 @@ pt:
         decidim_area_id: Órgão/Instituição
   decidim:
     components:
+      meetings:
+          actions:
+            new: 'Novo(a) %{singular_name}'
       proposals:
+        actions:
+          new: Novo(a) %{name}
         settings:
           global:
             vote_limit: Quantidade máxima de votos por usuário
@@ -505,13 +509,6 @@ pt:
           create: "%{user_name} criou o relatório de participação de usuários %{resource_name} no espaço participativo %{space_name}"
           delete: "%{user_name} removeu o relatório de participação de usuários %{resource_name} do espaço participativo %{space_name}"
           update: "%{user_name} atualizou o relatório de participação de usuários %{resource_name} do espaço participativo %{space_name}"
-    components:
-      proposals:
-        actions:
-          new: Novo(a) %{name}
-      meetings:
-        actions:
-          new: 'Novo(a) %{singular_name}'
     meetings:
       admin:
         meetings:
