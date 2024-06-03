@@ -23,6 +23,9 @@
     <div class="main-content">
       <% @meeting_cell = cell("decidim/meetings/meeting_m", @meeting, full_badge: true) %>
       <%== @meeting_cell.badge %>
+      <%= meeting.cancelled %>
+      <%= link_to 'Cancel Meeting', cancel_meeting_path(@meeting), method: 'patch' %>
+
       <h2 class="title"><%= present(meeting).title(links: true, html_escape: true ) %></h2>
       <div class="section">
         <% if meeting.private_meeting? %>

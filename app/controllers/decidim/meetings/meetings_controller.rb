@@ -17,8 +17,7 @@ module Decidim
       helper Decidim::ResourceVersionsHelper
       helper Decidim::ShortLinkHelper
       helper_method :meetings, :meeting, :registration, :search
-
-
+    
       def new
         enforce_permission_to :create, :meeting
 
@@ -88,6 +87,12 @@ module Decidim
             render :edit
           end
         end
+      end
+
+      def cancel
+        @meeting = meeting
+        @meeting.update(cancelled: true)
+        redirect_to @meeting
       end
 
       def withdraw
