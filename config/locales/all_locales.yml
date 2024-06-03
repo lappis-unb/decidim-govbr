@@ -271,6 +271,8 @@ pt-BR:
         media: Mobilização
       process_navigation:
         media: Mobilização
+      edit_link:
+        edit_component: Editar componente
 
 pt:
   activemodel:
@@ -413,9 +415,6 @@ pt:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Pesquisar %{collection} por e-mail, nome, nome de usuário ou CPF.
       components:
-        proposals:
-          actions:
-            new: Novo(a) %{name}
         meetings:
           actions:
             new: "Novo(a) %{singular_name}"
