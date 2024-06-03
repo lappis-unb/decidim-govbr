@@ -89,12 +89,6 @@ module Decidim
         end
       end
 
-      def cancel
-        @meeting = meeting
-        @meeting.update(cancelled: true)
-        redirect_to @meeting
-      end
-
       def withdraw
         enforce_permission_to :withdraw, :meeting, meeting: meeting
 

@@ -247,7 +247,7 @@ pt-BR:
           update: "%{user_name} atualizou o relatório de participação de usuários %{resource_name} do espaço participativo %{space_name}"
     meetings:
       meetings:
-        confirm_destroy: "Você tem certeza que deseja deletar esta reunião?"
+        confirm_destroy: "Você tem certeza que deseja deletar este evento?"
         calendar_modal:
           add_to_calendar: Adicionar na agenda
     proposals:

@@ -1059,7 +1059,8 @@ div.meetings-author-info-br span.author__name {
   gap: 0.5rem;
 }
 
-.meeting-actions-buttons .cancel-meeting {
+.meeting-actions-buttons .cancel-meeting,
+.meeting-actions-buttons .delete-meeting {
   color: var(--red-vivid-70);
   border: 1px solid var(--red-vivid-70);
 }
