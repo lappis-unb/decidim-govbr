@@ -170,6 +170,7 @@ pt-BR:
             subject: A sua inscrição do evento foi confirmada
       meetings:
         show:
+          cancel_meeting: Cancelar evento
           edit_meeting: Editar evento
           join: Inscreva-se
           registration_code_help_text: O seu código de inscrição
