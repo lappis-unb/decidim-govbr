@@ -29,13 +29,13 @@ module Decidim
     end
 
     def link_icon_name
-      return "pencil" if model[:link_options][:icon].blank?
+      return "fas fa-edit" if model[:link_options][:icon].blank?
 
       model[:link_options][:icon]
     end
 
     def link_name
-      return t("layouts.decidim.edit_link.edit") if model[:link_options][:name].blank?
+      return t("layouts.decidim.edit_link.edit_component") if model[:link_options][:name].blank?
 
       model[:link_options][:name]
     end
