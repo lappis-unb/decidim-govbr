@@ -1,6 +1,6 @@
 <footer class="br-footer">
   <div class="br-container-lg">
-    <div class="logo"><%= image_tag current_organization.attached_uploader(:official_img_footer).variant_path(:medium), alt: t("logo", scope: "decidim.accessibility", organization: current_organization.name) %></div>
+    <div class="logo"><img src="https://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaGxXIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--58ec2fccc15b4935104a1befc1f8a048538cf0b6/logo%20bp%20-%20white.png" alt="Imagem"/></div>
     <div class="br-list horizontal" data-toggle="data-toggle" data-sub="data-sub">
       
      <%= render_footer_menu_links(current_organization)%>
@@ -8,12 +8,6 @@
     </div>
   </div>
   <div class="br-footer-container">
-      <%= link_to "https://www.lappis.rocks", target: "_blank" do %>
-        <%= image_tag 'https://gsoc.lappis.rocks/files/logo6.png', width: "20px" %>
-      <% end %>
-      <%= link_to root_path, target: "_blank" do %>
-        <%= image_tag current_organization.attached_uploader(:logo).variant_path(:medium), alt: t("logo", scope: "decidim.accessibility", organization: current_organization.name), width: "20px" %>
-      <% end %>
       <a rel="decidim noopener" href="https://decidim.org/" target="_blank" class="br-decidim-logo">
         <img alt="Decidim Logo" src="https://brasilparticipativo.presidencia.gov.br/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcVNPIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--63c7a9315216052a4748cb340acf17e988f17ba7/decidim-symbol-min.png">
       </a>
