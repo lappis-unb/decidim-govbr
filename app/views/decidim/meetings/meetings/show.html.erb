@@ -25,7 +25,7 @@
       <div class="meeting-actions-buttons">
         <% @meeting_cell = cell("decidim/meetings/meeting_m", @meeting, full_badge: true) %>
         <% @cancelled = (meeting.state == "withdrawn") %>
-        <% if admin_allowed_to?(:destroy, :meeting, meeting: meeting) && meeting.deletable? %>
+        <% if admin_allowed_to?(:destroy, :meeting, meeting: meeting) && meeting.deletable? && !@meeting_cell.finished? %>
           <%= link_to resource_locator(meeting).show, method: :delete, class: "br-button secondary delete-meeting", 
               data: { confirm: t(".confirm_delete") } do %>
               <i class="fa-solid fa-trash-can" style="color: #8b0a03;"></i>
