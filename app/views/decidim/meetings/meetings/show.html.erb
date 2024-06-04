@@ -58,12 +58,6 @@
       
       <div class="badge-container">
         <%== @meeting_cell.badge %>
-
-        <% if meeting.withdrawn? %>
-          <span class="red card__text--status">
-            <%= t("withdraw", scope: "decidim.meetings.types") %>
-          </span>
-        <% end %>
       </div>
 
       <h2 class="title"><%= present(meeting).title(links: true, html_escape: true ) %></h2>

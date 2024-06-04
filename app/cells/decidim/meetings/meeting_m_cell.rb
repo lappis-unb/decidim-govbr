@@ -17,7 +17,9 @@ module Decidim
       end
 
       def badge_name
-        if Date.current > end_date
+        if model.state == "withdrawn"
+          t("decidim.meetings.card.status.cancel")
+        elsif Date.current > end_date
           t("decidim.meetings.card.status.finished")
         elsif Date.current.between?(start_date, end_date)
           t("decidim.meetings.card.status.active")
@@ -27,7 +29,9 @@ module Decidim
       end
 
       def state_classes
-        if Date.current > end_date
+        if model.state == "withdrawn"
+          ["red"]
+        elsif Date.current > end_date
           ["gray"]
         elsif Date.current.between?(start_date, end_date)
           ["green"]

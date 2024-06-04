@@ -239,6 +239,7 @@ pt-BR:
           upcoming: Próximo
           finished: Encerrado
           active: Acontecendo
+          cancel: Cancelado
         subscriber_count:
           one: pessoa inscrita
           other: pessoas inscritas
