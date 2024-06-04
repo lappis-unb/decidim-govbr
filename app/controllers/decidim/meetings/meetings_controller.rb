@@ -17,7 +17,7 @@ module Decidim
       helper Decidim::ResourceVersionsHelper
       helper Decidim::ShortLinkHelper
       helper_method :meetings, :meeting, :registration, :search
-    
+
       def new
         enforce_permission_to :create, :meeting
 
