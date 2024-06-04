@@ -1,6 +1,6 @@
 <span class="br-divider sm my-4"></span>
 <div class="process-home-container">
-  <h2 class="page-subtitle">Informações Gerais</h2>
+  <h2 class="page-subtitle"><%= t("activemodel.attributes.participatory_process.General_information") %></h2>
   <%= render partial: "process_badge" %>
   <div class="process-home-content">
     <div class="first-content">
@@ -16,19 +16,19 @@
       <% end %>
       <% if false and translated_attribute(current_participatory_space&.developer_group).present? %>
         <p>
-          <strong>Setor</strong>: <%= translated_attribute(current_participatory_space.developer_group) %>
+          <strong><%=t("activemodel.attributes.participatory_process.local_area")%></strong>: <%= translated_attribute(current_participatory_space.developer_group) %>
         </p>
       <% end %>
       <% if translated_attribute(current_participatory_space&.target).present? %>
         <div class="colorful-card">
           <% if translated_attribute(current_participatory_space&.target).present? %>
             <p>
-              <strong>Responsável:</strong> <%= translated_attribute(current_participatory_space.target) %>
+              <strong><%=t("activemodel.attributes.participatory_process.Responsible")%></strong> <%= translated_attribute(current_participatory_space.target) %>
             </p>
           <% end %>
           <% if translated_attribute(current_participatory_space&.participatory_structure).present? %>
             <p>
-              <strong>Contato:</strong> <%= translated_attribute(current_participatory_space.participatory_structure) %>
+              <strong><%=t("activemodel.attributes.participatory_process.contact")%></strong> <%= translated_attribute(current_participatory_space.participatory_structure) %>
             </p>
           <% end %>
         </div>
@@ -39,14 +39,14 @@
       <% if translated_attribute(current_participatory_space&.publish_date).present? && translated_attribute(current_participatory_space&.participatory_scope).present? %>
         <div class="dou-section">
           <span class="dou-container">
-            <span class="label-dou">Publicação no DOU</span>
+            <span class="label-dou"><%=t("activemodel.attributes.participatory_process.Publication_in_the_DOU")%></span>
             <a class="br-button secondary" href="<%= translated_attribute(current_participatory_space.participatory_scope) %>">
               <i class="fa-solid fa-sm fa-external-link-alt mr-2"></i>
               Acessar
             </a>
           </span>
           <p class="publish-date-dou">
-            publicado em: <%= l(current_participatory_space.publish_date) %>
+            <%=t("decidim.blogs.posts.show.published_in_")%> <%= l(current_participatory_space.publish_date) %>
           </p>
         </div>
       <% end %>

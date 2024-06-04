@@ -230,7 +230,8 @@ pt-BR:
         unpublish_with_space: "%{user_name} removeu a publicação %{resource_name} em %{space_name}"
         update_permissions_with_space: "%{user_name} atualizou as permissões de %{resource_name} em %{space_name}"
     modal:
-      export_data: Gerar relatório
+      export_data: Gerar relatório 
+      component_edit: Editar componente
       select_date: Selecione as datas para a geração do relatório deste processo.
       export_confirmation: Relatório solicitado! Em breve enviaremos para o seu e-mail cadastrado. Por favor, verifique sua caixa de entrada e spam.
       export_error: Ocorreu um erro ao gerar o relatório. Por favor, tente novamente mais tarde.
@@ -279,6 +280,7 @@ pt-BR:
       filter_form_help:
         help: Filtre por temas de interesse.
       flag_modal:
+        to_2000_characters: Até 2000 caracteres
         already_reported: Este conteúdo já foi reportado e será revisado por um administrador.
         close: Fechar
         cancel: Cancelar
@@ -304,6 +306,8 @@ pt-BR:
         help: Ajuda
       mentions_modal:
         remove_recipient: Remover o destinatário %{name}
+      results_per_page:
+        label: 'Resultados por página:'  
       share_modal:
         share: Compartilhe sua contribuição
         share_link: Compartilhar link
