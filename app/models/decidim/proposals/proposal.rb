@@ -64,6 +64,7 @@ module Decidim
       scope :accepted, -> { state_published.where(state: "accepted") }
       scope :rejected, -> { state_published.where(state: "rejected") }
       scope :evaluating, -> { state_published.where(state: "evaluating") }
+      scope :disqualified, -> { state_published.where(state: "disqualified") }
       scope :withdrawn, -> { where(state: "withdrawn") }
       scope :except_rejected, -> { where.not(state: "rejected").or(state_not_published) }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
@@ -103,7 +104,7 @@ module Decidim
         order(Arel.sql("#{sort_by_valuation_assignments_count_nulls_last_query} DESC NULLS LAST").to_s)
       }
 
-      scope_search_multi :with_any_state, [:accepted, :rejected, :evaluating, :state_not_published]
+      scope_search_multi :with_any_state, [:accepted, :rejected, :evaluating, :state_not_published, :disqualified]
 
       def self.with_valuation_assigned_to(user, space)
         valuator_roles = space.user_roles(:valuator).where(user: user)
