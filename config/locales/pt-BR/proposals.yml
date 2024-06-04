@@ -54,6 +54,7 @@ pt-BR:
               rejected: Rejeitada
               validating: Validação técnica
               withdrawn: Retirada
+              disqualified: Desclassificada
           state_null:
             label: Estado
             values:
