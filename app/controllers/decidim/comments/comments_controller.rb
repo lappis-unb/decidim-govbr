@@ -7,6 +7,7 @@ module Decidim
     class CommentsController < Decidim::Comments::ApplicationController
       include Decidim::ResourceHelper
       include Decidim::SkipTimeoutable
+      include Decidim::Govbr::MediaAttachmentsHelper
 
       prepend_before_action :skip_timeout, only: :index
       before_action :authenticate_user!, only: [:create]
@@ -97,24 +98,39 @@ module Decidim
       def create
         enforce_permission_to :create, :comment, commentable: commentable
 
-        form = Decidim::Comments::CommentForm.from_params(
+        @form = Decidim::Comments::CommentForm.from_params(
           params.merge(commentable: commentable)
         ).with_context(
           current_organization: current_organization,
           current_component: current_component
         )
-        Decidim::Comments::CreateComment.call(form, current_user) do
+
+        Decidim::Comments::CreateComment.call(@form, current_user) do
           on(:ok) do |comment|
             handle_success(comment)
+
+            if form.attachment_file.present?
+              @attachment = build_attachment(comment)
+
+              Decidim.traceability.perform_action!(:create, Decidim::Attachment, @user) do
+                @attachment.save!
+              end
+            end
+
             respond_to do |format|
               format.js { render :create }
             end
           end
 
           on(:invalid) do
-            @error = t("create.error", scope: "decidim.comments.comments")
+            @error = if @form.errors[:attachment_file].present?
+                       @form.errors[:attachment_file]
+                     else
+                       t("create.error", scope: "decidim.comments.comments")
+                     end
+
             respond_to do |format|
-              format.js { render :error }
+              format.js { render :error, locals: { error_message: @error } }
             end
           end
         end
@@ -151,7 +167,7 @@ module Decidim
 
       private
 
-      attr_reader :commentable, :comment
+      attr_reader :commentable, :comment, :form
 
       def set_commentable
         @commentable = GlobalID::Locator.locate_signed(commentable_gid)
@@ -212,6 +228,16 @@ module Decidim
         return commentable.polymorphic_resource_path({}) if commentable.respond_to?(:polymorphic_resource_path)
 
         resource_locator(commentable).path
+      end
+
+      def build_attachment(attached_to)
+        file = blob(form.attachment_file)
+        Attachment.new(
+          title: { 'pt-BR': file.filename },
+          attached_to: attached_to,
+          file: form.attachment_file, # Define attached_to before this
+          content_type: file.content_type
+        )
       end
     end
   end

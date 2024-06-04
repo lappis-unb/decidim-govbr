@@ -35,6 +35,9 @@
     <div class="comment__content">
       <%= alignment_badge %>
       <%= depth < 1? comment_body : "<strong>Resposta:</strong>\n\n".concat(comment_body).html_safe%>
+      <% if model.attachment.present? %>
+        <%= link_to translated_attribute(model.attachment.title), model.attachment.url, target: "_blank"  %>
+      <% end %>
     </div>
     <div class="comment__footer">      
       <div class="comment__footer_votes">

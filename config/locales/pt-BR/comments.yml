@@ -59,9 +59,15 @@ pt-BR:
           positive_selected: Sua opinião sobre este tópico é positiva
         remaining_characters: "%{count} caracteres restantes"
         remaining_characters_1: "%{count} personagem à esquerda"
-        title: "Compartilhe sua contribuição:"
+        title: "Adicione sua contribuição:"
+      comments_section_title:
+        title:
+          zero: Ainda não há contribuições
+          one: Contribuições recebidas
+          other: Contribuições recebidas
       comments:
         title:
+          zero: ""
           one: "%{count} contribuição"
           other: "%{count} contribuições"
         single_comment_warning: Pode consultar as contribuições restantes <a href="%{url}">aqui</a>.

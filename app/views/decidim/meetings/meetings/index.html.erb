@@ -1,85 +1,82 @@
-<%= render partial: "decidim/shared/component_announcement" %>
-<% if current_component.settings.maps_enabled? && search.result.not_online.exists? %>
-  <%= cell "decidim/meetings/meetings_map", search.result %>
-<% end %>
 <div class="br-container-lg">
-  <div class="row columns">
-    <div class="title-action">
-      <% if allowed_to?(:create, :meeting) %>
-        <%= action_authorized_link_to :create, new_meeting_path, class: "title-action__action button small", data: { "redirect_url" => new_meeting_path } do %>
-          <%= t("new_meeting", scope: "decidim.meetings.meetings.index") %>
-          <%= icon "plus", role: "img", "aria-hidden": true %>
-        <% end %>
+  <%= render partial: "decidim/shared/component_announcement" %>
+  <% if current_component.settings.maps_enabled? && search.result.not_online.exists? %>
+    <%= cell "decidim/meetings/meetings_map", search.result %>
+  <% end %>
+  <div class="title-action br-magic-button medium">
+    <% if allowed_to?(:create, :meeting) %>
+      <%= action_authorized_link_to :create, new_meeting_path, class: "title-action__action br-button ", data: { "redirect_url" => new_meeting_path } do %>
+        <i class="fa-solid fa-plus fa-md"></i>
+        <%= t("new_meeting", scope: "decidim.meetings.meetings.index") %>
       <% end %>
-    </div>
+    <% end %>
   </div>
-</div>
-<div class="meetings-filters">
-  <%= render partial: "decidim/components/filter", locals: { 
-        show_filters: false,
-        search_field: {
-          placeholder: t("decidim.proposals.proposals.filters.placeholder", 
-          name: translated_attribute(current_component.singular_name).present? ? 
-                translated_attribute(current_component.singular_name).downcase : 
-                "evento"
-          ),
-          status: true
-        },
-        radio_collection: [
-          {
-            attribute: :with_any_date,
-            collection: filter_date_values_meetings,
-            legend: t("decidim.meetings.meetings.filters.date"),
-            status: !@forced_past_meetings
-          },
-          {
-            attribute: :activity,
-            collection: activity_filter_values_meetings,
-            legend: t("decidim.meetings.meetings.filters.activity"),
-            status: current_user
-          }
-        ],
-        check_boxes: [
-          {
-            attribute: :with_any_type,
-            collection: filter_type_values_meetings,
-            legend: t("decidim.meetings.meetings.filters.type"),
+  <div class="proposals-filters">
+    <%= render partial: "decidim/components/filter", locals: { 
+          show_filters: false,
+          search_field: {
+            placeholder: t("decidim.proposals.proposals.filters.placeholder", 
+            name: translated_attribute(current_component.singular_name).present? ? 
+                  translated_attribute(current_component.singular_name).downcase : 
+                  "evento"
+            ),
             status: true
           },
-          {
-            attribute: :with_any_scope,
-            collection: filter_scopes_values,
-            legend: t("decidim.meetings.meetings.filters.scope"),
-            status: current_component.has_subscopes?
+          radio_collection: [
+            {
+              attribute: :with_any_date,
+              collection: filter_date_values_meetings,
+              legend: t("decidim.meetings.meetings.filters.date"),
+              status: true
+            },
+            {
+              attribute: :activity,
+              collection: activity_filter_values_meetings,
+              legend: t("decidim.meetings.meetings.filters.activity"),
+              status: current_user
+            }
+          ],
+          check_boxes: [
+            {
+              attribute: :with_any_type,
+              collection: filter_type_values_meetings,
+              legend: t("decidim.meetings.meetings.filters.type"),
+              status: true
+            },
+            {
+              attribute: :with_any_scope,
+              collection: filter_scopes_values,
+              legend: t("decidim.meetings.meetings.filters.scope"),
+              status: current_component.has_subscopes?
+            },
+            {
+              attribute: :with_any_category,
+              collection: filter_categories_values,
+              legend: t("decidim.meetings.meetings.filters.category"),
+              status: current_component.categories.any?
+            },
+            {
+              attribute: :with_any_origin,
+              collection: filter_origin_values_meetings,
+              legend: t("decidim.meetings.meetings.filters.origin"),
+              status: component_settings.creation_enabled_for_participants?
+            }
+          ],
+          hidden_tag: {
+            status: false,
           },
-          {
-            attribute: :with_any_category,
-            collection: filter_categories_values,
-            legend: t("decidim.meetings.meetings.filters.category"),
-            status: current_component.categories.any?
-          },
-          {
-            attribute: :with_any_origin,
-            collection: filter_origin_values_meetings,
-            legend: t("decidim.meetings.meetings.filters.origin"),
-            status: component_settings.creation_enabled_for_participants?
+          hidden_field: {
+            status: false,
           }
-        ],
-        hidden_tag: {
-          status: false,
-        },
-        hidden_field: {
-          status: false,
         }
-      }
-  %>
-</div>
-<div class="br-row">
-  <div id="meetings" class="columns mediumlarge-8 large-9" aria-live="polite">
-    <%= render partial: "decidim/components/list", locals: {
-          elements_name: current_component.manifest_name, 
-          collection: meetings
-        } 
     %>
+  </div>
+  <div class="proposals-content-container">
+    <div id="meetings" class="proposals-br" aria-live="polite">
+      <%= render partial: "decidim/components/list", locals: {
+        elements_name: current_component.manifest_name, 
+        collection: meetings
+      } %>
+    </div>
   </div>
 </div>
