@@ -182,6 +182,12 @@ pt-BR:
           highlighted_processes:
             active_step: Etapa ativa
       participatory_processes:
+        process_badge:
+          status:
+            active: Ativa
+            closed: Encerrada
+            finished: Encerrada - Resultado
+            upcoming: Não iniciada
         filters:
           all_types: Todos os tipos
           filter_by: Tipo de processo
