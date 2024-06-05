@@ -1,10 +1,9 @@
+<h3 class="section-heading comments-section-title">Contribuições</h3>
 <div class="add-comment">
-
-      <h5 class="section-heading add-comment-title"><%= t("decidim.components.add_comment_form.title") %></h5>
-
-<div class="add-comment-bg">
+  <h5 class="section-heading add-comment-title"><%= t("decidim.components.add_comment_form.title") %></h5>
   <% if user_signed_in? %>
-    <%== cell("decidim/comments/comment_form", model, root_depth: root_depth) %>
+    <div class="add-comment-bg">
+      <%== cell("decidim/comments/comment_form", model, root_depth: root_depth) %>
     </div>
   <% else %>
     <p>
