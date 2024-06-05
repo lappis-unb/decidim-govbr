@@ -38,20 +38,16 @@
   <% end %>
 </div>
 
-<div class="card card--secondary">
+<div class="card card--secondary" style="display: none;">
   <%= filter_form_for filter do |form| %>
     <%= scopes_picker_filter form, :decidim_scope_id_eq %>
     <%= form.hidden_field :term %>
   <% end %>
 </div>
 
-<div class="row collapse order-by">
-  <div class="text-right">
-    <span class="order-by__tabs">
-      <%= search_path_by_state_link(:past) %>
-      <%= search_path_by_state_link(:future) %>
-      <%= search_path_by_state_link(:active) %>
-      <%= search_path_by_state_link(nil) %>
-    </span>
-  </div>
-</div>
+<span class="order-by__tabs">
+  <%= search_path_by_state_link(:past) %>
+  <%= search_path_by_state_link(:future) %>
+  <%= search_path_by_state_link(:active) %>
+  <%= search_path_by_state_link(nil) %>
+</span>
