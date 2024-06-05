@@ -4,8 +4,6 @@ pt-BR:
     attributes:
       participatory_process:
         title: Nome do Processo Participativo
-        make_your_voice: "Faça sua Voz Contar: Participe da Consulta Pública Agora!"
-        title: Nome do Processo Participativo 
         document: Documento
         import_attachments: Importar anexos
         slug: URL amigável
@@ -220,3 +218,18 @@ pt-BR:
           active_step: Etapa ativa
       process_header_steps:
         step: Etapa %{current} de %{total}
+
+
+en:
+  decidim:
+    participatory_processes:
+      card:
+        status:
+          active: Active
+          closed: Closed
+          finished: Finished
+          upcoming: Upcoming
+      participatory_processes:
+        show:
+          participate: Participate
+
