@@ -1,0 +1,24 @@
+<div class="proposals-content-container">
+    <div class="card-grid component-content">
+    <% results.each do |result| %>
+        <%= card_for result, { context: { show_space: true }, show_footer_actions: false } %>
+    <% end %>
+    </div>
+    <div class="divider-search"></div>
+</div>
+
+<% if results_count > Decidim::Search::HIGHLIGHTED_RESULTS_COUNT && !paginated? %>
+  <%= link_to(
+    t("decidim.searches.results.view_all", count: results_count),
+    search_path_by_resource_type(class_name),
+    class: "button button--sc hollow button--right"
+  ) %>
+<% end %>
+
+<% if paginated? %>
+  <%= decidim_paginate results %>
+<% end %>
+
+<% if last_section? %>
+  
+<% end %>
