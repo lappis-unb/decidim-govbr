@@ -26,6 +26,7 @@ module Decidim
       attribute :settings, Object
       attribute :default_step_settings, Object
       attribute(:step_settings, { String => Object })
+      attribute :enable_comments_attachment, Boolean
 
       attribute :share_tokens, [ShareToken]
 

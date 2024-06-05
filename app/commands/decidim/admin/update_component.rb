@@ -48,6 +48,7 @@ module Decidim
         @component.settings = form.settings
         @component.default_step_settings = form.default_step_settings
         @component.step_settings = form.step_settings
+        @component.enable_comments_attachment = form.enable_comments_attachment
 
         @settings_changed = @component.settings_changed?
 
