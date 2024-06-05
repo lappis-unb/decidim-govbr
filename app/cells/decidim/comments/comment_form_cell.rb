@@ -16,7 +16,7 @@ module Decidim
       end
 
       def enable_comments_attachment
-        model.component.try(:settings).try(:[], :enable_comments_attachment)
+        model.component.try(:[], :enable_comments_attachment)
       end
 
       private
