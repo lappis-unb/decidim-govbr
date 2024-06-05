@@ -44,7 +44,8 @@ module Decidim::Admin
         menu_name: {
           en: "My proposals",
           pt_BR: "Minhas propostas"
-        }
+        },
+        enable_comments_attachment: true
       )
     end
 
@@ -70,6 +71,7 @@ module Decidim::Admin
         step_settings = component.step_settings[step.id.to_s]
         expect(step_settings.dummy_step_attribute1).to be(true)
         expect(step_settings.dummy_step_attribute2).to be(false)
+        expect(component.enable_comments_attachment).to be(true)
       end
 
       it "traces the action", versioning: true do
@@ -102,6 +104,7 @@ module Decidim::Admin
         expect(component.menu_name["en"]).to eq("My proposals")
         expect(component.menu_name["pt_BR"]).to eq("Minhas propostas")
         expect(component).to be_persisted
+        expect(component.enable_comments_attachment).to be(true)
       end
     end
 

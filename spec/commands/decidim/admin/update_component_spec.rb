@@ -47,7 +47,8 @@ module Decidim::Admin
         menu_name: {
           en: "My components",
           pt_BR: "Meus componentes"
-        }
+        },
+        enable_comments_attachment: true
       )
     end
 
@@ -65,6 +66,7 @@ module Decidim::Admin
         expect(component["singular_name"]["pt_BR"]).to eq("Meu componente")
         expect(component["menu_name"]["en"]).to eq("My components")
         expect(component["menu_name"]["pt_BR"]).to eq("Meus componentes")
+        expect(component["enable_comments_attachment"]).to be(true)
 
         expect(component.weight).to eq(3)
         expect(component.settings.dummy_global_attribute1).to be(true)
@@ -91,6 +93,7 @@ module Decidim::Admin
         expect(component["name"]["pt_BR"]).to eq("Meus componentes")
         expect(component["singular_name"]["en"]).to eq("My component")
         expect(component["singular_name"]["pt_BR"]).to eq("Meu componente")
+        expect(component["enable_comments_attachment"]).to be(true)
         expect(component).to be_persisted
       end
 
@@ -138,6 +141,7 @@ module Decidim::Admin
         expect(component["name"]["pt_BR"]).not_to eq("Meus componentes")
         expect(component["singular_name"]).to be_nil
         expect(component["singular_name"]).to be_nil
+        expect(component["enable_comments_attachment"]).to be(false)
       end
     end
   end
