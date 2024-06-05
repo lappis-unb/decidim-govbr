@@ -14,7 +14,6 @@
                       :proposal_wizard_step_4_help_text,
                       :official_proposals_enabled,
                       :new_proposal_body_template,
-                      :enable_comments_attachment,
                       :requires_previous_moderation] %>
 
 <div class="card">
@@ -65,6 +64,9 @@
       <h2 class="card-title">Configurações avançadas</h2>
     </div>
     <div class="card-section settings-section">
+      <% if ["blogs","proposals","meetings"].include?(params[:type] || component.manifest_name) %>
+        <%= form.check_box :enable_comments_attachment, label: t("admin.models.components.enable_comments_attachment", scope: "decidim.forms") %>
+      <% end %>
       <%= form.number_field :weight %>
       <%= form.check_box :hide_in_menu, label: "Ocultar essa página do menu" %>
       <%= form.fields_for :settings, form.object.settings do |settings_fields| %>
