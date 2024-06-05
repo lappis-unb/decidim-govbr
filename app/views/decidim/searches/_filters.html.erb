@@ -1,5 +1,6 @@
-<label class="text-medium mb-s"><%= t(".jump_to") %></label>
+<% @with_resource_type = "any" %>
 <% if params.dig(:filter, :with_resource_type).present? %>
+  <% @with_resource_type = params[:filter][:with_resource_type] %>
   <p class="text-secondary">
     <%= link_to main_search_path do %>
       <%= icon "caret-left", class: "icon--small", role: "img", "aria-hidden": true %>&nbsp;<%= t(".back") %>
@@ -25,7 +26,9 @@
       ) %>
     <% end %>
     
-    <div class="filters__section--general">
+    <div class="filters__section--general 
+      <%= @with_resource_type == "any" ? "selected-section" : "" %>"
+    >
       <button type="submit" class="flex--sbc">
         <strong class="section-title">Todos</strong>
         <span class="muted">(<%= @results_count %>)
@@ -35,19 +38,16 @@
   <% end %>
 </div>
 
-<div class="card card--secondary">
+<div class="card card--secondary" style="display: none;">
   <%= filter_form_for filter do |form| %>
     <%= scopes_picker_filter form, :decidim_scope_id_eq %>
     <%= form.hidden_field :term %>
   <% end %>
 </div>
-<div class="row collapse order-by">
-  <div class="text-right">
-    <span class="order-by__tabs">
-      <%= search_path_by_state_link(:past) %>
-      <%= search_path_by_state_link(:future) %>
-      <%= search_path_by_state_link(:active) %>
-      <%= search_path_by_state_link(nil) %>
-    </span>
-  </div>
-</div>
+
+<span class="order-by__tabs">
+  <%= search_path_by_state_link(:past) %>
+  <%= search_path_by_state_link(:future) %>
+  <%= search_path_by_state_link(:active) %>
+  <%= search_path_by_state_link(nil) %>
+</span>

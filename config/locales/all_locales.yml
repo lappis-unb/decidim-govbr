@@ -141,7 +141,9 @@ pt-BR:
             body: Pré-visualização da enquete
           current_step: Passo %{step}
           of_total_steps: de %{total_steps}
-
+    search:
+      results_for_term: "Resultadoes em todo o "
+      platform: Brasil Participativo
     admin:
       participatory_process_copies:
         new:
