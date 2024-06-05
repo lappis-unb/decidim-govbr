@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_04_21_213322) do
+ActiveRecord::Schema.define(version: 2024_06_04_193627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -457,6 +457,7 @@ ActiveRecord::Schema.define(version: 2024_04_21_213322) do
     t.boolean "hide_in_menu"
     t.jsonb "singular_name"
     t.jsonb "menu_name"
+    t.boolean "enable_comments_attachment", default: false
     t.index ["participatory_space_id", "participatory_space_type"], name: "index_decidim_components_on_decidim_participatory_space"
   end
 
@@ -1997,7 +1998,7 @@ ActiveRecord::Schema.define(version: 2024_04_21_213322) do
     t.jsonb "extended_data", default: {}
     t.integer "following_count", default: 0, null: false
     t.integer "followers_count", default: 0, null: false
-    t.string "notification_types", default: "none", null: false
+    t.string "notification_types", default: "own-only", null: false
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
