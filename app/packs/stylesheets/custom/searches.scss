@@ -3,6 +3,8 @@
     width: 100%;
     border-bottom: 1px solid var(--gray-40);
     margin-bottom: 35px;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 .filters__section--general {
@@ -44,4 +46,26 @@
 .filters__section--general.selected-section .flex--sbc strong {
     font-weight: var(--font-weight-semi-bold);
     color: var(--blue-warm-vivid-90);
+}
+
+.filters__section--general.selected-section .flex--sbc span {
+    color: var(--blue-warm-vivid-70);
+}
+
+/* Custom scrollbar styles for WebKit browsers */
+.nav-search-filters::-webkit-scrollbar {
+    height: 0.25rem; /* Height of the horizontal scrollbar */
+}
+
+.nav-search-filters::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background of the scrollbar track */
+}
+
+.nav-search-filters::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Round corners of the scrollbar thumb */
+}
+
+.nav-search-filters::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the scrollbar thumb when hovered */
 }

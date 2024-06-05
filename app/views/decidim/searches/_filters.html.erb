@@ -1,4 +1,3 @@
-<label class="text-medium mb-s"><%= t(".jump_to") %></label>
 <% @with_resource_type = "any" %>
 <% if params.dig(:filter, :with_resource_type).present? %>
   <% @with_resource_type = params[:filter][:with_resource_type] %>
@@ -45,6 +44,7 @@
     <%= form.hidden_field :term %>
   <% end %>
 </div>
+
 <div class="row collapse order-by">
   <div class="text-right">
     <span class="order-by__tabs">
