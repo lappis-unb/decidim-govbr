@@ -129,16 +129,10 @@ module Decidim
       # Public: Check if the user has upvoted the comment
       #
       # Returns a bool value to indicate if the condition is truthy or not
-      def up_voted_by?(user)
-        up_votes.exists?(author: user)
-      end
 
       # Public: Check if the user has downvoted the comment
       #
       # Returns a bool value to indicate if the condition is truthy or not
-      def down_voted_by?(user)
-        down_votes.exists?(author: user)
-      end
 
       # Public: Overrides the `reported_content_url` Reportable concern method.
       def reported_content_url

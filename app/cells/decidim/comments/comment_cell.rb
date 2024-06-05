@@ -146,14 +146,6 @@ module Decidim
         decidim_comments.comment_path(model)
       end
 
-      def up_votes_count
-        model.up_votes.count
-      end
-
-      def down_votes_count
-        model.down_votes.count
-      end
-
       def root_depth
         options[:root_depth] || 0
       end
@@ -164,14 +156,6 @@ module Decidim
 
       def reloaded?
         options[:reloaded]
-      end
-
-      def voted_up?
-        @up_voted ||= model.up_voted_by?(current_user)
-      end
-
-      def voted_down?
-        @down_voted ||= model.down_voted_by?(current_user)
       end
 
       def nested?

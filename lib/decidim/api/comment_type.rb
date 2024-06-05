@@ -65,22 +65,6 @@ module Decidim
         object.friendly_created_at
       end
 
-      def up_votes
-        object.up_votes_count
-      end
-
-      def up_voted
-        object.up_voted_by?(context[:current_user])
-      end
-
-      def down_votes
-        object.down_votes_count
-      end
-
-      def down_voted
-        object.down_voted_by?(context[:current_user])
-      end
-
       def has_comments?
         object.comment_threads.not_hidden.size.positive?
       end
