@@ -82,16 +82,10 @@ pt-BR:
             comments_enabled: Permitir que usuários façam comentários nas propostas
             comments_max_length: Quantidade máxima de caracteres por comentário (deixe 0 para não limitar)
             attachments_allowed: Permitir que o órgão crie propostas com anexos
-            enable_comments_attachment: Permitir anexos em contribuições
-      blogs:
-        settings:
-          global:
-            enable_comments_attachment: Permitir anexos em contribuições
       meetings:
         settings:
           global:
             attachments_allowed: Permitir que o órgão crie reuniões com anexos
-            enable_comments_attachment: Permitir anexos em contribuições
             requires_previous_moderation: Requerer moderação prévia de novas propostas
       publish_date_text: Publicado em
     govbr:
@@ -131,6 +125,7 @@ pt-BR:
           components:
             topp: Termos de Privacidade
             collect_user_data: Habilitar termos de privacidade para coleta de dados dos usuarios (e-mail e CPF).
+            enable_comments_attachment: Permitir anexos em contribuições
       user_answers_serializer:
         email: E-mail
         uid: CPF
