@@ -80,14 +80,12 @@
     align-items: flex-start;
     gap: 1rem;
     width: 100%;
-    border-bottom: 1px solid var(--gray-40);
 }
 
 .search-result-section div {
     display: flex;
     align-items: center;
     font-size: var(--font-size-scale-up-01);
-    margin-bottom: 1.25rem;
 }
 
 .search-result-section div p,
