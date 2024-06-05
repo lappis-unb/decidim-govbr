@@ -10,8 +10,6 @@ module Decidim
       let!(:author) { create(:user, organization: commentable.organization) }
       let!(:comment) { create(:comment, commentable: commentable, author: author) }
       let!(:replies) { create_list(:comment, 3, commentable: comment, root_commentable: commentable) }
-      let!(:up_vote) { create(:comment_vote, :up_vote, comment: comment) }
-      let!(:down_vote) { create(:comment_vote, :down_vote, comment: comment) }
 
       it "is valid" do
         expect(comment).to be_valid
