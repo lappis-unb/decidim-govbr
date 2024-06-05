@@ -13,6 +13,7 @@ pt-BR:
         partner_type: Tipo
         weight: Weight (posição de exibição)
       participatory_process:
+        Order: 'Ordenar:'
         area_id: Órgão/Instituição
         participatory_process_group_id: Setor
         decidim_area_id: Órgão/Instituição
@@ -22,6 +23,9 @@ pt-BR:
         slug: URL Amigável
         developer_group: Órgão/Instituição
         local_area: Setor
+        Responsible: 'Responsável:'
+        contact: 'Contato:'
+        Publication_in_the_DOU: Publicação no DOU
         meta_scope: Selecione o Status deste processo participativo
         target: Responsável pela consulta
         participatory_scope: Link da publicação do processo no DOU
@@ -129,6 +133,11 @@ pt-BR:
           components:
             topp: Termos de Privacidade
             collect_user_data: Habilitar termos de privacidade para coleta de dados dos usuarios (e-mail e CPF).
+            My_stats: Minhas estatísticas
+            Learn_about_the_rules_proposals: Conheça as regras e os critérios para seleção de propostas
+            Edit_your_proposal: Edite sua proposta
+            follow_the_instructions: Siga as instruções abaixo para participar ativamente e deixar sua marca nas decisões que impactam o Brasil.
+            Review_your_content: Revise o seu conteúdo e tenha certeza que está tudo correto antes de publicar. Após a publicação, você poderá editar ou apagar a proposta somente se não tiver recebido nenhum voto. 
       user_answers_serializer:
         email: E-mail
         uid: CPF
@@ -763,6 +772,10 @@ en:
         dialog:
           accept_all: Aceitar cookies
           reject: Rejeitar cookies
+          Advanced_cookie_settings: Configurações avançadas de cookies
+          Cookie_Declaration: Ver Declaração de Cookies
+          To_improve_your_experience: Para melhorar a sua experiência na plataforma e prover serviços personalizados, utilizamos cookies.
+
 
 es-MX:
   activemodel:
