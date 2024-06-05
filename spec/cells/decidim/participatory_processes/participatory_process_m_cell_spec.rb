@@ -146,7 +146,6 @@ module Decidim::ParticipatoryProcesses
           allow(model).to receive(:past_result?).and_return(false)
           allow(model).to receive(:active?).and_return(false)
           allow(model).to receive(:upcoming?).and_return(false)
-          
         end
 
         it "returns ['red']" do
