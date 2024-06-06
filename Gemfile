@@ -20,6 +20,8 @@ gem 'decidim-initiatives', DECIDIM_VERSION
 gem 'decidim-apiauth', github: 'mainio/decidim-module-apiauth'
 gem 'omniauth_openid_connect', '0.6.1'
 
+gem "decidim-decidim_awesome"
+
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 
 gem 'bootsnap', '1.13.0'
