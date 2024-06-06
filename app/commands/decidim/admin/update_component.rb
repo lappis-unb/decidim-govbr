@@ -36,6 +36,8 @@ module Decidim
       private
 
       def update_component
+        insert_proposal_most_voted_label if permited_to_insert_label?
+
         @previous_settings = @component.attributes["settings"].with_indifferent_access
         @component.name = form.name
         @component.weight = form.weight
@@ -52,6 +54,43 @@ module Decidim
         @settings_changed = @component.settings_changed?
 
         @component.save!
+      end
+
+      def insert_proposal_most_voted(proposal)
+        badge_array = proposal.badge_array
+
+        if badge_array.exclude?("Mais Votada")
+          badge_array << "Mais Votada"
+          proposal.update(badge_array: badge_array)
+        end
+      end
+
+      def insert_proposal_most_voted_label
+        ten_most_voted_proposals.each do |proposal|
+          insert_proposal_most_voted(proposal)
+        end
+      end
+
+      def reoder_by_votes
+        proposals = Decidim::Proposals::Proposal.where(component: @component)
+        proposals.order(proposal_votes_count: :desc)
+      end
+
+      def ten_most_voted_proposals
+        reoder_by_votes.limit(10)
+      end
+
+      def clear_label_from_all_proposals
+        proposals = Decidim::Proposals::Proposal.where(component: @component)
+        proposals.each do |proposal|
+          badge_array = []
+          proposal.update(badge_array: badge_array)
+          proposal.save
+        end
+      end
+
+      def permited_to_insert_label?
+        @component.manifest.name == "proposals" && (params[:component][:step_settings]["9"][:votes_enabled] != @component.step_settings["9"][:votes_enabled])
       end
 
       def run_hooks

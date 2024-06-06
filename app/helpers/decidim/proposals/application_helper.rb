@@ -34,9 +34,6 @@ module Decidim
       # proposal - The proposal to evaluate.
       #
       # Returns a String.
-      def ten_most_voted_proposals
-        proposals.order(proposal_votes_count: :desc).limit(10)
-      end
 
       def proposal_state_css_class(proposal)
         state = proposal.state
@@ -81,10 +78,6 @@ module Decidim
 
       def proposal_limit_enabled?
         proposal_limit.present?
-      end
-
-      def only_most_voted_proposals
-        proposals.order(proposal_votes_count: :desc)
       end
 
       def minimum_votes_per_user_enabled?
