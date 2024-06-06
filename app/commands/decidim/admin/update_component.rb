@@ -90,7 +90,7 @@ module Decidim
       end
 
       def permited_to_insert_label?
-        @component.manifest.name == "proposals" && (params[:component][:step_settings]["9"][:votes_enabled] != @component.step_settings["9"][:votes_enabled])
+        @component.manifest_name == "proposals" && (params[:component][:step_settings]["9"][:votes_enabled] != @component.step_settings["9"][:votes_enabled])
       end
 
       def run_hooks
