@@ -47,9 +47,6 @@ module Decidim
       end
 
       def state_classes
-        binding.pry
-        ten_most_voted_proposals if current_component.votes_enabled? && current_component.amendment_creation_enabled
-
         case state
         when "accepted"
           ["green"]
@@ -57,10 +54,8 @@ module Decidim
           ["red"]
         when "evaluating"
           ["orange"]
-        when "most_voted"
-          ["blue"]
         else
-          return ["blue"] if ten_most_voted_proposals.includes?(model)
+          return ["blue"] if current_user && model.voted_by?(current_user)
 
           ["default"]
         end
