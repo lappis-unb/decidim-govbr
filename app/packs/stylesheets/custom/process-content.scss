@@ -112,3 +112,46 @@ h6 {
   font-size: 2rem;
   font-weight: 600;
 }
+
+.meetings-list-item{
+  background: #f8f8f8;
+  border-radius: 0.25rem;
+  width: 31rem;
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  height: 5.688rem;
+
+}
+
+.meetings-list-divider{
+  width: 0.5px;
+  height: 4rem;
+  background-color: rgba(12,50,111,0.50);
+}
+
+.meetings-list-item-text{
+  color: var(--blue-warm-vivid-70);
+  font-size: 1rem;
+  font-weight: 600;
+  width: 18.375rem;
+}
+
+.meetings-list-item-infos{
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.meetings-list-item-info{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--blue-warm-vivid-70);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
