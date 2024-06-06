@@ -1,10 +1,10 @@
-<% if current_user.try(:admin?) %>
+<% if (current_user.try(:admin?) || current_component.participatory_space.moderators.include?(current_user)) %>
   <div class="comment__header__context-menu">
     <label for="<%= context_menu_id %>" data-toggle="<%= context_menu_id %>">
       <i class="fa-solid fa-ellipsis fa-2x"></i>
     </label>
     <ul id="<%= context_menu_id %>" data-dropdown data-close-on-click="true" data-position="left" data-alignment="top" class="card dropdown-pane comment__header__context-menu__content">
-      <% if model.authored_by?(current_user) %>
+      <% if !model.authored_by?(current_user) %>
         <li>
           <button type="button" class="link-alt comment__header__context-menu__content-item" data-open="<%= "editCommentModal#{model.id}" %>" title="<%= t("decidim.components.comment.edit") %>" aria-controls="<%= "editCommentModal#{model.id}" %>" aria-haspopup="dialog" tabindex="0">
             <i class="fa-solid fa-pen-to-square fa-md"></i>
