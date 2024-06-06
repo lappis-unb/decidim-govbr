@@ -2,5 +2,5 @@
   <%= content_tag :span, badge_name, class: badge_classes %>
 <% end %>
 <% model.badge_array.each do |badge| %>
-  <%= content_tag :span, badge, class: badge_classes %>
+  <%= content_tag :span, badge, class: extra_badges_classes(badge) %>
 <% end %>
