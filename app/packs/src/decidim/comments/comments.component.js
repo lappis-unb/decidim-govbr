@@ -31,6 +31,7 @@ export default class CommentsComponent {
     this.toggleTranslations = config.toggleTranslations;
     this.id = this.$element.attr("id") || this._getUID();
     this.mounted = false;
+    this.currentPage = 1;
   }
 
   /**
@@ -71,6 +72,8 @@ export default class CommentsComponent {
     }
   }
 
+
+
   /**
    * Adds a new thread to the comments section.
    * @public
@@ -85,6 +88,11 @@ export default class CommentsComponent {
     const $threads = $(".comment-threads", this.$element);
     this._addComment($threads, $comment);
     this._finalizeCommentCreation($parent, fromCurrentUser);
+  }
+
+  _loadMoreComments(page) {
+    this.currentPage = page;
+    this._fetchComments(null, page);
   }
 
   addNewThread(threadHtml, fromCurrentUser = false) {
@@ -129,7 +137,6 @@ export default class CommentsComponent {
     this._finalizeCommentCreation($parent, fromCurrentUser);
   }
 
-  
 
   /**
    * Generates a unique identifier for the form.
@@ -267,7 +274,7 @@ export default class CommentsComponent {
    *   successful fetch
    * @returns {Void} - Returns nothing
    */
-  _fetchComments(successCallback = null) {
+  _fetchComments(successCallback = null, page = this.currentPage) {
     Rails.ajax({
       url: this.commentsUrl,
       type: "GET",
@@ -276,10 +283,15 @@ export default class CommentsComponent {
         "root_depth": this.rootDepth,
         "order": this.order,
         "after": this.lastCommentId,
+        "page": page,
         ...(this.toggleTranslations && { "toggle_translations": this.toggleTranslations }),
-        ...(this.lastCommentId && { "after": this.lastCommentId })
       }),
-      success: () => {
+      success: (data) => {
+        const $commentsContainer = $(".comment-threads", this.$element);
+        $commentsContainer.append(data.html);  
+
+        this._initializeComments($commentsContainer);
+
         if (successCallback) {
           successCallback();
         }
@@ -372,3 +384,21 @@ export default class CommentsComponent {
     }
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const loadMoreButton = document.getElementById("load-more-comments");
+  const commentsComponent = new CommentsComponent($(".comments-container"), {
+    commentableGid: loadMoreButton.getAttribute("data-commentable-gid"),
+    commentsUrl: "/comments",
+    order: loadMoreButton.getAttribute("data-order")
+  })
+  if (loadMoreButton) {
+    loadMoreButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      const page = parseInt(loadMoreButton.getAttribute("data-page"), 10);
+      const newPage = page + 1;
+      commentsComponent._loadMoreComments(newPage);
+      loadMoreButton.setAttribute("data-page", newPage);
+    });
+  }
+});

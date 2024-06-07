@@ -61,6 +61,7 @@ pt-BR:
         single_comment_warning_title: Está vendo uma única contribuição
         confirm_destroy: Tem certeza que deseja excluir esta contribuição?
         loading: Carregando contribuições ...
+        load_more: "Carregar mais comentários"
       comment:
         delete: Deletar
         deleted_at: Contribuição excluída em %{date}

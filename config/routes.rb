@@ -68,6 +68,12 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :comments do
+      collection do
+        get :load_more, to: 'comments#load_more'
+      end
+    end
+
     resources :participatory_process_groups, only: [] do
       resources :participatory_process_group_users,
                 controller: 'decidim/participatory_processes/admin/participatory_process_group_users',
