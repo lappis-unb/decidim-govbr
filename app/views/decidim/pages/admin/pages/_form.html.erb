@@ -4,7 +4,7 @@
   </div>
   <div class="card-section">
     <div class="row column">
-      <%= form.text_field :description %>
+      <%= form.text_field :description, label: t("models.components.description", scope: "decidim.pages.admin")%>
       <%= form.translated :editor, :body, toolbar: :full, lines: 30, label: t("models.components.body", scope: "decidim.pages.admin") %>
     </div>
   </div>
