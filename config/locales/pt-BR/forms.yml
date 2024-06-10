@@ -7,6 +7,11 @@ pt-BR:
       questionnaire:
         title: Nome do Formulário
   decidim:
+    pages:
+      admin:
+        models:
+          components:
+            description: Descrição
     forms:
       admin:
         questionnaires:
