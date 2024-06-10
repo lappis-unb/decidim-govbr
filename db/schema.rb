@@ -1446,7 +1446,6 @@ ActiveRecord::Schema.define(version: 2024_06_06_181840) do
     t.jsonb "menu_links", default: "{}", null: false
     t.jsonb "footer_menu_links", default: "{}", null: false
     t.integer "user_profile_survey_id"
-    t.jsonb "extra_user_fields", default: {"enabled"=>false}
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
@@ -1686,7 +1685,6 @@ ActiveRecord::Schema.define(version: 2024_06_06_181840) do
     t.integer "comments_count", default: 0, null: false
     t.integer "follows_count", default: 0, null: false
     t.boolean "is_interactive", default: true
-    t.jsonb "badge_array", default: []
     t.index "md5((body)::text)", name: "decidim_proposals_proposal_body_search"
     t.index "md5((title)::text)", name: "decidim_proposals_proposal_title_search"
     t.index ["created_at"], name: "index_decidim_proposals_proposals_on_created_at"
@@ -1891,7 +1889,6 @@ ActiveRecord::Schema.define(version: 2024_06_06_181840) do
     t.boolean "show_in_footer", default: false, null: false
     t.bigint "topic_id"
     t.boolean "allow_public_access", default: false, null: false
-    t.string "description"
     t.index ["decidim_organization_id"], name: "index_decidim_static_pages_on_decidim_organization_id"
     t.index ["topic_id"], name: "index_decidim_static_pages_on_topic_id"
   end
