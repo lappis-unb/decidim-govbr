@@ -43,16 +43,29 @@ module Decidim
 
       def all_meetings_of_a_participatory_process
         state = params[:state]
+        search = params[:search]
 
         meeting_component = Decidim::Component.where(manifest_name: "meetings",
                                                      participatory_space_id: current_participatory_space.id,
                                                      participatory_space_type: "Decidim::ParticipatoryProcess")
                                               .first
 
-        @all_meetings_of_a_participatory_process ||= Decidim::Meetings::Meeting.where(decidim_component_id: meeting_component.id, associated_state: state).except_withdrawn
-                                                                               .published
-                                                                               .not_hidden
-                                                                               .visible_for(current_user)
+        if search.to_s.strip.empty?
+
+          @all_meetings_of_a_participatory_process ||= Decidim::Meetings::Meeting.where(decidim_component_id: meeting_component.id, associated_state: state).except_withdrawn
+                                                                                .published
+                                                                                .not_hidden
+                                                                                .visible_for(current_user)
+        else 
+
+          @all_meetings_of_a_participatory_process ||= Decidim::Meetings::Meeting
+                                                                                .where(decidim_component_id: meeting_component.id, associated_state: state)
+                                                                                .except_withdrawn
+                                                                                .published
+                                                                                .not_hidden
+                                                                                .visible_for(current_user)
+                                                                                .where("title ->> 'pt-BR' ILIKE ?", "%#{params[:search]}%")
+        end 
 
         render json: @all_meetings_of_a_participatory_process
       end
