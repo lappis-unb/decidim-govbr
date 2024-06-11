@@ -196,6 +196,8 @@ pt-BR:
     proposals:
       admin:
         when_empty: Proposta
+        period_submitting_proposals_is_not_open: O período para submissão de propostas não está aberto.
+        Its_export_is_underway: A sua exportação está em curso. Receberá um e-mail quando estiver completa.
         imports:
           label:
             answers: Importar respostas de um arquivo
