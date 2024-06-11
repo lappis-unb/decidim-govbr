@@ -1,8 +1,15 @@
 .meetings-list {
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 500px;
   gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .meetings-list {
+    width: 31rem;
+  }
 }
 
 .region-meetings {
@@ -13,6 +20,7 @@
   gap: 2rem;
   margin-top: 0.75rem;
   margin-bottom: 4rem;
+  align-items: center;
 }
 
 .br_mine {
@@ -92,7 +100,7 @@
   background-color: rgba(var(--interactive-rgb), var(--hover));
 }
 
-@media (min-width: 640px) {
+@media (min-width: 980px) {
   .meetings-content {
     display: flex;
     flex-direction: column;
