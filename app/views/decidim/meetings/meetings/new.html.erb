@@ -1,25 +1,24 @@
-<div class="row">
-  <div class="columns large-3">
-    <%= link_to :back do %>
-      <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-      <%= t(".back") %>
+<div class="br-container-lg">
+  <%= render partial: "wizard_aside" %>
+  <div class="new-meetings-header">
+    <%= render partial: "wizard_header", locals: { is_edit_form: false } %>
+  </div>
+  <div class="new-meeting-form">
+    <h2 class="new-meeting-title">
+      <%= t("title", scope: "decidim.meetings.meetings.form.new")%>
+    </h2>
+    <%= decidim_form_for(@form, html: { class: "meetings_form new_meeting" }) do |f| %>
+      <%= render partial: "form", object: f %>
+      <div class="actions">
+        <%= f.submit t(".create"), class: "button expanded", data: { disable: true } , id:"submit_meeting_form"%>
+      </div>
     <% end %>
   </div>
-
-  <div class="columns large-6">
-    <h2 class="section-heading"><%= t(".title") %></h2>
-    <div class="card">
-      <div class="card__content">
-        <%= decidim_form_for(@form, html: { class: "meetings_form new_meeting" }) do |f| %>
-          <%= render partial: "form", object: f %>
-
-          <div class="actions">
-            <%= f.submit t(".create"), class: "button expanded", data: { disable: true } %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-  <div class="columns large-3"></div>
 </div>
+<% content_for :js_content do %>
+  <script>
+    document.getElementById('submit_meeting_form').addEventListener('click', function() {
+      this.form.submit();
+    });
+  </script>
+<% end %>

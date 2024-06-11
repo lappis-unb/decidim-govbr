@@ -14,7 +14,7 @@
 
   <span id="filter-btn-br" class="button">
     <i class="fa-solid fa-sliders fa-lg" style="color: var(--gray-80);"></i>
-    Mostrar Filtros
+    <%=t("activemodel.attributes.organization.show_filters")%> 
   </span>
 
   <div id="filters__menu__container" class="filters__hidden">
@@ -44,5 +44,4 @@
       <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
     </div>
   </div>
-  
 <% end %>
