@@ -31,7 +31,7 @@ module Decidim
       def state_classes
         if model.state == "withdrawn"
           ["red"]
-        elsif Date.current > end_date
+        elsif finished?
           ["gray"]
         elsif Date.current.between?(start_date, end_date)
           ["green"]

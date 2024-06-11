@@ -24,8 +24,7 @@
     <div class="main-content">
       <div class="meeting-actions-buttons">
         <% @meeting_cell = cell("decidim/meetings/meeting_m", @meeting, full_badge: true) %>
-        <% @cancelled = (meeting.state == "withdrawn") %>
-        <% if (DateTime.current < meeting.start_time) %>
+        <% if has_started?(meeting) %>
           <% if admin_allowed_to?(:destroy, :meeting, meeting: meeting) && meeting.deletable? && !@meeting_cell.finished? %>
             <%= link_to resource_locator(meeting).show, method: :delete, class: "br-button secondary delete-meeting", 
                 data: { confirm: t(".confirm_delete") } do %>
@@ -33,7 +32,7 @@
                 <%= t(".delete_meeting") %>
             <% end %>
           <% else %>
-            <% if !@meeting_cell.finished? && !@cancelled %>
+            <% if !@meeting_cell.finished? && !cancelled?(meeting) %>
               <%= link_to withdraw_meeting_path(@meeting), method: 'put', class: "br-button secondary cancel-meeting", 
                 data: { confirm: t('.confirm_cancel') } do %>
                 <i class="fa-solid fa-trash-can" style="color: #8b0a03;"></i>
@@ -43,7 +42,7 @@
           <% end %>
         <% end %>
 
-        <% if !@meeting_cell.finished? && !@cancelled %>
+        <% if !@meeting_cell.finished? && !cancelled?(meeting) %>
           <% if allowed_to?(:update, :meeting, meeting: meeting) %>
             <%= link_to edit_meeting_path(meeting), class: "br-button secondary black-and-white-btn" do %>
               <i class="fa-solid fa-pen-to-square" style="color: #333333;"></i>
@@ -52,7 +51,7 @@
           <% end %>
         <% end %>
 
-        <% if allowed_to?(:close, :meeting, meeting: meeting) && !@cancelled && @meeting_cell.finished? %>
+        <% if allowed_to?(:close, :meeting, meeting: meeting) && !cancelled?(meeting) && @meeting_cell.finished? %>
           <%= link_to edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "br-button secondary black-and-white-btn" do %>
             <%= caption =  meeting.closed? ? t(".edit_close_meeting") : t(".close_meeting") %>
           <% end %>
@@ -144,7 +143,7 @@
           
           <%= render partial: "calendar_modal", locals: {
               ics_url: calendar_meeting_url(meeting),
-              google_url: google_calendar_event_url(meeting) 
+              google_url: google_calendar_event_url(meeting)
             } 
           %>
         </div>
