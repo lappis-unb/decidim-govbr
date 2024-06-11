@@ -212,38 +212,109 @@
   'SE': 'Sergipe',
   'TO': 'Tocantins'
 };
+const process = document.getElementById('region-meetings-map-container').dataset.process;
+
+let currentRegion = '';
 
     const getMeetings = (uf) => {
+      currentRegion = regions[uf];
       const meetingsPath = document.getElementById('region-meetings-map-container').dataset.meetingsPath;
       if (meetingsPath) {
         $.ajax({
             url: meetingsPath,
             dataType: 'json',
-            data: { state: regions[uf] },
+            data: { state: regions[uf], search: document.getElementById('searchMeetings').value },
             success: function(data) {
+            var meetingsListSection = $('#meetings-list-section');
             var meetingsList = $('#meetings-list');
             meetingsList.empty();
+            
+            const component_id = data.length > 0 ? data[0].decidim_component_id : "";
+
             $.each(data, function(index, meeting) {
+
+                if (index > 2) {
+                    return;
+                }
                 const meetingDiv = document.createElement('div');
-                meetingDiv.classList.add('region-meeting');
+                meetingDiv.classList.add('meetings-list-item');
                 meetingDiv.innerHTML = createRegionCard(meeting);
                 meetingsList.append(meetingDiv);
             });
-            const subtitle=document.getElementById("meeting-map-subtitle");
-            subtitle.classList.add("meetings-not-visible")
-            console.log(meetingsList);
-            console.log(data);
-            meetingsList[0].classList.remove('meetings-not-visible');
-            meetingsList[0].classList.add('meetings-list meetings-content');
+            if (data.length === 0) {
+                const noMeetingsMessage = document.createElement('span');
+                noMeetingsMessage.textContent = "Nenhuma reunião encontrada";
+                meetingsList.append(noMeetingsMessage);
+            }
+
+            if (data.length > 1) {
+
+                const moreMeetingsDiv = document.createElement('div');
+                moreMeetingsDiv.classList.add('more-meetings');
+
+                const totalMeetings = document.createElement('span');
+                totalMeetings.classList.add('total-meetings');
+                totalMeetings.textContent = `${data.length} reuniões encontradas`;
+                
+                moreMeetingsDiv.append(totalMeetings);
+
+                const seeAllMeetings = document.createElement('a');
+                seeAllMeetings.classList.add("br-button", "primary", "px-6x");
+                seeAllMeetings.textContent = "Ver todas";
+                seeAllMeetings.href = `/processes/${process}/f/${component_id}/meetings`;
+
+                
+                moreMeetingsDiv.append(seeAllMeetings);
+                meetingsList.append(moreMeetingsDiv);
+            }
+
+            const subtitle=document.getElementById("meetings-map-subtitle");
+            subtitle.classList.add("meetings-not-visible");
+
+            const meetingsListTitle = document.getElementById('meetings-list-title');
+            meetingsListTitle.textContent = "Reuniões no " + regions[uf];
+
+            meetingsListSection.removeClass('meetings-not-visible');
             }
         });
         }
     };
 
+    const seachEventListener = (() => {
+        const searchInput = document.getElementById('searchMeetings');
+        searchInput.addEventListener('input', () => {
+            const meetingsPath = document.getElementById('region-meetings-map-container').dataset.meetingsPath;
+            if (meetingsPath) {
+            $.ajax({
+                url: meetingsPath,
+                dataType: 'json',
+                data: { state: currentRegion, search: searchInput.value },
+                success: function(data) {
+                var meetingsListSection = $('#meetings-list-section');
+                var meetingsList = $('#meetings-list');
+                meetingsList.empty();
+                $.each(data, function(index, meeting) {
+                    const meetingDiv = document.createElement('div');
+                    meetingDiv.classList.add('meetings-list-item');
+                    meetingDiv.innerHTML = createRegionCard(meeting);
+                    meetingsList.append(meetingDiv);
+
+                });
+
+                if (data.length === 0) {
+                    const noMeetingsMessage = document.createElement('span');
+                    noMeetingsMessage.textContent = "Nenhuma reunião encontrada";
+                    meetingsList.append(noMeetingsMessage);
+                }
+                }
+            });
+            }
+        });
+        })();
+
     const createRegionCard = (meeting) => {
-      const process= document.getElementById('region-meetings-map-container').dataset.process;
+      
         return `
-            <div class="meetings-list-item">
             <a class="meetings-list-item-text" href="/processes/${process}/f/${meeting.decidim_component_id}/meetings/${meeting.id}">${meeting.title["pt-BR"]}</a>
                 <div class= "meetings-list-divider"></div>
                     <div class="meetings-list-item-infos">
@@ -258,6 +329,5 @@
                     </div>
 
                 </div>
-            </div>
                     `;
     }
