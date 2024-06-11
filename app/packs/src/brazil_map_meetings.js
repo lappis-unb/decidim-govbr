@@ -319,11 +319,11 @@ let currentRegion = '';
                 <div class= "meetings-list-divider"></div>
                     <div class="meetings-list-item-infos">
                         <div class="meetings-list-item-info">
-                            <i class="fa-solid fa-calendar-week fa-md"></i> 
+                            <i class="fa-solid fa-calendar-week fa-lg"></i> 
                             <span>${new Date(meeting.start_time).toLocaleDateString()}</span>
                         </div>
                         <div class="meetings-list-item-info">
-                            <i class="fa-solid fa-map-pin fa-md"></i>
+                            <i class="fa-solid fa-map-pin fa-lg"></i>
                             <span>${meeting.address}</span>
                         </div>
                     </div>
