@@ -1,7 +1,7 @@
 (() => {
   window.addEventListener("DOMContentLoaded", (e) => {
     ImportScriptFile();
-    CreateDOMObjects();
+    // CreateDOMObjects();
 
     // Evento para primeira letra maiuscula
     capitalizarOnBlur("proposal_title");
