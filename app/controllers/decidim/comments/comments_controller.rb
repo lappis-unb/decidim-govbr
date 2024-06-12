@@ -170,10 +170,10 @@ module Decidim
 
       def set_commentable
         @commentable ||= if commentable_gid
-          GlobalID::Locator.locate_signed(commentable_gid)
-        elsif comment
-          comment.root_commentable
-        end
+                           GlobalID::Locator.locate_signed(commentable_gid)
+                         elsif comment
+                           comment.root_commentable
+                         end
       end
 
       def set_comment
