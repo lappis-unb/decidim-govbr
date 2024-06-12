@@ -12,7 +12,6 @@ module Decidim
       prepend_before_action :skip_timeout, only: :index
       before_action :authenticate_user!, only: [:create]
       before_action :set_commentable, except: [:destroy, :update]
-      before_action :ensure_commentable!, except: [:destroy, :update, :update_status]
 
       helper_method :root_depth, :commentable, :order, :reply?, :reload?, :root_comment
 
@@ -170,7 +169,11 @@ module Decidim
       attr_reader :commentable, :comment, :form
 
       def set_commentable
-        @commentable = GlobalID::Locator.locate_signed(commentable_gid)
+        @commentable ||= if commentable_gid
+          GlobalID::Locator.locate_signed(commentable_gid)
+        elsif comment
+          comment.root_commentable
+        end
       end
 
       def set_comment
