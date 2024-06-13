@@ -86,7 +86,7 @@ module Decidim
     def max_file_dimensions
       return unless uploader.respond_to?(:max_image_height_or_width)
 
-      "#{uploader.max_image_widht(attribute)}x#{uploader.max_image_height(attribute)}"
+      "#{uploader.max_image_width(attribute)}x#{uploader.max_image_height(attribute)}"
     end
 
     def extension_allowlist
