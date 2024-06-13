@@ -43,17 +43,6 @@ module Decidim
           end
         end
 
-        def clear_label_from_all_proposals
-          proposals = Proposal.where(component: current_component)
-
-          proposals.each do |proposal|
-            badge_array = []
-            proposal.update(badge_array: badge_array)
-
-            proposal.save
-          end
-        end
-
         def remove_label_from_proposal
           proposals = Proposal.find(params[:id])
           remove_badge = params[:badge]
