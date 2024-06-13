@@ -274,5 +274,7 @@ function convertIconsToHttps() {
 function changePositionAdminBtns() {
   const btns = document.getElementById("admin-actions-btns");
   const wrapper = document.querySelector("#content .wrapper");
-  wrapper.parentNode.insertBefore(btns, wrapper);
+  if (wrapper && wrapper.parentNode) {
+    wrapper.parentNode.insertBefore(btns, wrapper);
+  }
 }
