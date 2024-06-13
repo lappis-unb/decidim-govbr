@@ -41,7 +41,7 @@ module Decidim
         case state
         when "accepted"
           "text-success"
-        when "rejected", "withdrawn"
+        when "rejected", "withdrawn", "disqualified"
           "text-alert"
         when "evaluating"
           "text-warning"
@@ -210,7 +210,8 @@ module Decidim
             Decidim::CheckBoxesTreeHelper::TreePoint.new("accepted", t("decidim.proposals.application_helper.filter_state_values.accepted")),
             Decidim::CheckBoxesTreeHelper::TreePoint.new("evaluating", t("decidim.proposals.application_helper.filter_state_values.evaluating")),
             Decidim::CheckBoxesTreeHelper::TreePoint.new("state_not_published", t("decidim.proposals.application_helper.filter_state_values.not_answered")),
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("rejected", t("decidim.proposals.application_helper.filter_state_values.rejected"))
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("rejected", t("decidim.proposals.application_helper.filter_state_values.rejected")),
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("disqualified", t("decidim.proposals.application_helper.filter_state_values.disqualified"))
           ]
         )
       end
