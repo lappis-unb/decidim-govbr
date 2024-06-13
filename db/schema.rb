@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_06_03_171727) do
+ActiveRecord::Schema.define(version: 2024_06_06_181840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1455,6 +1455,7 @@ ActiveRecord::Schema.define(version: 2024_06_03_171727) do
     t.integer "decidim_component_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
     t.index ["decidim_component_id"], name: "index_decidim_pages_pages_on_decidim_component_id"
   end
 
