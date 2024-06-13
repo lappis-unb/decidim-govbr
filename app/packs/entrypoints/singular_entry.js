@@ -1,0 +1,1 @@
+import "../src/singular_pluralized_name"

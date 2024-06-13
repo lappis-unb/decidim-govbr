@@ -1,7 +1,7 @@
 (() => {
   window.addEventListener("DOMContentLoaded", (e) => {
     ImportScriptFile();
-    CreateDOMObjects();
+    // CreateDOMObjects();
 
     // Evento para primeira letra maiuscula
     capitalizarOnBlur("proposal_title");
@@ -19,6 +19,8 @@
     window.addEventListener("resize", updateContentMarginTop);
 
     doEverything();
+
+    changePositionAdminBtns();
   });
 })();
 
@@ -179,7 +181,6 @@ function doEverything() {
   const navbarUl = document.querySelector(".process-nav ul");
   if (navbarUl) {
     if (window.location.href.includes("/processes/ENGD")) {
-      var allElements = document.querySelectorAll("*:not(script):not(style)");
       var respond_comment_button = document.querySelectorAll(
         ".comment__reply.muted-link"
       );
@@ -206,14 +207,6 @@ function doEverything() {
       homeSections.forEach((section) => {
         section.remove();
       });
-
-      const spaceMenu = navbarUl.querySelectorAll("li");
-
-      if (spaceMenu.length) {
-        spaceMenu.forEach((liElement) => {
-          liElement.remove();
-        });
-      }
 
       if (window.location.href.includes("/processes/ENGD/f/77")) {
         const participatoryList = document.querySelector(
@@ -276,4 +269,10 @@ function convertIconsToHttps() {
       }
     });
   }
+}
+
+function changePositionAdminBtns() {
+  const btns = document.getElementById("admin-actions-btns");
+  const wrapper = document.querySelector("#content .wrapper");
+  wrapper.parentNode.insertBefore(btns, wrapper);
 }

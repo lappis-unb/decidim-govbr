@@ -1,0 +1,53 @@
+<% @with_resource_type = "any" %>
+<% if params.dig(:filter, :with_resource_type).present? %>
+  <% @with_resource_type = params[:filter][:with_resource_type] %>
+  <p class="text-secondary">
+    <%= link_to main_search_path do %>
+      <%= icon "caret-left", class: "icon--small", role: "img", "aria-hidden": true %>&nbsp;<%= t(".back") %>
+    <% end %>
+  </p>
+<% end %>
+<div class="nav-search-filters">
+  <%= render partial: "resources_filter_block", locals: { sections: @sections, types: Decidim::Searchable.searchable_resources_of_type_participant } %>
+  <%= render partial: "resources_filter_block", locals: { sections: @sections, types: Decidim::Searchable.searchable_resources_of_type_participatory_space } %>
+  <%= render partial: "resources_filter_block", locals: { sections: @sections, types: Decidim::Searchable.searchable_resources_of_type_component } %>
+  <%= render partial: "resources_filter_block", locals: { sections: @sections, types: Decidim::Searchable.searchable_resources_of_type_comment } %>
+  <%= form_tag(decidim.search_path, method: :get) do %>
+    <%= label_tag "input-search" do %>
+      <%= text_field_tag(
+        :term,
+        nil,
+        class: "input-group-field",
+        id: "input-search",
+        value: params[:term] || params.dig(:filter, :term),
+        placeholder: t("decidim.search.term_input_placeholder"),
+        title: t("decidim.search.term_input_placeholder"),
+        style: "display: none"
+      ) %>
+    <% end %>
+    
+    <div class="filters__section--general 
+      <%= @with_resource_type == "any" ? "selected-section" : "" %>"
+    >
+      <button type="submit" class="flex--sbc">
+        <strong class="section-title">Todos</strong>
+        <span class="muted">(<%= @results_count %>)
+        </span>
+      </button>
+    </div>
+  <% end %>
+</div>
+
+<div class="card card--secondary" style="display: none;">
+  <%= filter_form_for filter do |form| %>
+    <%= scopes_picker_filter form, :decidim_scope_id_eq %>
+    <%= form.hidden_field :term %>
+  <% end %>
+</div>
+
+<span class="order-by__tabs">
+  <%= search_path_by_state_link(:past) %>
+  <%= search_path_by_state_link(:future) %>
+  <%= search_path_by_state_link(:active) %>
+  <%= search_path_by_state_link(nil) %>
+</span>

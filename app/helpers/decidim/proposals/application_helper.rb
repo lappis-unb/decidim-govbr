@@ -18,6 +18,7 @@ module Decidim
       include Decidim::CheckBoxesTreeHelper
 
       delegate :minimum_votes_per_user, to: :component_settings
+      delegate :most_voted_rule, to: :component_settings
 
       # Public: The state of a proposal in a way a human can understand.
       #
@@ -40,7 +41,7 @@ module Decidim
         case state
         when "accepted"
           "text-success"
-        when "rejected", "withdrawn"
+        when "rejected", "withdrawn", "disqualified"
           "text-alert"
         when "evaluating"
           "text-warning"
@@ -139,6 +140,10 @@ module Decidim
         ).count
       end
 
+      def form_has_address?
+        @form.address.present? || @form.has_address
+      end
+
       def show_voting_rules?
         return false unless votes_enabled?
 
@@ -160,10 +165,20 @@ module Decidim
       # Options to filter Proposals by activity.
       def activity_filter_values
         base = [
-          ["all", t("decidim.proposals.proposals.filters.all")],
-          ["my_proposals", t("decidim.proposals.proposals.filters.my_proposals")]
+          ["all",
+           t("decidim.proposals.proposals.filters.all",
+             component_name: resource_title(current_component).downcase)],
+          ["my_proposals",
+           t("decidim.proposals.proposals.filters.my_proposals",
+             component_name: resource_title(current_component).downcase)]
         ]
-        base += [["voted", t("decidim.proposals.proposals.filters.voted")]] if current_settings.votes_enabled?
+        if current_settings.votes_enabled?
+          base += [
+            ["voted",
+             t("decidim.proposals.proposals.filters.voted",
+               component_name: resource_title(current_component).capitalize)]
+          ]
+        end
         base
       end
 
@@ -195,7 +210,8 @@ module Decidim
             Decidim::CheckBoxesTreeHelper::TreePoint.new("accepted", t("decidim.proposals.application_helper.filter_state_values.accepted")),
             Decidim::CheckBoxesTreeHelper::TreePoint.new("evaluating", t("decidim.proposals.application_helper.filter_state_values.evaluating")),
             Decidim::CheckBoxesTreeHelper::TreePoint.new("state_not_published", t("decidim.proposals.application_helper.filter_state_values.not_answered")),
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("rejected", t("decidim.proposals.application_helper.filter_state_values.rejected"))
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("rejected", t("decidim.proposals.application_helper.filter_state_values.rejected")),
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("disqualified", t("decidim.proposals.application_helper.filter_state_values.disqualified"))
           ]
         )
       end

@@ -13,7 +13,9 @@
                       :proposal_wizard_step_3_help_text,
                       :proposal_wizard_step_4_help_text,
                       :official_proposals_enabled,
-                      :new_proposal_body_template] %>
+                      :new_proposal_body_template,
+                      :enable_comments_attachment,
+                      :requires_previous_moderation] %>
 
 <div class="card">
   <div class="card-divider">
@@ -21,9 +23,9 @@
   </div>
   <div class="card-section">
     <div class="row column">
-      <%= form.translated :text_field, :singular_name %>
+      <%= form.translated :text_field, :singular_name, id: "singular_name" %>
       <p class="help-text"><%= t(".name_field") %></p>
-      <%= form.translated :text_field, :name, autofocus: true %>
+      <%= form.translated :text_field, :name, autofocus: true, id: "pluralized_name" %>
       <p class="help-text"><%= t(".pluralized_name_field") %></p>
       <%= form.fields_for :settings, form.object.settings do |settings_fields| %>
         <%= render partial: "decidim/admin/components/settings_fields",
@@ -35,7 +37,7 @@
                     only: [:participatory_texts_enabled]
                    } %>
       <% end %>
-      <%= form.translated :text_field, :menu_name %>
+      <%= form.translated :text_field, :menu_name, id: "menu_name" %>
       <p class="help-text"><%= t(".menu_name_field") %> </p>
       <% if form.object.settings? %>
         <fieldset class="global-settings">
@@ -136,3 +138,5 @@
     });
   });
 </script>
+
+<%= javascript_pack_tag "singular_entry" %>

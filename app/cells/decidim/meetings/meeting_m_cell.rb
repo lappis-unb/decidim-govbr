@@ -12,6 +12,36 @@ module Decidim
         true
       end
 
+      def badge_name
+        if Date.current > end_date
+          t("decidim.meetings.card.status.finished")
+        elsif Date.current.between?(start_date, end_date)
+          t("decidim.meetings.card.status.active")
+        else
+          t("decidim.meetings.card.status.upcoming")
+        end
+      end
+
+      def state_classes
+        if Date.current > end_date
+          ["gray"]
+        elsif Date.current.between?(start_date, end_date)
+          ["green"]
+        else
+          ["blue"]
+        end
+      end
+
+      def location_badge_name
+        return t("decidim.meetings.card.location.online") if online_meeting?
+
+        t("decidim.meetings.card.location.in_person")
+      end
+
+      def location_badge_classes
+        "gray card__text--status"
+      end
+
       def render_authorship
         cell "decidim/author", author_presenter_for(model.normalized_author)
       end
@@ -36,12 +66,17 @@ module Decidim
         render if has_badge?
       end
 
-      def has_badge?
-        withdrawn?
+      def location_badge
+        render
       end
 
-      def state_classes
-        ["alert"]
+      def base_card_class
+        "card--component"
+      end
+
+      def card_classes
+        classes = [base_card_class]
+        classes.concat(state_classes).join(" ")
       end
 
       delegate :online_meeting?, to: :model
@@ -124,6 +159,10 @@ module Decidim
 
       def subscribers_count
         model.subscribers_count
+      end
+
+      def has_badge?
+        true
       end
     end
   end

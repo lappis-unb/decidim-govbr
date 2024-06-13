@@ -14,6 +14,8 @@ pt-BR:
       proposals_import:
         origin_component_id: Componente de origem
     errors:
+      messages:
+        too_much_caps: O campo contém muitas letras maiúsculas
       models:
         proposal:
           attributes:
@@ -52,6 +54,7 @@ pt-BR:
               rejected: Rejeitada
               validating: Validação técnica
               withdrawn: Retirada
+              disqualified: Desclassificada
           state_null:
             label: Estado
             values:
@@ -64,11 +67,12 @@ pt-BR:
           new: Novo(a) %{name}
           action_not_allowed: Você não pode interagir com propostas. O seu Perfil de Usuário está incompleto!
           answer_proposal: Responder proposta
-          edit_proposal: Editar
+          edit_proposal: Editar Proposta
           import: Importar de outro componente
           participatory_texts: Textos participativos
           show: Mostrar proposta
           title: Ações
+          publish: Publicar
         settings:
           global:
             default_sort_order: Ordem padrão das propostas
@@ -193,6 +197,8 @@ pt-BR:
     proposals:
       admin:
         when_empty: Proposta
+        period_submitting_proposals_is_not_open: O período para submissão de propostas não está aberto.
+        Its_export_is_underway: A sua exportação está em curso. Receberá um e-mail quando estiver completa.
         imports:
           label:
             answers: Importar respostas de um arquivo
@@ -212,17 +218,19 @@ pt-BR:
             success: "Propostas atualizadas com sucesso para o tema %{subject_name}: %{proposals}."
         proposal_answers:
           form:
-            accepted: Recebida
+            accepted: Incorporada
             answer_proposal: Resposta
             evaluating: Em avaliação
             not_answered: Não respondida
             rejected: Rejeitada
+            disqualified: Desclassificada
       answers:
         accepted: Incorporada
         evaluating: Em avaliação
         not_answered: Não respondida
         rejected: Rejeitada
         withdrawn: Retirada
+        disqualified: Desclassificada
       application_helper:
         filter_origin_values:
           participants: Participantes
@@ -232,9 +240,12 @@ pt-BR:
           evaluating: Em avaliação
           not_answered: Não respondida
           rejected: Rejeitada
+          disqualified: Desclassificada
       create:
         error: Ocorreu um problema ao salvar a proposta.
         success: Proposta criada com sucesso. Salva como rascunho.
+      withdraw:
+        success: Proposta retirada com sucesso
       collaborative_drafts:
         edit:
           back: Voltar
@@ -266,8 +277,8 @@ pt-BR:
       proposals:
         count:
           proposals_count:
-            one: "%{count} %{singular_name}"
-            other: "%{count} %{pluralized_name}"
+            one: "%{count} %{singular_name} encontrada"
+            other: "%{count} %{pluralized_name} encontradas"
         view_btn:
           placeholder: Ver %{singular_name}
         compare:
@@ -299,10 +310,13 @@ pt-BR:
           select_a_category: Selecione um tema
           title: Editar %{singular_name}
         filters:
-          category: Tema
+          category: Temas
           state: Status
-          activity: Minhas Atividades
+          activity: Minha Atividade
           placeholder: "Qual %{name} você procura?"
+          all: Todas as %{component_name}
+          my_proposals: Minhas %{component_name}
+          voted: "%{component_name} que apoio"
         orders:
           label: "Ordene propostas por:"
           most_commented: Mais contribuições
@@ -315,7 +329,9 @@ pt-BR:
         preview:
           announcement_body: Sua %{singular_name} foi salva como rascunho. Precisa ser publicada para aparecer no site.
           announcement_title: Sua %{singular_name} ainda não foi publicada
+          comments: Comentários
           modify: Modificar
+          help_preview: Esta é uma pré-visualização da sua proposta. Revise o seu conteúdo e tenha certeza que está tudo correto antes de publicar. Após a publicação, você poderá editar ou apagar a proposta enquanto não tiver contribuições.
           proposal_edit_before_minutes:
             one: Você poderá editar durante o primeiro minuto após a publicação. Uma vez que esta janela de tempo passa, você não poderá editar.
             other: Você poderá editar durante o primeiro %{count} minutos após a publicação. Uma vez que esta janela de tempo passa, você não poderá editar .
@@ -326,6 +342,7 @@ pt-BR:
             error: Não foi possível ser aceito como colaborador, por favor tente novamente mais tarde.
             success: "@%{user} foi aceito como colaborador com sucesso"
         show:
+          answer: Dar devolutiva
           back_to: Voltar para
           back_to_list_proposals: Voltar
           back_to_list: Voltar
@@ -333,26 +350,37 @@ pt-BR:
           proposal_accepted_why: 'Motivo:'
           proposal_in_evaluation_reason: Esta proposta está em avaliação
           proposal_rejected_reason: 'Esta proposta foi rejeitada'
+          proposal_disqualified_reason: Esta proposta foi desclassificada
           report: Denunciar
-          withdraw_proposal: Remover %{singular_name} 
+          withdraw_proposal: Remover %{singular_name}
         vote_button:
           already_voted: Votada!
           already_voted_hover: Retirar voto
           vote: Votar
         voting_rules:
+          help_button_text: Conheça as regras e os critérios para seleção de propostas
+          infom_text_help: ""
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pode acumular mais de %{limit} voto(s)
           minimum_votes_per_user:
             description: Deve distribuir um mínimo de %{votes} voto(s) entre diferentes propostas.
             supports_remaining: Tem que votar em mais %{remaining_votes} proposta(s) para os seus votos serem levados em conta.
           proposal_limit:
-            description: Pode criar até %{limit} proposta(s).
+            start_description: Cada participante pode
+            important: criar
+            end_description: até %{limit} proposta(s);
           threshold_per_proposal:
             description: Para serem aceites, as propostas precisam de atingir %{limit} voto(s)
           vote_limit:
-            description: Pode votar até %{limit} proposta(s).
+            start_description: Cada participante pode
+            important: votar
+            end_description: em até %{limit} proposta(s);
             left: Você tem
             votes: votos restantes
+          most_voted_rule:
+            start_description: As %{limit} propostas
+            important: mais votadas
+            end_description: de cada tema seguirão para análise, podendo ou não ser incorporadas.
         wizard_aside:
           back: Voltar
           back_from_step_1: Voltar

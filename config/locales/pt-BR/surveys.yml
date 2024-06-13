@@ -35,8 +35,11 @@ pt-BR:
             title: JavaScript está desativado
           tos_agreement: Ao participar você aceita seus Termos de Serviço
           questionnaire_answered:
-            body: Você já respondeu esta pesquisa.
-            title: Já respondido
+            body: Obrigado pela sua contribuição!
+            title: Você já participou desta pesquisa!
+          questionnaire_closed:
+            body: O questionário está fechado e não pode ser respondido.
+            title: Questionário fechado
       incomplete_profile: Completar Perfil de Usuário
     events:
       surveys:

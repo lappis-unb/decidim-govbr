@@ -42,6 +42,7 @@ pt-BR:
         body: Corpo
         subject: Assunto
       organization:
+        show_filters: Mostrar Filtros
         admin_terms_of_use_body: Corpo para os termos de uso do administrador
         alert_color: Alerta
         available_authorizations: Autorizações disponíveis
@@ -186,7 +187,7 @@ pt-BR:
         category:
           new: Nova categoria
         export: Exportar tudo
-        export_comments: Exportar comentários
+        export_comments: Exportar contribuições
         export_proposals: Exportar propostas
         export-selection: Exportar selecionado
         import: Importar
@@ -199,7 +200,7 @@ pt-BR:
         per_page: Por página
         permissions: Permissões
         reject: Negar
-        share: Compartilhar
+        share: Compartilhe sua contribuição
         user:
           new: Novo administrador
         verify: Verificar
@@ -632,6 +633,7 @@ pt-BR:
             roles:
               admin: Admin
               user_manager: Gerente de usuário
+              group_admin: Membro de grupo de processo
           name: Usuário
         user_group:
           fields:
@@ -1025,6 +1027,7 @@ pt-BR:
           email: E-mail
           name: Nome
           role: Cargo
+          needs_entity_fields: Exigir campos extras no cadastro
         new:
           create: Convite
           title: Convidar novo administrador

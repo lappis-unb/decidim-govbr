@@ -1,4 +1,4 @@
-<div class="news-title-container">
+<div class="news-title-container"> 
   <h1 class="page-title"><%= translated_attribute(current_component.name)  %></h1>
   
   <% if current_user && current_user.admin? %>
@@ -15,7 +15,7 @@
     <% if paginate_posts.empty? %>
       <div class="br-message info" role="alert">
         <div class="message-icon"><i class="fas fa-info-circle fa-xl" aria-hidden="true"></i></div>
-        <div class="content"><span class="message-title">A página não possui publicação.</span></div>
+        <div class="content"><span class="message-title"><%=t("decidim.blogs.posts.show.page_has_no_publication")%></span></div>
       </div>
     <% else %>
       <% paginate_posts.each do |post| %>
@@ -40,7 +40,7 @@
             <div class="card-footer">
               <div class="d-flex">
                 <%= link_to post, class: "card__link" do %>
-                  <button class="br-button" type="button">Ler mais</button>
+                  <button class="br-button" type="button"><%=t("decidim.blogs.posts.show.read_more")%></button>
                 <% end %>
                 <div class="ml-auto">
                   <button class="br-button circle" type="button" aria-label="Ícone de compartilhamento"
@@ -60,7 +60,7 @@
         <% if paginate_posts.empty? %>
           <div class="br-message info" role="alert">
             <div class="message-icon"><i class="fas fa-info-circle fa-xl" aria-hidden="true"></i></div>
-            <div class="content"><span class="message-title">A página não possui publicação.</span></div>
+            <div class="content"><span class="message-title"><%=t("decidim.blogs.posts.show.page_has_no_publication")%></span></div>
           </div>
         <% else %>
           <% paginate_posts.each do |post| %>

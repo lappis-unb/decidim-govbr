@@ -21,20 +21,18 @@
       morphdom($proposalVoteButton[0], '<%= j(render partial: "decidim/proposals/proposals/vote_button", locals: { proposal: proposal, from_proposals_list: @from_proposals_list }).strip.html_safe %>');
     }
 
-    var $proposalCard = $('#proposal_<%= proposal.id %>');
-    var $cardProposal = $proposalCard.find('.card--proposal');
+    var $proposalCard = $('#proposal_<%= proposal.id %>'); 
+    if($proposalCard[0]) {
 
-    if($cardProposal[0]) {
-
-      $cardProposal.removeClass();
+      $proposalCard.removeClass();
 
 
       const proposalState = '<%= update_status_classes(proposal) %>';
 
-      $cardProposal.addClass(`card card--proposal ${proposalState}`);
+      $proposalCard.addClass(`card card__animation column card--component ${proposalState}`);
 
 
-      morphdom($cardProposal[0], $cardProposal[0]);
+      morphdom($proposalCard[0], $proposalCard[0]);
     }
 
   })();
@@ -43,26 +41,21 @@
 <% if vote_limit_enabled? %>
   (function() {
     var $remainingVotesCount = $('#remaining-votes-count');
-    var $notVotedButtons = $('.card__button.button').not('.success');
+    var $notVotedButtons = $('.card__button.button')
 
     if(!$remainingVotesCount[0]) { return; }
 
     morphdom($remainingVotesCount[0], '<%= j(render partial: "decidim/proposals/proposals/remaining_votes_count").strip.html_safe %>');
 
     <% if remaining_votes_count_for(current_user) == 0 %>
-      $notVotedButtons.attr('disabled', true);
-      $notVotedButtons.val('<%= t("decidim.proposals.proposals.vote_button.no_votes_remaining") %>');
+        $notVotedButtons.attr('disabled', true);
+        $notVotedButtons.removeClass('proposal_vote_button');
+        $notVotedButtons.addClass('button card__button');
+        $notVotedButtons.text('<%= t("decidim.proposals.proposals.vote_button.no_votes_remaining") %>');
     <% else %>
       $notVotedButtons.attr('disabled', false);
-      $notVotedButtons.val('<%= t("decidim.proposals.proposals.vote_button.vote") %>');
+      $notVotedButtons.addClass('button secundary hollow proposal_vote_button card__button');
+      $notVotedButtons.html('<%= t("decidim.proposals.proposals.vote_button.vote") %>');
     <% end %>
-  }());
-<% end %>
-
-<% if show_voting_rules? %>
-  (function() {
-    var $votingRules = $('.voting-rules');
-    if(!$votingRules[0]) { return; }
-    morphdom($votingRules[0], '<%= j(render partial: "decidim/proposals/proposals/voting_rules").strip.html_safe %>');
   }());
 <% end %>

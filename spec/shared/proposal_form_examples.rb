@@ -38,6 +38,7 @@ shared_examples "a proposal form" do |options|
   let(:meeting_as_author) { false }
   let(:is_interactive) { false }
   let!(:validate_title_min_length) { create(:awesome_config, organization: organization, var: :validate_title_min_length, value: 15) }
+  let(:should_preview) { "preview" }
   let(:params) do
     {
       title: title,
@@ -50,7 +51,8 @@ shared_examples "a proposal form" do |options|
       meeting_as_author: meeting_as_author,
       attachment: attachment_params,
       suggested_hashtags: suggested_hashtags,
-      is_interactive: is_interactive
+      is_interactive: is_interactive,
+      should_preview: "preview"
     }
   end
 

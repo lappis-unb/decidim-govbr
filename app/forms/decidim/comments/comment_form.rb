@@ -5,17 +5,25 @@ module Decidim
     # A form object used to create comments from the graphql api.
     #
     class CommentForm < Form
+      include Decidim::Govbr::MediaAttachmentsHelper
+
       attribute :body, Decidim::Attributes::CleanString
       attribute :alignment, Integer
       attribute :user_group_id, Integer
       attribute :commentable
       attribute :commentable_gid
       attribute :status, String
+      attribute :attachment_file
 
       mimic :comment
 
+      ACCEPTED_TYPES = [
+        'application/pdf'
+      ].freeze
+
       validates :body, presence: true, length: { maximum: ->(form) { form.max_length } }
       validates :alignment, inclusion: { in: [0, 1, -1] }, if: ->(form) { form.alignment.present? }
+      validate :document_type_must_be_valid, if: :attachment_file
 
       validate :max_depth
 
@@ -33,6 +41,13 @@ module Decidim
         return unless commentable.respond_to?(:depth)
 
         errors.add(:base, :invalid) if commentable.depth >= Comment::MAX_DEPTH
+      end
+
+      def document_type_must_be_valid
+        document_type = blob(attachment_file).content_type
+        return if ACCEPTED_TYPES.include?(document_type)
+
+        errors.add(:attachment_file, "Somente arquivos pdf são permitidos")
       end
     end
   end

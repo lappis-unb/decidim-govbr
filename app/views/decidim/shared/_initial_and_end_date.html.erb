@@ -1,0 +1,12 @@
+<div class="date-container">
+    <i class="fa-solid fa-lg fa-calendar-alt"></i>
+    <span class="date-content">
+        <span class="date-label"><%= t("activemodel.attributes.participatory_process.start") %></span>
+        <%= current_participatory_space.start_date.nil? ? '-' : l(current_participatory_space.start_date) %>
+    </span>
+    <i class="fa-solid fa-lg fa-arrow-right"></i>
+    <span class="date-content">
+        <span class="date-label"><%= t("activemodel.attributes.participatory_process.closure") %> </span>
+        <%= current_participatory_space.end_date.nil? ? '-' : l(current_participatory_space.end_date) %>
+    </span>
+</div>

@@ -2,15 +2,13 @@
   <h3 class="section-heading">
     <%= translated_attribute(model.name) %>
   </h3>
-
   <%= cell(
     "decidim/collapsible_list",
     proposals_to_render,
     cell_options: {},
-    list_class: "card-grid meetings-content mb-baseh",
+    list_class: "card-grid component-content mb-baseh",
     size: proposals_count
     ) %>
-
   <%= link_to(
     t("decidim.participatory_spaces.highlighted_proposals.see_all", count: proposals_count),
     main_component_path(model),

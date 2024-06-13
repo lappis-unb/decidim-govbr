@@ -10,6 +10,7 @@ require "decidim/meetings/test/factories"
 require "decidim/homes/test/factories"
 require "decidim/blogs/test/factories"
 require "decidim/decidim_awesome/test/factories"
+require "decidim/surveys/test/factories"
 
 FactoryBot.define do
   factory :partner, class: "Decidim::Govbr::Partner" do
@@ -41,6 +42,7 @@ FactoryBot.define do
   factory :page, class: "Decidim::Pages::Page" do
     body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     component { build(:component, manifest_name: "pages") }
+    description { Faker::Lorem.sentence }
   end
 
   factory :statistic_setting, class: "Decidim::Govbr::UserProposalsStatisticSetting" do
