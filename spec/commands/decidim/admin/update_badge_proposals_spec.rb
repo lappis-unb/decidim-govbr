@@ -7,21 +7,27 @@ module Decidim
     describe UpdateBadgeProposals do
       let(:component) { create(:component, manifest_name: "proposals") }
       let(:user) { create(:user) }
-      let!(:proposals) { create_list(:proposal, 15, component: component) }
+      let!(:proposals) do
+        15.times.map do |index|
+          create(:proposal, component: component, proposal_votes_count: index + 1)
+        end
+      end
 
       describe 'Atualização de Badges' do
         subject { described_class.new(component, user) }
 
         before do
           proposals.each_with_index do |proposal, index|
-            proposal.update(proposal_votes_count: index)
+            proposal.update!(proposal_votes_count: index + 1)
           end
+          proposals.each(&:reload)
         end
 
         it 'labels the ten most voted proposals with "Mais Votada"' do
           subject.call
 
           most_voted_proposals = proposals.sort_by(&:proposal_votes_count).last(10)
+
           most_voted_proposals.each do |proposal|
             expect(proposal.reload.badge_array).to include("Mais Votada")
           end
@@ -45,7 +51,7 @@ module Decidim
           it 'Retorna 10 propostas mais votadas' do
             most_voted_proposals = subject.send(:ten_most_voted_proposals)
             expect(most_voted_proposals.size).to eq(10)
-            expect(most_voted_proposals).to match_array(proposals.sort_by(&:proposal_votes_count).reverse.take(10))
+            expect(most_voted_proposals).to match_array(proposals.sort_by(&:proposal_votes_count).last(10))
           end
         end
 
