@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-ej.git
-  revision: 55dcdfd6df67da0d171626a5f2bd36d976be2335
+  revision: c7f8b2fd2241dd4858a2785b277fe3a1333c514a
   branch: main
   specs:
     decidim-ej (0.27.2)

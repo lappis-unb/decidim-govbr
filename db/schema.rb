@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_05_23_181134) do
+ActiveRecord::Schema.define(version: 2024_06_14_030500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -2030,6 +2030,7 @@ ActiveRecord::Schema.define(version: 2024_05_23_181134) do
     t.jsonb "entity_fields"
     t.boolean "needs_entity_fields", default: false
     t.boolean "has_ej_account", default: false, null: false
+    t.string "encrypted_ej_password"
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
     t.index ["decidim_participatory_process_group_id"], name: "index_decidim_users_on_decidim_participatory_process_group_id"
