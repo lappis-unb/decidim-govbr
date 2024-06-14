@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   const showRulesCardButton = document.getElementById("showRulesButton");
   const rulesCard = document.getElementById("info_card");
-  const helpButtonText = document.getElementById("helpButtonIdText").value;
+  const helpButtonTextElement = document.getElementById("helpButtonIdText");
+  const helpButtonText = (helpButtonTextElement) ? helpButtonTextElement.value : '';
 
   if (showRulesCardButton && rulesCard) {
     showRulesCardButton.addEventListener("click", toggleRulesCard);

@@ -386,6 +386,12 @@ h6 {
   min-width: 180px;
 }
 
+.br-profile-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
 .button.hollow:hover {
   color: var(--blue-warm-vivid-70);
   border-color: var(--blue-warm-vivid-70);
@@ -1363,6 +1369,12 @@ div.columns.large-12
 .br-container-lg .row,
 .wrapper.wrapper--inner .row {
   max-width: 100%;
+}
+
+.admin--links {
+  text-align: right;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .social-register {

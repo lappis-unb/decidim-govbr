@@ -35,6 +35,15 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   if (getMettingType) {
+
+    if(getMettingType.value === 'in_person'){
+      getPresentialMeetingContainer.style.display = 'block';
+      getOnlineMeetingContainer.style.display = 'block';
+    } else if (getMettingType.value === 'hybrid'){
+      getPresentialMeetingContainer.style.display = 'block';
+      getOnlineMeetingContainer.style.display = 'block';
+    }
+
     getMettingType.addEventListener('change', function() {
       meetingType = getMettingType.value;
       

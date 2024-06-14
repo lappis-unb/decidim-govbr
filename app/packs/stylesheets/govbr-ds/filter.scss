@@ -311,7 +311,7 @@ div.filters__section fieldset > label {
 
 form.new_filter {
   width: 100%;
-  padding: 0;
+  padding: 0 !important;
 }
 
 .filters__section label[data-global-checkbox],
@@ -525,12 +525,12 @@ form.new_filter {
 }
 
 .vote_rules_card_visible {
-  max-height: 600px;
+  max-height: fit-content;
   transition: max-height 0.5s ease-in-out;
 }
 
 .show__rules__card {
-  max-height: 600px;
+  max-height: fit-content;
 }
 
 .voting-rules-counter .remaining-votes-counter div.card__content {
@@ -539,4 +539,5 @@ form.new_filter {
   gap: 1rem;
   border-radius: 2px;
   padding: 16px 40px !important;
+  min-width: 170px;
 }
