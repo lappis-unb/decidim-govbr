@@ -228,6 +228,10 @@ let currentRegion = '';
             var meetingsListSection = $('#meetings-list-section');
             var meetingsList = $('#meetings-list');
             meetingsList.empty();
+
+            var map = $('#regions');
+
+            map[0].classList.add('map-animation');
             
             const component_id = data.length > 0 ? data[0].decidim_component_id : "";
 
@@ -244,10 +248,11 @@ let currentRegion = '';
             if (data.length === 0) {
                 const noMeetingsMessage = document.createElement('span');
                 noMeetingsMessage.textContent = "Nenhuma reunião encontrada";
+                noMeetingsMessage.classList.add("meetings-not-found");
                 meetingsList.append(noMeetingsMessage);
             }
 
-            if (data.length > 1) {
+            if (data.length > 3) {
 
                 const moreMeetingsDiv = document.createElement('div');
                 moreMeetingsDiv.classList.add('more-meetings');
@@ -312,6 +317,35 @@ let currentRegion = '';
         });
         })();
 
+    const selectHandler = (() => {
+        const regionSelect = document.getElementById("region-select");
+
+        for(var key in regions) {
+            if (regions.hasOwnProperty(key)) {
+                const regionOption = document.createElement('option');
+                regionOption.value = key;
+                regionOption.text = regions[key];
+                regionSelect.appendChild(regionOption);
+            }
+        }
+
+        regionSelect.addEventListener('change', () => {
+            const selectedKey = regionSelect.value;
+            getMeetings(selectedKey);
+        });
+    })();
+
+    const locationInfo = (meeting) => {
+        if(meeting.address == 0) {
+            return "";
+        }
+
+        return `<div class="meetings-list-item-info">
+                    <i class="fa-solid fa-map-pin fa-lg"></i>
+                    <span>${meeting.address}</span>
+                </div>`
+    }
+
     const createRegionCard = (meeting) => {
       
         return `
@@ -322,10 +356,7 @@ let currentRegion = '';
                             <i class="fa-solid fa-calendar-week fa-lg"></i> 
                             <span>${new Date(meeting.start_time).toLocaleDateString()}</span>
                         </div>
-                        <div class="meetings-list-item-info">
-                            <i class="fa-solid fa-map-pin fa-lg"></i>
-                            <span>${meeting.address}</span>
-                        </div>
+                        ${locationInfo(meeting)}
                     </div>
 
                 </div>
