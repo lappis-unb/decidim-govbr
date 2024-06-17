@@ -11,7 +11,7 @@
   meeting: meeting
 )
 %>
-
+<% @can_moderate = current_participatory_space.moderators.include?(current_user) %>
 <div class="br-container-lg">
   <div class="m-bottom">
     <%= link_to meetings_path, class: "small hollow js-back-to-list" do %>
@@ -159,7 +159,7 @@
               component_name: resource_title(current_participatory_space))
             }
         %>
-        <% if current_user.try(:admin?) %>
+        <% if (current_user.try(:admin?) || @can_moderate) %>
           <button type="button" class="br-button" data-open="flagModal" title="Denunciar"
             aria-controls="flagModal" aria-haspopup="dialog" tabindex="0">
             <i class="fas fa-flag mr-2" aria-hidden="true"></i>
