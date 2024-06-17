@@ -300,7 +300,7 @@ GEM
     decidim-debates (0.27.2)
       decidim-comments (= 0.27.2)
       decidim-core (= 0.27.2)
-    decidim-decidim_awesome (0.10.1)
+    decidim-decidim_awesome (0.10.2)
       decidim-admin (>= 0.26.0, < 0.28)
       decidim-core (>= 0.26.0, < 0.28)
       deface (>= 1.5)
@@ -985,7 +985,7 @@ DEPENDENCIES
   decidim-apiauth!
   decidim-conferences (= 0.27.2)
   decidim-consultations (= 0.27.2)
-  decidim-decidim_awesome (= 0.10.1)
+  decidim-decidim_awesome (= 0.10.2)
   decidim-dev (= 0.27.2)
   decidim-homes!
   decidim-initiatives (= 0.27.2)
