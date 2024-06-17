@@ -16,13 +16,6 @@ module Decidim
       describe 'Atualização de Badges' do
         subject { described_class.new(component, user) }
 
-        before do
-          proposals.each_with_index do |proposal, index|
-            proposal.update!(proposal_votes_count: index + 1)
-          end
-          proposals.each(&:reload)
-        end
-
         it 'labels the ten most voted proposals with "Mais Votada"' do
           subject.call
 

@@ -22,23 +22,15 @@ module Decidim
           @notes_form = form(ProposalNoteForm).instance
           @answer_form = form(Admin::ProposalAnswerForm).from_params(params)
 
-          badge = params[:proposal_answer][:badge]
+          Admin::AnswerProposal.call(@answer_form, proposal) do
+            on(:ok) do
+              flash[:notice] = I18n.t("proposals.answer.success", scope: "decidim.proposals.admin")
+              redirect_to proposals_path
+            end
 
-          if badge != "" && !badge.nil?
-            proposal.badge_array << badge
-            proposal.save
-            redirect_to proposal_path(proposal)
-          else
-            Admin::AnswerProposal.call(@answer_form, proposal) do
-              on(:ok) do
-                flash[:notice] = I18n.t("proposals.answer.success", scope: "decidim.proposals.admin")
-                redirect_to proposals_path
-              end
-
-              on(:invalid) do
-                flash.keep[:alert] = I18n.t("proposals.answer.invalid", scope: "decidim.proposals.admin")
-                render template: "decidim/proposals/admin/proposals/show"
-              end
+            on(:invalid) do
+              flash.keep[:alert] = I18n.t("proposals.answer.invalid", scope: "decidim.proposals.admin")
+              render template: "decidim/proposals/admin/proposals/show"
             end
           end
         end

@@ -24,7 +24,6 @@ module Decidim
             insert_proposal_most_voted_label
           end
         end
-
         broadcast(:ok)
       end
 
@@ -45,13 +44,13 @@ module Decidim
         end
       end
 
-      def reoder_by_votes
+      def reorder_by_votes
         proposals = Decidim::Proposals::Proposal.where(component: @component)
         proposals.order(proposal_votes_count: :desc)
       end
 
       def ten_most_voted_proposals
-        reoder_by_votes.limit(10)
+        reorder_by_votes.limit(10)
       end
     end
   end
