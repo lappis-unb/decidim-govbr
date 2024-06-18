@@ -39,6 +39,7 @@ gem 'sidekiq', '6.5.7'
 gem 'whenever', require: false
 
 gem 'decidim-homes', git: 'https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-module-homes.git'
+gem 'decidim-ej', git: 'https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-ej.git', branch: 'main'
 
 gem "rest-client", "~> 2.1"
 

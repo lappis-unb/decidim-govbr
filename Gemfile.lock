@@ -8,6 +8,15 @@ GIT
       devise-jwt (~> 0.9.0)
 
 GIT
+  remote: https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-ej.git
+  revision: c7f8b2fd2241dd4858a2785b277fe3a1333c514a
+  branch: main
+  specs:
+    decidim-ej (0.27.2)
+      decidim-core (= 0.27.2)
+      httparty
+
+GIT
   remote: https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-module-homes.git
   revision: cbd9f979bc2493c127373e29e37e74afe3a33c1d
   specs:
@@ -184,6 +193,7 @@ GEM
     crass (1.0.6)
     css_parser (1.14.0)
       addressable
+    csv (3.3.0)
     date (3.3.3)
     date_validator (0.12.0)
       activemodel (>= 3)
@@ -517,6 +527,10 @@ GEM
     http-cookie (1.0.5)
       domain_name (~> 0.5)
     http-form_data (2.3.0)
+    httparty (0.22.0)
+      csv
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     httpclient (2.8.3)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
@@ -987,6 +1001,7 @@ DEPENDENCIES
   decidim-consultations (= 0.27.2)
   decidim-decidim_awesome (= 0.10.2)
   decidim-dev (= 0.27.2)
+  decidim-ej!
   decidim-homes!
   decidim-initiatives (= 0.27.2)
   devise-i18n
