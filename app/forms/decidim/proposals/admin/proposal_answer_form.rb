@@ -36,13 +36,10 @@ module Decidim
 
         private
 
-<<<<<<< app/forms/decidim/proposals/admin/proposal_answer_form.rb
-=======
         def states_that_requires_answer
           %w(rejected disqualified)
         end
 
->>>>>>> app/forms/decidim/proposals/admin/proposal_answer_form.rb
         def costs_enabled?
           current_component.current_settings.answers_with_costs?
         end
