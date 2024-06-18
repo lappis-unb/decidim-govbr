@@ -50,7 +50,9 @@
   <div class="presential-meeting-inputs">
     <div class="field select-field-br meeting-address">
       <label for="state">Estado:
-        <select id="state" name="state" autocomplete="on"></select>
+        <select id="state" name="state" autocomplete="on">
+          <option disabled selected>Selecione um estado</option>
+        </select>
       </label>
       <label for="city">Cidade:
         <select id="city" name="city" autocomplete="on" disabled>
@@ -181,7 +183,7 @@
     let cidadesResponde = []
     let address = document.getElementById("meeting_address")
 
-    if(address != null){
+    if(address){
       address = address.value.split(", ");
     }
 
