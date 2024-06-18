@@ -21,7 +21,7 @@ module Decidim
       # options - The Hash options is used to refine the selection ( default: {}):
       #           :order_by - The string order_by to sort by ( optional )
       def initialize(commentable, options = {})
-        options[:order_by] ||= "older"
+        options[:order_by] ||= "recent"
         @commentable = commentable
         @options = options
       end
@@ -36,10 +36,6 @@ module Decidim
         case @options[:order_by]
         when "recent"
           order_by_recent(scope)
-        when "best_rated"
-          order_by_best_rated(scope)
-        when "most_discussed"
-          order_by_most_discussed(scope)
         else
           order_by_older(scope)
         end

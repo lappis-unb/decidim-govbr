@@ -2,7 +2,7 @@
   <div class="columns comments-container" id="comments">
     <div class="comments">
       <%= add_comment %>
-      <%= user_comments_blocked_warning %> 
+      <%= user_comments_blocked_warning %>
       <div class="comments-thread-title">
         <h3 class="section-heading comments-section-title">
           <%= t("decidim.components.comments_section_title.title", count: comments_count )%>
@@ -35,9 +35,11 @@
                              commentable_gid: model.to_signed_global_id.to_s,
                              order: order),
             id: "load-more-comments", data: {
-                                      page: 1, 
+                                      page: order == "recent" ? 1 : total_pages,
                                       commentable_gid: model.to_signed_global_id.to_s,
-                                      order: order},
+                                      order: order,
+                                      comments_count: comments_count,
+                                      total_pages: total_pages},
             class: "br-button", remote: true %>
     </div>
     <div class="callout primary loading-comments hide">

@@ -1,0 +1,60 @@
+(function() {
+  var rootCommentableId = <%== "comments-for-#{commentable.commentable_type.demodulize}-#{commentable.id}".to_json %>;
+
+  var $comments = $("#" + rootCommentableId);
+  var component = $comments.data("comments");
+
+  // Ensure the component is unmounted before replacing HTML
+  if (component) {
+    component.unmountComponent();
+  }
+
+  // Replace the comments HTML
+  var commentsHtml = '<%== j(render partial: "comments").strip %>';
+  $(".loading-comments").addClass("hide");
+  $comments.replaceWith(commentsHtml);
+
+  // Get the updated comments container
+  $comments = $("#" + rootCommentableId);
+  $comments.foundation();
+
+  // Re-create the component with the new data
+  var commentsData = $comments.data("decidim-comments");
+  const maxPages = <%= (@comments_count.to_f / 10).ceil %>;
+  commentsData.maxPages = maxPages;
+  commentsData.commentsCount = <%= @comments_count %>; // Pass comments count to data
+  component = new Decidim.CommentsComponent($comments, commentsData);
+
+  var initialPage = (commentsData.order === 'recent' ? 1 : maxPages);
+
+  // Load the correct page based on the order
+  component.currentPage = initialPage;
+  component._fetchComments(() => {
+    component.mountComponent();
+    $comments.data("comments", component);
+
+    // Re-initialize the load more button
+    const loadMoreButton = document.getElementById("load-more-comments");
+    if (loadMoreButton) {
+      loadMoreButton.removeEventListener("click", loadMoreComments);
+      loadMoreButton.setAttribute("data-page", initialPage);
+      loadMoreButton.addEventListener("click", loadMoreComments);
+    }
+
+    // Update the comments count
+    $(".comments-count", $comments).text(<%== t("decidim.components.comments.title", count: @comments_count).to_json %>);
+
+    // Re-initialize input emoji
+    Decidim.addInputEmoji();
+  }, initialPage);
+
+  function loadMoreComments(event) {
+    event.preventDefault();
+    const page = parseInt(loadMoreButton.getAttribute("data-page"), 10);
+    const newPage = commentsData.order === 'recent' ? page + 1 : page - 1;
+    component._loadMoreComments(newPage);
+    loadMoreButton.setAttribute("data-page", newPage);
+  }
+
+  loadMoreButton.removeEventListener("click", loadMoreComments);
+})();
