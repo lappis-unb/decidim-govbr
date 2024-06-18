@@ -28,7 +28,7 @@ module Decidim
                              required: false,
                              prepare: lambda { |date, _ctx|
                                proc do |model_class|
-                                 start_of_day = Date.parse(date)
+                                 start_of_day = Time.parse(date)
                                  end_of_day = start_of_day + 1.day
 
                                  model_class.arel_table[:created_at].gteq(start_of_day).and(
@@ -43,7 +43,7 @@ module Decidim
                              required: false,
                              prepare: lambda { |date, _ctx|
                                proc do |model_class|
-                                 start_of_day = Date.parse(date)
+                                 start_of_day = Time.parse(date)
                                  end_of_day = start_of_day + 1.day
 
                                  model_class.arel_table[:updated_at].gteq(start_of_day).and(

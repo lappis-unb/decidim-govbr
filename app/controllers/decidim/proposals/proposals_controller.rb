@@ -161,6 +161,7 @@ module Decidim
       def update_draft
         enforce_permission_to :edit, :proposal, proposal: @proposal
         @form = form_proposal_params
+
         UpdateProposal.call(@form, current_user, @proposal) do
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("proposals.update_draft.success", scope: "decidim")
@@ -198,6 +199,7 @@ module Decidim
         enforce_permission_to :edit, :proposal, proposal: @proposal
 
         @form = form_proposal_params
+
         UpdateProposal.call(@form, current_user, @proposal) do
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
@@ -216,7 +218,7 @@ module Decidim
 
         WithdrawProposal.call(@proposal, current_user) do
           on(:ok) do
-            flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+            flash[:sucess] = I18n.t("proposals.withdraw.success", scope: "decidim")
             redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
           end
           on(:has_supports) do
@@ -243,7 +245,7 @@ module Decidim
           with_any_origin: default_filter_origin_params,
           activity: "all",
           with_any_category: default_filter_category_params,
-          with_any_state: %w(accepted rejected evaluating state_not_published),
+          with_any_state: %w(accepted rejected evaluating state_not_published disqualified),
           with_any_scope: default_filter_scope_params,
           related_to: "",
           type: "all"

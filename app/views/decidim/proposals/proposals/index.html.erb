@@ -46,29 +46,15 @@
       </div>
     </div>
   <% end %>
-  <div class="br-row">
-    <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) %>
-      <div class="proposals-actions">
-        <div class="br-magic-button medium">
-          <% if user_full_profile_required? %>
-            <% if user_survey_answered? %>
-              <%= action_authorized_link_to :create, new_proposal_path,
-                  class: "title-action__action br-button primary", data: { "redirect_url" => new_proposal_path } do %>
-                <i class="fa-solid fa-plus fa-sl mr-2"></i>
-                <span class="title-action-text">
-                  <% if translated_attribute(current_component.singular_name).present? %>
-                    <%= t("decidim.proposals.proposals.index.new_proposal", proposal: translated_attribute(current_component.singular_name).downcase) %>
-                  <% else %>
-                    <%= t("decidim.proposals.proposals.index.new_proposal", proposal: "proposta") %>
-                  <% end %>
-                </span>
-              <% end %>
-            <% end %>
-          <% else %>
+  <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) %>
+    <div class="proposals-actions">
+      <div class="br-magic-button medium">
+        <% if user_full_profile_required? %>
+          <% if user_survey_answered? %>
             <%= action_authorized_link_to :create, new_proposal_path,
-                class: "br-button", data: { "redirect_url" => new_proposal_path } do %>
-              <span class="create-proposal-text">
-                <i class="fa-solid fa-plus fa-md"></i>
+                class: "title-action__action br-button primary", data: { "redirect_url" => new_proposal_path } do %>
+              <i class="fa-solid fa-plus fa-sl mr-2"></i>
+              <span class="title-action-text">
                 <% if translated_attribute(current_component.singular_name).present? %>
                   <%= t("decidim.proposals.proposals.index.new_proposal", proposal: translated_attribute(current_component.singular_name).downcase) %>
                 <% else %>
@@ -77,91 +63,105 @@
               </span>
             <% end %>
           <% end %>
-        </div>
-        <%= render partial: "voting_rules" %>
+        <% else %>
+          <%= action_authorized_link_to :create, new_proposal_path,
+              class: "br-button", data: { "redirect_url" => new_proposal_path } do %>
+            <span class="create-proposal-text">
+              <i class="fa-solid fa-plus fa-md"></i>
+              <% if translated_attribute(current_component.singular_name).present? %>
+                <%= t("decidim.proposals.proposals.index.new_proposal", proposal: translated_attribute(current_component.singular_name).downcase) %>
+              <% else %>
+                <%= t("decidim.proposals.proposals.index.new_proposal", proposal: "proposta") %>
+              <% end %>
+            </span>
+          <% end %>
+        <% end %>
       </div>
-    <% else %>
-      <div class="proposals-actions proposals-no-actions">
-        <span class="proposal-disabled">
-          O período para submissão de propostas não está aberto.
-        </span>
-        <%= render partial: "voting_rules" %>
-      </div>
-    <% end %>
-    <% if component_settings.collaborative_drafts_enabled? %>
-      <%= link_to t(".collaborative_drafts_list"), collaborative_drafts_path, class: "title-action__action button small hollow ml-s" %>
-    <% end %>
-    <div id="export-span" class="br-message info-drop export-span-hollow" role="alert">
-      <div class="br-message-container">
-        <div class="message-icon-br"><i class="fas fa-check-circle fa-lg" aria-hidden="true"></i></div>
-        <div class="content-br">
-          <span class="message-title-br">
-            A sua exportação está em curso. Receberá um e-mail quando estiver completa.
-          </span>
-        </div>
-      </div>
-      <button id="export-span-close" class="br-button circle small" type="button">
-        <i class="fas fa-times" aria-hidden="true"></i>
-      </button>
+      <%= render partial: "voting_rules" , locals: { is_vote_rule: true, triangle_position: "center" ,help_button_text: t("decidim.proposals.proposals.voting_rules.help_button_text"), inform_text_help: t("decidim.proposals.proposals.voting_rules.infom_text_help") } %>
     </div>
-    <span class="br-divider <% if browser.mobile? %>my-2<% else %>my-4<% end %>"></span>
-    <div class="proposals-filters">
-      <%= render partial: "decidim/components/filter", locals: { 
-          show_filters: false,
-          search_field: {
-            placeholder: t("decidim.proposals.proposals.filters.placeholder", 
-            name: translated_attribute(current_component.singular_name).present? ? 
-                  translated_attribute(current_component.singular_name).downcase : 
-                  "proposta"
-            ),
-            status: true
-          },
-          radio_collection: [
-            {
-              attribute: :activity, 
-              collection: activity_filter_values, 
-              legend: t("decidim.proposals.proposals.filters.activity"),
-              status: current_user
-            }
-          ],
-          check_boxes: [
-            {
-              attribute: :with_any_state, 
-              collection: filter_proposals_state_values, 
-              legend: t("decidim.proposals.proposals.filters.state"),
-              aria_controls: "proposals",
-              status: (
-                component_settings.proposal_answering_enabled && 
-                current_settings.proposal_answering_enabled
-              )
-            },
-            {
-              attribute: :with_any_category, 
-              collection: filter_categories_values, 
-              legend: t("decidim.proposals.proposals.filters.category"),
-              aria_controls: "proposals",
-              status: (current_component.categories.any?)
-            }
-          ],
-          hidden_tag: {
-            status: true,
-            order: order
-          },
-          hidden_field: {
-            status: true,
-            value: "state_withdraw"
+  <% else %>
+    <div class="proposals-actions proposals-no-actions">
+      <span class="proposal-disabled">
+        O período para submissão de propostas não está aberto.
+      </span>
+      <%= render partial: "voting_rules" ,
+        locals: { is_vote_rule: true, triangle_position: "flex-start" ,
+        help_button_text: t("decidim.proposals.proposals.voting_rules.help_button_text"),
+        inform_text_help: t("decidim.proposals.proposals.voting_rules.infom_text_help") } %>
+    </div>
+  <% end %>
+  <% if component_settings.collaborative_drafts_enabled? %>
+    <%= link_to t(".collaborative_drafts_list"), collaborative_drafts_path, class: "title-action__action button small hollow ml-s" %>
+  <% end %>
+  <div id="export-span" class="br-message info-drop export-span-hollow" role="alert">
+    <div class="br-message-container">
+      <div class="message-icon-br"><i class="fas fa-check-circle fa-lg" aria-hidden="true"></i></div>
+      <div class="content-br">
+        <span class="message-title-br">
+          A sua exportação está em curso. Receberá um e-mail quando estiver completa.
+        </span>
+      </div>
+    </div>
+    <button id="export-span-close" class="br-button circle small" type="button">
+      <i class="fas fa-times" aria-hidden="true"></i>
+    </button>
+  </div>
+  <span class="br-divider <% if browser.mobile? %>my-2<% else %>my-4<% end %>"></span>
+  <div class="proposals-filters">
+    <%= render partial: "decidim/components/filter", locals: { 
+        show_filters: false,
+        search_field: {
+          placeholder: t("decidim.proposals.proposals.filters.placeholder", 
+          name: translated_attribute(current_component.singular_name).present? ? 
+                translated_attribute(current_component.singular_name).downcase : 
+                "proposta"
+          ),
+          status: true
+        },
+        radio_collection: [
+          {
+            attribute: :activity, 
+            collection: activity_filter_values, 
+            legend: t("decidim.proposals.proposals.filters.activity"),
+            status: current_user
           }
+        ],
+        check_boxes: [
+          {
+            attribute: :with_any_state, 
+            collection: filter_proposals_state_values, 
+            legend: t("decidim.proposals.proposals.filters.state"),
+            aria_controls: "proposals",
+            status: (
+              component_settings.proposal_answering_enabled && 
+              current_settings.proposal_answering_enabled
+            )
+          },
+          {
+            attribute: :with_any_category, 
+            collection: filter_categories_values, 
+            legend: t("decidim.proposals.proposals.filters.category"),
+            aria_controls: "proposals",
+            status: (current_component.categories.any?)
+          }
+        ],
+        hidden_tag: {
+          status: true,
+          order: order
+        },
+        hidden_field: {
+          status: true,
+          value: "state_withdraw"
         }
-    %>
+      }
+  %>
   </div>
   <div class="proposals-content-container">
     <div id="proposals" class="proposals-br" aria-live="polite">
       <%= render partial: "decidim/components/list", locals: {
-          elements_name: current_component.manifest_name, 
-          collection: @proposals
-        } 
-      %>
+        elements_name: current_component.manifest_name, 
+        collection: @proposals
+      } %>
     </div>
   </div>
-</div>
 </div>
