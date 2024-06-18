@@ -15,8 +15,8 @@ module Decidim
         attribute :internal_state, String
         attribute :badge, String
 
-        validates :internal_state, presence: true, inclusion: { in: %w(not_answered accepted rejected evaluating) }
-        validates :answer, translatable_presence: true, if: ->(form) { form.state == "rejected" }
+        validates :internal_state, presence: true, inclusion: { in: Decidim::Proposals::Proposal::POSSIBLE_STATES }
+        validates :answer, translatable_presence: true, if: ->(form) { form.state.in?(states_that_requires_answer) }
 
         with_options if: :costs_required? do
           validates :cost, numericality: true, presence: true
@@ -36,6 +36,13 @@ module Decidim
 
         private
 
+<<<<<<< app/forms/decidim/proposals/admin/proposal_answer_form.rb
+=======
+        def states_that_requires_answer
+          %w(rejected disqualified)
+        end
+
+>>>>>>> app/forms/decidim/proposals/admin/proposal_answer_form.rb
         def costs_enabled?
           current_component.current_settings.answers_with_costs?
         end
