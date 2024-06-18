@@ -39,19 +39,19 @@
         <%= link_to translated_attribute(model.attachment.title), model.attachment.url, target: "_blank"  %>
       <% end %>
     </div>
-    <div class="comment__footer">      
+    <div class="comment__footer">
       <div class="comment__footer_votes">
-        <% if current_user.present? && current_user.admin && depth < 1  %>
-         <div>
-  <div class="d-flex align-items-center feedback-buttons">
-    <%= button_to "<i class='fa-solid fa-sm fa-x'></i> " + t("decidim.components.add_comment_form.form.body.reject"),
-    update_comment_status_path(id: model.id, status: "rejected"), method: :patch, remote: true,
-    id: "tag04", class: "br-button reject-button #{'selected' if model.status == 'rejected'}" %>
-    <%= button_to "<i class='fa-solid fa-sm fa-check'></i> " + t("decidim.components.add_comment_form.form.body.Incorporate"),
-    update_comment_status_path(id: model.id, status: "accepted"), method: :patch, remote: true,
-    id: "tag04", class: "br-button accept-button #{'selected' if model.status == 'accepted'}" %>
-  </div>
-</div>
+        <% if current_user.present? && user_can_update_comment_status? && depth < 1  %>
+          <div>
+            <div class="d-flex align-items-center feedback-buttons">
+              <%= button_to "<i class='fa-solid fa-sm fa-x'></i> " + t("decidim.components.add_comment_form.form.body.reject"),
+              update_comment_status_path(id: model.id, status: "rejected"), method: :patch, remote: true,
+              id: "tag04", class: "br-button reject-button #{'selected' if model.status == 'rejected'}" %>
+              <%= button_to "<i class='fa-solid fa-sm fa-check'></i> " + t("decidim.components.add_comment_form.form.body.Incorporate"),
+              update_comment_status_path(id: model.id, status: "accepted"), method: :patch, remote: true,
+              id: "tag04", class: "br-button accept-button #{'selected' if model.status == 'accepted'}" %>
+            </div>
+          </div>
         <% end %>
       </div>
       <%= render :actions %>
