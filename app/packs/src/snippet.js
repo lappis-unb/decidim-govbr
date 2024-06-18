@@ -1,7 +1,7 @@
 (() => {
   window.addEventListener("DOMContentLoaded", (e) => {
     ImportScriptFile();
-    CreateDOMObjects();
+    // CreateDOMObjects();
 
     // Evento para primeira letra maiuscula
     capitalizarOnBlur("proposal_title");
@@ -19,6 +19,8 @@
     window.addEventListener("resize", updateContentMarginTop);
 
     doEverything();
+
+    changePositionAdminBtns();
   });
 })();
 
@@ -267,4 +269,10 @@ function convertIconsToHttps() {
       }
     });
   }
+}
+
+function changePositionAdminBtns() {
+  const btns = document.getElementById("admin-actions-btns");
+  const wrapper = document.querySelector("#content .wrapper");
+  wrapper.parentNode.insertBefore(btns, wrapper);
 }

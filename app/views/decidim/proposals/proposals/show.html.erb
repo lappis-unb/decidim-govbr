@@ -17,10 +17,11 @@ extra_admin_link(
   :create,
   :proposal_answer,
   { proposal: @proposal },
-  { name: t(".answer"), icon: "comment-square" }
+  { name: t(".answer"), icon: "fa-solid fa-comment-dots" }
 )
 %>
 <%= emendation_announcement_for @proposal %>
+<% @can_moderate = current_participatory_space.moderators.include?(current_user) %>
 <div class="br-container-lg">
   <% if flash.try(:[], :alert) %>
     <div class="br-message warning new-proposal-error">
@@ -151,7 +152,7 @@ extra_admin_link(
       <% end %>
       <%= amenders_list_for(@proposal) %>
       <%= render partial: "decidim/shared/share_modal", locals: {  translation_component: t("decidim.shared.share_modal.share_text_proposal" ,resource_name: resource_title(@proposal), component_name: resource_title(current_participatory_space)) } %>
-      <% if current_user.try(:admin?) %>
+      <% if (current_user.try(:admin?) || @can_moderate) %>
         <button type="button" class="br-button" data-open="flagModal" title="Denunciar"
           aria-controls="flagModal" aria-haspopup="dialog" tabindex="0">
             <i class="fas fa-flag mr-2" aria-hidden="true"></i>

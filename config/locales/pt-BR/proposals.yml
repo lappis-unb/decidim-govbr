@@ -14,6 +14,8 @@ pt-BR:
       proposals_import:
         origin_component_id: Componente de origem
     errors:
+      messages:
+        too_much_caps: O campo contém muitas letras maiúsculas
       models:
         proposal:
           attributes:
@@ -194,6 +196,8 @@ pt-BR:
     proposals:
       admin:
         when_empty: Proposta
+        period_submitting_proposals_is_not_open: O período para submissão de propostas não está aberto.
+        Its_export_is_underway: A sua exportação está em curso. Receberá um e-mail quando estiver completa.
         imports:
           label:
             answers: Importar respostas de um arquivo
@@ -269,8 +273,8 @@ pt-BR:
       proposals:
         count:
           proposals_count:
-            one: "%{count} %{singular_name}"
-            other: "%{count} %{pluralized_name}"
+            one: "%{count} %{singular_name} encontrada"
+            other: "%{count} %{pluralized_name} encontradas"
         view_btn:
           placeholder: Ver %{singular_name}
         compare:
@@ -306,9 +310,9 @@ pt-BR:
           state: Status
           activity: Minha Atividade
           placeholder: "Qual %{name} você procura?"
-          all: Todas as propostas
-          my_proposals: Minhas propostas
-          voted: Propostas que apoio
+          all: Todas as %{component_name}
+          my_proposals: Minhas %{component_name}
+          voted: "%{component_name} que apoio"
         orders:
           label: "Ordene propostas por:"
           most_commented: Mais contribuições
@@ -334,6 +338,7 @@ pt-BR:
             error: Não foi possível ser aceito como colaborador, por favor tente novamente mais tarde.
             success: "@%{user} foi aceito como colaborador com sucesso"
         show:
+          answer: Dar devolutiva
           back_to: Voltar para
           back_to_list_proposals: Voltar
           back_to_list: Voltar

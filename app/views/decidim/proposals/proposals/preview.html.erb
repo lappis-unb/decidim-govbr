@@ -122,16 +122,5 @@ extra_admin_link(
   <!-- Seção de anexos e imagens -->
   <%= attachments_for @proposal %>
   <!-- Seção de comentários -->
-  <% if user_full_profile_required? %>
-    <% if user_survey_answered? %>
-      <%= comments_for @proposal %>
-    <% else %>
-      <%= comments_for(@proposal, {
-        :hide_comment_action => true, :alert => flash[:alert], :poll_link => flash[:poll_link]}) 
-      %>
-    <% end %>
-  <% else %>
-    <%= comments_for @proposal %>
-  <% end %>
   <%= cell("decidim/flag_modal", @proposal) %>
 </div>

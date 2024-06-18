@@ -11,7 +11,7 @@
   meeting: meeting
 )
 %>
-
+<% @can_moderate = current_participatory_space.moderators.include?(current_user) %>
 <div class="br-container-lg">
   <div class="m-bottom">
     <%= link_to meetings_path, class: "small hollow js-back-to-list" do %>
@@ -23,6 +23,10 @@
     <div class="main-content">
       <%== cell("decidim/meetings/meeting_m", @meeting, full_badge: true).badge %>
       <h2 class="title"><%= present(meeting).title(links: true, html_escape: true ) %></h2>
+      <%= render_meeting_body(@meeting) %>
+      <div class="meetings-author-info-br">
+        <%= cell "decidim/author", author_presenter_for(meeting.normalized_author), has_actions: true, from: meeting, context: { extra_classes: ["author-data--small"] } %>
+      </div>
       <div class="section">
         <% if meeting.private_meeting? %>
           <span class="<%= meeting_type_badge_css_class("private") %> label proposal-status">
@@ -39,10 +43,6 @@
             <%= t("withdraw", scope: "decidim.meetings.types") %>
           </span>
         <% end %>
-        <%= render_meeting_body(@meeting) %>
-        <div class="meetings-author-info-br">
-          <%= cell "decidim/author", author_presenter_for(meeting.normalized_author), has_actions: true, from: meeting, context: { extra_classes: ["author-data--small"] } %>
-        </div>
         <% if meeting.maps_enabled? && !meeting.online_meeting? %>
           <div class="br-divider space-above"></div>
           <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
@@ -159,7 +159,7 @@
               component_name: resource_title(current_participatory_space))
             }
         %>
-        <% if current_user.try(:admin?) %>
+        <% if (current_user.try(:admin?) || @can_moderate) %>
           <button type="button" class="br-button" data-open="flagModal" title="Denunciar"
             aria-controls="flagModal" aria-haspopup="dialog" tabindex="0">
             <i class="fas fa-flag mr-2" aria-hidden="true"></i>

@@ -95,26 +95,23 @@
 </div>
 
 <div class="row">
-  <div class="column medium-8 medium-centered">
+  <div>
     <% if own_profile? %>
-    <div class="br-profile-buttons">
-        <div class="text-center">
-            <%= link_to decidim.account_path, class: "button hollow" do %>
-            <span>
-                <%= t("decidim.profiles.user.edit_profile") %>
-            </span>
-            <% end %>
-        </div>
+      <div class="user-profile-actions">
+        <%= link_to decidim.account_path, class: "button" do %>
+          <span>
+            <%= t("decidim.profiles.user.edit_profile") %>
+          </span>
+        <% end %>
+
         <% if user_groups_enabled? %>
-            <div class="text-center">
             <%= link_to decidim.new_group_path, class: "button hollow" do %>
-                <span>
+              <span>
                 <%= t("decidim.profiles.user.create_user_group") %>
-                </span>
+              </span>
             <% end %>
-        </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
     <% elsif logged_in? %>
       <%= cell "decidim/follow_button", profile_holder, inline: false %>
     <% end %>
