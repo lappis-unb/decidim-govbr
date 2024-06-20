@@ -18,9 +18,12 @@ extra_admin_link(
   :proposal_answer,
   { proposal: @proposal },
   { name: t(".answer"), icon: "fa-solid fa-comment-dots" }
-)
-%>
-<%= emendation_announcement_for @proposal %>
+  )
+  %>
+  <%= emendation_announcement_for @proposal %>
+  <div class="br_eadcrumbs">
+<a href=<%="/processes/"+current_participatory_space.slug%> <i class="fa-solid fa-house"></i> </a> > <a href=<%="/processes/"+current_participatory_space.slug + "/f/" + current_component.id.to_s%>> <%=translated_attribute(current_component.name)%> </a> > <span>proposta</span>
+</div>
 <div class="br-container-lg">
   <% if flash.try(:[], :alert) %>
     <div class="br-message warning new-proposal-error">

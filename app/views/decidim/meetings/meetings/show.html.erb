@@ -11,7 +11,10 @@
   meeting: meeting
 )
 %>
-
+<div class="br_eadcrumbs">
+<a href=<%="/processes/"+current_participatory_space.slug%> <i class="fa-solid fa-house"></i> </a> > <a href=<%="/processes/"+current_participatory_space.slug + "/f/" + current_component.id.to_s%>> <%=translated_attribute(current_component.name)%> </a> > <span><%=present(meeting).title%></span>
+</span>
+</div>
 <div class="br-container-lg">
   <div class="m-bottom">
     <%= link_to meetings_path, class: "small hollow js-back-to-list" do %>
