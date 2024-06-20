@@ -819,6 +819,14 @@ ActiveRecord::Schema.define(version: 2024_06_20_133248) do
     t.index ["decidim_organization_id"], name: "decidim_editor_images_constraint_organization"
   end
 
+  create_table "decidim_ej_ej_clients", force: :cascade do |t|
+    t.string "host"
+    t.integer "conversation_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "decidim_component_id"
+  end
+
   create_table "decidim_endorsements", force: :cascade do |t|
     t.string "resource_type"
     t.bigint "resource_id"
@@ -2069,6 +2077,8 @@ ActiveRecord::Schema.define(version: 2024_06_20_133248) do
     t.string "decidim_participatory_process_group_role"
     t.jsonb "entity_fields"
     t.boolean "needs_entity_fields", default: false
+    t.boolean "has_ej_account", default: false, null: false
+    t.string "encrypted_ej_password"
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
     t.index ["decidim_participatory_process_group_id"], name: "index_decidim_users_on_decidim_participatory_process_group_id"
