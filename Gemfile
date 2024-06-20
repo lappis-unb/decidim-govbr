@@ -40,6 +40,7 @@ gem 'whenever', require: false
 
 gem 'decidim-homes', git: 'https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-module-homes.git'
 gem 'decidim-extra_user_fields', git: 'https://gitlab.com/lappis-unb/decidimbr/decidim-extra_user_fields.git', tag: 'version-with-node-modules'
+gem 'decidim-ej', git: 'https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-ej.git', branch: 'main'
 
 gem "rest-client", "~> 2.1"
 
