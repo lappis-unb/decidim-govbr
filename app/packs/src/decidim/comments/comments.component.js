@@ -1,22 +1,11 @@
-/* eslint id-length: ["error", { "exceptions": ["$"] }] */
-/* eslint max-lines: ["error", {"max": 350, "skipBlankLines": true}] */
-
-
-/**
- * A plain Javascript component that handles the comments.
- *
- * @class
- * @augments Component
- */
+import Rails from "@rails/ujs";
 
 // This is necessary for testing purposes
 const $ = window.$;
 
-import Rails from "@rails/ujs";
-
-import { createCharacterCounter } from "src/decidim/input_character_counter"
-import ExternalLink from "src/decidim/external_link"
-import updateExternalDomainLinks from "src/decidim/external_domain_warning"
+import { createCharacterCounter } from "src/decidim/input_character_counter";
+import ExternalLink from "src/decidim/external_link";
+import updateExternalDomainLinks from "src/decidim/external_domain_warning";
 
 export default class CommentsComponent {
   constructor($element, config) {
@@ -26,19 +15,19 @@ export default class CommentsComponent {
     this.rootDepth = config.rootDepth;
     this.order = config.order;
     this.lastCommentId = config.lastCommentId;
-    this.pollingInterval = config.pollingInterval || 15000;
+    this.pollingInterval = config.pollingInterval || 1500;
     this.singleComment = config.singleComment;
     this.toggleTranslations = config.toggleTranslations;
     this.id = this.$element.attr("id") || this._getUID();
     this.mounted = false;
-    this.currentPage = 1;
+    this.maxPages = Math.ceil(config.commentsCount / 10);
+    this.currentPage = 1; // Always start at page 1
+    this.reordered = false;
+    this.isLoading = false;
+    this.isFetchingComments = false; // Flag to prevent multiple requests
+    this.polledPages = new Set(); // Set to track polled pages
   }
 
-  /**
-   * Handles the logic for mounting the component
-   * @public
-   * @returns {Void} - Returns nothing
-   */
   mountComponent() {
     if (this.$element.length > 0 && !this.mounted) {
       this.mounted = true;
@@ -51,14 +40,11 @@ export default class CommentsComponent {
       }
 
       $(".order-by__dropdown .is-submenu-item a", this.$element).on("click.decidim-comments", () => this._onInitOrder());
+
+      this._initializeLoadMoreButton();
     }
   }
 
-  /**
-   * Handles the logic for unmounting the component
-   * @public
-   * @returns {Void} - Returns nothing
-   */
   unmountComponent() {
     if (this.mounted) {
       this.mounted = false;
@@ -69,19 +55,33 @@ export default class CommentsComponent {
       $(".order-by__dropdown .is-submenu-item a", this.$element).off("click.decidim-comments");
       $(".add-comment form", this.$element).off("submit.decidim-comments");
       $(".add-comment textarea", this.$element).each((_i, el) => el.removeEventListener("emoji.added", this._onTextInput));
+
+      const loadMoreButton = document.getElementById("load-more-comments");
+      if (loadMoreButton) {
+        loadMoreButton.removeEventListener("click", this._loadMoreHandler);
+      }
     }
   }
 
+  _initializeLoadMoreButton() {
+    const loadMoreButton = document.getElementById("load-more-comments");
+    if (loadMoreButton) {
+      this._loadMoreHandler = (event) => {
+        event.preventDefault();
+        clearTimeout(this.debounceTimeout);
+        this.debounceTimeout = setTimeout(() => {
+          if (!this.isFetchingComments) {
+            const page = parseInt(loadMoreButton.getAttribute("data-page"), 10);
+            const newPage = page + 1;
+            this._loadMoreComments(newPage);
+          }
+        }, 300); // Debounce time in ms
+      };
 
+      loadMoreButton.addEventListener("click", this._loadMoreHandler);
+    }
+  }
 
-  /**
-   * Adds a new thread to the comments section.
-   * @public
-   * @param {String} threadHtml - The HTML content for the thread.
-   * @param {Boolean} fromCurrentUser - A boolean indicating whether the user
-   *   herself was the author of the new thread. Defaults to false.
-   * @returns {Void} - Returns nothing
-   */
   addThread(threadHtml, fromCurrentUser = false) {
     const $parent = $(".comments:first", this.$element);
     const $comment = $(threadHtml);
@@ -91,8 +91,17 @@ export default class CommentsComponent {
   }
 
   _loadMoreComments(page) {
-    this.currentPage = page;
-    this._fetchComments(null, page);
+    if (!this.isFetchingComments && page <= this.maxPages && !this.polledPages.has(page)) {
+      this.currentPage = page;
+      this.isLoading = true;
+      this._fetchComments(() => {
+        // Update the data-page attribute on the Load More button after successful fetch
+        const loadMoreButton = document.getElementById("load-more-comments");
+        if (loadMoreButton) {
+          loadMoreButton.setAttribute("data-page", this.currentPage);
+        }
+      }, page);
+    }
   }
 
   addNewThread(threadHtml, fromCurrentUser = false) {
@@ -118,16 +127,6 @@ export default class CommentsComponent {
     }, 180);
   }
 
-  /**
-   * Adds a new reply to an existing comment.
-   * @public
-   * @param {Number} commentId - The ID of the comment for which to add the
-   *   reply to.
-   * @param {String} replyHtml - The HTML content for the reply.
-   * @param {Boolean} fromCurrentUser - A boolean indicating whether the user
-   *   herself was the author of the new reply. Defaults to false.
-   * @returns {Void} - Returns nothing
-   */
   addReply(commentId, replyHtml, fromCurrentUser = false) {
     const $parent = $(`#comment_${commentId}`);
     const $comment = $(replyHtml);
@@ -137,22 +136,10 @@ export default class CommentsComponent {
     this._finalizeCommentCreation($parent, fromCurrentUser);
   }
 
-
-  /**
-   * Generates a unique identifier for the form.
-   * @private
-   * @returns {String} - Returns a unique identifier
-   */
   _getUID() {
     return `comments-${new Date().setUTCMilliseconds()}-${Math.floor(Math.random() * 10000000)}`;
   }
 
-  /**
-   * Initializes the comments for the given parent element.
-   * @private
-   * @param {jQuery} $parent The parent element to initialize.
-   * @returns {Void} - Returns nothing
-   */
   _initializeComments($parent) {
     $(".add-comment", $parent).each((_i, el) => {
       const $add = $(el);
@@ -173,24 +160,14 @@ export default class CommentsComponent {
       });
 
       if ($text.length && $text.get(0) !== null) {
-        // Attach event to the DOM node, instead of the jQuery object
         $text.get(0).addEventListener("emoji.added", this._onTextInput);
       }
     });
   }
 
-  /**
-   * Adds the given comment element to the given target element and
-   * initializes it.
-   * @private
-   * @param {jQuery} $target - The target element to add the comment to.
-   * @param {jQuery} $container - The comment container element to add.
-   * @returns {Void} - Returns nothing
-   */
   _addComment($target, $container) {
     let $comment = $(".comment", $container);
     if ($comment.length < 1) {
-      // In case of a reply
       $comment = $container;
     }
     this.lastCommentId = parseInt($comment.data("comment-id"), 10);
@@ -203,13 +180,12 @@ export default class CommentsComponent {
       const $link = $(elem);
       $link.data("external-link", new ExternalLink($link));
     });
-    updateExternalDomainLinks($container)
+    updateExternalDomainLinks($container);
   }
 
   _addNewComment($target, $container) {
     let $comment = $(".comment", $container);
     if ($comment.length < 1) {
-      // In case of a reply
       $comment = $container;
     }
     this.lastCommentId = parseInt($comment.data("comment-id"), 10);
@@ -222,19 +198,9 @@ export default class CommentsComponent {
       const $link = $(elem);
       $link.data("external-link", new ExternalLink($link));
     });
-    updateExternalDomainLinks($container)
+    updateExternalDomainLinks($container);
   }
 
-
-  /**
-   * Finalizes the new comment creation after the comment adding finishes
-   * successfully.
-   * @private
-   * @param {jQuery} $parent - The parent comment element to finalize.
-   * @param {Boolean} fromCurrentUser - A boolean indicating whether the user
-   *   herself was the author of the new comment.
-   * @returns {Void} - Returns nothing
-   */
   _finalizeCommentCreation($parent, fromCurrentUser) {
     if (fromCurrentUser) {
       const $add = $("> .add-comment", $parent);
@@ -249,32 +215,31 @@ export default class CommentsComponent {
       }
     }
 
-    // Restart the polling
     this._pollComments();
   }
 
-  /**
-   * Sets a timeout to poll new comments.
-   * @private
-   * @returns {Void} - Returns nothing
-   */
-  _pollComments() {
+  _pollComments(page = 1) {
     this._stopPolling();
-
+    if (this.pollTimeout) {
+      clearTimeout(this.pollTimeout);
+    }
     this.pollTimeout = setTimeout(() => {
-      this._fetchComments();
+      if (!this.polledPages.has(page)) {
+        this._fetchComments(() => {
+          this.isLoading = false;
+        }, page);
+        this.polledPages.add(page); // Mark page as polled
+        this._stopPolling();
+      }
     }, this.pollingInterval);
   }
 
-  /**
-   * Sends an ajax request based on current
-   * params to get comments for the component
-   * @private
-   * @param {Function} successCallback A callback that is called after a
-   *   successful fetch
-   * @returns {Void} - Returns nothing
-   */
   _fetchComments(successCallback = null, page = this.currentPage) {
+    if (this.isFetchingComments) return; // Prevent multiple requests
+
+    this.isFetchingComments = true; // Set fetching flag
+    this.isLoading = true;
+
     Rails.ajax({
       url: this.commentsUrl,
       type: "GET",
@@ -288,56 +253,62 @@ export default class CommentsComponent {
       }),
       success: (data) => {
         const $commentsContainer = $(".comment-threads", this.$element);
-        $commentsContainer.append(data.html);  
-
-        this._initializeComments($commentsContainer);
+        if (page === this.currentPage) {
+          $commentsContainer.append(data.html);
+          this._initializeComments($commentsContainer);
+        }
 
         if (successCallback) {
           successCallback();
         }
-        this._pollComments();
+
+        this.isLoading = false;
+        this.isFetchingComments = false; // Reset fetching flag
+        this._setLoading(false);
+      },
+      error: () => {
+        this.isLoading = false;
+        this.isFetchingComments = false; // Reset fetching flag
+        this._setLoading(false);
       }
     });
   }
 
-  /**
-   * Stops polling for new comments.
-   * @private
-   * @returns {Void} - Returns nothing
-   */
   _stopPolling() {
     if (this.pollTimeout) {
       clearTimeout(this.pollTimeout);
     }
   }
 
-  /**
-   * Sets the loading comments element visible in the view.
-   * @private
-   * @returns {Void} - Returns nothing
-   */
-  _setLoading() {
+  _setLoading(isLoading) {
     const $container = $("> .comments-container", this.$element);
-    $("> .comments", $container).addClass("hide");
-    $("> .loading-comments", $container).removeClass("hide");
+    const $comments = $("> .comments", $container);
+    const $loading = $("> .loading-comments", $container);
+    const loadMoreButton = document.getElementById("load-more-comments");
+
+    if (isLoading) {
+      $comments.addClass("hide");
+      if (loadMoreButton) loadMoreButton.style.display = "none";
+      $loading.removeClass("hide");
+    } else {
+      $comments.removeClass("hide");
+      if (loadMoreButton) loadMoreButton.style.display = "block";
+      $loading.addClass("hide");
+    }
   }
 
-  /**
-   * Event listener for the ordering links.
-   * @private
-   * @returns {Void} - Returns nothing
-   */
   _onInitOrder() {
     this._stopPolling();
-    this._setLoading();
+    this.reordered = true;
+    this._setLoading(true);
+    this.currentPage = 1; // Always start at page 1 on reorder
+    this.polledPages.clear(); // Clear polled pages on reorder
+    this._fetchComments(() => {
+      this.reordered = false;
+      this._setLoading(false);
+    }, 1); // Fetch the first page on reorder
   }
 
-  /**
-   * Event listener for the opinion toggle buttons.
-   * @private
-   * @param {Event} ev - The event object.
-   * @returns {Void} - Returns nothing
-   */
   _onToggleOpinion(ev) {
     let $btn = $(ev.target);
     if (!$btn.is(".button")) {
@@ -361,16 +332,9 @@ export default class CommentsComponent {
       $alignment.val(-1);
     }
 
-    // Announce the selected state for the screen reader
     $selectedState.text($btn.data("selected-label"));
   }
 
-  /**
-   * Event listener for the comment field text input.
-   * @private
-   * @param {Event} ev - The event object.
-   * @returns {Void} - Returns nothing
-   */
   _onTextInput(ev) {
     const $text = $(ev.target);
     const $add = $text.closest(".add-comment");
@@ -390,15 +354,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const commentsComponent = new CommentsComponent($(".comments-container"), {
     commentableGid: loadMoreButton.getAttribute("data-commentable-gid"),
     commentsUrl: "/comments",
-    order: loadMoreButton.getAttribute("data-order")
-  })
+    order: loadMoreButton.getAttribute("data-order"),
+    commentsCount: parseInt(loadMoreButton.getAttribute("data-comments-count"), 10)
+  });
+
   if (loadMoreButton) {
-    loadMoreButton.addEventListener("click", (event) => {
-      event.preventDefault();
+    const loadMoreHandler = (event) => {
       const page = parseInt(loadMoreButton.getAttribute("data-page"), 10);
       const newPage = page + 1;
       commentsComponent._loadMoreComments(newPage);
-      loadMoreButton.setAttribute("data-page", newPage);
-    });
+    };
+
+    loadMoreButton.addEventListener("click", loadMoreHandler);
   }
+
+  commentsComponent.mountComponent();
 });
