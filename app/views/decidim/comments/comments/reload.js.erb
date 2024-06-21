@@ -22,7 +22,7 @@
   var commentsData = $comments.data("decidim-comments");
   const maxPages = '<%== (@comments_count.to_f / 10).ceil %>';
   commentsData.maxPages = maxPages;
-  commentsData.commentsCount = '<%== @comments_count %>'; // Pass comments count to data
+  commentsData.commentsCount = '<%== @comments_count %>';
   component = new Decidim.CommentsComponent($comments, commentsData);
 
   var initialPage = 1;
@@ -31,7 +31,7 @@
   component.currentPage = initialPage;
   component.mountComponent();
   $comments.data("comments", component);
-
+  
   // Re-initialize the load more button
   const loadMoreButton = document.getElementById("load-more-comments");
   if (loadMoreButton) {

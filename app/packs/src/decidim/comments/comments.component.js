@@ -21,11 +21,11 @@ export default class CommentsComponent {
     this.id = this.$element.attr("id") || this._getUID();
     this.mounted = false;
     this.maxPages = Math.ceil(config.commentsCount / 10);
-    this.currentPage = 1; // Always start at page 1
+    this.currentPage = 1; 
     this.reordered = false;
     this.isLoading = false;
-    this.isFetchingComments = false; // Flag to prevent multiple requests
-    this.polledPages = new Set(); // Set to track polled pages
+    this.isFetchingComments = false; 
+    this.polledPages = new Set();
   }
 
   mountComponent() {
@@ -75,7 +75,7 @@ export default class CommentsComponent {
             const newPage = page + 1;
             this._loadMoreComments(newPage);
           }
-        }, 300); // Debounce time in ms
+        }, 300);
       };
 
       loadMoreButton.addEventListener("click", this._loadMoreHandler);
@@ -95,7 +95,6 @@ export default class CommentsComponent {
       this.currentPage = page;
       this.isLoading = true;
       this._fetchComments(() => {
-        // Update the data-page attribute on the Load More button after successful fetch
         const loadMoreButton = document.getElementById("load-more-comments");
         if (loadMoreButton) {
           loadMoreButton.setAttribute("data-page", this.currentPage);
@@ -228,16 +227,16 @@ export default class CommentsComponent {
         this._fetchComments(() => {
           this.isLoading = false;
         }, page);
-        this.polledPages.add(page); // Mark page as polled
+        this.polledPages.add(page); 
         this._stopPolling();
       }
     }, this.pollingInterval);
   }
 
   _fetchComments(successCallback = null, page = this.currentPage) {
-    if (this.isFetchingComments) return; // Prevent multiple requests
+    if (this.isFetchingComments) return; 
 
-    this.isFetchingComments = true; // Set fetching flag
+    this.isFetchingComments = true; 
     this.isLoading = true;
 
     Rails.ajax({
@@ -254,7 +253,10 @@ export default class CommentsComponent {
       success: (data) => {
         const $commentsContainer = $(".comment-threads", this.$element);
         if (page === this.currentPage) {
-          $commentsContainer.append(data.html);
+          $commentsContainer.html(data.html); 
+          this._initializeComments($commentsContainer);
+        } else {
+          $commentsContainer.append(data.html); 
           this._initializeComments($commentsContainer);
         }
 
@@ -263,12 +265,12 @@ export default class CommentsComponent {
         }
 
         this.isLoading = false;
-        this.isFetchingComments = false; // Reset fetching flag
+        this.isFetchingComments = false; 
         this._setLoading(false);
       },
       error: () => {
         this.isLoading = false;
-        this.isFetchingComments = false; // Reset fetching flag
+        this.isFetchingComments = false; 
         this._setLoading(false);
       }
     });
@@ -301,12 +303,12 @@ export default class CommentsComponent {
     this._stopPolling();
     this.reordered = true;
     this._setLoading(true);
-    this.currentPage = 1; // Always start at page 1 on reorder
-    this.polledPages.clear(); // Clear polled pages on reorder
+    this.currentPage = 1; 
+    this.polledPages.clear(); 
     this._fetchComments(() => {
       this.reordered = false;
       this._setLoading(false);
-    }, 1); // Fetch the first page on reorder
+    }, 1); 
   }
 
   _onToggleOpinion(ev) {
