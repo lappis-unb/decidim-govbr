@@ -18,6 +18,8 @@ require "commands/decidim/proposals/admin/admin_resource_gallery_example"
 require "shared/proposal_form_examples"
 require "shared/scopable_resource_examples"
 require "shared/translate_helper"
+require "decidim/meetings/test/notifications_handling"
+require "decidim/dev/test/rspec_support/geocoder"
 
 # Requires all rspec examples
 Dir[File.join('spec', 'shared', '*_examples.rb')].map { |file| require_relative "shared/#{file.split("/").last}" }
