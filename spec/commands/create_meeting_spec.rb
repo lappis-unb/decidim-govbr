@@ -28,7 +28,7 @@ module Decidim::Meetings
     let(:available_slots) { 0 }
     let(:registration_terms) { Faker::Lorem.sentence(word_count: 3) }
     let(:attachment_params) { [] }
-    let(:documents) {create_list(:attachment, 10)}
+    let(:documents) { create_list(:attachment, 10) }
     let(:associated_state) { 3 }
     let(:form) do
       double(

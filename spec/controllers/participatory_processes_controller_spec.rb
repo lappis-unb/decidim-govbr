@@ -14,7 +14,6 @@ module Decidim
           organization: organization
         )
       end
-      
 
       let(:meeting_component) { create(:component, manifest_name: "meetings", participatory_space: unpublished_process) }
       let!(:meetings) { create_list(:meeting, 2, :published, component: meeting_component) }
@@ -25,7 +24,6 @@ module Decidim
 
       describe "with engine routes" do
         routes { Decidim::ParticipatoryProcesses::Engine.routes }
-
 
         describe "published_processes" do
           it "includes only published participatory processes" do
@@ -160,46 +158,45 @@ module Decidim
             end
           end
         end
-
       end
-      
+
       describe "with main routes" do
         describe "GET all_meetings_of_a_participatory_process" do
           let!(:active) { create(:participatory_process, :published, :active, organization: organization) }
           let!(:meetings) { create_list(:meeting, 2, :published, component: meeting_component) }
-  
+
           context "when no search term is provided" do
             it "returns all meetings of the participatory process" do
               get :all_meetings_of_a_participatory_process, params: { slug: unpublished_process.slug, state: meetings.first.associated_state }
-  
+
               expect(response).to be_successful
               parsed_response = JSON.parse(response.body)
               expect(parsed_response.size).to eq(2)
               expect(parsed_response.map { |m| m["id"] }).to include(meetings.first.id, meetings.last.id)
             end
           end
-  
+
           context "when a search term is provided" do
             it "returns only the meetings matching the search term" do
               meeting = meetings.first
               meeting.update!(title: { "pt-BR" => "Reunião de Teste" })
-  
+
               get :all_meetings_of_a_participatory_process, params: { slug: unpublished_process.slug, state: meeting.associated_state, search: "Teste" }
-  
+
               expect(response).to be_successful
               parsed_response = JSON.parse(response.body)
               expect(parsed_response.size).to eq(1)
               expect(parsed_response.first["id"]).to eq(meeting.id)
             end
           end
-  
+
           context "when filtering by state" do
             it "returns only the meetings with the specified state" do
               meeting = meetings.first
               meeting.update!(associated_state: 3)
-  
+
               get :all_meetings_of_a_participatory_process, params: { slug: unpublished_process.slug, state: 3 }
-  
+
               expect(response).to be_successful
               parsed_response = JSON.parse(response.body)
               expect(parsed_response.size).to eq(1)
@@ -207,7 +204,6 @@ module Decidim
             end
           end
         end
-
       end
     end
   end

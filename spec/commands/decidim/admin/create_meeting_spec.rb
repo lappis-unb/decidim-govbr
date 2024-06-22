@@ -44,7 +44,7 @@ module Decidim::Meetings
 
     let(:registrations_enabled) { false }
 
-    let(:associated_state) {3}
+    let(:associated_state) { 3 }
 
     let(:form) do
       double(

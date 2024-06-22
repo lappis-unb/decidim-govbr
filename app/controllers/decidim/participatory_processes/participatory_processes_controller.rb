@@ -50,22 +50,24 @@ module Decidim
                                                      participatory_space_type: "Decidim::ParticipatoryProcess")
                                               .first
 
-        if search.to_s.strip.empty?
+        render status: :not_found unless meeting_component
 
-          @all_meetings_of_a_participatory_process ||= Decidim::Meetings::Meeting.where(decidim_component_id: meeting_component.id, associated_state: state).except_withdrawn
-                                                                                .published
-                                                                                .not_hidden
-                                                                                .visible_for(current_user)
-        else 
+        @all_meetings_of_a_participatory_process ||= if search.to_s.strip.empty?
 
-          @all_meetings_of_a_participatory_process ||= Decidim::Meetings::Meeting
-                                                                                .where(decidim_component_id: meeting_component.id, associated_state: state)
-                                                                                .except_withdrawn
-                                                                                .published
-                                                                                .not_hidden
-                                                                                .visible_for(current_user)
-                                                                                .where("title ->> 'pt-BR' ILIKE ?", "%#{params[:search]}%")
-        end 
+                                                       Decidim::Meetings::Meeting.where(decidim_component_id: meeting_component.id, associated_state: state).except_withdrawn
+                                                                                 .published
+                                                                                 .not_hidden
+                                                                                 .visible_for(current_user)
+                                                     else
+
+                                                       Decidim::Meetings::Meeting
+                                                         .where(decidim_component_id: meeting_component.id, associated_state: state)
+                                                         .except_withdrawn
+                                                         .published
+                                                         .not_hidden
+                                                         .visible_for(current_user)
+                                                         .where("title ->> 'pt-BR' ILIKE ?", "%#{params[:search]}%")
+                                                     end
 
         render json: @all_meetings_of_a_participatory_process
       end
