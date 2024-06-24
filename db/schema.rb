@@ -1555,12 +1555,6 @@ ActiveRecord::Schema.define(version: 2024_06_06_181840) do
     t.string "initial_page_type", default: "default", null: false
     t.bigint "initial_page_component_id"
     t.string "group_chat_id"
-    t.jsonb "institution"
-    t.jsonb "sector"
-    t.jsonb "consultant"
-    t.date "dou_publication_date"
-    t.string "dou_link"
-    t.string "contact"
     t.boolean "should_have_user_full_profile", default: false
     t.date "publish_date"
     t.boolean "show_mobilization"
