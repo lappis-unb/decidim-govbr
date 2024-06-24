@@ -9,10 +9,12 @@
       </div>
       <% end %>
       
+      <% if commentable? %>
       <div class="proposal_stat">
         <span class="comments_stat"><%= comments_count %></span>
         <span class="comments_stat"><%= I18n.t("decidim.proposals.proposals.comments_count.count", count: comments_count) %></span>
       </div>
+      <% end %>
     </div>
     <div class="bp-divider"></div>
     <div class="proposal-buttons">    

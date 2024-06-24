@@ -501,8 +501,8 @@ ActiveRecord::Schema.define(version: 2024_06_20_133248) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "participatory_space_type", null: false
-    t.jsonb "singular_name"
     t.boolean "hide_in_menu"
+    t.jsonb "singular_name"
     t.jsonb "menu_name"
     t.index ["participatory_space_id", "participatory_space_type"], name: "index_decidim_components_on_decidim_participatory_space"
   end
@@ -1286,6 +1286,7 @@ ActiveRecord::Schema.define(version: 2024_06_20_133248) do
     t.string "state"
     t.integer "iframe_access_level", default: 0
     t.integer "iframe_embed_type", default: 0
+    t.boolean "cancelled", default: false, null: false
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_meetings_meetings_on_author"
     t.index ["decidim_author_id"], name: "index_decidim_meetings_meetings_on_decidim_author_id"
     t.index ["decidim_component_id"], name: "index_decidim_meetings_meetings_on_decidim_component_id"
@@ -2049,7 +2050,7 @@ ActiveRecord::Schema.define(version: 2024_06_20_133248) do
     t.text "about"
     t.datetime "accepted_tos_version"
     t.string "newsletter_token", default: ""
-    t.datetime "newsletter_notifications_at", default: "2024-06-20 13:40:46"
+    t.datetime "newsletter_notifications_at", default: "2024-06-24 19:10:14"
     t.string "type", null: false
     t.jsonb "extended_data", default: {}
     t.integer "following_count", default: 0, null: false
@@ -2069,7 +2070,7 @@ ActiveRecord::Schema.define(version: 2024_06_20_133248) do
     t.boolean "email_on_moderations", default: true
     t.integer "follows_count", default: 0, null: false
     t.jsonb "notification_settings", default: {"close_meeting_reminder"=>"1"}
-    t.string "notifications_sending_frequency", default: "t"
+    t.string "notifications_sending_frequency", default: "none"
     t.datetime "digest_sent_at"
     t.datetime "password_updated_at"
     t.string "previous_passwords", default: [], array: true

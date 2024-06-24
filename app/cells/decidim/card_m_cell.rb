@@ -115,6 +115,10 @@ module Decidim
       model.comments_count
     end
 
+    def commentable?
+      model.component.settings.comments_enabled?
+    end
+
     def statuses
       collection = [:creation_date]
       collection << :follow if model.is_a?(Decidim::Followable) && model != try(:current_user)
