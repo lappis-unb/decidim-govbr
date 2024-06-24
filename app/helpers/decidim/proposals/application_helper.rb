@@ -34,6 +34,7 @@ module Decidim
       # proposal - The proposal to evaluate.
       #
       # Returns a String.
+
       def proposal_state_css_class(proposal)
         state = proposal.state
         state = proposal.internal_state if proposal.answered? && !proposal.published_state?

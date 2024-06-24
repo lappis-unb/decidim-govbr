@@ -13,6 +13,7 @@ module Decidim
         translatable_attribute :execution_period, String
         attribute :cost, Float
         attribute :internal_state, String
+        attribute :badge, String
 
         validates :internal_state, presence: true, inclusion: { in: Decidim::Proposals::Proposal::POSSIBLE_STATES }
         validates :answer, translatable_presence: true, if: ->(form) { form.state.in?(states_that_requires_answer) }

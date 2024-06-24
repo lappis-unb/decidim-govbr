@@ -103,6 +103,10 @@ module Decidim
       state_classes.concat(["card__text--status"]).join(" ")
     end
 
+    def extra_badges_classes(badge)
+      ["blue"].concat(["card__text--status"]).join(" ") if badge == "Mais Votada"
+    end
+
     def state_classes
       ["muted"]
     end
