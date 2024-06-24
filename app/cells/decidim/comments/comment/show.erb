@@ -28,7 +28,7 @@
       </div>
 
       <span class="comment-settings">
-        <span><%=t("decidim.blogs.posts.show.published_in_")%><%= time_tag created_at, l(created_at, format: :decidim_short) %></span>
+        <span><%=t("decidim.blogs.posts.show.published_at")%>: <%= time_tag created_at, l(created_at, format: :decidim_short) %></span>
         <%= render :utilities %>
       </span>
     </div>

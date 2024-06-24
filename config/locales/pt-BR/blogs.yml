@@ -15,8 +15,8 @@ pt-BR:
           update: "%{user_name} atualizou a postagem de blog %{resource_name} em %{space_name}"
       posts:
         show:
-          published_in: Publicado em 
-          published_in_: 'Publicado em:'
+          published_at: 'Publicado em'
+          updated_at: 'Atualizado em'
           back: Voltar à lista
           page_has_no_publication: A página não possui publicação. 
           Read_more: ler mais
