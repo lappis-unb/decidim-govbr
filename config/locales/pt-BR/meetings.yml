@@ -179,7 +179,6 @@ pt-BR:
           registration_code_help_text: O seu código de inscrição
           back: Voltar à lista
         form:
-          select_a_meeting_associated_state: Por favor, selecione um estado associado ao evento
           remaining_slots: vagas disponíveis
           live_event: Este evento está acontecendo agora
           live_permission_notice: Ao clicar no botão abaixo, serão solicitadas permissões de microfone e/ou câmera e você entrará na videoconferência.
