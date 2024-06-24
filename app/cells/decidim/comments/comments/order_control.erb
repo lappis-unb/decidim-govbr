@@ -26,7 +26,7 @@
                 <li role="presentation" class="is-submenu-item is-dropdown-submenu-item">
                     <%= link_to(
                     t("decidim.components.comment_order_selector.order.#{order_value}"),
-                    decidim_comments.comments_path(commentable_gid: model.to_signed_global_id.to_s, order: order_value, reload: 1),
+                    decidim_comments.comments_path(commentable_gid: model.to_signed_global_id.to_s, order: order_value, reload: 1, page: 1),
                     tabindex: -1,
                     role: "menuitem",
                     remote: true

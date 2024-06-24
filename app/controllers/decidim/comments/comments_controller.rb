@@ -8,6 +8,7 @@ module Decidim
       include Decidim::ResourceHelper
       include Decidim::SkipTimeoutable
       include Decidim::Govbr::MediaAttachmentsHelper
+      include Paginable
 
       prepend_before_action :skip_timeout, only: :index
       before_action :authenticate_user!, only: [:create]
@@ -23,7 +24,8 @@ module Decidim
           commentable,
           order_by: order,
           after: params.fetch(:after, 0).to_i
-        )
+        ).page(params['page']).per(10)
+
         @comments = @comments.reject do |comment|
           next if comment.depth < 1
           next if !comment.deleted? && !comment.hidden?
@@ -43,6 +45,25 @@ module Decidim
 
           # This makes sure bots are not causing unnecessary log entries.
           format.html { redirect_to commentable_path }
+        end
+      end
+
+      def load_more
+        @comments = SortedComments.for(
+          commentable,
+          order_by: order,
+          after: params.fetch(:after, 0).to_i
+        ).page(params[:page]).per(10)
+
+        @comments = @comments.reject do |comment|
+          next if comment.depth < 1
+          next if !comment.deleted? && !comment.hidden?
+
+          comment.commentable.descendants.where(decidim_commentable_type: "Decidim::Comments::Comment").not_hidden.not_deleted.blank?
+        end
+
+        respond_to do |format|
+          format.js
         end
       end
 

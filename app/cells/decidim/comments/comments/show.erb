@@ -2,7 +2,7 @@
   <div class="columns comments-container" id="comments">
     <div class="comments">
       <%= add_comment %>
-      <%= user_comments_blocked_warning %> 
+      <%= user_comments_blocked_warning %>
       <div class="comments-thread-title">
         <h3 class="section-heading comments-section-title">
           <%= t("decidim.components.comments_section_title.title", count: comments_count )%>
@@ -30,6 +30,17 @@
           <%= cell("decidim/comments/comment_thread", comment, order: order) %>
         <% end %>
       </div>
+        <%= link_to t("decidim.components.comments.load_more"),
+            decidim_comments.comments_path(
+                             commentable_gid: model.to_signed_global_id.to_s,
+                             order: order),
+            id: "load-more-comments", data: {
+                                      page: 1,
+                                      commentable_gid: model.to_signed_global_id.to_s,
+                                      order: order,
+                                      comments_count: comments_count,
+                                      total_pages: total_pages},
+            class: "br-button", remote: true %>
     </div>
     <div class="callout primary loading-comments hide">
       <p><%= t("decidim.components.comments.loading") %></p>

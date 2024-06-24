@@ -25,14 +25,6 @@ module Decidim
 
       field :alignment, GraphQL::Types::Int, "The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'", null: true
 
-      field :up_votes, GraphQL::Types::Int, "The number of comment's upVotes", null: false
-
-      field :up_voted, GraphQL::Types::Boolean, "Check if the current user has upvoted the comment", null: false
-
-      field :down_votes, GraphQL::Types::Int, "The number of comment's downVotes", null: false
-
-      field :down_voted, GraphQL::Types::Boolean, "Check if the current user has downvoted the comment", null: false
-
       field :has_comments, GraphQL::Types::Boolean, "Check if the commentable has comments", method: :has_comments?, null: false
 
       field :already_reported, GraphQL::Types::Boolean, "Check if the current user has reported the comment", null: false
@@ -63,22 +55,6 @@ module Decidim
 
       def formatted_created_at
         object.friendly_created_at
-      end
-
-      def up_votes
-        object.up_votes.size
-      end
-
-      def up_voted
-        object.up_voted_by?(context[:current_user])
-      end
-
-      def down_votes
-        object.down_votes.size
-      end
-
-      def down_voted
-        object.down_voted_by?(context[:current_user])
       end
 
       def has_comments?

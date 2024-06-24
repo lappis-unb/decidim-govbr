@@ -1,0 +1,3 @@
+<% @comments.each do |comment| %>
+  <%= j render partial: 'comment', locals: { comment: comment } %>
+<% end %>

@@ -56,6 +56,10 @@ module Decidim
         model.comments_count
       end
 
+      def total_pages
+        (comments_count.to_f / 10).ceil
+      end
+
       def root_depth
         return 0 unless single_comment?
 
@@ -73,7 +77,7 @@ module Decidim
       end
 
       def available_orders
-        %w(best_rated recent older most_discussed)
+        %w(recent older)
       end
 
       def order

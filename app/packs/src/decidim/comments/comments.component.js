@@ -14,9 +14,9 @@ const $ = window.$;
 
 import Rails from "@rails/ujs";
 
-import { createCharacterCounter } from "src/decidim/input_character_counter"
-import ExternalLink from "src/decidim/external_link"
-import updateExternalDomainLinks from "src/decidim/external_domain_warning"
+import { createCharacterCounter } from "src/decidim/input_character_counter";
+import ExternalLink from "src/decidim/external_link";
+import updateExternalDomainLinks from "src/decidim/external_domain_warning";
 
 export default class CommentsComponent {
   constructor($element, config) {
@@ -26,11 +26,18 @@ export default class CommentsComponent {
     this.rootDepth = config.rootDepth;
     this.order = config.order;
     this.lastCommentId = config.lastCommentId;
-    this.pollingInterval = config.pollingInterval || 15000;
+    this.commentsCount = config.commentsCount;
+    this.pollingInterval = config.pollingInterval || 1500;
     this.singleComment = config.singleComment;
     this.toggleTranslations = config.toggleTranslations;
     this.id = this.$element.attr("id") || this._getUID();
     this.mounted = false;
+    this.maxPages = Math.ceil(config.commentsCount / 10);
+    this.currentPage = 1; 
+    this.reordered = false;
+    this.isLoading = false;
+    this.isFetchingComments = false; 
+    this.polledPages = new Set();
   }
 
   /**
@@ -50,6 +57,8 @@ export default class CommentsComponent {
       }
 
       $(".order-by__dropdown .is-submenu-item a", this.$element).on("click.decidim-comments", () => this._onInitOrder());
+
+      this._initializeLoadMoreButton();
     }
   }
 
@@ -68,6 +77,30 @@ export default class CommentsComponent {
       $(".order-by__dropdown .is-submenu-item a", this.$element).off("click.decidim-comments");
       $(".add-comment form", this.$element).off("submit.decidim-comments");
       $(".add-comment textarea", this.$element).each((_i, el) => el.removeEventListener("emoji.added", this._onTextInput));
+
+      const loadMoreButton = document.getElementById("load-more-comments");
+      if (loadMoreButton) {
+        loadMoreButton.removeEventListener("click", this._loadMoreHandler);
+      }
+    }
+  }
+
+  _initializeLoadMoreButton() {
+    const loadMoreButton = document.getElementById("load-more-comments");
+    if (loadMoreButton) {
+      this._loadMoreHandler = (event) => {
+        event.preventDefault();
+        clearTimeout(this.debounceTimeout);
+        this.debounceTimeout = setTimeout(() => {
+          if (!this.isFetchingComments) {
+            const page = parseInt(loadMoreButton.getAttribute("data-page"), 10);
+            const newPage = page + 1;
+            this._loadMoreComments(newPage);
+          }
+        }, 300);
+      };
+
+      loadMoreButton.addEventListener("click", this._loadMoreHandler);
     }
   }
 
@@ -85,6 +118,19 @@ export default class CommentsComponent {
     const $threads = $(".comment-threads", this.$element);
     this._addComment($threads, $comment);
     this._finalizeCommentCreation($parent, fromCurrentUser);
+  }
+
+  _loadMoreComments(page) {
+    if (!this.isFetchingComments && page <= this.maxPages && !this.polledPages.has(page)) {
+      this.currentPage = page;
+      this.isLoading = true;
+      this._fetchComments(() => {
+        const loadMoreButton = document.getElementById("load-more-comments");
+        if (loadMoreButton) {
+          loadMoreButton.setAttribute("data-page", this.currentPage);
+        }
+      }, page);
+    }
   }
 
   addNewThread(threadHtml, fromCurrentUser = false) {
@@ -129,8 +175,6 @@ export default class CommentsComponent {
     this._finalizeCommentCreation($parent, fromCurrentUser);
   }
 
-  
-
   /**
    * Generates a unique identifier for the form.
    * @private
@@ -166,7 +210,6 @@ export default class CommentsComponent {
       });
 
       if ($text.length && $text.get(0) !== null) {
-        // Attach event to the DOM node, instead of the jQuery object
         $text.get(0).addEventListener("emoji.added", this._onTextInput);
       }
     });
@@ -183,7 +226,6 @@ export default class CommentsComponent {
   _addComment($target, $container) {
     let $comment = $(".comment", $container);
     if ($comment.length < 1) {
-      // In case of a reply
       $comment = $container;
     }
     this.lastCommentId = parseInt($comment.data("comment-id"), 10);
@@ -196,13 +238,12 @@ export default class CommentsComponent {
       const $link = $(elem);
       $link.data("external-link", new ExternalLink($link));
     });
-    updateExternalDomainLinks($container)
+    updateExternalDomainLinks($container);
   }
 
   _addNewComment($target, $container) {
     let $comment = $(".comment", $container);
     if ($comment.length < 1) {
-      // In case of a reply
       $comment = $container;
     }
     this.lastCommentId = parseInt($comment.data("comment-id"), 10);
@@ -215,9 +256,8 @@ export default class CommentsComponent {
       const $link = $(elem);
       $link.data("external-link", new ExternalLink($link));
     });
-    updateExternalDomainLinks($container)
+    updateExternalDomainLinks($container);
   }
-
 
   /**
    * Finalizes the new comment creation after the comment adding finishes
@@ -242,7 +282,6 @@ export default class CommentsComponent {
       }
     }
 
-    // Restart the polling
     this._pollComments();
   }
 
@@ -251,11 +290,19 @@ export default class CommentsComponent {
    * @private
    * @returns {Void} - Returns nothing
    */
-  _pollComments() {
+  _pollComments(page = 1) {
     this._stopPolling();
-
+    if (this.pollTimeout) {
+      clearTimeout(this.pollTimeout);
+    }
     this.pollTimeout = setTimeout(() => {
-      this._fetchComments();
+      if (!this.polledPages.has(page)) {
+        this._fetchComments(() => {
+          this.isLoading = false;
+        }, page);
+        this.polledPages.add(page); 
+        this._stopPolling();
+      }
     }, this.pollingInterval);
   }
 
@@ -267,7 +314,12 @@ export default class CommentsComponent {
    *   successful fetch
    * @returns {Void} - Returns nothing
    */
-  _fetchComments(successCallback = null) {
+  _fetchComments(successCallback = null, page = this.currentPage) {
+    if (this.isFetchingComments) return; 
+
+    this.isFetchingComments = true; 
+    this.isLoading = true;
+
     Rails.ajax({
       url: this.commentsUrl,
       type: "GET",
@@ -276,14 +328,31 @@ export default class CommentsComponent {
         "root_depth": this.rootDepth,
         "order": this.order,
         "after": this.lastCommentId,
+        "page": page,
         ...(this.toggleTranslations && { "toggle_translations": this.toggleTranslations }),
-        ...(this.lastCommentId && { "after": this.lastCommentId })
       }),
-      success: () => {
+      success: (data) => {
+        const $commentsContainer = $(".comment-threads", this.$element);
+        if (page === this.currentPage) {
+          $commentsContainer.html(data.html); 
+          this._initializeComments($commentsContainer);
+        } else {
+          $commentsContainer.append(data.html); 
+          this._initializeComments($commentsContainer);
+        }
+
         if (successCallback) {
           successCallback();
         }
-        this._pollComments();
+
+        this.isLoading = false;
+        this.isFetchingComments = false; 
+        this._setLoading(false);
+      },
+      error: () => {
+        this.isLoading = false;
+        this.isFetchingComments = false; 
+        this._setLoading(false);
       }
     });
   }
@@ -304,10 +373,21 @@ export default class CommentsComponent {
    * @private
    * @returns {Void} - Returns nothing
    */
-  _setLoading() {
+  _setLoading(isLoading) {
     const $container = $("> .comments-container", this.$element);
-    $("> .comments", $container).addClass("hide");
-    $("> .loading-comments", $container).removeClass("hide");
+    const $comments = $("> .comments", $container);
+    const $loading = $("> .loading-comments", $container);
+    const loadMoreButton = document.getElementById("load-more-comments");
+
+    if (isLoading) {
+      $comments.addClass("hide");
+      if (loadMoreButton) loadMoreButton.style.display = "none";
+      $loading.removeClass("hide");
+    } else {
+      $comments.removeClass("hide");
+      if (loadMoreButton) loadMoreButton.style.display = "block";
+      $loading.addClass("hide");
+    }
   }
 
   /**
@@ -317,7 +397,14 @@ export default class CommentsComponent {
    */
   _onInitOrder() {
     this._stopPolling();
-    this._setLoading();
+    this.reordered = true;
+    this._setLoading(true);
+    this.currentPage = 1; 
+    this.polledPages.clear(); 
+    this._fetchComments(() => {
+      this.reordered = false;
+      this._setLoading(false);
+    }, 1); 
   }
 
   /**
@@ -349,7 +436,6 @@ export default class CommentsComponent {
       $alignment.val(-1);
     }
 
-    // Announce the selected state for the screen reader
     $selectedState.text($btn.data("selected-label"));
   }
 
@@ -372,3 +458,25 @@ export default class CommentsComponent {
     }
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const loadMoreButton = document.getElementById("load-more-comments");
+  const commentsComponent = new CommentsComponent($(".comments-container"), {
+    commentableGid: loadMoreButton.getAttribute("data-commentable-gid"),
+    commentsUrl: "/comments",
+    order: loadMoreButton.getAttribute("data-order"),
+    commentsCount: parseInt(loadMoreButton.getAttribute("data-comments-count"), 10)
+  });
+
+  if (loadMoreButton) {
+    const loadMoreHandler = (event) => {
+      const page = parseInt(loadMoreButton.getAttribute("data-page"), 10);
+      const newPage = page + 1;
+      commentsComponent._loadMoreComments(newPage);
+    };
+
+    loadMoreButton.addEventListener("click", loadMoreHandler);
+  }
+
+  commentsComponent.mountComponent();
+});
