@@ -1,7 +1,18 @@
-import Rails from "@rails/ujs";
+/* eslint id-length: ["error", { "exceptions": ["$"] }] */
+/* eslint max-lines: ["error", {"max": 350, "skipBlankLines": true}] */
+
+
+/**
+ * A plain Javascript component that handles the comments.
+ *
+ * @class
+ * @augments Component
+ */
 
 // This is necessary for testing purposes
 const $ = window.$;
+
+import Rails from "@rails/ujs";
 
 import { createCharacterCounter } from "src/decidim/input_character_counter";
 import ExternalLink from "src/decidim/external_link";
@@ -15,6 +26,7 @@ export default class CommentsComponent {
     this.rootDepth = config.rootDepth;
     this.order = config.order;
     this.lastCommentId = config.lastCommentId;
+    this.commentsCount = config.commentsCount;
     this.pollingInterval = config.pollingInterval || 1500;
     this.singleComment = config.singleComment;
     this.toggleTranslations = config.toggleTranslations;
@@ -28,6 +40,11 @@ export default class CommentsComponent {
     this.polledPages = new Set();
   }
 
+  /**
+   * Handles the logic for mounting the component
+   * @public
+   * @returns {Void} - Returns nothing
+   */
   mountComponent() {
     if (this.$element.length > 0 && !this.mounted) {
       this.mounted = true;
@@ -45,6 +62,11 @@ export default class CommentsComponent {
     }
   }
 
+  /**
+   * Handles the logic for unmounting the component
+   * @public
+   * @returns {Void} - Returns nothing
+   */
   unmountComponent() {
     if (this.mounted) {
       this.mounted = false;
@@ -82,6 +104,14 @@ export default class CommentsComponent {
     }
   }
 
+  /**
+   * Adds a new thread to the comments section.
+   * @public
+   * @param {String} threadHtml - The HTML content for the thread.
+   * @param {Boolean} fromCurrentUser - A boolean indicating whether the user
+   *   herself was the author of the new thread. Defaults to false.
+   * @returns {Void} - Returns nothing
+   */
   addThread(threadHtml, fromCurrentUser = false) {
     const $parent = $(".comments:first", this.$element);
     const $comment = $(threadHtml);
@@ -126,6 +156,16 @@ export default class CommentsComponent {
     }, 180);
   }
 
+  /**
+   * Adds a new reply to an existing comment.
+   * @public
+   * @param {Number} commentId - The ID of the comment for which to add the
+   *   reply to.
+   * @param {String} replyHtml - The HTML content for the reply.
+   * @param {Boolean} fromCurrentUser - A boolean indicating whether the user
+   *   herself was the author of the new reply. Defaults to false.
+   * @returns {Void} - Returns nothing
+   */
   addReply(commentId, replyHtml, fromCurrentUser = false) {
     const $parent = $(`#comment_${commentId}`);
     const $comment = $(replyHtml);
@@ -135,10 +175,21 @@ export default class CommentsComponent {
     this._finalizeCommentCreation($parent, fromCurrentUser);
   }
 
+  /**
+   * Generates a unique identifier for the form.
+   * @private
+   * @returns {String} - Returns a unique identifier
+   */
   _getUID() {
     return `comments-${new Date().setUTCMilliseconds()}-${Math.floor(Math.random() * 10000000)}`;
   }
 
+  /**
+   * Initializes the comments for the given parent element.
+   * @private
+   * @param {jQuery} $parent The parent element to initialize.
+   * @returns {Void} - Returns nothing
+   */
   _initializeComments($parent) {
     $(".add-comment", $parent).each((_i, el) => {
       const $add = $(el);
@@ -164,6 +215,14 @@ export default class CommentsComponent {
     });
   }
 
+  /**
+   * Adds the given comment element to the given target element and
+   * initializes it.
+   * @private
+   * @param {jQuery} $target - The target element to add the comment to.
+   * @param {jQuery} $container - The comment container element to add.
+   * @returns {Void} - Returns nothing
+   */
   _addComment($target, $container) {
     let $comment = $(".comment", $container);
     if ($comment.length < 1) {
@@ -200,6 +259,15 @@ export default class CommentsComponent {
     updateExternalDomainLinks($container);
   }
 
+  /**
+   * Finalizes the new comment creation after the comment adding finishes
+   * successfully.
+   * @private
+   * @param {jQuery} $parent - The parent comment element to finalize.
+   * @param {Boolean} fromCurrentUser - A boolean indicating whether the user
+   *   herself was the author of the new comment.
+   * @returns {Void} - Returns nothing
+   */
   _finalizeCommentCreation($parent, fromCurrentUser) {
     if (fromCurrentUser) {
       const $add = $("> .add-comment", $parent);
@@ -217,6 +285,11 @@ export default class CommentsComponent {
     this._pollComments();
   }
 
+  /**
+   * Sets a timeout to poll new comments.
+   * @private
+   * @returns {Void} - Returns nothing
+   */
   _pollComments(page = 1) {
     this._stopPolling();
     if (this.pollTimeout) {
@@ -233,6 +306,14 @@ export default class CommentsComponent {
     }, this.pollingInterval);
   }
 
+  /**
+   * Sends an ajax request based on current
+   * params to get comments for the component
+   * @private
+   * @param {Function} successCallback A callback that is called after a
+   *   successful fetch
+   * @returns {Void} - Returns nothing
+   */
   _fetchComments(successCallback = null, page = this.currentPage) {
     if (this.isFetchingComments) return; 
 
@@ -276,12 +357,22 @@ export default class CommentsComponent {
     });
   }
 
+  /**
+   * Stops polling for new comments.
+   * @private
+   * @returns {Void} - Returns nothing
+   */
   _stopPolling() {
     if (this.pollTimeout) {
       clearTimeout(this.pollTimeout);
     }
   }
 
+  /**
+   * Sets the loading comments element visible in the view.
+   * @private
+   * @returns {Void} - Returns nothing
+   */
   _setLoading(isLoading) {
     const $container = $("> .comments-container", this.$element);
     const $comments = $("> .comments", $container);
@@ -299,6 +390,11 @@ export default class CommentsComponent {
     }
   }
 
+  /**
+   * Event listener for the ordering links.
+   * @private
+   * @returns {Void} - Returns nothing
+   */
   _onInitOrder() {
     this._stopPolling();
     this.reordered = true;
@@ -311,6 +407,12 @@ export default class CommentsComponent {
     }, 1); 
   }
 
+  /**
+   * Event listener for the opinion toggle buttons.
+   * @private
+   * @param {Event} ev - The event object.
+   * @returns {Void} - Returns nothing
+   */
   _onToggleOpinion(ev) {
     let $btn = $(ev.target);
     if (!$btn.is(".button")) {
@@ -337,6 +439,12 @@ export default class CommentsComponent {
     $selectedState.text($btn.data("selected-label"));
   }
 
+  /**
+   * Event listener for the comment field text input.
+   * @private
+   * @param {Event} ev - The event object.
+   * @returns {Void} - Returns nothing
+   */
   _onTextInput(ev) {
     const $text = $(ev.target);
     const $add = $text.closest(".add-comment");

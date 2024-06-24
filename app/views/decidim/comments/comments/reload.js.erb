@@ -9,16 +9,13 @@
     component.unmountComponent();
   }
 
-  // Replace the comments HTML
   var commentsHtml = '<%== j(render partial: "comments").strip %>';
   $(".loading-comments").addClass("hide");
   $comments.replaceWith(commentsHtml);
 
-  // Get the updated comments container
   $comments = $("#" + rootCommentableId);
   $comments.foundation();
 
-  // Re-create the component with the new data
   var commentsData = $comments.data("decidim-comments");
   const maxPages = '<%== (@comments_count.to_f / 10).ceil %>';
   commentsData.maxPages = maxPages;
@@ -30,6 +27,7 @@
   // Load the correct page based on the order
   component.currentPage = initialPage;
   component.mountComponent();
+
   $comments.data("comments", component);
   
   // Re-initialize the load more button

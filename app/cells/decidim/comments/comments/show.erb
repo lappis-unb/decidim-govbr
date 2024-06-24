@@ -35,7 +35,7 @@
                              commentable_gid: model.to_signed_global_id.to_s,
                              order: order),
             id: "load-more-comments", data: {
-                                      page: order == "recent" ? 1 : total_pages,
+                                      page: 1,
                                       commentable_gid: model.to_signed_global_id.to_s,
                                       order: order,
                                       comments_count: comments_count,
