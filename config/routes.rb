@@ -45,6 +45,18 @@ Rails.application.routes.draw do
     resources :media, only: :index, controller: 'decidim/assemblies/media'
   end
 
+  resources :meetings do
+    member do
+      delete :destroy
+    end
+  end
+
+  resources :assemblies do
+    member do
+      delete :destroy
+    end
+  end
+
   resources :participatory_processes, param: :slug, only: [], path: :processes do
     resources :media, only: :index, controller: 'decidim/participatory_processes/media'
   end

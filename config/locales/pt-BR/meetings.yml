@@ -86,6 +86,8 @@ pt-BR:
           notification_title: O evento <a href="%{resource_path}">%{resource_title}</a> abriu inscrições.
 
     meetings:
+      types:
+        withdraw: Cancelado
       itinerary: Cronograma do Evento
       actions:
         close: Encerrar Evento
@@ -172,6 +174,10 @@ pt-BR:
             subject: A sua inscrição do evento foi confirmada
       meetings:
         show:
+          confirm_delete: "Você tem certeza que deseja deletar este evento?"
+          confirm_cancel: "Você tem certeza que deseja cancelar este evento?"
+          cancel_meeting: Cancelar evento
+          delete_meeting: Deletar evento
           edit_meeting: Editar evento
           join: Inscreva-se
           registration_code_help_text: O seu código de inscrição
@@ -235,6 +241,7 @@ pt-BR:
           upcoming: Próximo
           finished: Encerrado
           active: Acontecendo
+          cancel: Cancelado
         subscriber_count:
           one: pessoa inscrita
           other: pessoas inscritas

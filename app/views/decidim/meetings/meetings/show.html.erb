@@ -4,6 +4,7 @@
   description: present(meeting).description,
   url: meeting_url(meeting.id)
 }) %>
+
 <% edit_link(
   resource_locator(meeting).edit,
   :update,
@@ -21,7 +22,46 @@
   </div>
   <div class="content-container">
     <div class="main-content">
-      <%== cell("decidim/meetings/meeting_m", @meeting, full_badge: true).badge %>
+      <div class="meeting-actions-buttons">
+        <% @meeting_cell = cell("decidim/meetings/meeting_m", @meeting, full_badge: true) %>
+        <% if has_started?(meeting) %>
+          <% if admin_allowed_to?(:destroy, :meeting, meeting: meeting) && meeting.deletable? && !@meeting_cell.finished? %>
+            <%= link_to resource_locator(meeting).show, method: :delete, class: "br-button secondary delete-meeting", 
+                data: { confirm: t(".confirm_delete") } do %>
+                <i class="fa-solid fa-trash-can" style="color: #8b0a03;"></i>
+                <%= t(".delete_meeting") %>
+            <% end %>
+          <% else %>
+            <% if !@meeting_cell.finished? && !cancelled?(meeting) %>
+              <%= link_to withdraw_meeting_path(@meeting), method: 'put', class: "br-button secondary cancel-meeting", 
+                data: { confirm: t('.confirm_cancel') } do %>
+                <i class="fa-solid fa-trash-can" style="color: #8b0a03;"></i>
+                <%= t(".cancel_meeting") %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+
+        <% if !@meeting_cell.finished? && !cancelled?(meeting) %>
+          <% if allowed_to?(:update, :meeting, meeting: meeting) %>
+            <%= link_to edit_meeting_path(meeting), class: "br-button secondary black-and-white-btn" do %>
+              <i class="fa-solid fa-pen-to-square" style="color: #333333;"></i>
+              <%=t(".edit_meeting")%>
+            <% end %>
+          <% end %>
+        <% end %>
+
+        <% if allowed_to?(:close, :meeting, meeting: meeting) && !cancelled?(meeting) && @meeting_cell.finished? %>
+          <%= link_to edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "br-button secondary black-and-white-btn" do %>
+            <%= caption =  meeting.closed? ? t(".edit_close_meeting") : t(".close_meeting") %>
+          <% end %>
+        <% end %>
+      </div>
+      
+      <div class="badge-container">
+        <%== @meeting_cell.badge %>
+      </div>
+
       <h2 class="title"><%= present(meeting).title(links: true, html_escape: true ) %></h2>
       <%= render_meeting_body(@meeting) %>
       <div class="meetings-author-info-br">
@@ -36,11 +76,6 @@
         <% if meeting.private_meeting? and meeting.transparent? %>
           <span class="<%= meeting_type_badge_css_class("transparent") %> label proposal-status">
             <%= t("transparent", scope: "decidim.meetings.types") %>
-          </span>
-        <% end %>
-        <% if meeting.withdrawn? %>
-          <span class="<%= meeting_type_badge_css_class("withdraw") %> label proposal-status">
-            <%= t("withdraw", scope: "decidim.meetings.types") %>
           </span>
         <% end %>
         <% if meeting.maps_enabled? && !meeting.online_meeting? %>
@@ -97,13 +132,6 @@
       <% end %>
     </div>
     <div class="side-content">
-      <% if allowed_to?(:update, :meeting, meeting: meeting) %>
-        <%= link_to t(".edit_meeting"), edit_meeting_path(meeting), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
-      <% end %>
-      <% if allowed_to?(:close, :meeting, meeting: meeting) %>
-        <% caption =  meeting.closed? ? t(".edit_close_meeting") : t(".close_meeting") %>
-        <%= link_to caption, edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "button hollow expanded button-sc button--icon follow-button" %>
-      <% end %>
       <div class="card-component">
         <div class="card-component__content">
           <div class="header">
@@ -115,7 +143,7 @@
           
           <%= render partial: "calendar_modal", locals: {
               ics_url: calendar_meeting_url(meeting),
-              google_url: google_calendar_event_url(meeting) 
+              google_url: google_calendar_event_url(meeting)
             } 
           %>
         </div>

@@ -1044,3 +1044,31 @@ div.meetings-author-info-br span.author__name {
   justify-content: space-between;
   box-shadow: none;
 }
+
+.meeting-actions-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.meeting-actions-buttons .br-button {
+  display: flex;
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-semi-bold);
+  gap: 0.5rem;
+}
+
+.meeting-actions-buttons .cancel-meeting,
+.meeting-actions-buttons .delete-meeting {
+  color: var(--red-vivid-70);
+  border: 1px solid var(--red-vivid-70);
+}
+
+.meeting-actions-buttons .fa-solid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.25rem;
+  height: 1.25rem;
+}

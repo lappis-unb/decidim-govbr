@@ -286,6 +286,10 @@ module Decidim
         user && !withdrawn? && !past? && authored_by?(user)
       end
 
+      def deletable?
+        comments_count.zero? && subscribers_count.zero?
+      end
+
       # Overwrites method from Paddable to add custom rules in order to know
       # when to display a pad or not.
       def pad_is_visible?
