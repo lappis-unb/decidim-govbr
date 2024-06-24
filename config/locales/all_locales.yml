@@ -271,6 +271,7 @@ pt-BR:
       proposals:
         comments_count:
           count:
+            zero: ""
             one: COMENTÁRIO
             other: COMENTÁRIOS
     participatory_process_group:
