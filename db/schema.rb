@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_06_06_181840) do
+ActiveRecord::Schema.define(version: 2024_06_14_210851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -990,6 +990,7 @@ ActiveRecord::Schema.define(version: 2024_06_06_181840) do
     t.jsonb "supporters", default: []
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "meetings_map", default: false
     t.index ["decidim_component_id"], name: "index_decidim_homes_homes_on_decidim_component_id"
   end
 
