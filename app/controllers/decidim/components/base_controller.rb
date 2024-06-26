@@ -51,7 +51,9 @@ module Decidim
       def current_component_object
         manifest_mapping = {
           "proposals" => "Decidim::Proposals::Proposal",
-          "meetings" => "Decidim::Meetings::Meeting"
+          "meetings" => "Decidim::Meetings::Meeting",
+          "blogs" => "Decidim::Blogs::Post",
+          "surveys" => "Decidim::Surveys::Survey"
         }.with_indifferent_access
 
         manifest_name = current_component.manifest_name
