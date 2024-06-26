@@ -55,7 +55,7 @@ extra_admin_link(
                 current_user: current_user, 
                 proposal_tag: proposal_tag, 
                 amendable?: @proposal.amendable?,
-                allowed?: allowed_to?(:edit, :proposal, proposal: @proposal) && @proposal.proposal_votes_count.positive?,
+                allowed?: allowed_to?(:edit, :proposal, proposal: @proposal),
                 proposal_edit_link: edit_proposal_path(@proposal),
                 proposal_publish_link: publish_proposal_path(@proposal),
                 proposal: @proposal
