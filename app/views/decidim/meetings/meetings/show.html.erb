@@ -65,7 +65,16 @@
       <h2 class="title"><%= present(meeting).title(links: true, html_escape: true ) %></h2>
       <%= render_meeting_body(@meeting) %>
       <div class="meetings-author-info-br">
-        <%= cell "decidim/author", author_presenter_for(meeting.normalized_author), has_actions: true, from: meeting, context: { extra_classes: ["author-data--small"] } %>
+        <% @author_cell = cell "decidim/author", author_presenter_for(meeting.normalized_author), has_actions: true, from: meeting, context: { extra_classes: ["author-data--small"] } %>
+
+        <div class="author-data">
+          <div class="author-data__main">
+            <%== @author_cell.profile %>
+          </div>
+          <div class="author-data__extra">
+            <%== @author_cell.date %>
+          </div>
+        </div>
       </div>
       <div class="section">
         <% if meeting.private_meeting? %>
