@@ -29,10 +29,11 @@
         </span>
 
         <div class="foreign-actions-buttons">
-          <%= link_to "", class: "button secondary hollow" do %>
+          <%= link_to "", class: "br-sign-in" do %>
+            <i class="fa-solid fa-user-large" style="color: #1351b4;"></i>
             <%= t("devise.sessions.new.foreign_login.login") %>
           <% end %>
-          <%= link_to("", class: "foreign-sign-up-btn") do %>
+          <%= link_to("") do %>
             <%= t("devise.sessions.new.foreign_login.sign_up") %>
           <% end %>
         </div>

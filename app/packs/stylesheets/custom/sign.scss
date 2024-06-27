@@ -25,6 +25,7 @@
 
 .foreign-login {
   margin-top: 4rem;
+  margin-bottom: 1rem;
 }
 
 .foreign-login > span, .foreign-actions-buttons  {
@@ -52,8 +53,18 @@
   margin-top: 2rem;
 }
 
-.foreign-sign-up-btn {
+.foreign-actions-buttons a {
   color: var(--blue-warm-vivid-70);
-  font-size: var(--font-size-scale-up-01);
+  font-size: var(--font-size-scale-up-01) !important;
   font-weight: var(--font-weight-regular);
+}
+
+.foreign-actions-buttons .br-sign-in{
+  display: flex;
+  border: 1px solid var(--blue-warm-vivid-70);
+  gap: 0.5rem;
+}
+
+.foreign-actions-buttons .fa-user-large {
+  font-size: 1.25rem;
 }
