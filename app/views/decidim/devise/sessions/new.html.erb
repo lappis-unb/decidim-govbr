@@ -1,5 +1,5 @@
 <% add_decidim_page_title(t("devise.sessions.new.sign_in")) %>
-<div class="wrapper">
+<div class="br-container-lg">
   <div class="row collapse">
     <div class="row collapse">
       <div class="columns large-8 large-centered text-center page-title">
@@ -20,28 +20,26 @@
       <% I18n.with_locale(:en) do %>
         <div class="row devise-sign-in-area">
           <div class="columns large-6 medium-centered">
-            <div class="card">
-              <div class="card__content">
-                <%= decidim_form_for(resource, namespace: "session", as: resource_name, url: session_path(resource_name), html: { class: "register-form new_user" }) do |f| %>
-                  <div>
-                    <div class="field">
-                      <%= f.email_field :email, autocomplete: "email" %>
-                    </div>
-                    <div class="field">
-                      <%= f.password_field :password, autocomplete: "current-password" %>
-                    </div>
+            <div class="card__content">
+              <%= decidim_form_for(resource, namespace: "session", as: resource_name, url: session_path(resource_name), html: { class: "register-form new_user" }) do |f| %>
+                <div>
+                  <div class="br-input input-highlight bp-input">
+                    <%= f.email_field :email, autocomplete: "email", placeholder: "Ex: example@email.com" %>
                   </div>
-                  <% if devise_mapping.rememberable? %>
-                    <div class="field">
-                      <%= f.check_box :remember_me %>
-                    </div>
-                  <% end %>
-                  <div class="actions">
-                    <%= f.submit t("devise.sessions.new.sign_in"), class: "button expanded" %>
+                  <div class="br-input input-highlight bp-input">
+                    <%= f.password_field :password, {autocomplete: "current-password", placeholder: "•••••••••••••••••••••"} %>
+                  </div>
+                </div>
+                <% if devise_mapping.rememberable? %>
+                  <div class="field">
+                    <%= f.check_box :remember_me %>
                   </div>
                 <% end %>
-                <%= render "decidim/devise/shared/links" %>
-              </div>
+                <div class="actions">
+                  <%= f.submit t("devise.sessions.new.sign_in"), class: "button expanded" %>
+                </div>
+              <% end %>
+              <%= render "decidim/devise/shared/links" %>
             </div>
           </div>
         </div>
