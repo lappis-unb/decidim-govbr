@@ -1,17 +1,17 @@
 <div class="social_media_icons_container">
-  <%= link_to "https://www.facebook.com/sharer/sharer.php?u=#{social_media_path}", class: "facebook-share-button", target: "_blank" do %>
+  <%= link_to "https://www.facebook.com/sharer/sharer.php?u=#{request.original_url}", class: "facebook-share-button", target: "_blank" do %>
     <i class="fab fa-facebook-f fa-xl"></i>
   <% end %>
-  <%= link_to "https://twitter.com/intent/tweet?text=#{social_media_text}%20#{social_media_path}", class: "twitter-share-button", target: "_blank" do %>
+  <%= link_to "https://twitter.com/intent/tweet?text=#{social_media_text}%20#{request.original_url}", class: "twitter-share-button", target: "_blank" do %>
     <i class="fab fa-x-twitter fa-xl"></i>
   <% end %>
-  <%= link_to "https://www.linkedin.com/shareArticle?mini=true&url=#{social_media_path}&title=#{social_media_text}", class: "linkedin-share-button", target: "_blank" do %>
+  <%= link_to "https://www.linkedin.com/shareArticle?mini=true&url=#{request.original_url}&title=#{social_media_text}", class: "linkedin-share-button", target: "_blank" do %>
     <i class="fab fa-linkedin-in fa-xl"></i>
   <% end %>
-  <%= link_to "https://api.whatsapp.com/send?text=#{social_media_text}%20#{social_media_path}", class: "whatsapp-share-button", target: "_blank" do %>
+  <%= link_to "https://api.whatsapp.com/send?text=#{social_media_text}%20#{request.original_url}", class: "whatsapp-share-button", target: "_blank" do %>
     <i class="fab fa-whatsapp fa-xl"></i>
   <% end %>
-  <input id="urlShareLink" class="input-group-field display-none" type="text" value="<%= "#{social_media_path}" %>" readonly>
+  <input id="urlShareLink" class="input-group-field display-none" type="text" value="<%= "#{request.original_url}" %>" readonly>
   <button class="button copy-link-button"
               data-clipboard-copy="#urlShareLink"
               data-clipboard-copy-label="✓"

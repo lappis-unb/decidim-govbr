@@ -1,4 +1,11 @@
-<%= link_to link_url, class: "br-button secondary black-and-white-btn" do %>
-    <i class="<%= link_icon_name %>"></i>
-    <span><%= link_name %></span>
+<% if action == :destroy %>
+  <%= link_to link_url, method: :delete, data: { confirm: t("decidim.meetings.meetings.confirm_destroy") }, class: "br-button secondary black-and-white-btn" do %>
+       <i class="<%= link_icon_name %>"></i>
+       <span><%= link_name %></span>
   <% end %>
+<% else %>
+  <%= link_to link_url, class: "br-button secondary black-and-white-btn" do %>
+       <i class="<%= link_icon_name %>"></i>
+       <span><%= link_name %></span>
+  <% end %>
+<% end %>

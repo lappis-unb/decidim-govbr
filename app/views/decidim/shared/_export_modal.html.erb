@@ -6,7 +6,6 @@
 
 <div class="reveal export-reveal" id="export_data" data-reveal>
   <%= form_with url: main_app.reports_path, id:"report-form", method: :post, remote: true do |f|%>
-
   <div class="export-form">
     <span class="modal_title"><%=t("decidim.modal.export_data") %></span>
     <span class="modal_description"> <%=t("decidim.modal.select_date") %> </span>
@@ -18,7 +17,7 @@
           type="text"
           name="date_range"
           placeholder="exemplo: 02/02/2024 até 03/02/2025"
-          value="<%= current_participatory_space.start_date %> até <%= Time.now.strftime("%d/%m/%Y") %>"
+          value="<%= current_component.created_at.strftime("%d/%m/%Y") %> até <%= Time.now.strftime("%d/%m/%Y") %>"
           data-input="data-input"
         />
 

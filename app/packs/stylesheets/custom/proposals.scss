@@ -51,6 +51,13 @@
   gap: 24px;
 }
 
+#results .proposals-content-container{
+  display: block;
+  flex-direction: row;
+  gap: 24px;
+
+}
+
 .proposals-filters {
   min-width: 300px;
   height: fit-content;

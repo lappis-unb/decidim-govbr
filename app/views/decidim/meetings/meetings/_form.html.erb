@@ -44,13 +44,15 @@
   <h2 class="new-meeting-title">Local do evento</h2>
   <div class="field" data-meeting-type="in_person" style="display: none;">
     <%= form.hidden_field :address,
-    input_html: { required: false }
+      input_html: { required: false }
     %>
   </div>
   <div class="presential-meeting-inputs">
     <div class="field select-field-br meeting-address">
       <label for="state">Estado:
-        <select id="state" name="state" autocomplete="on"></select>
+        <select id="state" name="state" autocomplete="on">
+          <option disabled selected>Selecione um estado</option>
+        </select>
       </label>
       <label for="city">Cidade:
         <select id="city" name="city" autocomplete="on" disabled>
@@ -150,18 +152,18 @@
     }
 
     function updateAddress(cidades) {
-      var city = cityInput.value;
-      var state = stateInput.value;
+      var city = parseInt(cityInput.value);
+      var state = parseInt(stateInput.value);
 
       for(let i = 0; i < cidades.length; i++){
-        if(cidades[i].id == city){
+        if(cidades[i].id === city){
           city = cidades[i].nome
           break;
         }
       }
 
       for(let i = 0; i < estados.length; i++){
-        if(estados[i].id == state){
+        if(estados[i].id === state){
           state = estados[i].nome
           break;
         }
@@ -179,11 +181,17 @@
     const statesURL = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/";
     const estados = [];
     let cidadesResponde = []
+    let address = document.getElementById("meeting_address")
+
+    if(address){
+      address = address.value.split(", ");
+    }
 
     $.ajax({
       url: statesURL,
       type: 'GET',
       success: function(response) {
+        let edit = false;
         response = ordenarPorNome(response);
 
         for(let i = 0; i < response.length; i++){
@@ -191,9 +199,19 @@
           estados[i] = response[i];
           state.value = response[i].id;
           state.innerHTML = response[i].nome;
+
+          if(address[1] === response[i].nome){
+            console.log("VOU EDITAR")
+            state.selected = true;
+            edit = true;
+          }
           stateInput.appendChild(state);
         }
 
+        if(edit){
+          setCitys();
+        }
+        
       },
         error: function(xhr) {
       }
@@ -217,6 +235,9 @@
 
             city.value = response[i].id;
             city.innerHTML = response[i].nome;
+            if(address[0] === response[i].nome){
+              city.selected = true;
+            }
             cityInput.appendChild(city);
           }
           updateAddress(cidadesResponde)

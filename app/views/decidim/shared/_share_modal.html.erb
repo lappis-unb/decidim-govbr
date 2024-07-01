@@ -1,12 +1,12 @@
 <button class="br-button" data-open="socialShare">
   <i class="fas fa-share-alt mr-2" aria-hidden="true"></i>
-  <%= t(".share_button") %>
+  <%= button_name.present? ? button_name : t(".share_button") %>
 </button>
 <div class="reveal" id="socialShare" data-reveal>
   <div class="reveal__header">
-    <h3 class="reveal__title"><%= t(".share") %>:</h3>
+    <h3 class="reveal__title"><%= title_name.present? ? title_name : t(".share") %>:</h3>
     <p class="reveal__subtitle"><%= translation_component %></p>
-    <%= render partial: "decidim/shared/social_media_icons", locals: { social_media_text: decidim_page_title ,social_media_path: decidim_meta_url } %>
+    <%= render partial: "decidim/shared/social_media_icons", locals: { social_media_text: decidim_page_title, social_media_path: decidim_meta_url } %>
   </div>
   <div class="reveal__body">
     <button class="close_share_modal_button" data-close aria-label="<% t("decidim.shared.flag_user_modal.close") %>">

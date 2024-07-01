@@ -1,8 +1,9 @@
 <div class="social-container <% if not local_assigns[:post_date].present? %> align-end <% end %>">
   <% if local_assigns[:post_date].present? %>
-    <div class="date-post">
-      <label><%=t("decidim.blogs.posts.show.published_in")%><%= post_date.strftime("%d/%m/%Y %Hh%M") %><label>
-        </div>
+      <div class="date-post">
+        <label><%=t("decidim.blogs.posts.show.published_at")%>: <%= post_date.strftime("%d/%m/%Y %Hh%M") %><label>
+        <label><%=t("decidim.blogs.posts.show.updated_at")%>: <%= update_date.strftime("%d/%m/%Y %Hh%M") %></label>
+      </div>
       <% end %>
       <div class="social-links">
         <% if not browser.mobile? %>

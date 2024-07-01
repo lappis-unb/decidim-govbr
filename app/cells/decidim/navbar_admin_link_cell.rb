@@ -22,6 +22,12 @@ module Decidim
       model[:link_url]
     end
 
+    def action
+      return if model[:action].blank?
+
+      model[:action]
+    end
+
     def link_icon_name
       return "fas fa-edit" if model[:link_options][:icon].blank?
 

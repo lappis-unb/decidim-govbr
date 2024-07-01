@@ -103,7 +103,7 @@ module Decidim
         case current_proposal.state
         when "accepted"
           "green"
-        when "rejected", "withdrawn"
+        when "rejected", "withdrawn", "disqualified"
           "red"
         when "evaluating"
           "orange"
