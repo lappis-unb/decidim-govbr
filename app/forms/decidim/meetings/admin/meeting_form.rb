@@ -21,14 +21,12 @@ module Decidim
         attribute :comments_start_time, Decidim::Attributes::TimeWithZone
         attribute :comments_end_time, Decidim::Attributes::TimeWithZone
         attribute :iframe_access_level, String
-        attribute :associated_state, String
 
         translatable_attribute :title, String
         translatable_attribute :description, String
         translatable_attribute :location, String
         translatable_attribute :location_hints, String
 
-        validates :associated_state, presence: true
         validates :iframe_embed_type, inclusion: { in: Decidim::Meetings::Meeting.iframe_embed_types }
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
@@ -110,12 +108,6 @@ module Decidim
               I18n.t("iframe_embed_type.#{type}", scope: "decidim.meetings"),
               type
             ]
-          end
-        end
-
-        def meeting_state_select
-          Decidim::Meetings::Meeting.associated_states.keys.map do |associated_state|
-            [associated_state]
           end
         end
 

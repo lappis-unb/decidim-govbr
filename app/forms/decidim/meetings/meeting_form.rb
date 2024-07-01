@@ -22,10 +22,6 @@ module Decidim
       attribute :registration_terms, String
       attribute :iframe_embed_type, String, default: "none"
       attribute :iframe_access_level, String
-      attribute :associated_state, String
-
-      validates :associated_state, presence: true
-
       attachments_attribute :photos
       attachments_attribute :documents
 
@@ -113,12 +109,6 @@ module Decidim
             I18n.t("iframe_embed_type.#{type}", scope: "decidim.meetings"),
             type
           ]
-        end
-      end
-
-      def meeting_state_select
-        Decidim::Meetings::Meeting.associated_states.keys.map do |associated_state|
-          [associated_state]
         end
       end
 
