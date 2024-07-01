@@ -1,9 +1,0 @@
-<% if current_participatory_space.past_result? %>
- <span class="br-comment accepted" id="tag-status-03"><%= t(".status.finished") %></span>
-<% elsif current_participatory_space.past?%>
- <span class="br-comment alert" id="tag-status-01"><%= t(".status.closed") %></span>
-<% elsif current_participatory_space.upcoming? %>
-  <span class="br-comment orange" id="tag-status-07"><%= t(".status.upcoming") %></span>
-<% elsif current_participatory_space.active? %>
-  <span class="br-comment blue" id="tag-status-05"><%= t(".status.active") %></span>
-<% end %>
