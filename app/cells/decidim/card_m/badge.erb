@@ -1,6 +1,8 @@
 <% if has_badge? %>
   <%= content_tag :span, badge_name, class: badge_classes %>
 <% end %>
-<% model.badge_array.each do |badge| %>
-  <%= content_tag :span, badge, class: extra_badges_classes(badge) %>
+<% if current_component.manifest_name == "proposals" %>
+  <% model.badge_array.each do |badge| %>
+    <%= content_tag :span, badge, class: extra_badges_classes(badge) %>
+  <% end %>
 <% end %>
