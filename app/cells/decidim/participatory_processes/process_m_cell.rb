@@ -9,10 +9,6 @@ module Decidim
       include Decidim::TranslationsHelper
       include Decidim::TwitterSearchHelper
 
-      def badge
-        render if has_badge?
-      end
-
       private
 
       def description
@@ -41,9 +37,7 @@ module Decidim
       end
 
       def state
-        return t("decidim.participatory_processes.card.status.finished") if model.past_result?
-
-        return t("decidim.participatory_processes.card.status.upcoming") if model.upcoming?
+        return t("decidim.participatory_processes.card.status.finished") if model.past? && model.active_step&.active == false
 
         return t("decidim.participatory_processes.card.status.closed") if model.past?
 
@@ -55,13 +49,11 @@ module Decidim
       end
 
       def state_classes
-        return ["green"] if model.past_result?
-
-        return ["blue"] if model.active?
+        return ["green"] if model.past? && model.active_step&.active == false
 
         return ["red"] if model.past?
 
-        ["orange"]
+        ["blue"]
       end
 
       def resource_path
