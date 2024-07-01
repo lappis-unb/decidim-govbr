@@ -4,8 +4,6 @@ pt-BR:
     attributes:
       participatory_process:
         title: Nome do Processo Participativo
-        make_your_voice: "Faça sua Voz Contar: Participe da Consulta Pública Agora!"
-        title: Nome do Processo Participativo 
         document: Documento
         import_attachments: Importar anexos
         slug: URL amigável
@@ -33,7 +31,6 @@ pt-BR:
         local_area: Setor
         start: INÍCIO
         closure: ENCERRAMENTO
-        make_your_voice: "Faça sua Voz Contar: Participe da Consulta Pública Agora!"
         poll: Enquete
         participatory_process: Texto participativo 
         meta_scope: Selecione o Status deste processo participativo
@@ -194,17 +191,25 @@ pt-BR:
           highlighted_processes:
             active_step: Etapa ativa
       participatory_processes:
+        process_badge:
+          status:
+            active: Ativa
+            closed: Encerrada
+            finished: Encerrada - Resultado
+            upcoming: Não iniciada
         filters:
           all_types: Todos os tipos
           filter_by: Tipo de processo
         show:
           title: Sobre este processo
+          back_to_list_participatory_processes: Voltar
           participate: Participar
       card:
         status:
           active: Ativa
           closed: Encerrada
           finished: Encerrada - Resultado
+          upcoming: Não iniciada
   layouts:
     decidim:
       participatory_process_widgets:
@@ -212,3 +217,18 @@ pt-BR:
           active_step: Etapa ativa
       process_header_steps:
         step: Etapa %{current} de %{total}
+
+
+en:
+  decidim:
+    participatory_processes:
+      card:
+        status:
+          active: Active
+          closed: Closed
+          finished: Finished
+          upcoming: Upcoming
+      participatory_processes:
+        show:
+          participate: Participate
+

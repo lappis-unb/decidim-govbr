@@ -751,8 +751,22 @@ div.author-data__extra {
 .proposal-status {
   background: var(--gray-2) !important;
   border-radius: 30px !important;
+  max-width: fit-content;
+  padding: 4px 8px;
+  font-size: 12px;
 }
 
+.proposal-status.accepted {
+  border: 2px solid var(--green-vivid-60) !important;
+  color: var(--green-vivid-60);
+  max-width: fit-content;
+}
+
+.proposal-status.alert {
+  border: 2px solid var(--red-vivid-60);
+  color: var(--red-vivid-60);
+  max-width: fit-content;
+}
 .gallery__container {
   margin: 0 !important;
 }
@@ -775,6 +789,8 @@ div.author-data__extra {
   font-size: 0.75rem;
   padding: 4px 8px;
   font-weight: 600;
+  min-width: 4rem;
+  max-width: fit-content;
 }
 
 .br-comment.accepted {
@@ -785,6 +801,18 @@ div.author-data__extra {
 .br-comment.alert {
   border: 2px solid var(--red-vivid-60);
   color: var(--red-vivid-60);
+}
+
+.br-comment.blue {
+  border: 2px solid var(--blue-warm-vivid-70);
+  color: var(--blue-warm-vivid-70);
+  display: inline-flex;
+  justify-content: center;
+}
+
+.br-comment.orange {
+  border: 2px solid var(--orange-vivid-50);
+  color: var(--orange-vivid-50);
 }
 .new-proposal-button {
   max-width: 250px;

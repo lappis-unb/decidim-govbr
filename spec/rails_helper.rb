@@ -99,4 +99,6 @@ RSpec.configure do |config|
   end
 
   config.include ActiveSupport::Testing::TimeHelpers
+
+  config.include RSpec::Cells, type: :cell
 end

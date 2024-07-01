@@ -16,7 +16,9 @@
   font-weight: var(--font-weight-semi-bold) !important;
   color: var(pure-100);
   margin-left: 1rem;
+  gap: 1.5rem;
 }
+
 .comments_blocked_warning {
   display: flex;
   flex-direction: column;
