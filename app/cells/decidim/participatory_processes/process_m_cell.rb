@@ -13,6 +13,10 @@ module Decidim
         render if has_badge?
       end
 
+      def current_component
+        options[:current_component]
+      end
+
       private
 
       def description

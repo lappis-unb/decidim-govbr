@@ -10,15 +10,10 @@ module Decidim::ParticipatoryProcesses
 
     subject { cell("decidim/participatory_processes/process_m", model) }
 
-    before do
-      allow(controller).to receive(:current_component).and_return(current_component)
-    end
-
     context "when rendering" do
       let(:show_space) { false }
 
       it "renders the card" do
-        binding.pry
         expect(subject.call).to have_css(".card--component")
       end
 
