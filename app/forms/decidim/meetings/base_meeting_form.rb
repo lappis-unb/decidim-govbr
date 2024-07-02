@@ -61,7 +61,10 @@ module Decidim
 
       def meeting_state_select
         Decidim::Meetings::Meeting.associated_states.keys.map do |associated_state|
-          [associated_state]
+          [
+            I18n.t("associated_states.#{associated_state}", scope: "decidim.meetings"),
+            associated_state
+          ]
         end
       end
     end

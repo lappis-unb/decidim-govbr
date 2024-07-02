@@ -217,13 +217,13 @@ const process = document.getElementById('region-meetings-map-container').dataset
 let currentRegion = '';
 
     const getMeetings = (uf) => {
-      currentRegion = regions[uf];
+      currentRegion = uf;
       const meetingsPath = document.getElementById('region-meetings-map-container').dataset.meetingsPath;
       if (meetingsPath) {
         $.ajax({
             url: meetingsPath,
             dataType: 'json',
-            data: { state: regions[uf], search: document.getElementById('searchMeetings').value },
+            data: { state: uf, search: document.getElementById('searchMeetings').value },
             success: function(data) {
             var meetingsListSection = $('#meetings-list-section');
             var meetingsList = $('#meetings-list');

@@ -50,33 +50,33 @@ module Decidim
       enum iframe_embed_type: [:none, :embed_in_meeting_page, :open_in_live_event_page, :open_in_new_tab], _prefix: true
 
       enum associated_state: {
-        Acre: 0,
-        Alagoas: 1,
-        Amapá: 2,
-        Amazonas: 3,
-        Bahia: 4,
-        Ceará: 5,
-        'Distrito Federal': 6,
-        'Espírito Santo': 7,
-        Goiás: 8,
-        Maranhão: 9,
-        'Mato Grosso': 10,
-        'Mato Grosso do Sul': 11,
-        'Minas Gerais': 12,
-        Pará: 13,
-        Paraíba: 14,
-        Paraná: 15,
-        Pernambuco: 16,
-        Piauí: 17,
-        'Rio de Janeiro': 18,
-        'Rio Grande do Norte': 19,
-        'Rio Grande do Sul': 20,
-        Rondônia: 21,
-        Roraima: 22,
-        'Santa Catarina': 23,
-        'São Paulo': 24,
-        Sergipe: 25,
-        Tocantins: 26
+        AC: 0,  # Acre
+        AL: 1,  # Alagoas
+        AP: 2,  # Amapá
+        AM: 3,  # Amazonas
+        BA: 4,  # Bahia
+        CE: 5,  # Ceará
+        DF: 6,  # Distrito Federal
+        ES: 7,  # Espírito Santo
+        GO: 8,  # Goiás
+        MA: 9,  # Maranhão
+        MT: 10, # Mato Grosso
+        MS: 11, # Mato Grosso do Sul
+        MG: 12, # Minas Gerais
+        PA: 13, # Pará
+        PB: 14, # Paraíba
+        PR: 15, # Paraná
+        PE: 16, # Pernambuco
+        PI: 17, # Piauí
+        RJ: 18, # Rio de Janeiro
+        RN: 19, # Rio Grande do Norte
+        RS: 20, # Rio Grande do Sul
+        RO: 21, # Rondônia
+        RR: 22, # Roraima
+        SC: 23, # Santa Catarina
+        SP: 24, # São Paulo
+        SE: 25, # Sergipe
+        TO: 26  # Tocantins
       }
 
       component_manifest_name "meetings"
