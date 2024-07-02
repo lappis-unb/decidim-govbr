@@ -85,7 +85,7 @@ module Decidim::Admin
           results[:component] = component
         end
 
-        described_class.call(form, component, user , current_participatory_space)
+        described_class.call(form, component, user, current_participatory_space)
 
         component = results[:component]
         expect(component["name"]["en"]).to eq("My components")
@@ -97,7 +97,7 @@ module Decidim::Admin
 
       it "broadcasts the previous and current settings" do
         expect do
-          described_class.call(form, component, user , current_participatory_space)
+          described_class.call(form, component, user, current_participatory_space)
         end.to broadcast(
           :ok,
           true,
