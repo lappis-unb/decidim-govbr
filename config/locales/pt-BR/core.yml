@@ -553,5 +553,6 @@ pt-BR:
     password_repeated: não pode reutilizar a senha antiga
   time:
     formats:
+      decidim_with_month_name: "%d %B %Y"
       ddmm: "%d/%m"
       ddmmyyyy: "%d/%m/%Y"

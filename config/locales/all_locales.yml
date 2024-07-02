@@ -619,6 +619,9 @@ en:
           form:
             initial_page_component_id_help: Select the component to be used as the assembly main page. Only Static Pages and Initial Pages are displayed here as options. If a custom main page is not necessary, keep the option "Default Page" selected.
     participatory_processes:
+      card:
+        status:
+          active: Active
       admin:
         partners:
           index:
