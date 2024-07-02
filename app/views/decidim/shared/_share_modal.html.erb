@@ -1,5 +1,6 @@
 <button class="br-button" data-open="socialShare">
   <i class="fas fa-share-alt mr-2" aria-hidden="true"></i>
+  <% button_name = defined?(button_name) ? button_name : nil %>
   <%= button_name.present? ? button_name : t(".share_button") %>
 </button>
 <div class="reveal" id="socialShare" data-reveal>
