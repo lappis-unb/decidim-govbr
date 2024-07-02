@@ -57,9 +57,11 @@ module Decidim
       end
 
       def permitted_to_insert_label?
+        active_step_p = current_participatory_space.steps.where(active: true).first.id
+
         @component.manifest_name == "proposals" &&
-          (params[:component][:step_settings]["9"][:votes_enabled] != @component.step_settings["9"][:votes_enabled]) &&
-          (params[:component][:step_settings]["9"][:votes_enabled] == "false")
+          (params[:component][:step_settings][active_step_p.to_s][:votes_enabled] != @component.step_settings[active_step_p.to_s][:votes_enabled]) &&
+          (params[:component][:step_settings][active_step_p.to_s][:votes_enabled] == "false")
       end
 
       def run_hooks
