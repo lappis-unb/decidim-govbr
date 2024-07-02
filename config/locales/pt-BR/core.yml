@@ -560,3 +560,4 @@ pt-BR:
     formats:
       ddmm: "%d/%m"
       ddmmyyyy: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
