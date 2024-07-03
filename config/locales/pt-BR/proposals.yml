@@ -61,6 +61,7 @@ pt-BR:
               "true": Não respondida
       participatory_texts:
         is_interactive: Interação habilitada
+        remove_block_alert: Tem certeza que deseja remover esse bloco?
     components:
       proposals:
         actions:

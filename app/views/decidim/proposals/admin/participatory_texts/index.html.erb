@@ -25,8 +25,8 @@
               <button 
                 class="remove-proposal-draft button tiny button--title alert" 
                 data-proposal-draft-id="<%= prop_form.index %>" 
-                data-confirm="Tem certeza que deseja remover esse bloco?">
-                Remover <%= translated_attribute(proposal.title) %>
+                data-confirm="<%= t('participatory_texts.remove_block_alert', scope: 'decidim.admin') %>">
+                Remover
               </button>
               <span class="mr-m"><%= prop_form.check_box :is_interactive, label: t("decidim.admin.participatory_texts.is_interactive") %></span>
               <%= render "article-preview", { form: prop_form, proposal: proposal } %>
