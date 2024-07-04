@@ -9,6 +9,7 @@ module Decidim::Admin
     let!(:component) { create(:component, :with_one_step, participatory_space: participatory_process) }
     let(:manifest) { component.manifest }
     let(:user) { create :user }
+    let!(:current_participatory_space) { create(:participatory_process, :with_steps) }
 
     let(:form) do
       instance_double(
@@ -56,7 +57,7 @@ module Decidim::Admin
 
       it "broadcasts :ok and updates the component (except the readonly attribute)" do
         expect do
-          described_class.call(form, component, user)
+          described_class.call(form, component, user, current_participatory_space)
         end.to broadcast(:ok)
 
         expect(component["name"]["en"]).to eq("My components")
@@ -84,7 +85,7 @@ module Decidim::Admin
           results[:component] = component
         end
 
-        described_class.call(form, component, user)
+        described_class.call(form, component, user, current_participatory_space)
 
         component = results[:component]
         expect(component["name"]["en"]).to eq("My components")
@@ -96,7 +97,7 @@ module Decidim::Admin
 
       it "broadcasts the previous and current settings" do
         expect do
-          described_class.call(form, component, user)
+          described_class.call(form, component, user, current_participatory_space)
         end.to broadcast(
           :ok,
           true,
@@ -118,7 +119,7 @@ module Decidim::Admin
           .with("update", Decidim::Component, user)
           .and_call_original
 
-        expect { described_class.call(form, component, user) }.to change(Decidim::ActionLog, :count)
+        expect { described_class.call(form, component, user, current_participatory_space) }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last
         expect(action_log.action).to eq("update")
         expect(action_log.version).to be_present
@@ -130,7 +131,7 @@ module Decidim::Admin
 
       it "does not update the component" do
         expect do
-          described_class.call(form, component, user)
+          described_class.call(form, component, user, current_participatory_space)
         end.to broadcast(:invalid)
 
         component.reload

@@ -82,6 +82,12 @@ module Decidim
           current_user.admin? && !has_replies_in_children?
       end
 
+      def user_can_update_comment_status?
+        return current_user.admin? unless current_component.participatory_space.is_a?(ParticipatoryProcess)
+
+        current_user.admin? || Decidim::ParticipatoryProcessesWithUserRole.for(current_user, [:admin, :moderator]).include?(current_component.participatory_space)
+      end
+
       def author_presenter
         if model.author.respond_to?(:official?) && model.author.official?
           Decidim::Core::OfficialAuthorPresenter.new

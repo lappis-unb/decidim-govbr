@@ -55,7 +55,7 @@ extra_admin_link(
                 current_user: current_user, 
                 proposal_tag: proposal_tag, 
                 amendable?: @proposal.amendable?,
-                allowed?: allowed_to?(:edit, :proposal, proposal: @proposal) && @proposal.proposal_votes_count.positive?,
+                allowed?: allowed_to?(:edit, :proposal, proposal: @proposal),
                 proposal_edit_link: edit_proposal_path(@proposal),
                 proposal_publish_link: publish_proposal_path(@proposal),
                 proposal: @proposal
@@ -122,16 +122,5 @@ extra_admin_link(
   <!-- Seção de anexos e imagens -->
   <%= attachments_for @proposal %>
   <!-- Seção de comentários -->
-  <% if user_full_profile_required? %>
-    <% if user_survey_answered? %>
-      <%= comments_for @proposal %>
-    <% else %>
-      <%= comments_for(@proposal, {
-        :hide_comment_action => true, :alert => flash[:alert], :poll_link => flash[:poll_link]}) 
-      %>
-    <% end %>
-  <% else %>
-    <%= comments_for @proposal %>
-  <% end %>
   <%= cell("decidim/flag_modal", @proposal) %>
 </div>

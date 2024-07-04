@@ -1,7 +1,7 @@
 (() => {
   window.addEventListener("DOMContentLoaded", (e) => {
     ImportScriptFile();
-    CreateDOMObjects();
+    // CreateDOMObjects();
 
     // Evento para primeira letra maiuscula
     capitalizarOnBlur("proposal_title");
@@ -19,6 +19,8 @@
     window.addEventListener("resize", updateContentMarginTop);
 
     doEverything();
+
+    changePositionAdminBtns();
   });
 })();
 
@@ -266,5 +268,13 @@ function convertIconsToHttps() {
         icon.src = icon.src.replace("http://", "https://");
       }
     });
+  }
+}
+
+function changePositionAdminBtns() {
+  const btns = document.getElementById("admin-actions-btns");
+  const wrapper = document.querySelector("#content .wrapper");
+  if (wrapper && wrapper.parentNode) {
+    wrapper.parentNode.insertBefore(btns, wrapper);
   }
 }

@@ -1,4 +1,4 @@
-
+<% if !current_participatory_space.attached_uploader(:banner_image).path.blank? %>
   <div class="process-header br-container-lg">
     <div class="process-header__inner">
       <div class="process-header__main"
@@ -28,4 +28,5 @@
       <% end %>
     </div>
   </div>
-  <%= render partial: "layouts/decidim/assembly_navigation", locals: { participatory_space: current_participatory_space } %>
+<% end %>
+<%= render partial: "layouts/decidim/assembly_navigation", locals: { participatory_space: current_participatory_space } %>

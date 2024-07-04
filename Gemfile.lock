@@ -8,6 +8,15 @@ GIT
       devise-jwt (~> 0.9.0)
 
 GIT
+  remote: https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-ej.git
+  revision: c7f8b2fd2241dd4858a2785b277fe3a1333c514a
+  branch: main
+  specs:
+    decidim-ej (0.27.2)
+      decidim-core (= 0.27.2)
+      httparty
+
+GIT
   remote: https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-module-homes.git
   revision: cbd9f979bc2493c127373e29e37e74afe3a33c1d
   specs:
@@ -184,6 +193,7 @@ GEM
     crass (1.0.6)
     css_parser (1.14.0)
       addressable
+    csv (3.3.0)
     date (3.3.3)
     date_validator (0.12.0)
       activemodel (>= 3)
@@ -300,6 +310,11 @@ GEM
     decidim-debates (0.27.2)
       decidim-comments (= 0.27.2)
       decidim-core (= 0.27.2)
+    decidim-decidim_awesome (0.10.2)
+      decidim-admin (>= 0.26.0, < 0.28)
+      decidim-core (>= 0.26.0, < 0.28)
+      deface (>= 1.5)
+      sassc (~> 2.3)
     decidim-dev (0.27.2)
       axe-core-rspec (~> 4.1.0)
       byebug (~> 11.0)
@@ -380,6 +395,12 @@ GEM
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
+    deface (1.9.0)
+      actionview (>= 5.2)
+      nokogiri (>= 1.6)
+      polyglot
+      railties (>= 5.2)
+      rainbow (>= 2.1.0)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     devise (4.8.1)
@@ -506,6 +527,10 @@ GEM
     http-cookie (1.0.5)
       domain_name (~> 0.5)
     http-form_data (2.3.0)
+    httparty (0.22.0)
+      csv
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     httpclient (2.8.3)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
@@ -679,6 +704,7 @@ GEM
     pg_search (2.3.6)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
+    polyglot (0.3.5)
     premailer (1.19.0)
       addressable
       css_parser (>= 1.12.0)
@@ -840,6 +866,8 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     selenium-webdriver (4.1.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -971,7 +999,9 @@ DEPENDENCIES
   decidim-apiauth!
   decidim-conferences (= 0.27.2)
   decidim-consultations (= 0.27.2)
+  decidim-decidim_awesome (= 0.10.2)
   decidim-dev (= 0.27.2)
+  decidim-ej!
   decidim-homes!
   decidim-initiatives (= 0.27.2)
   devise-i18n
