@@ -17,10 +17,16 @@
         label: false,
         data: { remaining_characters: "##{add_comment_id}-remaining-characters", input_emoji: true }
       ) %>
-    <% if enable_comments_attachment %>
-      <%= form.upload :attachment_file, optional: true, :help => t("file_validation.comments_attachment_extension", scope: "decidim.forms") %>
-    <% end %>
-    <span id="<%= add_comment_id %>-remaining-characters" class="remaining-character-count"></span>
+      <% if enable_comments_attachment %>
+        <%= form.upload :attachment_file, 
+                  optional: true, 
+                  help: [
+                    t("decidim.forms.file_validation.comments_attachment_extension"),
+                    t("decidim.forms.file_validation.max_file_size", megabytes: max_file_size),
+                    t("decidim.forms.file_validation.max_file_quantity", quantity: max_file_size)
+                  ] %>
+      <% end %>
+      <span id="<%= add_comment_id %>-remaining-characters" class="remaining-character-count"></span>
     </div>
     <button type="submit" class="button button--sc" disabled="disabled"><%= t("decidim.components.add_comment_form.form.submit") %></button>
   </div>
