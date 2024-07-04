@@ -119,10 +119,10 @@ RSpec.configure do |config|
     driven_by(:headless_chrome)
     switch_to_default_host
     domain = (try(:organization) || try(:current_organization))&.host
-    if domain
+    if domain && domain != "localhost"
       # Javascript sets the cookie also for all subdomains but localhost is a
       # special case.
-      domain = ".#{domain}" unless domain == "localhost"
+      domain = ".#{domain}"
     end
   end
 
