@@ -80,7 +80,7 @@ module Decidim
         end
 
         def collection
-          @collection ||= Decidim::ContentBlock.for_scope(scope, organization: current_organization).where(scoped_resource_id: scoped_resource_id)
+          @collection ||= Decidim::ContentBlock.for_scope(scope, organization: organization).where(scoped_resource_id: scoped_resource_id)
         end
       end
     end
