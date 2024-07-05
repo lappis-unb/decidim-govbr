@@ -208,3 +208,19 @@ a:hover .author__name{
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.tooltip--flex {
+  gap: 1rem;
+}
+
+.tooltip-follow-up {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.5rem;
+}
+
+.user-follow-stats {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-around;
+}
