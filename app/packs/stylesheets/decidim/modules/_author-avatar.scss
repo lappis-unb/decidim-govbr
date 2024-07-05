@@ -193,11 +193,18 @@ a:hover .author__name{
 
 .author__credentials--container .author__name--container,
 .author__credentials--container .author__nickname {
-  max-width: inherit;
+  font-size: var(--font-size-14) !important;
+  font-weight: var(--font-weight-semi-bold);
   text-wrap: nowrap;
 }
 
+.author__credentials--container .author__nickname,
+.author__credentials--container .author__name--container a{
+  max-width: -webkit-fill-available;
+}
+
 .author__credentials--container .author__nickname {
+  font-weight: var(--font-weight-regular);
   overflow: hidden;
   text-overflow: ellipsis;
 }
