@@ -464,6 +464,11 @@ pt-BR:
       signed_out: Sessão terminada com sucesso.
       new:
         sign_in: Conecte-se
+        foreign_login:
+          access: Access for foreigners
+          description: For people who are not naturalized as Brazilians, you need to have your passport on hand to register. If you already have a registration, just click login
+          login: "Login"
+          sign_up: "Register"
     shared:
       links:
         back: Voltar
@@ -556,3 +561,4 @@ pt-BR:
       decidim_with_month_name: "%d %B %Y"
       ddmm: "%d/%m"
       ddmmyyyy: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
