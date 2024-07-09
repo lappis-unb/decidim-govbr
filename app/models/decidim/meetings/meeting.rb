@@ -50,16 +50,16 @@ module Decidim
       enum iframe_embed_type: [:none, :embed_in_meeting_page, :open_in_live_event_page, :open_in_new_tab], _prefix: true
 
       enum associated_state: {
-        AC: 0,  # Acre
-        AL: 1,  # Alagoas
-        AP: 2,  # Amapá
-        AM: 3,  # Amazonas
-        BA: 4,  # Bahia
-        CE: 5,  # Ceará
-        DF: 6,  # Distrito Federal
-        ES: 7,  # Espírito Santo
-        GO: 8,  # Goiás
-        MA: 9,  # Maranhão
+        AC: 0, # Acre
+        AL: 1, # Alagoas
+        AP: 2, # Amapá
+        AM: 3, # Amazonas
+        BA: 4, # Bahia
+        CE: 5, # Ceará
+        DF: 6, # Distrito Federal
+        ES: 7, # Espírito Santo
+        GO: 8, # Goiás
+        MA: 9, # Maranhão
         MT: 10, # Mato Grosso
         MS: 11, # Mato Grosso do Sul
         MG: 12, # Minas Gerais
@@ -76,7 +76,7 @@ module Decidim
         SC: 23, # Santa Catarina
         SP: 24, # São Paulo
         SE: 25, # Sergipe
-        TO: 26  # Tocantins
+        TO: 26 # Tocantins
       }
 
       component_manifest_name "meetings"

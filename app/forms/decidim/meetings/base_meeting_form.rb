@@ -11,7 +11,7 @@ module Decidim
       attribute :start_time, Decidim::Attributes::TimeWithZone
       attribute :end_time, Decidim::Attributes::TimeWithZone
       attribute :associated_state, String
-      
+
       validates :associated_state, presence: true
 
       validates :current_component, presence: true
@@ -57,7 +57,6 @@ module Decidim
       def hybrid_meeting?
         type_of_meeting == "hybrid"
       end
-
 
       def meeting_state_select
         Decidim::Meetings::Meeting.associated_states.keys.map do |associated_state|
