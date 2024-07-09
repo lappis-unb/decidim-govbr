@@ -1,0 +1,21 @@
+<div class="flex--sbc tooltip--flex">
+  <div class="profile__tootltip card__header collapse">
+    <%= cell("decidim/user_profile", raw_model).user_data %>
+    <%= text_link_to_current_or_new_conversation_with(model) %>
+  </div>
+  <div class="tooltip-follow-up">
+    <%= cell "decidim/follow_button", raw_model %>
+
+    <div class="user-follow-stats">
+      <%= link_to decidim.profile_followers_path(raw_model.nickname), class: "card__link" do %>
+        <strong><%= model.followers_count %></strong> <%= t("decidim.profiles.show.followers") %>
+      <% end %>
+
+      <% if model.can_follow? %>
+        <%= link_to decidim.profile_following_path(raw_model.nickname), class: "card__link" do %>
+          <strong><%= model.following_count %></strong> <%= t("decidim.profiles.show.following") %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

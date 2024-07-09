@@ -1,0 +1,70 @@
+<% I18n.with_locale(:en) do %>
+  <% add_decidim_page_title(t(".sign_up")) %>
+  <% content_for :devise_links do %>
+    <%= render "decidim/devise/shared/links" %>
+  <% end %>
+  <div class="columns large-6 medium-centered">
+    <div class="large-centered text-center page-title">
+      <h1><%= t(".sign_up") %></h1>
+      <p>
+        <%= t(".subtitle") %>
+      </p>
+      <p>
+        <%= t(".subtitle_help") %>
+      </p>
+      <p>
+        <%= t(".already_have_an_account?") %>
+        <%= link_to t(".sign_in"), new_user_session_path %>
+      </p>
+    </div>
+    <% cache current_organization do %>
+      <%= render "decidim/devise/shared/omniauth_buttons" %>
+    <% end %>
+    <div class="row">
+      <%= decidim_form_for(@form, namespace: "registration", as: resource_name, url: registration_path(resource_name), html: { class: "new_user", id: "register-form" }) do |f| %>
+        <%= invisible_captcha %>
+        <div class="new-proposal-form">
+          <%= form_required_explanation %>
+          <div class="user-person">
+            <div class="br-input input-highlight bp-input">
+              <%= f.text_field :name, help_text: t(".username_help"), autocomplete: "name" , placeholder: "Ex: William Roberts" %>
+            </div>
+          </div>
+          <div class="user-nickname">
+            <div class="br-input input-highlight foreign_input">
+              <%= f.text_field :nickname, help_text: t(".nickname_help", organization: current_organization.name), autocomplete: "nickname", placeholder:"yournickname"  %>
+            </div>
+          </div>
+          <div class="br-input input-highlight bp-input">
+            <%= f.email_field :email, autocomplete: "email" , placeholder: "Ex: example@email.com" %>
+          </div>
+          <div class="br-input input-highlight bp-input">
+            <%= f.password_field :password, { autocomplete: "new-password", placeholder: "•••••••••••••••••••••" } %>
+          </div>
+          <div class="br-input input-highlight bp-input">
+            <%= f.password_field :password_confirmation, password_field_options_for(:user).except(:help_text).merge(placeholder: "•••••••••••••••••••••") %>
+          </div>
+        </div>
+        <div class="submit-foreign-form-container" id="card__tos">
+          <div class="submit-foreign-form-content">
+            <h3><%= t(".tos_title") %></h3>
+            <div class="field">
+              <%= f.check_box :tos_agreement, label: t(".tos_agreement", link: link_to(t(".terms"), page_path("terms-and-conditions"))) %>
+            </div>
+          </div>
+          <div class="submit-foreign-form-content" id="card__newsletter">
+            <h3><%= t(".newsletter_title") %></h3>
+            <div class="field">
+              <%= f.check_box :newsletter, label: t(".newsletter"), checked: @form.newsletter %>
+            </div>
+          </div>
+        </div>
+        <div class="actions">
+          <%= f.submit t(".sign_up"), class: "button expanded" %>
+        </div>
+        <%= yield :devise_links %>
+      <% end %>
+    </div>
+  </div>
+  <%= render "decidim/devise/shared/newsletter_modal" %>
+<% end %>

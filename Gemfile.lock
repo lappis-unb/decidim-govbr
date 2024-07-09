@@ -23,6 +23,16 @@ GIT
     decidim-homes (0.27.2)
       decidim-core (= 0.27.2)
 
+GIT
+  remote: https://gitlab.com/lappis-unb/decidimbr/decidim-extra_user_fields.git
+  revision: 2a287782e52219eb46a66465c0e0959a7506f27b
+  branch: feat/allow-to-configure-permitted-components
+  specs:
+    decidim-extra_user_fields (0.27.2)
+      country_select (~> 4.0)
+      decidim-core (>= 0.27.0, < 0.28)
+      deface (~> 1.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -188,6 +198,13 @@ GEM
     commonmarker (0.23.8)
     concurrent-ruby (1.2.0)
     connection_pool (2.3.0)
+    countries (3.1.0)
+      i18n_data (~> 0.11.0)
+      sixarm_ruby_unaccent (~> 1.1)
+      unicode_utils (~> 1.4)
+    country_select (4.0.0)
+      countries (~> 3.0)
+      sort_alphabetical (~> 1.0)
     crack (0.4.5)
       rexml
     crass (1.0.6)
@@ -544,6 +561,7 @@ GEM
       rails-i18n
       rainbow (>= 2.2.2, < 4.0)
       terminal-table (>= 1.5.1)
+    i18n_data (0.11.0)
     icalendar (2.8.0)
       ice_cube (~> 0.16)
     ice_cube (0.16.4)
@@ -887,12 +905,15 @@ GEM
       simplecov (~> 0.19)
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
+    sixarm_ruby_unaccent (1.2.2)
     smart_properties (1.17.0)
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
     social-share-button (1.2.4)
       coffee-rails
+    sort_alphabetical (1.1.0)
+      unicode_utils (>= 1.2.2)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -923,6 +944,7 @@ GEM
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (2.4.2)
+    unicode_utils (1.4.0)
     valid_email2 (2.3.1)
       activemodel (>= 3.2)
       mail (~> 2.5)
@@ -1002,6 +1024,7 @@ DEPENDENCIES
   decidim-decidim_awesome (= 0.10.2)
   decidim-dev (= 0.27.2)
   decidim-ej!
+  decidim-extra_user_fields!
   decidim-homes!
   decidim-initiatives (= 0.27.2)
   devise-i18n
