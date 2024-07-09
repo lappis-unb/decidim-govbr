@@ -22,3 +22,49 @@
   -ms-transition: opacity 0.5s, transform 0.4s, box-shadow 0.3s;
   -o-transition: opacity 0.5s, transform 0.4s, box-shadow 0.3s;
 }
+
+.foreign-login {
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+}
+
+.foreign-login > div, .foreign-actions-buttons  {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.foreign-login h1 {
+  color: var(--blue-warm-vivid-80);
+  font-size: var(--font-size-scale-up-03);
+  font-weight: var(--font-weight-regular);
+  margin: 0;
+}
+
+.foreign-login p {
+  color: var(--gray-90);
+  font-size: var(--font-size-scale-up-01) !important;
+  font-weight: var(--font-weight-regular);
+  line-height: normal;
+  margin: 0;
+}
+
+.foreign-actions-buttons {
+  margin-top: 2rem;
+}
+
+.foreign-actions-buttons a {
+  color: var(--blue-warm-vivid-70);
+  font-size: var(--font-size-scale-up-01) !important;
+  font-weight: var(--font-weight-regular);
+}
+
+.foreign-actions-buttons .br-sign-in{
+  display: flex;
+  border: 1px solid var(--blue-warm-vivid-70);
+  gap: 0.5rem;
+}
+
+.foreign-actions-buttons .fa-user-large {
+  font-size: 1.25rem;
+}

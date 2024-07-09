@@ -22,19 +22,30 @@ function fetchGraphQLData(url, query) {
     });
 }
 
-function renderNews(apiData, href) {
+function renderNews(apiData, idComponent, idProcess, highlightLatest, descButton) {
   const newsData = apiData.data.participatoryProcesses;
   const resultHTMLArray = [];
+  const slug = apiData.data.participatoryProcesses[0].slug;
+  const href = `/processes/${slug}/f/${idComponent}`;
 
   newsData.forEach((process) => {
     process.components.forEach((component) => {
       if (component.posts) {
-        component.posts.nodes.forEach((post) => {
+        component.posts.nodes.forEach((post, index) => {
+
+          if (index === 0 && highlightLatest) {
+            return;
+          }
+
           const imageUrl = post.attachments.length > 0 ? post.attachments[0].thumbnail : "";
           const newHTML = `
-          <a href="${href}" class="news-card">
+          <a href="${href}/posts/${post.id}" class="page-news-card">
             <img src="${imageUrl}" alt="" class="news-img"/>
-            <span class="news-title">${post.title.translation}</span>
+
+            <div class="page-news-card-content">
+              <span class="news-title">${post.title.translation}</span>
+              <span class="news-date">${post.createdAt.split("T")[0].split("-").reverse().join("/")}</span>
+            </div>
           </a>
           `;
 
@@ -48,7 +59,48 @@ function renderNews(apiData, href) {
     return "error";
   }
 
-  return resultHTMLArray.join("\n");
+  const highlightedNew = newsData[0].components[0].posts.nodes[0];
+  const imageUrl = highlightedNew.attachments.length > 0 ? highlightedNew.attachments[0].thumbnail : "";
+    
+  //remove as tags html do texto
+  highlightedNew.body.translation = highlightedNew.body.translation.replace(/<\/?[^>]+(>|$)/g, "");
+
+  // convertendo de data ISO para data de acordo com o formato do front
+  let highlightedNewDate = highlightedNew.createdAt.split("T")[0]; 
+  highlightedNewDate = highlightedNewDate.split("-").reverse().join("/");
+
+  const highlightedNewComponent = () => {
+    if (highlightLatest) {
+      const highlightedNewHTML = `
+        <a class="main-news-card" href="${href}/posts/${highlightedNew.id}">
+          <img src="${imageUrl}" alt="" class="main-news-img"/>
+          <div class="main-news-content">
+            <div class="main-news-header">
+            <span class="main-news-title">${highlightedNew.title.translation}</span>
+            <span class="main-news-subtitle">${highlightedNew.body.translation}</span>
+            </div>
+            <span class="news-date">${highlightedNewDate}</span>
+          </div>
+        </a>
+      `;
+
+      return highlightedNewHTML;
+    }
+
+    return "";
+  }
+
+  return `<div class="home-sections-content">
+
+            ${highlightedNewComponent()}
+            <div class="news-container">
+              ${resultHTMLArray.join("\n")}
+            </div>
+            <div class="centered-content">
+              <a href="${href}" class="br-button secondary">${descButton}</a>
+            </div>
+          </div>`;
+
 }
   /**
    * Busca dados de notícias da API GraphQL e os renderiza na página.
@@ -59,17 +111,20 @@ function renderNews(apiData, href) {
    * @param {number} idProcess - O ID do processo participativo. ex: 32
    * @param {string} title - O título da seção de notícias. ex: "Notícias"
    * @param {string} descButton - A descrição do botão de notícias. ex: "Mais notícias"
+   * @param {boolean} highlightLatest - Se deve realçar a última notícia ou não. ex: true
    */
-function manageNews(apiUrl, href, idComponent, idProcess, title, descButton) {
+function manageNews(apiUrl, idComponent, idProcess, title, descButton, highlightLatest) {
   const confNoticias = document.querySelector("#confnoticias");
   if (!confNoticias) {
     console.error('Elemento com id "confnoticias" não encontrado.');
     return;
   }
+
+  const numberOfNews = highlightLatest ? 4 : 3;
   
   confNoticias.innerHTML = `<section id="news-home-section" class="home-sections-container">
                                 <h2>${title}</h2>
-                                <div class="home-sections-content br-container-lg">
+                                <div class="page-news-error">
                                     <div class="news-container">
                                         <span class="news-title">Carregando...</span>
                                     </div>
@@ -78,9 +133,10 @@ function manageNews(apiUrl, href, idComponent, idProcess, title, descButton) {
 
   const query = `query {
     participatoryProcesses(filter: { id: ${idProcess} }) {
+      slug
       components(filter: { id: ${idComponent} }) {
         ...on Blogs {
-          posts(order: {createdAt: "DESC"}, first: 3) {
+          posts(order: {createdAt: "DESC"}, first: ${numberOfNews}) {
             nodes {
               title {
                 translation(locale: "pt-BR")
@@ -91,6 +147,8 @@ function manageNews(apiUrl, href, idComponent, idProcess, title, descButton) {
               attachments {
                 thumbnail
               }
+              createdAt
+              id
             }
           }
         }
@@ -99,12 +157,12 @@ function manageNews(apiUrl, href, idComponent, idProcess, title, descButton) {
   }`;
 
   fetchGraphQLData(apiUrl, query)
-    .then((apiData) => renderNews(apiData, href))
+    .then((apiData) => renderNews(apiData, idComponent, idProcess, highlightLatest, descButton))
     .then((renderedNewsHTML) => {
-      if (renderedNewsHTML === "error") {
+      if (renderedNewsHTML === "error" || renderedNewsHTML === "") {
         confNoticias.innerHTML = `<section id="news-home-section" class="home-sections-container">
                                       <h2>${title}</h2>
-                                      <div class="home-sections-content br-container-lg">
+                                      <div class="page-news-error">
                                           <div class="news-container">
                                               <span class="news-title">Nenhuma notícia encontrada</span>
                                           </div>
@@ -112,15 +170,8 @@ function manageNews(apiUrl, href, idComponent, idProcess, title, descButton) {
                                   </section>`; 
       } else {
         let contentNoticias = `<section id="news-home-section" class="home-sections-container">
-                                  <h2>${title}</h2>
-                                  <div class="home-sections-content br-container-lg">
-                                    <div class="news-container">
-                                      ${renderedNewsHTML}
-                                    </div>
-                                    <div class="centered-content">
-                                      <a href="${href}" class="br-button secondary">${descButton}</a>
-                                    </div>
-                                  </div>
+                                  <h2>${title}</h2>                    
+                                      ${renderedNewsHTML}                        
                                </section>`;
         confNoticias.innerHTML = contentNoticias;
       }
@@ -129,7 +180,7 @@ function manageNews(apiUrl, href, idComponent, idProcess, title, descButton) {
       console.error("Erro:", error);
       confNoticias.innerHTML = `<section id="news-home-section" class="home-sections-container">
                                     <h2>${title}</h2>
-                                    <div class="home-sections-content br-container-lg">
+                                    <div class="page-news-error">
                                         <div class="news-container">
                                             <span>Erro ao buscar notícias.</span>
                                         </div>

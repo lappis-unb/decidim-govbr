@@ -1,0 +1,6 @@
+<p class="email-instructions"><%= "Greetings, #{present(@user).name}" %></p>
+<p class="email-instructions">
+  Your account was reviewed and your registration is approved. You can now access the platform and participate.
+  Access the platform by clicking the link: <%= link_to present(@organization).name, main_app.decidim_url %>.
+</p>
+<p>Best regards.</p>

@@ -753,6 +753,17 @@ en:
           create: "%{user_name} created an user participation report %{resource_name} in the participatory space %{space_name}"
           delete: "%{user_name} removed the user participation report %{resource_name} from the participatory space %{space_name}"
           update: "%{user_name} updated the user participation report %{resource_name} from the participatory space %{space_name}"
+    devise:
+      shared:
+        links:
+          sign_in: Login
+          sign_up: Register
+          sign_out: Log out
+      registrations:
+        new:
+          sign_up: Register
+          subtitle: For people who are not naturalized as Brazilians, you need to have your passport on hand to register.
+          subtitle_help: Sign up to participate in discussions and support proposals. 
     proposals:
       admin:
         participatory_texts:
