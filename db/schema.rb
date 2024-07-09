@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_06_20_133248) do
+ActiveRecord::Schema.define(version: 2024_07_09_181145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1045,6 +1045,16 @@ ActiveRecord::Schema.define(version: 2024_06_20_133248) do
     t.jsonb "supporters", default: []
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "header_title"
+    t.string "header_subtitle"
+    t.string "steps_title"
+    t.string "steps_subtitle"
+    t.string "emphasis_title"
+    t.string "emphasis_subtitle"
+    t.string "emphasis_button_text"
+    t.string "participation_title"
+    t.string "participation_subtitle"
+    t.boolean "map_able", default: false
     t.index ["decidim_component_id"], name: "index_decidim_homes_homes_on_decidim_component_id"
   end
 
@@ -1741,7 +1751,7 @@ ActiveRecord::Schema.define(version: 2024_06_20_133248) do
     t.integer "comments_count", default: 0, null: false
     t.integer "follows_count", default: 0, null: false
     t.boolean "is_interactive", default: true
-    t.jsonb "badge_array", default: []
+    t.string "badge_array", default: [], array: true
     t.index "md5((body)::text)", name: "decidim_proposals_proposal_body_search"
     t.index "md5((title)::text)", name: "decidim_proposals_proposal_title_search"
     t.index ["created_at"], name: "index_decidim_proposals_proposals_on_created_at"
