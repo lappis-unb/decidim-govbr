@@ -37,6 +37,10 @@
         <div class="field">
           <%= form.check_box :has_address, checked: form_has_address? %>
         </div>
+        <div id="geocoding-button" class="br-button primary new-proposal-button" onclick="getLocation()">
+          <i class="fa-solid fa-location-dot"></i>
+          Usar localização
+        </div>
         <div class="field" id="address_input">
           <%= form.geocoding_field :address, placeholder: t("decidim.proposals.proposals.placeholder.address") %>
         </div>
@@ -86,5 +90,30 @@
     document.getElementById('publish-button').addEventListener('click', function() {
       this.form.submit();
     });
+
+    if (!("geolocation" in navigator)) {
+        document.getElementById("geocoding-button").style.display="none";
+    }
+
+    function getLocation() {
+        navigator.geolocation.getCurrentPosition((position) => {
+            handleLocation(position.coords.latitude, position.coords.longitude);
+            console.log(position);
+        });
+    }
+
+    function handleLocation(latitude, longitude) {
+        $.ajax({
+            url: `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`, // Substitua pela URL da sua API
+            type: 'GET',
+            success: function(data) {
+                $('#address_input input').val(data.display_name);
+                console.log(data)
+            },
+            error: function(error) {
+                console.error('Erro:', error);
+            }
+        });
+    }
   </script>
 <% end %>
