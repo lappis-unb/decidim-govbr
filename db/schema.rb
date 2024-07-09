@@ -1045,6 +1045,7 @@ ActiveRecord::Schema.define(version: 2024_06_20_133248) do
     t.jsonb "supporters", default: []
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "meetings_map", default: false
     t.index ["decidim_component_id"], name: "index_decidim_homes_homes_on_decidim_component_id"
   end
 
@@ -1286,6 +1287,7 @@ ActiveRecord::Schema.define(version: 2024_06_20_133248) do
     t.string "state"
     t.integer "iframe_access_level", default: 0
     t.integer "iframe_embed_type", default: 0
+    t.integer "associated_state", default: 0
     t.boolean "cancelled", default: false, null: false
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_meetings_meetings_on_author"
     t.index ["decidim_author_id"], name: "index_decidim_meetings_meetings_on_decidim_author_id"

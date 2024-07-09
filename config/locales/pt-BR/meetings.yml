@@ -29,6 +29,7 @@ pt-BR:
         address: "Endereço:"
         location: "Localização:"
         location_hints: "Dicas:"
+        associated_state: Estado associado
         decidim_scope_id: "Área de interesse:"
       meeting_agenda:
         title: Título
@@ -102,6 +103,7 @@ pt-BR:
             available_slots_help: Deixe o valor 0 se você tiver vagas ilimitadas disponíveis
             location_hints_help: "Exemplo: o andar do edifício se for um evento presencial, ou a senha do evento se for um evento virtual com acesso restrito."
             select_a_meeting_type: Por favor, selecione um tipo de evento
+            select_a_meeting_associated_state: Por favor, selecione um estado associado ao evento
             select_a_registration_type: Por favor, selecione um tipo de inscrição
             select_an_iframe_access_level: Por favor selecione um nível de acesso iframe
             show_embedded_iframe_help: "Apenas alguns poucos serviços permitem a incorporação em reuniões ou eventos ao vivo dos seguintes domínios: %{domains}"
@@ -139,6 +141,34 @@ pt-BR:
       admin_log:
         meeting:
           export_registrations: "%{user_name} exportou as inscrições do evento %{resource_name} no espaço %{space_name}"
+      associated_states:
+        AC: Acre
+        AL: Alagoas
+        AP: Amapá
+        AM: Amazonas
+        BA: Bahia
+        CE: Ceará
+        DF: Distrito Federal
+        ES: Espírito Santo
+        GO: Goiás
+        MA: Maranhão
+        MT: Mato Grosso
+        MS: Mato Grosso do Sul
+        MG: Minas Gerais
+        PA: Pará
+        PB: Paraíba
+        PR: Paraná
+        PE: Pernambuco
+        PI: Piauí
+        RJ: Rio de Janeiro
+        RN: Rio Grande do Norte
+        RS: Rio Grande do Sul
+        RO: Rondônia
+        RR: Roraima
+        SC: Santa Catarina
+        SP: São Paulo
+        SE: Sergipe
+        TO: Tocantins
       calendar_modal:
         calendar_url: URL do calendário
         close_window: Fechar janela
@@ -182,6 +212,7 @@ pt-BR:
           join: Inscreva-se
           registration_code_help_text: O seu código de inscrição
           back: Voltar à lista
+        form:
           remaining_slots: vagas disponíveis
           live_event: Este evento está acontecendo agora
           live_permission_notice: Ao clicar no botão abaixo, serão solicitadas permissões de microfone e/ou câmera e você entrará na videoconferência.

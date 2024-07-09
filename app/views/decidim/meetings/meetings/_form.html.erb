@@ -13,6 +13,15 @@
       )
   %>
 </div>
+
+<div class="field select-field-br">
+  <%= form.select :associated_state,
+                  @form.meeting_state_select,
+                  { include_blank: t("decidim.meetings.admin.meetings.form.select_a_meeting_associated_state") },
+                  { multiple: false } %>
+</div>
+
+
 <% if component_settings.attachments_allowed? %>
   <fieldset class="attachments_container gallery__container documents_container">
     <legend><%= t("attachment_legend", scope: "decidim.proposals.proposals.edit") %></legend>
@@ -34,6 +43,7 @@
                   { include_blank: t(".select_a_meeting_type") },
                   { multiple: false } %>
 </div>
+
 <div class="field" data-meeting-type="online">
   <%= form.text_field :online_meeting_url %>
   <p class="help-text"><%= t(".online_meeting_url_help") %></p>

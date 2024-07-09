@@ -81,3 +81,201 @@ h6 {
   flex-direction: column;
   gap: 24px;
 }
+
+.meeting-map-title{
+  color: var(--blue-warm-vivid-80);
+  font-size: 2.25rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.meetings-map-subtitle {
+  color: var(--blue-warm-vivid-70);
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+
+.meeting-map-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+}
+
+.meetings-not-visible {
+  display: none !important;
+}
+
+
+.meetings-list-item {
+  background: #f8f8f8;
+  border-radius: 0.25rem;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+
+.meetings-list-item:hover {
+  transform: scale(1.025);
+  transition: transform 0.3s, box-shadow 0.2s;
+}
+
+.meetings-list-divider{
+
+  height: 0.5px;
+  margin: 0 0.5rem;
+  background-color: rgba(12,50,111,0.50);
+}
+
+.meetings-list-item-text{
+  color: var(--blue-warm-vivid-70);
+  font-size: 1rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  word-break: break-all;
+}
+
+.meetings-list-item-infos{
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.meetings-list-item-info{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--blue-warm-vivid-70);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.meetings-list-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.more-meetings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  color: var(--blue-warm-vivid-70);
+  font-size: 1rem;
+  font-weight: 600;
+  flex-direction: column;
+  width: 100%;
+}
+
+.total-meetings {
+  width: 100%;
+  color: var(--gray-60);
+  text-align: right;
+  font-size: 1rem;
+}
+.meetings-not-found {
+  width: 100%;
+  color: var(--gray-60);
+  text-align: center;
+  font-size: 1rem;
+}
+.meetings-list-section .br-input .br-button 
+{
+  margin-top: calc((52px + var(--spacing-scale-half))* -1) !important;
+}
+
+
+.region-select {
+  background-image: url(data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2221%22%20viewBox%3D%220%200%2020%2021%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M9.35263%2015.289L1.93529%207.87167C1.57756%207.51394%201.57756%206.93397%201.93529%206.57627L2.8004%205.71116C3.15753%205.35404%203.73632%205.35335%204.09428%205.70963L10.0003%2011.588L15.9064%205.70963C16.2643%205.35335%2016.8431%205.35404%2017.2002%205.71116L18.0654%206.57627C18.4231%206.93401%2018.4231%207.51398%2018.0654%207.87167L10.6481%2015.289C10.2903%2015.6467%209.71036%2015.6467%209.35263%2015.289Z%22%20fill%3D%22%230C326F%22%2F%3E%0A%3C%2Fsvg%3E) !important;
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px 16px;
+  height: 63px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #f6f6f6;
+  padding: 8px 16px;
+  margin-top: 1rem;
+  border: 0;
+}
+
+.region-search {
+  display: none;
+}
+
+.web-title {
+  display: none;
+}
+
+@media (min-width: 33rem) {
+
+  .meetings-list {
+    width: 31rem;
+  } 
+  .meetings-list-item {
+    width: 31rem;
+    height: 5.688rem;
+    gap: 1rem;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .meetings-list-item-text {
+    text-align: left;
+    width: 18.375rem;
+  }
+
+  .meetings-list-divider{
+    width: 0.5px;
+    height: 4rem;
+    margin: 0;
+    background-color: rgba(12,50,111,0.50);
+  }
+
+  .meetings-list-section {
+    width: auto;
+    animation: MeetingListSlidein 0.5s;
+    transition: all 1.5s ease-in-out;
+
+  }
+  .meetings-list {
+    align-items: stretch;
+  }
+
+  .meetings-list-item-infos {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .region-select {
+    display: none;
+  }
+
+  .region-search {
+    display: block;
+  }
+
+  .web-title {
+    display: block;
+  }
+  .meeting-select-title {
+    display: none;
+  }
+}

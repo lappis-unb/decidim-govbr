@@ -1,3 +1,50 @@
+.meetings-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.region-meetings {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2.125rem;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.br_mine {
+  width: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.regions-map {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.brmap {
+  max-width: 38rem;
+  max-height: 33rem;
+}
+
+.meetings-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+
+  .column > .card {
+    border-top-width: 8px;
+    border-top-color: var(--blue-vivid-10);
+  }
+}
+
 .meetings-count-container {
   display: flex;
   flex-direction: row;
@@ -44,6 +91,52 @@
 
 .meetings__button-circle:hover {
   background-color: rgba(var(--interactive-rgb), var(--hover));
+}
+
+
+@keyframes MeetingListSlidein {
+  from {
+    opacity: 0;
+    transform: translateX(120px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes mapslidein {
+  from {
+    transform: translateX(120px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+
+@media (min-width: 980px) {
+  .meetings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .region-meetings {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+  }
+
+  .map-animation {
+    animation: mapslidein 0.5s;
+    transition: all 1.5s ;
+  }
 }
 
 .card-grid > div {
