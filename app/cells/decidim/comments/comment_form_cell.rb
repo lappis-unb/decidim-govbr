@@ -19,10 +19,6 @@ module Decidim
         model.component.try(:settings).try(:[], :enable_comments_attachment)
       end
 
-      def max_file_size
-        1
-      end
-
       private
 
       def cache_hash
