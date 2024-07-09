@@ -1372,9 +1372,9 @@ div.columns.large-12
 }
 
 .admin--links {
-  text-align: right;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
 }
 
 .social-register {

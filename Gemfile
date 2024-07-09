@@ -19,6 +19,7 @@ gem 'decidim-consultations', DECIDIM_VERSION
 gem 'decidim-initiatives', DECIDIM_VERSION
 gem 'decidim-apiauth', github: 'mainio/decidim-module-apiauth'
 gem 'omniauth_openid_connect', '0.6.1'
+gem 'decidim-decidim_awesome', '0.10.2'
 
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 
@@ -38,6 +39,8 @@ gem 'sidekiq', '6.5.7'
 gem 'whenever', require: false
 
 gem 'decidim-homes', git: 'https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-module-homes.git'
+gem 'decidim-extra_user_fields', git: 'https://gitlab.com/lappis-unb/decidimbr/decidim-extra_user_fields.git', branch: 'feat/allow-to-configure-permitted-components'
+gem 'decidim-ej', git: 'https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-ej.git', branch: 'main'
 
 gem "rest-client", "~> 2.1"
 

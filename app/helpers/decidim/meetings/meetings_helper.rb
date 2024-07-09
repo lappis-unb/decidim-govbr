@@ -140,6 +140,14 @@ module Decidim
         base_url = "https://calendar.google.com/calendar/u/0/r/eventedit"
         "#{base_url}?#{params.to_param}"
       end
+
+      def cancelled?(meeting)
+        meeting.state == "withdrawn"
+      end
+
+      def has_started?(meeting)
+        Time.current < meeting.start_time
+      end
     end
   end
 end

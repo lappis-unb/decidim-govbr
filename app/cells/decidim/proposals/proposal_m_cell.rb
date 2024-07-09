@@ -50,7 +50,7 @@ module Decidim
         case state
         when "accepted"
           ["green"]
-        when "rejected", "withdrawn"
+        when "rejected", "withdrawn", "disqualified"
           ["red"]
         when "evaluating"
           ["orange"]

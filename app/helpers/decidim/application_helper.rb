@@ -85,7 +85,7 @@ module Decidim
       return unless admin_allowed_to?(action, subject, extra_context)
       return if content_for?(:extra_admin_link)
 
-      cell_html = raw(cell("decidim/navbar_admin_link", link_url: link_url, link_options: link_options))
+      cell_html = raw(cell("decidim/navbar_admin_link", link_url: link_url, action: action, link_options: link_options))
       content_for(:extra_admin_link, cell_html)
     end
 

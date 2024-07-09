@@ -12,10 +12,16 @@ module Decidim
         true
       end
 
+      def finished?
+        Time.current > end_date
+      end
+
       def badge_name
-        if Date.current > end_date
+        if model.state == "withdrawn"
+          t("decidim.meetings.card.status.cancel")
+        elsif finished?
           t("decidim.meetings.card.status.finished")
-        elsif Date.current.between?(start_date, end_date)
+        elsif Time.current.between?(start_date, end_date)
           t("decidim.meetings.card.status.active")
         else
           t("decidim.meetings.card.status.upcoming")
@@ -23,9 +29,11 @@ module Decidim
       end
 
       def state_classes
-        if Date.current > end_date
+        if model.state == "withdrawn"
+          ["red"]
+        elsif finished?
           ["gray"]
-        elsif Date.current.between?(start_date, end_date)
+        elsif Time.current.between?(start_date, end_date)
           ["green"]
         else
           ["blue"]
@@ -138,11 +146,11 @@ module Decidim
       end
 
       def start_date
-        model.start_time.to_date
+        model.start_time
       end
 
       def end_date
-        model.end_time.to_date
+        model.end_time
       end
 
       def can_join?

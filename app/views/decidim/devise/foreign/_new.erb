@@ -1,0 +1,20 @@
+<% content_for :title do %>
+  <div>
+    <h1><%=t("devise.sessions.new.foreign_login.access")%></h1>
+    <p>
+        <%=t("devise.sessions.new.foreign_login.description")%>
+    </p>
+  </div>
+<% end %>
+
+<% content_for :actions do %>
+  <div class="foreign-actions-buttons">
+    <%= link_to "", class: "br-sign-in" do %>
+      <i class="fa-solid fa-user-large" style="color: #1351b4;"></i>
+      <%= t("devise.sessions.new.foreign_login.login") %>
+    <% end %>
+    <%= link_to("") do %>
+      <%= t("devise.sessions.new.foreign_login.sign_up") %>
+    <% end %>
+  </div>
+<% end %>
