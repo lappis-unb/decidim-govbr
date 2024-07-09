@@ -102,6 +102,16 @@
   align-items: center;
 }
 
+.user-follow-stats .card__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-follow-stats .card__link strong {
+  color: var(--gray-60);
+}
+
 .doc_extension {
   text-transform: lowercase;
   text-align: left;
