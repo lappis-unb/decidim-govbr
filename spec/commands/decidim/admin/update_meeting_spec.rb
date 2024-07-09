@@ -32,7 +32,7 @@ module Decidim::Meetings
     let(:iframe_embed_type) { "none" }
     let(:iframe_access_level) { nil }
     let(:registrations_enabled) { true }
-    let(:associated_state) { 3 }
+    let(:associated_state) { :AM }
 
     let(:form) do
       double(
@@ -98,7 +98,7 @@ module Decidim::Meetings
 
       it "sets the associated state" do
         subject.call
-        expect(meeting.associated_state).to eq "Amazonas"
+        expect(meeting.associated_state).to eq "AM"
       end
 
       it "sets the latitude and longitude" do

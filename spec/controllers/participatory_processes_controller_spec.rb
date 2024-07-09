@@ -193,7 +193,7 @@ module Decidim
           context "when filtering by state" do
             it "returns only the meetings with the specified state" do
               meeting = meetings.first
-              meeting.update!(associated_state: 3)
+              meeting.update!(associated_state: :AM)
 
               get :all_meetings_of_a_participatory_process, params: { slug: unpublished_process.slug, state: 3 }
 

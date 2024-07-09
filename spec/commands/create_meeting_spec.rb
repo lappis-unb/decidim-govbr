@@ -29,7 +29,7 @@ module Decidim::Meetings
     let(:registration_terms) { Faker::Lorem.sentence(word_count: 3) }
     let(:attachment_params) { [] }
     let(:documents) { create_list(:attachment, 10) }
-    let(:associated_state) { 3 }
+    let(:associated_state) { :AM }
     let(:form) do
       double(
         invalid?: invalid,
@@ -100,7 +100,7 @@ module Decidim::Meetings
 
       it "sets the associated state" do
         subject.call
-        expect(meeting.associated_state).to eq "Amazonas"
+        expect(meeting.associated_state).to eq "AM"
       end
 
       it "sets the registration_terms" do

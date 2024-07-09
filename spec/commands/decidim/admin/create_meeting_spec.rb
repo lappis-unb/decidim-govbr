@@ -44,7 +44,7 @@ module Decidim::Meetings
 
     let(:registrations_enabled) { false }
 
-    let(:associated_state) { 3 }
+    let(:associated_state) { :AM }
 
     let(:form) do
       double(
@@ -112,7 +112,7 @@ module Decidim::Meetings
 
       it "sets the associated state" do
         subject.call
-        expect(meeting.associated_state).to eq "Amazonas"
+        expect(meeting.associated_state).to eq "AM"
       end
 
       it "sets the author" do

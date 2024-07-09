@@ -40,7 +40,7 @@ module Decidim::Meetings
     let(:online_meeting_url) { "http://decidim.org" }
     let(:iframe_embed_type) { "none" }
     let(:registration_terms) { Faker::Lorem.sentence(word_count: 3) }
-    let(:associated_state) { 0 }
+    let(:associated_state) { :AM }
     let(:attributes) do
       {
         decidim_scope_id: scope_id,
