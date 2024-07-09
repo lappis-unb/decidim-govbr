@@ -55,7 +55,7 @@ module Decidim::Meetings
     let(:registration_type) { "on_this_platform" }
     let(:available_slots) { 0 }
     let(:iframe_embed_type) { "none" }
-    let(:associated_state) { 0 }
+    let(:associated_state) { :AM }
     let(:attributes) do
       {
         decidim_scope_id: scope_id,
