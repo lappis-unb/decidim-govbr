@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_07_09_181145) do
+ActiveRecord::Schema.define(version: 2024_07_09_194255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -501,8 +501,8 @@ ActiveRecord::Schema.define(version: 2024_07_09_181145) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "participatory_space_type", null: false
-    t.boolean "hide_in_menu"
     t.jsonb "singular_name"
+    t.boolean "hide_in_menu"
     t.jsonb "menu_name"
     t.index ["participatory_space_id", "participatory_space_type"], name: "index_decidim_components_on_decidim_participatory_space"
   end
@@ -1055,6 +1055,7 @@ ActiveRecord::Schema.define(version: 2024_07_09_181145) do
     t.string "participation_title"
     t.string "participation_subtitle"
     t.boolean "map_able", default: false
+    t.string "emphasis_link"
     t.index ["decidim_component_id"], name: "index_decidim_homes_homes_on_decidim_component_id"
   end
 
