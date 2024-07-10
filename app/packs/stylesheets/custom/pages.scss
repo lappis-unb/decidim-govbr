@@ -150,7 +150,7 @@
   object-fit: cover;
   border-radius: 0px;
 }
-.news-title {
+.page-news-card-content .news-title {
   font-size: 16.8px;
   font-weight: 600;
   max-height: 120px;
@@ -161,7 +161,10 @@
   text-overflow: ellipsis;
   color: var(--blue-warm-vivid-70);
   text-align: left;
+  padding: 0;
 }
+
+
 
 .news-date {
   color: var(--gray-60);
@@ -274,7 +277,6 @@
     justify-content: flex-start;
     border-radius: 10px;
     align-items: center;
-    height: 280px;
   }
   .news-img {
     width: 100%;
