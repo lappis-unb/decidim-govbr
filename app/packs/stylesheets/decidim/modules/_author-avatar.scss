@@ -171,3 +171,56 @@ a:hover .author__name{
   vertical-align: middle;
   color: var(--primary);
 }
+
+.profile__tootltip {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 150px;
+  max-width: 200px;
+}
+
+.author__data--container {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.author__credentials--container {
+  display: flex;
+  flex-direction: column;
+  max-width: 100px;
+}
+
+.author__credentials--container .author__name--container,
+.author__credentials--container .author__nickname {
+  font-size: var(--font-size-14) !important;
+  font-weight: var(--font-weight-semi-bold);
+  text-wrap: nowrap;
+}
+
+.author__credentials--container .author__nickname,
+.author__credentials--container .author__name--container a{
+  max-width: -webkit-fill-available;
+}
+
+.author__credentials--container .author__nickname {
+  font-weight: var(--font-weight-regular);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tooltip--flex {
+  gap: 1rem;
+}
+
+.tooltip-follow-up {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.5rem;
+}
+
+.user-follow-stats {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-around;
+}
