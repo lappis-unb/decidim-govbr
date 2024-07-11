@@ -58,6 +58,14 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+
+  config.before :all do
+    if !ENV["ASSET_PRECOMPILE_DONE"]
+      prep_passed = system "rails webpacker:clobber && rails webpacker:compile"
+      ENV["ASSET_PRECOMPILE_DONE"] = "true"
+      abort "\nYour assets didn't compile. Exiting WITHOUT running any tests. Review the output above to resolve any errors." if !prep_passed
+    end
+  end
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   # config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -103,4 +111,6 @@ RSpec.configure do |config|
   end
 
   config.include ActiveSupport::Testing::TimeHelpers
+  config.include Rails.application.routes.url_helpers
+  config.include Devise::Test::IntegrationHelpers, type: :system
 end
