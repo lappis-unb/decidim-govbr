@@ -59,7 +59,7 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 RSpec.configure do |config|
 
-  config.before :all do
+  config.before(:each, type: :system) do
     if !ENV["ASSET_PRECOMPILE_DONE"]
       prep_passed = system "rails webpacker:clobber && rails webpacker:compile"
       ENV["ASSET_PRECOMPILE_DONE"] = "true"
