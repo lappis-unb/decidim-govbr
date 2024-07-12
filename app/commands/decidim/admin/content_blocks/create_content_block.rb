@@ -38,7 +38,7 @@ module Decidim
 
         def create_content_block
           Decidim::ContentBlock.create!(
-            organization: current_organization,
+            organization: organization,
             scope_name: scope,
             scoped_resource_id: scoped_resource_id,
             manifest_name: manifest_name
