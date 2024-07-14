@@ -1,0 +1,259 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-meetings/config/locales/es.yml
+es:
+  activemodel:
+    attributes:
+      agenda:
+        description: Descripción
+        duration: Duración
+        title: Título
+        registered: Inscritos
+        filter_only_applies_Agenda_meetings: Este filtro se refiere solo a las reuniones de la Agenda
+      close_meeting:
+        proposals: Propuestas creadas en el evento
+      meeting:
+        title: "Título del evento:"
+        available_slots: Plazas disponibles para este evento
+        customize_registration_email: Personalizar el correo de inscripción
+        iframe_access_level: Nivel de acceso del iframe
+        iframe_embed_type: Tipo de iframe incrustado
+        registration_type: Tipo de inscripción
+        registration_form_enabled: Formulario de inscripción activado
+        registration_terms: Términos de inscripción
+        registrations_enabled: "Inscripciones activadas:"
+        reserved_slots: "Plazas reservadas para este evento:"
+        online_meeting_url: "URL del evento:"
+        start_time: "Hora de inicio:"
+        end_time: "Hora de fin:"
+        type_of_meeting: "Formato:"
+        description: "Descripción:"
+        address: "Dirección:"
+        location: "Ubicación:"
+        location_hints: "Consejos:"
+        decidim_scope_id: "Área de interés:"
+      meeting_agenda:
+        title: Título
+        visible: Visible
+      meeting_agenda_items:
+        description: Descripción
+        duration: Duración
+        title: Título
+      validate_registration_code:
+        code: Código
+    models:
+      decidim/meetings/meeting_registrations_enabled_event: Inscripciones activadas
+      decidim/meetings/meeting_registrations_over_percentage_event: Inscripciones por encima del límite
+  activerecord:
+    models:
+      decidim/meetings/registration:
+        one: Inscripción
+        other: Inscripciones
+  decidim:
+    admin:
+      filters:
+        meetings:
+          with_any_origin:
+            label: Origen
+            values:
+              official: Oficial
+              participants: Participante
+              user_group: Grupos de usuarios
+    components:
+      meetings:
+        actions:
+          join: Unirse a
+          new: "Nuevo(a) %{singular_name}"
+        settings:
+          global:
+            default_registration_terms: Términos de inscripción predeterminados
+            registration_code_enabled: Código de inscripción habilitado
+            scopes_enabled: Áreas de interés habilitadas
+            maps_enabled: Mapas habilitados
+    events:
+      meetings:
+        meeting_closed:
+          email_intro: "El evento ha concluido, revisa lo que sucedió en la página:"
+        meeting_registration_confirmed:
+          notification_title: Tu inscripción para el evento <a href="%{resource_url}">%{resource_title}</a> ha sido confirmada. Tu código de inscripción es %{registration_code}.
+        registration_code_validated:
+          email_intro: Tu código de inscripción "%{registration_code}" para el evento "%{resource_title}" ha sido validado.
+          email_outro: Has recibido este mensaje porque tu inscripción para el evento "%{resource_title}" ha sido validada.
+          email_subject: Tu número de inscripción "%{registration_code}" para el evento "%{resource_title}" ha sido validado.
+          notification_title: Tu número de inscripción "%{registration_code}" para el evento <a href="%{resource_path}">%{resource_title}</a> ha sido validado.
+        registrations_enabled:
+          email_intro: 'El evento "%{resource_title}" ha activado las inscripciones. Puedes inscribirte desde su página:'
+          email_outro: Ahora sigues el evento "%{resource_title}". Para dejar de seguirlo, haz clic aquí.
+          email_subject: El evento "%{resource_title}" ha abierto inscripciones.
+          notification_title: El evento <a href="%{resource_path}">%{resource_title}</a> ha abierto inscripciones.
+    
+    meetings:
+      types:
+        withdraw: Cancelado
+      itinerary: Cronograma del Evento
+      actions:
+        close: Cerrar Evento
+        registrations: Inscripciones
+      admin:
+        meetings:
+          pluralized_name:
+            when_empty: Reuniones
+          edit:
+            title: Editar evento
+          form:
+            available_slots_help: Deje el valor 0 si tiene plazas ilimitadas disponibles
+            location_hints_help: "Ejemplo: el piso del edificio si es un evento presencial, o la contraseña del evento si es un evento virtual con acceso restringido."
+            select_a_meeting_type: Por favor, seleccione un tipo de evento
+            select_a_registration_type: Por favor, seleccione un tipo de inscripción
+            select_an_iframe_access_level: Por favor, seleccione un nivel de acceso iframe
+            show_embedded_iframe_help: "Solo algunos servicios permiten la incrustación en reuniones o eventos en vivo desde los siguientes dominios: %{domains}"
+        meetings_poll:
+          form:
+            title: Editar cuestionario de la encuesta para %{questionnaire_for}
+          update:
+            invalid: Hubo un problema al actualizar la encuesta de este evento
+            success: Encuesta del evento actualizada correctamente
+        exports:
+          registrations: Inscripciones
+        invite_join_meeting_mailer:
+          invite:
+            join: Inscríbete en '%{meeting_title}'
+        invites:
+          index:
+            registrations_disabled: No se puede invitar a un participante porque las inscripciones están desactivadas.
+        registrations:
+          edit:
+            save: Guardar
+            validate: Confirmar
+            validate_registration_code: Confirmar código de inscripción
+          form:
+            registration_form: Formulario de inscripción
+            registrations_count:
+              one: Hubo %{count} inscrito.
+              other: Hubo %{count} inscritos.
+            title: Inscripciones
+          update:
+            invalid: Hubo un problema al guardar la configuración de inscripción.
+            success: Configuración de inscripción de evento guardada correctamente.
+          validate_registration_code:
+            invalid: Este código de inscripción no es válido.
+            success: Código de inscripción validado correctamente.
+      admin_log:
+        meeting:
+          export_registrations: "%{user_name} exportó las inscripciones del evento %{resource_name} en el espacio %{space_name}"
+      calendar_modal:
+        calendar_url: URL del calendario
+        close_window: Cerrar ventana
+        copy_calendar_url: Copiar
+        copy_calendar_url_clarification: Copiar URL del calendario al portapapeles
+        copy_calendar_url_copied: ¡Copiado!
+        copy_calendar_url_description: Puedes ver todos los eventos publicados en tu aplicación de calendario o proveedor. Copia y pega esta URL en tu calendario usando la opción "Agregar nuevo calendario desde una URL".
+        copy_calendar_url_explanation: Ten en cuenta que estás exportando una selección de eventos, ya que hay filtros activos. Si deseas exportar todos ellos, reinicia todos los filtros primero.
+        copy_calendar_url_message: La URL se ha copiado correctamente al portapapeles.
+        export_calendar: Exportar calendario
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          body: El evento <a href="%{meeting_path}">"%{meeting_title}"</a> está pendiente de ser cerrado. Por favor, agregue un informe del evento utilizando el botón "Cerrar evento".
+          greetings: Saludos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Hola %{username},
+          subject: Ahora puedes cerrar tu evento con un informe sobre la plataforma %{organization_name}
+      iframe_access_level:
+        all: Todos los visitantes
+        registered: Participantes registrados para este evento
+        signed_in: Solo participantes inscritos
+      iframe_embed_type:
+        embed_in_meeting_page: Incrustar en la página del evento
+        none: Ninguno
+        open_in_live_event_page: Abrir en la página de eventos en vivo (con encuestas opcionales)
+        open_in_new_tab: Abrir URL en una nueva pestaña
+      join_meeting_button:
+        modal:
+          confirm_registration:
+            title: Confirmar inscripción
+      mailer:
+        registration_mailer:
+          confirmation:
+            subject: Tu inscripción al evento ha sido confirmada
+      meetings:
+        show:
+          confirm_delete: "¿Estás seguro/a de que quieres eliminar este evento?"
+          confirm_cancel: "¿Estás seguro/a de que quieres cancelar este evento?"
+          cancel_meeting: Cancelar evento
+          delete_meeting: Eliminar evento
+          edit_meeting: Editar evento
+          join: Inscribirse
+          registration_code_help_text: Tu código de inscripción
+          back: Volver a la lista
+          remaining_slots: plazas disponibles
+          live_event: Este evento está en curso ahora
+          live_permission_notice: Al hacer clic en el botón a continuación, se solicitarán permisos de micrófono y/o cámara y entrarás en la videoconferencia.
+          live_link: "Enlace del evento:"
+        filters:
+          activity: Mi actividad
+          all: Todas
+          my_meetings: Mis eventos
+          type: Tipo
+          date_values:
+            all: Todas
+            now: En curso
+          type_values:
+            all: Todas
+            hybrid: Ambos
+            in_person: Presencial
+            online: Virtual
+        index:
+          new_meeting: Crear evento
+          click_here: Ver todos los eventos
+          see_all: Ver todos los eventos
+          see_all_withdrawn: Ver todos los eventos retirados
+          text_banner: Estás viendo la lista de eventos retirados por sus autores. %{go_back_link}.
+        form:
+          new:
+            title: Acerca del evento
+          placeholder:
+            title: Escribe aquí
+            description: Describe detalladamente tu propuesta...
+        moderation:
+          label: Moderación
+      models:
+        meeting:
+          fields:
+            id: ID
+      versions:
+        back_to_resource: Volver al evento
+      registration_mailer:
+        confirmation:
+          confirmed_html: Tu inscripción para el evento <a href="%{url}">%{title}</a> ha sido confirmada.
+          registration_code: Tu código de inscripción es %{code}.
+      type_of_meeting:
+        hybrid: Híbrido
+        in_person: Presencial
+        online: Virtual
+      registration_type:
+        on_different_platform: En una plataforma diferente
+        on_this_platform: En esta plataforma
+        registration_disabled: Inscripción desactivada
+      content_blocks:
+        upcoming_meetings:
+          name: Próximos eventos
+          upcoming_meetings: Próximos eventos
+          view_all_meetings: Ver todos
+      card:
+        status:
+          upcoming: Próximo
+          finished: Finalizado
+          active: En curso
+          cancel: Cancelado
+        subscriber_count:
+          one: persona inscrita
+          other: personas inscritas
+        location:
+          online: En línea
+          in_person: Presencial
+    participatory_spaces:
+      highlighted_meetings:
+        upcoming_meetings: Próximos eventos
+      upcoming_meeting_for_card:
+        upcoming_meeting: Próximos eventos
+  devise:
+    mailer:
+      join_meeting:
+        subject: Invitación para unirse a un evento
