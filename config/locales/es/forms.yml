@@ -1,0 +1,68 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-forms/config/locales/es.yml
+es:
+  activemodel:
+    attributes:
+      answer:
+        selected_choices: Opciones seleccionadas
+      questionnaire:
+        title: Nombre del formulario
+  decidim:
+    pages:
+      admin:
+        models:
+          components:
+            description: Descripción
+    forms:
+      admin:
+        questionnaires:
+          actions:
+            back: Volver a las preguntas
+          answers:
+            actions:
+              back: Volver a las respuestas
+          form:
+            add_title_and_description: Agregar título y descripción
+            already_answered_warning: El cuestionario ya ha sido respondido por algunos usuarios, por lo que no se pueden modificar sus preguntas.
+            collapse: Contraer todas las preguntas
+          question:
+            collapse: Contraer
+          title_and_description:
+            collapse: Contraer
+            description: Descripción
+            expand: Expandir
+            title: Título
+            remove: Eliminar
+            up: Arriba
+            down: Abajo
+            title_and_description: Título y descripción
+          edit:
+            save: Guardar
+      admin_log:
+        questionnaire:
+          update: "%{user_name} actualizó el cuestionario %{resource_name}"
+      files:
+        extension_allowlist: 'Formatos permitidos:'
+      images:
+        processors:
+          resize_and_pad: Esta imagen se redimensionará y rellenará para %{dimensions}.
+          resize_to_fit: Esta imagen se redimensionará para ajustarse a %{dimensions}.
+      question_types:
+        files: Archivos
+        title_and_description: Título y descripción
+      questionnaires:
+        show:
+          questionnaire_answered:
+            body: Ya has respondido este cuestionario.
+          tos_agreement: Al participar, aceptas sus Términos de Servicio.
+      step_navigation:
+        show:
+          are_you_sure: Esta acción no se puede deshacer y no se puede editar tus respuestas. ¿Estás seguro?
+          back: Volver
+      user_answers_serializer:
+        registered: Registrado
+        session_token: Identificador de usuario
+        unregistered: No registrado
+        user_status: Estado del usuario
+      errors:
+        answer:
+          body: Este campo no puede estar en blanco
