@@ -1,0 +1,68 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-forms/config/locales/en.yml
+en:
+  activemodel:
+    attributes:
+      answer:
+        selected_choices: Selected choices
+      questionnaire:
+        title: Form Name
+  decidim:
+    pages:
+      admin:
+        models:
+          components:
+            description: Description
+    forms:
+      admin:
+        questionnaires:
+          actions:
+            back: Back to questions
+          answers:
+            actions:
+              back: Back to answers
+          form:
+            add_title_and_description: Add title and description
+            already_answered_warning: The questionnaire has already been answered by some users, so you cannot modify its questions.
+            collapse: Collapse all questions
+          question:
+            collapse: Collapse
+          title_and_description:
+            collapse: Collapse
+            description: Description
+            expand: Expand
+            title: Title
+            remove: Remove
+            up: Up
+            down: Down
+            title_and_description: Title and description
+          edit:
+            save: Save
+      admin_log:
+        questionnaire:
+          update: "%{user_name} updated the questionnaire %{resource_name}"
+      files:
+        extension_allowlist: 'Accepted formats:'
+      images:
+        processors:
+          resize_and_pad: This image will be resized and padded to %{dimensions}.
+          resize_to_fit: This image will be resized to fit %{dimensions}.
+      question_types:
+        files: Files
+        title_and_description: Title and description
+      questionnaires:
+        show:
+          questionnaire_answered:
+            body: You have already answered this questionnaire.
+          tos_agreement: By participating, you accept its Terms of Service
+      step_navigation:
+        show:
+          are_you_sure: This action cannot be undone and will not allow you to edit your answers. Are you sure?
+          back: Back
+      user_answers_serializer:
+        registered: Registered
+        session_token: User identifier
+        unregistered: Not registered
+        user_status: User status
+      errors:
+        answer:
+          body: This field cannot be blank
