@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+# Install Chrome
+curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list
+apt-get update -yqqq
+apt-get install -y google-chrome-stable > /dev/null 2>&1
+sed -i 's/"$@"/--no-sandbox "$@"/g' /opt/google/chrome/google-chrome
+# Install chromedriver
+wget -O /tmp/chromedriver.zip https://storage.googleapis.com/chrome-for-testing-public/126.0.6478.126/linux64/chromedriver-linux64.zip
+unzip -j /tmp/chromedriver.zip chromedriver-linux64/chromedriver -d /usr/bin/
+rm /tmp/chromedriver.zip
+chmod ugo+rx /usr/bin/chromedriver
