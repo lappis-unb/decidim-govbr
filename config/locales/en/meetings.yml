@@ -1,0 +1,259 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-meetings/config/locales/en.yml
+en:
+  activemodel:
+    attributes:
+      agenda:
+        description: Description
+        duration: Duration
+        title: Title
+        registered: Registered
+        filter_only_applies_Agenda_meetings: This filter only applies to Agenda meetings
+      close_meeting:
+        proposals: Proposals created at the event
+      meeting:
+        title: "Event title:"
+        available_slots: Available slots for this event
+        customize_registration_email: Customize registration email
+        iframe_access_level: Iframe access level
+        iframe_embed_type: Iframe embed type
+        registration_type: Registration type
+        registration_form_enabled: Registration form enabled
+        registration_terms: Registration terms
+        registrations_enabled: "Registrations enabled:"
+        reserved_slots: "Reserved slots for this event:"
+        online_meeting_url: "Event URL:"
+        start_time: "Start time:"
+        end_time: "End time:"
+        type_of_meeting: "Format:"
+        description: "Description:"
+        address: "Address:"
+        location: "Location:"
+        location_hints: "Hints:"
+        decidim_scope_id: "Scope:"
+      meeting_agenda:
+        title: Title
+        visible: Visible
+      meeting_agenda_items:
+        description: Description
+        duration: Duration
+        title: Title
+      validate_registration_code:
+        code: Code
+    models:
+      decidim/meetings/meeting_registrations_enabled_event: Registrations enabled
+      decidim/meetings/meeting_registrations_over_percentage_event: Registrations over limit
+  activerecord:
+    models:
+      decidim/meetings/registration:
+        one: Registration
+        other: Registrations
+  decidim:
+    admin:
+      filters:
+        meetings:
+          with_any_origin:
+            label: Origin
+            values:
+              official: Official
+              participants: Participant
+              user_group: User Groups
+    components:
+      meetings:
+        actions:
+          join: Join
+          new: "New %{singular_name}"
+        settings:
+          global:
+            default_registration_terms: Default registration terms
+            registration_code_enabled: Registration code enabled
+            scopes_enabled: Scopes enabled
+            maps_enabled: Maps enabled
+    events:
+      meetings:
+        meeting_closed:
+          email_intro: "The event has closed, check out what happened on the page:"
+        meeting_registration_confirmed:
+          notification_title: Your registration for the event <a href="%{resource_url}">%{resource_title}</a> has been confirmed. Your registration code is %{registration_code}.
+        registration_code_validated:
+          email_intro: Your registration code "%{registration_code}" for the event "%{resource_title}" has been validated.
+          email_outro: You received this message because your registration for the event "%{resource_title}" has been validated.
+          email_subject: Your registration code "%{registration_code}" for the event "%{resource_title}" has been validated.
+          notification_title: Your registration code "%{registration_code}" for the event <a href="%{resource_path}">%{resource_title}</a> has been validated.
+        registrations_enabled:
+          email_intro: 'The event "%{resource_title}" has opened registrations. You can register on its page:'
+          email_outro: You are now following the event "%{resource_title}". To unfollow, click here
+          email_subject: The event "%{resource_title}" has opened registrations.
+          notification_title: The event <a href="%{resource_path}">%{resource_title}</a> has opened registrations.
+
+    meetings:
+      types:
+        withdraw: Canceled
+      itinerary: Event Schedule
+      actions:
+        close: Close Event
+        registrations: Registrations
+      admin:
+        meetings:
+          pluralized_name:
+            when_empty: Meetings
+          edit:
+            title: Edit the event
+          form:
+            available_slots_help: Leave the value 0 if you have unlimited slots available
+            location_hints_help: "Example: the floor of the building if it is an in-person event, or the password of the event if it is a virtual event with restricted access."
+            select_a_meeting_type: Please select a meeting type
+            select_a_registration_type: Please select a registration type
+            select_an_iframe_access_level: Please select an iframe access level
+            show_embedded_iframe_help: "Only a few services allow embedding in live meetings or events from the following domains: %{domains}"
+        meetings_poll:
+          form:
+            title: Edit poll questionnaire for %{questionnaire_for}
+          update:
+            invalid: There was a problem updating the poll for this event
+            success: Event poll successfully updated
+        exports:
+          registrations: Registrations
+        invite_join_meeting_mailer:
+          invite:
+            join: Join '%{meeting_title}'
+        invites:
+          index:
+            registrations_disabled: Cannot invite a participant because registrations are disabled.
+        registrations:
+          edit:
+            save: Save
+            validate: Confirm
+            validate_registration_code: Confirm registration code
+          form:
+            registration_form: Registration form
+            registrations_count:
+              one: There was %{count} registered.
+              other: There were %{count} registered.
+            title: Registrations
+          update:
+            invalid: There was a problem saving the registration settings.
+            success: Event registration settings successfully saved.
+          validate_registration_code:
+            invalid: This registration code is invalid.
+            success: Registration code successfully validated.
+      admin_log:
+        meeting:
+          export_registrations: "%{user_name} exported registrations for the event %{resource_name} in the space %{space_name}"
+      calendar_modal:
+        calendar_url: Calendar URL
+        close_window: Close window
+        copy_calendar_url: Copy
+        copy_calendar_url_clarification: Copy calendar URL to clipboard
+        copy_calendar_url_copied: Copied!
+        copy_calendar_url_description: You can view all published events in your calendar application or provider. Copy and paste this URL into your calendar using the "Add new calendar from URL" option.
+        copy_calendar_url_explanation: Note that you are exporting a selection of events as there are active filters. If you want to export all of them, reset all filters first.
+        copy_calendar_url_message: The URL was successfully copied to the clipboard.
+        export_calendar: Export calendar
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          body: The event <a href="%{meeting_path}">"%{meeting_title}"</a> is pending closure. Please add an event report using the "Close event" button.
+          greetings: Best regards,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Hello %{username},
+          subject: You can now close your event with a report on the %{organization_name} platform
+      iframe_access_level:
+        all: All visitors
+        registered: Registered participants for this event
+        signed_in: Only registered participants
+      iframe_embed_type:
+        embed_in_meeting_page: Embed in event page
+        none: None
+        open_in_live_event_page: Open in live event page (with optional polls)
+        open_in_new_tab: Open URL in a new tab
+      join_meeting_button:
+        modal:
+          confirm_registration:
+            title: Confirm registration
+      mailer:
+        registration_mailer:
+          confirmation:
+            subject: Your event registration has been confirmed
+      meetings:
+        show:
+          confirm_delete: "Are you sure you want to delete this event?"
+          confirm_cancel: "Are you sure you want to cancel this event?"
+          cancel_meeting: Cancel event
+          delete_meeting: Delete event
+          edit_meeting: Edit event
+          join: Join
+          registration_code_help_text: Your registration code
+          back: Back to list
+          remaining_slots: slots available
+          live_event: This event is happening now
+          live_permission_notice: By clicking the button below, microphone and/or camera permissions will be requested, and you will enter the video conference.
+          live_link: "Event link:"
+        filters:
+          activity: My activity
+          all: All
+          my_meetings: My events
+          type: Type
+          date_values:
+            all: All
+            now: Happening now
+          type_values:
+            all: All
+            hybrid: Both
+            in_person: In-person
+            online: Online
+        index:
+          new_meeting: Create event
+          click_here: View all events
+          see_all: View all events
+          see_all_withdrawn: View all withdrawn events
+          text_banner: You are viewing the list of events withdrawn by their authors. %{go_back_link}.
+        form:
+          new:
+            title: About the event
+          placeholder:
+            title: Type here
+            description: Describe your proposal in detail...
+        moderation:
+          label: Moderation
+      models:
+        meeting:
+          fields:
+            id: ID
+      versions:
+        back_to_resource: Back to the event
+      registration_mailer:
+        confirmation:
+          confirmed_html: Your registration for the event <a href="%{url}">%{title}</a> has been confirmed.
+          registration_code: Your registration code is %{code}.
+      type_of_meeting:
+        hybrid: Hybrid
+        in_person: In-person
+        online: Online
+      registration_type:
+        on_different_platform: On a different platform
+        on_this_platform: On this platform
+        registration_disabled: Registration disabled
+      content_blocks:
+        upcoming_meetings:
+          name: Upcoming events
+          upcoming_meetings: Upcoming events
+          view_all_meetings: View all
+      card:
+        status:
+          upcoming: Upcoming
+          finished: Finished
+          active: Happening
+          cancel: Canceled
+        subscriber_count:
+          one: person registered
+          other: people registered
+        location:
+          online: Online
+          in_person: In-person
+    participatory_spaces:
+      highlighted_meetings:
+        upcoming_meetings: Upcoming events
+      upcoming_meeting_for_card:
+        upcoming_meeting: Upcoming events
+  devise:
+    mailer:
+      join_meeting:
+        subject: Invitation to join an event
