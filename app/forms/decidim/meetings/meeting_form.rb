@@ -22,7 +22,6 @@ module Decidim
       attribute :registration_terms, String
       attribute :iframe_embed_type, String, default: "none"
       attribute :iframe_access_level, String
-
       attachments_attribute :photos
       attachments_attribute :documents
 

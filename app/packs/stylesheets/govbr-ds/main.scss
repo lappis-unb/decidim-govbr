@@ -580,15 +580,16 @@ h6 {
 }
 
 .section-heading {
-  position: relative;
-  margin-bottom: 1rem;
+  color: var(--blue-warm-vivid-80);
+  font-variant-numeric: lining-nums proportional-nums;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
   text-transform: none;
-  font-family: var(--unnamed-font-family-rawline);
-  font-style: var(--unnamed-font-style-normal);
-  font-weight: var(--font-weight-semi-bold);
-  font-size: var(--font-size-scale-up-02);
-  line-height: var(--unnamed-line-spacing-23-18400001525879);
-  letter-spacing: var(--unnamed-character-spacing-0);
+}
+.attachments .section-heading {
+  text-transform: capitalize;
 }
 
 .section-heading::before {

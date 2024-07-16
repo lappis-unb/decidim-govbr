@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_06_20_133248) do
+ActiveRecord::Schema.define(version: 2024_07_11_223553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1045,6 +1045,7 @@ ActiveRecord::Schema.define(version: 2024_06_20_133248) do
     t.jsonb "supporters", default: []
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "meetings_map", default: false
     t.index ["decidim_component_id"], name: "index_decidim_homes_homes_on_decidim_component_id"
   end
 
@@ -1286,6 +1287,7 @@ ActiveRecord::Schema.define(version: 2024_06_20_133248) do
     t.string "state"
     t.integer "iframe_access_level", default: 0
     t.integer "iframe_embed_type", default: 0
+    t.integer "associated_state", default: 0
     t.boolean "cancelled", default: false, null: false
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_meetings_meetings_on_author"
     t.index ["decidim_author_id"], name: "index_decidim_meetings_meetings_on_decidim_author_id"
@@ -2082,9 +2084,11 @@ ActiveRecord::Schema.define(version: 2024_06_20_133248) do
     t.boolean "needs_entity_fields", default: false
     t.boolean "has_ej_account", default: false, null: false
     t.string "encrypted_ej_password"
+    t.string "ej_external_identifier"
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
     t.index ["decidim_participatory_process_group_id"], name: "index_decidim_users_on_decidim_participatory_process_group_id"
+    t.index ["ej_external_identifier"], name: "index_decidim_users_on_ej_external_identifier"
     t.index ["email", "decidim_organization_id"], name: "index_decidim_users_on_email_and_decidim_organization_id", unique: true, where: "((deleted_at IS NULL) AND (managed = false) AND ((type)::text = 'Decidim::User'::text))"
     t.index ["id", "type"], name: "index_decidim_users_on_id_and_type"
     t.index ["invitation_token"], name: "index_decidim_users_on_invitation_token", unique: true
