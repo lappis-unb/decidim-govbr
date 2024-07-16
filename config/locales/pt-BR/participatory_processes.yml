@@ -197,6 +197,9 @@ pt-BR:
         filters:
           all_types: Todos os tipos
           filter_by: Tipo de processo
+        region_meetings:
+          meeting_map_title: Encontre uma Reunião perto de você
+          meeting_map_subtitle: Selecione no mapa a região onde deseja procurar reuniões
         show:
           title: Sobre este processo
           participate: Participar
