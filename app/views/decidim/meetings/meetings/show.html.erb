@@ -98,6 +98,7 @@
         <% if meeting.maps_enabled? && !meeting.online_meeting? %>
           <div class="br-divider space-above"></div>
           <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
+          <div class="map_location_address"><%= translated_attribute(meeting.location) %></div>
           <div class="br-divider"></div>
         <% end %>
         <% unless meeting.in_person_meeting? || meeting.withdrawn? %>
