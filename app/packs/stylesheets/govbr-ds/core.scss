@@ -22991,8 +22991,8 @@ mark {
   margin-top: 0.25em;
 }
 .br-breadcrumb {
-  display: inline-grid;
-  font-size: var(--font-size-scale-down-01);
+  display: flex;
+  font-size: 1.0rem;
   font-weight: var(--font-weight-medium);
   position: relative;
 }
@@ -23010,7 +23010,7 @@ mark {
   align-items: center;
   display: flex;
   height: var(--spacing-scale-5x);
-  margin: auto 0 auto -5px;
+  margin: auto 0 auto 0;
 }
 .br-breadcrumb .crumb .icon {
   color: var(--border-color);
