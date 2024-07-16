@@ -13,6 +13,7 @@ module Decidim
     include Decidim::SearchesHelper
 
     def show
+      @current_component = context[:controller].try(:current_component)
       render
     end
 
