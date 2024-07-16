@@ -54,6 +54,7 @@ pt-BR:
               rejected: Rejeitada
               validating: Validação técnica
               withdrawn: Retirada
+              disqualified: Desclassificada
           state_null:
             label: Estado
             values:
@@ -217,17 +218,19 @@ pt-BR:
             success: "Propostas atualizadas com sucesso para o tema %{subject_name}: %{proposals}."
         proposal_answers:
           form:
-            accepted: Recebida
+            accepted: Incorporada
             answer_proposal: Resposta
             evaluating: Em avaliação
             not_answered: Não respondida
             rejected: Rejeitada
+            disqualified: Desclassificada
       answers:
         accepted: Incorporada
         evaluating: Em avaliação
         not_answered: Não respondida
         rejected: Rejeitada
         withdrawn: Retirada
+        disqualified: Desclassificada
       application_helper:
         filter_origin_values:
           participants: Participantes
@@ -237,6 +240,7 @@ pt-BR:
           evaluating: Em avaliação
           not_answered: Não respondida
           rejected: Rejeitada
+          disqualified: Desclassificada
       create:
         error: Ocorreu um problema ao salvar a proposta.
         success: Proposta criada com sucesso. Salva como rascunho.
@@ -346,8 +350,9 @@ pt-BR:
           proposal_accepted_why: 'Motivo:'
           proposal_in_evaluation_reason: Esta proposta está em avaliação
           proposal_rejected_reason: 'Esta proposta foi rejeitada'
+          proposal_disqualified_reason: Esta proposta foi desclassificada
           report: Denunciar
-          withdraw_proposal: Remover %{singular_name} 
+          withdraw_proposal: Remover %{singular_name}
         vote_button:
           already_voted: Votada!
           already_voted_hover: Retirar voto
@@ -361,20 +366,20 @@ pt-BR:
             description: Deve distribuir um mínimo de %{votes} voto(s) entre diferentes propostas.
             supports_remaining: Tem que votar em mais %{remaining_votes} proposta(s) para os seus votos serem levados em conta.
           proposal_limit:
-            start_description: Cada participante pode 
-            important: criar 
+            start_description: Cada participante pode
+            important: criar
             end_description: até %{limit} proposta(s);
           threshold_per_proposal:
             description: Para serem aceites, as propostas precisam de atingir %{limit} voto(s)
           vote_limit:
-            start_description: Cada participante pode 
-            important: votar 
+            start_description: Cada participante pode
+            important: votar
             end_description: em até %{limit} proposta(s);
             left: Você tem
             votes: votos restantes
           most_voted_rule:
-            start_description: As %{limit} propostas 
-            important: mais votadas 
+            start_description: As %{limit} propostas
+            important: mais votadas
             end_description: de cada tema seguirão para análise, podendo ou não ser incorporadas.
         wizard_aside:
           back: Voltar
