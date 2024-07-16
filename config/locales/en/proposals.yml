@@ -1,0 +1,407 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-proposals/config/locales/en.yml
+en:
+  activemodel:
+    attributes:
+      collaborative_draft:
+        body: Description
+        category_id: Theme
+      proposal:
+        automatic_hashtags: Initiatives
+        body: Description
+        title: Proposal Title
+        category_id: Theme
+        suggested_hashtags: Proposal Types
+      proposals_import:
+        origin_component_id: Origin Component
+    errors:
+      messages:
+        too_much_caps: The field contains too many capital letters
+      models:
+        proposal:
+          attributes:
+            title:
+              identical: And the description cannot be identical
+    models:
+      decidim/proposals/accepted_proposal_event: Proposal received
+      decidim/proposals/admin/update_proposal_category_event: Proposal theme changed
+      decidim/proposals/collaborative_draft_access_requested_event: Collaborative draft access requested
+      decidim/proposals/collaborative_draft_access_requester_accepted_event: Collaborative draft access request accepted
+      decidim/proposals/collaborative_draft_access_requester_rejected_event: Collaborative draft access request rejected
+      decidim/proposals/collaborative_draft_access_accepted_event: Collaborative draft access accepted
+      decidim/proposals/collaborative_draft_access_rejected_event: Collaborative draft access rejected
+      decidim/proposals/evaluating_proposal_event: This proposal is under evaluation
+      decidim/proposals/proposal_note_created_event: Proposal note created
+      decidim/proposals/rejected_proposal_event: Proposal rejected
+  decidim:
+    admin:
+      filters:
+        proposals:
+          category_id_eq:
+            label: Theme
+          is_emendation_true:
+            label: Type
+            values:
+              "false": Proposals
+              "true": Amendments
+          scope_id_eq:
+            label: Area of Interest
+          state_eq:
+            label: State
+            values:
+              accepted: Received
+              evaluating: Evaluating
+              published: Published
+              rejected: Rejected
+              validating: Technical validation
+              withdrawn: Withdrawn
+              disqualified: Disqualified
+          state_null:
+            label: State
+            values:
+              "true": Unanswered
+      participatory_texts:
+        is_interactive: Interaction enabled
+        remove_block_alert: Are you sure you want to remove this block?
+    components:
+      proposals:
+        actions:
+          new: New %{name}
+          action_not_allowed: You cannot interact with proposals. Your User Profile is incomplete!
+          answer_proposal: Answer Proposal
+          edit_proposal: Edit Proposal
+          import: Import from another component
+          participatory_texts: Participatory Texts
+          show: Show Proposal
+          title: Actions
+          publish: Publish
+        settings:
+          global:
+            default_sort_order: Default proposal order
+            default_sort_order_help: Default means that if endorsements are active, proposals will be randomly ordered, and if endorsements are locked, they will be ordered from highest to lowest endorsements.
+            default_sort_order_options:
+              default: Default
+              most_commented: Most comments
+              most_endorsed: Most endorsed
+              most_followed: Most followed
+              most_voted: Most voted
+              random: Random
+              recent: Recent
+              with_more_authors: With more authors
+            geocoding_enabled: Geolocation enabled
+            minimum_votes_per_user: Minimum votes per user
+            proposal_answering_enabled: Allow the body to give feedback by proposal
+            proposal_limit: Maximum number of proposals per user (leave 0 if you don't want to limit)
+            proposal_length: Maximum number of characters per proposal
+            official_proposals_enabled: Allow the body to make official proposals
+            comments_enabled: Allow users to comment on proposals
+            comments_max_length: Maximum number of characters per comment (leave 0 to not limit)
+            attachments_allowed: Allow the body to create proposals with attachments
+            proposal_edit_time: Proposal editing
+            proposal_edit_time_choices:
+              infinite: Allow proposal editing for an infinite period of time
+              limited: Allow proposal editing within a specific time period
+            scopes_enabled: Areas of interest enabled
+          step:
+            creation_enabled: Participants can create proposals
+            creation_enabled_readonly: This setting is disabled when you enable the Participatory Texts feature. To load proposals as participatory text, click the 'Participatory Texts' button and follow the instructions.
+            default_sort_order: Default proposal order
+            default_sort_order_help: Default means that if endorsements are active, proposals will be randomly ordered, and if endorsements are locked, they will be ordered from highest to lowest endorsements.
+            default_sort_order_options:
+              default: Default
+              most_commented: Most comments
+              most_endorsed: Most endorsed
+              most_followed: Most followed
+              most_voted: Most voted
+              random: Random
+              recent: Recent
+              with_more_authors: With more authors
+            publish_answers_immediately_help_html: Remember, if you respond to any proposals without this option activated, you will need to manually publish them by selecting them and using the publish action. For more information on how this works, see the <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">proposal response documentation page</a>.
+    events:
+      proposals:
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} has been accepted to access as a collaborator of the collaborative draft <a href="%{resource_url}">%{resource_title}</a>.'
+          email_outro: You received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
+          email_subject: "%{requester_name} has been accepted to access as a contributor of %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> has been <strong>accepted to access as a collaborator</strong> of the collaborative draft <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} has been rejected to access as a collaborator of the collaborative draft <a href="%{resource_url}">%{resource_title}</a>.'
+          email_outro: You received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
+          email_subject: "%{requester_name} has been rejected to access as a collaborator of the collaborative draft %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> has been <strong>rejected to access as a collaborator</strong> of the collaborative draft <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} requested access as a collaborator. You can <strong>accept or reject the request</strong> on the collaborative draft page <a href="%{resource_url}">%{resource_title}</a>.'
+          email_outro: You received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
+          email_subject: "%{requester_name} requested access to contribute in %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> requested access to contribute in the collaborative draft <a href="%{resource_path}">%{resource_title}</a>. Please <strong>accept or reject the request</strong>.
+        collaborative_draft_access_requester_accepted:
+          email_intro: You have been accepted to access as a collaborator of the collaborative draft <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: You received this notification because you requested to become a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
+          email_subject: You have been accepted as a collaborator of %{resource_title}.
+          notification_title: You have been <strong>accepted to access as a collaborator</strong> of the collaborative draft <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_requester_rejected:
+          email_intro: You have been rejected to access as a collaborator of the collaborative draft <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: You received this notification because you requested to become a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
+          email_subject: You have been rejected as a collaborator of %{resource_title}.
+          notification_title: You have been <strong>rejected to access as a collaborator</strong> of the collaborative draft <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> withdrew the collaborative draft <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: You received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} withdrew the %{resource_title} collaborative draft."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>withdrew</strong> the collaborative draft <a href="%{resource_path}">%{resource_title}</a>.
+        proposal_accepted:
+          affected_user:
+            email_intro: 'Your proposal "%{resource_title}" has been received. You can read the response on this page:'
+            email_subject: Your proposal has been received
+            notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> has been received.
+          email_intro: 'Your proposal "%{resource_title}" has been received. You can read the response on this page:'
+          follower:
+            email_intro: 'The proposal "%{resource_title}" has been received. You can read the response on this page:'
+            email_subject: A proposal you follow has been received
+            notification_title: The proposal <a href="%{resource_path}">%{resource_title}</a> has been received.
+        proposal_evaluating:
+          affected_user:
+            email_intro: 'Your proposal "%{resource_title}" is currently under evaluation. You can check for a response on this page:'
+            email_subject: Your proposal is under evaluation
+            notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> is under evaluation.
+          follower:
+            email_intro: 'The proposal "%{resource_title}" is currently under evaluation. You can check for a response on this page:'
+            email_subject: A proposal you are following is under evaluation
+            notification_title: The proposal <a href="%{resource_path}">%{resource_title}</a> is under evaluation.
+        proposal_published_for_space:
+          notification_title: The proposal <a href="%{resource_path}">%{resource_title}</a> was added in %{participatory_space_title} by %{author}
+          notification_title_official: The official proposal <a href="%{resource_path}">%{resource_title}</a> was added to %{participatory_space_title}
+        proposal_rejected:
+          affected_user:
+            email_subject: Your proposal has been rejected
+        proposal_update_category:
+          email_intro: 'An administrator updated the theme of your proposal "%{resource_title}". Check it out:'
+          email_subject: The proposal theme %{resource_title} has been updated
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal theme has been updated by an administrator.
+    gamification:
+      badges:
+        accepted_proposals:
+          conditions:
+            - Choose the participation space of your interest with the submission of proposals enabled
+            - Try to make proposals that can be carried out. In this way, these are more likely to be received.
+          description: This badge is awarded when you actively participate with new proposals and these are received.
+          description_another: This participant had %{score} proposals received.
+          description_own: You have %{score} proposals received.
+          name: Received proposals
+          next_level_in: Have more %{score} proposals received to reach the next level!
+          unearned_another: This participant has not yet had any proposals received.
+          unearned_own: You have not yet had any proposals received.
+    metrics:
+      accepted_proposals:
+        description: Number of proposals received
+        object: proposals
+        title: Received proposals
+    proposals:
+      admin:
+        when_empty: Proposal
+        period_submitting_proposals_is_not_open: The period for submitting proposals is not open.
+        Its_export_is_underway: Your export is underway. You will receive an email when it is complete.
+        imports:
+          label:
+            answers: Import answers from a file
+            proposals: Import proposals from a file
+        proposals:
+          pluralized_name:
+            when_empty: Proposals
+          form:
+            select_a_category: Select a theme
+          index:
+            change_category: Change theme
+          show:
+            body: Description
+          update_category:
+            invalid: "These proposals already had the %{subject_name} theme: %{proposals}."
+            select_a_category: Select a theme
+            success: "Proposals successfully updated to the %{subject_name} theme: %{proposals}."
+        proposal_answers:
+          form:
+            accepted: Incorporated
+            answer_proposal: Answer
+            evaluating: Evaluating
+            not_answered: Unanswered
+            rejected: Rejected
+            disqualified: Disqualified
+      answers:
+        accepted: Incorporated
+        evaluating: Under evaluation
+        not_answered: Not answered
+        rejected: Rejected
+        withdrawn: Withdrawn
+        disqualified: Disqualified
+      application_helper:
+        filter_origin_values:
+          participants: Participants
+        filter_state_values:
+          accepted: Incorporated
+          all: All
+          evaluating: Under evaluation
+          not_answered: Not answered
+          rejected: Rejected
+          disqualified: Disqualified
+      create:
+        error: There was a problem saving the proposal.
+        success: Proposal created successfully. Saved as draft.
+      withdraw:
+        success: Proposal successfully withdrawn
+      collaborative_drafts:
+        edit:
+          back: Back
+          select_a_category: Please select a category
+        filters:
+          category: Category
+        new:
+          add_file: Add file
+          edit_file: Edit file
+          send: Continue
+        requests:
+          accepted_request:
+            error: Could not be accepted as a collaborator, please try again later.
+            success: "@%{user} has been successfully accepted as a collaborator"
+          access_requested:
+            success: Your request to collaborate has been successfully sent
+          rejected_request:
+            success: "@%{user} has been successfully rejected as a collaborator"
+        show:
+          back: Back
+          info-message: This is a <strong>collaborative draft</strong> for a proposal. This means you can assist its authors in shaping the proposal using the comment section below or by directly improving it by requesting access to edit it. Once authors grant you access, you can make changes to this draft.
+        wizard_aside:
+          back_from_collaborative_draft: Back to collaborative drafts
+          info: You are creating a <strong>collaborative draft</strong>.
+      models:
+        proposal:
+          fields:
+            category: Category
+      proposals:
+        count:
+          proposals_count:
+            one: "%{count} %{singular_name} found"
+            other: "%{count} %{pluralized_name} found"
+        view_btn:
+          placeholder: View %{singular_name}
+        compare:
+          no_similars_found: Great! No similar proposals found
+          continue: Continue
+          title: "%{singular_name} Proposals"
+        complete:
+          send: Create
+          title: Complete your %{singular_name}
+        edit_draft:
+          discard: Discard this draft
+          discard_confirmation: Are you sure you want to discard this draft
+          send: Preview
+          title: Edit %{singular_name} draft
+        index:
+          click_here: View all proposals
+          collaborative_drafts_list: Access collaborative drafts
+          new_proposal: Create my %{proposal}
+          see_all: View all proposals
+          text_banner: You are viewing the list of proposals withdrawn by their authors. %{go_back_link}
+        new:
+         title: Create your %{singular_name}
+         send: Publish
+        edit:
+          add_documents: Add documents
+          add_image: Add image
+          edit_documents: Edit documents
+          edit_image: Edit image
+          select_a_category: Select a category
+          title: Edit %{singular_name}
+        filters:
+          category: Categories
+          state: Status
+          activity: My Activity
+          placeholder: "What %{name} are you looking for?"
+          all: All %{component_name}
+          my_proposals: My %{component_name}
+          voted: "%{component_name} I support"
+        orders:
+          label: "Order proposals by:"
+          most_commented: Most contributions
+          most_endorsed: Most endorsed
+          most_followed: Most followed
+          most_voted: Most voted
+          random: Random
+          recent: Recent
+          with_more_authors: With more authors
+        preview:
+          announcement_body: Your %{singular_name} has been saved as a draft. It needs to be published to appear on the site.
+          announcement_title: Your %{singular_name} has not been published yet
+          comments: Comments
+          modify: Modify
+          help_preview: This is a preview of your proposal. Review its content and ensure everything is correct before publishing. After publication, you can edit or delete the proposal as long as it has no contributions.
+          proposal_edit_before_minutes:
+            one: You can edit during the first minute after publication. Once this time window passes, you won't be able to edit.
+            other: You can edit during the first %{count} minutes after publication. Once this time window passes, you won't be able to edit .
+          publish: Publish
+          title: Publish your %{singular_name}
+        requests:
+          accepted_request:
+            error: Could not be accepted as collaborator, please try again later.
+            success: "@%{user} has been successfully accepted as collaborator"
+        show:
+          answer: Give feedback
+          back_to: Back to
+          back_to_list_proposals: Back
+          back_to_list: Back
+          proposal_accepted_reason: 'This proposal has been incorporated!'
+          proposal_accepted_why: 'Reason:'
+          proposal_in_evaluation_reason: This proposal is under evaluation
+          proposal_rejected_reason: 'This proposal has been rejected'
+          proposal_disqualified_reason: This proposal has been disqualified
+          report: Report
+          withdraw_proposal: Remove %{singular_name}
+        vote_button:
+          already_voted: Voted!
+          already_voted_hover: Remove vote
+          vote: Vote
+        voting_rules:
+          help_button_text: Learn about the rules and criteria for proposal selection
+          infom_text_help: ""
+          can_accumulate_supports_beyond_threshold:
+            description: Each proposal can accumulate more than %{limit} vote(s)
+          minimum_votes_per_user:
+            description: Must distribute a minimum of %{votes} vote(s) among different proposals.
+            supports_remaining: You need to vote for %{remaining_votes} more proposal(s) for your votes to count.
+          proposal_limit:
+            start_description: Each participant can
+            important: create
+            end_description: up to %{limit} proposal(s);
+          threshold_per_proposal:
+            description: Proposals need to reach %{limit} vote(s) to be accepted
+          vote_limit:
+            start_description: Each participant can
+            important: vote
+            end_description: on up to %{limit} proposal(s);
+            left: You have
+            votes: votes remaining
+          most_voted_rule:
+            start_description: The %{limit} proposals
+            important: most voted
+            end_description: from each category will proceed to review, and may or may not be incorporated.
+        wizard_aside:
+          back: Back
+          back_from_step_1: Back
+          back_from_step_2: Back
+          back_from_step_3: Back to proposal comparison
+          back_from_step_4: Back to draft editing
+          info: You are creating a proposal
+        wizard_steps:
+          current_step: Current step
+          see_steps: see steps
+          step_1: Make your proposal
+          step_2: Compare
+          step_3: Complete
+          step_4: Publish your proposal
+          step_of: Step %{current_step_num} of %{total_steps}
+          title: Proposal creation steps
+      versions:
+        collaborative_drafts:
+          back_to_resource: Back to collaborative draft
+        proposals:
+          back_to_resource: Back
+    statistics:
+      proposals_accepted: Proposals received
