@@ -37,6 +37,12 @@ Rails.application.routes.draw do
     as: 'user_proposal_statistic_report_create'
   )
 
+  get(
+    'get_all_meetings_of_a_participatory_process/:slug',
+    to: 'decidim/participatory_processes/participatory_processes#all_meetings_of_a_participatory_process',
+    as: 'get_all_meetings_of_a_participatory_process'
+  )
+
   resources :reports, only: [:create], controller: 'decidim/reports/reports'
 
   patch '/update_status_comment/:id/', to: 'decidim/comments/comments#update_status', as: 'update_comment_status'
