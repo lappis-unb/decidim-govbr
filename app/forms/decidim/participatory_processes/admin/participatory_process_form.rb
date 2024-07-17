@@ -93,14 +93,10 @@ module Decidim
           @area ||= current_organization.areas.find_by(id: area_id)
         end
 
-        def valid_components_for_initial_page
-          %w(pages homes meetings proposals)
-        end
-
         def available_initial_page_components
           return Decidim::Component.none unless id
 
-          @available_initial_page_components ||= Decidim::Component.where(participatory_space_type: "Decidim::ParticipatoryProcess", participatory_space_id: id, manifest_name: valid_components_for_initial_page)
+          @available_initial_page_components ||= Decidim::Component.where(participatory_space_type: "Decidim::ParticipatoryProcess", participatory_space_id: id)
         end
 
         def initial_page_components_for_select
