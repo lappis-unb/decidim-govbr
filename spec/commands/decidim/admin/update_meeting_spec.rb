@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "rails_helper"
+require "shared/notifications_handling"
 
 module Decidim::Meetings
   describe Admin::UpdateMeeting do
