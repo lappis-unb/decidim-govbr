@@ -206,6 +206,22 @@
   }
 }
 
+.participants-list-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  h3 {
+    color: var(--blue-warm-vivid-80);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+  }
+}
+
 .header-meetings {
   display: flex;
   flex-direction: row;
