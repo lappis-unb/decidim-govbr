@@ -198,12 +198,6 @@
         <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
       </div>
       <div class="meetings-br-actions-buttons">
-        <%= render partial: "decidim/shared/share_modal", locals: {
-              translation_component: t("decidim.shared.share_modal.share_text_meeting",
-              resource_name: resource_title(@meeting),
-              component_name: resource_title(current_participatory_space))
-            }
-        %>
         <% if (current_user.try(:admin?) || @can_moderate) %>
           <button type="button" class="br-button" data-open="flagModal" title="Denunciar"
             aria-controls="flagModal" aria-haspopup="dialog" tabindex="0">
@@ -211,6 +205,12 @@
             <%= t("decidim.meetings.meetings.moderation.label") %>
           </button>
         <% end %>
+        <%= render partial: "decidim/shared/share_modal", locals: {
+              translation_component: t("decidim.shared.share_modal.share_text_meeting",
+              resource_name: resource_title(@meeting),
+              component_name: resource_title(current_participatory_space))
+            }
+        %>
       </div>
     </div>
   </div>
