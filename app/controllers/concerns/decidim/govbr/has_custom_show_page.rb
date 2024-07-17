@@ -25,7 +25,7 @@ module Decidim
 
         if initial_page_type == "homes" && initial_page_component
           redirect_to decidim_participatory_space_homes_path(current_participatory_space, initial_page_component)
-        elsif (initial_page_type == "pages" && initial_page_component) || VALID_COMPONENTS.include?(initial_page_type)
+        elsif (initial_page_type == "pages" || VALID_COMPONENTS.include?(initial_page_type)) && initial_page_component
           redirect_to decidim_participatory_space_pages_path(current_participatory_space, initial_page_component)
         end
       end
@@ -39,7 +39,7 @@ module Decidim
         elsif initial_page_type == "pages" && initial_page_component
           set_pages_component_context
           render template: "decidim/pages/application/show"
-        elsif VALID_COMPONENTS.include?(initial_page_type)
+        elsif VALID_COMPONENTS.include?(initial_page_type) && initial_page_component
           redirect_to_custom_show_page_if_necessary
         end
       end
