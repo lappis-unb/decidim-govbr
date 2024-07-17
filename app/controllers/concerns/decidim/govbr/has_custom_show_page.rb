@@ -10,7 +10,8 @@ module Decidim
     module HasCustomShowPage
       extend ActiveSupport::Concern
 
-      TYPES = %w(default homes pages meetings proposals).freeze
+      TYPES = %w(default homes pages).freeze
+      VALID_COMPONENTS = %w(proposals meetings).freeze
 
       included do
         helper_method :current_settings,
@@ -24,7 +25,7 @@ module Decidim
 
         if initial_page_type == "homes" && initial_page_component
           redirect_to decidim_participatory_space_homes_path(current_participatory_space, initial_page_component)
-        else
+        elsif (initial_page_type == "pages" && initial_page_component) || VALID_COMPONENTS.include?(initial_page_type)
           redirect_to decidim_participatory_space_pages_path(current_participatory_space, initial_page_component)
         end
       end
@@ -38,7 +39,7 @@ module Decidim
         elsif initial_page_type == "pages" && initial_page_component
           set_pages_component_context
           render template: "decidim/pages/application/show"
-        else
+        elsif VALID_COMPONENTS.include?(initial_page_type)
           redirect_to_custom_show_page_if_necessary
         end
       end
