@@ -71,7 +71,8 @@ module Decidim
           component: form.current_component,
           published_at: Time.current,
           iframe_embed_type: form.iframe_embed_type,
-          iframe_access_level: form.iframe_access_level
+          iframe_access_level: form.iframe_access_level,
+          associated_state: form.associated_state
         }
 
         @meeting = Decidim.traceability.create!(

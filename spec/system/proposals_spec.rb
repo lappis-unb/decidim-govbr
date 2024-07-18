@@ -57,8 +57,10 @@ describe "Proposals", type: :system do
     it "allows viewing a single proposal" do
       page.visit decidim.new_user_session_path(locale: :'pt-BR')
 
-      fill_in "E-mail", with: "example@email.com"
-      fill_in "Senha", with: "l2WxBHWsVW535MtrCqi3"
+      click_link "Foreign Sign In/Up (Login Estrangeiro)"
+
+      find("input[name='user[email]']").set("example@email.com")
+      find("input[name='user[password]']").set("l2WxBHWsVW535MtrCqi3")
 
       click_button("Conecte-se")
 

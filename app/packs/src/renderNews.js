@@ -44,7 +44,6 @@ function renderNews(apiData, idComponent, idProcess, highlightLatest, descButton
 
             <div class="page-news-card-content">
               <span class="news-title">${post.title.translation}</span>
-              <span class="news-date">${post.createdAt.split("T")[0].split("-").reverse().join("/")}</span>
             </div>
           </a>
           `;
@@ -66,8 +65,8 @@ function renderNews(apiData, idComponent, idProcess, highlightLatest, descButton
   highlightedNew.body.translation = highlightedNew.body.translation.replace(/<\/?[^>]+(>|$)/g, "");
 
   // convertendo de data ISO para data de acordo com o formato do front
-  let highlightedNewDate = highlightedNew.createdAt.split("T")[0]; 
-  highlightedNewDate = highlightedNewDate.split("-").reverse().join("/");
+  // let highlightedNewDate = highlightedNew.createdAt.split("T")[0]; 
+  // highlightedNewDate = highlightedNewDate.split("-").reverse().join("/");
 
   const highlightedNewComponent = () => {
     if (highlightLatest) {
@@ -79,7 +78,6 @@ function renderNews(apiData, idComponent, idProcess, highlightLatest, descButton
             <span class="main-news-title">${highlightedNew.title.translation}</span>
             <span class="main-news-subtitle">${highlightedNew.body.translation}</span>
             </div>
-            <span class="news-date">${highlightedNewDate}</span>
           </div>
         </a>
       `;

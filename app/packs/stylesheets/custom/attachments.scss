@@ -5,9 +5,6 @@
   padding: 33px;
   width: 100%;
 }
-.attachments .section-heading {
-  margin: 0 0 2rem 0;
-}
 
 .download-attachment {
   width: 15px;
@@ -29,6 +26,7 @@
 .documents {
   display: flex;
   flex-direction: column;
+  gap: 8px;
   width: 100%;
 }
 
@@ -127,9 +125,47 @@
 }
 
 .attachments {
-  background-color: var(--blue-3);
   display: flex;
   justify-content: center;
   flex-direction: column;
-  border-radius: 10px;
+}
+
+.attachment-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+
+  .download-button {
+    gap: 8px;
+  }
+}
+
+.attachment-file {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  max-height: 50px;
+
+  h4 {
+    color: var(--blue-warm-vivid-70, #1351b4);
+    font-variant-numeric: lining-nums proportional-nums;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+    max-width: 200px;
+  }
+  span {
+    color: var(--blue-warm-vivid-70, #1351b4);
+    font-variant-numeric: lining-nums proportional-nums;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+  }
 }

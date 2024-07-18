@@ -9,3 +9,9 @@ Naming/MemoizedInstanceVariableName:
 
 RSpec/VerifiedDoubleReference:
   Enabled: false
+
+RSpec/StubbedMock:
+  Enabled: false
+
+RSpec/MessageChain:
+  Enabled: false

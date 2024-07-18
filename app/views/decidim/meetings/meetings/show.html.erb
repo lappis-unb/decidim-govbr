@@ -56,6 +56,14 @@
             <%= caption =  meeting.closed? ? t(".edit_close_meeting") : t(".close_meeting") %>
           <% end %>
         <% end %>
+        <% if author_presenter_for(meeting.normalized_author) == current_user %>
+          <a class="br-button secondary black-and-white-btn" href="https://brasilparticipativo.presidencia.gov.br/processes/confmma/f/143/surveys/30">
+            Adicione Informações da organização
+          </a>
+          <a class="br-button secondary black-and-white-btn" href="https://brasilparticipativo.presidencia.gov.br/processes/confmma/f/142/surveys/29">
+            Registre o que aconteceu
+          </a>
+        <% end %>
       </div>
       
       <div class="badge-container">
@@ -90,6 +98,7 @@
         <% if meeting.maps_enabled? && !meeting.online_meeting? %>
           <div class="br-divider space-above"></div>
           <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
+          <div class="map_location_address"><%= translated_attribute(meeting.location) %></div>
           <div class="br-divider"></div>
         <% end %>
         <% unless meeting.in_person_meeting? || meeting.withdrawn? %>
@@ -190,12 +199,6 @@
         <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
       </div>
       <div class="meetings-br-actions-buttons">
-        <%= render partial: "decidim/shared/share_modal", locals: {
-              translation_component: t("decidim.shared.share_modal.share_text_meeting",
-              resource_name: resource_title(@meeting),
-              component_name: resource_title(current_participatory_space))
-            }
-        %>
         <% if (current_user.try(:admin?) || @can_moderate) %>
           <button type="button" class="br-button" data-open="flagModal" title="Denunciar"
             aria-controls="flagModal" aria-haspopup="dialog" tabindex="0">
@@ -203,6 +206,12 @@
             <%= t("decidim.meetings.meetings.moderation.label") %>
           </button>
         <% end %>
+        <%= render partial: "decidim/shared/share_modal", locals: {
+              translation_component: t("decidim.shared.share_modal.share_text_meeting",
+              resource_name: resource_title(@meeting),
+              component_name: resource_title(current_participatory_space))
+            }
+        %>
       </div>
     </div>
   </div>

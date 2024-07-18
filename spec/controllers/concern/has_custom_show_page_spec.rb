@@ -53,6 +53,14 @@ module Decidim
       let(:home) { create :home, component: homes_component, news: true, news_id: news_id }
       let(:news_id) { nil }
 
+      let!(:proposal_component) { create :proposal_component, id: actual_proposal_component_id, participatory_space: participatory_space }
+      let(:actual_proposal_component_id) { 30 }
+      let(:proposal) { create :proposal, component: proposal_component }
+
+      let!(:meeting_component) { create :meeting_component, id: actual_meeting_component_id, participatory_space: participatory_space }
+      let(:actual_meeting_component_id) { 40 }
+      let(:meeting) { create :meeting, component: meeting_component }
+
       let(:page_type) { "pages" }
 
       shared_examples "redirect to examples" do
@@ -79,6 +87,40 @@ module Decidim
               let(:component_id) { actual_pages_component_id }
 
               it { is_expected.to eq("/#{participatory_space.class}/#{participatory_space.id}/pages/#{component_id}") }
+            end
+          end
+
+          context "when page type is a valid component" do
+            context "when page type is a proposal" do
+              let(:page_type) { "proposals" }
+
+              context "and component id does not belong to a page component" do
+                let(:component_id) { 0 }
+
+                it { is_expected.to be_nil }
+              end
+
+              context "and component id belongs to a valid page component" do
+                let(:component_id) { actual_proposal_component_id }
+
+                it { is_expected.to eq("/#{participatory_space.class}/#{participatory_space.id}/pages/#{component_id}") }
+              end
+            end
+
+            context "when page type is a meeting" do
+              let(:page_type) { "meetings" }
+
+              context "and component id does not belong to a page component" do
+                let(:component_id) { 0 }
+
+                it { is_expected.to be_nil }
+              end
+
+              context "and component id belongs to a valid page component" do
+                let(:component_id) { actual_meeting_component_id }
+
+                it { is_expected.to eq("/#{participatory_space.class}/#{participatory_space.id}/pages/#{component_id}") }
+              end
             end
           end
 
