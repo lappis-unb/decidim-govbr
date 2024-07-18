@@ -35,6 +35,7 @@ sonarcloud-check:
     - merge_requests
     - master
     - develop
+    - main
 
 # Job para construir a imagem Docker da aplicação
 Build:
