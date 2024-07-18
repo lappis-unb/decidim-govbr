@@ -10,6 +10,8 @@ module Decidim
 
         helper_method :participatory_process_group
 
+        SCOPE = 'decidim.admin'
+
         def index
           enforce_permission_to :read, :process_user_role
 
@@ -35,12 +37,12 @@ module Decidim
           @form = form(ParticipatoryProcessGroupUserForm).from_params(params)
           CreateParticipatoryProcessGroupUser.call(current_user, @form) do
             on(:ok) do
-              flash[:notice] = I18n.t("participatory_process_group_users.create.success", scope: "decidim.admin")
+              flash[:notice] = I18n.t("participatory_process_group_users.create.success", scope: SCOPE)
               redirect_to main_app.participatory_process_group_users_path(participatory_process_group)
             end
 
             on(:invalid) do
-              flash[:alert] = I18n.t("participatory_process_group_users.create.error", scope: "decidim.admin")
+              flash[:alert] = I18n.t("participatory_process_group_users.create.error", scope: SCOPE)
               render :new
             end
           end
@@ -53,12 +55,12 @@ module Decidim
           @form = form(ParticipatoryProcessGroupUserForm).from_params(params)
           UpdateParticipatoryProcessGroupUser.call(current_user, @form) do
             on(:ok) do
-              flash[:notice] = I18n.t("participatory_process_group_users.update.success", scope: "decidim.admin")
+              flash[:notice] = I18n.t("participatory_process_group_users.update.success", scope: SCOPE)
               redirect_to main_app.participatory_process_group_users_path(participatory_process_group)
             end
 
             on(:invalid) do
-              flash[:alert] = I18n.t("participatory_process_group_users.update.error", scope: "decidim.admin")
+              flash[:alert] = I18n.t("participatory_process_group_users.update.error", scope: SCOPE)
               render :new
             end
           end
@@ -70,12 +72,12 @@ module Decidim
           @user = collection.find(params[:id])
           DestroyParticipatoryProcessGroupUser.call(participatory_process_group, current_user, @user) do
             on(:ok) do
-              flash[:notice] = I18n.t("participatory_process_group_users.destroy.success", scope: "decidim.admin")
+              flash[:notice] = I18n.t("participatory_process_group_users.destroy.success", scope: SCOPE)
               redirect_to main_app.participatory_process_group_users_path(participatory_process_group)
             end
 
             on(:invalid) do
-              flash[:alert] = I18n.t("participatory_process_group_users.destroy.error", scope: "decidim.admin")
+              flash[:alert] = I18n.t("participatory_process_group_users.destroy.error", scope: SCOPE)
               redirect_to main_app.participatory_process_group_users_path(participatory_process_group)
             end
           end
