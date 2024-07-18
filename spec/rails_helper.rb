@@ -8,6 +8,8 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 require 'rspec-cells'
 
+require 'support/capybara'
+
 require 'support/factory_bot'
 require 'support/action_mailer'
 require 'support/active_job'
@@ -54,6 +56,13 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+  config.before(:each, type: :system) do
+    unless ENV["ASSET_PRECOMPILE_DONE"]
+      prep_passed = system "rails webpacker:clobber && rails webpacker:compile"
+      ENV["ASSET_PRECOMPILE_DONE"] = "true"
+      abort "\nYour assets didn't compile. Exiting WITHOUT running any tests. Review the output above to resolve any errors." unless prep_passed
+    end
+  end
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   # config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -99,4 +108,6 @@ RSpec.configure do |config|
   end
 
   config.include ActiveSupport::Testing::TimeHelpers
+  config.include Rails.application.routes.url_helpers
+  config.include Devise::Test::IntegrationHelpers, type: :system
 end
