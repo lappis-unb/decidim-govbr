@@ -40,7 +40,8 @@
               <% end %>
             <% end %>
           <% end %>
-        <% end %>
+          <% end %>
+          <%= render partial: "br_breadcrumbs" %>
 
         <% if !@meeting_cell.finished? && !cancelled?(meeting) %>
           <% if allowed_to?(:update, :meeting, meeting: meeting) %>
@@ -50,7 +51,6 @@
             <% end %>
           <% end %>
         <% end %>
-
         <% if allowed_to?(:close, :meeting, meeting: meeting) && !cancelled?(meeting) && @meeting_cell.finished? %>
           <%= link_to edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "br-button secondary black-and-white-btn" do %>
             <%= caption =  meeting.closed? ? t(".edit_close_meeting") : t(".close_meeting") %>
