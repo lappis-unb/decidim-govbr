@@ -27,7 +27,8 @@ module Decidim
 
       helper_method :current_component,
                     :current_participatory_space,
-                    :current_manifest
+                    :current_manifest,
+                    :current_component_object
 
       before_action do
         enforce_permission_to :read, :component, component: current_component, share_token: share_token
@@ -45,6 +46,21 @@ module Decidim
 
       def current_manifest
         @current_manifest ||= current_component.manifest
+      end
+
+      def current_component_object
+        manifest_mapping = {
+          "proposals" => "Decidim::Proposals::Proposal",
+          "meetings" => "Decidim::Meetings::Meeting",
+          "blogs" => "Decidim::Blogs::Post",
+          "surveys" => "Decidim::Surveys::Survey"
+        }.with_indifferent_access
+
+        manifest_name = current_component.manifest_name
+        table_name = manifest_mapping[manifest_name]
+        table_class = table_name.constantize
+
+        table_class.where(decidim_component_id: current_component.id, id: params[:id])
       end
 
       def share_token
