@@ -11,7 +11,7 @@
 </div>
 
 <% if Decidim::Meetings.enable_proposal_linking %>
-  <div class="field hashtags__container">
+  <div class="close__meetings-form field hashtags__container">
     <%= proposals_picker(form, :proposals, proposals_picker_meeting_meeting_closes_path(meeting)) %>
   </div>
 <% end %>
