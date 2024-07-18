@@ -44,11 +44,12 @@ module Decidim
       def all_meetings_of_a_participatory_process
         state = params[:state]
         search = params[:search]
+        meeting_id = params[:meeting_id]
 
         meeting_component = Decidim::Component.where(manifest_name: "meetings",
                                                      participatory_space_id: current_participatory_space.id,
-                                                     participatory_space_type: "Decidim::ParticipatoryProcess")
-                                              .first
+                                                     participatory_space_type: "Decidim::ParticipatoryProcess",
+                                                     id: meeting_id)
 
         render status: :not_found unless meeting_component
 
