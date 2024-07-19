@@ -38,6 +38,7 @@ module Decidim
             patch :import
             post :update
             post :discard
+            get :edit_as_preview
           end
         end
       end

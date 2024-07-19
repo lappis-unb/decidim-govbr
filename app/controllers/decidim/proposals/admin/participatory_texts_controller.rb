@@ -83,6 +83,18 @@ module Decidim
           end
         end
 
+
+        def edit_as_preview
+          enforce_permission_to :manage, :participatory_texts
+
+          @participatory_texts = Proposal.where(component: current_component).order(:position)
+
+          @preview_form = form(Admin::PreviewParticipatoryTextForm).instance
+          @preview_form.from_models(@participatory_texts)
+
+          render action: "edit_as_preview"
+        end
+
         # Removes all the unpublished proposals (drafts).
         def discard
           enforce_permission_to :manage, :participatory_texts
