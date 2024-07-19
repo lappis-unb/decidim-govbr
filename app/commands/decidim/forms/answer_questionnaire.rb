@@ -51,6 +51,8 @@ module Decidim
         @main_form = @form
         @errors = nil
 
+        binding.pry
+
         Answer.transaction(requires_new: true) do
           form.responses_by_step.flatten.select(&:display_conditions_fulfilled?).each do |form_answer|
             answer = Answer.new(
@@ -60,7 +62,7 @@ module Decidim
               body: form_answer.body,
               session_token: form.context.session_token,
               ip_hash: form.context.ip_hash,
-              anonymous_answer: !form.topp_agreement
+              anonymous_answer: !form.try(:topp_agreement)
             )
 
             form_answer.selected_choices.each do |choice|
