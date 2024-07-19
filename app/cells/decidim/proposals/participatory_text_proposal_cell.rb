@@ -21,7 +21,7 @@ module Decidim
       def title
         case model.participatory_text_level
         when "section"
-          "<h5><strong>#{section_title}</strong></h5>"
+          "<div class='wrap-participatory-title-section'><h5 class='participatory-title-section'><strong>#{section_title}</strong></h5></div>"
         else
           "<h6><strong>#{section_title}</strong></h6>"
         end
@@ -41,6 +41,11 @@ module Decidim
                     end
 
         decidim_sanitize_editor(strip_links(formatted))
+      end
+
+      def divisor
+        return unless model.participatory_text_level == "article"
+        "<hr></hr>"
       end
 
       def interactive?
