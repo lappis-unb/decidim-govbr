@@ -196,10 +196,15 @@ pt-BR:
         object: propostas
         title: Propostas recebidas
     proposals:
+      actions:
+        preview_participatory_text: Previa dos textos participativos
       admin:
         when_empty: Proposta
         period_submitting_proposals_is_not_open: O período para submissão de propostas não está aberto.
         Its_export_is_underway: A sua exportação está em curso. Receberá um e-mail quando estiver completa.
+        participatory_texts:
+          edit_as_preview:
+            go_back: Voltar
         imports:
           label:
             answers: Importar respostas de um arquivo
