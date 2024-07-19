@@ -202,7 +202,19 @@ pt-BR:
       organization_homepage:
         edit:
           active_content_blocks: Blocos de conteúdo ativos
+          add: Adicionar bloco de conteúdo
+          destroy_confirmation: Você tem certeza que deseja deletar este bloco de conteúdo?
           inactive_content_blocks: Blocos de conteúdo inativos
+          title: Conteúdo da página
+        content_blocks:
+          edit:
+            update: Atualizar
+          create:
+            success: Bloco de conteúdo criado com sucesso
+            error: Ocorreu um erro ao tentar criar este bloco de conteúdo
+          destroy:
+            success: Bloco de conteúdo deletado com sucesso
+            error: Ocorreu um erro ao tentar deletar este bloco de conteúdo
       participatory_space_private_users:
         destroy:
           error: Houve um erro ao excluir um usuário privado desse espaço participativo.
