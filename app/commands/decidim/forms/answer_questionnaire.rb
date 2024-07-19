@@ -51,8 +51,6 @@ module Decidim
         @main_form = @form
         @errors = nil
 
-        binding.pry
-
         Answer.transaction(requires_new: true) do
           form.responses_by_step.flatten.select(&:display_conditions_fulfilled?).each do |form_answer|
             answer = Answer.new(
