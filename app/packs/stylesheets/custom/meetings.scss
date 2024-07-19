@@ -1212,3 +1212,30 @@ div.meetings-author-info-br span.author__name {
   background-position: right 10px center;
   background-size: 20px 20px;
 }
+
+.close__meetings-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.close__meetings-modal h1 {
+  color: var(--blue-warm-vivid-70);
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-semi-bold);
+  margin: 0;
+}
+
+.close__meetings-modal #proposals_filter {
+  border: 0;
+  border-radius: 8px;
+  background: var(--gray-2);
+  margin: 0;
+  overflow: hidden;
+  color: var(--pure-100);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: var(--font-weight-regular);
+}
