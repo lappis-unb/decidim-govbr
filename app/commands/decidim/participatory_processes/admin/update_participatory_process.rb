@@ -88,7 +88,8 @@ module Decidim
             group_chat_id: form.group_chat_id,
             publish_date: form.publish_date,
             should_have_user_full_profile: form.should_have_user_full_profile,
-            show_mobilization: form.show_mobilization
+            show_mobilization: form.show_mobilization,
+            organization_info_survey: form.organization_info_survey
           }.merge(
             attachment_attributes(:hero_image, :banner_image)
           )
