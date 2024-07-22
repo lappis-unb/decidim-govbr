@@ -1,4 +1,4 @@
-<% survey_link = current_participatory_space.organization_info_survey.chomp("/") %>
+<% survey_link = current_participatory_space.organization_info_survey.presence.to_s.chomp("/") %>
 <% if survey_link.present? && request.original_url.include?(survey_link) && field_id.include?("questionnaire_responses_0") %>
   <%= answer_form.text_field :body, label: false, id: field_id, disabled: disabled, maxlength: maxlength, value: "#{params[:meeting_id]}" %>
 <% else %>
