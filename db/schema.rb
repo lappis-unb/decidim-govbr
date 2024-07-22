@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_07_18_210525) do
+ActiveRecord::Schema.define(version: 2024_07_22_191133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1041,8 +1041,6 @@ ActiveRecord::Schema.define(version: 2024_07_18_210525) do
     t.boolean "statistics", default: false
     t.boolean "news", default: false
     t.integer "news_id"
-    t.jsonb "organizers", default: []
-    t.jsonb "supporters", default: []
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "header_title"
@@ -1060,6 +1058,7 @@ ActiveRecord::Schema.define(version: 2024_07_18_210525) do
     t.jsonb "orders", default: []
     t.jsonb "field_orders", default: []
     t.integer "meeting_id"
+    t.boolean "reverse_call_to_action"
     t.index ["decidim_component_id"], name: "index_decidim_homes_homes_on_decidim_component_id"
   end
 
