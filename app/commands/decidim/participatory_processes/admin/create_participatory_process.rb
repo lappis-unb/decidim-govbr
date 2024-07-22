@@ -95,7 +95,8 @@ module Decidim
             show_mobilization: form.show_mobilization,
             announcement: form.announcement,
             group_chat_id: form.group_chat_id,
-            publish_date: form.publish_date
+            publish_date: form.publish_date,
+            organization_info_survey: form.organization_info_survey
           }
         end
 

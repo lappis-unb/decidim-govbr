@@ -24,6 +24,8 @@ module Decidim
         translatable_attribute :title, String
         translatable_attribute :target, String
 
+        attribute :organization_info_survey, String
+
         attribute :initial_page_component_id, Integer, default: 0
         attribute :initial_page_type, String
 
