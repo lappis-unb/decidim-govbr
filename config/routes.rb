@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'sidekiq/web'
 
 Sidekiq::Web.use Rack::Auth::Basic do |username, password|
@@ -74,6 +76,32 @@ Rails.application.routes.draw do
     end
   end
 
+  Decidim::Admin::Engine.routes.draw do
+    constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
+      resource :organization, only: [:edit, :update], controller: "organization" do
+        resource :appearance, only: [:edit, :update], controller: "organization_appearance"
+        resource :homepage, only: [:edit, :update], controller: "organization_homepage" do
+          resources :content_blocks, only: [:edit, :update, :destroy, :create], controller: "organization_homepage_content_blocks"
+        end
+        resource :external_domain_whitelist, only: [:edit, :update], controller: "organization_external_domain_whitelist"
+  
+        member do
+          get :users
+          get :user_entities
+        end
+      end
+    end
+  end
+
+  Decidim.participatory_space_manifests.each do |manifest|
+    mount manifest.context(:admin).engine, at: "/", as: "decidim_admin_#{manifest.name}"
+  end
+
+  Decidim.authorization_admin_engines.each do |manifest|
+    mount manifest.admin_engine, at: "/#{manifest.name}", as: "decidim_admin_#{manifest.name}"
+  end
+
+
   scope :admin do
     resources :participatory_processes, param: :slug, only: [] do
       resources :partners, except: [:show], controller: 'decidim/participatory_processes/admin/partners'
@@ -94,3 +122,4 @@ Rails.application.routes.draw do
     end
   end
 end
+
