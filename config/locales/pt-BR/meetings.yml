@@ -202,6 +202,10 @@ pt-BR:
         registration_mailer:
           confirmation:
             subject: A sua inscrição do evento foi confirmada
+      meeting_closes:
+        edit:
+          close: Vincular propostas
+          title: Vincular propostas
       meetings:
         show:
           confirm_delete: "Você tem certeza que deseja deletar este evento?"
@@ -213,6 +217,8 @@ pt-BR:
           registration_code_help_text: O seu código de inscrição
           back: Voltar à lista
           remaining_slots: vagas disponíveis
+          close_meeting: Vincular propostas
+          edit_close_meeting: Vincular propostas
         form:
           live_event: Este evento está acontecendo agora
           live_permission_notice: Ao clicar no botão abaixo, serão solicitadas permissões de microfone e/ou câmera e você entrará na videoconferência.
