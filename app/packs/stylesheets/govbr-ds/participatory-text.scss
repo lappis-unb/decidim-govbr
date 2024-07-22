@@ -32,7 +32,6 @@
     padding: 1rem 0 1rem 0;
 }
 
-
 .participatory-text-item a h6 {
     margin: 0 0 1rem 0;
     padding: 0;
@@ -49,6 +48,11 @@
 .participatory-text-item button {
     color: var(--interactive);
     gap: 1rem;
+}
+
+.item-actions button{
+    padding: 8px 24px 8px 24px;
+    gap: 8px;
 }
 
 .participatory-text-item .item-actions {

@@ -16,7 +16,11 @@
       <button class="br-sign-in secondary small" type="button" data-trigger="login">
         <i class="fa-solid fa-message"></i>
         <span class="d-sm-inline">
-          <%= model.comments_count %>
+          <% if model.comments_count == 0 %>
+            Comentar
+          <%else%>
+            <%= model.comments_count %>
+          <% end %>
         </span>
       </button>
     <% end %>
