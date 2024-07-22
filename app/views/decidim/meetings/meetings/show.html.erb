@@ -57,7 +57,8 @@
           <% end %>
         <% end %>
         <% if author_presenter_for(meeting.normalized_author) == current_user %>
-          <a class="br-button secondary black-and-white-btn" href="https://brasilparticipativo.presidencia.gov.br/processes/confmma/f/143/surveys/30">
+          <% survey_link = current_participatory_space.organization_info_survey.chomp("/") %>
+          <a class="br-button secondary black-and-white-btn" href="<%= survey_link %>?meeting_id=<%= meeting.id %>">
             Adicione Informações da organização
           </a>
           <a class="br-button secondary black-and-white-btn" href="https://brasilparticipativo.presidencia.gov.br/processes/confmma/f/142/surveys/29">
