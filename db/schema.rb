@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_07_11_223553) do
+ActiveRecord::Schema.define(version: 2024_07_22_183817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1617,6 +1617,7 @@ ActiveRecord::Schema.define(version: 2024_07_11_223553) do
     t.date "publish_date"
     t.boolean "show_mobilization"
     t.boolean "is_template", default: false, null: false
+    t.jsonb "extra_fields"
     t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id"
