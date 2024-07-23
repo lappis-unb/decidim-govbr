@@ -31142,3 +31142,42 @@ textarea {
 .large-button {
   width: 100%;
 }
+
+.locale-select {
+  --button-radius: 100em;
+  --button-xsmall: 24px;
+  --button-small: 32px;
+  --button-medium: 40px;
+  --button-large: 48px;
+  --button-size: var(--button-medium);
+  --background: var(--gray-2);
+  --sign-in-img: 20px;
+  align-items: center;
+  background-color: var(--background);
+  border: 0;
+  border-radius: var(--button-radius) !important;
+  color: var(--interactive);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: var(--font-size-scale-up-01);
+  font-weight: var(--font-weight-semi-bold);
+  height: var(--button-size);
+  justify-content: center;
+  overflow: hidden;
+  padding: 1.3rem;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: auto;
+}
+
+.locale-select:focus,
+.locale-select:hover {
+  background-color: var(--background);
+  color: var(--interactive);
+}
+
+#locale {
+  border: 0;
+}
