@@ -152,6 +152,7 @@ extra_admin_link(
         <% end %>
       <% end %>
       <%= amenders_list_for(@proposal) %>
+      <%= render partial: "decidim/shared/share_modal", locals: {  translation_component: t("decidim.shared.share_modal.share_text_proposal" ,resource_name: resource_title(@proposal), component_name: resource_title(current_participatory_space)) } %>
       <% if (current_user.try(:admin?) || @can_moderate) %>
         <button type="button" class="br-button" data-open="flagModal" title="Denunciar"
           aria-controls="flagModal" aria-haspopup="dialog" tabindex="0">
@@ -159,9 +160,6 @@ extra_admin_link(
             Moderação
         </button>
       <% end %>
-      <%= render partial: "decidim/shared/share_modal", locals: {
-          translation_component: t("decidim.shared.share_modal.share_text_proposal",
-          resource_name: resource_title(@proposal), component_name: resource_title(current_participatory_space)) } %>
       <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
       <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
       <%= emendation_actions_for @proposal %>
