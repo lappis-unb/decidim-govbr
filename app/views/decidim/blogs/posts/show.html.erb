@@ -34,7 +34,6 @@ edit_link(
           </div>
 
     <h2 class="blog-subtitle"><%= translated_attribute post.subtitle %></h2>
-    <%= render partial: "br_breadcrumbs" %>
     <% post_presenter = Decidim::Blogs::PostPresenter.new(post) %>
     <%
 =begin%>
