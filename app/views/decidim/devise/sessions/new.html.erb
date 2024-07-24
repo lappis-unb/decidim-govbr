@@ -10,13 +10,12 @@
       <%= render "decidim/devise/shared/omniauth_buttons" %>
     <% end %>
     <% if current_organization.sign_in_enabled? %>
-      <div class="row mb-4">
-        <div class="columns large-3 mediumlarge-6 medium-8 medium-centered">
-          <a href="#" class="button tiny foreign-sign-in" id="foreign-sign-in">
-            Foreign Sign In/Up (Login Estrangeiro)
-          </a>
-        </div>
-      </div>
+      <div class="large-centered text-center page-title">
+      <h1><%= t("devise.sessions.new.foreigners") %></h1>
+      <p>
+        <%= t("devise.sessions.new.subtitle") %> <br> <%= t("devise.sessions.new.subtitle_click") %>
+      </p>
+    </div>
       <% I18n.with_locale(:en) do %>
         <div class="row devise-sign-in-area">
           <div class="columns large-6 medium-centered">
@@ -36,7 +35,7 @@
                   </div>
                 <% end %>
                 <div class="actions">
-                  <%= f.submit t("devise.sessions.new.sign_in"), class: "button expanded" %>
+                  <%= f.submit t("devise.sessions.new.login"), class: "button expanded" %> 
                 </div>
               <% end %>
               <%= render "decidim/devise/shared/links" %>
@@ -47,23 +46,3 @@
     <% end %>
   </div>
 </div>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Get the button and the div
-    var button = document.querySelector('.foreign-sign-in');
-    var signInArea = document.querySelector('.devise-sign-in-area');
-
-    // Sign in Area is hidden by default
-    signInArea.style.display = 'none';
-
-    // Add click event listener to the button
-    button.addEventListener('click', function() {
-      // Toggle the visibility of the div
-      if (signInArea.style.display === 'none') {
-        signInArea.style.display = 'block';
-      } else {
-        signInArea.style.display = 'none';
-      }
-    });
-  });
-</script>
