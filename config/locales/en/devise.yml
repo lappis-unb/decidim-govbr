@@ -20,5 +20,10 @@ en:
       already_signed_out: Successfully signed out.
       new:
         sign_in: Sign in
+        connect: Conecte-se
+        login: Login
+        foreigners: Access for foreigners
+        subtitle: For people who are not naturalized as Brazilians, you need to have your passport on hand to register.
+        subtitle_click: If you already have a registration, just click login
       signed_in: Successfully signed in.
       signed_out: Successfully signed out.
