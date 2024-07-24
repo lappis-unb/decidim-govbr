@@ -11,6 +11,10 @@ en:
     sessions:
       already_signed_out: Desconectado com sucesso.
       new:
-        sign_in: Conecte-se
+        sign_in: Sign in
+        log_in: Conecte-se
       signed_in: Conectado com sucesso.
       signed_out: Desconectado com sucesso.
+    shared:
+      links:
+        sign_up: Sign Up
