@@ -4,15 +4,18 @@
     <%= render_participatory_text_title(@participatory_text) %>
   </h1>
   <% if @proposals.count > 0 %>
-  <div class="participatory_texts_buttons">
-    <%= render partial: "decidim/shared/export_modal" %>
-  </div>
+    <div class="participatory_texts_buttons">
+      <%= render partial: "decidim/shared/export_modal" %>
+    </div>
   <% end %>
   <ul class="participatory-text-list" id="proposals-text">
-    <% @proposals.each do |proposal| %>
+    <% @proposals.each_with_index do |proposal, index| %>
+      <% have_divisor = index < @proposals.size - 1 && @proposals[index + 1].participatory_text_level != 'section' && @proposals[index].participatory_text_level == 'article'%>
       <%= cell("decidim/proposals/participatory_text_proposal", proposal, context: { current_user: current_user }) %>
+      <% if have_divisor %>
+        <span class='br-divider'></span>
+      <% end %> 
     <% end %>
-
     <% if @proposals.first %>
       <%= comments_for @proposals.first %>
     <% end %>

@@ -43,11 +43,6 @@ module Decidim
         decidim_sanitize_editor(strip_links(formatted))
       end
 
-      def divisor
-        return unless model.participatory_text_level == "article"
-        "<hr></hr>"
-      end
-
       def interactive?
         model.is_interactive
       end
