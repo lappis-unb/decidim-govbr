@@ -8,5 +8,14 @@ en:
       actions:
         login_before_access: Faça o login com sua conta antes de acessar
         unauthorized: Você não está autorizado a realizar essa ação
+    devise:
+      registrations:
+        new:
+          password_help: |-
+            The password must be at least 14 characters long. </br>
+            The password must include at least one confidential letter. </br>
+            The password must include at least one lowercase letter. </br>
+            The password must include at least one number. </br>
+          username_help: Public name that appears on your posts.
   forms:
     required_explanation: "Fields marked with an asterisk (*) are required"
