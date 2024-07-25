@@ -1,0 +1,88 @@
+<% if current_organization.extra_user_fields_enabled? %>
+      <div class="legend">
+        <h3><%= t(".signup.legend") %></h3>
+      </div>
+
+      <% if current_organization.activated_extra_field?(:date_of_birth) %>
+        <div class="br-input input-highlight bp-input">
+          <%= f.date_field :date_of_birth, { placeholder: 'DD/MM/YYYY' } %>
+        </div>
+      <% end %>
+
+      <% if current_organization.activated_extra_field?(:gender) %>
+        <div class="br-input input-highlight bp-input">
+          <%= f.collection_select :gender, f.object.gender_options_for_select, :first, :last %>
+        </div>
+      <% end %>
+
+      <% if current_organization.activated_extra_field?(:country) %>
+        <div class="select-field-br">
+          <%= f.custom_country_select :country %>
+        </div>
+      <% end %>
+
+      <% if current_organization.activated_extra_field?(:postal_code) %>
+        <div class="br-input input-highlight bp-input">
+          <%= f.text_field :postal_code %>
+        </div>
+      <% end %>
+
+      <% if current_organization.activated_extra_field?(:phone_number) %>
+        <div class="br-input input-highlight bp-input">
+          <%= f.text_field :phone_number %>
+        </div>
+      <% end %>
+
+      <% if current_organization.activated_extra_field?(:location) %>
+        <div class="br-input input-highlight bp-input">
+          <%= f.text_field :location %>
+        </div>
+      <% end %>
+
+      <%# Block ExtraUserFields SignUpFormFields %>
+      <% if current_organization.activated_extra_field?(:document_number) %>
+        <div class="br-input input-highlight bp-input">
+          <%= f.text_field :document_number %>
+        </div>
+      <% end %>
+
+      <% if current_organization.activated_extra_field?(:document_image) %>
+        <div class="field face-file-field">
+          <a class="face-validation-field_toggle-help" title="open help">
+            <i class="fa fa-circle-question"></i>
+          </a>
+          <div class="face-validation-field_help" hidden>
+            <a class="face-validation-field_toggle-help" title="close help">
+              <i class="fa fa-xmark"></i>
+            </a>
+            <h6><%= t("decidim.extra_user_fields.registration_form.document_valid.help_title")%></h6>
+            <p><%= t("decidim.extra_user_fields.registration_form.document_valid.help_text")%></p>
+            <img src="<%= asset_pack_path("media/images/selfie_id_help.jpg") %>">
+          </div>
+          <%= f.file_field :document_image, multiple: false, direct_upload: false %>
+          <span class="form-error document-form-error" hidden>
+            <%= t("decidim.extra_user_fields.registration_form.document_valid.error_text")%>
+          </span>
+        </div>
+      <% end %>
+
+      <% if current_organization.activated_extra_field?(:document_valid) %>
+        <%= javascript_pack_tag "extra_user_fields" %>
+        <div class="face-validation-field">
+          <div class="field" hidden>
+            <%= f.text_field :document_valid %>
+          </div>
+          <div class="face-validation-field-box">
+            <canvas class="face-validation-field__canvas" hidden></canvas>
+            <img class="face-validation-field__img" hidden/>
+          </div>
+        </div>
+      <% end %>
+
+      <% if current_organization.activated_extra_field?(:document_type) %>
+        <div class="br-input input-highlight bp-input">
+          <%= f.collection_select :document_type, f.object.document_type_options_for_select, :first, :last %>
+        </div>
+      <% end %>
+
+<% end %>
