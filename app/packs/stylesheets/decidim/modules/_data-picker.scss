@@ -145,6 +145,19 @@
   }
 }
 
+.picker-list::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.picker-list::-webkit-scrollbar-track {
+  background-color: var(--gray-3);
+}
+
+.picker-list::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  background: var(--gray-20);
+}
+
 .scope-picker{
   &.picker-header{
     padding: 5px;
