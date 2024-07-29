@@ -193,9 +193,9 @@ export default class DataPicker {
 
       if (this.current.multiple) {
         name += "[]";
-        choosenOption = $(`<div><input type="${input}" checked name="${name}"/><a href="${data.url}" data-picker-value="${data.value}" class="label primary">&times;&nbsp;${dataText}</a></div>`);
+        choosenOption = $(`<div><input type="${input}" checked name="${name}"/><a href="${data.url}" data-picker-value="${data.value}" class="label primary">${dataText}<i class="fa-solid fa-circle-xmark" style="color: #1351b4;"></i></a></div>`);
       } else {
-        choosenOption = $(`<div><input type="${input}" checked name="${name}"/><a href="${data.url}" data-picker-value="${data.value}">${dataText}</a></div>`);
+        choosenOption = $(`<div><input type="${input}" checked name="${name}"/><a href="${data.url}" data-picker-value="${data.value}">${dataText}<i class="fa-solid fa-circle-xmark" style="color: #1351b4;"></i></a></div>`);
       }
       choosenOption.appendTo(this.current.values);
 
