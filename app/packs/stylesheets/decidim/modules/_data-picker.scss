@@ -107,6 +107,31 @@
         overflow: auto;
       }
     }
+
+    h1 {
+      color: var(--blue-warm-vivid-70);
+      font-size: 1.25rem;
+      font-weight: var(--font-weight-semi-bold);
+      margin: 0;
+    }
+    
+    #proposals_filter {
+      border: 0;
+      border-radius: 8px;
+      background: var(--gray-2);
+      margin: 1.25rem 0;
+      overflow: hidden;
+      color: var(--pure-100);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 14px;
+      font-style: italic;
+      font-weight: var(--font-weight-regular);
+    }
+
+    .picker-footer {
+      margin-top: 1rem;
+    }
   }
 }
 

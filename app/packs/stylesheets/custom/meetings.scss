@@ -1213,33 +1213,6 @@ div.meetings-author-info-br span.author__name {
   background-size: 20px 20px;
 }
 
-.close__meetings-modal {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.close__meetings-modal h1 {
-  color: var(--blue-warm-vivid-70);
-  font-size: 1.25rem;
-  font-weight: var(--font-weight-semi-bold);
-  margin: 0;
-}
-
-.close__meetings-modal #proposals_filter {
-  border: 0;
-  border-radius: 8px;
-  background: var(--gray-2);
-  margin: 0;
-  overflow: hidden;
-  color: var(--pure-100);
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: 14px;
-  font-style: italic;
-  font-weight: var(--font-weight-regular);
-}
-
 #proposals_list {
   display: flex;
   flex-direction: column;
@@ -1256,11 +1229,6 @@ div.meetings-author-info-br span.author__name {
   line-height: normal;
 }
 
-#proposals_list label input[type="checkbox"]:active,
-#proposals_list label input[type="checkbox"]:focus {
-  outline: none;
-}
-
 #proposals_list label input[type="checkbox"] {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1268,10 +1236,19 @@ div.meetings-author-info-br span.author__name {
   width: 20px;
   height: 20px;
   background-color: var(--pure-0);
-  border: 1px solid var(--blue-warm-vivid-50);
+  border: 1px solid black;
   border-radius: 4px;
   position: relative;
   cursor: pointer;
+}
+
+#proposals_list label input[type="checkbox"]:active,
+#proposals_list label input[type="checkbox"]:focus {
+  outline: none;
+}
+
+#proposals_list label input[type="checkbox"]:checked {
+  border: 1px solid var(--blue-warm-vivid-50);
 }
 
 #proposals_list label input[type="checkbox"]:checked:after {
