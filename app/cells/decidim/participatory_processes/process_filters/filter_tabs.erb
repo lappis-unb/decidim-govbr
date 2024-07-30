@@ -1,6 +1,6 @@
 <div class="order-by__tabs ml-s inline-filters">
   <% if should_show_tabs? %>
-  <div id="inline-filter-sort" class="dropdown-pane" data-position="bottom" data-alignment="right" data-dropdown data-auto-focus="true">
+  <div id="inline-state-filter-sort" class="dropdown-pane" data-position="bottom" data-alignment="right" data-dropdown data-auto-focus="true">
   <ul class="list-reset">
     <%= explanation %>
     <span class="muted mr-xs"><%= t("decidim.participatory_processes.participatory_processes.filters.see") %><br></span>
@@ -16,7 +16,7 @@
   </div>
   <label>
     <span>Filtrar por estado</span>
-    <button id="button-text" class="type-filter-text" data-toggle="inline-filter-sort"><%= current_filter %></button>
+    <button id="button-text" class="type-filter-text" data-toggle="inline-state-filter-sort"><%= filter_name(current_filter) %></button>
   </label>
   <% else %>
     <%= explanation %>
