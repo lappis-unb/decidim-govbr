@@ -285,6 +285,10 @@ pt-BR:
         media: Mobilização
       edit_link:
         edit_component: Editar componente
+      participatory_processes:
+        index:
+          title: Processos participativos
+          help_text: O que é %{current_type_filter_name}?
 
 pt:
   activemodel:
