@@ -46,6 +46,8 @@ gem "rest-client", "~> 2.1"
 
 gem "pandoc-ruby", '2.1.10'
 
+gem "rails_db", "~> 2.4"
+
 group :development, :test do
   gem 'byebug', '11.1.3'
   gem 'decidim-dev', DECIDIM_VERSION
