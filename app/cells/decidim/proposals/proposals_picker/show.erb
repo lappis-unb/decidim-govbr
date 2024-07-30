@@ -11,8 +11,22 @@
 
 <div class="picker-footer">
   <div class="buttons button--double">
+    <a id="cancel__picked" class="button secondary hollow"><%= t("proposals_picker.cancel", scope: "decidim.proposals") %></a>
     <a class="button" data-close=""><%= t("proposals_picker.close", scope: "decidim.proposals") %></a>
   </div>
 </div>
 
 <%= javascript_pack_tag "decidim_proposals_admin" %>
+
+<script>
+  const cancelButton = document.getElementById("cancel__picked");
+
+  cancelButton.addEventListener("click", () => {
+   let list = document.getElementsByClassName('proposals_picker_checkbox')
+
+   for(let i = 0; i < list.length; i++) {
+    if(list[i].childNodes[1].checked)
+      list[i].click();
+   }
+  });
+</script>

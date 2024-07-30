@@ -263,6 +263,9 @@ pt-BR:
         calendar_modal:
           add_to_calendar: Adicionar na agenda
     proposals:
+      proposals_picker:
+        cancel: Cancelar
+        close: Confirmar
       admin:
         participatory_texts:
           section:
