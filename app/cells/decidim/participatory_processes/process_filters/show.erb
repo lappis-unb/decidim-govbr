@@ -1,0 +1,52 @@
+<section id="processes-list-header" class="row section">
+  <div class="processes-list-header">
+    <div class="processes-list-header-title-container">
+      <h1 class="processes-list-header-title"><%= t("participatory_processes.index.title", scope: "layouts.decidim") %></h1>
+    </div>
+    <div id="help-text" class="processes-list-header-help-text" style="cursor: pointer;">
+      <i class="fa fa-info-circle" aria-hidden="true"></i>
+      <%= t("participatory_processes.index.help_text", scope: "layouts.decidim", current_type_filter_name: current_type_filter_name) %>
+    </div>
+    <div id="announcement-text" class="processes-list-header-announcement-text" style="display: none;">
+      <%= current_type_filter_description %>
+    </div>
+  </div>
+</section>
+<div class="row column">
+  <div class="flex--sbe">
+    <h3 class="section-heading collapse">
+      <%= title %>
+    </h3>
+    <%= render :filter_tabs %>
+    <%= render :type_filter if participatory_process_types_for_select.present? %>
+  </div>
+  <hr class="reset mt-s mb-s">
+</div>
+<% if process_count_by_filter["active"] == 0 && process_count_by_filter["upcoming"] == 0 %>
+  <div class="row column">
+    <div class="callout warning mb-sm">
+      <p><%= t("decidim.participatory_processes.participatory_processes.filters.explanations.no_active_nor_upcoming_callout") %></p>
+    </div>
+  </div>
+<% end %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const helpText = document.getElementById("help-text");
+    const announcementText = document.getElementById("announcement-text");
+    const allTypesText = <%== t('decidim.participatory_processes.participatory_processes.filters.all_types').to_json %>;
+    const currentFilter = <%== current_type_filter_name.to_json %>;
+
+    if (allTypesText !== currentFilter) {
+      helpText.style.display = "block";
+    }
+
+    helpText.addEventListener("click", function() {
+      if (announcementText.style.display === "none") {
+        announcementText.style.display = "block";
+      } else {
+        announcementText.style.display = "none";
+      }
+    });
+  });
+</script>
