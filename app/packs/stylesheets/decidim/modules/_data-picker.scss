@@ -243,3 +243,15 @@
     }
   }
 }
+
+.buttons.button--double {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.buttons.button--double .button,
+.buttons.button--double .button.hollow:hover {
+  min-width: fit-content;
+}
