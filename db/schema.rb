@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_07_11_223553) do
+ActiveRecord::Schema.define(version: 2024_07_22_183817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1617,6 +1617,7 @@ ActiveRecord::Schema.define(version: 2024_07_11_223553) do
     t.date "publish_date"
     t.boolean "show_mobilization"
     t.boolean "is_template", default: false, null: false
+    t.jsonb "extra_fields"
     t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id"
@@ -1744,7 +1745,7 @@ ActiveRecord::Schema.define(version: 2024_07_11_223553) do
     t.integer "comments_count", default: 0, null: false
     t.integer "follows_count", default: 0, null: false
     t.boolean "is_interactive", default: true
-    t.jsonb "badge_array", default: []
+    t.string "badge_array", default: [], array: true
     t.index "md5((body)::text)", name: "decidim_proposals_proposal_body_search"
     t.index "md5((title)::text)", name: "decidim_proposals_proposal_title_search"
     t.index ["created_at"], name: "index_decidim_proposals_proposals_on_created_at"
