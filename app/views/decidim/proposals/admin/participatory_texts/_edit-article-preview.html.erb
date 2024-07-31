@@ -1,12 +1,23 @@
 <%= form.hidden_field :deleted, id: "proposal-draft-#{form.index}-deleted" %>
+<% unless can_edit %>
+  <span class="is-invalid-label"> <%= t(".edition_blocked") %> </span>
+<% end %>
 <div class="grid-x">
   <div class="cell">
-    <%= form.hidden_field :position, class: "position" %> 
+    <%= form.hidden_field :position, class: "position" %>
     <%= form.text_field :title, required: true, disabled: can_edit ? nil : "disabled" %>
+    <% unless can_edit %>
+      <%= form.hidden_field :title, value: proposal.title %>
+    <% end %>
   </div>
 </div>
 <% if proposal.article? %>
   <div class="grid-x">
-    <div class="cell"><%= form.text_area :body, required: true, rows: 5, disabled: can_edit ? nil : "disabled" %></div>
+    <div class="cell">
+      <%= form.text_area :body, required: true, rows: 5, disabled: can_edit ? nil : "disabled" %>
+      <% unless can_edit %>
+        <%= form.hidden_field :body, value: proposal.body %>
+      <% end %>
+    </div>
   </div>
 <% end %>

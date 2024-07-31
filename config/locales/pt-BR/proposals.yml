@@ -205,6 +205,8 @@ pt-BR:
         participatory_texts:
           edit_as_preview:
             go_back: Voltar
+          edit-article-preview:
+            edition_blocked: Como esta seção já recebeu um voto, ela não pode mais ser editada.
         imports:
           label:
             answers: Importar respostas de um arquivo
