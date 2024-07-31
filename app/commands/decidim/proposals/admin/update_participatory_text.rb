@@ -12,6 +12,7 @@ module Decidim
         # form - A PreviewParticipatoryTextForm form object with the params.
         def initialize(form)
           @form = form
+          @failures = {}
         end
 
         # Executes the command. Broadcasts these events:
@@ -21,10 +22,9 @@ module Decidim
         #
         # Returns nothing.
         def call
-          return broadcast(:invalid) if form.invalid?
+          return broadcast(:invalid, @failures) if form.invalid?
 
           transaction do
-            @failures = {}
             update_contents_and_resort_proposals(form)
           end
 
@@ -61,6 +61,9 @@ module Decidim
         def update_proposal(prop_form)
           proposal = Proposal.where(component: form.current_component).find(prop_form.id)
           proposal.set_list_position(prop_form.position) if proposal.position != prop_form.position
+
+          return if proposal.votes.any?
+          
           proposal.title = { I18n.locale => translated_attribute(prop_form.title) }
           proposal.body = if proposal.participatory_text_level == ParticipatoryTextSection::LEVELS[:article]
                             { I18n.locale => translated_attribute(prop_form.body) }
@@ -84,14 +87,16 @@ module Decidim
             is_interactive: true
           }
 
-          Decidim::Proposals::ProposalBuilder.create(
+          new_proposal = Decidim::Proposals::ProposalBuilder.create(
             attributes: attributes,
             author: form.current_user.organization,
             action_user: form.current_user
           )
+          add_failure(new_proposal) unless new_proposal.persisted?
         end
 
         def add_failure(proposal)
+          return if proposal.errors.empty?
           @failures[proposal.id] = proposal.errors.full_messages
         end
       end
