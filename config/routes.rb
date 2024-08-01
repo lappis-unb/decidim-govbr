@@ -84,7 +84,7 @@ Rails.application.routes.draw do
           resources :content_blocks, only: [:edit, :update, :destroy, :create], controller: "organization_homepage_content_blocks"
         end
         resource :external_domain_whitelist, only: [:edit, :update], controller: "organization_external_domain_whitelist"
-  
+
         member do
           get :users
           get :user_entities
