@@ -30,7 +30,7 @@ module Decidim
 
         OfficializeUser.call(@form) do
           on(:ok) do |user|
-            notice = I18n.t("officializations.create.success", scope: "decidim.admin")
+            notice = I18n.t("officializations.create.success", scope: SCOPE)
 
             redirect_to officializations_path(q: { name_or_nickname_or_email_cont: user.name }), notice: notice
           end
@@ -42,7 +42,7 @@ module Decidim
 
         UnofficializeUser.call(user, current_user) do
           on(:ok) do
-            notice = I18n.t("officializations.destroy.success", scope: "decidim.admin")
+            notice = I18n.t("officializations.destroy.success", scope: SCOPE)
 
             redirect_to officializations_path(q: { name_or_nickname_or_email_cont: user.name }), notice: notice
           end

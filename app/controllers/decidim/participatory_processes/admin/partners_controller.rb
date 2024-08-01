@@ -9,8 +9,6 @@ module Decidim
         include Concerns::ParticipatoryProcessAdmin
         include Decidim::Paginable
 
-        SCOPE = 'decidim.admin'
-
         def index
           enforce_permission_to :index, :partner
 

@@ -10,8 +10,6 @@ module Decidim
 
         helper_method :participatory_process_group
 
-        SCOPE = 'decidim.admin'
-
         def index
           enforce_permission_to :read, :process_user_role
 

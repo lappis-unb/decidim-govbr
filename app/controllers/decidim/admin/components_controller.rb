@@ -35,12 +35,12 @@ module Decidim
 
         CreateComponent.call(@form) do
           on(:ok) do
-            flash[:notice] = I18n.t("components.create.success", scope: "decidim.admin")
+            flash[:notice] = I18n.t("components.create.success", scope: SCOPE)
             redirect_to action: :index
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("components.create.error", scope: "decidim.admin")
+            flash.now[:alert] = I18n.t("components.create.error", scope: SCOPE)
             render action: "new"
           end
         end
@@ -62,12 +62,12 @@ module Decidim
           on(:ok) do |settings_changed, previous_settings, current_settings|
             handle_component_settings_change(previous_settings, current_settings) if settings_changed
 
-            flash[:notice] = I18n.t("components.update.success", scope: "decidim.admin")
+            flash[:notice] = I18n.t("components.update.success", scope: SCOPE)
             redirect_to action: :index
           end
 
           on(:invalid) do
-            flash[:alert] = I18n.t("components.update.error", scope: "decidim.admin")
+            flash[:alert] = I18n.t("components.update.error", scope: SCOPE)
             render action: :edit
           end
         end
@@ -79,12 +79,12 @@ module Decidim
 
         DestroyComponent.call(@component, current_user) do
           on(:ok) do
-            flash[:notice] = I18n.t("components.destroy.success", scope: "decidim.admin")
+            flash[:notice] = I18n.t("components.destroy.success", scope: SCOPE)
             redirect_to action: :index
           end
 
           on(:invalid) do
-            flash[:alert] = I18n.t("components.destroy.error", scope: "decidim.admin")
+            flash[:alert] = I18n.t("components.destroy.error", scope: SCOPE)
             redirect_to action: :index
           end
         end
@@ -96,7 +96,7 @@ module Decidim
 
         PublishComponent.call(@component, current_user) do
           on(:ok) do
-            flash[:notice] = I18n.t("components.publish.success", scope: "decidim.admin")
+            flash[:notice] = I18n.t("components.publish.success", scope: SCOPE)
             redirect_to action: :index
           end
         end
@@ -108,7 +108,7 @@ module Decidim
 
         UnpublishComponent.call(@component, current_user) do
           on(:ok) do
-            flash[:notice] = I18n.t("components.unpublish.success", scope: "decidim.admin")
+            flash[:notice] = I18n.t("components.unpublish.success", scope: SCOPE)
             redirect_to action: :index
           end
         end
