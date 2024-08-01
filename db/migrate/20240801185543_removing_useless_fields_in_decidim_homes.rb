@@ -21,10 +21,8 @@ class RemovingUselessFieldsInDecidimHomes < ActiveRecord::Migration[6.1]
     remove_column :decidim_homes_homes, :map_able
     remove_column :decidim_homes_homes, :emphasis_link
     remove_column :decidim_homes_homes, :meetings_map
-    remove_column :decidim_homes_homes, :orders
     remove_column :decidim_homes_homes, :meeting_id
     remove_column :decidim_homes_homes, :reverse_call_to_action
-    remove_column :decidim_homes_homes, :fields
     rename_column :decidim_homes_homes, :field_orders, :element_orders
   end
 end
