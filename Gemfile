@@ -39,12 +39,12 @@ gem 'sidekiq', '6.5.7'
 gem 'whenever', require: false
 
 gem 'decidim-extra_user_fields', git: 'https://gitlab.com/lappis-unb/decidimbr/decidim-extra_user_fields.git', branch: 'feat/allow-to-configure-permitted-components'
-if ENV['RAILS_ENV'] == 'production'
-  gem 'decidim-ej', git: 'https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-ej.git', branch: 'main'
-  gem 'decidim-homes', git: 'https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-module-homes.git'
-else
+if ENV['RAILS_ENV'] == 'development'
   gem 'decidim-ej', path: './vendor/decidim-ej'
   gem 'decidim-homes', path: './vendor/decidim-module-homes'
+else
+  gem 'decidim-ej', git: 'https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-ej.git', branch: 'main'
+  gem 'decidim-homes', git: 'https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-module-homes.git'
 end
 
 gem "rest-client", "~> 2.1"
