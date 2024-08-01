@@ -114,6 +114,8 @@ module Decidim
           classes << "success"
         when -1
           classes << "alert"
+        else
+          classes
         end
         classes.join(" ")
       end
