@@ -1,5 +1,13 @@
 en:
   devise:
+    mailer:
+      confirmation_instructions:
+        action: Account confirmation
+        greeting: Hi %{recipient},
+        instruction: 'To get started, please confirm your email address by clicking the link below:'
+        subject: Confirmation instructions
+        acknowledgment: Thanks for joining us!
+        farewell: Best Regards, The Brasil Participativo Team
     failure:
       already_authenticated: Você já está inscrito.
       inactive: Sua conta ainda não está ativada.
