@@ -758,13 +758,13 @@ en:
       shared:
         links:
           sign_in: Login
+          sign_up: Register
           sign_out: Log out
-          sign_up: Don’t have an account? Create account
       registrations:
         new:
           sign_up: Register
-          subtitle: For people who are not naturalized as Brazilian, please have your passport handy to sign up.
-          subtitle_help: Join us to participate, make proposals, comment, debate, and contribute to the common good!
+          subtitle: For people who are not naturalized as Brazilians, you need to have your passport on hand to register.
+          subtitle_help: Sign up to participate in discussions and support proposals. 
     proposals:
       admin:
         participatory_texts:
