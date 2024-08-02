@@ -1,11 +1,13 @@
-<% if @resource.unconfirmed_email.blank? %>
-  <p class="email-greeting"><%= t(".greeting", recipient: @user.name) %></p>
+<% I18n.with_locale(:en) do %>
+  <% if @resource.unconfirmed_email.blank? %>
+    <p class="email-greeting"><%= t(".greeting", recipient: @user.name) %></p>
+  <% end %>
+
+  <p class="email-instructions"><%= t(".instruction") %></p>
+
+  <p class="email-button email-button__cta"><%= link_to t(".action"), confirmation_url(@resource, confirmation_token: @token, host: @resource.organization.host) %></p>
+
+  <p class="email-instructions"><%= t(".acknowledgment") %></p>
+
+  <p class="email-instructions"><%= t(".farewell") %></p>
 <% end %>
-
-<p class="email-instructions"><%= t(".instruction") %></p>
-
-<p class="email-button email-button__cta"><%= link_to t(".action"), confirmation_url(@resource, confirmation_token: @token, host: @resource.organization.host) %></p>
-
-<p class="email-instructions"><%= t(".acknowledgment") %></p>
-
-<p class="email-instructions"><%= t(".farewell") %></p>
