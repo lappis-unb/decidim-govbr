@@ -109,7 +109,7 @@ module Decidim
         #     it "displays the alert message" do
         #       allow(PublishParticipatoryText).to receive(:call).and_yield(double(:result, on: nil)).and_return(on: nil, invalid: { 1 => "error" })
       
-        #       post "/participatory_texts/update_as_preview", params: {
+        #       post update_as_preview_participatory_texts_path, params: {
         #         preview_participatory_text:
         #         {proposals_attributes: proposals_attributes,
         #         proposal_to_add: "article"},
