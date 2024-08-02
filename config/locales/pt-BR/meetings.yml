@@ -219,7 +219,6 @@ pt-BR:
           remaining_slots: vagas disponíveis
           close_meeting: Vincular propostas
           edit_close_meeting: Vincular propostas
-        form:
           live_event: Este evento está acontecendo agora
           live_permission_notice: Ao clicar no botão abaixo, serão solicitadas permissões de microfone e/ou câmera e você entrará na videoconferência.
           live_link: "Link do evento:"
