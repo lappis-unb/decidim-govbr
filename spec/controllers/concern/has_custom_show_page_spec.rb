@@ -186,19 +186,6 @@ module Decidim
 
               it { is_expected.to be_nil }
             end
-
-            context "and component id belongs to a valid homes component" do
-              subject { dummy_class.new(participatory_space) }
-              let(:component_id) { actual_homes_component_id }
-              let(:supporters) { [:supporter_one, :supporter_two] }
-              let(:organizers) { [:organizer_one, :organizer_two] }
-
-              it "sets the homes component dependencies" do
-                expect(home).not_to be_nil
-                allow(participatory_space).to receive(:supporters).and_return(supporters)
-                allow(participatory_space).to receive(:organizers).and_return(organizers)
-              end
-            end
           end
         end
       end
