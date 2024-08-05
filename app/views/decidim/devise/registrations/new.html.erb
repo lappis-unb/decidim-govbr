@@ -41,7 +41,7 @@
             <%= f.password_field :password, { autocomplete: "new-password", placeholder: "•••••••••••••••••••••" } %>
           </div>
           <div class="br-input input-highlight bp-input">
-            <%= f.password_field :password_confirmation, { placeholder: "•••••••••••••••••••••", help_text: t(".password_help").to_s.html_safe } %>
+            <%= f.password_field :password_confirmation, { placeholder: "•••••••••••••••••••••", help_text: simple_format(t(".password_help")) } %>
           </div>
         </div>
         <div class="submit-foreign-form-container" id="card__tos">
