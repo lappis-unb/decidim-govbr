@@ -6,7 +6,18 @@ en:
   decidim:
     core:
       actions:
-        login_before_access: Faça o login com sua conta antes de acessar
-        unauthorized: Você não está autorizado a realizar essa ação
+        login_before_access: Please sign in with your account before accessing.
+        unauthorized: You are not authorized to perform this action.
+    devise:
+      registrations:
+        new:
+          password_help: >
+            The password must be at least 14 characters long.
+            
+            The password must include at least one uppercase letter.
+            
+            The password must include at least one lowercase letter.
+            
+            The password must include at least one number.
   forms:
     required_explanation: "Fields marked with an asterisk (*) are required"
