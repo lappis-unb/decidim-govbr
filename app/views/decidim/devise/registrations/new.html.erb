@@ -8,8 +8,7 @@
       <h1><%= t(".sign_up") %></h1>
       <p>
         <%= t(".subtitle") %>
-      </p>
-      <p>
+        <br>
         <%= t(".subtitle_help") %>
       </p>
       <p>
@@ -42,7 +41,7 @@
             <%= f.password_field :password, { autocomplete: "new-password", placeholder: "•••••••••••••••••••••" } %>
           </div>
           <div class="br-input input-highlight bp-input">
-            <%= f.password_field :password_confirmation, password_field_options_for(:user).except(:help_text).merge(placeholder: "•••••••••••••••••••••") %>
+            <%= f.password_field :password_confirmation, { placeholder: "•••••••••••••••••••••", help_text: simple_format(t(".password_help")) } %>
           </div>
         </div>
         <div class="submit-foreign-form-container" id="card__tos">

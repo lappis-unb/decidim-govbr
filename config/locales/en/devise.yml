@@ -1,16 +1,16 @@
 en:
   devise:
     failure:
-      already_authenticated: Você já está inscrito.
-      inactive: Sua conta ainda não está ativada.
-      invalid: '%{authentication_keys} ou senha inválidos(as).'
-      locked: Sua conta está bloqueada.
-      not_found_in_database: '%{authentication_keys} ou senha inválidos(as).'
-      timeout: Sua sessão expirou. Faça login novamente para continuar.
-      unauthenticated: Você precisa entrar ou se cadastrar antes de continuar.
+      already_authenticated: You are already signed in.
+      inactive: Your account has not been activated yet.
+      invalid: '%{authentication_keys} or password is invalid.'
+      locked: Your account is locked.
+      not_found_in_database: '%{authentication_keys} or password is invalid.'
+      timeout: Your session has expired. Please sign in again to continue.
+      unauthenticated: You need to sign in or sign up before continuing.
     sessions:
-      already_signed_out: Desconectado com sucesso.
+      already_signed_out: Successfully signed out.
       new:
-        sign_in: Conecte-se
-      signed_in: Conectado com sucesso.
-      signed_out: Desconectado com sucesso.
+        sign_in: Sign in
+      signed_in: Successfully signed in.
+      signed_out: Successfully signed out.
