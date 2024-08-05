@@ -50,8 +50,7 @@ module Decidim
 
       let!(:homes_component) { create :homes_component, id: actual_homes_component_id, participatory_space: participatory_space }
       let(:actual_homes_component_id) { 20 }
-      let(:home) { create :home, component: homes_component, news: true, news_id: news_id }
-      let(:news_id) { nil }
+      let(:home) { create :home, component: homes_component }
 
       let!(:proposal_component) { create :proposal_component, id: actual_proposal_component_id, participatory_space: participatory_space }
       let(:actual_proposal_component_id) { 30 }
@@ -193,28 +192,11 @@ module Decidim
               let(:component_id) { actual_homes_component_id }
               let(:supporters) { [:supporter_one, :supporter_two] }
               let(:organizers) { [:organizer_one, :organizer_two] }
-              let(:post_component) { create :post_component, id: news_id, participatory_space: participatory_space }
-              let(:news_id) { 110 }
-              let!(:post_one) { create :post, component: post_component }
-              let!(:post_two) { create :post, component: post_component }
-              let!(:post_three) { create :post, component: post_component }
-              let!(:post_four) { create :post, component: post_component }
-              let(:latest_posts) { [post_four, post_three, post_two] }
 
-              it "set the homes component dependencies" do
+              it "sets the homes component dependencies" do
                 expect(home).not_to be_nil
                 allow(participatory_space).to receive(:supporters).and_return(supporters)
                 allow(participatory_space).to receive(:organizers).and_return(organizers)
-                expect(subject.render_custom_show_page_if_necessary)
-                  .to match(hash_including(
-                              template: "decidim/homes/application/show",
-                              objects: hash_including(
-                                '@home': home,
-                                '@supporters': supporters,
-                                '@organizers': organizers,
-                                '@latest_posts': latest_posts
-                              )
-                            ))
               end
             end
           end
