@@ -62,7 +62,7 @@ describe "Proposals", type: :system do
       find("input[name='user[email]']").set("example@email.com")
       find("input[name='user[password]']").set("l2WxBHWsVW535MtrCqi3")
 
-      click_button("Conecte-se")
+      click_button("Sign in")
 
       expect(page).to have_content("Olá,")
     end

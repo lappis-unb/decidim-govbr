@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_07_22_183817) do
+ActiveRecord::Schema.define(version: 2024_08_01_185543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -501,8 +501,8 @@ ActiveRecord::Schema.define(version: 2024_07_22_183817) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "participatory_space_type", null: false
-    t.boolean "hide_in_menu"
     t.jsonb "singular_name"
+    t.boolean "hide_in_menu"
     t.jsonb "menu_name"
     t.index ["participatory_space_id", "participatory_space_type"], name: "index_decidim_components_on_decidim_participatory_space"
   end
@@ -1029,23 +1029,19 @@ ActiveRecord::Schema.define(version: 2024_07_22_183817) do
     t.index ["name"], name: "index_decidim_hashtags_on_name"
   end
 
+  create_table "decidim_homes_elements", force: :cascade do |t|
+    t.bigint "decidim_homes_home_id", null: false
+    t.string "element_type", null: false
+    t.jsonb "properties"
+    t.index ["decidim_homes_home_id"], name: "index_decidim_homes_elements_on_decidim_homes_home_id"
+  end
+
   create_table "decidim_homes_homes", id: :serial, force: :cascade do |t|
     t.jsonb "title"
     t.integer "decidim_component_id"
-    t.string "banner"
-    t.string "digital_stage", default: "/"
-    t.string "organize_stage", default: "/"
-    t.string "schedule", default: "/"
-    t.string "common_questions", default: "/"
-    t.string "support_material", default: "/"
-    t.boolean "statistics", default: false
-    t.boolean "news", default: false
-    t.integer "news_id"
-    t.jsonb "organizers", default: []
-    t.jsonb "supporters", default: []
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "meetings_map", default: false
+    t.jsonb "element_orders", default: []
     t.index ["decidim_component_id"], name: "index_decidim_homes_homes_on_decidim_component_id"
   end
 
@@ -1288,7 +1284,6 @@ ActiveRecord::Schema.define(version: 2024_07_22_183817) do
     t.integer "iframe_access_level", default: 0
     t.integer "iframe_embed_type", default: 0
     t.integer "associated_state", default: 0
-    t.boolean "cancelled", default: false, null: false
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_meetings_meetings_on_author"
     t.index ["decidim_author_id"], name: "index_decidim_meetings_meetings_on_decidim_author_id"
     t.index ["decidim_component_id"], name: "index_decidim_meetings_meetings_on_decidim_component_id"
@@ -1745,7 +1740,7 @@ ActiveRecord::Schema.define(version: 2024_07_22_183817) do
     t.integer "comments_count", default: 0, null: false
     t.integer "follows_count", default: 0, null: false
     t.boolean "is_interactive", default: true
-    t.string "badge_array", default: [], array: true
+    t.jsonb "badge_array", default: []
     t.index "md5((body)::text)", name: "decidim_proposals_proposal_body_search"
     t.index "md5((title)::text)", name: "decidim_proposals_proposal_title_search"
     t.index ["created_at"], name: "index_decidim_proposals_proposals_on_created_at"
@@ -1950,6 +1945,7 @@ ActiveRecord::Schema.define(version: 2024_07_22_183817) do
     t.boolean "show_in_footer", default: false, null: false
     t.bigint "topic_id"
     t.boolean "allow_public_access", default: false, null: false
+    t.string "description"
     t.index ["decidim_organization_id"], name: "index_decidim_static_pages_on_decidim_organization_id"
     t.index ["topic_id"], name: "index_decidim_static_pages_on_topic_id"
   end
@@ -2054,7 +2050,7 @@ ActiveRecord::Schema.define(version: 2024_07_22_183817) do
     t.text "about"
     t.datetime "accepted_tos_version"
     t.string "newsletter_token", default: ""
-    t.datetime "newsletter_notifications_at", default: "2024-06-24 19:10:14"
+    t.datetime "newsletter_notifications_at", default: "2024-06-24 13:49:18"
     t.string "type", null: false
     t.jsonb "extended_data", default: {}
     t.integer "following_count", default: 0, null: false
@@ -2206,6 +2202,7 @@ ActiveRecord::Schema.define(version: 2024_07_22_183817) do
   add_foreign_key "decidim_debates_debates", "decidim_scopes"
   add_foreign_key "decidim_editor_images", "decidim_organizations"
   add_foreign_key "decidim_editor_images", "decidim_users", column: "decidim_author_id"
+  add_foreign_key "decidim_homes_elements", "decidim_homes_homes"
   add_foreign_key "decidim_identities", "decidim_organizations"
   add_foreign_key "decidim_initiatives_settings", "decidim_organizations"
   add_foreign_key "decidim_newsletters", "decidim_users", column: "author_id"
