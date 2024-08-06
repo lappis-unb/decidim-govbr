@@ -3,12 +3,10 @@
   <% if current_component.settings.maps_enabled? && search.result.not_online.exists? %>
     <%= cell "decidim/meetings/meetings_map", search.result %>
   <% end %>
-  <% if allowed_to?(:create, :meeting) %>
     <div class="title-action br-magic-button medium">
       <%= action_authorized_link_to :create, new_meeting_path, class: "title-action__action br-button ", data: { "redirect_url" => new_meeting_path } do %>
         <i class="fa-solid fa-plus fa-md"></i>
         <%= t("new_meeting", scope: "decidim.meetings.meetings.index") %>
-      <% end %>
     </div>
   <% end %>
   <div class="proposals-filters">
