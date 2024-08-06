@@ -3,11 +3,15 @@
   <% if current_component.settings.maps_enabled? && search.result.not_online.exists? %>
     <%= cell "decidim/meetings/meetings_map", search.result %>
   <% end %>
-    <div class="title-action br-magic-button medium">
-      <%= action_authorized_link_to :create, new_meeting_path, class: "title-action__action br-button ", data: { "redirect_url" => new_meeting_path } do %>
-        <i class="fa-solid fa-plus fa-md"></i>
-        <%= t("new_meeting", scope: "decidim.meetings.meetings.index") %>
-    </div>
+  <% if current_component.settings.attributes[:creation_enabled_for_participants] %>
+    <%= action_authorized_link_to :create, new_meeting_path, data: { "redirect_url" => new_meeting_path } do %>
+      <div class="title-action br-magic-button medium">
+        <span class="title-action__action br-button">
+          <i class="fa-solid fa-plus fa-md"></i>
+          <%= t("new_meeting", scope: "decidim.meetings.meetings.index") %>
+        </span>
+      </div>
+    <% end %>
   <% end %>
   <div class="proposals-filters">
     <%= render partial: "decidim/components/filter", locals: { 
