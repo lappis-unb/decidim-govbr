@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_08_01_185543) do
+ActiveRecord::Schema.define(version: 2024_08_06_135019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1039,8 +1039,11 @@ ActiveRecord::Schema.define(version: 2024_08_01_185543) do
   create_table "decidim_homes_homes", id: :serial, force: :cascade do |t|
     t.jsonb "title"
     t.integer "decidim_component_id"
+    t.jsonb "organizers", default: []
+    t.jsonb "supporters", default: []
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "meetings_map", default: false
     t.jsonb "element_orders", default: []
     t.index ["decidim_component_id"], name: "index_decidim_homes_homes_on_decidim_component_id"
   end
@@ -1740,7 +1743,7 @@ ActiveRecord::Schema.define(version: 2024_08_01_185543) do
     t.integer "comments_count", default: 0, null: false
     t.integer "follows_count", default: 0, null: false
     t.boolean "is_interactive", default: true
-    t.jsonb "badge_array", default: []
+    t.string "badge_array", default: [], array: true
     t.index "md5((body)::text)", name: "decidim_proposals_proposal_body_search"
     t.index "md5((title)::text)", name: "decidim_proposals_proposal_title_search"
     t.index ["created_at"], name: "index_decidim_proposals_proposals_on_created_at"
@@ -1945,7 +1948,6 @@ ActiveRecord::Schema.define(version: 2024_08_01_185543) do
     t.boolean "show_in_footer", default: false, null: false
     t.bigint "topic_id"
     t.boolean "allow_public_access", default: false, null: false
-    t.string "description"
     t.index ["decidim_organization_id"], name: "index_decidim_static_pages_on_decidim_organization_id"
     t.index ["topic_id"], name: "index_decidim_static_pages_on_topic_id"
   end
@@ -2050,7 +2052,7 @@ ActiveRecord::Schema.define(version: 2024_08_01_185543) do
     t.text "about"
     t.datetime "accepted_tos_version"
     t.string "newsletter_token", default: ""
-    t.datetime "newsletter_notifications_at", default: "2024-06-24 13:49:18"
+    t.datetime "newsletter_notifications_at", default: "2024-08-06 14:09:38"
     t.string "type", null: false
     t.jsonb "extended_data", default: {}
     t.integer "following_count", default: 0, null: false
