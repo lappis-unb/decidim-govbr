@@ -63,7 +63,7 @@ module Decidim
           proposal.set_list_position(prop_form.position) if proposal.position != prop_form.position
 
           return if proposal.votes.any?
-          
+
           proposal.title = { I18n.locale => translated_attribute(prop_form.title) }
           proposal.body = if proposal.participatory_text_level == ParticipatoryTextSection::LEVELS[:article]
                             { I18n.locale => translated_attribute(prop_form.body) }
@@ -97,6 +97,7 @@ module Decidim
 
         def add_failure(proposal)
           return if proposal.errors.empty?
+
           @failures[proposal.id] = proposal.errors.full_messages
         end
       end

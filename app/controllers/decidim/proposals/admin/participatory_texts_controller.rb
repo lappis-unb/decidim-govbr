@@ -89,7 +89,6 @@ module Decidim
 
           @preview_form = form(Admin::PreviewParticipatoryTextForm).from_params(proposals: form_params[:proposals_attributes]&.values, proposal_to_add: form_params[:proposal_to_add])
 
-
           PublishParticipatoryText.call(@preview_form) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_texts.update.success", scope: "decidim.proposals.admin")
@@ -99,7 +98,7 @@ module Decidim
                 redirect_to proposals_path
               end
             end
-            
+
             on(:invalid) do |failures|
               alert_msg = [I18n.t("participatory_texts.publish.invalid", scope: "decidim.proposals.admin")]
               failures.each_pair { |id, msg| alert_msg << "ID:[#{id}] #{msg}" }
@@ -108,7 +107,6 @@ module Decidim
             end
           end
         end
-
 
         def edit_as_preview
           enforce_permission_to :manage, :participatory_texts
