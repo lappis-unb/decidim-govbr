@@ -212,11 +212,20 @@
         <div class="columns xlarge-6">
           <%= form.text_field :hashtag %>
           <p class="help-text">
-            <%== t(".hash_tag_help", url: decidim_form_slug_url(:processes, form.object.slug)) %>
+            <%= t(".hash_tag_help", url: decidim_form_slug_url(:processes, form.object.slug)) %>
           </p>
         </div>
         <div class="row column">
           <%= form.text_field :organization_info_survey %>
+          <p class="help-text">
+            <%= t(".organization_info_survey") %>
+          </p>
+        </div>
+        <div class="row column">
+          <%= form.text_field :record_what_happened_survey %>
+          <p class="help-text">
+            <%= t(".record_what_happened_survey") %>
+          </p>
         </div>
       </div>
     </div>
