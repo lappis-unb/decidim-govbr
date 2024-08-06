@@ -1,6 +1,10 @@
 <% I18n.with_locale(:en) do %>
   <% if @resource.unconfirmed_email.blank? %>
-    <p class="email-greeting"><%= t(".greeting", recipient: @user.name) %></p>
+    <% if @user.name.present? %>
+      <p class="email-greeting"><%= t(".greeting", recipient: @user.name) %></p>
+    <% else %>
+      <p class="email-greeting"><%= t(".greeting", recipient: @email) %></p>
+    <% end %>
   <% end %>
 
   <p class="email-instructions"><%= t(".instruction") %></p>
