@@ -11,7 +11,7 @@
 
 <div class="picker-footer">
   <div class="buttons button--double">
-    <a id="cancel__picked" class="button secondary hollow"><%= t("proposals_picker.cancel", scope: "decidim.proposals") %></a>
+    <a id="cancel__picked" data-close="" class="button secondary hollow"><%= t("proposals_picker.cancel", scope: "decidim.proposals") %></a>
     <a class="button" data-close=""><%= t("proposals_picker.close", scope: "decidim.proposals") %></a>
   </div>
 </div>
@@ -31,4 +31,5 @@
     }
     });
   }
+  
 </script>
