@@ -566,6 +566,7 @@ pt:
         media: Mobilização
 
 en:
+
   activemodel:
     attributes:
       assembly_partner:
@@ -788,6 +789,8 @@ en:
         media: Media
       process_navigation:
         media: Media
+      edit_link:
+        edit_component: Edit component
       data_consent:
         dialog:
           accept_all: Aceitar cookies
