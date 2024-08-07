@@ -562,6 +562,7 @@ pt:
         media: Mobilização
 
 en:
+
   activemodel:
     attributes:
       assembly_partner:
