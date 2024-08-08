@@ -68,3 +68,11 @@
 .foreign-actions-buttons .fa-user-large {
   font-size: 1.25rem;
 }
+
+.foreign-login-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  text-align: center; 
+}
