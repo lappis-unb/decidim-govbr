@@ -1,12 +1,12 @@
 .news-title-container {
   display: flex;
   gap: 16px;
-  margin-bottom: 16px;
+  margin-bottom: 32px;
   justify-content: space-between;
+  flex-direction: column-reverse;
 
-  @media (max-width: 768px) {
-    margin-bottom: 32px;
-    flex-direction: column-reverse;
+  @media (min-width: 768px) {
+    flex-direction: row;
   }
 }
 

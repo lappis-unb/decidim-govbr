@@ -15,7 +15,7 @@ module Decidim
         def default_filter_params
           {
             search_text_cont: "",
-            with_any_date: "upcoming",
+            with_any_date: "all",
             activity: "all",
             with_availability: "",
             with_any_scope: default_filter_scope_params,

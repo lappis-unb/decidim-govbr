@@ -1,0 +1,6 @@
+<div id="list-of-public-participants" class="participants-list-container">
+  <h3>Participantes:</h3>
+  <% public_participants.each do |participant| %>
+    <%= cell "decidim/author", participant %>
+  <% end %>
+</div>

@@ -226,7 +226,7 @@
 }
 
 .proposals-announcement {
-  padding-bottom: 3rem;
+  padding-bottom: 1rem;
 }
 
 .proposals-announcement .br-announcement {
@@ -1231,6 +1231,13 @@ textarea::placeholder {
   align-items: center;
   gap: 1rem;
   flex-direction: row;
+}
+
+.share_container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: column;
 }
 
 .social__media_container {

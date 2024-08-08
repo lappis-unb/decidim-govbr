@@ -199,9 +199,27 @@
     margin-bottom: 0;
     flex-direction: column;
   }
+}
 
-  .author-data__main,
-  .author-data__extra {
+.author-data__main,
+.author-data__extra {
+  margin: 0 !important;
+}
+.author.author--inline > a, .author.author--inline {
+  gap: 4px;
+}
+
+.participants-list-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  h3 {
+    color: var(--blue-warm-vivid-80);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
     margin: 0;
   }
 }
