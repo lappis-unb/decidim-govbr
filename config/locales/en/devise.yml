@@ -4,7 +4,7 @@ en:
       confirmation_instructions:
         action: Account confirmation
         greeting: Hi %{recipient},
-        instruction: 'To get started, please confirm your email address by clicking the link below:'
+        instruction: 'Your account was reviewed and your registration is approved. You can now access the platform and participate. Confirm your account by clicking the link below:'
         subject: Confirmation instructions
         acknowledgment: Thanks for joining us!
         farewell: Best Regards, The Brasil Participativo Team
