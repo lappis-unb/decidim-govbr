@@ -13,10 +13,21 @@
       <%= decidim_form_for(@form, url: meeting_meeting_close_path(meeting, @form), html: { class: "form edit_close_meeting" }) do |f| %>
         <%= render partial: "form", object: f, locals: { title: t(".title") } %>
 
-        <div class="button--double form-general-submit">
+        <div id="close_meeting-submit" class="button--double form-general-submit" style="width: 0; height: 0; opacity: 0;">
           <%= f.submit t(".close") %>
         </div>
       <% end %>
     </div>
   </div>
 </div>
+
+<style>
+  #close_meeting-submit {
+    opacity: 0;
+    button {
+      width: 0;
+      height: 0;
+      padding: 0;
+    }
+  }
+</style>

@@ -12,8 +12,22 @@
 <div class="picker-footer">
   <div class="buttons button--double">
     <a id="cancel__picked" data-close="" class="button secondary hollow"><%= t("proposals_picker.cancel", scope: "decidim.proposals") %></a>
-    <a class="button" data-close=""><%= t("proposals_picker.close", scope: "decidim.proposals") %></a>
+    <a class="button" id="submit-proposals-link" data-close=""><%= t("proposals_picker.close", scope: "decidim.proposals") %></a>
   </div>
 </div>
 
 <%= javascript_pack_tag "decidim_proposals_admin" %>
+
+<script>
+  let button = null;
+
+  if(button === null) {
+    console.log("Setting up proposals picker");
+    button = document.getElementById("submit-proposals-link");
+
+    button.addEventListener("click", () => {
+      let submit = document.getElementById("close_meeting-submit");
+      submit.querySelector("button").click();
+    });
+  }
+</script>
