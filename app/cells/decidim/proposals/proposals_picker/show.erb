@@ -17,19 +17,3 @@
 </div>
 
 <%= javascript_pack_tag "decidim_proposals_admin" %>
-
-<script>
-  if(typeof cancelButton === 'undefined'){
-    let cancelButton = document.getElementById("cancel__picked");
-
-    cancelButton.addEventListener("click", () => {
-    let list = document.getElementsByClassName('proposals_picker_checkbox')
-
-    for(let i = 0; i < list.length; i++) {
-      if(list[i].childNodes[1].checked)
-        list[i].click();
-    }
-    });
-  }
-  
-</script>
