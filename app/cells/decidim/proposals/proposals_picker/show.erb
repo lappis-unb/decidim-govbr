@@ -19,11 +19,8 @@
 <%= javascript_pack_tag "decidim_proposals_admin" %>
 
 <script>
-  let button = null;
-
-  if(button === null) {
-    console.log("Setting up proposals picker");
-    button = document.getElementById("submit-proposals-link");
+  if (typeof button === 'undefined') {
+    let button = document.getElementById("submit-proposals-link");
 
     button.addEventListener("click", () => {
       let submit = document.getElementById("close_meeting-submit");
