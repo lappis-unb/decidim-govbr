@@ -21,7 +21,10 @@ module Decidim
       end
 
       def current_type
-        participatory_process_types.find(get_filter(:with_type))
+        id = get_filter(:with_type)
+        return nil unless id
+
+        Decidim::ParticipatoryProcessType.find_by(id: id)
       end
 
       def current_type_has_description?
@@ -29,7 +32,12 @@ module Decidim
       end
 
       def current_type_filter_name
-        participatory_process_types_for_select.find { |_, id| id == get_filter(:with_type) }&.first ||
+        type_selection = participatory_process_types_for_select
+        return I18n.t("all_types", scope: "decidim.participatory_processes.participatory_processes.filters") unless type_selection
+
+        selected_type = type_selection&.find { |_, id| id == get_filter(:with_type) }
+
+        selected_type&.first ||
           I18n.t("all_types", scope: "decidim.participatory_processes.participatory_processes.filters")
       end
 
@@ -135,3 +143,4 @@ module Decidim
     end
   end
 end
+

@@ -3,7 +3,7 @@
     <div class="processes-list-header-title-container">
       <h1 class="processes-list-header-title"><%= t("participatory_processes.index.title", scope: "layouts.decidim") %></h1>
     </div>
-    <div id="help-text" class="processes-list-header-help-text" style="cursor: pointer;">
+    <div id="help-text" class="processes-list-header-help-text" style="display: none; cursor: pointer;">
       <i class="fa fa-info-circle" aria-hidden="true"></i>
       <%= t("participatory_processes.index.help_text", scope: "layouts.decidim", current_type_filter_name: current_type_filter_name) %>
     </div>
@@ -50,3 +50,4 @@
     });
   });
 </script>
+
