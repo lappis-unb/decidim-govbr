@@ -20,7 +20,7 @@ edit_link(
       <%= render partial: "order_by_processes" %>
     </div>
     <p class="loading"><%= t(".loading") %></p>
-    <div class="component-content card-grid">
+    <div class="component-content card-grid br-processes-list">
       <%= render partial: "decidim/components/list", locals: {
           elements_name: "process", 
           collection: collection
