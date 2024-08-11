@@ -47,7 +47,7 @@ $(() => {
           .find("#button-text")
           .text(currentFilterName);
   
-        // Reinitialize Foundation for newly loaded content
+        // Reinitialize Foundation(necessary for dropdowns to work again)
         $(document).foundation();
       },
     });
