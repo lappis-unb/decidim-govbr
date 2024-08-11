@@ -31,14 +31,18 @@ module Decidim
         current_type&.description.present?
       end
 
+      def default_filter_name
+        I18n.t("all_types", scope: "decidim.participatory_processes.participatory_processes.filters")
+      end
+
       def current_type_filter_name
         type_selection = participatory_process_types_for_select
-        return I18n.t("all_types", scope: "decidim.participatory_processes.participatory_processes.filters") unless type_selection
+        return default_filter_name unless type_selection
 
         selected_type = type_selection&.find { |_, id| id == get_filter(:with_type) }
 
         selected_type&.first ||
-          I18n.t("all_types", scope: "decidim.participatory_processes.participatory_processes.filters")
+          default_filter_name
       end
 
       def get_filter(filter_name, default = nil)
