@@ -1,4 +1,19 @@
-<h3 class="section-heading"><%= t("decidim.attachment_title") %></h3>
+<div class="docs__header-container">
+  <div class="docs__title-container">
+    <h3 class="section-heading"><%= t("decidim.attachment_title") %></h3>
+    <p><%= t("decidim.attachment_description") %></p>
+  </div>
+
+  <div class="title-action br-magic-button medium">
+    <span class="title-action__action br-button" data-asw-orgfontsize="20" style="font-size: 20px;">
+      <i class="fa-solid fa-plus fa-md"></i>
+      <%= t("decidim.attachment_send_button") %>
+    </span>
+  </div>
+
+  <span class="br-divider"></span>
+</div>
+
 <div class="section documents">
   <% if (documents_without_collection = documents.reject(&:attachment_collection_id?)).any? %>
     <% documents_without_collection.each do |document| %>
