@@ -1,4 +1,30 @@
-.docs__container{
+.docs__container {
+  .docs-collection-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    height: 3.75rem;
+    width: 100%;
+
+    strong {
+      color: var(--blue-warm-vivid-80);
+      font-size: var(--font-size-scale-up-02)!important;
+      font-weight: var(--font-weight-regular);
+    }
+
+    i.fa-solid {
+      font-size: 1.25rem;
+      color: var(--blue-warm-vivid-70);
+    }
+  }
+
+  .docs-collection-label[aria-expanded~="false"] {
+    i.fa-solid {
+      transform: rotate(180deg);
+    }
+  }
+
   h6{
     cursor: pointer;
   }

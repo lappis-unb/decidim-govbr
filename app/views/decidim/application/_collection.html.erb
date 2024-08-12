@@ -1,10 +1,8 @@
 <% unless attachment_collection.unused? %>
   <div class="docs__container">
-    <button type="button" data-toggle="docs-collection-<%= attachment_collection.id %>"><%= icon "caret-right", class: "icon--small", role: "img", "aria-hidden": true %>&nbsp;
+    <button class="docs-collection-label" type="button" data-toggle="docs-collection-<%= attachment_collection.id %>">
       <strong><%= translated_attribute(attachment_collection.name) %></strong>
-
-      <% attachment_collection_documents_count =  attachment_collection.attachments.select(&:document?).count %>
-      <small>(<%= attachment_collection_documents_count %> <%= t("decidim.application.collection.documents", count: attachment_collection_documents_count) %>)</small>
+      <i class="fa-solid fa-chevron-down"></i>
     </button>
 
     <div id="docs-collection-<%= attachment_collection.id %>" class="docs__content hide" data-toggler=".hide">
