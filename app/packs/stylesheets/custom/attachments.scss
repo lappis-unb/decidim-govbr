@@ -26,7 +26,7 @@
 .documents {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 32px;
   width: 100%;
 }
 
@@ -134,16 +134,33 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  border: 1px solid var(--blue-3);
+  border-radius: 8px;
 
   .download-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 368px;
+    padding: 1.5rem 0.5rem;
     gap: 8px;
+
+    span {
+      font-size: var(--font-size-scale-up-01);
+      font-weight: var(--font-weight-semi-bold);
+    }
+
+    i.fa-solid {
+      font-size: 1.25rem;
+    }
   }
 }
 
 .attachment-file {
   display: flex;
   flex-direction: column;
+  padding: 1rem;
+  background-color: var(--blue-3);
   gap: 0.5rem;
 
   h4 {

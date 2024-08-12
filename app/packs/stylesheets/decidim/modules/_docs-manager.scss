@@ -27,6 +27,10 @@
     }
   }
 
+  .docs-collection-label:focus {
+    outline: none;
+  }
+
   h6{
     cursor: pointer;
   }
@@ -36,8 +40,15 @@
   }
 
   .docs__content{
-    border-left: $border;
-    padding-left: 1rem;
-    margin-left: .25rem;
+    border-left: 0;
+    padding-left: 0;
+    margin-left: 0;
+
+    .card--list {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      gap: 1rem;
+    }
   }
 }

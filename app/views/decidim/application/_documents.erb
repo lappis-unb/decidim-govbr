@@ -1,9 +1,8 @@
-<h3 class="section-heading"><%= t("decidim.attachment_title") %>:</h3>
+<h3 class="section-heading"><%= t("decidim.attachment_title") %></h3>
 <div class="section documents">
   <% if (documents_without_collection = documents.reject(&:attachment_collection_id?)).any? %>
     <% documents_without_collection.each do |document| %>
       <%= render partial: "decidim/application/document", locals: { document: document } %>
-      <span class="br-divider"></span>
     <% end %>
   <% end %>
   <% documents.select(&:attachment_collection_id?).group_by(&:attachment_collection).sort_by { |c, d| c.weight }.each do |collection, documents| %>
