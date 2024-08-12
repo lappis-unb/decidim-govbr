@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_08_06_135019) do
+ActiveRecord::Schema.define(version: 2024_08_09_112353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1032,7 +1032,7 @@ ActiveRecord::Schema.define(version: 2024_08_06_135019) do
   create_table "decidim_homes_elements", force: :cascade do |t|
     t.bigint "decidim_homes_home_id", null: false
     t.string "element_type", null: false
-    t.jsonb "properties"
+    t.jsonb "properties", default: {}, null: false
     t.index ["decidim_homes_home_id"], name: "index_decidim_homes_elements_on_decidim_homes_home_id"
   end
 
