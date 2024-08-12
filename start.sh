@@ -15,6 +15,8 @@ rm -f tmp/pids/server.pid
 
 bundle check || bundle install
 
+bundle exec rails webpacker:compile
+
 if bundle exec rails db:exists; then
   bundle exec rails db:migrate
 else
