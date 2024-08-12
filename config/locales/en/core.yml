@@ -11,13 +11,10 @@ en:
     devise:
       registrations:
         new:
-          password_help: >
+          password_help: |
             The password must be at least 14 characters long.
-            
             The password must include at least one uppercase letter.
-            
             The password must include at least one lowercase letter.
-            
             The password must include at least one number.
   forms:
     required_explanation: "Fields marked with an asterisk (*) are required"
