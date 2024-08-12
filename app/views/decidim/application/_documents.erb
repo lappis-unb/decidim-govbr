@@ -3,13 +3,16 @@
     <h3 class="section-heading"><%= t("decidim.attachment_title") %></h3>
     <p><%= t("decidim.attachment_description") %></p>
   </div>
-
-  <div class="title-action br-magic-button medium">
-    <span class="title-action__action br-button" data-asw-orgfontsize="20" style="font-size: 20px;">
-      <i class="fa-solid fa-plus fa-md"></i>
-      <%= t("decidim.attachment_send_button") %>
-    </span>
-  </div>
+  
+  <% if current_user.admin? %>
+    <% send_url = "/participatory_processes/" + current_participatory_space.slug + "/attachments" %>
+    <a class="title-action br-magic-button medium" href="<%= send_url %>">
+      <span class="title-action__action br-button" data-asw-orgfontsize="20" style="font-size: 20px;">
+        <i class="fa-solid fa-plus fa-md"></i>
+        <%= t("decidim.attachment_send_button") %>
+      </span>
+    </a>
+  <% end%>
 
   <span class="br-divider"></span>
 </div>
