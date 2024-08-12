@@ -132,7 +132,6 @@
 
 .attachment-item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   border: 1px solid var(--blue-3);
   border-radius: 8px;
@@ -185,5 +184,15 @@
     font-weight: 400;
     line-height: normal;
     text-transform: uppercase;
+  }
+}
+
+@media (max-width: 768px) {
+  .attachment-item {
+    flex-direction: column;
+    align-items: center;
+  }
+  .download-button {
+    min-width: 328px;
   }
 }
