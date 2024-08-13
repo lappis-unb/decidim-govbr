@@ -1,15 +1,14 @@
 <% add_decidim_page_title(t("devise.sessions.new.sign_in")) %>
 <div class="br-container-lg">
   <div class="foreign-login-container">
-    <h1 class="mb-0 mt-5 text-center"><%= t("devise.sessions.new.connect") %></h1>
+    <% I18n.with_locale('pt-BR') do %>
+      <h1 class="mb-0 mt-5 text-center"><%= t("devise.sessions.new.sign_in") %></h1>
+    <% end %>
     <% cache current_organization do %>
       <%= render "decidim/devise/shared/omniauth_buttons" %>
     <% end %>
-    <h1 class="mb-0 text-center"><%= t("devise.sessions.new.foreigners") %></h1>
-    <span>
-      <p class="mb-0 text-center"><%= t("devise.sessions.new.subtitle") %></p>
-      <p class="mb-0 text-center"><%= t("devise.sessions.new.subtitle_click") %></p>
-    </span>
+    <h1 class="mb-0 text-center"><%= t("devise.sessions.new.foreign_login.access") %></h1>
+    <div class="mb-0 text-center foreign-subtitle mt-4"><%= t("devise.sessions.new.foreign_login.description") %></div>
   </div>
   <% I18n.with_locale(:en) do %>
     <div class="card__content">
@@ -29,8 +28,9 @@
         <% end %>
         <div class="actions">
           <button class="br-button primary block mt-1">
-            <%= t("devise.sessions.new.login") %>
+            <%= t("devise.sessions.new.foreign_login.login") %>
           </button>
+        </div>
       <% end %>
       <%= render "decidim/devise/shared/links" %>
     </div>

@@ -17,4 +17,4 @@ en:
             The password must include at least one lowercase letter.
             The password must include at least one number.
   forms:
-    required_explanation: "Fields marked with an asterisk (*) are required"
+    required_explanation: Required fields are marked with an asterisk*
