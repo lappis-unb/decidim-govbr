@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-module-homes.git
-  revision: 7d28bed8a6213c169d956ea7031f9c180dad37fd
+  revision: 69d41d09a37f1d0a4299a688c814d858419e292f
   specs:
     decidim-homes (0.27.2)
       decidim-core (= 0.27.2)
@@ -32,19 +32,6 @@ GIT
       country_select (~> 4.0)
       decidim-core (>= 0.27.0, < 0.28)
       deface (~> 1.5)
-
-PATH
-  remote: vendor/decidim-ej
-  specs:
-    decidim-ej (0.27.2)
-      decidim-core (= 0.27.2)
-      httparty
-
-PATH
-  remote: vendor/decidim-module-homes
-  specs:
-    decidim-homes (0.27.2)
-      decidim-core (= 0.27.2)
 
 GEM
   remote: https://rubygems.org/

@@ -53,6 +53,7 @@ module Decidim
 
         Answer.transaction(requires_new: true) do
           form.responses_by_step.flatten.select(&:display_conditions_fulfilled?).each do |form_answer|
+
             answer = Answer.new(
               user: @current_user,
               questionnaire: @questionnaire,
@@ -60,7 +61,8 @@ module Decidim
               body: form_answer.body,
               session_token: form.context.session_token,
               ip_hash: form.context.ip_hash,
-              anonymous_answer: !form.try(:topp_agreement)
+              anonymous_answer: !form.try(:topp_agreement),
+              is_public_information: form_answer.is_public_information
             )
 
             form_answer.selected_choices.each do |choice|
