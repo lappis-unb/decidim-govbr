@@ -30,7 +30,10 @@ module Decidim
       def embeddable?
         return nil if parsed_online_meeting_uri.nil?
 
-        embeddable_services.include?(parsed_online_meeting_uri.host)
+        
+        normalized_host = parsed_online_meeting_uri.host.sub(/^www\./, '')
+        normalized_embeddable_services = embeddable_services.map { |service| service.sub(/^www\./, '') }
+        normalized_embeddable_services.include?(normalized_host)
       end
 
       def embed_code(request_host)
