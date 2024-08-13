@@ -3,7 +3,7 @@
     <h3 class="section-heading"><%= t("decidim.attachment_title") %></h3>
     <p><%= t("decidim.attachment_description") %></p>
   </div>
-  
+
   <% if current_user.admin? %>
     <% send_url = "/participatory_processes/" + current_participatory_space.slug + "/attachments" %>
     <a class="title-action br-magic-button medium" href="<%= send_url %>">
@@ -12,7 +12,7 @@
         <%= t("decidim.attachment_send_button") %>
       </span>
     </a>
-  <% end%>
+  <% end %>
 
   <span class="br-divider"></span>
 </div>
