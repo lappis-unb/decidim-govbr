@@ -52,14 +52,7 @@
           <p><%= t("decidim.extra_user_fields.registration_form.document_valid.help_text")%></p>
           <img src="<%= asset_pack_path("media/images/selfie_id_help.png") %>">
         </div>
-        <fieldset class="attachments_container gallery__container documents_container">
-          <legend class="foreign_label" ><%= t("decidim.extra_user_fields.registration_form.document_image.label")%></legend>
-          <div class="row column">
-            <%= f.attachment :document_image, multiple: true,
-                             label: t("decidim.extra_user_fields.registration_form.document_image.label"),
-                             button_label: t("decidim.extra_user_fields.registration_form.document_image.button_label") %>
-          </div>
-        </fieldset>
+        <%= f.file_field :document_image, multiple: false, direct_upload: false %>
         <span class="form-error document-form-error" hidden>
           <%= t("decidim.extra_user_fields.registration_form.document_valid.error_text")%>
         </span>
