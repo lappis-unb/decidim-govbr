@@ -68,3 +68,24 @@
 .foreign-actions-buttons .fa-user-large {
   font-size: 1.25rem;
 }
+
+.foreign-back-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+
+.foreign-subtitle {
+  font-family: Rawline, serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--gray-90);
+}
+
+.foreign-form-explanation {
+  font-family: Rawline, serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--blue-warm-vivid-70);
+}
