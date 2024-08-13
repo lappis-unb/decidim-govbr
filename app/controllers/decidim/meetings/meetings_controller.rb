@@ -59,6 +59,9 @@ module Decidim
       def show
         raise ActionController::RoutingError, "Not Found" unless meeting
 
+        session_token = meeting.answers&.first&.session_token
+        @participants = session_token.present? ? participant(participants_query.participant(session_token)) : nil
+
         return if meeting.current_user_can_visit_meeting?(current_user)
 
         flash[:alert] = I18n.t("meeting.not_allowed", scope: "decidim.meetings")
@@ -131,6 +134,21 @@ module Decidim
       end
 
 
+      def questionnaire(questionnaire)
+        @questionnaire ||= Decidim::Forms::Questionnaire.find_by(id: questionnaire.id)
+      end
+
+      def participants_query
+        Decidim::Forms::QuestionnaireParticipants.new(questionnaire(meeting.answers.first.questionnaire))
+      end
+
+      def participant(answer)
+        Decidim::Forms::Admin::QuestionnaireParticipantPresenter.new(participant: answer)
+      end
+
+      def participants(query)
+        query.map { |answer| participant(answer) }
+      end
     end
   end
 end

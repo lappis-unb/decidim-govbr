@@ -150,6 +150,14 @@
           <% end %>
         </div>
       <% end %>
+      <dl>
+        <% @participants&.answers&.each do |answer| %>
+          <% if answer.is_public_information %>
+            <dt><%= answer.question %></dt>
+            <dd><%= answer.body %></dd>
+          <% end %>
+        <% end %>
+      </dl>
     </div>
     <div class="side-content">
       <div class="card-component">
