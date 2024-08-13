@@ -72,7 +72,7 @@ module Decidim
 
       def add_new_question_to_survey
         record_what_happened_survey = current_participatory_space.record_what_happened_survey.presence.to_s.chomp("/")
-        return unless is_record_what_happened_survey?(record_what_happened_survey) && params[:meeting_id].present?
+        return unless record_what_happened_survey?(record_what_happened_survey) && params[:meeting_id].present?
 
         questionnaire = survey.questionnaire
 

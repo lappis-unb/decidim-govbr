@@ -29,7 +29,7 @@ module Decidim
         @authorizations ||= action_authorized_to(:answer, resource: questionnaire_for)
       end
 
-      def is_record_what_happened_survey?(survey)
+      def record_what_happened_survey?(survey)
         survey.present? && request.original_url.include?(survey)
       end
     end
