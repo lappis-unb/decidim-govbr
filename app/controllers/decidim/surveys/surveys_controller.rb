@@ -79,7 +79,7 @@ module Decidim
 
           Decidim::Forms::Questionnaire.add_new_question(
             decidim_questionnaire_id: questionnaire.id, position: questionnaire.questions.count,
-            question_type: "short_answer", mandatory: false,title: "origin_meeting_id",
+            question_type: "short_answer", mandatory: false, title: "origin_meeting_id"
           )
         end
       end

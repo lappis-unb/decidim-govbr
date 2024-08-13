@@ -133,7 +133,6 @@ module Decidim
         form(Decidim::Meetings::MeetingForm)
       end
 
-
       def questionnaire(questionnaire)
         @questionnaire ||= Decidim::Forms::Questionnaire.find_by(id: questionnaire.id)
       end

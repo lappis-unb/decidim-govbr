@@ -48,7 +48,7 @@ module Decidim
           end
         end
 
-        def is_public_information
+        def public_information?
           answer.extra_fields["is_public_information"]
         end
 

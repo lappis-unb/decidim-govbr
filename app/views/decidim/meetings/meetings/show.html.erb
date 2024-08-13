@@ -152,7 +152,7 @@
       <% end %>
       <dl>
         <% @participants&.answers&.each do |answer| %>
-          <% if answer.is_public_information %>
+          <% if answer.public_information? %>
             <dt><%= answer.question %></dt>
             <dd><%= answer.body %></dd>
           <% end %>

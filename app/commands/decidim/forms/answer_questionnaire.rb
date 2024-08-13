@@ -53,7 +53,6 @@ module Decidim
 
         Answer.transaction(requires_new: true) do
           form.responses_by_step.flatten.select(&:display_conditions_fulfilled?).each do |form_answer|
-
             answer = Answer.new(
               user: @current_user,
               questionnaire: @questionnaire,
