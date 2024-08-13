@@ -115,8 +115,6 @@ module Decidim
 
           @preview_form = form(Admin::PreviewParticipatoryTextForm).instance
           @preview_form.from_models(@participatory_texts)
-
-          render action: "edit_as_preview"
         end
 
         # Removes all the unpublished proposals (drafts).
