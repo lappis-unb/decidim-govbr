@@ -16,6 +16,7 @@ module Decidim
       before_action :update_user_poll_answered, only: [:answer], if: -> { should_update_user_poll_answered }
       before_action :should_have_user_full_profile, only: [:show]
       before_action :add_new_question_to_survey, only: [:show]
+      after_action :associate_questions_answers_with_meeting, only: [:answer]
 
       def check_permissions
         render :no_permission unless action_authorized_to(:answer, resource: survey).ok?
@@ -71,7 +72,7 @@ module Decidim
 
       def add_new_question_to_survey
         record_what_happened_survey = current_participatory_space.record_what_happened_survey.presence.to_s.chomp("/")
-        if record_what_happened_survey.present? && request.original_url.include?(record_what_happened_survey)
+        if record_what_happened_survey.present? && request.original_url.include?(record_what_happened_survey) && params[:meeting_id].present?
           questionnaire = survey.questionnaire
 
           return false if questionnaire.blank?
@@ -80,6 +81,28 @@ module Decidim
             decidim_questionnaire_id: questionnaire.id, position: questionnaire.questions.count,
             question_type: "short_answer", mandatory: false,title: "origin_meeting_id",
           )
+        end
+      end
+
+      def associate_questions_answers_with_meeting
+        record_what_happened_survey = current_participatory_space.record_what_happened_survey.presence.to_s.chomp("/")
+        origin_meeting_id = params[:questionnaire][:responses].values.last.presence[:body].to_i
+
+        if record_what_happened_survey.present? && request.original_url.include?(record_what_happened_survey) && origin_meeting_id.present?
+
+          questionnaire = survey.questionnaire
+
+          return false if questionnaire.blank?
+
+          questionnaire.questions.each do |question|
+            question.update!(decidim_meetings_meeting_id: origin_meeting_id)
+          end
+
+          answers = questionnaire.answers.where(decidim_user_id: current_user.id)
+
+          answers.each do |answer|
+            answer.update!(decidim_meetings_meeting_id: origin_meeting_id)
+          end
         end
       end
     end
