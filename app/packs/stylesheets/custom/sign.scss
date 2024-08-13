@@ -68,3 +68,10 @@
 .foreign-actions-buttons .fa-user-large {
   font-size: 1.25rem;
 }
+
+.foreign-back-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}

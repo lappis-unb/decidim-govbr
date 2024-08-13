@@ -606,6 +606,12 @@ en:
         template_processes_ids: Processes to be used as Templates
       participatory_process_group:
         decidim_area_id: Participatory Process Group
+      user:
+        email: E-mail
+  activerecord:
+    attributes:
+      decidim/user:
+        email: E-mail
   decidim:
     components:
       proposals:

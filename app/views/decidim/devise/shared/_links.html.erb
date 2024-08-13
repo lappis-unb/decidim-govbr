@@ -1,6 +1,8 @@
 <div class="submit-foreign-form-container help-buttons">
   <%- if controller_name != "sessions" && resource_class != Decidim::UserGroup %>
-    <%= link_to t(".sign_in"), new_session_path(resource_name), class:"br-button block" %>
+    <div class="br-button secondary block">
+      <%= link_to t(".sign_in"), new_session_path(resource_name), class:"br-button block" %>
+    </div>
   <% end -%>
   <%- if current_organization.sign_up_enabled? && devise_mapping.registerable? && controller_name != "registrations" %>
     <%= link_to t(".sign_up"), new_registration_path(resource_name), class:"br-button block" %>
