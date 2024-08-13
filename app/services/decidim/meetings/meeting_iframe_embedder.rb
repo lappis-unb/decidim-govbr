@@ -83,7 +83,6 @@ module Decidim
       end
 
       def parsed_online_meeting_uri
-
         normalized_host = online_meeting_service_url.sub("www.", '')
 
         @parsed_online_meeting_uri ||= URI.parse(normalized_host) if normalized_host.present?
