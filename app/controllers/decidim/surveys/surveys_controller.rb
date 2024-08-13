@@ -6,7 +6,7 @@ module Decidim
     class SurveysController < Decidim::Surveys::ApplicationController
       include Decidim::Forms::Concerns::HasQuestionnaire
       include Decidim::ComponentPathHelper
-      helper Decidim::Surveys::SurveyHelper
+      include Decidim::Surveys::SurveyHelper
       include Decidim::Govbr::ParticipatoryProcessesHelper
 
       delegate :allow_unregistered?, to: :current_settings
@@ -72,37 +72,36 @@ module Decidim
 
       def add_new_question_to_survey
         record_what_happened_survey = current_participatory_space.record_what_happened_survey.presence.to_s.chomp("/")
-        if record_what_happened_survey.present? && request.original_url.include?(record_what_happened_survey) && params[:meeting_id].present?
-          questionnaire = survey.questionnaire
+        return unless is_record_what_happened_survey?(record_what_happened_survey) && params[:meeting_id].present?
 
-          return false if questionnaire.blank?
+        questionnaire = survey.questionnaire
 
-          Decidim::Forms::Questionnaire.add_new_question(
-            decidim_questionnaire_id: questionnaire.id, position: questionnaire.questions.count,
-            question_type: "short_answer", mandatory: false, title: "origin_meeting_id"
-          )
-        end
+        return false if questionnaire.blank?
+
+        Decidim::Forms::Questionnaire.add_new_question(
+          decidim_questionnaire_id: questionnaire.id, position: questionnaire.questions.count,
+          question_type: "short_answer", mandatory: false, title: "origin_meeting_id"
+        )
       end
 
       def associate_questions_answers_with_meeting
         record_what_happened_survey = current_participatory_space.record_what_happened_survey.presence.to_s.chomp("/")
         origin_meeting_id = params[:questionnaire][:responses].values.last.presence[:body].to_i
 
-        if record_what_happened_survey.present? && request.original_url.include?(record_what_happened_survey) && origin_meeting_id.present?
+        return unless is_record_what_happened_survey?(record_what_happened_survey) && origin_meeting_id.present?
 
-          questionnaire = survey.questionnaire
+        questionnaire = survey.questionnaire
 
-          return false if questionnaire.blank?
+        return false if questionnaire.blank?
 
-          questionnaire.questions.each do |question|
-            question.update!(decidim_meetings_meeting_id: origin_meeting_id)
-          end
+        questionnaire.questions.each do |question|
+          question.update!(decidim_meetings_meeting_id: origin_meeting_id)
+        end
 
-          answers = questionnaire.answers.where(decidim_user_id: current_user.id)
+        answers = questionnaire.answers.where(decidim_user_id: current_user.id)
 
-          answers.each do |answer|
-            answer.update!(decidim_meetings_meeting_id: origin_meeting_id)
-          end
+        answers.each do |answer|
+          answer.update!(decidim_meetings_meeting_id: origin_meeting_id)
         end
       end
     end
