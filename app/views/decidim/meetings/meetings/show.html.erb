@@ -32,7 +32,7 @@
                 <%= t(".delete_meeting") %>
             <% end %>
           <% else %>
-            <% if !@meeting_cell.finished? && !cancelled?(meeting) %>
+            <% if allowed_to?(:update, :meeting, meeting: meeting) && !@meeting_cell.finished? && !cancelled?(meeting) %>
               <%= link_to withdraw_meeting_path(@meeting), method: 'put', class: "br-button secondary cancel-meeting", 
                 data: { confirm: t('.confirm_cancel') } do %>
                 <i class="fa-solid fa-trash-can" style="color: #8b0a03;"></i>
