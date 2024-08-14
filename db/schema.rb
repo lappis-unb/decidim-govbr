@@ -2052,7 +2052,7 @@ ActiveRecord::Schema.define(version: 2024_08_09_112353) do
     t.text "about"
     t.datetime "accepted_tos_version"
     t.string "newsletter_token", default: ""
-    t.datetime "newsletter_notifications_at", default: "2024-08-06 14:09:38"
+    t.datetime "newsletter_notifications_at", default: "2024-08-06 22:05:15"
     t.string "type", null: false
     t.jsonb "extended_data", default: {}
     t.integer "following_count", default: 0, null: false
