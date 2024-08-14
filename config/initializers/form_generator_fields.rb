@@ -15,7 +15,7 @@ module FormGenerator
     def generate_user_content
       content = ""
       form_fields.each do |field|
-        content += "<%= properties[#{field[:name]}] %>\n"
+        content += "<%= properties[\"#{field[:name]}\"] %>\n"
       end
       content
     end
