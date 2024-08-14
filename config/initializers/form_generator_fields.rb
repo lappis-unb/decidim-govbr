@@ -2,14 +2,23 @@ require 'rails/generators'
 
 module FormGenerator
   class FormGeneratorFields < Rails::Generators::Base
+    argument :file_name, type: :string, banner: "file_name"
     argument :fields, type: :array, default: [], banner: "field:type field:type"
-    argument :file_name, type: :string, default: "home_element", banner: "file_name"
 
     def generate_form
       create_file "vendor/decidim-module-homes/app/views/decidim/homes/admin/home_elements/_#{file_name}.html.erb", generate_form_content
+      create_file "vendor/decidim-module-homes/app/views/decidim/homes/application/_#{file_name}.html.erb", generate_user_content
     end
 
     private
+
+    def generate_user_content
+      content = ""
+      form_fields.each do |field|
+        content += "<%= properties[#{field[:name]}] %>\n"
+      end
+      content
+    end
 
     def generate_form_content
       content = "<%= f.fields_for :properties do |header_form| %>\n"
