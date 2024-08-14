@@ -18,9 +18,9 @@ module Decidim
         return nil if parsed_online_meeting_uri.nil?
 
         case parsed_online_meeting_uri.host
-        when "www.youtube.com"
+        when "youtube.com"
           transform_youtube_url(parsed_online_meeting_uri)
-        when "www.twitch.tv"
+        when "twitch.tv"
           transform_twitch_url(parsed_online_meeting_uri, request_host)
         else
           online_meeting_service_url
@@ -30,7 +30,8 @@ module Decidim
       def embeddable?
         return nil if parsed_online_meeting_uri.nil?
 
-        embeddable_services.include?(parsed_online_meeting_uri.host)
+        normalized_embeddable_services = embeddable_services.map { |service| service.sub('www.', '') }
+        normalized_embeddable_services.include?(parsed_online_meeting_uri.host)
       end
 
       def embed_code(request_host)
@@ -82,7 +83,9 @@ module Decidim
       end
 
       def parsed_online_meeting_uri
-        @parsed_online_meeting_uri ||= URI.parse(online_meeting_service_url) if online_meeting_service_url.present?
+        normalized_host = online_meeting_service_url.sub("www.", '')
+
+        @parsed_online_meeting_uri ||= URI.parse(normalized_host) if normalized_host.present?
       end
     end
   end

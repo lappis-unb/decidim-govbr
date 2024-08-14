@@ -64,7 +64,9 @@ pt-BR:
       participatory_process_group:
         decidim_area_id: Órgão/Instituição
   decidim:
-    attachment_title: Anexos
+    attachment_title: Documentos
+    attachment_description: Abaixo você encontra documentos que pode baixar para x, y e z. Você também pode disponibilizar seus documentos.
+    attachment_send_button: Enviar documento
     statistics:
       headline: Dados Participativos
     components:
