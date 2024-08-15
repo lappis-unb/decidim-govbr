@@ -32,7 +32,7 @@
                 <%= t(".delete_meeting") %>
             <% end %>
           <% else %>
-            <% if !@meeting_cell.finished? && !cancelled?(meeting) %>
+            <% if allowed_to?(:update, :meeting, meeting: meeting) && !@meeting_cell.finished? && !cancelled?(meeting) %>
               <%= link_to withdraw_meeting_path(@meeting), method: 'put', class: "br-button secondary cancel-meeting", 
                 data: { confirm: t('.confirm_cancel') } do %>
                 <i class="fa-solid fa-trash-can" style="color: #8b0a03;"></i>
@@ -100,7 +100,6 @@
         <% if meeting.maps_enabled? && !meeting.online_meeting? %>
           <div class="br-divider space-above"></div>
           <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
-          <div class="map_location_address"><%= translated_attribute(meeting.location) %></div>
           <div class="br-divider"></div>
         <% end %>
         <% unless meeting.in_person_meeting? || meeting.withdrawn? %>
@@ -197,17 +196,19 @@
           <% end %>
         <% end %>
       </div>
-      <div class="card-component">
-        <div class="meetings-subs-count">
-          <div class="subs-count">
-            <%= meeting.subscribers_count %>
-          </div>
-          <div class="subs-legend">
-            inscritos
-          </div>
+        <div class="card-component">
+          <% unless meeting.on_different_platform? %>
+              <div class="meetings-subs-count">
+                <div class="subs-count">
+                  <%= meeting.subscribers_count %>
+                </div>
+                <div class="subs-legend">
+                  inscritos
+                </div>
+              </div>
+          <% end %>
+          <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
         </div>
-        <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
-      </div>
       <div class="meetings-br-actions-buttons">
         <% if (current_user.try(:admin?) || @can_moderate) %>
           <button type="button" class="br-button" data-open="flagModal" title="Denunciar"

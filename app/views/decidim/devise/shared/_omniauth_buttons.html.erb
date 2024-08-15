@@ -1,0 +1,11 @@
+<% if Devise.mappings[:user].omniauthable? && current_organization.enabled_omniauth_providers.any? %>
+  <div class="mb-6 text-center">
+    <%- current_organization.enabled_omniauth_providers.keys.each do |provider| %>
+      <%= link_to decidim.send("user_#{provider}_omniauth_authorize_path"), class: "button", method: :post do %>
+        <%= t("devise.shared.links.sign_in_with_provider", provider: normalize_provider_name(provider).titleize) %>
+      <% end %>
+    <% end %>
+    <%- if current_organization.sign_in_enabled? %>
+    <%- end %>
+  </div>
+<% end %>

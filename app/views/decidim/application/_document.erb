@@ -1,11 +1,10 @@
 <div class="attachment-item">
   <div class="attachment-file">
     <h4><%= attachment_title(document) %></h4>
-    <span><%= document.file_type %></span>
-    <%# <span>&nbsp;( number_to_human_size(document.file_size))</span> %>
+    <p><%= translated_attribute(document.description) %></p>
   </div>
-  <%= link_to document.url, target: "_blank", rel: "noopener", class: "br-button secondary download-button" do %>
-    <i class="fa-solid fa-download"></i>
-    <span>Baixar</span>
+  <%= link_to document.url, target: "_blank", rel: "noopener", class: "download-button" do %>
+    <i class="fa-solid fa-file-arrow-down"></i>
+    <span>Baixar em <%= document.file_type.upcase %></span>
   <% end %>
 </div>
