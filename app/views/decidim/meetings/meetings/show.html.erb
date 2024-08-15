@@ -188,19 +188,19 @@
           <% end %>
         <% end %>
       </div>
-      <% unless meeting.on_different_platform? %>
         <div class="card-component">
-          <div class="meetings-subs-count">
-            <div class="subs-count">
-              <%= meeting.subscribers_count %>
-            </div>
-            <div class="subs-legend">
-              inscritos
-            </div>
-          </div>
+          <% unless meeting.on_different_platform? %>
+              <div class="meetings-subs-count">
+                <div class="subs-count">
+                  <%= meeting.subscribers_count %>
+                </div>
+                <div class="subs-legend">
+                  inscritos
+                </div>
+              </div>
+          <% end %>
           <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
         </div>
-      <% end %>
       <div class="meetings-br-actions-buttons">
         <% if (current_user.try(:admin?) || @can_moderate) %>
           <button type="button" class="br-button" data-open="flagModal" title="Denunciar"
