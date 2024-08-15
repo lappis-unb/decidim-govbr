@@ -788,6 +788,7 @@ en:
           sign_up: Sign up
           subtitle: For people who are not naturalized as Brazilians, you need to have your passport on hand to register.
           subtitle_help: Sign up to participate in discussions and support proposals.
+          username_help: Public name that appears on your posts.
       passwords:
         new:
           forgot_your_password: Forgot your password
