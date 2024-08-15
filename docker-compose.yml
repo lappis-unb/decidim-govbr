@@ -64,4 +64,3 @@ networks:
     decidim-network:
         driver: bridge
         name: decidim-network
-        
