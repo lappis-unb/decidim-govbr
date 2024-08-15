@@ -37,10 +37,9 @@ $(() => {
   
         // Update cards content
         $processesOrderBy.html($newOrderBy);
-        $processesGridCards.html($newCards);
+        $processesGridCards.replaceWith($newCards);
         $processesGridCards.show();
         $loading.hide();
-  
         const currentFilterName = $target.text();
         $target
           .parents(".inline-filters")
