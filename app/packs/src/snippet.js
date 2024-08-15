@@ -1,6 +1,6 @@
 (() => {
   window.addEventListener("DOMContentLoaded", (e) => {
-    ImportScriptFile();
+    // ImportScriptFile();
     // CreateDOMObjects();
 
     // Evento para primeira letra maiuscula
@@ -38,48 +38,48 @@ const removeBPMenu = () => {
 };
 
 // --------------------------- vlibras ---------------------------
-var CreateDOMObjects = () => {
-  const DOM = `
-    <div vw class="enabled">
-    <div vw-access-button class="active"></div>
-    <div vw-plugin-wrapper>
-      <div class="vw-plugin-top-wrapper"></div>
-    </div>
-    </div>
-  `;
-  document.body.insertAdjacentHTML("beforeend", DOM);
+// var CreateDOMObjects = () => {
+//   const DOM = `
+//     <div vw class="enabled">
+//     <div vw-access-button class="active"></div>
+//     <div vw-plugin-wrapper>
+//       <div class="vw-plugin-top-wrapper"></div>
+//     </div>
+//     </div>
+//   `;
+//   document.body.insertAdjacentHTML("beforeend", DOM);
 
-  var elAcessButton = document.querySelector("div[vw-access-button]");
-  var elPLuginWrapper = document.querySelector("div[vw-plugin-wrapper]");
+//   var elAcessButton = document.querySelector("div[vw-access-button]");
+//   var elPLuginWrapper = document.querySelector("div[vw-plugin-wrapper]");
 
-  elAcessButton.addEventListener(
-    "click",
-    function () {
-      if (!elPLuginWrapper.classList.contains("active")) {
-        elPLuginWrapper.classList.add("active");
-        elAcessButton.classList.remove("active");
+//   elAcessButton.addEventListener(
+//     "click",
+//     function () {
+//       if (!elPLuginWrapper.classList.contains("active")) {
+//         elPLuginWrapper.classList.add("active");
+//         elAcessButton.classList.remove("active");
 
-        //close
-        var elSettingClose = document.querySelector(".vpw-settings-btn-close");
+//         //close
+//         var elSettingClose = document.querySelector(".vpw-settings-btn-close");
 
-        $("div[vw]").on("click", ".vpw-settings-btn-close", function (event) {
-          elPLuginWrapper.classList.remove("active");
-          elAcessButton.classList.add("active");
-        });
-      }
-    },
-    false
-  );
-};
+//         $("div[vw]").on("click", ".vpw-settings-btn-close", function (event) {
+//           elPLuginWrapper.classList.remove("active");
+//           elAcessButton.classList.add("active");
+//         });
+//       }
+//     },
+//     false
+//   );
+// };
 
-var ImportScriptFile = () => {
-  let script = document.createElement("script");
-  script.src = "https://vlibras.gov.br/app/vlibras-plugin.js";
-  script.onload = () => {
-    new window.VLibras.Widget("https://vlibras.gov.br/app");
-  };
-  document.body.appendChild(script);
-};
+// var ImportScriptFile = () => {
+//   let script = document.createElement("script");
+//   script.src = "https://vlibras.gov.br/app/vlibras-plugin.js";
+//   script.onload = () => {
+//     new window.VLibras.Widget("https://vlibras.gov.br/app");
+//   };
+//   document.body.appendChild(script);
+// };
 
 // --------------------------- capitalizar ---------------------------
 
