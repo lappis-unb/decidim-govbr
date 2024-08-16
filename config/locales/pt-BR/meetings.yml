@@ -246,6 +246,8 @@ pt-BR:
           see_all_withdrawn: Ver todos os eventos retiradas
           text_banner: Você está vendo a lista de eventos retiradas por seus autores. %{go_back_link}.
         form:
+          iframe_embed_type: "Forma de exibição do evento:"
+          iframe_access_level: "Permissão do público:"
           new:
             title: Sobre o evento
           placeholder:

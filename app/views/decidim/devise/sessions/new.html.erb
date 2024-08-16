@@ -7,12 +7,12 @@
     <% cache current_organization do %>
       <%= render "decidim/devise/shared/omniauth_buttons" %>
     <% end %>
+  </div>
+  <% I18n.with_locale(:en) do %>
     <div class="card__content large-9 medium-centered">
       <h1 class="mb-0 text-center"><%= t("devise.sessions.new.foreign_login.access") %></h1>
       <div class="mb-0 text-center foreign-subtitle mt-4"><%= t("devise.sessions.new.foreign_login.description") %></div>
     </div>
-  </div>
-  <% I18n.with_locale(:en) do %>
     <div class="card__content large-8 medium-centered">
       <%= decidim_form_for(resource, namespace: "session", as: resource_name, url: session_path(resource_name), html: { class: "register-form new_user" }) do |f| %>
         <div>

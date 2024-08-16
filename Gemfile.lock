@@ -25,7 +25,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/lappis-unb/decidimbr/decidim-extra_user_fields.git
-  revision: 1bd0c54e1fa18d2702d6e4c39870d192f124279a
+  revision: eb085a061b16db3bf81716d0b5d97d31b041c802
   branch: feat/allow-to-configure-permitted-components
   specs:
     decidim-extra_user_fields (0.27.2)
