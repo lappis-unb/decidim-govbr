@@ -139,8 +139,8 @@
   .download-button {
     display: flex;
     justify-content: center;
+    width: 368px;
     align-items: center;
-    min-width: 368px;
     padding: 1.5rem 0.5rem;
     gap: 8px;
 
@@ -158,6 +158,8 @@
 .attachment-file {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  min-height: 80px;
   padding: 1rem;
   background-color: var(--blue-3);
   gap: 0.5rem;
@@ -175,6 +177,7 @@
     font-size: 1rem;
     font-weight: var(--font-weight-regular);
     text-align: left;
+    margin: 0;
   }
   span {
     color: var(--blue-warm-vivid-70, #1351b4);
@@ -193,6 +196,6 @@
     align-items: center;
   }
   .download-button {
-    min-width: 328px;
+    width: 328px;
   }
 }
