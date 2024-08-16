@@ -47,9 +47,7 @@ module Decidim
         @home = Decidim::Homes::Home.find_by(component: initial_page_component)
         @supporters = current_participatory_space.try(:supporters) || []
         @organizers = current_participatory_space.try(:organizers) || []
-        @latest_posts = Rails.cache.fetch("decidim_homes_home_#{@home.id}_blogs_#{@home.news_id}_latest_3_posts", expires_in: 2.minutes) do
-          @home.news_section_enabled? ? Decidim::Blogs::Post.where(component: @home.news_id).order(created_at: :desc).limit(3) : []
-        end
+        @elements = Decidim::Homes::HomeElements.where(decidim_homes_home_id: @home.id)
       end
 
       def set_pages_component_context
