@@ -6,8 +6,8 @@ module Decidim
     class SurveysController < Decidim::Surveys::ApplicationController
       include Decidim::Forms::Concerns::HasQuestionnaire
       include Decidim::ComponentPathHelper
-      include Decidim::Surveys::SurveyHelper
       include Decidim::Govbr::ParticipatoryProcessesHelper
+      helper_method :record_what_happened_survey?
 
       delegate :allow_unregistered?, to: :current_settings
 
@@ -88,7 +88,7 @@ module Decidim
         record_what_happened_survey = current_participatory_space.record_what_happened_survey.presence.to_s.chomp("/")
         origin_meeting_id = params[:questionnaire][:responses].values.last.presence[:body].to_i
 
-        return unless is_record_what_happened_survey?(record_what_happened_survey) && origin_meeting_id.present?
+        return unless record_what_happened_survey?(record_what_happened_survey) && origin_meeting_id.present?
 
         questionnaire = survey.questionnaire
 
@@ -103,6 +103,10 @@ module Decidim
         answers.each do |answer|
           answer.update!(decidim_meetings_meeting_id: origin_meeting_id)
         end
+      end
+
+      def record_what_happened_survey?(survey)
+        survey.present? && request.original_url.include?(survey)
       end
     end
   end
