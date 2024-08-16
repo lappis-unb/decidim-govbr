@@ -4,7 +4,7 @@
     <p><%= t("decidim.attachment_description") %></p>
   </div>
 
-  <% if current_user.try(:admin?) %>
+  <% if current_user %>
     <% send_url = "/participatory_processes/" + current_participatory_space.slug + "/attachments" %>
     <a class="title-action br-magic-button medium" href="<%= send_url %>">
       <span class="title-action__action br-button" data-asw-orgfontsize="20" style="font-size: 20px;">

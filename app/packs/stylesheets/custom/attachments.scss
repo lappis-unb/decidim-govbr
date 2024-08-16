@@ -139,8 +139,8 @@
   .download-button {
     display: flex;
     justify-content: center;
+    width: 368px;
     align-items: center;
-    min-width: fit-content;
     padding: 1.5rem 0.5rem;
     gap: 8px;
 
@@ -196,6 +196,6 @@
     align-items: center;
   }
   .download-button {
-    min-width: 328px;
+    width: 328px;
   }
 }
