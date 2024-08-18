@@ -463,7 +463,7 @@ pt-BR:
       signed_in: Sessão iniciada com sucesso.
       signed_out: Sessão terminada com sucesso.
       new:
-        sign_in: Conecte-se
+        sign_in: Acesse o Brasil Participativo com a sua conta no gov.br
         foreign_login:
           access: Access for foreigners
           description: For people who are not naturalized as Brazilians, you need to have your passport on hand to register. If you already have a registration, just click login

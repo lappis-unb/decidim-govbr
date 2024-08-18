@@ -88,3 +88,90 @@
   font-weight: 400;
   color: var(--blue-warm-vivid-70);
 }
+
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 752px;
+  margin: 32px auto;
+}
+
+.govbr-login-container {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 42px;
+  justify-content: center;
+
+  h1 {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.foreign-login-container {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 32px;
+  justify-content: center;
+
+  h2 {
+    margin: 0;
+    padding: 0;
+    color: var(--blue-warm-vivid-80);
+    text-align: center;
+    font-variant-numeric: lining-nums proportional-nums;
+    font-size: 24.19px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 24px;
+  }
+  p {
+    margin: 0;
+    padding: 0;
+    color: var(--gray-90);
+    text-align: center;
+    font-size: 16.8px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+
+#login-form-container {
+  text-align: left;
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
