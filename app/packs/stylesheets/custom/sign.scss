@@ -89,12 +89,22 @@
   color: var(--blue-warm-vivid-70);
 }
 
-
 .login-container {
   display: flex;
   flex-direction: column;
   max-width: 752px;
   margin: 32px auto;
+  text-align: center;
+  gap: 24px;
+
+  h1 {
+    margin: 0;
+    padding: 0;
+  }
+  p {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .govbr-login-container {
@@ -148,30 +158,19 @@
   display: none;
 }
 
+.sign_up-card {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
 
+#card__tos {
+    margin-bottom: -50px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.user-nickname .help-text {
+  margin-top: 0;
+}
