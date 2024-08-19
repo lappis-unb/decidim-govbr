@@ -1,8 +1,5 @@
 (() => {
   window.addEventListener("DOMContentLoaded", (e) => {
-    // ImportScriptFile();
-    // CreateDOMObjects();
-
     // Evento para primeira letra maiuscula
     capitalizarOnBlur("proposal_title");
     capitalizarOnBlur("proposal_body");
@@ -10,7 +7,6 @@
     definirUrlLogOut();
 
     showCreateProfileLink();
-    removeSecondProductionLogin();
 
     removeBPMenu();
 
@@ -36,50 +32,6 @@ const removeBPMenu = () => {
     }
   }
 };
-
-// --------------------------- vlibras ---------------------------
-// var CreateDOMObjects = () => {
-//   const DOM = `
-//     <div vw class="enabled">
-//     <div vw-access-button class="active"></div>
-//     <div vw-plugin-wrapper>
-//       <div class="vw-plugin-top-wrapper"></div>
-//     </div>
-//     </div>
-//   `;
-//   document.body.insertAdjacentHTML("beforeend", DOM);
-
-//   var elAcessButton = document.querySelector("div[vw-access-button]");
-//   var elPLuginWrapper = document.querySelector("div[vw-plugin-wrapper]");
-
-//   elAcessButton.addEventListener(
-//     "click",
-//     function () {
-//       if (!elPLuginWrapper.classList.contains("active")) {
-//         elPLuginWrapper.classList.add("active");
-//         elAcessButton.classList.remove("active");
-
-//         //close
-//         var elSettingClose = document.querySelector(".vpw-settings-btn-close");
-
-//         $("div[vw]").on("click", ".vpw-settings-btn-close", function (event) {
-//           elPLuginWrapper.classList.remove("active");
-//           elAcessButton.classList.add("active");
-//         });
-//       }
-//     },
-//     false
-//   );
-// };
-
-// var ImportScriptFile = () => {
-//   let script = document.createElement("script");
-//   script.src = "https://vlibras.gov.br/app/vlibras-plugin.js";
-//   script.onload = () => {
-//     new window.VLibras.Widget("https://vlibras.gov.br/app");
-//   };
-//   document.body.appendChild(script);
-// };
 
 // --------------------------- capitalizar ---------------------------
 
@@ -130,34 +82,11 @@ function definirUrlLogOut() {
 
 function showCreateProfileLink() {
   const loginButton = document.querySelector(
-    ".sign-in-button .br-sign-in span"
+    ".br-sign-in.small"
   );
   if (!loginButton) {
     const link = document.getElementById("create-profile-container");
     if (link) link.remove();
-  }
-}
-
-// --------------------------- remove second login ---------------------------
-
-function removeSecondProductionLogin() {
-  if (
-    window.location.href ===
-    "https://brasilparticipativo.presidencia.gov.br/users/sign_in"
-  ) {
-    const cardContent = document.querySelector(".card__content");
-    const registerSeparator = document.querySelector(".register__separator");
-    const loginText = document.querySelector(
-      ".columns.large-8.large-centered.text-center.page-title p"
-    );
-    const shadowRow = document.querySelector(
-      ".columns.large-6.medium-centered"
-    );
-
-    if (shadowRow) shadowRow.remove();
-    if (cardContent) cardContent.remove();
-    if (loginText) loginText.remove();
-    if (registerSeparator) registerSeparator.remove();
   }
 }
 
