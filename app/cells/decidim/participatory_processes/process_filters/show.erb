@@ -1,7 +1,9 @@
 <section id="processes-list-header" class="row section">
   <div class="processes-list-header">
     <div class="processes-list-header-title-container">
-      <h1 class="processes-list-header-title"><%= t("participatory_processes.index.title", scope: "layouts.decidim") %></h1>
+      <h1 class="processes-list-header-title">
+        <%= current_type_filter_name != default_filter_name ? current_type_filter_name :
+        t("participatory_processes.index.default_title", scope: "layouts.decidim") %></h1>
     </div>
     <div id="help-text" class="processes-list-header-help-text" style="display: none; cursor: pointer;">
       <i class="fa fa-info-circle" aria-hidden="true"></i>
