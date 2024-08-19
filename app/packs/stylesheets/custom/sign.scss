@@ -96,13 +96,19 @@
   margin: 32px auto;
   text-align: center;
   gap: 24px;
+  padding: 0 20px;
 
   h1 {
     margin: 0;
     padding: 0;
+    font-size: 34.84px;
   }
   p {
     margin: 0;
+    padding: 0;
+  }
+
+  @media (min-width: 768px) {
     padding: 0;
   }
 }
