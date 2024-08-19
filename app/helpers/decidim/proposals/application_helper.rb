@@ -5,6 +5,8 @@ module Decidim
     # Custom helpers, scoped to the proposals engine.
     #
     module ApplicationHelper
+      DECIDIM_PROPOSALS_FILTERS_LABEL_SCOPE = "decidim.proposals.proposals.filters".freeze
+
       include Decidim::Comments::CommentsHelper
       include PaginateHelper
       include ProposalVotesHelper
@@ -223,18 +225,18 @@ module Decidim
         @filter_sections ||= begin
           items = []
           if component_settings.proposal_answering_enabled && current_settings.proposal_answering_enabled
-            items.append(method: :with_any_state, collection: filter_proposals_state_values, label_scope: "decidim.proposals.proposals.filters", id: "state")
+            items.append(method: :with_any_state, collection: filter_proposals_state_values, label_scope: DECIDIM_PROPOSALS_FILTERS_LABEL_SCOPE, id: "state")
           end
-          items.append(method: :with_any_scope, collection: filter_scopes_values, label_scope: "decidim.proposals.proposals.filters", id: "scope") if current_component.has_subscopes?
-          items.append(method: :with_any_category, collection: filter_categories_values, label_scope: "decidim.proposals.proposals.filters", id: "category") if current_component.categories.any?
-          items.append(method: :with_any_origin, collection: filter_origin_values, label_scope: "decidim.proposals.proposals.filters", id: "origin") if component_settings.official_proposals_enabled
-          items.append(method: :activity, collection: activity_filter_values, label_scope: "decidim.proposals.proposals.filters", id: "activity", type: :radio_buttons) if current_user
-          items.append(method: :type, collection: filter_type_values, label_scope: "decidim.proposals.proposals.filters", id: "amendment_type", type: :radio_buttons) if @proposals.only_emendations.any?
+          items.append(method: :with_any_scope, collection: filter_scopes_values, label_scope: DECIDIM_PROPOSALS_FILTERS_LABEL_SCOPE, id: "scope") if current_component.has_subscopes?
+          items.append(method: :with_any_category, collection: filter_categories_values, label_scope: DECIDIM_PROPOSALS_FILTERS_LABEL_SCOPE, id: "category") if current_component.categories.any?
+          items.append(method: :with_any_origin, collection: filter_origin_values, label_scope: DECIDIM_PROPOSALS_FILTERS_LABEL_SCOPE, id: "origin") if component_settings.official_proposals_enabled
+          items.append(method: :activity, collection: activity_filter_values, label_scope: DECIDIM_PROPOSALS_FILTERS_LABEL_SCOPE, id: "activity", type: :radio_buttons) if current_user
+          items.append(method: :type, collection: filter_type_values, label_scope: DECIDIM_PROPOSALS_FILTERS_LABEL_SCOPE, id: "amendment_type", type: :radio_buttons) if @proposals.only_emendations.any?
           if linked_classes_for(Decidim::Proposals::Proposal).any?
             items.append(
               method: :related_to,
               collection: linked_classes_filter_values_for(Decidim::Proposals::Proposal),
-              label_scope: "decidim.proposals.proposals.filters",
+              label_scope: DECIDIM_PROPOSALS_FILTERS_LABEL_SCOPE,
               id: "related_to",
               type: :radio_buttons
             )
