@@ -19,12 +19,12 @@ module Decidim
 
           CopyParticipatoryProcess.call(@form, current_participatory_process, current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t("participatory_processes_copies.create.success", scope: SCOPE)
+              flash[:notice] = I18n.t("participatory_processes_copies.create.success", scope: DECIDIM_ADMIN_SCOPE)
               redirect_to participatory_processes_path
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("participatory_processes_copies.create.error", scope: SCOPE)
+              flash.now[:alert] = I18n.t("participatory_processes_copies.create.error", scope: DECIDIM_ADMIN_SCOPE)
               render :new
             end
           end
