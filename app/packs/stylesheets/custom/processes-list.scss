@@ -15,3 +15,22 @@
     font-weight: 600;
     line-height: normal;
 }
+
+.br-processes-list .card-grid .column,
+.br-processes-list .card-grid .columns {
+  height: fit-content;
+}
+@media (min-width: 768px) {
+  .br-processes-list .card-grid .column,
+  .br-processes-list .card-grid .columns {
+    height: 100%;
+  }
+}
+
+.br-processes-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 3rem 0;
+}

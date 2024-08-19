@@ -287,7 +287,8 @@ pt-BR:
         edit_component: Editar componente
       participatory_processes:
         index:
-          title: Processos participativos
+          default_title: Processos participativos
+          title: "%{title_name}"
           help_text: O que é %{current_type_filter_name}?
 
 pt:
