@@ -6,6 +6,7 @@
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
+    position: relative;
 }
 
 .processes-list-header-title {
@@ -33,4 +34,44 @@
     flex-direction: column;
     gap: 1.5rem;
     margin: 3rem 0;
+}
+
+.custom-tooltip {
+  display: none;
+  position: absolute;
+  background-color: #eaf4fe; /* Cor de fundo do tooltip */
+  color: #0c326f; /* Cor do texto */
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 300px; /* Largura do tooltip */
+  top: calc(100% + 10px); /* Posição do tooltip em relação ao botão */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.custom-tooltip.visible {
+  display: block;
+}
+
+.custom-tooltip-content {
+  font-size: 0.875rem; /* Tamanho da fonte do tooltip */
+  line-height: 1.4;
+}
+
+.custom-tooltip-arrow {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #eaf4fe; /* Cor da seta */
+  position: absolute;
+  top: -10px; /* Ajuste para posicionar a seta acima do tooltip */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hidden {
+  display: none;
 }
