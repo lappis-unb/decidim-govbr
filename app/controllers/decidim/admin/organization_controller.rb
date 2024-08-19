@@ -19,12 +19,12 @@ module Decidim
 
         UpdateOrganization.call(current_organization, @form) do
           on(:ok) do
-            flash[:notice] = I18n.t("organization.update.success", scope: "decidim.admin")
+            flash[:notice] = I18n.t("organization.update.success", scope: SCOPE)
             redirect_to edit_organization_path
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("organization.update.error", scope: "decidim.admin")
+            flash.now[:alert] = I18n.t("organization.update.error", scope: SCOPE)
             render :edit
           end
         end

@@ -72,6 +72,8 @@ module Decidim
             proposals.order(published_at: :desc)
           when "with_more_authors"
             proposals.order(coauthorships_count: :desc)
+          else
+            proposals
           end
         end
       end
