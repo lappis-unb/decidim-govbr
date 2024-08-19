@@ -49,6 +49,30 @@
   <p class="help-text"><%= t(".online_meeting_url_help") %></p>
 </div>
 <iframe class="meeting_iframe" src="" id="meeting_url_iframe" style="display: none;"></iframe>
+<div class="field select-field-br" id="iframe_embed_type_select">
+  <label for="iframe_embed_type_select"><%= t(".iframe_embed_type") %></label>
+  <% @form.iframe_embed_type_select.each do |label, value| %>
+    <div class="radio">
+      <label class="metting-registration-type">
+        <%= form.radio_button :iframe_embed_type, value ,class:"meeting_registration_type" %>
+        <%= label %>
+      </label>
+    </div>
+  <% end %>
+</div>
+
+<div class="field select-field-br" id="iframe_access_level_select">
+  <label for="iframe_access_level_select"><%= t(".iframe_access_level") %></label>
+  <% @form.iframe_access_level_select.each do |label, value| %>
+    <div class="radio">
+      <label class="metting-registration-type">
+        <%= form.radio_button :iframe_access_level, value ,class:"meeting_registration_type" %>
+        <%= label %>
+      </label>
+    </div>
+  <% end %>
+</div>
+
 <div id="presential-meeting" style="display: none;">
   <span class="br-divider"></span>
   <h2 class="new-meeting-title">Local do evento</h2>
@@ -260,4 +284,30 @@
     cityInput.addEventListener('change', () => updateAddress(cidadesResponde));
     stateInput.addEventListener('change', setCitys);
   });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const iframeElement = document.getElementById('meeting_url_iframe');
+  const iframeEmbedTypeSelect = document.getElementById('iframe_embed_type_select');
+  const iframeAccessLevelSelect = document.getElementById('iframe_access_level_select');
+
+  function toggleSelectFields() {
+    if (iframeElement.style.display !== 'none') {
+      iframeEmbedTypeSelect.style.display = 'block';
+      iframeAccessLevelSelect.style.display = 'block';
+    } else {
+      iframeEmbedTypeSelect.style.display = 'none';
+      iframeAccessLevelSelect.style.display = 'none';
+    }
+  }
+
+  iframeEmbedTypeSelect.style.display = 'none';
+  iframeAccessLevelSelect.style.display = 'none';
+
+  const observer = new MutationObserver(toggleSelectFields);
+  observer.observe(iframeElement, { attributes: true, attributeFilter: ['style'] });
+
+  toggleSelectFields();
+});
+
 </script>

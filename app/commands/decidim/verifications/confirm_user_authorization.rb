@@ -52,7 +52,9 @@ module Decidim
       def valid!
         authorization.grant!
         reset_failed_attempts!
-        send_user_approved_confirmation_notification
+
+        authorization.user.send_confirmation_instructions
+
         broadcast(:ok)
       end
 
@@ -84,10 +86,6 @@ module Decidim
 
       def throttle!
         sleep rand * failed_attempts
-      end
-
-      def send_user_approved_confirmation_notification
-        Decidim::Govbr::RegistrationVerificationMailer.confirmation_approved(authorization.user).deliver_later
       end
 
       attr_reader :authorization, :form, :session

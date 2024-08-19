@@ -4,7 +4,7 @@ en:
       confirmation_instructions:
         action: Account confirmation
         greeting: Hi %{recipient},
-        instruction: 'To get started, please confirm your email address by clicking the link below:'
+        instruction: 'Your account was reviewed and your registration is approved. You can now access the platform and participate. Confirm your account by clicking the link below:'
         subject: Confirmation instructions
         acknowledgment: Thanks for joining us!
         farewell: Best Regards, The Brasil Participativo Team
@@ -20,5 +20,10 @@ en:
       already_signed_out: Successfully signed out.
       new:
         sign_in: Sign in
+        foreign_login:
+          access: Access for foreigners
+          description: For people who are not naturalized as Brazilians, you need to have your passport on hand to register. If you already have a registration, just click login
+          login: "Foreigners login"
+          sign_up: "Foreigners register"
       signed_in: Successfully signed in.
       signed_out: Successfully signed out.

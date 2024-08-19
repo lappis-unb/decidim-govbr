@@ -10,6 +10,7 @@ pt-BR:
         filter_only_applies_Agenda_meetings: Este filtro refere-se, apenas para as reuniões da Agenda
       close_meeting:
         proposals: Propostas criadas no evento
+        closing_report: Relatório
       meeting:
         title: "Título do evento:"
         available_slots: Vagas disponíveis para este evento
@@ -58,6 +59,9 @@ pt-BR:
               official: Oficial
               participants: Participante
               user_group: Grupos de usuários
+    forms:
+      meetings:
+        closing_report: Descreva o que ocorreu
     components:
       meetings:
         actions:
@@ -242,6 +246,8 @@ pt-BR:
           see_all_withdrawn: Ver todos os eventos retiradas
           text_banner: Você está vendo a lista de eventos retiradas por seus autores. %{go_back_link}.
         form:
+          iframe_embed_type: "Forma de exibição do evento:"
+          iframe_access_level: "Permissão do público:"
           new:
             title: Sobre o evento
           placeholder:
