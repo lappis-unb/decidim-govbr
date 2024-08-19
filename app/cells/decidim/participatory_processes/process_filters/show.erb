@@ -31,25 +31,3 @@
     </div>
   </div>
 <% end %>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const helpText = document.getElementById("help-text");
-    const announcementText = document.getElementById("announcement-text");
-    const allTypesText = <%== t('decidim.participatory_processes.participatory_processes.filters.all_types').to_json %>;
-    const currentFilter = <%== current_type_filter_name.to_json %>;
-
-    if (allTypesText !== currentFilter) {
-      helpText.style.display = "block";
-    }
-
-    helpText.addEventListener("click", function() {
-      if (announcementText.style.display === "none") {
-        announcementText.style.display = "block";
-      } else {
-        announcementText.style.display = "none";
-      }
-    });
-  });
-</script>
-
