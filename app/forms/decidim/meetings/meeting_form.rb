@@ -6,6 +6,8 @@ module Decidim
     class MeetingForm < ::Decidim::Meetings::BaseMeetingForm
       include Decidim::AttachmentAttributes
 
+      DECIDIM_MEETINGS_SCOPE = "decidim.meetings".freeze
+
       attribute :title, String
       attribute :description, String
       attribute :location, String
@@ -89,7 +91,7 @@ module Decidim
       def type_of_meeting_select
         Decidim::Meetings::Meeting::TYPE_OF_MEETING.map do |type|
           [
-            I18n.t("type_of_meeting.#{type}", scope: "decidim.meetings"),
+            I18n.t("type_of_meeting.#{type}", scope: DECIDIM_MEETINGS_SCOPE),
             type
           ]
         end
@@ -98,7 +100,7 @@ module Decidim
       def iframe_access_level_select
         Decidim::Meetings::Meeting.iframe_access_levels.map do |level, _value|
           [
-            I18n.t("iframe_access_level.#{level}", scope: "decidim.meetings"),
+            I18n.t("iframe_access_level.#{level}", scope: DECIDIM_MEETINGS_SCOPE),
             level
           ]
         end
@@ -107,7 +109,7 @@ module Decidim
       def iframe_embed_type_select
         Decidim::Meetings::Meeting.participants_iframe_embed_types.map do |type, _value|
           [
-            I18n.t("iframe_embed_type.#{type}", scope: "decidim.meetings"),
+            I18n.t("iframe_embed_type.#{type}", scope: DECIDIM_MEETINGS_SCOPE),
             type
           ]
         end
@@ -124,7 +126,7 @@ module Decidim
       def registration_type_select
         Decidim::Meetings::Meeting::REGISTRATION_TYPE.map do |type|
           [
-            I18n.t("registration_type.#{type}", scope: "decidim.meetings"),
+            I18n.t("registration_type.#{type}", scope: DECIDIM_MEETINGS_SCOPE),
             type
           ]
         end
