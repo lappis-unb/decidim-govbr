@@ -60,7 +60,6 @@
         <%= f.submit t(".sign_up"), class: "br-button block primary" %>
         <%= yield :devise_links %>
       </div>
-      <%# render "decidim/devise/shared/newsletter_modal" %>
       <% content_for :devise_links do %>
         <%= render "decidim/devise/shared/links" %>
       <% end %>
