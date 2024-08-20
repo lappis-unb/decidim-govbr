@@ -14,6 +14,7 @@ module Decidim
 
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
     AVAILABLE_MACHINE_TRANSLATION_DISPLAY_PRIORITIES = %w(original translation).freeze
+    DECIDIM_USER_MODEL = "Decidim::User".freeze
 
     translatable_fields :description, :cta_button_text, :omnipresent_banner_title, :omnipresent_banner_short_description,
                         :highlighted_content_banner_title, :highlighted_content_banner_short_description, :highlighted_content_banner_action_title,
@@ -26,9 +27,9 @@ module Decidim
     has_many :scope_types, -> { order(name: :asc) }, foreign_key: "decidim_organization_id", class_name: "Decidim::ScopeType", inverse_of: :organization, dependent: :destroy
     has_many :areas, -> { order(name: :asc) }, foreign_key: "decidim_organization_id", class_name: "Decidim::Area", inverse_of: :organization, dependent: :destroy
     has_many :area_types, -> { order(name: :asc) }, foreign_key: "decidim_organization_id", class_name: "Decidim::AreaType", inverse_of: :organization, dependent: :destroy
-    has_many :admins, -> { where(admin: true) }, foreign_key: "decidim_organization_id", class_name: "Decidim::User", dependent: :destroy
-    has_many :users_with_any_role, -> { where.not(roles: []) }, foreign_key: "decidim_organization_id", class_name: "Decidim::User", dependent: :destroy
-    has_many :users, foreign_key: "decidim_organization_id", class_name: "Decidim::User", dependent: :destroy
+    has_many :admins, -> { where(admin: true) }, foreign_key: "decidim_organization_id", class_name: DECIDIM_USER_MODEL, dependent: :destroy
+    has_many :users_with_any_role, -> { where.not(roles: []) }, foreign_key: "decidim_organization_id", class_name: DECIDIM_USER_MODEL, dependent: :destroy
+    has_many :users, foreign_key: "decidim_organization_id", class_name: DECIDIM_USER_MODEL, dependent: :destroy
     has_many :user_entities, foreign_key: "decidim_organization_id", class_name: "Decidim::UserBaseEntity", dependent: :destroy
     has_many :oauth_applications, foreign_key: "decidim_organization_id", class_name: "Decidim::OAuthApplication", inverse_of: :organization, dependent: :destroy
     has_many :hashtags, foreign_key: "decidim_organization_id", class_name: "Decidim::Hashtag", dependent: :destroy

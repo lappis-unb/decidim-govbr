@@ -31,12 +31,12 @@ module Decidim
 
         CreateMeeting.call(@form) do
           on(:ok) do |meeting|
-            flash[:notice] = I18n.t("meetings.create.success", scope: "decidim.meetings")
+            flash[:notice] = I18n.t("meetings.create.success", scope: DECIDIM_MEETINGS_SCOPE)
             redirect_to meeting_path(meeting)
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("meetings.create.invalid", scope: "decidim.meetings")
+            flash.now[:alert] = I18n.t("meetings.create.invalid", scope: DECIDIM_MEETINGS_SCOPE)
             render action: "new"
           end
         end
@@ -61,7 +61,7 @@ module Decidim
 
         return if meeting.current_user_can_visit_meeting?(current_user)
 
-        flash[:alert] = I18n.t("meeting.not_allowed", scope: "decidim.meetings")
+        flash[:alert] = I18n.t("meeting.not_allowed", scope: DECIDIM_MEETINGS_SCOPE)
         redirect_to(ResourceLocatorPresenter.new(meeting).index)
       end
 
@@ -78,12 +78,12 @@ module Decidim
 
         UpdateMeeting.call(@form, current_user, meeting) do
           on(:ok) do |meeting|
-            flash[:notice] = I18n.t("meetings.update.success", scope: "decidim.meetings")
+            flash[:notice] = I18n.t("meetings.update.success", scope: DECIDIM_MEETINGS_SCOPE)
             redirect_to Decidim::ResourceLocatorPresenter.new(meeting).path
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("meetings.update.invalid", scope: "decidim.meetings")
+            flash.now[:alert] = I18n.t("meetings.update.invalid", scope: DECIDIM_MEETINGS_SCOPE)
             render :edit
           end
         end

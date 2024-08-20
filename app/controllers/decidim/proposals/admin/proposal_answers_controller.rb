@@ -24,12 +24,12 @@ module Decidim
 
           Admin::AnswerProposal.call(@answer_form, proposal) do
             on(:ok) do
-              flash[:notice] = I18n.t("proposals.answer.success", scope: "decidim.proposals.admin")
+              flash[:notice] = I18n.t("proposals.answer.success", scope: DECIDIM_PROPOSALS_SCOPE)
               redirect_to proposals_path
             end
 
             on(:invalid) do
-              flash.keep[:alert] = I18n.t("proposals.answer.invalid", scope: "decidim.proposals.admin")
+              flash.keep[:alert] = I18n.t("proposals.answer.invalid", scope: DECIDIM_PROPOSALS_SCOPE)
               render template: "decidim/proposals/admin/proposals/show"
             end
           end

@@ -26,17 +26,17 @@ module Decidim
 
           Admin::ImportParticipatoryText.call(@import) do
             on(:ok) do
-              flash[:notice] = I18n.t("participatory_texts.import.success", scope: "decidim.proposals.admin")
+              flash[:notice] = I18n.t("participatory_texts.import.success", scope: DECIDIM_PROPOSALS_SCOPE)
               redirect_to EngineRouter.admin_proxy(current_component).participatory_texts_path
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("participatory_texts.import.invalid", scope: "decidim.proposals.admin")
+              flash.now[:alert] = I18n.t("participatory_texts.import.invalid", scope: DECIDIM_PROPOSALS_SCOPE)
               render action: "new_import"
             end
 
             on(:invalid_file) do
-              flash.now[:alert] = I18n.t("participatory_texts.import.invalid_file", scope: "decidim.proposals.admin")
+              flash.now[:alert] = I18n.t("participatory_texts.import.invalid_file", scope: DECIDIM_PROPOSALS_SCOPE)
               render action: "new_import"
             end
           end
@@ -53,12 +53,12 @@ module Decidim
           if params.has_key?("save_draft")
             UpdateParticipatoryText.call(@preview_form) do
               on(:ok) do
-                flash[:notice] = I18n.t("participatory_texts.update.success", scope: "decidim.proposals.admin")
+                flash[:notice] = I18n.t("participatory_texts.update.success", scope: DECIDIM_PROPOSALS_SCOPE)
                 redirect_to EngineRouter.admin_proxy(current_component).participatory_texts_path
               end
 
               on(:invalid) do |failures|
-                alert_msg = [I18n.t("participatory_texts.publish.invalid", scope: "decidim.proposals.admin")]
+                alert_msg = [I18n.t("participatory_texts.publish.invalid", scope: DECIDIM_PROPOSALS_SCOPE)]
                 failures.each_pair { |id, msg| alert_msg << "ID:[#{id}] #{msg}" }
                 flash.now[:alert] = alert_msg.join("<br/>").html_safe
                 index
@@ -68,12 +68,12 @@ module Decidim
           else
             PublishParticipatoryText.call(@preview_form) do
               on(:ok) do
-                flash[:notice] = I18n.t("participatory_texts.publish.success", scope: "decidim.proposals.admin")
+                flash[:notice] = I18n.t("participatory_texts.publish.success", scope: DECIDIM_PROPOSALS_SCOPE)
                 redirect_to proposals_path
               end
 
               on(:invalid) do |failures|
-                alert_msg = [I18n.t("participatory_texts.publish.invalid", scope: "decidim.proposals.admin")]
+                alert_msg = [I18n.t("participatory_texts.publish.invalid", scope: DECIDIM_PROPOSALS_SCOPE)]
                 failures.each_pair { |id, msg| alert_msg << "ID:[#{id}] #{msg}" }
                 flash.now[:alert] = alert_msg.join("<br/>").html_safe
                 index
@@ -89,7 +89,7 @@ module Decidim
 
           DiscardParticipatoryText.call(current_component) do
             on(:ok) do
-              flash[:notice] = I18n.t("participatory_texts.discard.success", scope: "decidim.proposals.admin")
+              flash[:notice] = I18n.t("participatory_texts.discard.success", scope: DECIDIM_PROPOSALS_SCOPE)
               redirect_to EngineRouter.admin_proxy(current_component).participatory_texts_path
             end
           end

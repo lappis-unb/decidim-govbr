@@ -26,12 +26,12 @@ module Decidim
 
           Decidim::Govbr::Admin::CreatePartner.call(@form, current_user, current_assembly) do
             on(:ok) do
-              flash[:notice] = I18n.t("partners.create.success", scope: SCOPE)
+              flash[:notice] = I18n.t("partners.create.success", scope: DECIDIM_ADMIN_SCOPE)
               redirect_to assembly_partners_path(current_assembly)
             end
 
             on(:invalid) do
-              flash[:alert] = I18n.t("partners.create.error", scope: SCOPE)
+              flash[:alert] = I18n.t("partners.create.error", scope: DECIDIM_ADMIN_SCOPE)
               render :new
             end
           end
@@ -50,12 +50,12 @@ module Decidim
 
           Decidim::Govbr::Admin::UpdatePartner.call(@form, @partner) do
             on(:ok) do
-              flash[:notice] = I18n.t("partners.update.success", scope: SCOPE)
+              flash[:notice] = I18n.t("partners.update.success", scope: DECIDIM_ADMIN_SCOPE)
               redirect_to assembly_partners_path(current_assembly)
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("partners.update.error", scope: SCOPE)
+              flash.now[:alert] = I18n.t("partners.update.error", scope: DECIDIM_ADMIN_SCOPE)
               render :edit
             end
           end
@@ -67,7 +67,7 @@ module Decidim
 
           Decidim::Govbr::Admin::DestroyPartner.call(@partner, current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t("partners.destroy.success", scope: SCOPE)
+              flash[:notice] = I18n.t("partners.destroy.success", scope: DECIDIM_ADMIN_SCOPE)
               redirect_to assembly_partners_path(current_assembly)
             end
           end
