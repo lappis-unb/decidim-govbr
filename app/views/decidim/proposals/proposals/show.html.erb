@@ -22,6 +22,7 @@ extra_admin_link(
 %>
 <%= emendation_announcement_for @proposal %>
 <% @can_moderate = current_participatory_space.moderators.include?(current_user) %>
+<%= render partial: "br_breadcrumbs" %>
 <div class="br-container-lg">
   <% if flash.try(:[], :alert) %>
     <div class="br-message warning new-proposal-error">
@@ -37,7 +38,7 @@ extra_admin_link(
         </button>
       </div>
     </div>
-  <% elsif flash.try(:[], :notice) %>
+    <% elsif flash.try(:[], :notice) %>
     <div class="br-message success">
       <div class="icon">
         <i class="fas fa-check-circle fa-lg" aria-hidden="true"></i>

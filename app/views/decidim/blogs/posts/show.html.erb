@@ -1,24 +1,25 @@
 <% provide(:title, translated_attribute(post.title)) %>
 
 <% add_decidim_meta_tags({
-  title: translated_attribute(post.title),
-  description: translated_attribute(post.body),
-  url: post_url(post.id)
+    title: translated_attribute(post.title),
+    description: translated_attribute(post.body),
+    url: post_url(post.id)
 }) %>
 
 <%
-  edit_link(
+edit_link(
     resource_locator(post).edit,
     :update,
     :blogpost,
     blogpost: post
-  )
-%>
-
-<div class="br-container-lg">
+    )
+    %>
+    
+    <%= render partial: "br_breadcrumbs" %> 
+    <div class="br-container-lg">
         <div class="m-bottom">
             <%= link_to :posts, class: "small hollow" do %>
-        <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+            <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
             <%= t(".back") %>
             <% end %>
         </div>
@@ -33,7 +34,6 @@
           </div>
 
     <h2 class="blog-subtitle"><%= translated_attribute post.subtitle %></h2>
-
     <% post_presenter = Decidim::Blogs::PostPresenter.new(post) %>
     <%
 =begin%>

@@ -1,0 +1,23 @@
+<nav class="br-breadcrumb br-container-lg mb-4" aria-label="Breadcrumbs">
+  <ol class="crumb-list" role="list">
+    <li class="crumb home">
+      <%= link_to "/processes/#{current_participatory_space.slug}", class: "br-button circle" do %>
+       <span class="sr-only">Página inicial</span><i class="fas fa-home"></i>
+      <% end %>
+    </li>
+    <li class="crumb">
+      <i class="icon fas fa-chevron-right"></i>
+    </li>  
+    <li class="crumb">
+      <%= link_to"/processes/#{current_participatory_space.slug}/f/#{current_component.id}" do %>
+        <%= translated_attribute(current_component.name) %>
+      <% end %>
+    </li>
+    <li class="crumb">
+      <i class="icon fas fa-chevron-right"></i>
+    </li> 
+    <li class="crumb">
+      <span><%= translated_attribute(current_component_object[0].title) %></span> 
+    </li> 
+  </ol>
+</nav>
