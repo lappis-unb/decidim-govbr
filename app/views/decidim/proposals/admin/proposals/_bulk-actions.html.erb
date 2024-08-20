@@ -3,6 +3,7 @@
   
     <div id="js-other-actions-wrapper">
       <% if component_settings.participatory_texts_enabled? %>
+        <%= link_to t("actions.preview_participatory_text", scope: "decidim.proposals"), edit_as_preview_participatory_texts_path, id: "participatory_texts", class: "button tiny button--simple" %>
         <%= link_to t("actions.participatory_texts", scope: "decidim.proposals"), participatory_texts_path, id: "participatory_texts", class: "button tiny button--simple" %>
       <% end %>
   

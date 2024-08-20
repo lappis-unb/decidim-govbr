@@ -32,12 +32,12 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("participatory_texts.import.invalid", scope: "decidim.proposals.admin")
-              render action: "new_import"
+              render action: "new_import", status: :unprocessable_entity
             end
 
             on(:invalid_file) do
               flash.now[:alert] = I18n.t("participatory_texts.import.invalid_file", scope: "decidim.proposals.admin")
-              render action: "new_import"
+              render action: "new_import", status: :unprocessable_entity
             end
           end
         end
@@ -81,6 +81,40 @@ module Decidim
               end
             end
           end
+        end
+
+        def update_as_preview
+          enforce_permission_to :manage, :participatory_texts
+          form_params = params.require(:preview_participatory_text).permit!
+
+          @preview_form = form(Admin::PreviewParticipatoryTextForm).from_params(proposals: form_params[:proposals_attributes]&.values, proposal_to_add: form_params[:proposal_to_add])
+
+          PublishParticipatoryText.call(@preview_form) do
+            on(:ok) do
+              flash[:notice] = I18n.t("participatory_texts.update.success", scope: "decidim.proposals.admin")
+              if form_params[:proposal_to_add].present?
+                redirect_to EngineRouter.admin_proxy(current_component).edit_as_preview_participatory_texts_path
+              else
+                redirect_to proposals_path
+              end
+            end
+
+            on(:invalid) do |failures|
+              alert_msg = [I18n.t("participatory_texts.publish.invalid", scope: "decidim.proposals.admin")]
+              failures.each_pair { |id, msg| alert_msg << "ID:[#{id}] #{msg}" }
+              flash.now[:alert] = alert_msg.join("<br/>").html_safe
+              edit_as_preview
+            end
+          end
+        end
+
+        def edit_as_preview
+          enforce_permission_to :manage, :participatory_texts
+
+          @participatory_texts = Proposal.where(component: current_component).order(:position)
+
+          @preview_form = form(Admin::PreviewParticipatoryTextForm).instance
+          @preview_form.from_models(@participatory_texts)
         end
 
         # Removes all the unpublished proposals (drafts).

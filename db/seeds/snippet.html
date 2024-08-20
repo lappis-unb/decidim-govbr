@@ -59,14 +59,24 @@
     );
   };
 
-  var ImportScriptFile = () => {
-    let script = document.createElement("script");
-    script.src = "https://vlibras.gov.br/app/vlibras-plugin.js";
-    script.onload = () => {
-      new window.VLibras.Widget("https://vlibras.gov.br/app");
-    };
-    document.body.appendChild(script);
-  };
+// var ImportScriptFile = () => {
+//     console.log("Iniciando a importação do script VLibras...");
+    
+//     let script = document.createElement("script");
+//     script.src = "https://vlibras.gov.br/app/vlibras-plugin.js";
+    
+//     script.onload = () => {
+//         console.log("Script VLibras carregado com sucesso!");
+//         new window.VLibras.Widget("https://vlibras.gov.br/app");
+//     };
+    
+//     script.onerror = () => {
+//         console.log("Falha ao carregar o script VLibras.");
+//     };
+    
+//     document.body.appendChild(script);
+//     console.log("Script VLibras adicionado ao documento.");
+// };
 
   function definirUrlLogOut() {
     var logOutUrl;
@@ -833,8 +843,8 @@
     replaceWrongUrl();
 
     window.addEventListener("DOMContentLoaded", (e) => {
-      ImportScriptFile();
-      CreateDOMObjects();
+      // ImportScriptFile();
+      // CreateDOMObjects();
       // Evento para primeira letra maiuscula
       capitalizarOnBlur("proposal_title");
       capitalizarOnBlur("proposal_body");
