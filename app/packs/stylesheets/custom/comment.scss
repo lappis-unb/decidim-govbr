@@ -16,7 +16,12 @@
   font-weight: var(--font-weight-semi-bold) !important;
   color: var(pure-100);
   margin-left: 1rem;
+
+  &.coments-count-override {
+    margin: 0 !important;
+  }
 }
+
 .comments_blocked_warning {
   display: flex;
   flex-direction: column;
@@ -225,6 +230,11 @@
   gap: 1.5rem;
   margin-top: 24px;
   padding: 0 16px;
+
+  &.comment-threads-override {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
 }
 
 .add-comment .field .button--sc {
