@@ -68,3 +68,119 @@
 .foreign-actions-buttons .fa-user-large {
   font-size: 1.25rem;
 }
+
+.foreign-back-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.foreign-subtitle {
+  font-family: Rawline, serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--gray-90);
+}
+
+.foreign-form-explanation {
+  font-family: Rawline, serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--blue-warm-vivid-70);
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 752px;
+  margin: 32px auto;
+  text-align: center;
+  gap: 24px;
+  padding: 0 20px;
+
+  h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 34.84px;
+  }
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (min-width: 768px) {
+    padding: 0;
+  }
+}
+
+.govbr-login-container {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 42px;
+  justify-content: center;
+
+  h1 {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.foreign-login-container {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 32px;
+  justify-content: center;
+
+  h2 {
+    margin: 0;
+    padding: 0;
+    color: var(--blue-warm-vivid-80);
+    text-align: center;
+    font-variant-numeric: lining-nums proportional-nums;
+    font-size: 24.19px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 24px;
+  }
+  p {
+    margin: 0;
+    padding: 0;
+    color: var(--gray-90);
+    text-align: center;
+    font-size: 16.8px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+
+#login-form-container {
+  text-align: left;
+  display: none;
+}
+
+.sign_up-card {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+#card__tos {
+    margin-bottom: -50px;
+}
+
+.user-nickname .help-text {
+  margin-top: 0;
+}
+
+#registration_user_nickname_characters {
+  display: none;
+}

@@ -1,0 +1,96 @@
+<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+<%= decidim_form_for(@preview_form, url: update_as_preview_participatory_texts_path, class: "form grid-container") do |form| %>
+  <div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t("title", scope: 'decidim.proposals.admin.participatory_texts.index') %>
+      <%# render partial: "bulk-actions" %>
+    </h2>
+  </div>
+  <div class="card-section">
+    <% if @participatory_texts.any? %>
+      <p><%= t("info_1", scope: 'decidim.proposals.admin.participatory_texts.index') %></p>
+      <ul id="participatory-text" class="accordion jq-sortable mb-m"
+        data-accordion
+        data-multi-expand="true"
+        data-allow-all-closed="true">
+        <%= form.fields_for(:proposals) do |prop_form| %>
+        <% proposal= @participatory_texts[prop_form.index] %>
+        <% can_edit = allowed_to? :edit, :proposal, proposal: proposal %>
+          <li id="proposal-draft-<%= prop_form.index %>" class="accordion-item <%= proposal.article? ? "is-active" : nil %>" data-accordion-item>
+            <a href="#" class="accordion-title flex--sbc">
+              <%= preview_participatory_text_section_title(proposal) %>
+              <span class="mr-m"><%= icon "menu", class: "icon--small", role: "img", "aria-hidden": true %></span>
+            </a>
+            <div class="accordion-content" data-tab-content>
+              <% if can_edit %>
+              <button 
+                class="remove-proposal-draft button tiny button--title alert" 
+                data-proposal-draft-id="<%= prop_form.index %>" 
+                data-confirm="<%= t('participatory_texts.remove_block_alert', scope: 'decidim.admin') %>">
+                Remover
+              </button>
+              <% end %>
+              <% if can_edit %>
+              <span class="mr-m"><%= prop_form.check_box :is_interactive, label: t("decidim.admin.participatory_texts.is_interactive") %></span>
+              <% end %>
+              <%= render "edit-article-preview", { form: prop_form, proposal: proposal, can_edit: can_edit } %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    <% end -%>
+    <%= form.hidden_field :proposal_to_add, id: "proposal-to-add" %>
+
+    <button class="add-proposal-draft button tiny button--title" data-proposal-draft-type="article">Adicionar Artigo</button>
+    <button class="add-proposal-draft button tiny button--title" data-proposal-draft-type="sub-section">Adicionar Subseção</button>
+    <button class="add-proposal-draft button tiny button--title" data-proposal-draft-type="section">Adicionar Seção</button>
+  </div>
+</div>
+<% if @participatory_texts.any? %>
+  <div class="button--double form-general-submit">
+    <%= link_to t(".go_back"), proposals_path, class: "button" %>
+    <%= form.submit t("publish_document", scope: 'decidim.proposals.admin.participatory_texts.index'), class: "button success" %>
+  </div>
+<% end %>
+<% end -%>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script>
+$(window).on("load", function() {
+  // Not all browsers submit the buttons as form data.
+  $('button[name="save_draft"]').on("click", function(ev) {
+    ev.preventDefault();
+
+    var $form = $(this).parents("form");
+    $form.submit();
+  });
+  $( "#participatory-text" ).on( "sortupdate",
+    function( event, ui ) {
+      $('#participatory-text li').each(function(idx, li) {
+        input= $(li).find("input.position").val(idx+1)
+      })
+    }
+  )
+  $(".remove-proposal-draft").on("click", function(ev) {
+    ev.preventDefault();
+    const proposalDraftId = $(this).data("proposal-draft-id");
+    $(`#proposal-draft-${proposalDraftId}-deleted`).val("1");
+
+    let form = $(this).parents("form");
+    form.submit();
+  });
+
+  $(".add-proposal-draft").on("click", function(ev) {
+    ev.preventDefault();
+
+    const buttonPressed = $(ev.target);
+    $("#proposal-to-add").val(buttonPressed.data("proposal-draft-type"));
+
+    var form = $(this).parents("form");
+    form.submit();
+  });
+
+  $(".jq-sortable").sortable();
+
+})
+</script>

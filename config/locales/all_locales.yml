@@ -64,7 +64,9 @@ pt-BR:
       participatory_process_group:
         decidim_area_id: Órgão/Instituição
   decidim:
-    attachment_title: Anexos
+    attachment_title: Documentos
+    attachment_description: Abaixo você encontra documentos que pode baixar para x, y e z. Você também pode disponibilizar seus documentos.
+    attachment_send_button: Enviar documento
     statistics:
       headline: Dados Participativos
     components:
@@ -138,7 +140,7 @@ pt-BR:
             Learn_about_the_rules_proposals: Conheça as regras e os critérios para seleção de propostas
             Edit_your_proposal: Edite sua proposta
             follow_the_instructions: Siga as instruções abaixo para participar ativamente e deixar sua marca nas decisões que impactam o Brasil.
-            Review_your_content: Revise o seu conteúdo e tenha certeza que está tudo correto antes de publicar. Após a publicação, você poderá editar ou apagar a proposta somente se não tiver recebido nenhum voto. 
+            Review_your_content: Revise o seu conteúdo e tenha certeza que está tudo correto antes de publicar. Após a publicação, você poderá editar ou apagar a proposta somente se não tiver recebido nenhum voto.
       user_answers_serializer:
         email: E-mail
         uid: CPF
@@ -606,6 +608,12 @@ en:
         template_processes_ids: Processes to be used as Templates
       participatory_process_group:
         decidim_area_id: Participatory Process Group
+      user:
+        email: E-mail
+  activerecord:
+    attributes:
+      decidim/user:
+        email: E-mail
   decidim:
     components:
       proposals:
@@ -639,6 +647,21 @@ en:
         participatory_process_group_users:
           index:
             title: Group Member Users
+
+    extra_user_fields:
+      registration_form:
+        selfie_image:
+          label: Selfie holding the Document
+          button_label: Choose file
+          help_title: Selfie holding the Document
+        document_image:
+          label: Photo of ID document
+          button_label: Choose file
+          help_title: Photo of ID document
+        document_valid:
+          help_title: Instructions to upload your selfie ID verification
+          help_text: Please upload a selfie photo side by side with your document. Your face must be clean, without glasses or masks and looking straight ahead.
+          error_text: The image provided does not match the criteria. See the help instructions to provide a better photo.
     forms:
       admin:
         models:
@@ -766,9 +789,14 @@ en:
           sign_out: Log out
       registrations:
         new:
-          sign_up: Register
+          sign_up: Sign up
           subtitle: For people who are not naturalized as Brazilians, you need to have your passport on hand to register.
-          subtitle_help: Sign up to participate in discussions and support proposals. 
+          subtitle_help: Sign up to participate in discussions and support proposals.
+          username_help: Public name that appears on your posts.
+      passwords:
+        new:
+          forgot_your_password: Forgot your password
+
     proposals:
       admin:
         participatory_texts:

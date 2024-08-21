@@ -146,7 +146,7 @@ module Decidim
       end
 
       def has_started?(meeting)
-        Time.current < meeting.start_time
+        Time.current > meeting.start_time
       end
     end
   end
