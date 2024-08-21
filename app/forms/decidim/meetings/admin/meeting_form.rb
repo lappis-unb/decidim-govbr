@@ -93,24 +93,6 @@ module Decidim
           type_of_meeting.presence
         end
 
-        def iframe_access_level_select
-          Decidim::Meetings::Meeting.iframe_access_levels.map do |level, _value|
-            [
-              I18n.t("iframe_access_level.#{level}", scope: "decidim.meetings"),
-              level
-            ]
-          end
-        end
-
-        def iframe_embed_type_select
-          Decidim::Meetings::Meeting.iframe_embed_types.map do |type, _value|
-            [
-              I18n.t("iframe_embed_type.#{type}", scope: "decidim.meetings"),
-              type
-            ]
-          end
-        end
-
         # Support for copy meeting
         def questionnaire
           Decidim::Forms::Questionnaire.new

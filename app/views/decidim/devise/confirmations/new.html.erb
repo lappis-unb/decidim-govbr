@@ -1,39 +1,42 @@
-<% add_decidim_page_title(t("devise.confirmations.new.resend_confirmation_instructions")) %>
+<% I18n.with_locale(:en) do %>
 
-<div class="wrapper">
-    <div class="foreign-back-header ml-4">
-      <div class="m-bottom">
-        <%= link_to :back, class: "back-to-list-button" do %>
-          <i class="fa-solid fa-arrow-left fa-2xl"></i>
-        <% end %>
-      </div>
+  <% add_decidim_page_title(t("devise.confirmations.new.resend_confirmation_instructions")) %>
 
-      <div class="row collapse">
-        <div class="columns large-centered text-center page-title">
-          <h1><%= t("devise.confirmations.new.resend_confirmation_instructions") %></h1>
+  <div class="wrapper">
+      <div class="foreign-back-header ml-4">
+        <div class="m-bottom">
+          <%= link_to :back, class: "back-to-list-button" do %>
+            <i class="fa-solid fa-arrow-left fa-2xl"></i>
+          <% end %>
         </div>
-      </div>
-    </div>
 
-
-    <div class="row">
-      <div class="columns medium-8 large-5 medium-centered">
-          <div class="large-11 medium-centered">
-            <%= decidim_form_for(resource, namespace: "confirmation", as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: "register-form new_user" }) do |f| %>
-              <%= render "devise/shared/error_messages", resource: resource %>
-
-              <div class="br-input input-highlight bp-input">
-                <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), autocomplete: "email", placeholder: "Ex: example@email.com", required: true %>
-              </div>
-
-              <div class="actions pt-2">
-                <%= f.submit t("devise.confirmations.new.resend_confirmation_instructions"), class: "button expanded" %>
-              </div>
-            <% end %>
+        <div class="row collapse">
+          <div class="columns large-8 large-centered text-center page-title" style="width: fit-content">
+            <h1><%= t("devise.confirmations.new.resend_confirmation_instructions") %></h1>
           </div>
-        <div class="pt-4">
-          <%= render "decidim/devise/shared/links" %>
         </div>
       </div>
-    </div>
-</div>
+
+
+      <div class="row">
+        <div class="columns medium-8 large-7 medium-centered">
+            <div class="large-11 medium-centered">
+              <%= decidim_form_for(resource, namespace: "confirmation", as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: "register-form new_user" }) do |f| %>
+                <%= render "devise/shared/error_messages", resource: resource %>
+
+                <div class="br-input input-highlight bp-input">
+                  <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), autocomplete: "email", placeholder: "Ex: example@email.com", required: true %>
+                </div>
+
+                <div class="actions pt-2">
+                  <%= f.submit t("devise.confirmations.new.resend_confirmation_instructions"), class: "button expanded" %>
+                </div>
+              <% end %>
+            </div>
+          <div class="pt-4">
+            <%= render "decidim/devise/shared/links" %>
+          </div>
+        </div>
+      </div>
+  </div>
+<% end %>

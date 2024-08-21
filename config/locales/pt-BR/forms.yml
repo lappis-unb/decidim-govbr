@@ -57,6 +57,7 @@ pt-BR:
       step_navigation:
         show:
           are_you_sure: Esta ação não poderá ser desfeita e não deixará editar as suas respostas. Você tem certeza?
+          continue: Sim, continuar
           back: Voltar
       user_answers_serializer:
         registered: Registrado

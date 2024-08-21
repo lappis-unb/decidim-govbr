@@ -7,7 +7,6 @@
       <%= t("remaining_slots", scope: "decidim.meetings.meetings.show") %>
     </span>
   <% end %>
-  <div class="meeting-actions-container">
     <% if model.has_registration_for? current_user %>
       <%= action_authorized_button_to(
         :join,
@@ -15,7 +14,7 @@
         meeting_registration_path(model),
         resource: model,
         method: :delete,
-        class: 'br-button secondary black-and-white-btn',
+        class: 'br-button secondary black-and-white-btn large-button',
         data: { disable: true, confirm: t("leave_confirmation", scope: "decidim.meetings.meetings.show") }
       ) %>
     <% else %>
@@ -39,12 +38,11 @@
         ) %>
       <% end %>
     <% end %>
-  </div>
-<% elsif model.on_different_platform? %>
-  <%= action_authorized_link_to(
-    :join,
+<% elsif model.on_different_platform? && !model.closed?  %>
+  <%= link_to(
     i18n_join_text,
     model.registration_url,
-    class: button_classes
+    class: button_classes,
+    target: '_blank'
   ) %>
 <% end %>
