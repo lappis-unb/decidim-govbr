@@ -1,9 +1,8 @@
 .processes-list-header {
     display: flex;
     width: 100%;
-    height: 44px;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     gap: 10px;
     flex-shrink: 0;
     position: relative;
@@ -15,6 +14,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    margin: 0;
 }
 
 .br-processes-list .card-grid .column,
@@ -38,40 +38,46 @@
 
 .custom-tooltip {
   display: none;
-  position: absolute;
   background-color: #eaf4fe; /* Cor de fundo do tooltip */
-  color: #0c326f; /* Cor do texto */
-  padding: 10px;
+  color: var(--gray-90); /* Cor do texto */
+  padding: 1.5rem;
   border-radius: 4px;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  width: 300px; /* Largura do tooltip */
-  top: calc(100% + 10px); /* Posição do tooltip em relação ao botão */
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .custom-tooltip.visible {
   display: block;
+  margin-top: 24px;
 }
 
 .custom-tooltip-content {
-  font-size: 0.875rem; /* Tamanho da fonte do tooltip */
+  font-size: 1rem; /* Tamanho da fonte do tooltip */
   line-height: 1.4;
+  font-weight: var(--font-weight-regular);
 }
 
 .custom-tooltip-arrow {
   width: 0;
   height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid #eaf4fe; /* Cor da seta */
+  margin-top: 24px;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-bottom: 16px solid #eaf4fe; /* Cor da seta */
   position: absolute;
-  top: -10px; /* Ajuste para posicionar a seta acima do tooltip */
-  left: 50%;
-  transform: translateX(-50%);
+  top: 62px;
+  right: 114.5px;
 }
 
 .hidden {
   display: none;
+}
+
+.processes_header-container {
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--gray-20);
+}
+
+#processes-list-header {
+  .flex--sbe {
+    margin-top: 48px;
+  }
 }

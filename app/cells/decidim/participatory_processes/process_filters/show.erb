@@ -1,41 +1,47 @@
 <section id="processes-list-header" class="row section br-container-lg">
-  <div class="processes-list-header">
-    <div class="processes-list-header-title-container">
-      <h1 class="processes-list-header-title">
-        <%= current_type_filter_name != default_filter_name ? current_type_filter_name :
-        t("participatory_processes.index.default_title", scope: "layouts.decidim") %>
-      </h1>
-    </div>
-    <% if current_type_filter_name != default_filter_name %>
-      <div id="help-text" class="processes-list-header-help-text show-votes-rule-button" style="cursor: pointer;">
-        <i class="fa fa-info-circle size-icon-filter" aria-hidden="true"></i>
-        <%= t("participatory_processes.index.help_text", scope: "layouts.decidim", current_type_filter_name: current_type_filter_name) %>
-        <i class="fa fa-chevron-down size-icon-filter"></i>
+  <div class="processes_header-container">
+    <div class="processes-list-header">
+      <div class="processes-list-header-title-container">
+        <h1 class="processes-list-header-title">
+          <%= current_type_filter_name != default_filter_name ? current_type_filter_name :
+          t("participatory_processes.index.default_title", scope: "layouts.decidim") %>
+        </h1>
       </div>
-      <div id="announcement-text" class="announcement-card custom-tooltip hidden">
-        <div class="custom-tooltip-content">
-          <%= current_type_filter_description %>
+      <% if current_type_filter_name != default_filter_name %>
+        <div>
+          <div id="help-text" class="processes-list-header-help-text show-votes-rule-button" style="cursor: pointer;">
+            <i class="fa fa-info-circle size-icon-filter" aria-hidden="true"></i>
+            <%= t("participatory_processes.index.help_text", scope: "layouts.decidim", current_type_filter_name: current_type_filter_name) %>
+            <i class="fa fa-chevron-down size-icon-filter"></i>
+          </div>
+          
         </div>
-        <div class="custom-tooltip-arrow"></div>
+      <% end %>
+    </div>
+
+    <div id="announcement-text" class="announcement-card custom-tooltip hidden">
+      <div class="custom-tooltip-content">
+        <%= current_type_filter_description %>
       </div>
-    <% end %>
+      <div class="custom-tooltip-arrow"></div>
+    </div>
   </div>
 
-<div class="row column">
-  <div class="flex--sbe">
-    <h3 class="section-heading collapse">
-      <%= title %>
-    </h3>
-    <%= render :filter_tabs %>
-    <%= render :type_filter if participatory_process_types_for_select.present? %>
-  </div>
-  <hr class="reset mt-s mb-s">
-</div>
-<% if process_count_by_filter["active"] == 0 && process_count_by_filter["upcoming"] == 0 %>
   <div class="row column">
-    <div class="callout warning mb-sm">
-      <p><%= t("decidim.participatory_processes.participatory_processes.filters.explanations.no_active_nor_upcoming_callout") %></p>
+    <div class="flex--sbe">
+      <h3 class="section-heading collapse">
+        <%= title %>
+      </h3>
+      <%= render :filter_tabs %>
+      <%= render :type_filter if participatory_process_types_for_select.present? %>
     </div>
   </div>
-<% end %>
+
+  <% if process_count_by_filter["active"] == 0 && process_count_by_filter["upcoming"] == 0 %>
+    <div class="row column">
+      <div class="callout warning mb-sm">
+        <p><%= t("decidim.participatory_processes.participatory_processes.filters.explanations.no_active_nor_upcoming_callout") %></p>
+      </div>
+    </div>
+  <% end %>
 </section>
