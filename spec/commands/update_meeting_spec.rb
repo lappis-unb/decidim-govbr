@@ -135,6 +135,7 @@ module Decidim::Meetings
         let(:start_time) { meeting.start_time }
         let(:end_time) { meeting.end_time }
         let(:address) { meeting.address }
+        let(:to_define) { meeting.to_define }
         let(:form) do
           double(
             invalid?: false,
@@ -144,6 +145,7 @@ module Decidim::Meetings
             location_hints: meeting.location_hints,
             start_time: start_time,
             end_time: end_time,
+            to_define: to_define,
             scope: meeting.scope,
             category: meeting.category,
             address: address,
