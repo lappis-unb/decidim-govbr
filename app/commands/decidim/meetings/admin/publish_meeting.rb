@@ -68,7 +68,6 @@ module Decidim
             .set(wait_until: meeting.start_time - Decidim::Meetings.upcoming_meeting_notification)
             .perform_later(meeting.id, checksum)
         end
-
       end
     end
   end
