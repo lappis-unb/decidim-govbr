@@ -95,8 +95,10 @@
           <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
           <div class="br-divider"></div>
         <% end %>
-        <% unless meeting.in_person_meeting? || meeting.withdrawn? %>
-          <%= cell "decidim/meetings/online_meeting_link", meeting %>
+        <% if meeting.start_time.present? && meeting.end_time.present? %>
+          <% unless meeting.in_person_meeting? || meeting.withdrawn? %>
+            <%= cell "decidim/meetings/online_meeting_link", meeting %>
+          <% end %>
         <% end %>
       </div>
       <%= render partial: "decidim/shared/tags", locals: { resource: meeting, tags_class_extra: "tags--meeting" } %>
