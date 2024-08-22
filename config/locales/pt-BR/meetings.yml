@@ -195,7 +195,7 @@ pt-BR:
         registered: Participantes registrados para este evento
         signed_in: Somente participantes inscritos
       iframe_embed_type:
-        embed_in_meeting_page: Embutir na página do evento
+        embed_in_meeting_page: "Embutir na página do evento. (Apenas alguns poucos serviços permitem a incorporação em reuniões ou eventos ao vivo dos seguintes domínios: youtube.com twitch.tv meet.jit.si)."
         none: Nenhum
         open_in_live_event_page: Abrir na página de eventos ao vivo (com enquetes opcionais)
         open_in_new_tab: Abrir URL em uma nova aba
