@@ -1,4 +1,4 @@
-<section id="processes-list-header" class="row section br-container-lg">
+<section id="processes-list-header" class="row section">
   <div class="processes_header-container">
     <div class="processes-list-header">
       <div class="processes-list-header-title-container">
@@ -14,16 +14,13 @@
             <%= t("participatory_processes.index.help_text", scope: "layouts.decidim", current_type_filter_name: current_type_filter_name) %>
             <i class="fa fa-chevron-down size-icon-filter"></i>
           </div>
-          
         </div>
       <% end %>
     </div>
 
     <div id="announcement-text" class="announcement-card custom-tooltip hidden">
-      <div class="custom-tooltip-content">
-        <%= current_type_filter_description %>
-      </div>
       <div class="custom-tooltip-arrow"></div>
+      <div class="custom-tooltip-content"><%= current_type_filter_description %></div>
     </div>
   </div>
 

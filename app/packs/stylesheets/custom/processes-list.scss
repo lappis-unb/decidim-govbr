@@ -1,20 +1,22 @@
 .processes-list-header {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 10px;
-    flex-shrink: 0;
-    position: relative;
+  display: flex;
+  flex-direction: row;
+  padding: 0 1rem;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 10px;
+  flex-shrink: 0;
+  position: relative;
 }
 
 .processes-list-header-title {
-    color: #0C326F;
-    font-size: 2rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    margin: 0;
+  color: #0C326F;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
 }
 
 .br-processes-list .card-grid .column,
@@ -38,33 +40,37 @@
 
 .custom-tooltip {
   display: none;
-  background-color: #eaf4fe; /* Cor de fundo do tooltip */
-  color: var(--gray-90); /* Cor do texto */
-  padding: 1.5rem;
-  border-radius: 4px;
 }
 
 .custom-tooltip.visible {
-  display: block;
-  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  margin: 8px 16px 0 16px;
+  padding: 0;
 }
 
 .custom-tooltip-content {
-  font-size: 1rem; /* Tamanho da fonte do tooltip */
+  font-size: 1rem;
   line-height: 1.4;
   font-weight: var(--font-weight-regular);
+  background-color: #eaf4fe;
+  color: var(--gray-90);
+  padding: 1.5rem;
+  border-radius: 4px;
+
+  p {
+    margin: 0;
+  }
 }
 
 .custom-tooltip-arrow {
   width: 0;
   height: 0;
-  margin-top: 24px;
   border-left: 16px solid transparent;
   border-right: 16px solid transparent;
-  border-bottom: 16px solid #eaf4fe; /* Cor da seta */
-  position: absolute;
-  top: 62px;
-  right: 114.5px;
+  border-bottom: 16px solid #eaf4fe;
+  position: relative;
+  left: 90%;
 }
 
 .hidden {
@@ -142,5 +148,14 @@
     position: relative;
     width: 100%;
     margin: 0;
+  }
+
+  .processes-list-header {
+    flex-direction: column;
+    align-items: baseline;
+  }
+
+  .custom-tooltip-arrow {
+    left: 5%;
   }
 }
