@@ -17,6 +17,7 @@ module Decidim::Meetings
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
     let(:start_time) { 1.day.from_now }
+    let(:to_define) { false }
     let(:user_group_id) { nil }
     let(:type_of_meeting) { "online" }
     let(:registration_url) { "http://decidim.org" }
@@ -39,7 +40,7 @@ module Decidim::Meetings
         location_hints: Faker::Lorem.sentence(word_count: 3),
         start_time: start_time,
         end_time: start_time + 2.hours,
-        to_define: Faker::Lorem.sentence(word_count: 3),
+        to_define: to_define,
         address: address,
         latitude: latitude,
         longitude: longitude,
@@ -168,7 +169,7 @@ module Decidim::Meetings
         expect(action_log.version).to be_present
       end
 
-      it "schedules a upcoming meeting notification job 48h before start time" do
+      it "schedules an upcoming meeting notification job 48h before start time" do
         meeting = instance_double(Meeting, id: 1, start_time: start_time, participatory_space: participatory_process, documents: documents)
         allow(meeting).to receive(:reload)
         allow(Decidim.traceability)
@@ -183,8 +184,9 @@ module Decidim::Meetings
           .to receive(:generate_checksum).and_return "1234"
 
         expect(UpcomingMeetingNotificationJob)
-          .to receive_message_chain(:set, :perform_later) # rubocop:disable RSpec/MessageChain
-          .with(set: start_time - Decidim::Meetings.upcoming_meeting_notification).with(1, "1234")
+          .to receive(:set)
+          .with(wait_until: start_time - Decidim::Meetings.upcoming_meeting_notification)
+          .and_return(double(perform_later: true))
 
         allow(Decidim::EventsManager).to receive(:publish).and_return(true)
 
