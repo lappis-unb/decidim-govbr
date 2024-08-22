@@ -39,6 +39,7 @@ module Decidim::Meetings
         location_hints: Faker::Lorem.sentence(word_count: 3),
         start_time: start_time,
         end_time: start_time + 2.hours,
+        to_define: Faker::Lorem.sentence(word_count: 3),
         address: address,
         latitude: latitude,
         longitude: longitude,

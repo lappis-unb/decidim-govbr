@@ -37,6 +37,7 @@ module Decidim::Meetings
         location_hints: "The meeting location hint text",
         start_time: 1.day.from_now,
         end_time: 1.day.from_now + 1.hour,
+        to_define: Faker::Lorem.sentence(word_count: 3),
         scope: scope,
         category: category,
         address: address,
