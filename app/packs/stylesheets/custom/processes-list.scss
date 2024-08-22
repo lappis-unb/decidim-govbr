@@ -114,6 +114,11 @@
     align-items: center;
     justify-content: space-between;
   }
+
+  .callout.warning {
+    margin-top: 3rem;
+    margin-bottom: 0 !important;
+  }
 }
 
 @media (max-width: 768px) {
