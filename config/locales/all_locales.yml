@@ -111,6 +111,8 @@ pt-BR:
           form:
             initial_page_component_id_help: Selecione qual componente será utilizado como a página principal desta assembléia. Apenas Páginas Estáticas e Páginas Iniciais serão exibidas aqui como opção. Caso não queira uma página inicial customizada, deixe marcada a opção "Página Padrão"
     participatory_processes:
+      show:
+        unspecified: Horário ainda a ser definido
       admin:
         partners:
           index:

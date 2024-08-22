@@ -105,6 +105,7 @@ pt-BR:
             title: Editar o evento
           form:
             available_slots_help: Deixe o valor 0 se você tiver vagas ilimitadas disponíveis
+            to_define: Horário ainda a ser definido
             location_hints_help: "Exemplo: o andar do edifício se for um evento presencial, ou a senha do evento se for um evento virtual com acesso restrito."
             select_a_meeting_type: Por favor, selecione um tipo de evento
             select_a_meeting_associated_state: Por favor, selecione um estado associado ao evento
@@ -248,6 +249,7 @@ pt-BR:
         form:
           iframe_embed_type: "Forma de exibição do evento:"
           iframe_access_level: "Permissão do público:"
+          to_define: Horário ainda a ser definido
           new:
             title: Sobre o evento
           placeholder:
