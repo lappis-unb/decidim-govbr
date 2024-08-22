@@ -61,8 +61,7 @@ module Decidim
           online_meeting_url: form.online_meeting_url,
           iframe_embed_type: form.iframe_embed_type,
           iframe_access_level: form.iframe_access_level,
-          associated_state: form.associated_state,
-          visibility: "public-only"
+          associated_state: form.associated_state
         }
 
         unless form.to_define
@@ -70,7 +69,7 @@ module Decidim
           params[:end_time] = form.end_time
         end
 
-        Decidim.traceability.update!(meeting, form.current_user, params)
+        Decidim.traceability.update!(meeting, form.current_user, params, visibility: "public-only")
       end
 
       def send_notification

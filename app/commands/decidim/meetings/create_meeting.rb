@@ -74,7 +74,6 @@ module Decidim
           associated_state: form.associated_state
         }
 
-        # Condicional para start_time e end_time
         unless form.to_define
           params[:start_time] = form.start_time
           params[:end_time] = form.end_time
