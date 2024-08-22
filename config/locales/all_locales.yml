@@ -295,6 +295,7 @@ pt-BR:
           default_title: Processos participativos
           title: "%{title_name}"
           help_text: O que é %{current_type_filter_name}?
+          card_button: Participar
 
 pt:
   activemodel:
