@@ -13,15 +13,12 @@
       )
   %>
 </div>
-
 <div class="field select-field-br">
   <%= form.select :associated_state,
                   @form.meeting_state_select,
                   { include_blank: t("decidim.meetings.admin.meetings.form.select_a_meeting_associated_state") },
                   { multiple: false } %>
 </div>
-
-
 <% if component_settings.attachments_allowed? %>
   <fieldset class="attachments_container gallery__container documents_container">
     <legend><%= t("attachment_legend", scope: "decidim.proposals.proposals.edit") %></legend>
@@ -43,7 +40,6 @@
                   { include_blank: t(".select_a_meeting_type") },
                   { multiple: false } %>
 </div>
-
 <div class="field" data-meeting-type="online">
   <%= form.text_field :online_meeting_url %>
   <p class="help-text"><%= t(".online_meeting_url_help") %></p>
@@ -60,7 +56,6 @@
     </div>
   <% end %>
 </div>
-
 <div class="field select-field-br" id="iframe_access_level_select">
   <label for="iframe_access_level_select"><%= t(".iframe_access_level") %></label>
   <% @form.iframe_access_level_select.each do |label, value| %>
@@ -72,7 +67,6 @@
     </div>
   <% end %>
 </div>
-
 <div id="presential-meeting" style="display: none;">
   <span class="br-divider"></span>
   <h2 class="new-meeting-title">Local do evento</h2>
@@ -112,12 +106,13 @@
 <h2 class="new-meeting-title">Duração do evento</h2>
 <div class="meeting-duration-time">
   <div class="field new-meeting-start-time">
-    <%= form.datetime_field :start_time, placeholder: "Selecione..." %>
+    <%= form.datetime_field :start_time, placeholder: "Selecione...", id: "meeting_start_time" %>
   </div>
   <div class="field new-meeting-end-time">
-    <%= form.datetime_field :end_time, placeholder: "Selecione..."  %>
+    <%= form.datetime_field :end_time, placeholder: "Selecione...", id: "meeting_end_time" %>
   </div>
 </div>
+<%= form.check_box :to_define, label: t(".to_define"), id: "to_define" %>
 <% if current_participatory_space.has_subscopes? %>
   <div class="field bp-scope">
     <%= scopes_picker_field form, :decidim_scope_id %>
@@ -245,7 +240,7 @@
         if(edit){
           setCitys();
         }
-        
+
       },
         error: function(xhr) {
       }
@@ -283,31 +278,45 @@
 
     cityInput.addEventListener('change', () => updateAddress(cidadesResponde));
     stateInput.addEventListener('change', setCitys);
-  });
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const iframeElement = document.getElementById('meeting_url_iframe');
-  const iframeEmbedTypeSelect = document.getElementById('iframe_embed_type_select');
-  const iframeAccessLevelSelect = document.getElementById('iframe_access_level_select');
 
-  function toggleSelectFields() {
-    if (iframeElement.style.display !== 'none') {
-      iframeEmbedTypeSelect.style.display = 'block';
-      iframeAccessLevelSelect.style.display = 'block';
-    } else {
-      iframeEmbedTypeSelect.style.display = 'none';
-      iframeAccessLevelSelect.style.display = 'none';
+    const iframeElement = document.getElementById('meeting_url_iframe');
+    const iframeEmbedTypeSelect = document.getElementById('iframe_embed_type_select');
+    const iframeAccessLevelSelect = document.getElementById('iframe_access_level_select');
+
+    function toggleSelectFields() {
+      if (iframeElement.style.display !== 'none') {
+        iframeEmbedTypeSelect.style.display = 'block';
+        iframeAccessLevelSelect.style.display = 'block';
+      } else {
+        iframeEmbedTypeSelect.style.display = 'none';
+        iframeAccessLevelSelect.style.display = 'none';
+      }
     }
-  }
 
-  iframeEmbedTypeSelect.style.display = 'none';
-  iframeAccessLevelSelect.style.display = 'none';
+    iframeEmbedTypeSelect.style.display = 'none';
+    iframeAccessLevelSelect.style.display = 'none';
 
-  const observer = new MutationObserver(toggleSelectFields);
-  observer.observe(iframeElement, { attributes: true, attributeFilter: ['style'] });
+    const observer = new MutationObserver(toggleSelectFields);
+    observer.observe(iframeElement, { attributes: true, attributeFilter: ['style'] });
 
-  toggleSelectFields();
-});
+    toggleSelectFields();
 
+    const toDefine = document.getElementById('to_define');
+    const startTimeInput = document.getElementById('meeting_start_time');
+    const endTimeInput = document.getElementById('meeting_end_time');
+
+    const updateFieldsState = () => {
+      if (toDefine.checked) {
+        startTimeInput.disabled = true;
+        endTimeInput.disabled = true;
+      } else {
+        startTimeInput.disabled = false;
+        endTimeInput.disabled = false;
+      }
+    };
+
+    updateFieldsState();
+
+    toDefine.addEventListener('change', updateFieldsState);
+  });
 </script>
