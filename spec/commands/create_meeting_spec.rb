@@ -18,6 +18,7 @@ module Decidim::Meetings
     let(:longitude) { 2.1234 }
     let(:start_time) { 1.day.from_now }
     let(:to_define) { false }
+    let(:to_define_end_time) { false }
     let(:user_group_id) { nil }
     let(:type_of_meeting) { "online" }
     let(:registration_url) { "http://decidim.org" }
@@ -41,6 +42,7 @@ module Decidim::Meetings
         start_time: start_time,
         end_time: start_time + 2.hours,
         to_define: to_define,
+        to_define_end_time: to_define_end_time,
         address: address,
         latitude: latitude,
         longitude: longitude,
