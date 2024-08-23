@@ -157,6 +157,8 @@ module Decidim::Meetings
             location_hints: meeting.location_hints,
             start_time: start_time,
             end_time: end_time,
+            to_define: to_define,
+            to_define_end_time: to_define_end_time,
             scope: meeting.scope,
             category: meeting.category,
             address: address,
