@@ -11,6 +11,7 @@ module Decidim
       attribute :start_time, Decidim::Attributes::TimeWithZone
       attribute :end_time, Decidim::Attributes::TimeWithZone
       attribute :to_define, Boolean, default: false
+      attribute :to_define_end_time, Boolean, default: false
 
       attribute :associated_state, String
 
@@ -19,8 +20,26 @@ module Decidim
       validates :address, presence: true, if: ->(form) { form.needs_address? }
       validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? && form.needs_address? }
 
-      validates :start_time, presence: true, date: { before: :end_time }, unless: :to_define?
-      validates :end_time, presence: true, date: { after: :start_time }, unless: :to_define?
+      validates :start_time, presence: true, if: :validate_start_time?
+      validates :end_time, presence: true, if: :validate_end_time?
+
+      validate :start_time_before_end_time, if: :validate_time_comparison?
+
+      def validate_start_time?
+        !to_define?
+      end
+
+      def validate_end_time?
+        !to_define_end_time?
+      end
+
+      def validate_time_comparison?
+        start_time.present? && end_time.present?
+      end
+
+      def start_time_before_end_time
+        errors.add(:start_time, :before_end_time, message: "must be before the end time") if start_time >= end_time
+      end
 
       def type_of_meeting_select
         Decidim::Meetings::Meeting::TYPE_OF_MEETING.map do |type|

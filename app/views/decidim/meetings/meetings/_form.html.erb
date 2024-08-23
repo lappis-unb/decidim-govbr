@@ -106,12 +106,13 @@
 <div class="meeting-duration-time">
   <div class="field new-meeting-start-time">
     <%= form.datetime_field :start_time, placeholder: "Selecione...", id: "meeting_start_time" %>
+    <%= form.check_box :to_define, label: t(".to_define"), id: "to_define" %>
   </div>
   <div class="field new-meeting-end-time">
     <%= form.datetime_field :end_time, placeholder: "Selecione...", id: "meeting_end_time" %>
+    <%= form.check_box :to_define_end_time, label: t(".to_define"), id: "to_define_end_time" %>
   </div>
 </div>
-<%= form.check_box :to_define, label: t(".to_define"), id: "to_define" %>
 <% if current_participatory_space.has_subscopes? %>
   <div class="field bp-scope">
     <%= scopes_picker_field form, :decidim_scope_id %>
@@ -278,24 +279,31 @@
     cityInput.addEventListener('change', () => updateAddress(cidadesResponde));
     stateInput.addEventListener('change', setCitys);
 
-    toggleSelectFields();
-
     const toDefine = document.getElementById('to_define');
+    const toDefineEndTime = document.getElementById('to_define_end_time');
     const startTimeInput = document.getElementById('meeting_start_time');
     const endTimeInput = document.getElementById('meeting_end_time');
 
-    const updateFieldsState = () => {
+    const updateStartTime = () => {
       if (toDefine.checked) {
         startTimeInput.disabled = true;
-        endTimeInput.disabled = true;
       } else {
         startTimeInput.disabled = false;
+      }
+    };
+
+    const updateEndTime = () => {
+      if (toDefineEndTime.checked) {
+        endTimeInput.disabled = true;
+      } else {
         endTimeInput.disabled = false;
       }
     };
 
-    updateFieldsState();
+    updateStartTime();
+    updateEndTime();
 
-    toDefine.addEventListener('change', updateFieldsState);
+    toDefine.addEventListener('change', updateStartTime);
+    toDefineEndTime.addEventListener('change', updateEndTime);
   });
 </script>

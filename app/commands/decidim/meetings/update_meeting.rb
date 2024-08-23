@@ -64,10 +64,8 @@ module Decidim
           associated_state: form.associated_state
         }
 
-        unless form.to_define
-          params[:start_time] = form.start_time
-          params[:end_time] = form.end_time
-        end
+        params[:start_time] = form.start_time if !form.to_define && form.start_time
+        params[:end_time] = form.end_time if !form.to_define_end_time && form.end_time
 
         Decidim.traceability.update!(meeting, form.current_user, params, visibility: "public-only")
       end

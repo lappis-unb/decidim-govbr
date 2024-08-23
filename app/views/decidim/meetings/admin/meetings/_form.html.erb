@@ -54,13 +54,14 @@
     <div class="row">
       <div class="columns xlarge-6">
         <%= form.datetime_field :start_time, id:"meeting_start_time" %>
+        <%= form.check_box :to_define, label: t(".to_define"), id: "to_define" %>
       </div>
       <div class="columns xlarge-6">
         <%= form.datetime_field :end_time, id:"meeting_end_time" %>
+        <%= form.check_box :to_define_end_time, label: t(".to_define"), id: "to_define_end_time" %>
       </div>
     </div>
     <div class="row column">
-      <%= form.check_box :to_define, label: t(".to_define"), id: "to_define" %>
     </div>
     <div class="row">
       <% if current_component.has_subscopes? %>
@@ -101,17 +102,30 @@
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     const toDefine = document.getElementById('to_define');
+    const toDefineEndTime = document.getElementById('to_define_end_time');
     const startTimeInput = document.getElementById('meeting_start_time');
     const endTimeInput = document.getElementById('meeting_end_time');
 
-    toDefine.addEventListener('change', () => {
+    const updateStartTime = () => {
       if (toDefine.checked) {
         startTimeInput.disabled = true;
-        endTimeInput.disabled = true;
       } else {
         startTimeInput.disabled = false;
+      }
+    };
+
+    const updateEndTime = () => {
+      if (toDefineEndTime.checked) {
+        endTimeInput.disabled = true;
+      } else {
         endTimeInput.disabled = false;
       }
-    });
+    };
+
+    updateStartTime();
+    updateEndTime();
+
+    toDefine.addEventListener('change', updateStartTime);
+    toDefineEndTime.addEventListener('change', updateEndTime);
   });
 </script>
