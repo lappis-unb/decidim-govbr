@@ -94,7 +94,7 @@ module Decidim
       end
 
       def schedule_upcoming_meeting_notification
-        return if meeting.start_time < Time.zone.now
+        return if meeting.to_define || meeting.start_time.nil? || meeting.start_time < Time.zone.now
 
         checksum = Decidim::Meetings::UpcomingMeetingNotificationJob.generate_checksum(meeting)
 
