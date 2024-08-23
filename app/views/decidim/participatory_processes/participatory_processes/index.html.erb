@@ -19,6 +19,28 @@ edit_link(
     <div class="processes-grid-order-by">
       <%= render partial: "order_by_processes" %>
     </div>
+    <div class="proposals-filters">
+      <%= render partial: "decidim/components/filter", locals: { 
+            show_filters: false,
+            search_field: {},
+            radio_collection: [
+              {
+                attribute: :with_scope,
+                collection: available_scopes,
+                legend: "Tema",
+                status: true
+              },
+            ],
+            check_boxes: [],
+            hidden_tag: {
+              status: false,
+            },
+            hidden_field: {
+              status: false,
+            }
+          }
+      %>
+    </div>
     <p class="loading"><%= t(".loading") %></p>
     <div class="component-content card-grid br-processes-list">
       <%= render partial: "decidim/components/list", locals: {
@@ -29,6 +51,7 @@ edit_link(
     </div>
   </section>
 <% end %>
+
 <% content_for :js_content do %>
   <%= javascript_pack_tag "decidim_participatory_processes" %>
 <% end %>
