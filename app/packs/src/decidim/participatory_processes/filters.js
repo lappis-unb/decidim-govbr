@@ -23,7 +23,9 @@ $(() => {
     const $processesOrderBy = $processesGrid.find(".processes-grid-order-by");
     const $processesScopeFilters = $processesGrid.find(".proposals-filters");
     let $target = $(event.target);
+    console.log($target);
 
+    
     if (!$target.is("a")) {
       $target = $target.parents("a");
     }
@@ -34,9 +36,32 @@ $(() => {
     $processesGridCards.hide();
     $loading.show();
 
+    let params = new URLSearchParams(window.location.search);
+
+    const stateFilterLink = $processesGrid.find("#inline-filter-sort a.is-active");
+    const typeFilterLink = $processesGrid.find("#inline-filter-sort a.is-active");
+
+    if (stateFilterLink.length) {
+      params.set('state', stateFilterLink.attr('data-state'));
+    }
+
+    if (typeFilterLink.length) {
+      params.set('type', typeFilterLink.attr('data-type'));
+    }
+
+    $(scopeFilterSelector).each(function() {
+      if ($(this).is(':checked')) {
+        params.append($(this).attr('name'), $(this).val());
+      }
+    });
+
+    const href = $target.attr("href") || $target.prevObject[0].formAction;
+    const url = href + (href.includes('?') ? '&' : '?') + params.toString();
+
+
     $.ajax({
       type: "GET",
-      url: $target.attr("href"),
+      url: url,
       success: function (data) {
         const $newCards = $(data).find(".card-grid");
         const $newOrderBy = $(data).find(".processes-grid-order-by");

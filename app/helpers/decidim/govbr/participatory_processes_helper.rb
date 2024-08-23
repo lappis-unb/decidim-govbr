@@ -22,7 +22,7 @@ module Decidim
 
       def available_scopes
         processes = search.result
-        scopes = [[nil, "Todos"]]
+        scopes = [%w(all Todos)]
 
         processes.each do |process|
           next unless process.try(:scope)
