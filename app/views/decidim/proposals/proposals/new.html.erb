@@ -79,10 +79,12 @@
 <% content_for :js_content do %>
   <%= javascript_pack_tag "decidim_proposals" %>
   <script>
+  /*
     document.getElementById('preview-button').addEventListener('click', function() {
       document.getElementById('should_preview').value = "preview";
       this.form.submit();
     });
+  */
     document.getElementById('publish-button').addEventListener('click', function() {
       this.form.submit();
     });
