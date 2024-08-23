@@ -106,11 +106,11 @@
 <div class="meeting-duration-time">
   <div class="field new-meeting-start-time">
     <%= form.datetime_field :start_time, placeholder: "Selecione...", id: "meeting_start_time" %>
-    <%= form.check_box :to_define, label: t(".to_define"), id: "to_define" %>
+    <%= form.check_box :to_define, label: t(".to_define"), id: "to_define", class: "meetings_to_define_checkbox" %>
   </div>
-  <div class="field new-meeting-end-time">
+  <div class="field new-meeting-start-time">
     <%= form.datetime_field :end_time, placeholder: "Selecione...", id: "meeting_end_time" %>
-    <%= form.check_box :to_define_end_time, label: t(".to_define"), id: "to_define_end_time" %>
+    <%= form.check_box :to_define_end_time, label: t(".to_define"), id: "to_define_end_time", class: "meetings_to_define_checkbox" %>
   </div>
 </div>
 <% if current_participatory_space.has_subscopes? %>
@@ -312,3 +312,16 @@
     toDefineEndTime.addEventListener('change', updateEndTime);
   });
 </script>
+<style>
+  .meetings_to_define_checkbox {
+    display: block !important;
+    height: auto !important;
+    margin: 1rem 0 !important;
+  }
+  .new-meeting-start-time :last-child {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    margin-left: 1rem !important;
+  }
+</style>
