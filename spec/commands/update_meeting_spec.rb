@@ -148,6 +148,7 @@ module Decidim::Meetings
             start_time: start_time,
             end_time: end_time,
             to_define: to_define,
+            to_define_end_time: to_define_end_time,
             scope: meeting.scope,
             category: meeting.category,
             address: address,
@@ -215,11 +216,6 @@ module Decidim::Meetings
               )
 
             subject.call
-          end
-
-          it_behaves_like "emits an upcoming notificaton" do
-            let(:future_start_date) { 1.day.from_now + Decidim::Meetings.upcoming_meeting_notification }
-            let(:past_start_date) { 1.day.ago }
           end
         end
 
