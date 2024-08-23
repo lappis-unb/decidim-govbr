@@ -16,6 +16,8 @@ module Decidim::Meetings
     let(:invalid) { false }
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
+    let(:to_define) { false }
+    let(:to_define_end_time) { false }
     let(:service_objects) { build_list(:service, 2) }
     let(:services) do
       service_objects.map(&:attributes)
@@ -44,6 +46,8 @@ module Decidim::Meetings
         location_hints: { en: "location_hints" },
         start_time: 1.day.from_now,
         end_time: 1.day.from_now + 1.hour,
+        to_define: to_define,
+        to_define_end_time: to_define_end_time,
         scope: scope,
         category: category,
         address: address,
