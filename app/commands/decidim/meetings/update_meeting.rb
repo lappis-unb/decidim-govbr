@@ -64,6 +64,9 @@ module Decidim
           associated_state: form.associated_state
         }
 
+        params[:start_time] = nil? if form.to_define
+        params[:end_time] = nil? if form.to_define_end_time
+
         params[:start_time] = form.start_time if !form.to_define && form.start_time
         params[:end_time] = form.end_time if !form.to_define_end_time && form.end_time
 

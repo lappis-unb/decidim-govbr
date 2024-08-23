@@ -162,7 +162,18 @@
           %>
           <% else %>
             <span class="br-divider"></span>
-            <p>Data ainda a ser definida</p>
+            <% if meeting.start_time.present? %>
+              <p class="component-card-data-label">Data de inicio em <%= meeting.start_time.strftime("%d/%m/%Y") %></p>
+            <% else %>
+              <p class="component-card-data-label">Data de inicio ainda a ser definida</p>
+            <% end%>
+          <% end %>
+          <% if meeting.end_time.present? %>
+            <span class="br-divider"></span>
+            <p class="component-card-data-label">Data de fim em <%= meeting.end_time.strftime("%d/%m/%Y") %></p>
+          <% else %>
+            <span class="br-divider"></span>
+            <p class="component-card-data-label">Data de fim ainda a ser definida</p>
           <% end %>
         </div>
         <% if meeting.closed? && meeting.closing_visible? %>
