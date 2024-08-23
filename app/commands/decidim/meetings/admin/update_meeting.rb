@@ -39,15 +39,12 @@ module Decidim
           parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
           parsed_description = Decidim::ContentProcessor.parse(form.description, current_organization: form.current_organization).rewrite
 
-          Decidim.traceability.update!(
-            meeting,
-            form.current_user,
+          params = {
             scope: form.scope,
             category: form.category,
             title: parsed_title,
             description: parsed_description,
-            end_time: form.end_time,
-            start_time: form.start_time,
+            to_define: form.to_define,
             online_meeting_url: form.online_meeting_url,
             registration_type: form.registration_type,
             registration_url: form.registration_url,
@@ -66,6 +63,18 @@ module Decidim
             comments_end_time: form.comments_end_time,
             iframe_access_level: form.iframe_access_level,
             associated_state: form.associated_state
+          }
+
+          params[:start_time] = nil? if form.to_define
+          params[:end_time] = nil? if form.to_define_end_time
+
+          params[:start_time] = form.start_time if !form.to_define && form.start_time
+          params[:end_time] = form.end_time if !form.to_define_end_time && form.end_time
+
+          Decidim.traceability.update!(
+            meeting,
+            form.current_user,
+            params
           )
         end
 
@@ -98,7 +107,7 @@ module Decidim
         end
 
         def schedule_upcoming_meeting_notification
-          return if meeting.start_time < Time.zone.now
+          return if meeting.start_time.nil? || meeting.start_time < Time.zone.now
 
           checksum = Decidim::Meetings::UpcomingMeetingNotificationJob.generate_checksum(meeting)
 
