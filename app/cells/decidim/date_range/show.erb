@@ -1,6 +1,6 @@
 <div class="date-container">
   <i class="fas fa-calendar-alt data-icon"></i>
-  <% if same_day? %>
+  <% if start_time.present? && end_time.present? && same_day? %>
     <div class="extra__date">
       <div class="day">
         <%= l start_time, format: "%d" %>
@@ -12,36 +12,30 @@
         <i class="fa-solid fa-clock fa-sm"></i>
         <span>
           <%= l start_time, format: "%H:%M" %> às <%= l end_time, format: "%H:%M" %>
-        <span>
+        </span>
       </div>
     </div>
-  <% else %>
+  <% else  %>
     <div class="date-set">
       <div class="extra__date">
-        <span class="extra__time-title">
-          Início
-        </span>
-        <span class="extra__month">
-          <%= l start_time, format: "%d/%m/%Y" %>
-        </span>
+        <span class="extra__time-title">Início</span>
+        <span class="extra__month"><%= l start_time, format: "%d/%m/%Y" %></span>
         <div class="extra__time">
-          <i class="fa-solid fa-clock fa-sm"></i> 
+          <i class="fa-solid fa-clock fa-sm"></i>
           <span><%= l start_time, format: "%H:%M" %></span>
         </div>
       </div>
-      <i class="fa-solid fa-arrow-down fa-sm"></i>
-      <div class="extra__date">
-        <span class="extra__time-title">
-          Encerramento
-        </span>
-        <span class="extra__month">
-          <%= l end_time, format: "%d/%m/%Y" %>
-        </span>
-        <div class="extra__time">
-          <i class="fa-solid fa-clock fa-sm"></i>
-          <span><%= l end_time, format: "%H:%M" %></span>
+      <% if end_time.present? %>
+        <i class="fa-solid fa-arrow-down fa-sm"></i>
+        <div class="extra__date">
+          <span class="extra__time-title">Encerramento</span>
+          <span class="extra__month"><%= l end_time, format: "%d/%m/%Y" %></span>
+          <div class="extra__time">
+            <i class="fa-solid fa-clock fa-sm"></i>
+            <span><%= l end_time, format: "%H:%M" %></span>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
   <% end %>
 </div>
