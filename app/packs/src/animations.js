@@ -127,4 +127,15 @@ document.addEventListener("DOMContentLoaded", function () {
       filtersMenu.classList.add("filters__hidden");
     }, 500);
   }
+  
+  document.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.header-top'); 
+    if (navbar) {
+      if (window.scrollY > 0) {
+        navbar.style.display = 'none'; 
+      } else {
+        navbar.style.display = 'flex'; 
+      }
+    }
+  });
 });
