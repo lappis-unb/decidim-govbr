@@ -37,8 +37,7 @@ module Decidim
             category: form.category,
             title: parsed_title,
             description: parsed_description,
-            end_time: form.end_time,
-            start_time: form.start_time,
+            to_define: form.to_define,
             online_meeting_url: form.online_meeting_url,
             registration_type: form.registration_type,
             registration_url: form.registration_url,
@@ -62,6 +61,9 @@ module Decidim
             iframe_access_level: form.iframe_access_level,
             associated_state: form.associated_state
           }
+
+          params[:start_time] = form.start_time if !form.to_define && form.start_time
+          params[:end_time] = form.end_time if !form.to_define_end_time && form.end_time
 
           @meeting = Decidim.traceability.create!(
             Meeting,

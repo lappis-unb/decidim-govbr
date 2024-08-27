@@ -69,7 +69,7 @@
       <div class="actions bp-new-proposal-container">
         <%# <%= form.button "Pré-visualização", class: "button expanded mt-s mb-none new-proposal-button pre-view-button" %>
         <%= form.hidden_field :should_preview, id: "should_preview" %>
-        <%= form.button "Pré-visualizar", type: "button", id: "preview-button", class: "button expanded mt-s mb-none new-proposal-button" %>
+        <%# <%= form.button "Pré-visualizar", type: "button", id: "preview-button", class: "button expanded mt-s mb-none new-proposal-button" %> 
         <%= form.button "Publicar", type: "button",id: "publish-button", class: "button expanded mt-s mb-none new-proposal-button" %>
       </div>
     </div>
@@ -79,10 +79,12 @@
 <% content_for :js_content do %>
   <%= javascript_pack_tag "decidim_proposals" %>
   <script>
+  /*
     document.getElementById('preview-button').addEventListener('click', function() {
       document.getElementById('should_preview').value = "preview";
       this.form.submit();
     });
+  */
     document.getElementById('publish-button').addEventListener('click', function() {
       this.form.submit();
     });

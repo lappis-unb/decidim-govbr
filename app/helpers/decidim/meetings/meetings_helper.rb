@@ -46,6 +46,8 @@ module Decidim
       #
       # Returns an Array.
       def calculate_start_and_end_time_of_agenda_items(agenda_items, meeting, start_time_parent = nil)
+        return [] if meeting.start_time.nil?
+
         array = []
 
         agenda_items.each_with_index do |agenda_item, index|
@@ -55,18 +57,13 @@ module Decidim
             end_time: nil
           }
           if index.zero?
-            start = if agenda_item.parent?
-                      meeting.start_time
-                    else
-                      start_time_parent
-                    end
-
+            start = agenda_item.parent? ? meeting.start_time : start_time_parent
             hash[:start_time] = start
           else
             hash[:start_time] = array[index - 1][:end_time]
           end
 
-          hash[:end_time] = hash[:start_time] + agenda_item.duration.minutes
+          hash[:end_time] = hash[:start_time] + agenda_item.duration.minutes if hash[:start_time].present?
 
           array.push(hash)
         end
@@ -146,7 +143,7 @@ module Decidim
       end
 
       def has_started?(meeting)
-        Time.current > meeting.start_time
+        meeting.start_time.present? && Time.current > meeting.start_time
       end
     end
   end
