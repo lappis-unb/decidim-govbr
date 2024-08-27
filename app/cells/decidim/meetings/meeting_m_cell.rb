@@ -13,7 +13,7 @@ module Decidim
       end
 
       def finished?
-        Time.current > end_date
+        end_date.present? && Time.current > end_date
       end
 
       def badge_name
@@ -21,7 +21,7 @@ module Decidim
           t("decidim.meetings.card.status.cancel")
         elsif finished?
           t("decidim.meetings.card.status.finished")
-        elsif Time.current.between?(start_date, end_date)
+        elsif start_date.present? && end_date.present? && Time.current.between?(start_date, end_date)
           t("decidim.meetings.card.status.active")
         else
           t("decidim.meetings.card.status.upcoming")
@@ -33,7 +33,7 @@ module Decidim
           ["red"]
         elsif finished?
           ["gray"]
-        elsif Time.current.between?(start_date, end_date)
+        elsif start_date.present? && end_date.present? && Time.current.between?(start_date, end_date)
           ["green"]
         else
           ["blue"]
@@ -128,21 +128,21 @@ module Decidim
       end
 
       def spans_multiple_dates?
-        start_date != end_date
+        start_date.present? && end_date.present? && start_date.to_date != end_date.to_date
       end
 
       def meeting_date
-        return render(:multiple_dates) if spans_multiple_dates?
+        return unless start_date.present? && end_date.present?
 
-        render(:single_date)
+        spans_multiple_dates? ? render(:multiple_dates) : render(:single_date)
       end
 
       def formatted_start_time
-        model.start_time.strftime("%H:%M")
+        model.start_time&.strftime("%H:%M") || ""
       end
 
       def formatted_end_time
-        model.end_time.strftime("%H:%M")
+        model.end_time&.strftime("%H:%M") || ""
       end
 
       def start_date

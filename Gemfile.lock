@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-ej.git
-  revision: 487285acea70bdc3f6f9ffa162ac7f77c9c9730d
+  revision: 56aa35fe8f602527e176cb94ec6072157ca8b7a5
   branch: main
   specs:
     decidim-ej (0.27.2)
@@ -18,14 +18,14 @@ GIT
 
 GIT
   remote: https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-module-homes.git
-  revision: fefaa84ee68c900c5a966010bd50155fe0b96667
+  revision: 6a9baa60d34731dae1aa458ed23e3a502cda388c
   specs:
     decidim-homes (0.27.2)
       decidim-core (= 0.27.2)
 
 GIT
   remote: https://gitlab.com/lappis-unb/decidimbr/decidim-extra_user_fields.git
-  revision: eb085a061b16db3bf81716d0b5d97d31b041c802
+  revision: ec96b7b9dcfaedb9390cf9f8b8dff70b952c6baa
   branch: feat/allow-to-configure-permitted-components
   specs:
     decidim-extra_user_fields (0.27.2)
