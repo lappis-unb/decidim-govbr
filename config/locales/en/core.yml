@@ -8,7 +8,7 @@ en:
         nickname: Short name
       user:
         avatar: Your photo
-        name: Name
+        name: Full name
         nickname: Username
         email: Email
         password: Password
@@ -144,13 +144,17 @@ en:
         button_url: Call to action URL
     core:
       actions:
-        login_before_access: Log in with your account before accessing
-        unauthorized: You are not authorized to perform this action
+        login_before_access: Please sign in with your account before accessing.
+        unauthorized: You are not authorized to perform this action.
     devise:
       registrations:
         new:
           nickname_help: Your username on %{organization}. Can only contain letters, numbers, '-' and '_'.
-          password_help: "%{minimun_characters} characters minimum, should not be too common (e.g., 123456), and should be different from your nickname and email."
+          password_help: |
+            The password must be at least 14 characters long.
+            The password must include at least one uppercase letter.
+            The password must include at least one lowercase letter.
+            The password must include at least one number.
           newsletter_title: Contact permission
       sessions:
         new:
@@ -478,6 +482,7 @@ en:
       minimum:
         one: At least %{count} character
         other: At least %{count} characters
+    required_explanation: Required fields are marked with an asterisk*
   layouts:
     decidim:
       data_consent:

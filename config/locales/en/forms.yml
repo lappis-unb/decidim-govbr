@@ -5,7 +5,7 @@ en:
       answer:
         selected_choices: Selected choices
       questionnaire:
-        title: Form Name
+        title: Form name
   decidim:
     pages:
       admin:
@@ -45,7 +45,7 @@ en:
       images:
         processors:
           resize_and_pad: This image will be resized and padded to %{dimensions}.
-          resize_to_fit: This image will be resized to fit %{dimensions}.
+          resize_to_fit: This image will be resized to fit within %{dimensions}.
       question_types:
         files: Files
         title_and_description: Title and description
@@ -53,15 +53,16 @@ en:
         show:
           questionnaire_answered:
             body: You have already answered this questionnaire.
-          tos_agreement: By participating, you accept its Terms of Service
+          tos_agreement: By participating, you agree to its Terms of Service
       step_navigation:
         show:
-          are_you_sure: This action cannot be undone and will not allow you to edit your answers. Are you sure?
+          are_you_sure: This action cannot be undone and will prevent you from editing your answers. Are you sure?
+          continue: Yes, continue
           back: Back
       user_answers_serializer:
         registered: Registered
         session_token: User identifier
-        unregistered: Not registered
+        unregistered: Unregistered
         user_status: User status
       errors:
         answer:
