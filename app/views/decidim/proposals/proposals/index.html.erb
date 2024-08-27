@@ -32,7 +32,7 @@
     <%= render partial: "decidim/shared/component_announcement" %>
   </div>
   <!-- TODO fazer aparecer novamente quando for necessário mostrar as estatisticas -->
-  <% if false %>
+  <% if component_settings.statistics_enable? %>
     <div class="filter-container">
       <div class="proposals__buttons-container">
         <div class="proposals-button__container">
