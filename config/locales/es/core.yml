@@ -8,7 +8,7 @@ es:
         nickname: Nombre abreviado
       user:
         avatar: Tu foto
-        name: Nombre
+        name: Nombre completo
         nickname: Nombre de usuario
         email: Correo electrónico
         password: Contraseña
@@ -144,13 +144,17 @@ es:
         button_url: URL del botón de llamada a la acción
     core:
       actions:
-        login_before_access: Inicie sesión con su cuenta antes de acceder
-        unauthorized: No está autorizado para realizar esta acción
+        login_before_access: Por favor, inicie sesión con su cuenta antes de acceder.
+        unauthorized: No está autorizado para realizar esta acción.
     devise:
       registrations:
         new:
           nickname_help: Su nombre de usuario en %{organization}. Solo puede contener letras, números, '-' y '_'.
-          password_help: "%{minimun_characters} caracteres como mínimo, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de su apodo y su correo electrónico."
+          password_help: |
+            La contraseña debe tener al menos 14 caracteres.
+            La contraseña debe incluir al menos una letra mayúscula.
+            La contraseña debe incluir al menos una letra minúscula.
+            La contraseña debe incluir al menos un número.
           newsletter_title: Permiso de contacto
       sessions:
         new:
@@ -478,6 +482,7 @@ es:
       minimum:
         one: Al menos %{count} carácter
         other: Al menos %{count} caracteres
+    required_explanation: Los campos obligatorios están marcados con un asterisco*
   layouts:
     decidim:
       data_consent:
