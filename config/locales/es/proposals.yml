@@ -196,10 +196,17 @@ es:
         object: propuestas
         title: Propuestas aceptadas
     proposals:
+      actions:
+        preview_participatory_text: Vista previa del texto participativo
       admin:
         when_empty: Propuesta
         period_submitting_proposals_is_not_open: El período para la presentación de propuestas no está abierto.
         Its_export_is_underway: Su exportación está en curso. Recibirá un correo electrónico cuando esté completa.
+        participatory_texts:
+          edit_as_preview:
+            go_back: Volver
+          edit-article-preview:
+            edition_blocked: Como esta sección ya ha recibido un voto, ya no se puede editar.
         imports:
           label:
             answers: Importar respuestas de un archivo
