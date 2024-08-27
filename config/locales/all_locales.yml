@@ -567,15 +567,43 @@ pt:
         media: Mobilização
 
 en:
-
   activemodel:
     attributes:
+      assembly:
+        initial_page_component_id: Assembly Home Page
       assembly_partner:
         link: Link
         logo: Logo
         name: Name
         partner_type: Type
         weight: Weight (display position)
+      participatory_process:
+        Order: 'Order:'
+        area_id: Body/Institution
+        participatory_process_group_id: Sector
+        decidim_area_id: Body/Institution
+        initial_page_component_id: Participatory Process Home Page
+        scope_id: Areas of interest
+        scopes_enabled: Areas of interest enabled
+        slug: Friendly URL
+        developer_group: Body/Institution
+        local_area: Sector
+        Responsible: 'Responsible:'
+        contact: 'Contact:'
+        Publication_in_the_DOU: Publication in the DOU
+        meta_scope: Select the status of this participatory process
+        target: Responsible for the consultation
+        participatory_scope: Process publication link in the DOU
+        publish_date: Process publication date in the DOU
+        hashtag: Keywords
+        description: Participatory Process Summary
+        hero_image: Cover image (mobile)
+        banner_image: Cover image (desktop)
+        participatory_structure: Institutional Sector Phone or Email
+        show_statistics: Show Participatory Data
+        should_have_user_full_profile: Require full User Profile to answer the form
+        show_mobilization: Show mobilization
+        is_template: Is it a template process?
       participatory_process_partner:
         link: Link
         logo: Logo
@@ -615,11 +643,50 @@ en:
       decidim/user:
         email: E-mail
   decidim:
+    statistics:
+      headline: Participatory Data
+    search:
+      results_for_term: "Results across the entire "
+      platform: Participatory Brazil
+    participatory_process_group:
+      participatory_process_group_id: Process group
+    meetings:
+      meetings:
+        confirm_destroy: "Are you sure you want to delete this event?"
+        calendar_modal:
+          add_to_calendar: Add to calendar
+    attachment_title: Documents
     components:
+      meetings:
+        settings:
+          global:
+            attachments_allowed: Allow the organization to create meetings with attachments
+            enable_comments_attachment: Allow attachments in contributions
+            requires_previous_moderation: Require prior moderation of new proposals
+      comment:
+        reply: Reply
+        report:
+          action: Moderate
+      blogs:
+        settings:
+          global:
+            enable_comments_attachment: Allow attachments in contributions
       proposals:
         settings:
           global:
+            vote_limit: Maximum number of votes per user
+            minimum_votes_per_user: Minimum number of votes per user
+            most_voted_rule: How many top-voted proposals will be selected?
+            proposal_limit: Maximum number of proposals per user (leave 0 if you don't want to limit)
+            proposal_length: Maximum number of characters per proposal
+            proposal_answering_enabled: Allow the organization to provide feedback on proposals
+            official_proposals_enabled: Allow the organization to make official proposals
+            comments_enabled: Allow users to comment on proposals
+            comments_max_length: Maximum number of characters per comment (leave 0 to not limit)
+            attachments_allowed: Allow the organization to create proposals with attachments
+            enable_comments_attachment: Allow attachments in contributions
             requires_previous_moderation: New proposals requires previous moderation
+      publish_date_text: Published on
     govbr:
       initial_page_type:
         default: Default Page
@@ -641,12 +708,19 @@ en:
             title: Organizers and Supporters
         participatory_processes:
           form:
+            slug_help: "The friendly URL is used to generate the URL for accessing the participatory process. It only accepts letters, numbers, and hyphens, and must start with a letter. Example: %{url}"
+            select_process_group: Select an Organization/Institution
+            select_an_area: Select a Secretariat
+            metadata: Process Details
+            duration: Participatory Process Deadline
             initial_page_component_id_help: Select the component to be used as the process main page. Only Static Pages and Initial Pages are displayed here as options. If a custom main page is not necessary, keep the option "Default Page" selected.
             group_chat_id_help: The Telegram group ID to be used on this process
             hash_tag_help: The key-words to be used to identify this process on searching
         participatory_process_group_users:
           index:
             title: Group Member Users
+          new:
+            needs_entity_fields: Require additional fields in user registration
 
     extra_user_fields:
       registration_form:
@@ -666,6 +740,11 @@ en:
       admin:
         models:
           components:
+            follow_the_instructions: Follow the instructions below to actively participate and make your mark on decisions that impact Brazil.
+            Review_your_content: Review your content and make sure everything is correct before publishing. After publishing, you can only edit or delete the proposal if it has not received any votes.
+            My_stats: My statistics
+            Learn_about_the_rules_proposals: Learn about the rules and criteria for proposal selection
+            Edit_your_proposal: Edit your proposal
             topp: Terms of privacy policy
             collect_user_data: Enable user data collecting via terms of privacy policy.
       user_answers_serializer:
@@ -673,6 +752,11 @@ en:
         uid: Identification number
         anonymous_answer: User didn't want to inform
       questionnaires:
+        questionnaire_form:
+          questionnaire_not_published:
+            body: Poll preview
+          current_step: Step %{step}
+          of_total_steps: of %{total_steps}
         show:
           topp_agreement: I agree with the privacy policy
     admin:
@@ -766,7 +850,7 @@ en:
           error: Could not update group user
       users:
         form:
-          needs_entity_fields: Exigir campos extras no cadastro do usuário
+          needs_entity_fields: Require additional fields in user registration
     admin_log:
       govbr:
         partner:
@@ -798,6 +882,9 @@ en:
           forgot_your_password: Forgot your password
 
     proposals:
+      proposals_picker:
+        cancel: Cancel
+        close: Confirm
       admin:
         participatory_texts:
           section:
