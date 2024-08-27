@@ -1494,9 +1494,7 @@ ul.dropdown.menu.bp-result-per-page
 }
 
 .linked-proposals-item:nth-child(even) {
-  background: var(
-    --blue-warm-vivid-05
-  ); /* Cor de fundo para itens pares */
+  background: var(--blue-warm-vivid-5); /* Cor de fundo para itens pares */
 }
 
 .linked-proposals-item-text {
