@@ -57,6 +57,8 @@ module Decidim
         attribute :group_chat_id, String
         attribute :should_have_user_full_profile, Boolean
         attribute :show_mobilization, Boolean, default: false
+        attribute :mobilization_title, String
+        attribute :mobilization_position, Integer
 
         validate :initial_page_component_existence
 

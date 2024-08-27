@@ -52,8 +52,7 @@ module Decidim
           category: form.category,
           title: { I18n.locale => parsed_title },
           description: { I18n.locale => parsed_description },
-          end_time: form.end_time,
-          start_time: form.start_time,
+          to_define: form.to_define,
           address: form.address,
           latitude: form.latitude,
           longitude: form.longitude,
@@ -75,6 +74,9 @@ module Decidim
           associated_state: form.associated_state
         }
 
+        params[:start_time] = form.start_time if !form.to_define && form.start_time
+        params[:end_time] = form.end_time if !form.to_define_end_time && form.end_time
+
         @meeting = Decidim.traceability.create!(
           Meeting,
           form.current_user,
@@ -88,7 +90,7 @@ module Decidim
       end
 
       def schedule_upcoming_meeting_notification
-        return if meeting.start_time < Time.zone.now
+        return if form.to_define || meeting.start_time < Time.zone.now
 
         checksum = Decidim::Meetings::UpcomingMeetingNotificationJob.generate_checksum(meeting)
 
