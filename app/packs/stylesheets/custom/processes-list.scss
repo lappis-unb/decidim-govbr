@@ -121,6 +121,13 @@
   }
 }
 
+.select__filters-container {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  gap: 1.5rem;
+}
+
 @media (max-width: 768px) {
   #processes-list-header {
     .flex--sbe {
@@ -149,7 +156,8 @@
     }
   }
 
-  #inline-state-filter-sort {
+  #inline-state-filter-sort,
+  #inline-filter-sort {
     position: relative;
     width: 100%;
     margin: 0;
@@ -162,5 +170,10 @@
 
   .custom-tooltip-arrow {
     left: 5%;
+  }
+
+  .select__filters-container {
+    flex-direction: column;
+    width: 100%;
   }
 }
