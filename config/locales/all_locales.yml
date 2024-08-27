@@ -90,6 +90,7 @@ pt-BR:
             comments_max_length: Quantidade máxima de caracteres por comentário (deixe 0 para não limitar)
             attachments_allowed: Permitir que o órgão crie propostas com anexos
             enable_comments_attachment: Permitir anexos em contribuições
+            statistics_enable: Mostrar estatísticas do usuário
       blogs:
         settings:
           global:
