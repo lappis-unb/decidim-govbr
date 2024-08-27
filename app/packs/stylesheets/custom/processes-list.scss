@@ -1,7 +1,7 @@
 .processes-list-header {
   display: flex;
   flex-direction: row;
-  padding: 0 1rem;
+  padding: 0 0.625rem;
   width: 100%;
   justify-content: space-between;
   align-items: flex-end;
@@ -79,13 +79,11 @@
 
 .processes_header-container {
   padding-bottom: 48px;
-  border-bottom: 1px solid var(--gray-20);
 }
 
 #processes-list-header {
   .flex--sbe {
     align-items: flex-start;
-    margin-top: 48px;
 
     h3 {
       font-size: 1rem;
