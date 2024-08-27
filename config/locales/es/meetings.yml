@@ -10,6 +10,7 @@ es:
         filter_only_applies_Agenda_meetings: Este filtro se refiere solo a las reuniones de la Agenda
       close_meeting:
         proposals: Propuestas creadas en el evento
+        closing_report: Informe de cierre
       meeting:
         title: "Título del evento:"
         available_slots: Plazas disponibles para este evento
@@ -30,6 +31,7 @@ es:
         location: "Ubicación:"
         location_hints: "Consejos:"
         decidim_scope_id: "Área de interés:"
+        associated_state: Estado asociado
       meeting_agenda:
         title: Título
         visible: Visible
@@ -59,6 +61,9 @@ es:
               user_group: Grupos de usuarios
     components:
       meetings:
+        closing_report: Describe lo que sucedió
+    components:
+      meetings:
         actions:
           join: Unirse a
           new: "Nuevo(a) %{singular_name}"
@@ -71,17 +76,17 @@ es:
     events:
       meetings:
         meeting_closed:
-          email_intro: "El evento ha concluido, revisa lo que sucedió en la página:"
+          email_intro: "El evento ha terminado, revisa lo que sucedió en la página:"
         meeting_registration_confirmed:
           notification_title: Tu inscripción para el evento <a href="%{resource_url}">%{resource_title}</a> ha sido confirmada. Tu código de inscripción es %{registration_code}.
         registration_code_validated:
           email_intro: Tu código de inscripción "%{registration_code}" para el evento "%{resource_title}" ha sido validado.
-          email_outro: Has recibido este mensaje porque tu inscripción para el evento "%{resource_title}" ha sido validada.
+          email_outro: Recibiste este mensaje porque tu inscripción para el evento "%{resource_title}" fue validada.
           email_subject: Tu número de inscripción "%{registration_code}" para el evento "%{resource_title}" ha sido validado.
           notification_title: Tu número de inscripción "%{registration_code}" para el evento <a href="%{resource_path}">%{resource_title}</a> ha sido validado.
         registrations_enabled:
-          email_intro: 'El evento "%{resource_title}" ha activado las inscripciones. Puedes inscribirte desde su página:'
-          email_outro: Ahora sigues el evento "%{resource_title}". Para dejar de seguirlo, haz clic aquí.
+          email_intro: 'El evento "%{resource_title}" ha habilitado inscripciones. Puedes inscribirte desde su página:'
+          email_outro: Ahora estás siguiendo el evento "%{resource_title}". Para dejar de seguirlo, haz clic aquí.
           email_subject: El evento "%{resource_title}" ha abierto inscripciones.
           notification_title: El evento <a href="%{resource_path}">%{resource_title}</a> ha abierto inscripciones.
     
@@ -99,9 +104,10 @@ es:
           edit:
             title: Editar evento
           form:
-            available_slots_help: Deje el valor 0 si tiene plazas ilimitadas disponibles
-            location_hints_help: "Ejemplo: el piso del edificio si es un evento presencial, o la contraseña del evento si es un evento virtual con acceso restringido."
-            select_a_meeting_type: Por favor, seleccione un tipo de evento
+            available_slots_help: Establece en 0 si tienes plazas disponibles ilimitadas
+            location_hints_help: "Ejemplo: el piso del edificio para un evento presencial, o la contraseña del evento para un evento virtual con acceso restringido."
+            select_a_meeting_type: Por favor, selecciona un tipo de evento
+            select_a_meeting_associated_state: Por favor, selecciona un estado asociado para el evento
             select_a_registration_type: Por favor, seleccione un tipo de inscripción
             select_an_iframe_access_level: Por favor, seleccione un nivel de acceso iframe
             show_embedded_iframe_help: "Solo algunos servicios permiten la incrustación en reuniones o eventos en vivo desde los siguientes dominios: %{domains}"
@@ -109,8 +115,8 @@ es:
           form:
             title: Editar cuestionario de la encuesta para %{questionnaire_for}
           update:
-            invalid: Hubo un problema al actualizar la encuesta de este evento
-            success: Encuesta del evento actualizada correctamente
+            invalid: Hubo un problema al actualizar la encuesta de este evento.
+            success: Encuesta del evento actualizada correctamente.
         exports:
           registrations: Inscripciones
         invite_join_meeting_mailer:
@@ -127,8 +133,8 @@ es:
           form:
             registration_form: Formulario de inscripción
             registrations_count:
-              one: Hubo %{count} inscrito.
-              other: Hubo %{count} inscritos.
+              one: Había %{count} persona registrada.
+              other: Había %{count} personas registradas.
             title: Inscripciones
           update:
             invalid: Hubo un problema al guardar la configuración de inscripción.
@@ -139,6 +145,35 @@ es:
       admin_log:
         meeting:
           export_registrations: "%{user_name} exportó las inscripciones del evento %{resource_name} en el espacio %{space_name}"
+      associated_states:
+        AC: Acre
+        AL: Alagoas
+        AP: Amapá
+        AM: Amazonas
+        BA: Bahia
+        CE: Ceará
+        DF: Distrito Federal
+        ES: Espírito Santo
+        GO: Goiás
+        MA: Maranhão
+        MT: Mato Grosso
+        MS: Mato Grosso do Sul
+        MG: Minas Gerais
+        PA: Pará
+        PB: Paraíba
+        PR: Paraná
+        PE: Pernambuco
+        PI: Piauí
+        RJ: Rio de Janeiro
+        RN: Rio Grande do Norte
+        RS: Rio Grande do Sur
+        RO: Rondônia
+        RR: Roraima
+        SC: Santa Catarina
+        SP: São Paulo
+        SE: Sergipe
+        TO: Tocantins
+
       calendar_modal:
         calendar_url: URL del calendario
         close_window: Cerrar ventana
@@ -172,6 +207,10 @@ es:
         registration_mailer:
           confirmation:
             subject: Tu inscripción al evento ha sido confirmada
+      meeting_closes:
+        edit:
+          close: Vincular propuestas
+          title: Vincular propuestas
       meetings:
         show:
           confirm_delete: "¿Estás seguro/a de que quieres eliminar este evento?"
@@ -183,6 +222,8 @@ es:
           registration_code_help_text: Tu código de inscripción
           back: Volver a la lista
           remaining_slots: plazas disponibles
+          close_meeting: Vincular propuestas
+          edit_close_meeting: Vincular propuestas
           live_event: Este evento está en curso ahora
           live_permission_notice: Al hacer clic en el botón a continuación, se solicitarán permisos de micrófono y/o cámara y entrarás en la videoconferencia.
           live_link: "Enlace del evento:"
@@ -206,6 +247,8 @@ es:
           see_all_withdrawn: Ver todos los eventos retirados
           text_banner: Estás viendo la lista de eventos retirados por sus autores. %{go_back_link}.
         form:
+          iframe_embed_type: "Formato de visualización del evento:"
+          iframe_access_level: "Permiso de la audiencia:"
           new:
             title: Acerca del evento
           placeholder:
