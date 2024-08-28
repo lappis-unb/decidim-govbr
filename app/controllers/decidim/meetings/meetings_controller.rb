@@ -12,38 +12,38 @@ module Decidim
       include Withdrawable
       include FormFactory
       include Paginable
-
+      
       helper Decidim::WidgetUrlsHelper
       helper Decidim::ResourceVersionsHelper
       helper Decidim::ShortLinkHelper
       helper_method :meetings, :meeting, :registration, :search
+      
+      def handle_success(action, redirect_path)
+        flash[:notice] = I18n.t("meetings.#{action}.success", scope: "decidim")
+        redirect_to redirect_path
+      end
 
+      def handle_invalid(action)
+        flash.now[:alert] = I18n.t("meetings.#{action}.invalid", scope: "decidim")
+        render action: action == :update ? :edit : "new"
+      end
+      
       def new
         enforce_permission_to :create, :meeting
-
         @form = meeting_form.instance
       end
 
       def create
         enforce_permission_to :create, :meeting
-
         @form = meeting_form.from_params(params, current_component: current_component)
 
         CreateMeeting.call(@form) do
-          on(:ok) do |meeting|
-            flash[:notice] = I18n.t("meetings.create.success", scope: "decidim.meetings")
-            redirect_to meeting_path(meeting)
-          end
-
-          on(:invalid) do
-            flash.now[:alert] = I18n.t("meetings.create.invalid", scope: "decidim.meetings")
-            render action: "new"
-          end
+          on(:ok) { handle_success(:create, meeting_path(@form)) }
+          on(:invalid) { handle_invalid(:create) }
         end
       end
 
       def index
-
         return unless search.result.blank? && params.dig("filter", "date") != %w(past)
 
         @past_meetings ||= search_with(filter_params.merge(with_any_date: %w(past)))
@@ -67,40 +67,25 @@ module Decidim
 
       def edit
         enforce_permission_to :update, :meeting, meeting: meeting
-
         @form = meeting_form.from_model(meeting)
       end
 
       def update
         enforce_permission_to :update, :meeting, meeting: meeting
-
         @form = meeting_form.from_params(params)
 
         UpdateMeeting.call(@form, current_user, meeting) do
-          on(:ok) do |meeting|
-            flash[:notice] = I18n.t("meetings.update.success", scope: "decidim.meetings")
-            redirect_to Decidim::ResourceLocatorPresenter.new(meeting).path
-          end
-
-          on(:invalid) do
-            flash.now[:alert] = I18n.t("meetings.update.invalid", scope: "decidim.meetings")
-            render :edit
-          end
+          on(:ok) { handle_success(:update, Decidim::ResourceLocatorPresenter.new(meeting).path) }
+          on(:invalid) { handle_invalid(:update) }
         end
       end
 
       def withdraw
         enforce_permission_to :withdraw, :meeting, meeting: meeting
 
-        WithdrawMeeting.call(@meeting, current_user) do
-          on(:ok) do
-            flash[:notice] = I18n.t("meetings.withdraw.success", scope: "decidim")
-            redirect_to Decidim::ResourceLocatorPresenter.new(@meeting).path
-          end
-          on(:invalid) do
-            flash[:alert] = I18n.t("meetings.withdraw.error", scope: "decidim")
-            redirect_to Decidim::ResourceLocatorPresenter.new(@meeting).path
-          end
+        WithdrawMeeting.call(meeting, current_user) do
+          on(:ok) { handle_success(:withdraw, Decidim::ResourceLocatorPresenter.new(meeting).path) }
+          on(:invalid) { handle_invalid(:withdraw) }
         end
       end
 
@@ -129,7 +114,6 @@ module Decidim
       def meeting_form
         form(Decidim::Meetings::MeetingForm)
       end
-
 
     end
   end
