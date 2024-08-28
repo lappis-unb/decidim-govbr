@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_08_09_112353) do
+ActiveRecord::Schema.define(version: 2024_08_22_125552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1287,6 +1287,7 @@ ActiveRecord::Schema.define(version: 2024_08_09_112353) do
     t.integer "iframe_access_level", default: 0
     t.integer "iframe_embed_type", default: 0
     t.integer "associated_state", default: 0
+    t.boolean "to_define", default: false
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_meetings_meetings_on_author"
     t.index ["decidim_author_id"], name: "index_decidim_meetings_meetings_on_decidim_author_id"
     t.index ["decidim_component_id"], name: "index_decidim_meetings_meetings_on_decidim_component_id"
@@ -1616,6 +1617,8 @@ ActiveRecord::Schema.define(version: 2024_08_09_112353) do
     t.boolean "show_mobilization"
     t.boolean "is_template", default: false, null: false
     t.jsonb "extra_fields"
+    t.string "mobilization_title"
+    t.integer "mobilization_position"
     t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id"
@@ -2052,7 +2055,7 @@ ActiveRecord::Schema.define(version: 2024_08_09_112353) do
     t.text "about"
     t.datetime "accepted_tos_version"
     t.string "newsletter_token", default: ""
-    t.datetime "newsletter_notifications_at", default: "2024-08-06 14:09:38"
+    t.datetime "newsletter_notifications_at", default: "2024-07-02 17:35:34"
     t.string "type", null: false
     t.jsonb "extended_data", default: {}
     t.integer "following_count", default: 0, null: false

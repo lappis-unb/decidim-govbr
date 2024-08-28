@@ -1,0 +1,35 @@
+<div class="linked-proposals-list">
+  <% resources.each do |proposal| %>
+    <div class="linked-proposals-item">
+      <div class="linked-proposals-item-text">
+        <div class="linked-proposals-info">
+          <%= link_to resource_locator(proposal).path do %>
+            <i class="fa fa-external-link"></i>
+          <% end %>
+          <%= link_to resource_locator(proposal).path do %>
+            <h5><%== decidim_html_escape(present(proposal).title) %></h5>
+          <% end %>
+        </div>
+        <div class="linked-proposals-author">
+          <% present(proposal) do |proposal| %>
+              <div class="linked-proposals-author-avatar">
+                <%= image_tag proposal.author.avatar_url %>
+              </div>
+              <div class="linked-proposals-author-name">
+                <strong><%= proposal.author.name %></strong>
+                <%= proposal.author.nickname %>
+              </div>
+          <% end %>
+        </div>
+      </div>
+      <% if !current_settings.try(:votes_hidden?) && !proposal.component.current_settings.votes_hidden? %>
+        <div class="linked-proposals-item-data">
+          <div class="linked-proposals-item-data-number">
+            <%= proposal.votes.size %>
+          </div> 
+          <p class="linked-proposals-item-data-text"><%= t(".proposal_votes", count: proposal.votes.size) %></p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
