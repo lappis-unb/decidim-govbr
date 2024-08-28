@@ -90,6 +90,10 @@ pt-BR:
             comments_max_length: Quantidade máxima de caracteres por comentário (deixe 0 para não limitar)
             attachments_allowed: Permitir que o órgão crie propostas com anexos
             enable_comments_attachment: Permitir anexos em contribuições
+            extension_allowlist: Formatos aceitos
+            extension_allowlist_help: Extensões de arquivos que o usuário pode submeter ao criar uma proposta. Deve ser uma lista separada por vírgulas, "ex.:" .png, .pdf, .gif
+            max_files_quantity: Quantidade máxima de arquivos
+            max_files_quantity_help: Quantidade máxima de arquivos que o usuário pode submeter ao criar uma proposta. Deve ser um número inteiro
       blogs:
         settings:
           global:
