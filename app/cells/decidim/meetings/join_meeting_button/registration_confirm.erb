@@ -2,27 +2,17 @@
   <%= decidim_form_for(registration_form, url: meeting_registration_path(model), method: :post) do |form| %>
     <div class="export-form">
       <span class="modal_title"><%= t(".modal.confirm_registration.title")%></span>
-
-
       <div>
-
         <div class="modal_description">
           <%= registration_terms_text %>
         </div>
         <%= cell("decidim/public_participation", form) %>
       </div>
-
-
-     
     </div>
     <div class="bp-divider"></div>
     <div class="export-modal-buttons">
-
       <button type="button" class="br-button secondary black-and-white-btn" data-close><%= i18n_cancel_text %></button>
-
       <%= form.submit i18n_confirm_text, class: "br-button primary", data: { disable: true } %>
-      
     </div>
   <% end %>
-
 </div>
