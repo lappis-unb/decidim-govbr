@@ -38,6 +38,8 @@ pt-BR:
         show_statistics: Mostrar Dados Participativos
         should_have_user_full_profile: Exigir Perfil de Usuário completo para responder o formulário
         show_mobilization: Mostrar mobilização
+        mobilization_title: Título da aba de mobilização
+        mobilization_position: Posição da aba de mobilização
         is_template: É um processo template?
       participatory_process_partner:
         link: Link oficial
@@ -88,6 +90,7 @@ pt-BR:
             comments_max_length: Quantidade máxima de caracteres por comentário (deixe 0 para não limitar)
             attachments_allowed: Permitir que o órgão crie propostas com anexos
             enable_comments_attachment: Permitir anexos em contribuições
+            statistics_enable: Mostrar estatísticas do usuário
       blogs:
         settings:
           global:
@@ -111,6 +114,8 @@ pt-BR:
           form:
             initial_page_component_id_help: Selecione qual componente será utilizado como a página principal desta assembléia. Apenas Páginas Estáticas e Páginas Iniciais serão exibidas aqui como opção. Caso não queira uma página inicial customizada, deixe marcada a opção "Página Padrão"
     participatory_processes:
+      show:
+        unspecified: A ser definido
       admin:
         partners:
           index:
@@ -393,6 +398,7 @@ pt:
             metadata: Dados do Processo
             group_chat_id_help: Coloque o ID do grupo de chat que será utilizado para este processo.
             hash_tag_help: Adicione palavras-chave separadas por vírgulas para identificar este processo nos campos de pesquisa.
+            mobilization_position_help: Esta posição será exibida na aba de mobilização
             slug_help: "A URL amigável é usada para gerar a URL para acessar o processo participativo. Apenas aceita letra, números e traços, e deve começar com uma letra. Exemplo: %{url}"
             duration: Prazo do Processo Participativo
             select_process_group: Selecione um Setor
