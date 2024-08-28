@@ -138,5 +138,31 @@
     $(".toggle-settings").on("click", function() {
       $(".settings-section").slideToggle();
     });
+
+    hide_and_show_attachment_fields();
   });
+
+  function hide_and_show_attachment_fields() {
+    let attachments_allowed = $("#component_settings_attachments_allowed");
+    let extension_allowlist = $(".extension_allowlist_container");
+    let max_files_quantity = $(".max_files_quantity_container");
+
+    if (attachments_allowed.is(':checked')){
+      extension_allowlist.show();
+      max_files_quantity.show();
+    } else {
+      extension_allowlist.hide();
+      max_files_quantity.hide();
+    }
+
+    attachments_allowed.change(function(){
+      if ($(this).is(':checked')){
+        extension_allowlist.show();
+        max_files_quantity.show();
+      } else {
+        extension_allowlist.hide();
+        max_files_quantity.hide();
+      }
+    })
+  }
 </script>
