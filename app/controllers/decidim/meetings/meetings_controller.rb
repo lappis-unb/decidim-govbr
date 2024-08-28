@@ -12,12 +12,12 @@ module Decidim
       include Withdrawable
       include FormFactory
       include Paginable
-      
+
       helper Decidim::WidgetUrlsHelper
       helper Decidim::ResourceVersionsHelper
       helper Decidim::ShortLinkHelper
       helper_method :meetings, :meeting, :registration, :search
-      
+
       def handle_success(action, redirect_path)
         flash[:notice] = I18n.t("meetings.#{action}.success", scope: "decidim")
         redirect_to redirect_path
@@ -27,7 +27,7 @@ module Decidim
         flash.now[:alert] = I18n.t("meetings.#{action}.invalid", scope: "decidim")
         render action: action == :update ? :edit : "new"
       end
-      
+
       def new
         enforce_permission_to :create, :meeting
         @form = meeting_form.instance
