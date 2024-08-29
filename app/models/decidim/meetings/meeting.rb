@@ -204,11 +204,23 @@ module Decidim
       end
 
       def can_be_joined_by?(user)
-        !closed? && registrations_enabled? && can_participate?(user) && !finished?
+        !closed? && registrations_enabled? && can_participate?(user) && !finished? && !cancelled?
       end
 
       def finished?
-        end_time < Time.current if end_time
+        if end_time.present?
+          return true if end_time < Time.current
+        else
+          false
+        end
+      end
+
+      def running?
+        start_time && end_time && Time.current.between?(start_time, end_time)
+      end
+
+      def cancelled?
+        state == "withdrawn"
       end
 
       def can_register_invitation?(user)
