@@ -1,0 +1,27 @@
+<div class="order-by__tabs ml-s inline-filters">
+  <% if should_show_tabs? %>
+  <label class="inline-filters__label">
+    <span class="filters--span">Filtrar por estado:</span>
+    <button id="button-text" class="type-filter-text" data-toggle="inline-state-filter-sort"><%= filter_name(current_filter) %></button>
+    <div id="inline-state-filter-sort" class="dropdown-pane" data-position="bottom" data-alignment="right" data-dropdown data-auto-focus="true">
+      <ul class="list-reset">
+        <%= explanation %>
+        <% other_filters_with_value.each do |filter| %>
+          <li>
+            <%= link_to filter_link(filter), remote: true, class: "order-by__tab" do %>
+                <%= filter_name(filter) %>
+            <% end %>
+          </li>
+        <% end %>
+        <li> 
+          <%= link_to filter_link(current_filter), remote: true, class: "order-by__tab" do %>
+              <%= filter_name(current_filter) %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </label>
+  <% else %>
+    <%= explanation %>
+  <% end %>
+</div>

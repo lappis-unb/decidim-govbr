@@ -8,7 +8,8 @@
   <%= render :tags %>
   <div class="bp-divider"> </div>
   <div class="component_buttons">
-    <%= link_to('/', class: "card__button br-button primary large-button") do %>
+    <%= link_to(resource_path, class: "card__button br-button primary large-button") do %>
+      <%= t("layouts.decidim.participatory_processes.index.card_button") %>
     <% end %>
   </div>
 </div>
