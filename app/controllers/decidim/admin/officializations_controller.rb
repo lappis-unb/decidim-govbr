@@ -60,9 +60,23 @@ module Decidim
       def delete_user
         enforce_permission_to :delete_user, :user, user: user
 
-        Decidim.traceability.perform_action! :delete, user, current_user
+        Decidim::Govbr::Admin::DestroyUser.call(user, current_user) do
+          on(:invalid) do |reason|
+            flash[:alert] = "Você não tem permissão para excluir usuários" if reason == :super_admin
+            flash[:alert] = "Este usuário não pode ser excluído, pois é um administrador da organização" if reason == :target_user_is_admin
+            redirect_to officializations_path
+          end
 
-        redirect_to officializations_path
+          on(:error) do
+            flash[:alert] = "Algo deu errado ao tentar excluir este usuário"
+            redirect_to officializations_path
+          end
+
+          on(:ok) do
+            flash[:success] = "A conta do usuário foi excluída com sucesso!"
+            redirect_to officializations_path
+          end
+        end
       end
 
       private
