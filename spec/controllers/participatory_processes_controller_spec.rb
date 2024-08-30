@@ -94,19 +94,19 @@ module Decidim
           let!(:upcoming) { create(:participatory_process, :published, :upcoming, organization: organization) }
           let!(:past) { create(:participatory_process, :published, :past, organization: organization) }
 
-          it "defaults to active if there are active published processes" do
-            expect(controller.helpers.default_date_filter).to eq("active")
+          it "defaults to all if there are active published processes" do
+            expect(controller.helpers.default_date_filter).to eq("all")
           end
 
-          it "defaults to upcoming if there are upcoming (but no active) published processes" do
+          it "defaults to all if there are upcoming (but no active) published processes" do
             active.update(published_at: nil)
-            expect(controller.helpers.default_date_filter).to eq("upcoming")
+            expect(controller.helpers.default_date_filter).to eq("all")
           end
 
-          it "defaults to past if there are past (but no active nor upcoming) published processes" do
+          it "defaults to all if there are past (but no active nor upcoming) published processes" do
             active.update(published_at: nil)
             upcoming.update(published_at: nil)
-            expect(controller.helpers.default_date_filter).to eq("past")
+            expect(controller.helpers.default_date_filter).to eq("all")
           end
         end
 
