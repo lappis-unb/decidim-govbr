@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_08_22_125552) do
+ActiveRecord::Schema.define(version: 2024_08_30_024117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1504,6 +1504,7 @@ ActiveRecord::Schema.define(version: 2024_08_22_125552) do
     t.jsonb "footer_menu_links", default: "{}", null: false
     t.integer "user_profile_survey_id"
     t.jsonb "extra_user_fields", default: {"enabled"=>false}
+    t.string "super_admins", default: [], array: true
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
