@@ -57,6 +57,14 @@ module Decidim
         render :show_email, layout: false
       end
 
+      def delete_user
+        enforce_permission_to :destroy, :user, user: user
+
+        Decidim.traceability.perform_action! :destroy, user, current_user
+
+        redirect_to officializations_path
+      end
+
       private
 
       def collection
