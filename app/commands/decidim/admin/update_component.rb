@@ -62,7 +62,7 @@ module Decidim
 
         @component.manifest_name == "proposals" &&
           (params[:component][:step_settings][active_step_p.to_s][:votes_enabled] != @component.step_settings[active_step_p.to_s][:votes_enabled]) &&
-          (params[:component][:step_settings][active_step_p.to_s][:votes_enabled] == "false")
+          @component.step_settings[active_step_p.to_s][:votes_enabled] == true
       end
 
       def run_hooks
