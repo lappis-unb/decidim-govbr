@@ -93,6 +93,8 @@ module Decidim
             show_metrics: form.show_metrics,
             show_statistics: form.show_statistics,
             show_mobilization: form.show_mobilization,
+            mobilization_title: form.mobilization_title,
+            mobilization_position: form.mobilization_position,
             announcement: form.announcement,
             group_chat_id: form.group_chat_id,
             publish_date: form.publish_date,

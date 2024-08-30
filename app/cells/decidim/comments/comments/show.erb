@@ -14,7 +14,7 @@
             <% if single_comment? %>
               <%= t("decidim.components.comments.comment_details_title") %>
             <% else %>
-              <span class="comments-count">
+              <span class="comments-count coments-count-override">
                 <%= t("decidim.components.comments.title", count: comments_count) %>
               </span>
             <% end %>
@@ -24,7 +24,7 @@
       </div>
       <%= single_comment_warning %>
       <%= blocked_comments_warning %>
-      <div class="comment-threads">
+      <div class="comment-threads comment-threads-override">
         <%= comments_loading %>
         <% comments.each do |comment| %>
           <%= cell("decidim/comments/comment_thread", comment, order: order) %>

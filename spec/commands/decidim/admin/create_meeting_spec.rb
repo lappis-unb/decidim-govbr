@@ -12,6 +12,8 @@ module Decidim::Meetings
     let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
     let(:scope) { create :scope, organization: organization }
     let(:category) { create :category, participatory_space: participatory_process }
+    let(:to_define) { false }
+    let(:to_define_end_time) { false }
     let(:address) { "address" }
     let(:invalid) { false }
     let(:latitude) { 40.1234 }
@@ -55,6 +57,8 @@ module Decidim::Meetings
         location_hints: { en: "location_hints" },
         start_time: start_time,
         end_time: 1.day.from_now + 1.hour,
+        to_define: to_define,
+        to_define_end_time: to_define_end_time,
         address: address,
         latitude: latitude,
         longitude: longitude,

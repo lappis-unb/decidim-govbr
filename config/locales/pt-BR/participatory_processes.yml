@@ -131,6 +131,7 @@ pt-BR:
           update: Atualizar
         form:
           title: Título
+          description: Descrição
         new:
           create: Criar
           title: Novo tipo de processo

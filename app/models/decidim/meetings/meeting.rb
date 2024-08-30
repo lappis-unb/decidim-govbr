@@ -207,7 +207,11 @@ module Decidim
       end
 
       def can_be_joined_by?(user)
-        !closed? && registrations_enabled? && can_participate?(user)
+        !closed? && registrations_enabled? && can_participate?(user) && !finished?
+      end
+
+      def finished?
+        end_time < Time.current if end_time
       end
 
       def can_register_invitation?(user)
@@ -220,7 +224,7 @@ module Decidim
       end
 
       def past?
-        end_time < Time.current
+        end_time&.<(Time.current) || false
       end
 
       def emendation?
@@ -295,7 +299,7 @@ module Decidim
 
       # Return the duration of the meeting in minutes
       def meeting_duration
-        @meeting_duration ||= ((end_time - start_time) / 1.minute).abs
+        @meeting_duration ||= ((end_time - start_time) / 1.minute).abs if start_time && end_time
       end
 
       def resource_visible?
@@ -328,7 +332,7 @@ module Decidim
       def pad_is_visible?
         return false unless pad
 
-        (start_time - Time.current) <= 24.hours
+        (start_time&.-(Time.current)) <= 24.hours if start_time
       end
 
       # Overwrites method from Paddable to add custom rules in order to know
@@ -336,7 +340,7 @@ module Decidim
       def pad_is_writable?
         return false unless pad_is_visible?
 
-        (Time.current - end_time) < 72.hours
+        (Time.current - end_time) < 72.hours if end_time
       end
 
       def authored_proposals
@@ -394,10 +398,7 @@ module Decidim
       end
 
       def live?
-        start_time &&
-          end_time &&
-          Time.current >= (start_time - 10.minutes) &&
-          Time.current <= end_time
+        start_time && end_time && Time.current.between?(start_time - 10.minutes, end_time)
       end
 
       def self.sort_by_translated_title_asc

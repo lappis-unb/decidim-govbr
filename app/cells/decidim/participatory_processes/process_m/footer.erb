@@ -8,9 +8,8 @@
   <%= render :tags %>
   <div class="bp-divider"> </div>
   <div class="component_buttons">
-    <%= link_to(step_cta_path, class: "card__button br-button primary large-button") do %>
-      <span class="show-for-sr"><%= t("decidim.participatory_processes.participatory_processes.show.participate") %></span>
-      <%= t("decidim.participatory_processes.participatory_processes.show.participate") %>
+    <%= link_to(resource_path, class: "card__button br-button primary large-button") do %>
+      <%= t("layouts.decidim.participatory_processes.index.card_button") %>
     <% end %>
   </div>
 </div>
