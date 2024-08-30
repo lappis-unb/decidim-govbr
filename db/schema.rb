@@ -1561,6 +1561,7 @@ ActiveRecord::Schema.define(version: 2024_08_22_125552) do
     t.bigint "decidim_organization_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.jsonb "description"
     t.index ["decidim_organization_id"], name: "index_decidim_process_types_on_decidim_organization_id"
   end
 
