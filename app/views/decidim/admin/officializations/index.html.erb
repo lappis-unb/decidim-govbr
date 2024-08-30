@@ -53,7 +53,11 @@
                   <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".reofficialize") %>
                   <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".unofficialize") %>
                 <% end %>
-                <%= icon_link_to "trash", delete_user_officialization_path(user_id: user.id), "Excluir usuário", class: "action-icon--remove", method: :delete, data: { confirm: "Deseja mesmo excluir esse usuário?" } %>
+                <% if current_user.super_admin? %>
+                  <%= icon_link_to "trash", delete_user_officialization_path(user_id: user.id), "Excluir usuário", class: "action-icon action-icon--remove", method: :delete, data: { confirm: "Deseja mesmo excluir esse usuário?" } %>
+                <% else %>
+                  <%= icon "trash", class: "action-icon action-icon--disabled", role: "img", aria_label: "Excluir usuário" %>
+                <% end %>
               </td>
             </tr>
           <% end %>

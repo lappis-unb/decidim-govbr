@@ -58,9 +58,9 @@ module Decidim
       end
 
       def delete_user
-        enforce_permission_to :destroy, :user, user: user
+        enforce_permission_to :delete_user, :user, user: user
 
-        Decidim.traceability.perform_action! :destroy, user, current_user
+        Decidim.traceability.perform_action! :delete, user, current_user
 
         redirect_to officializations_path
       end
