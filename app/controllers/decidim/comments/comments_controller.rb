@@ -18,17 +18,7 @@ module Decidim
       def index
         enforce_permission_to :read, :comment, commentable: commentable
 
-        @comments = SortedComments.for(
-          commentable,
-          order_by: order,
-          after: params.fetch(:after, 0).to_i
-        )
-        @comments = @comments.reject do |comment|
-          next if comment.depth < 1
-          next if !comment.deleted? && !comment.hidden?
-
-          comment.commentable.descendants.where(decidim_commentable_type: "Decidim::Comments::Comment").not_hidden.not_deleted.blank?
-        end
+        @comments = filtered_comments
         @comments_count = commentable.comments_count
 
         respond_to do |format|
@@ -108,13 +98,7 @@ module Decidim
           on(:ok) do |comment|
             handle_success(comment)
 
-            if form.attachment_file.present?
-              @attachment = build_attachment(comment)
-
-              Decidim.traceability.perform_action!(:create, Decidim::Attachment, @user) do
-                @attachment.save!
-              end
-            end
+            create_attachment(comment) if form.attachment_file.present?
 
             respond_to do |format|
               format.js { render :create }
@@ -186,11 +170,11 @@ module Decidim
 
       def handle_success(comment)
         @comment = comment.reload
-        @comments_count = case commentable
+        @comments_count = case comment_target
                           when Decidim::Comments::Comment
-                            commentable.root_commentable.comments_count
+                            comment_target.root_commentable.comments_count
                           else
-                            commentable.comments_count
+                            comment_target.comments_count
                           end
       end
 
@@ -235,12 +219,40 @@ module Decidim
 
       def build_attachment(attached_to)
         file = blob(form.attachment_file)
-        Attachment.new(
-          title: { 'pt-BR': file.filename },
-          attached_to: attached_to,
-          file: form.attachment_file, # Define attached_to before this
-          content_type: file.content_type
+        attachment = Attachment.new(
+          attached_to: attached_to
         )
+
+        configure_attachment_file(attachment, file)
+
+        attachment
+      end
+
+      def filtered_comments
+        SortedComments.for(
+          commentable,
+          order_by: order,
+          after: params.fetch(:after, 0).to_i
+        ).reject do |comment|
+          next if comment.depth < 1
+          next if !comment.deleted? && !comment.hidden?
+
+          comment.commentable.descendants.where(decidim_commentable_type: "Decidim::Comments::Comment").not_hidden.not_deleted.blank?
+        end
+      end
+
+      def create_attachment(comment)
+        @attachment = build_attachment(comment)
+
+        Decidim.traceability.perform_action!(:create, Decidim::Attachment, @user) do
+          @attachment.save!
+        end
+      end
+
+      def configure_attachment_file(attachment, file)
+        attachment.title = { 'pt-BR': file.filename }
+        attachment.file = form.attachment_file
+        attachment.content_type = file.content_type
       end
     end
   end
