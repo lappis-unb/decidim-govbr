@@ -5,7 +5,7 @@ module Decidim
     # Custom helpers, scoped to the proposals engine.
     #
     module ApplicationHelper
-      DECIDIM_PROPOSALS_FILTERS_LABEL_SCOPE = "decidim.proposals.proposals.filters".freeze
+      DECIDIM_PROPOSALS_FILTERS_LABEL_SCOPE = "decidim.proposals.proposals.filters"
 
       include Decidim::Comments::CommentsHelper
       include PaginateHelper

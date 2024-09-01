@@ -6,7 +6,7 @@ module Decidim
     class MeetingForm < ::Decidim::Meetings::BaseMeetingForm
       include Decidim::AttachmentAttributes
 
-      DECIDIM_MEETINGS_SCOPE = "decidim.meetings".freeze
+      DECIDIM_MEETINGS_SCOPE = "decidim.meetings"
 
       attribute :title, String
       attribute :description, String

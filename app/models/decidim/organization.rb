@@ -14,7 +14,7 @@ module Decidim
 
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
     AVAILABLE_MACHINE_TRANSLATION_DISPLAY_PRIORITIES = %w(original translation).freeze
-    DECIDIM_USER_MODEL = "Decidim::User".freeze
+    DECIDIM_USER_MODEL = "Decidim::User"
 
     translatable_fields :description, :cta_button_text, :omnipresent_banner_title, :omnipresent_banner_short_description,
                         :highlighted_content_banner_title, :highlighted_content_banner_short_description, :highlighted_content_banner_action_title,
