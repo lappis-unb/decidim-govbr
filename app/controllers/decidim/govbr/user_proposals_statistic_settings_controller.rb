@@ -99,7 +99,7 @@ module Decidim
         ).map(&:slug)
 
         render json: {
-          'ERROR' => "There is no available reports for the participatory space '#{params[:slug]}'. Available reports are: #{available_reports.try(:join, ', ')}"
+          'ERROR' => "There is no available reports for the participatory space '#{params[:slug]}'. Available reports are: #{available_reports.try(:join, ", ")}"
         }
       end
 
