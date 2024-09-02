@@ -102,9 +102,16 @@
         <% end %>
       </div>
       <%= render partial: "decidim/shared/tags", locals: { resource: meeting, tags_class_extra: "tags--meeting" } %>
-      <% if meeting.agenda.present? && meeting.agenda.visible? %>
-        <%= render "meeting_agenda" %>
-      <% end %>
+      <div>
+        Cronograma do Evento
+        <% unless meeting.agenda.present? %>
+          <%= link_to "Criar Agenda", new_meeting_agenda_path(meeting) %>
+        <% end %>
+        <% if meeting.agenda.present? && meeting.agenda.visible? %>
+          <%= render "meeting_agenda" %>
+        <% end %>
+      </div>
+      
       <%= cell "decidim/meetings/public_participants_list", meeting %>
       <% if !meeting.closed? && meeting.user_group_registrations.any? %>
         <% user_group_ids = meeting.user_group_registrations.user_group_ids %>
