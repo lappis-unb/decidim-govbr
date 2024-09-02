@@ -152,29 +152,13 @@
             <i class="fas fa-globe data-icon"></i>
             <p>Evento <%= t("decidim.meetings.type_of_meeting.#{meeting.type_of_meeting}") %></p>
           </div>
-          <% if meeting.start_time.present? && meeting.end_time.present? %>
-            <span class="br-divider"></span>
-            <%= cell("decidim/date_range", { start: meeting.start_time, end: meeting.end_time }) %>
-            <%= render partial: "calendar_modal", locals: {
+          <span class="br-divider"></span>
+          <%= cell("decidim/date_range", { start: meeting.start_time, end: meeting.end_time }) %>
+          <%= render partial: "calendar_modal", locals: {
               ics_url: calendar_meeting_url(meeting),
               google_url: google_calendar_event_url(meeting)
             } 
           %>
-          <% else %>
-            <span class="br-divider"></span>
-            <% if meeting.start_time.present? %>
-              <p class="component-card-data-label">Data de inicio em <%= meeting.start_time.strftime("%d/%m/%Y") %></p>
-            <% else %>
-              <p class="component-card-data-label">Data de inicio ainda a ser definida</p>
-            <% end%>
-          <% end %>
-          <% if meeting.end_time.present? %>
-            <span class="br-divider"></span>
-            <p class="component-card-data-label">Data de fim em <%= meeting.end_time.strftime("%d/%m/%Y") %></p>
-          <% else %>
-            <span class="br-divider"></span>
-            <p class="component-card-data-label">Data de fim ainda a ser definida</p>
-          <% end %>
         </div>
         <% if meeting.closed? && meeting.closing_visible? %>
           <span class="br-divider"></span>
