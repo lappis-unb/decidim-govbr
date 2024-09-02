@@ -170,11 +170,11 @@ module Decidim
 
       def handle_success(comment)
         @comment = comment.reload
-        @comments_count = case comment_target
+        @comments_count = case commentable
                           when Decidim::Comments::Comment
-                            comment_target.root_commentable.comments_count
+                            commentable.root_commentable.comments_count
                           else
-                            comment_target.comments_count
+                            commentable.comments_count
                           end
       end
 
@@ -219,13 +219,12 @@ module Decidim
 
       def build_attachment(attached_to)
         file = blob(form.attachment_file)
-        attachment = Attachment.new(
-          attached_to: attached_to
+        Attachment.new(
+          title: { 'pt-BR': file.filename },
+          attached_to: attached_to,
+          file: form.attachment_file, # Define attached_to before this
+          content_type: file.content_type
         )
-
-        configure_attachment_file(attachment, file)
-
-        attachment
       end
 
       def filtered_comments
@@ -247,12 +246,6 @@ module Decidim
         Decidim.traceability.perform_action!(:create, Decidim::Attachment, @user) do
           @attachment.save!
         end
-      end
-
-      def configure_attachment_file(attachment, file)
-        attachment.title = { 'pt-BR': file.filename }
-        attachment.file = form.attachment_file
-        attachment.content_type = file.content_type
       end
     end
   end
