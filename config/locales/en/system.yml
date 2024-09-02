@@ -1,11 +1,199 @@
 # https://github.com/decidim/decidim/blob/develop/decidim-system/config/locales/en.yml
 en:
+  activemodel:
+    attributes:
+      admin:
+        email: Email
+        password: Password
+        password_confirmation: Password confirmation
+      oauth_application:
+        decidim_organization_id: Decidim Organization
+        name: OAuth Application Name
+        organization_logo: Organization Logo (square)
+        organization_name: Organization Name
+        organization_url: Organization URL
+        redirect_uri: Redirect URI
+      organization:
+        address: SMTP Host Name
+        from_email: Email Address
+        from_label: Label
+        password: Password
+        port: Port
+        user_name: User Name
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Admin MIME Types
+          default: Default MIME Types
+        allowed_file_extensions:
+          admin: Admin File Extensions
+          default: Default File Extensions
+          image: Image File Extensions
+        maximum_file_size:
+          avatar: Avatar File Size
+          default: Default File Size
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Redirect URI must be an SSL URI
   decidim:
     system:
+      actions:
+        confirm_destroy: Are you sure you want to delete this?
+        destroy: Delete
+        edit: Edit
+        new: Create
+        save: Save
+        title: Actions
+      admins:
+        create:
+          error: An error occurred while creating a new administrator.
+          success: Administrator successfully created
+        destroy:
+          success: Administrator successfully deleted
+        edit:
+          title: Edit Administrator
+          update: Update
+        index:
+          title: Administrators
+        new:
+          create: Create
+          title: New Administrator
+        update:
+          error: An error occurred while updating this administrator.
+          success: Administrator successfully updated
+      dashboard:
+        show:
+          current_organizations: Current Organizations
+      default_pages:
+        placeholders:
+          content: Add meaningful content to the static page %{page} in the admin panel.
+          title: Default title for %{page}
+      menu:
+        admins: Administrators
+        dashboard: Dashboard
+        oauth_applications: OAuth Applications
+        organizations: Organizations
+      models:
+        admin:
+          fields:
+            created_at: Created At
+            email: Email
+          name: Administrator
+          validations:
+            email_uniqueness: Another administrator with the same email already exists
+        oauth_application:
+          fields:
+            created_at: Created At
+            name: OAuth Application Name
+            organization_name: Organization
+          name: OAuth Application
+        organization:
+          actions:
+            save_and_invite: Create organization and invite administrator
+          fields:
+            created_at: Created At
+            file_upload_settings: File Upload Settings
+            name: Name
+            omniauth_settings: Omniauth Settings
+            smtp_settings: SMTP Settings
+          name: Organization
+      oauth_applications:
+        create:
+          error: There was an error creating this application.
+          success: Application successfully created.
+        destroy:
+          error: There was an error deleting this application.
+          success: Application successfully deleted.
+        edit:
+          save: Save
+          title: Edit Application
+        form:
+          select_organization: Select an organization
+        index:
+          confirm_delete: Are you sure you want to delete this application?
+          title: OAuth Applications
+        new:
+          save: Save
+          title: New Application
+        update:
+          error: There was an error updating this application.
+          success: Application successfully updated.
       organizations:
+        advanced_settings:
+          hide: Hide advanced settings
+          show: Show advanced settings
+        create:
+          error: An error occurred while creating a new organization.
+          success: Organization successfully created.
+        edit:
+          secondary_hosts_hint: Enter each one on a new line
+        file_upload_settings:
+          content_types:
+            admin_hint: These MIME types are allowed for admin section uploads. Admin users should be aware of the risks of uploading some document formats, so you can expect them to be more cautious with file submissions.
+            default_hint: These MIME types are allowed for all users by default.
+            intro_html: You add wildcard characters with the asterisk character for MIME types, e.g., <code>image/*</code>.
+            title: Allowed MIME Types
+          file_extensions:
+            admin_hint: These file extensions are allowed for admin section uploads. Admin users should be aware of the risks of uploading some document formats, so you can expect them to be more cautious with file submissions.
+            default_hint: These file extensions are allowed for all users by default.
+            image_hint: These file extensions are allowed for any type of image upload.
+            title: Allowed File Extensions
+          file_sizes:
+            avatar_hint: Megabytes (MB). This file size limit is used for avatar image uploads.
+            default_hint: Megabytes (MB). This file size limit is the default that is used for all file uploads unless specified.
+            title: Maximum File Size
+          intro: |
+            Please take extra care when considering changing these settings. The less you allow, the better.
+            Allowing specific file extensions or MIME types can expose system users to security risks and can also affect the site's accessibility.
+        index:
+          title: Organizations
+        new:
+          reference_prefix_hint: The reference prefix is used to uniquely identify resources across organizations
+          secondary_hosts_hint: Enter each one on a new line
+          title: New Organization
         omniauth_settings:
+          decidim:
+            client_id: Client ID
+            client_secret: Client Secret
+            site_url: Site URL
+          enabled: Enabled
+          enabled_by_default: This provider is enabled by default. It can be edited but not disabled.
+          facebook:
+            app_id: App ID
+            app_secret: App Secret
+          google_oauth2:
+            client_id: Client ID
+            client_secret: Client Secret
           govbr:
             client_id: Client ID
-            client_secret: Client secret
-            host: Host
+            client_secret: Client Secret
+            host: Site URL
             redirect_uri: Redirect URI
+          icon: Icon
+          icon_path: Icon Path
+          twitter:
+            api_key: API Key
+            api_secret: API Secret
+        smtp_settings:
+          fieldsets:
+            sender: Sender
+          instructions:
+            from_label: 'Email sender will be: "your-organization name <your-organization@example.org>". Leave blank to use ''Email Address'' as the label'
+          placeholder:
+            from_email: your-organization@example.org
+            from_label: organization-name
+        update:
+          error: An error occurred while updating this organization.
+          success: Organization successfully updated.
+        users_registration_mode:
+          disabled: Access can only be made with external accounts
+          enabled: Allow users to register and log in
+          existing: Do not allow users to register, but allow existing users to log in
+      shared:
+        notices:
+          no_organization_warning_html: You must create an organization to get started. Be sure to read %{guide} before proceeding.
+          our_getting_started_guide: our getting started guide
+      titles:
+        dashboard: Dashboard

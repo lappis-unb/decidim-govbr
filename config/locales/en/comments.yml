@@ -1,0 +1,96 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-comments/config/locales/en.yml
+en:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Contribute
+      Participate_with_comment: Participate with a comment
+      Collaborations_Received: Collaborations Received
+      decidim/comments/comment_created_event:
+        one: Contribution
+        other: Contributions
+      decidim/comments/reply_created_event: Reply
+      decidim/comments/user_group_mentioned_event: Mention
+      decidim/comments/user_mentioned_event: Mention
+    contribution:
+      one: Contribution
+      other: Contributions
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Contribution
+        other: Contributions
+  decidim:
+    comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Contributions enabled
+            end_time: Contributions enabled until
+            start_time: Contributions enabled since
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Sign in with your account</a> or <a href="%{sign_up_url}">sign up</a> to add your contribution.
+        form:
+          body:
+            Incorporate: Incorporate
+            reject: Reject
+            rejected: Rejected
+            incorporated: Incorporated
+            contributions_received: Contributions received
+            Number_proposals_created: Number of proposals created
+            Number_contributions_made: Number of contributions made
+            Number_votes_cast: Number of votes cast
+            Votes_received_your_proposals: Votes received on your proposals
+            Number_proposals_followed: Number of proposals followed
+            Followers_your_proposals: Followers on your proposals
+            label: Contribute
+            placeholder: Type your contribution here...
+          form_error: Text is required and cannot be longer than %{length} characters.
+          submit: Contribute
+          user_group_id:
+            label: Contribute as
+        opinion:
+          label: Your opinion on this topic
+          negative: Negative
+          negative_selected: Your opinion on this topic is negative
+          neutral: Neutral
+          neutral_selected: Your opinion on this topic is neutral
+          positive: Positive
+          positive_selected: Your opinion on this topic is positive
+        remaining_characters: "%{count} characters remaining"
+        remaining_characters_1: "%{count} character left"
+        title: "Add your contribution:"
+      comments_section_title:
+        title:
+          zero: There are no contributions yet
+          one: Contributions received
+          other: Contributions received
+      comments:
+        title:
+          zero: ""
+          one: "%{count} contribution"
+          other: "%{count} contributions"
+        single_comment_warning: You can consult the remaining contributions <a href="%{url}">here</a>.
+        single_comment_warning_title: You are viewing a single contribution
+        confirm_destroy: Are you sure you want to delete this contribution?
+        loading: Loading contributions...
+      comment:
+        delete: Delete
+        deleted_at: Contribution deleted on %{date}
+      edit_comment_modal_form:
+        close: Close
+        form:
+          body:
+            label: Contribution
+            placeholder: Type your contribution here...
+          submit: Submit
+        title: Edit your contribution
+      up_vote_button:
+        text: I agree with this contribution
+      comment_order_selector:
+        order:
+          best_rated: Best rated
+          most_discussed: Most discussed
+          older: Oldest
+          recent: Most recent
+        title: 'Sort by:'

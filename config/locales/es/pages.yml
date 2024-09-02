@@ -1,0 +1,36 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-pages/config/locales/es.yml
+es:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Página
+        other: Páginas
+  decidim:
+    admin_log:
+      page:
+        update: "%{user_name} ha actualizado la página %{resource_name} en %{space_name}"
+    components:
+      pages:
+        name: Página
+        settings:
+          global:
+            announcement: Anuncio
+          step:
+            announcement: Anuncio
+    pages:
+      admin:
+        models:
+          components:
+            body: Cuerpo
+        pages:
+          edit:
+            save: Actualizar
+            title: Editar página
+          update:
+            invalid: Hubo un problema al guardar la página.
+            success: Página guardada exitosamente.
+      home:
+        hero:
+          participate_title: Participa en los procesos de la plataforma
+        sub_hero:
+          register_title: Regístrate para crear una cuenta
