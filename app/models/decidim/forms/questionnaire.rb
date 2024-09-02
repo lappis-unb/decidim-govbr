@@ -39,23 +39,6 @@ module Decidim
         Decidim::Forms::AdminLog::QuestionnairePresenter
       end
 
-      def self.add_new_question(
-        decidim_questionnaire_id:, position:, question_type:, mandatory:, title:
-      )
-        body = { "en" => "", "pt-BR" => title.to_s }
-
-        return false if Decidim::Forms::Question.find_by(
-          decidim_questionnaire_id: decidim_questionnaire_id, question_type: question_type, body: body
-        )
-
-        attributes = {
-          decidim_questionnaire_id: decidim_questionnaire_id, position: position, question_type: question_type,
-          mandatory: mandatory, body: body, max_choices: nil
-        }
-
-        Decidim::Forms::Question.create(attributes)
-      end
-
       private
 
       # salt is used to generate secure hash in anonymous answers

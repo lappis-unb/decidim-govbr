@@ -99,6 +99,23 @@ module Decidim
       def answers_count
         questionnaire.answers.where(question: self).count
       end
+
+      def self.add_new_question(
+        decidim_questionnaire_id:, position:, question_type:, mandatory:, title:
+      )
+        body = { "en" => "", "pt-BR" => title.to_s }
+
+        return false if Question.find_by(
+          decidim_questionnaire_id: decidim_questionnaire_id, question_type: question_type, body: body
+        )
+
+        attributes = {
+          decidim_questionnaire_id: decidim_questionnaire_id, position: position, question_type: question_type,
+          mandatory: mandatory, body: body, max_choices: nil
+        }
+
+        Question.create(attributes)
+      end
     end
   end
 end
