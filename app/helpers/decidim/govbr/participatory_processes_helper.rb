@@ -19,6 +19,20 @@ module Decidim
           "#"
         end
       end
+
+      def available_scopes
+        processes = search.result
+        scopes = [%w(all Todos)]
+
+        processes.each do |process|
+          next unless process.try(:scope)
+
+          scope_hash = [process.scope.id, translated_attribute(process.scope.name)]
+          scopes.push(scope_hash)
+        end
+
+        scopes.uniq
+      end
     end
   end
 end
