@@ -2,34 +2,36 @@
 <% record_what_happened_survey = current_participatory_space.record_what_happened_survey.presence.to_s.chomp("/") %>
 
 <% if answer.question.separator? %>
-<%= render partial: "decidim/forms/questionnaires/answers/#{answer.question.question_type}", locals: { answer: answer, answer_form: answer_form, answer_idx: answer_idx, field_id: field_id, disabled: disabled } %>
-<%= answer_form.hidden_field :question_id %>
+  <%= render partial: "decidim/forms/questionnaires/answers/#{answer.question.question_type}", locals: { answer: answer, answer_form: answer_form, answer_idx: answer_idx, field_id: field_id, disabled: disabled } %>
+  <%= answer_form.hidden_field :question_id %>
 <% elsif answer.question.title_and_description? %>
-<%= label_tag field_id, translated_attribute(answer.question.body), class: "questionnaire-title_and_description" %>
-<% if translated_attribute(answer.question.description).present? %>
-<div class="help-title_and_description ">
-  <%= decidim_sanitize_editor translated_attribute(answer.question.description) %>
-</div>
-<% end %>
-<%= render partial: "decidim/forms/questionnaires/answers/#{answer.question.question_type}", locals: { answer: answer, answer_form: answer_form, answer_idx: answer_idx, field_id: field_id, disabled: disabled } %>
-<%= answer_form.hidden_field :question_id %>
-<% else %>
-<% survey_link = current_participatory_space.organization_info_survey.presence.to_s.chomp("/") %>
-<% if survey_link.present? && request.original_url.include?(survey_link) && field_id.include?("questionnaire_responses_0") %>
-<strong>Conferência de Origem</strong>
-<input type="text" id="conference-title" name="conference-title" value="<%= translated_attribute(Decidim::Meetings::Meeting.find_by_id(params[:meeting_id]).try(:title))%>" disabled=true/>
-<% end %>
-
-<% case answer.question.question_type %>
-<% when "single_option", "multiple_option", "sorting" %>
-<label class="questionnaire-question"><%= answer.label(cleaned_answer_idx) %></label>
-<% else %>
-  <% if translated_attribute(answer.question.body) != "origin_meeting_id" %>
-    <%= label_tag field_id, answer.label(cleaned_answer_idx), class: "questionnaire-question" %>
+  <%= label_tag field_id, translated_attribute(answer.question.body), class: "questionnaire-title_and_description" %>
+  <% if translated_attribute(answer.question.description).present? %>
+    <div class="help-title_and_description ">
+      <%= decidim_sanitize_editor translated_attribute(answer.question.description) %>
+    </div>
   <% end %>
-<% end %>
 
-<% if translated_attribute(answer.question.description).present? %>
+  <%= render partial: "decidim/forms/questionnaires/answers/#{answer.question.question_type}", locals: { answer: answer, answer_form: answer_form, answer_idx: answer_idx, field_id: field_id, disabled: disabled } %>
+  <%= answer_form.hidden_field :question_id %>
+
+<% else %>
+  <% survey_link = current_participatory_space.organization_info_survey.presence.to_s.chomp("/") %>
+  <% if survey_link.present? && request.original_url.include?(survey_link) && field_id.include?("questionnaire_responses_0") %>
+    <strong>Conferência de Origem</strong>
+    <input type="text" id="conference-title" name="conference-title" value="<%= translated_attribute(Decidim::Meetings::Meeting.find_by_id(params[:meeting_id]).try(:title))%>" disabled=true/>
+  <% end %>
+
+  <% case answer.question.question_type %>
+  <% when "single_option", "multiple_option", "sorting" %>
+    <label class="questionnaire-question"><%= answer.label(cleaned_answer_idx) %></label>
+  <% else %>
+    <% if translated_attribute(answer.question.body) != "origin_meeting_id" %>
+      <%= label_tag field_id, answer.label(cleaned_answer_idx), class: "questionnaire-question" %>
+    <% end %>
+  <% end %>
+
+  <% if translated_attribute(answer.question.description).present? %>
     <div class="help-text">
       <%= decidim_sanitize_editor translated_attribute(answer.question.description) %>
     </div>
