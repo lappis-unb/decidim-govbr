@@ -1,0 +1,8 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-sortitions/config/locales/en.yml
+en:
+  decidim:
+    sortitions:
+      admin:
+        sortitions:
+          new:
+            confirm: By pressing the following button, the platform will record the date and time (with second-level precision) and, together with the dice roll, this information will be used to generate a random selection. The action will be irreversible; once the button is clicked, the result of this draw will be published along with the data entered in this form and cannot be modified, so please carefully check the content.

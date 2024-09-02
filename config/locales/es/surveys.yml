@@ -1,0 +1,71 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-survey/config/locales/es.yml
+es:
+  activemodel:
+    models:
+      decidim/surveys/closed_survey_event: Encuesta cerrada
+      decidim/surveys/opened_survey_event: Encuesta abierta
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Encuesta
+        other: Encuestas
+  decidim:
+    components:
+      surveys:
+        actions:
+          action_not_allowed: No puedes interactuar con las encuestas. ¡Tu perfil de usuario está incompleto!
+        name: Encuestas
+        settings:
+          global:
+            clean_after_publish: Eliminar respuestas al publicar la encuesta
+            ends_at: Puedes responder el formulario hasta el día
+            scopes_enabled: Ámbitos habilitados
+            starts_at: Puedes responder el formulario a partir del día
+          step:
+            allow_unregistered: Permitir que usuarios no registrados respondan la encuesta
+            allow_unregistered_help: Si está activo, no se requerirá iniciar sesión para responder la encuesta. Esto puede llevar a datos poco confiables y ser más vulnerable a ataques automatizados. ¡Úsalo con precaución! Recuerda que un participante puede responder la misma encuesta varias veces usando diferentes navegadores o la función de "navegación privada" de su navegador web.
+    forms:
+      questionnaires:
+        questionnaire_form:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Inicia sesión</a> o <a href="%{sign_up_link}">regístrate</a> para responder la encuesta.
+            title: Responde la encuesta
+          questionnaire_js_disabled:
+            body: Algunas funciones de este formulario estarán desactivadas. Para mejorar tu experiencia, activa JavaScript en tu navegador.
+            title: JavaScript desactivado
+          tos_agreement: Al participar aceptas nuestros Términos de Servicio
+          questionnaire_answered:
+            body: ¡Gracias por tu contribución!
+            title: ¡Ya has participado en esta encuesta!
+          questionnaire_closed:
+            body: La encuesta está cerrada y no se puede responder.
+            title: Encuesta cerrada
+      incomplete_profile: Completa tu perfil de usuario
+    events:
+      surveys:
+        survey_closed:
+          email_intro: La encuesta %{resource_title} en %{participatory_space_title} ha sido cerrada.
+          email_subject: Una encuesta ha sido cerrada en %{participatory_space_title}
+          notification_title: La encuesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> ha sido cerrada.
+        survey_opened:
+          email_intro: "La encuesta %{resource_title} en %{participatory_space_title} está abierta ahora. Puedes participar desde esta página:"
+          email_subject: Una nueva encuesta en %{participatory_space_title}
+          notification_title: La encuesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> está abierta ahora.
+    metrics:
+      survey_answers:
+        description: Número de encuestas respondidas por los participantes
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Respuestas de los participantes a las encuestas
+        surveys:
+          update:
+            invalid: Ha ocurrido un problema al guardar la encuesta.
+            success: Encuesta guardada exitosamente.
+      last_activity:
+        new_survey_at_html: "<span>Nueva encuesta en %{link}</span>"
+      surveys:
+        answer:
+          invalid: Ha ocurrido un problema al responder la encuesta.
+          spam_detected: Ha ocurrido un problema al responder la encuesta. Puede que haya sido demasiado rápido, ¿puedes intentarlo nuevamente?
+          success: Encuesta respondida correctamente.

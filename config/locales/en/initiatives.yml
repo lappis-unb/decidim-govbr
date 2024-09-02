@@ -1,0 +1,107 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-initiatives/config/locales/en.yml
+en:
+  activemodel:
+    attributes:
+      attachment:
+        documents: Documents
+      initiative:
+        answer: Answer
+        answer_url: Answer URL
+        area_id: Area
+        decidim_scope_id: Scope
+      initiatives_committee_member:
+        user: Committee Member
+      initiatives_settings:
+        initiatives_order: Initiatives Order
+      initiatives_type:
+        child_scope_threshold_enabled: Enable descendant scope of signatures
+        comments_enabled: Comments enabled
+        minimum_committee_members: Minimum committee members
+        promoting_committee_enabled: Allow promoting committee
+        signature_type: Signature type
+      initiatives_type_scope:
+        decidim_scopes_id: Scope
+        supports_required: Signatures required
+    models:
+      decidim/initiatives/initiative_sent_to_technical_validation_event: Initiative sent for technical validation
+  decidim:
+    admin:
+      initiatives_settings:
+        update:
+          error: An error occurred
+          success: Initiatives settings successfully updated
+      menu:
+        committee_members: Committee Members
+        initiatives_settings: Settings
+    initiatives:
+      admin:
+        committee_requests:
+          index:
+            approve: Approve
+            confirm_revoke: Are you sure?
+            invite_to_committee_help: Share this link to invite other participants to the promoting committee
+            no_members_yet: No members in the promoting committee yet
+            revoke: Revoke
+            title: Committee Members
+        initiatives_settings:
+          edit:
+            update: Update
+          form:
+            comments: More comments
+            date: Most recent
+            publication_date: Recently published
+            random: Random
+            signatures: Most signed
+            title: Initiatives settings
+        initiatives_types:
+          form:
+            authorizations: Authorization settings
+            child_scope_threshold_enabled_help: 'This configuration option does not support offline votes. It enables descendant scope and works with an authorization handler that associates a scope with the user. Make sure to select this authorization below in the authorization settings. For this to work, scopes need to be configured hierarchically: 1 Parent - N Descendants. For more information on how this configuration works, see the following <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
+            only_global_scope_enabled_help: Check this option if you have enabled "descendant scope of signatures" and configured the global scope as your parent scope. Enabling this will skip the initiative type selection in the initiative creation wizard. For more information on how this configuration works, see the following <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.
+        initiatives_type_scopes:
+          edit:
+            back: Back
+          new:
+            back: Back
+      admin_log:
+        initiatives_settings:
+          update: "%{user_name} updated the initiatives settings"
+        initiatives_type:
+          create: "%{user_name} created the initiative type %{resource_name}"
+          delete: "%{user_name} deleted the initiative type %{resource_name}"
+          update: "%{user_name} updated the initiative type %{resource_name}"
+      create_initiative:
+        fill_data:
+          fill_data_help: "<ul> <li>Review the content of your initiative. Is your title easy to understand? Is the goal of your initiative clear?</li> <li>You need to choose the type of signature. In-person, online, or a combination of both.</li> <li>What is the geographic scope of the initiative?</li> </ul>"
+        finish:
+          back: Back
+          back_to_initiatives: Back to initiatives
+          callout_text: Congratulations! Your initiative has been successfully created.
+          confirm: You will send the initiative to an administrator to review and publish it. Once published, you will not be able to edit it. Are you sure?
+          edit_my_initiative: Edit my initiative
+          go_to_my_initiatives: Go to my initiatives
+          more_information: "(More information)"
+          send_my_initiative: Send my initiative for technical validation
+        finish_help:
+          access_reminder: You can access your initiatives through the %{link} filter on the Initiatives page.
+          publish_helper_text: Remember! To have your initiative published, you must complete the necessary information and <strong>send it for technical validation</strong> for an administrator to review.
+        select_initiative_type:
+          select_initiative_type_help: Initiatives are a means by which participants can intervene so that the organization can take actions in defense of the general interest. Which initiative would you like to launch?
+      form:
+        add_attachments: Documents
+        attachment_legend: "(Optional) Add an attachment"
+      initiatives:
+        committee_members:
+          approve: Approve
+          confirm_revoke: Are you sure?
+          invite_to_committee_help: Share this link to invite other participants to the promoting committee
+          no_members_yet: No members in the promoting committee yet
+          revoke: Revoke
+          title: Committee Members
+        print:
+          members_header: Members of the promoting committee of the initiative
+          postal_code: ZIP Code
+        vote_cabin:
+          vote: Sign
+      signature_interval:
+        title: Signature collection period

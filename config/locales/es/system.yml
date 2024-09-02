@@ -1,0 +1,199 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-system/config/locales/es.yml
+es:
+  activemodel:
+    attributes:
+      admin:
+        email: Correo electrónico
+        password: Contraseña
+        password_confirmation: Confirmación de la contraseña
+      oauth_application:
+        decidim_organization_id: Organización del Decidim
+        name: Nombre de la aplicación OAuth
+        organization_logo: Logotipo de la organización (cuadrado)
+        organization_name: Nombre de la organización
+        organization_url: URL de la organización
+        redirect_uri: Redirigir URI
+      organization:
+        address: Nombre del host SMTP
+        from_email: Dirección de correo electrónico
+        from_label: Etiqueta
+        password: Contraseña
+        port: Puerto
+        user_name: Nombre de usuario
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Tipos MIME del Admin
+          default: Tipos MIME por defecto
+        allowed_file_extensions:
+          admin: Extensiones de archivo admin
+          default: Extensiones de archivo por defecto
+          image: Extensiones de archivo de imagen
+        maximum_file_size:
+          avatar: Tamaño del archivo Avatar
+          default: Tamaño del archivo por defecto
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: El URI de redireccionamiento debe ser un URI con SSL
+  decidim:
+    system:
+      actions:
+        confirm_destroy: ¿Desea realmente eliminar esto?
+        destroy: Eliminar
+        edit: Editar
+        new: Crear
+        save: Guardar
+        title: Acciones
+      admins:
+        create:
+          error: Ocurrió un error al crear un nuevo administrador.
+          success: Administrador creado con éxito
+        destroy:
+          success: Administrador eliminado con éxito
+        edit:
+          title: Editar administrador
+          update: Actualizar
+        index:
+          title: Administradores
+        new:
+          create: Crear
+          title: Nuevo administrador
+        update:
+          error: Ocurrió un error al actualizar este administrador.
+          success: Administrador actualizado con éxito
+      dashboard:
+        show:
+          current_organizations: Organizaciones actuales
+      default_pages:
+        placeholders:
+          content: Añada contenido significativo a la página estática %{page} en el panel del administrador.
+          title: Título por defecto para %{page}
+      menu:
+        admins: Administradores
+        dashboard: Panel de control
+        oauth_applications: Aplicaciones OAuth
+        organizations: Organizaciones
+      models:
+        admin:
+          fields:
+            created_at: Creado en
+            email: Correo electrónico
+          name: Administrador
+          validations:
+            email_uniqueness: Ya existe otro administrador con el mismo correo electrónico
+        oauth_application:
+          fields:
+            created_at: Creado en
+            name: Nombre de la aplicación OAuth
+            organization_name: Organización
+          name: Aplicación OAuth
+        organization:
+          actions:
+            save_and_invite: Crear organización e invitar administrador
+          fields:
+            created_at: Creado en
+            file_upload_settings: Configuraciones de carga de archivos
+            name: Nombre
+            omniauth_settings: Configuraciones de Omniauth
+            smtp_settings: Configuraciones de SMTP
+          name: Organización
+      oauth_applications:
+        create:
+          error: Hubo un error al crear esta aplicación.
+          success: Aplicación creada con éxito.
+        destroy:
+          error: Hubo un error al eliminar esta aplicación.
+          success: Aplicación eliminada con éxito.
+        edit:
+          save: Guardar
+          title: Editar aplicación
+        form:
+          select_organization: Seleccione una organización
+        index:
+          confirm_delete: ¿Está seguro de que desea eliminar esta aplicación?
+          title: Aplicaciones OAuth
+        new:
+          save: Guardar
+          title: Nueva aplicación
+        update:
+          error: Hubo un error al actualizar esta aplicación.
+          success: Aplicación actualizada con éxito.
+      organizations:
+        advanced_settings:
+          hide: Ocultar configuraciones avanzadas
+          show: Mostrar configuraciones avanzadas
+        create:
+          error: Ocurrió un error al crear una nueva organización.
+          success: Organización creada con éxito.
+        edit:
+          secondary_hosts_hint: Ingrese cada uno de ellos en una nueva línea
+        file_upload_settings:
+          content_types:
+            admin_hint: Estos tipos MIME están permitidos para cargas de secciones del administrador. Los usuarios de administración deben ser conscientes de los riesgos de cargar algunos formatos de documentos, por lo que se espera que sean más cautelosos al enviar archivos.
+            default_hint: Estos tipos MIME están permitidos para todos los usuarios por defecto.
+            intro_html: Puedes agregar caracteres comodín con el carácter asterisco para los tipos MIME, por ejemplo, <code>image/*</code>.
+            title: Tipos MIME permitidos
+          file_extensions:
+            admin_hint: Estas extensiones de archivo están permitidas para cargas de sección de administrador. Los usuarios de administración deben ser conscientes de los riesgos de cargar algunos formatos de documentos, por lo que se espera que sean más cautelosos al enviar archivos.
+            default_hint: Estas extensiones de archivo están permitidas para todos los usuarios por defecto.
+            image_hint: Estas extensiones de archivo están permitidas para cualquier tipo de carga de imagen.
+            title: Extensiones de archivos permitidas
+          file_sizes:
+            avatar_hint: Megabytes (MB). Este límite de tamaño de archivo se utiliza para la carga de imágenes de avatar.
+            default_hint: Megabytes (MB). Este límite de tamaño de archivo es el predeterminado que se utiliza para todas las cargas de archivos a menos que se especifique.
+            title: Tamaño máximo de archivo
+          intro: |
+            Por favor, tenga mucho cuidado al considerar cambiar estas configuraciones. Cuanto menos permita, mejor.
+            Permitir extensiones de archivo o tipos MIME específicos puede exponer a los usuarios del sistema a riesgos de seguridad y también puede afectar la accesibilidad del sitio.
+        index:
+          title: Organizaciones
+        new:
+          reference_prefix_hint: El prefijo de referencia se utiliza para identificar de manera única los recursos en todas las organizaciones
+          secondary_hosts_hint: Ingrese cada uno de ellos en una nueva línea
+          title: Nueva organización
+        omniauth_settings:
+          decidim:
+            client_id: ID del cliente
+            client_secret: Secreto del Cliente
+            site_url: URL del sitio
+          enabled: Habilitado
+          enabled_by_default: Este proveedor está habilitado por defecto. Se puede editar, pero no deshabilitar.
+          facebook:
+            app_id: ID de la Aplicación
+            app_secret: Secreto de la Aplicación
+          google_oauth2:
+            client_id: ID del cliente
+            client_secret: Secreto del Cliente
+          govbr:
+            client_id: ID del cliente
+            client_secret: Secreto del Cliente
+            host: URL del sitio
+            redirect_uri: URI de redireccionamiento
+          icon: Icono
+          icon_path: Ruta del icono
+          twitter:
+            api_key: Clave de la API
+            api_secret: Secreto de la API
+        smtp_settings:
+          fieldsets:
+            sender: Remitente
+          instructions:
+            from_label: 'El remitente del correo electrónico será: "su-nombre de la organización <your-organization@example.org>". Deje en blanco para usar la ''Dirección de correo electrónico'' como etiqueta'
+          placeholder:
+            from_email: su-organizacion@ejemplo.org
+            from_label: nombre-de-la-organizacion
+        update:
+          error: Ocurrió un error al actualizar esta organización.
+          success: Organización actualizada con éxito.
+        users_registration_mode:
+          disabled: El acceso solo se puede realizar con cuentas externas
+          enabled: Permitir que los usuarios se registren e inicien sesión
+          existing: No permitir que los usuarios se registren, pero permitir que los usuarios existentes inicien sesión
+      shared:
+        notices:
+          no_organization_warning_html: Debe crear una organización para comenzar. Asegúrese de leer %{guide} antes de continuar.
+          our_getting_started_guide: nuestra guía de inicio
+      titles:
+        dashboard: Panel de control

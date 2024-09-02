@@ -122,7 +122,7 @@
           </div>
         </div>
       <% end %>
-      <% if meeting.closed? && meeting.closing_visible? %>
+      <% if meeting.closed? && meeting.closing_visible? && false %>
         <div class="section">
           <h3 class="section-heading"><%= t(".meeting_minutes") %></h3>
           <%= decidim_sanitize_editor translated_attribute meeting.closing_report %>
@@ -191,12 +191,6 @@
             <div class="definition-data__item">
               <span><%= t(".contributions") %></span>
               <span class="definition-data__number"><%= meeting.contributions_count %></span>
-            </div>
-          <% end %>
-          <% if meeting.has_attendees? %>
-            <div class="definition-data__item">
-              <span><%= t(".attendees") %></span>
-              <span class="definition-data__number"><%= meeting.attendees_count %></span>
             </div>
           <% end %>
           <% if meeting.attending_organizations.present? %>
