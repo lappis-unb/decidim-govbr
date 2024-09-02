@@ -7,7 +7,7 @@ module Decidim
       include Decidim::Forms::Concerns::HasQuestionnaire
       include Decidim::ComponentPathHelper
       include Decidim::Govbr::ParticipatoryProcessesHelper
-      helper_method :record_what_happened_survey?
+      helper_method :should_record_what_happened_survey?
 
       delegate :allow_unregistered?, to: :current_settings
 
@@ -72,13 +72,13 @@ module Decidim
 
       def add_new_question_to_survey
         record_what_happened_survey = current_participatory_space.record_what_happened_survey.presence.to_s.chomp("/")
-        return unless record_what_happened_survey?(record_what_happened_survey) && params[:meeting_id].present?
+        return unless should_record_what_happened_survey?(record_what_happened_survey) && params[:meeting_id].present?
 
         questionnaire = survey.questionnaire
 
         return false if questionnaire.blank?
 
-        Decidim::Forms::Questionnaire.add_new_question(
+        Decidim::Forms::Question.add_new_question(
           decidim_questionnaire_id: questionnaire.id, position: questionnaire.questions.count,
           question_type: "short_answer", mandatory: false, title: "origin_meeting_id"
         )
@@ -88,7 +88,7 @@ module Decidim
         record_what_happened_survey = current_participatory_space.record_what_happened_survey.presence.to_s.chomp("/")
         origin_meeting_id = params[:questionnaire][:responses].values.last.presence[:body].to_i
 
-        return unless record_what_happened_survey?(record_what_happened_survey) && origin_meeting_id.present?
+        return unless should_record_what_happened_survey?(record_what_happened_survey) && origin_meeting_id.present?
 
         questionnaire = survey.questionnaire
 
@@ -105,7 +105,7 @@ module Decidim
         end
       end
 
-      def record_what_happened_survey?(survey)
+      def should_record_what_happened_survey?(survey)
         survey.present? && request.original_url.include?(survey)
       end
     end
