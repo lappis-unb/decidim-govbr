@@ -46,7 +46,7 @@ Rails.application.routes.draw do
   )
 
   get(
-    'meetings/:id/:current_component/registrations/export/:format',
+    'admin/participatory_processes/:current_slug/components/:current_component/manage/meetings/:id/registrations/export(.:format)',
     to: 'decidim/meetings/registrations#export',
     as: 'export_public_registrations'
   )

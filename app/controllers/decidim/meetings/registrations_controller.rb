@@ -64,7 +64,6 @@ module Decidim
       end
 
       def export
-        binding.pry
         enforce_permission_to :export_registrations, :meeting, meeting: meeting
 
         ExportMeetingRegistrations.call(meeting, params[:format], current_user) do
