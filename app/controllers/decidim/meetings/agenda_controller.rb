@@ -31,8 +31,6 @@ module Decidim
       end
 
       def edit
-        enforce_permission_to :update, :agenda, agenda: agenda, meeting: meeting
-
         @form = form(MeetingAgendaForm).from_model(agenda)
       end
 

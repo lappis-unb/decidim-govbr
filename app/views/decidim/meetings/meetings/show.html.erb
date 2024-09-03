@@ -106,6 +106,8 @@
         Cronograma do Evento
         <% unless meeting.agenda.present? %>
           <%= link_to "Criar Agenda", new_meeting_agenda_path(meeting) %>
+          <% else %>
+            <%= link_to "Editar Agenda", edit_meeting_agenda_path(meeting) %>
         <% end %>
         <% if meeting.agenda.present? && meeting.agenda.visible? %>
           <%= render "meeting_agenda" %>
