@@ -86,6 +86,14 @@ module Decidim
       def iframe_embed_or_live_event_page?(meeting)
         %w(embed_in_meeting_page open_in_live_event_page).include? meeting.iframe_embed_type
       end
+
+      def tabs_id_for_agenda_item(agenda_item)
+        "meeting_agenda_item_#{agenda_item.to_param}"
+      end
+
+      def tabs_id_for_agenda_item_child(agenda_item)
+        "meeting_agenda_item_#{agenda_item.to_param_child}"
+      end
     end
   end
 end

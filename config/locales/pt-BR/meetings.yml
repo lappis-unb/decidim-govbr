@@ -211,6 +211,27 @@ pt-BR:
         edit:
           close: Vincular propostas
           title: Vincular propostas
+      agenda:
+        new:
+          title: Nova Agenda
+          create: Criar
+        agenda_item:
+          agenda_item: Agenda item
+          agenda_item_children: Filhos
+          add_agenda_item_child: Adicionar filho
+          up: Up
+          down: Down
+          remove: Remove
+        agenda_item_child:
+            agenda_item_child: Filho
+            up: Up
+            down: Down
+            remove: Remove
+        form:
+          add_agenda_item: Adicionar item
+          start_date: Data de início
+          end_date: Data de fim
+          agenda_items: Agenda items
       meetings:
         show:
           confirm_delete: "Você tem certeza que deseja deletar este evento?"
