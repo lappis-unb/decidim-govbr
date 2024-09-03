@@ -198,6 +198,7 @@ pt-BR:
         max_file_dimension: "Dimensões máximas do arquivo: %{resolution} pixels"
         max_file_size: "Tamanho máximo do arquivo: %{megabytes}MB"
         comments_attachment_extension:  Escolha o arquivo da contribuição. Somente PDF.
+        max_file_quantity: "Número máximo de arquivos por comentário: %{quantity}"
       remove_this_file: Remover este arquivo
       upload:
         labels:

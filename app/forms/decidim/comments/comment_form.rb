@@ -24,6 +24,7 @@ module Decidim
       validates :body, presence: true, length: { maximum: ->(form) { form.max_length } }
       validates :alignment, inclusion: { in: [0, 1, -1] }, if: ->(form) { form.alignment.present? }
       validate :document_type_must_be_valid, if: :attachment_file
+      validate :document_size_must_be_valid, if: :attachment_file
 
       validate :max_depth
 
@@ -41,6 +42,19 @@ module Decidim
         return unless commentable.respond_to?(:depth)
 
         errors.add(:base, :invalid) if commentable.depth >= Comment::MAX_DEPTH
+      end
+
+      def max_file_size
+        1_000_000
+      end
+
+      def document_size_must_be_valid
+        document_size = blob(attachment_file).byte_size
+
+        if document_size > max_file_size
+          max_file_size_in_mb = max_file_size / 1_000_000
+          errors.add(:attachment_file, "O tamanho máximo permitido é #{max_file_size_in_mb} megabytes")
+        end
       end
 
       def document_type_must_be_valid
