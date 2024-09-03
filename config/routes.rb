@@ -45,6 +45,12 @@ Rails.application.routes.draw do
     as: 'get_all_meetings_of_a_participatory_process'
   )
 
+  get(
+    'meetings/:id/:current_component/registrations/export/:format',
+    to: 'decidim/meetings/registrations#export',
+    as: 'export_public_registrations'
+  )
+
   resources :reports, only: [:create], controller: 'decidim/reports/reports'
 
   patch '/update_status_comment/:id/', to: 'decidim/comments/comments#update_status', as: 'update_comment_status'

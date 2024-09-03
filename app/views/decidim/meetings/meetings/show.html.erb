@@ -213,11 +213,12 @@
                   <% %w{CSV JSON Excel}.each do |format| %>
                     <li class="exports--format--<%= format.downcase %> exports--registrations">
                       <%= link_to t("decidim.admin.exports.export_as", name: t("decidim.#{current_component.manifest.name}.admin.exports.registrations"), export_format: format),
-                          exports_path(meeting_id: meeting.id, options: format.downcase) %>
+                          main_app.export_public_registrations_path(id: meeting, current_component: current_component, format: format),
+                          method: :get, remote: true %>
                     </li>
                   <% end %>
                 </ul>
-          </div>
+              </div>
           
         <% end %>
         <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
