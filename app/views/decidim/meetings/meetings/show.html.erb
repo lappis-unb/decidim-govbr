@@ -63,9 +63,7 @@
           </a>
         <% end %>
       </div>
-      <div class="badge-container">
-        <%== @meeting_cell.badge %>
-      </div>
+      <%== @meeting_cell.badge %>
       <h2 class="title"><%= present(meeting).title(links: true, html_escape: true ) %></h2>
       <%= render_meeting_body(@meeting) %>
       <div class="meetings-author-info-br">
