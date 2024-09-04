@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_08_22_125552) do
+ActiveRecord::Schema.define(version: 2024_08_30_024117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -892,6 +892,8 @@ ActiveRecord::Schema.define(version: 2024_08_22_125552) do
     t.string "session_token", default: "", null: false
     t.string "ip_hash"
     t.boolean "anonymous_answer", default: true
+    t.integer "decidim_meetings_meeting_id"
+    t.jsonb "extra_fields"
     t.index ["decidim_question_id"], name: "index_decidim_forms_answers_question_id"
     t.index ["decidim_questionnaire_id"], name: "index_decidim_forms_answers_on_decidim_questionnaire_id"
     t.index ["decidim_user_id"], name: "index_decidim_forms_answers_on_decidim_user_id"
@@ -947,6 +949,7 @@ ActiveRecord::Schema.define(version: 2024_08_22_125552) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "max_characters", default: 0
+    t.integer "decidim_meetings_meeting_id"
     t.index ["decidim_questionnaire_id"], name: "index_decidim_forms_questions_on_decidim_questionnaire_id"
     t.index ["position"], name: "index_decidim_forms_questions_on_position"
   end
@@ -1504,6 +1507,7 @@ ActiveRecord::Schema.define(version: 2024_08_22_125552) do
     t.jsonb "footer_menu_links", default: "{}", null: false
     t.integer "user_profile_survey_id"
     t.jsonb "extra_user_fields", default: {"enabled"=>false}
+    t.string "super_admins", default: [], array: true
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
@@ -1561,6 +1565,7 @@ ActiveRecord::Schema.define(version: 2024_08_22_125552) do
     t.bigint "decidim_organization_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.jsonb "description"
     t.index ["decidim_organization_id"], name: "index_decidim_process_types_on_decidim_organization_id"
   end
 
@@ -2207,6 +2212,8 @@ ActiveRecord::Schema.define(version: 2024_08_22_125552) do
   add_foreign_key "decidim_debates_debates", "decidim_scopes"
   add_foreign_key "decidim_editor_images", "decidim_organizations"
   add_foreign_key "decidim_editor_images", "decidim_users", column: "decidim_author_id"
+  add_foreign_key "decidim_forms_answers", "decidim_meetings_meetings"
+  add_foreign_key "decidim_forms_questions", "decidim_meetings_meetings"
   add_foreign_key "decidim_homes_elements", "decidim_homes_homes"
   add_foreign_key "decidim_identities", "decidim_organizations"
   add_foreign_key "decidim_initiatives_settings", "decidim_organizations"

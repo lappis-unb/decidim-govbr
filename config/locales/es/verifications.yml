@@ -1,0 +1,19 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-verifications/config/locales/es.yml
+es:
+  activemodel:
+    attributes:
+      authorization:
+        verification_attachment: Copia digitalizada de tu documento
+      address:
+        full_address: Dirección completa
+      census_data:
+        file: Archivo
+      revocations_before_date:
+        before_date: Antes de la fecha
+        impersonated_only: Solo personificado
+  decidim:
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} actualizó la configuración de la autorización de Documentos de Identidad"
+
+

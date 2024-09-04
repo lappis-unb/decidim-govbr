@@ -50,7 +50,7 @@ module Decidim
         describe "collection" do
           let(:other_organization) { create(:organization) }
 
-          it "includes a heterogeneous array of processes and groups" do
+          it "includes a heterogeneous array of processes" do
             published = create_list(
               :participatory_process,
               2,
@@ -65,27 +65,8 @@ module Decidim
               organization: organization
             )
 
-            organization_groups = create_list(
-              :participatory_process_group,
-              2,
-              :with_participatory_processes,
-              organization: organization
-            )
-
-            _other_groups = create_list(
-              :participatory_process_group,
-              2,
-              :with_participatory_processes,
-              organization: other_organization
-            )
-
-            _manipulated_other_groups = create(
-              :participatory_process_group,
-              participatory_processes: [create(:participatory_process, organization: organization)]
-            )
-
             expect(controller.helpers.collection)
-              .to match_array([*published, *organization_groups])
+              .to match_array([*published])
           end
         end
 
@@ -94,19 +75,19 @@ module Decidim
           let!(:upcoming) { create(:participatory_process, :published, :upcoming, organization: organization) }
           let!(:past) { create(:participatory_process, :published, :past, organization: organization) }
 
-          it "defaults to active if there are active published processes" do
-            expect(controller.helpers.default_date_filter).to eq("active")
+          it "defaults to all if there are active published processes" do
+            expect(controller.helpers.default_date_filter).to eq("all")
           end
 
-          it "defaults to upcoming if there are upcoming (but no active) published processes" do
+          it "defaults to all if there are upcoming (but no active) published processes" do
             active.update(published_at: nil)
-            expect(controller.helpers.default_date_filter).to eq("upcoming")
+            expect(controller.helpers.default_date_filter).to eq("all")
           end
 
-          it "defaults to past if there are past (but no active nor upcoming) published processes" do
+          it "defaults to all if there are past (but no active nor upcoming) published processes" do
             active.update(published_at: nil)
             upcoming.update(published_at: nil)
-            expect(controller.helpers.default_date_filter).to eq("past")
+            expect(controller.helpers.default_date_filter).to eq("all")
           end
         end
 

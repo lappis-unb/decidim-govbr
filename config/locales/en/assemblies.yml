@@ -1,0 +1,240 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-assemblies/config/locales/en.yml
+en:
+  activemodel:
+    attributes:
+      assemblies_setting:
+        enable_organization_chart: Enable organization chart
+      assembly:
+        decidim_assemblies_type_id: Assembly type
+        announcement: Announcement
+        parent_id: Parent assembly
+        document: Document
+        import_categories: Import categories
+        import_attachments: Import attachments
+        import_components: Import components
+      assemblies_type:
+        title: Title
+      assembly_member:
+        gender: Gender
+        user_id: User or group
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: "Invalid document type. Accepted formats are: %{valid_mime_types}"
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Assembly
+        other: Assemblies
+      decidim/assembly_member:
+        one: Assembly member
+        other: Assembly members
+      decidim/assembly_user_role:
+        one: Assembly user role
+        other: Assembly user roles
+  decidim:
+    admin:
+      actions:
+        new_assembly: New assembly
+        new_assembly_type: New assembly type
+      assemblies:
+        create:
+          error: There was a problem creating a new assembly.
+          success: Assembly successfully created.
+        new:
+          title: New assembly
+        update:
+          error: There was a problem updating this assembly.
+          success: Assembly successfully updated.
+      assemblies_copies:
+        create:
+          error: There was a problem duplicating this assembly.
+          success: Assembly successfully duplicated.
+      assemblies_types:
+        create:
+          error: There was a problem creating a new assembly type.
+          success: Assembly type successfully created.
+        destroy:
+          success: Assembly type successfully deleted.
+        new:
+          title: New assembly type
+        update:
+          error: There was a problem updating this assembly type.
+          success: Assembly type successfully updated.
+      assembly_copies:
+        new:
+          title: Duplicate assembly
+      assembly_imports:
+        create:
+          error: There was a problem updating this assembly.
+          success: Assembly successfully updated.
+        new:
+          title: Import assembly
+      assembly_members:
+        create:
+          error: There was a problem adding a member to this assembly.
+          success: Member successfully created in this assembly.
+        destroy:
+          success: Member successfully deleted from this assembly.
+        edit:
+          title: Update assembly member.
+        index:
+          assembly_members_title: Assembly members
+        new:
+          title: New assembly member.
+        update:
+          error: There was a problem updating the member in this assembly.
+          success: Member successfully updated in this assembly.
+      assembly_publications:
+        create:
+          error: There was a problem publishing this assembly.
+          success: Assembly successfully published.
+        destroy:
+          error: There was a problem unpublishing this assembly.
+          success: Assembly successfully unpublished.
+      assembly_user_roles:
+        create:
+          error: There was a problem adding an admin to this assembly.
+          success: Admin successfully added to this assembly.
+        destroy:
+          success: Admin successfully removed from this assembly.
+        edit:
+          title: Update assembly admin.
+        index:
+          assembly_admins_title: Assembly admins
+        new:
+          create: Create
+          title: New assembly admin.
+        update:
+          error: There was a problem updating an admin for this assembly.
+          success: Admin successfully updated for this assembly.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Assembly type
+      menu:
+        assemblies: Assemblies
+        assemblies_submenu:
+          assembly_admins: Assembly admins
+          attachment_files: Files
+          private_users: Private participants
+        assemblies_types: Assembly types
+      models:
+        assembly_user_role:
+          name: Assembly admin
+      titles:
+        assemblies: Assemblies
+        assemblies_types: Assembly types
+    admin_log:
+      assembly:
+        create: "%{user_name} created the assembly %{resource_name}"
+        publish: "%{user_name} published the assembly %{resource_name}"
+        unpublish: "%{user_name} unpublished the assembly %{resource_name}"
+        update: "%{user_name} updated the assembly %{resource_name}"
+      assembly_member:
+        create: "%{user_name} created the member %{resource_name} in the assembly %{space_name}"
+        delete: "%{user_name} removed the member %{resource_name} from the assembly %{space_name}"
+        update: "%{user_name} updated the member %{resource_name} in the assembly %{space_name}"
+      assembly_setting:
+        update: "%{user_name} updated the assembly settings"
+      assembly_type:
+        create: "%{user_name} created the assembly type %{resource_name}"
+        delete: "%{user_name} deleted the assembly type %{resource_name}"
+        publish: "%{user_name} published the assembly type %{resource_name}"
+        unpublish: "%{user_name} unpublished the assembly type %{resource_name}"
+        update: "%{user_name} updated the assembly type %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} invited %{resource_name} to the assembly %{space_name}"
+        delete: "%{user_name} removed the participant %{resource_name} from the assembly %{space_name}"
+        update: "%{user_name} changed the role of %{resource_name} in the assembly %{space_name}"
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            announcement_help: The text entered here will be displayed to the user immediately below the meeting information.
+            duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
+            included_at_help: Select the date this assembly was added to Decidim. It does not necessarily have to be the same as the creation date.
+            slug_help: "The dynamic URL field is used to generate the URL that directs to this assembly. It only accepts letters, numbers, and dashes, and must start with a letter. Example: %{url}"
+            select_an_assembly_type: Select an assembly type
+            select_parent_assembly: Select the parent assembly
+        assemblies_types:
+          form:
+            title: Assembly type
+        assembly_copies:
+          form:
+            slug_help: "The dynamic URL field is used to generate the URL that directs to this assembly. It only accepts letters, numbers, and dashes, and must start with a letter. Example: %{url}"
+        assembly_imports:
+          form:
+            slug_help: "The dynamic URL field is used to generate the URL that directs to this assembly. It only accepts letters, numbers, and dashes, and must start with a letter. Example: %{url}"
+        assemblies_settings:
+          form:
+            title: Assembly settings
+      assemblies:
+        show:
+          title: About this assembly
+      content_blocks:
+        highlighted_assemblies:
+          name: Highlighted assemblies
+      index:
+        title: Assemblies
+      last_activity:
+        new_assembly: New assembly
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Active assemblies
+            assemblies_button_title: Link to the Assemblies page that presents all assemblies
+            see_all_assemblies: See all assemblies
+      show:
+        assembly_type: Assembly type
+        children: Assemblies
+        private_space: This is a private assembly
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: An administrator of the assembly <a href="%{resource_url}">%{resource_name}</a> has added you as one of its members.
+          email_subject: You have been invited to be a member of the assembly %{resource_name}!
+          notification_title: You have been registered as a member of the Assembly <a href="%{resource_path}">%{resource_name}</a>. Check the assembly page <a href="%{resource_path}"></a> to contribute!
+      assembly:
+        role_assigned:
+          email_intro: You have been assigned as %{role} for the assembly "%{resource_title}".
+          email_outro: You received this notification because you are %{role} of the assembly "%{resource_title}".
+          email_subject: You have been assigned as %{role} for "%{resource_title}".
+          notification_title: You have been assigned as %{role} for the assembly <a href="%{resource_url}">%{resource_title}</a>.
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>An <strong>assembly</strong> is a group of members of an organization that meets periodically to make decisions about a specific area or field of interest of the organization.</p> <p>Assemblies hold meetings, some are private, and others are open. If they are open, it is possible to participate in them (e.g., participate if capacity allows, add points to the agenda, or comment on the proposals and decisions made by this body).</p> <p>Examples: General Assembly (which meets once a year to define the organization's main lines of action, as well as its executive bodies by voting), an equality advisory council (which meets every two months to propose how to improve gender relations in the organization), an evaluation commission (which meets monthly to monitor a process), or a guarantee body (which collects incidents, abuses, or proposals to improve decision-making procedures) are examples of assemblies.</p>\n"
+          page: "<p>An <strong>assembly</strong> is a group of members of an organization that meets periodically to make decisions about a specific area or field of interest of the organization.</p> <p>Assemblies hold meetings, some are private, and others are open. If they are open, it is possible to participate in them (e.g., participate if capacity allows, add points to the agenda, or comment on the proposals and decisions made by this body).</p> <p>Examples: General Assembly (which meets once a year to define the organization's main lines of action, as well as its executive bodies by voting), an equality advisory council (which meets every two months to propose how to improve gender relations in the organization), an evaluation commission (which meets monthly to monitor a process), or a guarantee body (which collects incidents, abuses, or proposals to improve decision-making procedures) are examples of assemblies.</p>\n"
+          title: What are assemblies?
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: "The assembly was not found in the database (ID: %{id})"
+        assembly_type_presenter:
+          not_found: "The assembly type was not found in the database (ID: %{id})"
+    menu:
+      assemblies: Assemblies
+    metrics:
+      assemblies:
+        description: Number of assemblies created
+        object: assemblies
+        title: Assemblies
+    participatory_processes:
+      show:
+        related_assemblies: Related assemblies
+    statistics:
+      assemblies_count: Assemblies
+  layouts:
+    decidim:
+      assemblies:
+        index:
+          children: "Assemblies: "
+          promoted_assemblies: Promoted assemblies
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} conference"
+            other: "%{count} conferences"
+
+

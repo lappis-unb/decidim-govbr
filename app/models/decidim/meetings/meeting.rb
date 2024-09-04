@@ -37,6 +37,9 @@ module Decidim
       has_many :services, class_name: "Decidim::Meetings::Service", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_one :agenda, class_name: "Decidim::Meetings::Agenda", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_one :poll, class_name: "Decidim::Meetings::Poll", foreign_key: "decidim_meeting_id", dependent: :destroy
+      has_many :questions, class_name: "Decidim::Forms::Question", foreign_key: "decidim_meetings_meeting_id"
+      has_many :answers, class_name: "Decidim::Forms::Answer", foreign_key: "decidim_meetings_meeting_id"
+
       has_many(
         :public_participants,
         -> { merge(Registration.public_participant) },
