@@ -93,16 +93,14 @@ module Decidim
       end
 
       def withdraw
-        enforce_permission_to :withdraw, :meeting, meeting: meeting
-
-        WithdrawMeeting.call(@meeting, current_user) do
+        WithdrawMeeting.call(meeting, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("meetings.withdraw.success", scope: "decidim")
-            redirect_to Decidim::ResourceLocatorPresenter.new(@meeting).path
+            redirect_to Decidim::ResourceLocatorPresenter.new(meeting).path
           end
           on(:invalid) do
             flash[:alert] = I18n.t("meetings.withdraw.error", scope: "decidim")
-            redirect_to Decidim::ResourceLocatorPresenter.new(@meeting).path
+            redirect_to Decidim::ResourceLocatorPresenter.new(meeting).path
           end
         end
       end
