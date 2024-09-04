@@ -49,6 +49,7 @@ pt-BR:
             label: Estado
             values:
               accepted: Recebida
+              partially_accepted: Parcialmente incorporada
               evaluating: Em avaliação
               published: Publicada
               rejected: Não incorporada
@@ -227,6 +228,7 @@ pt-BR:
         proposal_answers:
           form:
             accepted: Incorporada
+            partially_accepted: Parcialmente incorporada
             answer_proposal: Resposta
             evaluating: Em avaliação
             not_answered: Não respondida
@@ -234,6 +236,7 @@ pt-BR:
             disqualified: Desclassificada
       answers:
         accepted: Incorporada
+        partially_accepted: Parcialmente incorporada
         evaluating: Em avaliação
         not_answered: Não respondida
         rejected: Não incorporada
@@ -244,6 +247,7 @@ pt-BR:
           participants: Participantes
         filter_state_values:
           accepted: Incorporada
+          partially_accepted: Parcialmente incorporada
           all: Todos
           evaluating: Em avaliação
           not_answered: Não respondida
@@ -356,6 +360,8 @@ pt-BR:
           back_to_list: Voltar
           proposal_accepted_reason: 'Esta proposta foi incorporada!'
           proposal_accepted_why: 'Motivo:'
+          proposal_partially_accepted_reason: 'Esta proposta foi parcialmente incorporada!'
+          proposal_partially_accepted_why: 'Motivo:'
           proposal_in_evaluation_reason: Esta proposta está em avaliação
           proposal_rejected_reason: 'Esta proposta não foi incorporada'
           proposal_disqualified_reason: Esta proposta foi desclassificada
