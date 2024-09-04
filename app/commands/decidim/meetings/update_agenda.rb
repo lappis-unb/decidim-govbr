@@ -3,11 +3,10 @@
 module Decidim
   module Meetings
     # This command is executed when the user creates a Meeting
-    class CreateAgenda < Decidim::Command
-      def initialize(form, meeting)
+    class UpdateAgenda < Decidim::Command
+      def initialize(form, agenda)
         @form = form
-        @meeting = meeting
-        @agenda = nil
+        @agenda = agenda
       end
 
       # Creates the agenda if valid.
@@ -17,8 +16,8 @@ module Decidim
         return broadcast(:invalid) if @form.invalid?
 
         transaction do
-          create_agenda!
-          create_agenda_items
+          update_agenda!
+          update_agenda_items
         end
 
         broadcast(:ok, @agenda)
@@ -26,25 +25,24 @@ module Decidim
 
       private
 
-      attr_reader :form, :meeting
+      attr_reader :form
 
-      def create_agenda_items
+      def update_agenda_items
         @form.agenda_items.each do |form_agenda_item|
-          create_agenda_item(form_agenda_item)
+          update_agenda_item(form_agenda_item)
         end
       end
 
-      def create_agenda_item(form_agenda_item)
+      def update_agenda_item(form_agenda_item)
         agenda_item_attributes = {
           title: form_agenda_item.title,
           description: form_agenda_item.description,
           position: form_agenda_item.position,
           duration: form_agenda_item.duration,
-          parent_id: form_agenda_item.parent_id,
-          agenda: @agenda
+          parent_id: form_agenda_item.parent_id
         }
 
-        create_nested_model(form_agenda_item, agenda_item_attributes, @form.agenda_items) do |agenda_item|
+        update_nested_model(form_agenda_item, agenda_item_attributes, @agenda.agenda_items) do |agenda_item|
           form_agenda_item.agenda_item_children.each do |form_agenda_item_child|
             agenda_item_child_attributes = {
               title: form_agenda_item_child.title,
@@ -55,13 +53,13 @@ module Decidim
               agenda: @agenda
             }
 
-            create_nested_model(form_agenda_item_child, agenda_item_child_attributes, agenda_item.agenda_item_children)
+            update_nested_model(form_agenda_item_child, agenda_item_child_attributes, agenda_item.agenda_item_children)
           end
         end
       end
 
-      def create_nested_model(form, attributes, _agenda_item_children)
-        record = Decidim::Meetings::AgendaItem.find_or_create_by!(attributes)
+      def update_nested_model(form, attributes, agenda_item_children)
+        record = agenda_item_children.find_by(id: form.id) || agenda_item_children.build(attributes)
 
         yield record if block_given?
 
@@ -76,13 +74,12 @@ module Decidim
         end
       end
 
-      def create_agenda!
-        @agenda = Decidim.traceability.create!(
-          Agenda,
-          @form.current_user,
-          title: @form.title,
-          visible: @form.visible,
-          meeting: @meeting
+      def update_agenda!
+        Decidim.traceability.update!(
+          @agenda,
+          form.current_user,
+          title: form.title,
+          visible: form.visible
         )
       end
     end

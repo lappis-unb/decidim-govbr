@@ -215,6 +215,9 @@ pt-BR:
         new:
           title: Nova Agenda
           create: Criar
+        edit:
+          title: Editar Agenda
+          update: Atualizar
         agenda_item:
           agenda_item: Item da Agenda
           agenda_item_children: Sub-item
