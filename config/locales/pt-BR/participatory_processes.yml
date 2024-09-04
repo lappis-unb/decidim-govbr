@@ -211,6 +211,9 @@ pt-BR:
           finished: Encerrada - Resultado
   layouts:
     decidim:
+      participatory_processes:
+        index:
+          view_button: Visualizar
       participatory_process_widgets:
         show:
           active_step: Etapa ativa
