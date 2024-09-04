@@ -14,7 +14,7 @@ module Decidim
         @component = Decidim::Component.find(component_id)
 
         if @component.settings.most_voted_rule.zero?
-          flash.now[:alert] = "Não foi possível atualizar os rótulos. Insira quantas propostas você deseja que tenham o rótulo Mais Votada."
+          flash[:alert] = "Não foi possível atualizar os rótulos. Insira quantas propostas você deseja que tenham o rótulo Mais Votada nas configurações do componente."
           redirect_to request.referer
         else
           UpdateBadgeProposals.call(@component, @user) do
@@ -24,7 +24,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash.now[:alert] = "Ocorreu um erro ao atualizar os rótulos."
+              flash[:alert] = "Ocorreu um erro ao atualizar os rótulos."
               redirect_to request.referer
             end
           end
