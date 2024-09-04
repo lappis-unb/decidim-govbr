@@ -251,6 +251,8 @@ pt-BR:
           live_event: Este evento está acontecendo agora
           live_permission_notice: Ao clicar no botão abaixo, serão solicitadas permissões de microfone e/ou câmera e você entrará na videoconferência.
           live_link: "Link do evento:"
+          new_agenda: Criar Cronograma
+          edit_agenda: Editar Cronograma
         filters:
           activity: Minha atividade
           all: Todas

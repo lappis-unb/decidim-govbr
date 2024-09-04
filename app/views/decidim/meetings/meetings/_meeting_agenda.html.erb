@@ -1,8 +1,4 @@
 <div class="section agenda-section">
-  <div class="flex--sbe">
-    <div class="agenda-section-heading"><%= t("itinerary", scope: "decidim.meetings" ) %></div>
-  </div>
-  
   <div class="agenda-card-content">
     <% agenda_items_times = calculate_start_and_end_time_of_agenda_items(meeting.agenda.agenda_items.first_class, meeting) %>
     <% meeting.agenda.agenda_items.first_class.each_with_index do |agenda_item, index| %>

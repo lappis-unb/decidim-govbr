@@ -649,7 +649,8 @@
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--blue-warm-vivid-70);
-  padding: 1rem 0;
+  padding: 0;
+  margin: 0;
 }
 
 .agenda-card-title {
@@ -1297,6 +1298,7 @@ div.meetings-author-info-br span.author__name {
     gap: 0.5rem;
     padding: 0;
     margin: 0;
+
     span {
       flex: 2;
     }
@@ -1307,10 +1309,29 @@ div.meetings-author-info-br span.author__name {
     justify-content: flex-start;
     padding: 1rem;
     gap: 1rem;
+
     .meeting__date-info {
       display: flex;
       flex-direction: column;
     }
+  }
+}
+
+.agenda__section-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  .br-button {
+    width: fit-content;
+  }
+
+  .agenda-section-warning {
+    font-size: 1rem;
+    color: var(--blue-warm-vivid-70);
+    font-weight: var(--font-weight-regular);
+    text-align: left;
+    margin: 0;
   }
 }
 
