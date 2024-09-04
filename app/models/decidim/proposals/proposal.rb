@@ -31,7 +31,7 @@ module Decidim
 
       translatable_fields :title, :body
 
-      POSSIBLE_STATES = %w(not_answered evaluating accepted rejected withdrawn disqualified).freeze
+      POSSIBLE_STATES = %w(not_answered evaluating accepted rejected withdrawn disqualified partially_accepted).freeze
 
       fingerprint fields: [:title, :body]
 
@@ -63,6 +63,7 @@ module Decidim
 
       scope :accepted, -> { state_published.where(state: "accepted") }
       scope :rejected, -> { state_published.where(state: "rejected") }
+      scope :partially_accepted, -> { state_published.where(state: "partially_accepted") }
       scope :evaluating, -> { state_published.where(state: "evaluating") }
       scope :disqualified, -> { state_published.where(state: "disqualified") }
       scope :withdrawn, -> { where(state: "withdrawn") }
@@ -104,7 +105,7 @@ module Decidim
         order(Arel.sql("#{sort_by_valuation_assignments_count_nulls_last_query} DESC NULLS LAST").to_s)
       }
 
-      scope_search_multi :with_any_state, [:accepted, :rejected, :evaluating, :state_not_published, :disqualified]
+      scope_search_multi :with_any_state, [:accepted, :rejected, :partially_accepted, :evaluating, :state_not_published, :disqualified]
 
       def self.with_valuation_assigned_to(user, space)
         valuator_roles = space.user_roles(:valuator).where(user: user)
@@ -234,7 +235,7 @@ module Decidim
       #
       # Returns Boolean.
       def accepted?
-        state == "accepted"
+        state == "accepted" || state == "partially_accepted"
       end
 
       # Public: Checks if the organization has rejected a proposal.
@@ -438,7 +439,7 @@ module Decidim
       end
 
       def process_amendment_state_change!
-        return unless %w(accepted rejected evaluating withdrawn).member?(amendment.state)
+        return unless %w(accepted rejected partially_accepted evaluating withdrawn).member?(amendment.state)
 
         PaperTrail.request(enabled: false) do
           update!(
