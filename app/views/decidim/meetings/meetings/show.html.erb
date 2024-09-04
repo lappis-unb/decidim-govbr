@@ -54,11 +54,12 @@
           <% end %>
         <% end %>
         <% if author_presenter_for(meeting.normalized_author) == current_user %>
-          <% survey_link = current_participatory_space.organization_info_survey.presence.to_s.chomp("/") %>
-          <a class="br-button secondary black-and-white-btn" href="<%= survey_link %>?meeting_id=<%= meeting.id %>">
+          <% organization_info_survey = current_participatory_space.organization_info_survey.presence.to_s.chomp("/") %>
+          <% record_what_happened_survey = current_participatory_space.record_what_happened_survey.presence.to_s.chomp("/") %>
+          <a class="br-button secondary black-and-white-btn" href="<%= organization_info_survey %>?meeting_id=<%= meeting.id %>">
             Adicione Informações da organização
           </a>
-          <a class="br-button secondary black-and-white-btn" href="https://brasilparticipativo.presidencia.gov.br/processes/confmma/f/142/surveys/29">
+          <a class="br-button secondary black-and-white-btn" href="<%= record_what_happened_survey %>?meeting_id=<%= meeting.id %>">
             Registre o que aconteceu
           </a>
         <% end %>
@@ -144,6 +145,14 @@
           <% end %>
         </div>
       <% end %>
+      <dl>
+        <% @participants&.answers&.each do |answer| %>
+          <% if answer.public_information? %>
+            <dt><%= answer.question %></dt>
+            <dd><%= answer.body %></dd>
+          <% end %>
+        <% end %>
+      </dl>
     </div>
     <div class="side-content">
       <div class="card-component">
