@@ -9,7 +9,7 @@
   <div class="bp-divider"> </div>
   <div class="component_buttons">
     <%= link_to(resource_path, class: "card__button br-button primary large-button") do %>
-      <%= t("layouts.decidim.participatory_processes.index.card_button") %>
+      <%= model.past? ? t("layouts.decidim.participatory_processes.index.view_button") : t("layouts.decidim.participatory_processes.index.card_button") %>
     <% end %>
   </div>
 </div>

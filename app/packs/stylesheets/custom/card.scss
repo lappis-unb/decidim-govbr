@@ -169,6 +169,12 @@
   font-weight: 600;
   color: var(--blue-warm-vivid-70);
   margin-top: 0;
+  display: block;
+  text-overflow: ellipsis;
+  max-height: 3.6rem;
+  overflow: hidden;
+  line-height: 1.8rem;
+  word-wrap: break-word;
 }
 
 .component_card__footer {
