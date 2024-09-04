@@ -9,6 +9,8 @@ module Decidim
       helper_method :meeting, :agenda, :blank_agenda_item, :blank_agenda_item_child
 
       def new
+        enforce_permission_to :create, :agenda, meeting: meeting
+
         @form = form(MeetingAgendaForm).instance
       end
 
@@ -31,6 +33,8 @@ module Decidim
       end
 
       def edit
+        enforce_permission_to :update, :agenda, agenda: agenda, meeting: meeting
+
         @form = form(MeetingAgendaForm).from_model(agenda)
       end
 
