@@ -168,7 +168,7 @@
       <% if proposal.badge_array.include?("Mais Votada") %>
         <%= link_to "Remover como mais votada", main_app.destroy_one_proposal_badge_path(current_component: current_component.id, proposal_id: proposal.id, badge_id: "Mais Votada"), method: :delete, data: { confirm: "Você tem certeza que deseja excluir o rótulo?" }, class: "button" %>
       <% end %>
-      <%= link_to "Destacar como mais votada", main_app.update_one_proposal_badge_path(current_component: current_component.id, proposal_id: proposal.id, badge_id: "Mais Votada"), method: :patch, data: { confirm: "Você tem certeza que deseja excluir o rótulo?" }, class: "button" %>
+      <%= link_to "Destacar como mais votada", main_app.update_one_proposal_badge_path(current_component: current_component.id, proposal_id: proposal.id, badge_id: "Mais Votada"), method: :patch, data: { confirm: "Você tem certeza que deseja incluir o rótulo?" }, class: "button" %>
     </div>
   </div>
 </div>

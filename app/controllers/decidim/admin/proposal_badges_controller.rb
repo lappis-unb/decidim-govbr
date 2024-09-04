@@ -23,6 +23,11 @@ module Decidim
             flash.now[:alert] = "Ocorreu um erro ao atualizar os rótulos."
             redirect_to request.referer
           end
+
+          on(:error) do
+            flash.now[:alert] = "Não foi possível atualizar o rótulo. Insira quantas propostas você deseja que tenham o rótulo Mais Votada."
+            redirect_to request.referer
+          end
         end
       end
 

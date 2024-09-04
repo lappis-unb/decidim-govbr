@@ -19,6 +19,8 @@ module Decidim
       #
       # Broadcasts :ok if created, :invalid otherwise.
       def call
+        broadcast(:error, "Não foi possível atualizar o rótulo. Insira quantas propostas você deseja que tenham o rótulo Mais Votada.") if @component.settings.most_voted_rule.zero?
+
         Decidim.traceability.perform_action!("update", @component, @user) do
           transaction do
             insert_proposal_most_voted_label
@@ -50,7 +52,7 @@ module Decidim
       end
 
       def ten_most_voted_proposals
-        reorder_by_votes.limit(@component.settings.most_voted_rule) if @component.settings.most_voted_rule.positive?
+        reorder_by_votes.limit(@component.settings.most_voted_rule)
       end
     end
   end
