@@ -13,20 +13,20 @@ module Decidim
         component_id = params[:current_component]
         @component = Decidim::Component.find(component_id)
 
-        UpdateBadgeProposals.call(@component, @user) do
-          on(:ok) do
-            flash[:notice] = "Atualização bem-sucedida!"
-            redirect_to request.referer
-          end
+        if @component.settings.most_voted_rule.zero?
+          flash.now[:alert] = "Não foi possível atualizar os rótulos. Insira quantas propostas você deseja que tenham o rótulo Mais Votada."
+          redirect_to request.referer
+        else
+          UpdateBadgeProposals.call(@component, @user) do
+            on(:ok) do
+              flash[:notice] = "Atualização bem-sucedida!"
+              redirect_to request.referer
+            end
 
-          on(:invalid) do
-            flash.now[:alert] = "Ocorreu um erro ao atualizar os rótulos."
-            redirect_to request.referer
-          end
-
-          on(:error) do
-            flash.now[:alert] = "Não foi possível atualizar o rótulo. Insira quantas propostas você deseja que tenham o rótulo Mais Votada."
-            redirect_to request.referer
+            on(:invalid) do
+              flash.now[:alert] = "Ocorreu um erro ao atualizar os rótulos."
+              redirect_to request.referer
+            end
           end
         end
       end
