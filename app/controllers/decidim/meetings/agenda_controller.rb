@@ -22,7 +22,7 @@ module Decidim
         CreateAgenda.call(@form, meeting) do
           on(:ok) do
             flash[:notice] = I18n.t("agenda.create.success", scope: "decidim.meetings.admin")
-            redirect_to meetings_path
+            redirect_to meeting_path(meeting)
           end
 
           on(:invalid) do
@@ -46,7 +46,7 @@ module Decidim
         UpdateAgenda.call(@form, agenda) do
           on(:ok) do
             flash[:notice] = I18n.t("agenda.update.success", scope: "decidim.meetings.admin")
-            redirect_to meetings_path
+            redirect_to meeting_path(meeting)
           end
 
           on(:invalid) do
