@@ -16,7 +16,7 @@ module Decidim
         attribute :badge, String
 
         validates :internal_state, presence: true, inclusion: { in: Decidim::Proposals::Proposal::POSSIBLE_STATES }
-        # validates :answer, translatable_presence: true, if: ->(form) { form.state.in?(states_that_requires_answer) }
+        validates :answer, translatable_presence: true, if: ->(form) { form.state.in?(states_that_requires_answer) }
 
         with_options if: :costs_required? do
           validates :cost, numericality: true, presence: true
