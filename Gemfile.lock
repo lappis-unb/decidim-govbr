@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-module-homes.git
-  revision: 1f2a8814a19c1ac675c19418fc4e26d9b47ed67d
+  revision: d8548acf557ffb001ed0224706d390a77f550c74
   specs:
     decidim-homes (0.27.2)
       decidim-core (= 0.27.2)
