@@ -1,4 +1,4 @@
-<%= decidim_form_for(@form, url: meeting_agenda_index_path(meeting), html: { method: :post, class: "form new_agenda" }) do |f| %>
+<%= decidim_form_for(@form, url: meeting_agenda_index_path(meeting), html: { method: :post, class: "form new_agenda br-container-lg" }) do |f| %>
 
   <%= render partial: "form", object: f, locals: { title: t(".title") } %>
 

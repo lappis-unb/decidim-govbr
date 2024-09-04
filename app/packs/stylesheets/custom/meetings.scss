@@ -1288,3 +1288,35 @@ div.meetings-author-info-br span.author__name {
 #close_meeting-submit {
   margin-top: 1.5rem;
 }
+
+.new_agenda {
+  .card-title {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0;
+    span {
+      flex: 2;
+    }
+  }
+
+  .meeting__date-info-container {
+    display: flex;
+    justify-content: flex-start;
+    padding: 1rem;
+    gap: 1rem;
+    .meeting__date-info {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .new_agenda {
+    .card-title {
+      flex-direction: column;
+    }
+  }  
+}

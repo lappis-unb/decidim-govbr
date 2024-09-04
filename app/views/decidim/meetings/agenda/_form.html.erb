@@ -8,14 +8,14 @@
       </div>
     </h2>
   </div>
-  <div class="card-section">
-    <div class="grid-x card-title">
-      <div class="cell small-2"><strong><%= t(".start_date") %></strong></div>
-      <div class="cell small-2"><strong><%= t(".end_date") %></strong></div>
+  <div class="meeting__date-info-container">
+    <div class="meeting__date-info">
+      <div><strong><%= t(".start_date") %></strong></div>
+      <div><%= meeting.start_time.strftime("%m/%d/%Y %R") %></div>
     </div>
-    <div class="grid-x text-muted">
-      <div class="cell small-2"><%= meeting.start_time.strftime("%m/%d/%Y %R") %></div>
-      <div class="cell small-2"><%= meeting.end_time.strftime("%m/%d/%Y %R") %></div>
+    <div class="meeting__date-info">
+      <div><strong><%= t(".end_date") %></strong></div>
+      <div><%= meeting.end_time.strftime("%m/%d/%Y %R") %></div>
     </div>
   </div>
 </div>
