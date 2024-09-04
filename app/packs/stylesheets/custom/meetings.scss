@@ -1289,7 +1289,8 @@ div.meetings-author-info-br span.author__name {
   margin-top: 1.5rem;
 }
 
-.new_agenda {
+.new_agenda,
+.edit_agenda {
   .card-title {
     display: flex;
     flex-direction: row;
@@ -1314,7 +1315,8 @@ div.meetings-author-info-br span.author__name {
 }
 
 @media (max-width: 768px) {
-  .new_agenda {
+  .new_agenda,
+  .edit_agenda {
     .card-title {
       flex-direction: column;
     }
