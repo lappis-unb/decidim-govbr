@@ -6,15 +6,6 @@ module Decidim
     class MeetingForm < ::Decidim::Meetings::BaseMeetingForm
       include Decidim::AttachmentAttributes
 
-      # Atributos e validações
-      ATTRIBUTES = [
-        :title, :description, :location, :location_hints, :attachment,
-        :decidim_scope_id, :decidim_category_id, :user_group_id,
-        :registration_type, :registrations_enabled, :registration_url,
-        :available_slots, :registration_terms, :iframe_embed_type,
-        :iframe_access_level, :photos, :documents
-      ].freeze
-
       attribute :title, String
       attribute :description, String
       attribute :location, String
@@ -84,19 +75,19 @@ module Decidim
 
       # Métodos de Seleção
       def type_of_meeting_select
-        select_options(Decidim::Meetings::Meeting::TYPE_OF_MEETING, "type_of_meeting")
+        select_collection(Decidim::Meetings::Meeting::TYPE_OF_MEETING, "type_of_meeting")
       end
 
       def iframe_access_level_select
-        select_options(Decidim::Meetings::Meeting.iframe_access_levels.keys, "iframe_access_level")
+        select_collection(Decidim::Meetings::Meeting.iframe_access_levels.keys, "iframe_access_level")
       end
 
       def iframe_embed_type_select
-        select_options(Decidim::Meetings::Meeting.participants_iframe_embed_types.keys, "iframe_embed_type")
+        select_collection(Decidim::Meetings::Meeting.participants_iframe_embed_types.keys, "iframe_embed_type")
       end
 
       def registration_type_select
-        select_options(Decidim::Meetings::Meeting::REGISTRATION_TYPE, "registration_type")
+        select_collection(Decidim::Meetings::Meeting::REGISTRATION_TYPE, "registration_type")
       end
 
       # Métodos de Verificação
@@ -122,11 +113,11 @@ module Decidim
 
       private
 
-      def select_options(options, scope)
-        options.map do |option|
+      def select_collection(collection, scope)
+        collection.map do |type|
           [
-            I18n.t("#{scope}.#{option}", scope: "decidim.meetings"),
-            option
+            I18n.t("#{scope}.#{type}", scope: "decidim.meetings"),
+            type
           ]
         end
       end
