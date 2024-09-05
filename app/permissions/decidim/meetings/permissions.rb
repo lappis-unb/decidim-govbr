@@ -131,7 +131,7 @@ module Decidim
       end
 
       def allowed_agenda_action?
-        return false unless permission_action.subject == :agenda
+        return false unless permission_action.subject == :agenda && meeting.authored_by?(user)
 
         case permission_action.action
         when :create
