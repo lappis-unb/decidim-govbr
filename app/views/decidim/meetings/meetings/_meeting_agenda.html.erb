@@ -26,13 +26,19 @@
         <% agenda_item_children_times = calculate_start_and_end_time_of_agenda_items(agenda_item.agenda_item_children, meeting, parent_start_time) %>
         <div id="agenda-items-collection-<%= index %>" class="agenda-items-content hide" data-toggler=".hide">
           <% agenda_item.agenda_item_children.each_with_index do |agenda_item_child, index_child| %>
-            <div class="agenda-card-title">
-              <%= translated_attribute(agenda_item_child.title) %>
+            <div class="agenda-item-content-container">
+              <i class="fa-solid fa-circle-arrow-right"></i>
+              <div class="agenda-item-content">
+                <div class="agenda-card-text">
+                  <h3><%= translated_attribute(agenda_item_child.title) %></h3>
+                  <%= translated_attribute(agenda_item_child.description).html_safe %>
+                </div>
+                <div class="agenda-card-time">
+                  <span class="agenda-time-duration"><%= agenda_item_child.duration.to_i %> min</span> 
+                  <span class="agenda-detail-time-duration"><%= display_duration_agenda_items(agenda_item_child.id, index_child, agenda_item_children_times) %></span>
+                </div>
+              </div>
             </div>
-            <p><%= translated_attribute(agenda_item_child.description).html_safe %></p>
-            <span class="text-small">
-              <%= display_duration_agenda_items(agenda_item_child.id, index_child, agenda_item_children_times) %>
-            </span>
           <% end %>
         </div>
       <% end %>

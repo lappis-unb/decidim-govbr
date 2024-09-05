@@ -1353,6 +1353,12 @@ div.meetings-author-info-br span.author__name {
   flex-direction: column;
   gap: 1.5rem;
 
+  .agenda-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
   .br-button {
     width: fit-content;
   }
@@ -1418,6 +1424,21 @@ div.meetings-author-info-br span.author__name {
         color: var(--blue-warm-vivid-70);
         text-align: center;
       }
+    }
+  }
+
+  .agenda-items-content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem;
+    gap: 0.5rem;
+
+    .fa-circle-arrow-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      width: 2rem;
     }
   }
 
