@@ -116,7 +116,7 @@ module Decidim
       end
 
       def collection
-        @collection ||= participatory_processes + participatory_process_groups
+        @collection ||= participatory_processes
       end
 
       def filtered_processes
@@ -124,7 +124,7 @@ module Decidim
       end
 
       def participatory_processes
-        @participatory_processes ||= filtered_processes.groupless.includes(attachments: :file_attachment)
+        @participatory_processes ||= filtered_processes.includes(attachments: :file_attachment)
       end
 
       def participatory_process_groups

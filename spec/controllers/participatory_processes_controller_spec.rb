@@ -50,7 +50,7 @@ module Decidim
         describe "collection" do
           let(:other_organization) { create(:organization) }
 
-          it "includes a heterogeneous array of processes and groups" do
+          it "includes a heterogeneous array of processes" do
             published = create_list(
               :participatory_process,
               2,
@@ -65,27 +65,8 @@ module Decidim
               organization: organization
             )
 
-            organization_groups = create_list(
-              :participatory_process_group,
-              2,
-              :with_participatory_processes,
-              organization: organization
-            )
-
-            _other_groups = create_list(
-              :participatory_process_group,
-              2,
-              :with_participatory_processes,
-              organization: other_organization
-            )
-
-            _manipulated_other_groups = create(
-              :participatory_process_group,
-              participatory_processes: [create(:participatory_process, organization: organization)]
-            )
-
             expect(controller.helpers.collection)
-              .to match_array([*published, *organization_groups])
+              .to match_array([*published])
           end
         end
 

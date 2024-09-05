@@ -8,15 +8,15 @@
       <div class="author-data">
         <div class="author-data__main">
           <%= render :author %>
-            <% if model.status == "rejected" %>
-              <% accepted_icon = "" %>
-              <% rejected_icon = "<i class='fa-solid fa-check comment_check'></i>" %>
-              <span class="ml-2 br-comment alert" id="tag-status-01"><%=t("decidim.components.add_comment_form.form.body.reject")%></span>
-            <% elsif model.status =="accepted" %>
-              <% accepted_icon = "<i class='fa-solid fa-check comment_check'></i>" %>
-              <% rejected_icon = "" %>
-              <span class="ml-2 br-comment accepted" id="tag-status-03"><%=t("decidim.components.add_comment_form.form.body.incorporated")%></span>
-            <% end %>
+          <% if model.status == "rejected" %>
+            <% accepted_icon = "" %>
+            <% rejected_icon = "<i class='fa-solid fa-check comment_check'></i>" %>
+            <span class="ml-2 br-comment alert" id="tag-status-01"><%=t("decidim.components.add_comment_form.form.body.reject")%></span>
+          <% elsif model.status =="accepted" %>
+            <% accepted_icon = "<i class='fa-solid fa-check comment_check'></i>" %>
+            <% rejected_icon = "" %>
+            <span class="ml-2 br-comment accepted" id="tag-status-03"><%=t("decidim.components.add_comment_form.form.body.incorporated")%></span>
+          <% end %>
           <% if edited? %>
             <div class="author-data__extra">
               <span class="comment__edited">
@@ -26,7 +26,6 @@
           <% end %>
         </div>
       </div>
-
       <span class="comment-settings">
         <span><%=t("decidim.blogs.posts.show.published_at")%>: <%= time_tag created_at, l(created_at, format: :decidim_short) %></span>
         <%= render :utilities %>
@@ -57,7 +56,7 @@
       <%= render :actions %>
     </div>
   <% end %>
-  <div id="comment-<%= model.id %>-replies" class="replies">
+  <div id="comment-<%= model.id %>-replies" class="replies meeting-map-header">
     <% if has_replies_in_children? %>
       <% replies.each do |reply| %>
         <%= cell("decidim/comments/comment", reply, root_depth: root_depth, order: order, reloaded: reloaded?) %>
@@ -76,6 +75,6 @@
     </div>
   <% end %>
   <% if depth < 1 %>
-  <span class="br-divider sm my-1"></span>
+    <span class="br-divider sm my-1"></span>
   <% end %>
 <% end %>
