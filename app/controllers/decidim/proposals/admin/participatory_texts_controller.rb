@@ -31,13 +31,11 @@ module Decidim
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("participatory_texts.import.invalid", scope: "decidim.proposals.admin")
-              render action: "new_import", status: :unprocessable_entity
+              handle_import_error("invalid")
             end
 
             on(:invalid_file) do
-              flash.now[:alert] = I18n.t("participatory_texts.import.invalid_file", scope: "decidim.proposals.admin")
-              render action: "new_import", status: :unprocessable_entity
+              handle_import_error("invalid_file")
             end
           end
         end
@@ -58,11 +56,7 @@ module Decidim
               end
 
               on(:invalid) do |failures|
-                alert_msg = [I18n.t("participatory_texts.publish.invalid", scope: "decidim.proposals.admin")]
-                failures.each_pair { |id, msg| alert_msg << "ID:[#{id}] #{msg}" }
-                flash.now[:alert] = alert_msg.join("<br/>").html_safe
-                index
-                render action: "index"
+                handle_update_error(failures)
               end
             end
           else
@@ -73,11 +67,7 @@ module Decidim
               end
 
               on(:invalid) do |failures|
-                alert_msg = [I18n.t("participatory_texts.publish.invalid", scope: "decidim.proposals.admin")]
-                failures.each_pair { |id, msg| alert_msg << "ID:[#{id}] #{msg}" }
-                flash.now[:alert] = alert_msg.join("<br/>").html_safe
-                index
-                render action: "index"
+                handle_update_error(failures)
               end
             end
           end
@@ -127,6 +117,21 @@ module Decidim
               redirect_to EngineRouter.admin_proxy(current_component).participatory_texts_path
             end
           end
+        end
+
+        private
+
+        def handle_import_error(error_type)
+          flash.now[:alert] = I18n.t("participatory_texts.import.#{error_type}", scope: "decidim.proposals.admin")
+          render action: "new_import", status: :unprocessable_entity
+        end
+
+        def handle_update_error(failures)
+          alert_msg = [I18n.t("participatory_texts.publish.invalid", scope: "decidim.proposals.admin")]
+          failures.each_pair { |id, msg| alert_msg << "ID:[#{id}] #{msg}" }
+          flash.now[:alert] = alert_msg.join("<br/>").html_safe
+          index
+          render action: "index"
         end
       end
     end
