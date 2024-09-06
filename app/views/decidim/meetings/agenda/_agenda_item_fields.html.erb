@@ -1,16 +1,14 @@
-<div class="grid-x">
-  <div class="cell auto">
-    <%= form.translated :text_field, :title, tabs_id: tabs_id %>
-  </div>
-  <div class="cell auto">
-    <%= form.number_field :duration, tabs_id: tabs_id, min: 0 %>
-  </div>
+
+<div class="agenda-item-text-field">
+  <%= form.translated :text_field, :title, tabs_id: tabs_id %>
 </div>
 
-<div class="grid-x">
-  <div class="cell auto">
-    <%= form.translated :editor, :description, tabs_id: tabs_id, rows: 6 %>
-  </div>
+<div class="agenda-item-text_area-field">
+  <%= form.translated :text_area, :description, tabs_id: tabs_id, rows: 6 %>
+</div>
+
+<div class="agenda-item-number-field">
+  <%= form.number_field :duration, tabs_id: tabs_id, min: 0 %>
 </div>
 
 <%= form.hidden_field :id %>

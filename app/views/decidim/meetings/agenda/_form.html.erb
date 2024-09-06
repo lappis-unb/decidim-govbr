@@ -4,27 +4,12 @@
   <p><%= t(".description") %></p>
 </div>
 
-<div class="card" style="display: none;">
-  <div class="card-divider">
-    <h2 class="card-title">
-      <%= title %>
-    </h2>
-  </div>
-
-  <div class="card-section">
-    <div class="row column">
-      <%= form.translated :text_field, :title, autofocus: true %>
-    </div>
-
-    <div class="row column">
-      <%= form.check_box :visible %>
-    </div>
-  </div>
+<div style="width: 0; height: 0; visibility: hidden; padding: 0; margin: 0;">
+  <%= form.translated :text_field, :title, value: "Agenda" %>
+  <%= form.check_box :visible, checked: true %>
 </div>
 
 <div class="meeting-agenda-items">
-  <button class="br-button add-agenda-item secondary"><%= t(".add_agenda_item") %></button>
-
   <%= fields_for "meeting_agenda[agenda_items][#{blank_agenda_item.to_param}]", blank_agenda_item do |agenda_item_form| %>
     <script type="text/template" class="decidim-template">
       <%= render "agenda_item", form: agenda_item_form, tabs_id: tabs_id_for_agenda_item(blank_agenda_item), editable: true, child_template_selector: "#agenda-item-child-template-dummy" %>
@@ -40,6 +25,8 @@
       <% end %>
     <% end %>
   </div>
+
+  <button class="br-button add-agenda-item secondary"><%= t(".add_agenda_item") %></button>
 </div>
 
 <%= javascript_pack_tag "decidim_meetings_admin" %>

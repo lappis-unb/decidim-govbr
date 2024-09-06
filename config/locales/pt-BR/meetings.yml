@@ -36,9 +36,9 @@ pt-BR:
         title: Título
         visible: Visível
       meeting_agenda_items:
-        description: Descrição
-        duration: Duração
-        title: Título
+        description: "Digite a Descrição:"
+        duration: "Duração em minutos:"
+        title: "Digite o título do tópico:"
       validate_registration_code:
         code: Código
     models:
@@ -221,10 +221,10 @@ pt-BR:
         agenda_item:
           agenda_item: Item da Agenda
           agenda_item_children: Sub-item
-          add_agenda_item_child: Adicionar sub-item
+          add_agenda_item_child: Adicionar subtópico
           up: Up
           down: Down
-          remove: Remove
+          remove: Apagar tópico
         agenda_item_child:
             agenda_item_child: Sub-item
             up: Up
@@ -233,7 +233,7 @@ pt-BR:
         form:
           title: Cronograma do evento
           description: "Siga as instruções abaixo para criar o cronograma do seu evento. Insira os tópicos, descreva um pouco a ideia e defina a sua duração:"
-          add_agenda_item: Adicionar item
+          add_agenda_item: Adicionar tópico
           start_date: Data de início
           end_date: Data de fim
           agenda_items: Itens da Agenda
