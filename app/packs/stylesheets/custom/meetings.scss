@@ -1455,6 +1455,47 @@ div.meetings-author-info-br span.author__name {
   }
 }
 
+.agenda__form-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  h3 {
+    font-size: 2rem;
+    font-weight: var(--font-weight-semi-bold);
+    color: var(--gray-80);
+    text-align: left;
+    margin: 0;
+  }
+
+  p {
+    font-size: var(--font-size-scale-up-02);
+    font-weight: var(--font-weight-regular);
+    color: var(--gray-90);
+    line-height: normal;
+    text-align: left;
+    margin: 0;
+  }
+}
+
+.meeting-agenda-items {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 1.5rem 0 0 0;
+  border-bottom: 1px solid var(--gray-20);
+  margin-bottom: 1.5rem;
+  gap: 1.5rem;
+
+  .add-agenda-item {
+    width: 80%;
+  }
+}
+
+.meeting-agenda-items-list {
+  width: 100%;
+}
+
 @media (max-width: 768px) {
   .agenda__section-container {
     .agenda-item-content {

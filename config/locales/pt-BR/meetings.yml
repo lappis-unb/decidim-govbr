@@ -216,7 +216,7 @@ pt-BR:
           title: Nova Agenda
           create: Criar
         edit:
-          title: Editar Agenda
+          title: Cronograma do evento
           update: Atualizar
         agenda_item:
           agenda_item: Item da Agenda
@@ -231,6 +231,8 @@ pt-BR:
             down: Down
             remove: Remove
         form:
+          title: Cronograma do evento
+          description: "Siga as instruções abaixo para criar o cronograma do seu evento. Insira os tópicos, descreva um pouco a ideia e defina a sua duração:"
           add_agenda_item: Adicionar item
           start_date: Data de início
           end_date: Data de fim
