@@ -1,0 +1,10 @@
+es:
+  errors:
+    messages:
+      file_size_is_in: 'el tamaño del archivo debe estar entre %{min} y %{max}'
+      file_size_is_less_than: 'el tamaño del archivo debe ser inferior a %{count}'
+      file_size_is_less_than_or_equal_to: 'el tamaño del archivo debe ser menor o igual a %{count}'
+      file_size_is_greater_than: 'el tamaño del archivo debe ser mayor que %{count}'
+      file_size_is_greater_than_or_equal_to: 'el tamaño del archivo debe ser mayor o igual a %{count}'
+      allowed_file_content_types: 'el archivo debe ser de uno de los tipos: %{types}'
+      excluded_file_content_types: 'el archivo no puede ser de uno de los tipos: %{types}'

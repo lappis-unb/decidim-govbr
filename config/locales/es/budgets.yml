@@ -1,0 +1,188 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-budgets/config/locales/es.yml
+es:
+  activemodel:
+    attributes:
+      budget:
+        weight: Posición de orden
+      project:
+        proposals: Propuestas
+        selected: Seleccionado para implementación
+  decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Categoría
+          scope_id_eq:
+            label: Área de interés
+          selected_at_null:
+            label: Seleccionado
+            values:
+              "false": Seleccionado para implementación
+              "true": No seleccionado para implementación
+    budgets:
+      actions:
+        confirm_destroy: ¿Estás seguro de que deseas eliminar este proyecto?
+        edit_projects: Gestionar proyectos
+      admin:
+        budgets:
+          create:
+            success: Presupuesto creado exitosamente
+          destroy:
+            invalid: Hubo un problema al eliminar este presupuesto
+            success: Presupuesto eliminado exitosamente
+          edit:
+            update: Actualizar presupuesto
+          index:
+            users_with_finished_orders: Usuarios con votaciones finalizadas
+            users_with_pending_orders: Usuarios con votaciones pendientes
+          update:
+            invalid: Hubo un problema al actualizar este presupuesto
+            success: Presupuesto actualizado exitosamente
+        exports:
+          projects: Proyectos
+        projects:
+          index:
+            actions: Acciones
+            cancel: Cancelar
+            change_category: Cambiar categoría
+            change_scope: Cambiar área de interés
+            change_selected: Cambiar seleccionado
+            deselect_implementation: Deseleccionar
+            select_for_implementation: Seleccionar
+            selected: Seleccionado
+            update: Actualizar
+            update_scope_button: Actualizar área de interés
+        proposals_imports:
+          new:
+            default_budget: Presupuesto predeterminado
+            import_all_accepted_proposals: Importar todas las propuestas aceptadas
+            no_components: No hay otros componentes de propuestas en este espacio participativo para importar las propuestas en proyectos.
+            origin_component_id: Componente de origen
+      admin_log:
+        budget:
+          update: "%{user_name} actualizó el presupuesto %{resource_name} en el espacio %{space_name}"
+      budget:
+        view: Ver todos los proyectos del presupuesto
+      budget_information_modal:
+        close_modal: Cerrar la ventana modal
+      budget_list_item:
+        voting_finished: Ya has votado en este presupuesto
+        voting_started: Ya has comenzado a votar en este presupuesto
+      budgets_list:
+        show: Ver proyectos
+      limit_announcement:
+        cant_vote: No puedes votar en este presupuesto. <a href="%{landing_path}">Intenta en otro presupuesto</a>
+        limit_reached: Tienes votaciones activas en %{links}. Para votar en este presupuesto, necesitas <a href="%{landing_path}">borrar tu voto y empezar de nuevo</a>.
+      models:
+        budget:
+          fields:
+            projects_count: Conteo de proyectos
+        project:
+          fields:
+            category: Categoría
+            id: ID
+            scope: Área de interés
+            title: Título
+      order_summary_mailer:
+        order_summary:
+          selected_projects: "Los proyectos que has seleccionado son:"
+          subject: Has votado en el espacio participativo %{space_name}
+          voted_on_space: Has votado en el presupuesto %{budget_name} para el espacio participativo %{space_name}.
+          voted_on_space_with_scope: Has votado en el presupuesto %{budget_name} para el espacio participativo %{space_name} en %{scope_name} (%{scope_type}).
+      projects:
+        budget_confirm:
+          are_you_sure: Si cambias de opinión, puedes cambiar tu voto más tarde.
+          description: Estos son los proyectos que has elegido para formar parte del presupuesto.
+        budget_excess:
+          budget_excess:
+            description: Este proyecto excede el presupuesto máximo y no puede ser agregado. Si lo deseas, puedes eliminar un proyecto ya seleccionado para poder votar de nuevo según tus preferencias.
+        budget_summary:
+          are_you_sure: ¿Estás seguro de que quieres cancelar tu voto?
+          cancel_order: cancela tu voto y empieza de nuevo
+          checked_out:
+            description: Ya has votado en el presupuesto. Si has cambiado de opinión, %{cancel_link}.
+          minimum_projects_rule:
+            description: ¿Qué proyectos crees que deberíamos asignar al presupuesto? Selecciona al menos %{minimum_number} proyectos que deseas y vota según tus preferencias para definir el presupuesto.
+            instruction: "<li>Selecciona al menos %{mínimo_número} proyectos que deseas y vota según tus preferencias para definir el presupuesto.</li>"
+          projects_rule:
+            description: ¿Qué proyectos crees que deberíamos asignar al presupuesto? Selecciona al menos %{minimum_number} y hasta %{maximum_number} proyectos que deseas y vota según tus preferencias para definir el presupuesto.
+            instruction: "<li>Selecciona al menos %{mínimo_número} y hasta %{maximum_number} proyectos que deseas y vote según las suas preferencias para definir el presupuesto.</li>"
+          projects_rule_maximum_only:
+            description: ¿Qué proyectos crees que deberíamos asignar al presupuesto? Selecciona hasta %{maximum_number} proyectos que deseas y vota según tus preferencias para definir el presupuesto.
+            instruction: "<li>Selecciona hasta %{maximum_number} proyectos que deseas y vota según tus preferencias para definir el presupuesto.</li>"
+          vote_threshold_percent_rule:
+            description: ¿Qué proyectos crees que deberíamos asignar al presupuesto? Atribuye al menos %{minimum_budget} a los proyectos que deseas y vota según tus preferencias para definir el presupuesto.
+            instruction: "<li>Asigna al menos %{minimum_budget} a los proyectos que deseas y vota según tus preferencias para definir el presupuesto.</li>"
+        exit_modal:
+          cancel: Volver a la votación
+          close_modal: Cerrar la ventana modal
+          exit: Salir de la votación
+          message: Tu voto aún no se ha registrado porque aún no has completado el proceso de votación. ¿Estás seguro de que quieres salir de la votación?
+          title: Aún no has votado
+        filters:
+          status: Estado
+          status_values:
+            not_selected: No seleccionado
+            selected: Seleccionado
+        filters_small_view:
+          close_modal: Cerrar la ventana modal
+        index:
+          view_project: Ver proyecto
+        order_progress:
+          vote: Votar
+        orders:
+          selected: Seleccionado
+        project:
+          add: Agregar proyecto %{resource_name} a tu votación
+          remove: Quitar proyecto %{resource_name} de tu votación
+          selected: Seleccionado
+          view: Ver
+          votes:
+            one: Voto
+            other: Votos
+          you_voted: Has votado en esto
+      vote_reminder_mailer:
+        vote_reminder:
+          email_budgets: "Áreas donde tienes votación no concluida:"
+          email_intro: Iniciaste la votación del presupuesto participativo, pero no la completaste.
+          email_link: Continuar votando
+          email_outro: Por favor, recuerda completar la votación. Para votar, primero debes seleccionar la propuesta o propuestas que deseas votar y luego confirmar tu voto con el botón "Votar".
+          email_subject:
+            one: Tienes un voto no concluido en la votación del presupuesto participativo
+            other: Tienes votos no concluidos en la votación del presupuesto participativo
+    components:
+      budgets:
+        settings:
+          global:
+            geocoding_enabled: Geocodificación habilitada
+            more_information_modal: Más información en la ventana modal
+            resources_permissions_enabled: Se pueden definir permisos de acciones para cada proyecto
+            scopes_enabled: Áreas de interés habilitadas
+            vote_minimum_budget_projects_number: Número mínimo de proyectos para votar
+            vote_rule_minimum_budget_projects_enabled: "Activar regla: Número mínimo de proyectos a votar"
+            vote_rule_selected_projects_enabled: "Activar regla: Número mínimo y máximo de proyectos a votar"
+            vote_rule_threshold_percent_enabled: "Activar regla: Porcentaje mínimo del presupuesto"
+            vote_selected_projects_maximum: Número máximo de proyectos para seleccionar
+            vote_selected_projects_minimum: Número mínimo de proyectos para seleccionar
+            workflow_choices:
+              all: "Votar en todos: permite a los participantes votar en todos los presupuestos."
+              one: "Votar en uno: permite a los participantes votar en cualquier presupuesto, pero solo en uno."
+          step:
+            votes_choices:
+              disabled: Votación deshabilitada
+    events:
+      budgets:
+        budget_published:
+          email_intro: "El presupuesto %{resource_title} está activo ahora para %{participatory_space_title}. Puedes verlo desde esta página:"
+          email_outro: Has recibido esta notificación porque sigues %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: El presupuesto %{resource_title} está activo ahora para %{participatory_space_title}.
+          notification_title: El presupuesto <a href="%{resource_path}”>%%{resource_title}</a> está activo ahora para %{participatory_space_title}.
+    orders:
+      checkout:
+        success: Tu voto se ha registrado correctamente
+    resource_links:
+      included_proposals:
+        project_proposal: Propuestas incluidas en este proyecto
+    statistics:
+      projects_count: Proyectos

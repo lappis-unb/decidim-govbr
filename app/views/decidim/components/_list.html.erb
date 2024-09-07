@@ -18,33 +18,38 @@
     </div>
   <% end %>
   <div class="<%= elements_name %>-container">
-    <p id="<%= elements_name %>-count" class="<% elements_name %>-counter">
-      <%= render partial: "count" %>
-    </p>
-    <div class="order__by-text">
-      <% if elements_name == "proposals"%>
-        <%= order_selector available_orders, i18n_scope: "decidim.proposals.proposals.orders" %>
-      <% end %>
-    </div>
+    <% if collection.length != 0 %>
+      <p id="<%= elements_name %>-count" class="<% elements_name %>-counter">
+        <%= render partial: "count" %>
+      </p>
+      <div class="order__by-text">
+        <% if elements_name == "proposals"%>
+          <%= order_selector available_orders, i18n_scope: "decidim.proposals.proposals.orders" %>
+        <% end %>   
+        </div>
+    <% else %>
+     <p class="warning-meetings">
+        Não há eventos agendados para 
+        <%=
+          translated_attribute(current_component.singular_name).downcase
+        %>
+        no momento.
+      </p>
+    <% end %>
   </div>
   <div class="card-grid component-content">
     <% if collection.length != 0 %>
       <% collection.each do |item| %>
         <%= card_for item %>
       <% end %>
-    <% else %>
-      <p>
-        Ainda não há nenhuma
-        <%=
-          translated_attribute(current_component.singular_name).downcase
-        %>
-      </p>
     <% end %>
   </div>
   <div class="paginate-container">
     <div class="empyt-div"></div>
     <%= decidim_paginate collection %>
-    <%= render partial: "decidim/shared/results_per_page" %>
+    <% if collection.length != 0 %>
+      <%= render partial: "decidim/shared/results_per_page" %>
+    <% end %>
   </div>
 <% else %>
   <% collection.each do |item| %>

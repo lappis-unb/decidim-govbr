@@ -1,0 +1,23 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-debates/config/locales/es.yml
+es:
+  decidim:
+    components:
+      debates:
+        settings:
+          global:
+            scopes_enabled: Áreas de interés habilitadas
+          step:
+            creation_enabled: Los participantes pueden crear debates
+    debates:
+      admin:
+        debates:
+          form:
+            finite: Finito (con hora de apertura y cierre)
+            open: Abierto (sin hora de apertura ni cierre)
+      debates:
+        filters:
+          participants: Participantes
+        new:
+          back: Volver
+        orders:
+          updated: Actualizado recientemente

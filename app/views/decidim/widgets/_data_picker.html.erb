@@ -1,4 +1,21 @@
 <div id="<%= picker_options[:id] %>" class="data-picker <%= picker_options[:class] %>" data-picker-name="<%= picker_options[:name] %>">
   <div class="picker-prompt"><a href="<%= prompt_params[:url] %>"><%= prompt_params[:text] %></a></div>
-  <div class="picker-values"></div>
+  <div class="picker-values">
+    <% @close_meeting_url = request.path[/.*meeting_closes\//].try(:concat, "proposals_picker") %>
+    <% if @close_meeting_url %>
+      <% meeting.linked_resources(:proposals, "proposals_from_meeting").try(:each) do |proposal| %>
+        <div>
+          <input type="hidden" checked="" name="close_meeting[proposal_ids][]" value="<%= proposal.id %>">
+          <a 
+            href="<%= @close_meeting_url %>" 
+            data-picker-value="<%= proposal.id %>" 
+            class="label primary"
+          >
+            <%= "##{proposal.id} - #{translated_attribute(proposal.title)}" %>
+            <i class="fa-solid fa-circle-xmark" style="color: #1351b4;"></i>
+          </a>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>

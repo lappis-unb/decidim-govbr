@@ -18,15 +18,15 @@ GIT
 
 GIT
   remote: https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-module-homes.git
-  revision: 1f2a8814a19c1ac675c19418fc4e26d9b47ed67d
+  revision: d8548acf557ffb001ed0224706d390a77f550c74
   specs:
     decidim-homes (0.27.2)
       decidim-core (= 0.27.2)
 
 GIT
   remote: https://gitlab.com/lappis-unb/decidimbr/decidim-extra_user_fields.git
-  revision: ec96b7b9dcfaedb9390cf9f8b8dff70b952c6baa
-  branch: feat/allow-to-configure-permitted-components
+  revision: 0c28ba3d622d442e34fa2d8f0da6bcf7cf59b7ce
+  branch: fix/remove-extra-user-fields-from-oatuh-registration
   specs:
     decidim-extra_user_fields (0.27.2)
       country_select (~> 4.0)

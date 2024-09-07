@@ -91,7 +91,8 @@ module Decidim
             show_mobilization: form.show_mobilization,
             mobilization_title: form.mobilization_title,
             mobilization_position: form.mobilization_position,
-            organization_info_survey: form.organization_info_survey
+            organization_info_survey: form.organization_info_survey,
+            record_what_happened_survey: form.record_what_happened_survey
           }.merge(
             attachment_attributes(:hero_image, :banner_image)
           )

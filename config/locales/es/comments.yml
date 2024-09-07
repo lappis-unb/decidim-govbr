@@ -1,0 +1,96 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-comments/config/locales/es.yml
+es:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Contribuir
+      Participate_with_comment: Participa con un comentario
+      Collaborations_Received: Colaboraciones Recibidas
+      decidim/comments/comment_created_event:
+        one: Contribución
+        other: Contribuciones
+      decidim/comments/reply_created_event: Responder
+      decidim/comments/user_group_mentioned_event: Mencionar
+      decidim/comments/user_mentioned_event: Mencionar
+    contribution:
+      one: Contribución
+      other: Contribuciones
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Contribución
+        other: Contribuciones
+  decidim:
+    comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Contribuciones activadas
+            end_time: Contribuciones activadas hasta
+            start_time: Contribuciones activadas desde
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Inicia sesión con tu cuenta</a> o <a href="%{sign_up_url}">regístrate</a> para añadir tu contribución.
+        form:
+          body:
+            Incorporate: Incorporar
+            reject: Rechazar
+            rejected: Rechazada
+            incorporated: Incorporada
+            contributions_received: Contribuciones recibidas
+            Number_proposals_created: Número de propuestas creadas
+            Number_contributions_made: Número de contribuciones realizadas
+            Number_votes_cast: Número de votos emitidos
+            Votes_received_your_proposals: Votos recibidos en tus propuestas
+            Number_proposals_followed: Número de propuestas seguidas
+            Followers_your_proposals: Seguidores en tus propuestas
+            label: Contribuir
+            placeholder: Escribe aquí tu contribución...
+          form_error: El texto es obligatorio y no puede tener más de %{length} caracteres.
+          submit: Contribuir
+          user_group_id:
+            label: Contribuir como
+        opinion:
+          label: Tu opinión sobre este tema
+          negative: Negativo
+          negative_selected: Tu opinión sobre este tema es negativa
+          neutral: Neutral
+          neutral_selected: Tu opinión sobre este tema es neutral
+          positive: Positivo
+          positive_selected: Tu opinión sobre este tema es positiva
+        remaining_characters: "%{count} caracteres restantes"
+        remaining_characters_1: "%{count} carácter restante"
+        title: "Añade tu contribución:"
+      comments_section_title:
+        title:
+          zero: Aún no hay contribuciones
+          one: Contribuciones recibidas
+          other: Contribuciones recibidas
+      comments:
+        title:
+          zero: ""
+          one: "%{count} contribución"
+          other: "%{count} contribuciones"
+        single_comment_warning: Puedes consultar las contribuciones restantes <a href="%{url}">aquí</a>.
+        single_comment_warning_title: Estás viendo una única contribución
+        confirm_destroy: ¿Estás seguro de que deseas eliminar esta contribución?
+        loading: Cargando contribuciones ...
+      comment:
+        delete: Eliminar
+        deleted_at: Contribución eliminada el %{date}
+      edit_comment_modal_form:
+        close: Cerrar
+        form:
+          body:
+            label: Contribución
+            placeholder: Escribe aquí tu contribución...
+          submit: Enviar
+        title: Edita tu contribución
+      up_vote_button:
+        text: Estoy de acuerdo con esta contribución
+      comment_order_selector:
+        order:
+          best_rated: Mejor valorados
+          most_discussed: Más discutidos
+          older: Más antiguos
+          recent: Más recientes
+        title: 'Ordenar por:'
