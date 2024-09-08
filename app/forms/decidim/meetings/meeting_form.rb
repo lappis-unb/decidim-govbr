@@ -25,19 +25,20 @@ module Decidim
       attachments_attribute :photos
       attachments_attribute :documents
 
+      # Validations
       validates :iframe_embed_type, inclusion: { in: Decidim::Meetings::Meeting.participants_iframe_embed_types }
       validates :title, :description, :type_of_meeting, presence: true
-      validates :location, presence: true, if: -> { in_person_meeting? || hybrid_meeting? }
-      validates :online_meeting_url, presence: true, url: true, if: -> { online_meeting? || hybrid_meeting? }
+      validates :location, presence: true, if: :in_person_or_hybrid_meeting?
+      validates :online_meeting_url, presence: true, url: true, if: :online_or_hybrid_meeting?
       validates :registration_type, presence: true
-      validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, presence: true, if: -> { on_this_platform? }
-      validates :registration_terms, presence: true, if: -> { on_this_platform? }
-      validates :registration_url, presence: true, url: true, if: -> { on_different_platform? }
+      validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, presence: true, if: :on_this_platform?
+      validates :registration_terms, presence: true, if: :on_this_platform?
+      validates :registration_url, presence: true, url: true, if: :on_different_platform?
       validates :category, presence: true, if: -> { decidim_category_id.present? }
       validates :scope, presence: true, if: -> { decidim_scope_id.present? }
       validates :decidim_scope_id, scope_belongs_to_component: true, if: -> { decidim_scope_id.present? }
       validates :clean_type_of_meeting, presence: true
-      validates :iframe_access_level, inclusion: { in: Decidim::Meetings::Meeting.iframe_access_levels }, if: -> { %w(embed_in_meeting_page open_in_new_tab).include?(iframe_embed_type) }
+      validates :iframe_access_level, inclusion: { in: Decidim::Meetings::Meeting.iframe_access_levels }, if: :embeddable_iframe?
       validate :embeddable_meeting_url
 
       delegate :categories, to: :current_component
@@ -101,6 +102,18 @@ module Decidim
 
       def registrations_enabled
         on_this_platform?
+      end
+
+      def in_person_or_hybrid_meeting?
+        in_person_meeting? || hybrid_meeting?
+      end
+
+      def online_or_hybrid_meeting?
+        online_meeting? || hybrid_meeting?
+      end
+
+      def embeddable_iframe?
+        %w(embed_in_meeting_page open_in_new_tab).include?(iframe_embed_type)
       end
 
       # Método de URL Embutível
