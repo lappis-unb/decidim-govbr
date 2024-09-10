@@ -33,36 +33,9 @@ module Decidim
 
       def index
         if component_settings.participatory_texts_enabled?
-          @proposals = Decidim::Proposals::Proposal
-                       .where(component: current_component)
-                       .published
-                       .not_hidden
-                       .only_amendables
-                       .includes(:category, :scope, :attachments, :coauthorships)
-                       .order(position: :asc)
-          render "decidim/proposals/proposals/participatory_texts/participatory_text"
+          load_participatory_texts
         else
-          @base_query = search
-                        .result
-                        .published
-                        .not_hidden
-
-          @proposals = @base_query.includes(:component, :coauthorships, :attachments)
-          @all_geocoded_proposals = @base_query.geocoded
-
-          @voted_proposals = if current_user
-                               ProposalVote.where(
-                                 author: current_user,
-                                 proposal: @proposals.pluck(:id)
-                               ).pluck(:decidim_proposal_id)
-                             else
-                               []
-                             end
-
-          @user_proposals_statistic = current_user ? Decidim::Govbr::UserProposalsStatistic.by_component(current_component).by_user(current_user).take : nil rescue nil
-          # @user_proposals_statistic = Decidim::Govbr::UserProposalsStatistic.new()
-          @proposals = reorder(@proposals)
-          @proposals = paginate(@proposals)
+          load_proposals
         end
       end
 
@@ -229,6 +202,47 @@ module Decidim
       end
 
       private
+
+      def load_participatory_texts
+        @proposals = fetch_participatory_texts
+        render "decidim/proposals/proposals/participatory_texts/participatory_text"
+      end
+
+      def load_proposals
+        @base_query = search.result.published.not_hidden
+        @proposals = fetch_proposals
+        @all_geocoded_proposals = @base_query.geocoded
+        @voted_proposals = fetch_voted_proposals
+        @user_proposals_statistic = fetch_user_proposals_statistic
+      end
+
+      def fetch_proposals
+        proposals = @base_query.includes(:component, :coauthorships, :attachments)
+        proposals = reorder(proposals)
+        paginate(proposals)
+      end
+
+      def fetch_participatory_texts
+        Decidim::Proposals::Proposal
+          .where(component: current_component)
+          .published
+          .not_hidden
+          .only_amendables
+          .includes(:category, :scope, :attachments, :coauthorships)
+          .order(position: :asc)
+      end
+
+      def fetch_voted_proposals
+        return [] unless current_user
+
+        ProposalVote.where(author: current_user, proposal: @proposals.pluck(:id)).pluck(:decidim_proposal_id)
+      end
+
+      def fetch_user_proposals_statistic
+        return unless current_user
+
+        Decidim::Govbr::UserProposalsStatistic.by_component(current_component).by_user(current_user).take rescue nil
+      end
 
       def handle_error(event, message)
         flash.now[event] = message
