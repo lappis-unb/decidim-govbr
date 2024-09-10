@@ -42,6 +42,8 @@ module Decidim
           when :register
             toggle_allow(can_register_invitation_meeting?)
           end
+        when :agenda
+          allowed_agenda_action?
         else
           return permission_action
         end
@@ -53,6 +55,10 @@ module Decidim
 
       def meeting
         @meeting ||= context.fetch(:meeting, nil)
+      end
+
+      def agenda
+        @agenda ||= context.fetch(:agenda, nil)
       end
 
       def question
@@ -122,6 +128,17 @@ module Decidim
 
       def can_update_question?
         user.present? && user.admin? && question.present?
+      end
+
+      def allowed_agenda_action?
+        return false unless permission_action.subject == :agenda && meeting.authored_by?(user)
+
+        case permission_action.action
+        when :create
+          toggle_allow(meeting.present?)
+        when :update
+          toggle_allow(agenda.present? && meeting.present?)
+        end
       end
     end
   end

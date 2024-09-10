@@ -98,6 +98,12 @@ Rails.application.routes.draw do
     end
   end
 
+  Decidim::Meetings::Engine.routes.draw do
+    resources :meetings do
+      resources :agenda, except: [:index, :destroy]
+    end
+  end
+
   Decidim.participatory_space_manifests.each do |manifest|
     mount manifest.context(:admin).engine, at: "/", as: "decidim_admin_#{manifest.name}"
   end

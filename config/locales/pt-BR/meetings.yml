@@ -36,9 +36,9 @@ pt-BR:
         title: Título
         visible: Visível
       meeting_agenda_items:
-        description: Descrição
-        duration: Duração
-        title: Título
+        description: "Digite a Descrição:"
+        duration: "Duração em minutos:"
+        title: "Digite o título do tópico:"
       validate_registration_code:
         code: Código
     models:
@@ -211,6 +211,32 @@ pt-BR:
         edit:
           close: Vincular propostas
           title: Vincular propostas
+      agenda:
+        new:
+          title: Nova Agenda
+          create: Criar
+        edit:
+          title: Cronograma do evento
+          update: Atualizar
+        agenda_item:
+          agenda_item: Item da Agenda
+          agenda_item_children: Sub-item
+          add_agenda_item_child: Adicionar subtópico
+          up: Up
+          down: Down
+          remove: Apagar tópico
+        agenda_item_child:
+            agenda_item_child: Sub-item
+            up: Up
+            down: Down
+            remove: Remove
+        form:
+          title: Cronograma do evento
+          description: "Siga as instruções abaixo para criar o cronograma do seu evento. Insira os tópicos, descreva um pouco a ideia e defina a sua duração:"
+          add_agenda_item: Adicionar tópico
+          start_date: Data de início
+          end_date: Data de fim
+          agenda_items: Itens da Agenda
       meetings:
         show:
           confirm_delete: "Você tem certeza que deseja deletar este evento?"
@@ -227,6 +253,8 @@ pt-BR:
           live_event: Este evento está acontecendo agora
           live_permission_notice: Ao clicar no botão abaixo, serão solicitadas permissões de microfone e/ou câmera e você entrará na videoconferência.
           live_link: "Link do evento:"
+          new_agenda: Criar Cronograma
+          edit_agenda: Editar Cronograma
         filters:
           activity: Minha atividade
           all: Todas

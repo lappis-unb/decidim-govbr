@@ -96,9 +96,26 @@
         <% end %>
       </div>
       <%= render partial: "decidim/shared/tags", locals: { resource: meeting, tags_class_extra: "tags--meeting" } %>
-      <% if meeting.agenda.present? && meeting.agenda.visible? %>
-        <%= render "meeting_agenda" %>
-      <% end %>
+      <div class="agenda__section-container">
+        <div class="agenda-section-heading">
+          <%= t("itinerary", scope: "decidim.meetings" ) %>
+        </div>
+
+        <% if allowed_to? :create, :agenda, meeting: meeting || allowed_to?(:update, :agenda, meeting: meeting) %>
+          <% unless meeting.agenda.present? %>
+            <%= link_to t(".new_agenda"), new_meeting_agenda_path(meeting), class: "br-button primary" %>
+          <% else %>
+            <%= link_to t(".edit_agenda"), edit_meeting_agenda_path(meeting), class: "br-button secondary black-and-white-btn" %>
+          <% end %>
+        <% end %>
+
+        <% if meeting.agenda.present? && meeting.agenda.visible? %>
+          <%= render "meeting_agenda" %>
+        <% else %>
+          <p class="agenda-section-warning">Ainda não há cronograma para este evento.</p>
+        <% end %>
+      </div>
+      
       <%= cell "decidim/meetings/public_participants_list", meeting %>
       <% if !meeting.closed? && meeting.user_group_registrations.any? %>
         <% user_group_ids = meeting.user_group_registrations.user_group_ids %>
