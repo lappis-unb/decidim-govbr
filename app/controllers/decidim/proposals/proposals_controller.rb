@@ -210,10 +210,16 @@ module Decidim
 
       def load_proposals
         @base_query = search.result.published.not_hidden
-        @proposals = reorder(paginate(@base_query.includes(:component, :coauthorships, :attachments)))
+        @proposals = fetch_proposals
         @all_geocoded_proposals = @base_query.geocoded
         @voted_proposals = fetch_voted_proposals
         @user_proposals_statistic = fetch_user_proposals_statistic
+      end
+
+      def fetch_proposals
+        proposals = @base_query.includes(:component, :coauthorships, :attachments)
+        proposals = reorder(proposals)
+        paginate(proposals)
       end
 
       def fetch_participatory_texts
