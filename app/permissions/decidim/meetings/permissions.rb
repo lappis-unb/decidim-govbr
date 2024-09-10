@@ -93,7 +93,6 @@ module Decidim
           !meeting.cancelled? &&
           !meeting.finished? &&
           !meeting.running?
-        !meeting.closed?
       end
 
       def can_withdraw_meeting?
@@ -103,7 +102,6 @@ module Decidim
           meeting.subscribers_count.zero? &&
           !meeting.closed? &&
           !meeting.finished?
-        !meeting.past?
       end
 
       def can_close_meeting?
@@ -113,7 +111,6 @@ module Decidim
           meeting.finished? &&
           !meeting.closed? &&
           !meeting.withdrawn?
-        meeting.past?
       end
 
       def can_register_invitation_meeting?
