@@ -28,6 +28,9 @@ module Decidim
     translatable_fields :title, :subtitle, :short_description, :description, :developer_group, :meta_scope, :local_area,
                         :target, :participatory_scope, :participatory_structure, :announcement
 
+    KEYS = [:organization_info_survey, :record_what_happened_survey].freeze
+    store_accessor :extra_fields, *KEYS
+
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"

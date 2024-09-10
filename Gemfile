@@ -38,12 +38,15 @@ gem 'sidekiq', '6.5.7'
 
 gem 'whenever', require: false
 
-gem 'decidim-homes', git: 'https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-module-homes.git'
+gem 'decidim-extra_user_fields', git: 'https://gitlab.com/lappis-unb/decidimbr/decidim-extra_user_fields.git', branch: 'fix/remove-extra-user-fields-from-oatuh-registration'
 gem 'decidim-ej', git: 'https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-ej.git', branch: 'main'
+gem 'decidim-homes', git: 'https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-module-homes.git'
 
 gem "rest-client", "~> 2.1"
 
 gem "pandoc-ruby", '2.1.10'
+
+gem "rails_db", "~> 2.4"
 
 group :development, :test do
   gem 'byebug', '11.1.3'

@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-ej.git
-  revision: c7f8b2fd2241dd4858a2785b277fe3a1333c514a
+  revision: 56aa35fe8f602527e176cb94ec6072157ca8b7a5
   branch: main
   specs:
     decidim-ej (0.27.2)
@@ -18,10 +18,20 @@ GIT
 
 GIT
   remote: https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-module-homes.git
-  revision: cbd9f979bc2493c127373e29e37e74afe3a33c1d
+  revision: d8548acf557ffb001ed0224706d390a77f550c74
   specs:
     decidim-homes (0.27.2)
       decidim-core (= 0.27.2)
+
+GIT
+  remote: https://gitlab.com/lappis-unb/decidimbr/decidim-extra_user_fields.git
+  revision: 0c28ba3d622d442e34fa2d8f0da6bcf7cf59b7ce
+  branch: fix/remove-extra-user-fields-from-oatuh-registration
+  specs:
+    decidim-extra_user_fields (0.27.2)
+      country_select (~> 4.0)
+      decidim-core (>= 0.27.0, < 0.28)
+      deface (~> 1.5)
 
 GEM
   remote: https://rubygems.org/
@@ -188,6 +198,13 @@ GEM
     commonmarker (0.23.8)
     concurrent-ruby (1.2.0)
     connection_pool (2.3.0)
+    countries (3.1.0)
+      i18n_data (~> 0.11.0)
+      sixarm_ruby_unaccent (~> 1.1)
+      unicode_utils (~> 1.4)
+    country_select (4.0.0)
+      countries (~> 3.0)
+      sort_alphabetical (~> 1.0)
     crack (0.4.5)
       rexml
     crass (1.0.6)
@@ -544,6 +561,7 @@ GEM
       rails-i18n
       rainbow (>= 2.2.2, < 4.0)
       terminal-table (>= 1.5.1)
+    i18n_data (0.11.0)
     icalendar (2.8.0)
       ice_cube (~> 0.16)
     ice_cube (0.16.4)
@@ -771,6 +789,15 @@ GEM
     rails-i18n (6.0.0)
       i18n (>= 0.7, < 2)
       railties (>= 6.0.0, < 7)
+    rails_db (2.4.4)
+      activerecord
+      csv
+      kaminari
+      rails (>= 5.0.0)
+      ransack (>= 2.3.2)
+      simple_form (>= 5.0.1)
+      sprockets-rails
+      terminal-table
     railties (6.1.7.2)
       actionpack (= 6.1.7.2)
       activesupport (= 6.1.7.2)
@@ -878,6 +905,9 @@ GEM
       connection_pool (>= 2.2.5)
       rack (~> 2.0)
       redis (>= 4.5.0, < 5)
+    simple_form (5.3.1)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     simplecov (0.21.2)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -887,12 +917,15 @@ GEM
       simplecov (~> 0.19)
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
+    sixarm_ruby_unaccent (1.2.2)
     smart_properties (1.17.0)
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
     social-share-button (1.2.4)
       coffee-rails
+    sort_alphabetical (1.1.0)
+      unicode_utils (>= 1.2.2)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -923,6 +956,7 @@ GEM
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (2.4.2)
+    unicode_utils (1.4.0)
     valid_email2 (2.3.1)
       activemodel (>= 3.2)
       mail (~> 2.5)
@@ -1002,6 +1036,7 @@ DEPENDENCIES
   decidim-decidim_awesome (= 0.10.2)
   decidim-dev (= 0.27.2)
   decidim-ej!
+  decidim-extra_user_fields!
   decidim-homes!
   decidim-initiatives (= 0.27.2)
   devise-i18n
@@ -1016,6 +1051,7 @@ DEPENDENCIES
   pry-nav
   puma (= 5.6.5)
   rails-erd
+  rails_db (~> 2.4)
   redis (= 4.7.1)
   rest-client (~> 2.1)
   rubocop-faker (~> 1.1)

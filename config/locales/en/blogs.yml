@@ -1,0 +1,22 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-blogs/config/locales/en.yml
+en:
+  decidim:
+    blogs:
+      social_medias:
+          share: "Share:"
+          face_share: Share on Facebook
+          twitter_share: Share on Twitter
+          LinkedIn_share: Share on LinkedIn
+          whatssap_share: Share on WhatsApp
+      admin_log:
+        post:
+          create: "%{user_name} created the blog post %{resource_name} in %{space_name}"
+          delete: "%{user_name} deleted the blog post %{resource_name} from %{space_name}"
+          update: "%{user_name} updated the blog post %{resource_name} in %{space_name}"
+      posts:
+        show:
+          published_at: 'Published on'
+          updated_at: 'Updated on'
+          back: Back to list
+          page_has_no_publication: The page has no publication.
+          read_more: Read more

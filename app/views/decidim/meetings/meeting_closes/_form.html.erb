@@ -1,0 +1,21 @@
+<% if false %>
+  <div class="close__meetings-form field hashtags__container">
+    <%= text_editor_for(form, :closing_report, hashtaggable: true, placeholder: t(
+            "closing_report", 
+            scope: "decidim.forms.meetings"
+          )) %>
+  </div>
+<% end %>
+
+<% if false %>
+  <div class="close__meetings-form field hashtags__container">
+    <%= form.number_field :attendees_count, min: 0 %>
+    <div class="help-text help-text-form-required-fields"><%= t("decidim.forms.meetings.attendees_count_help_text") %></div>
+  </div>
+<% end%>
+
+<% if Decidim::Meetings.enable_proposal_linking %>
+  <div class="close__meetings-form field hashtags__container">
+    <%= proposals_picker(form, :proposals, proposals_picker_meeting_meeting_closes_path(meeting)) %>
+  </div>
+<% end %>

@@ -10,6 +10,7 @@ pt-BR:
         filter_only_applies_Agenda_meetings: Este filtro refere-se, apenas para as reuniões da Agenda
       close_meeting:
         proposals: Propostas criadas no evento
+        closing_report: Relatório
       meeting:
         title: "Título do evento:"
         available_slots: Vagas disponíveis para este evento
@@ -29,6 +30,7 @@ pt-BR:
         address: "Endereço:"
         location: "Localização:"
         location_hints: "Dicas:"
+        associated_state: Estado associado
         decidim_scope_id: "Área de interesse:"
       meeting_agenda:
         title: Título
@@ -57,6 +59,9 @@ pt-BR:
               official: Oficial
               participants: Participante
               user_group: Grupos de usuários
+    forms:
+      meetings:
+        closing_report: Descreva o que ocorreu
     components:
       meetings:
         actions:
@@ -100,8 +105,10 @@ pt-BR:
             title: Editar o evento
           form:
             available_slots_help: Deixe o valor 0 se você tiver vagas ilimitadas disponíveis
+            to_define: A ser definido
             location_hints_help: "Exemplo: o andar do edifício se for um evento presencial, ou a senha do evento se for um evento virtual com acesso restrito."
             select_a_meeting_type: Por favor, selecione um tipo de evento
+            select_a_meeting_associated_state: Por favor, selecione um estado associado ao evento
             select_a_registration_type: Por favor, selecione um tipo de inscrição
             select_an_iframe_access_level: Por favor selecione um nível de acesso iframe
             show_embedded_iframe_help: "Apenas alguns poucos serviços permitem a incorporação em reuniões ou eventos ao vivo dos seguintes domínios: %{domains}"
@@ -139,6 +146,34 @@ pt-BR:
       admin_log:
         meeting:
           export_registrations: "%{user_name} exportou as inscrições do evento %{resource_name} no espaço %{space_name}"
+      associated_states:
+        AC: Acre
+        AL: Alagoas
+        AP: Amapá
+        AM: Amazonas
+        BA: Bahia
+        CE: Ceará
+        DF: Distrito Federal
+        ES: Espírito Santo
+        GO: Goiás
+        MA: Maranhão
+        MT: Mato Grosso
+        MS: Mato Grosso do Sul
+        MG: Minas Gerais
+        PA: Pará
+        PB: Paraíba
+        PR: Paraná
+        PE: Pernambuco
+        PI: Piauí
+        RJ: Rio de Janeiro
+        RN: Rio Grande do Norte
+        RS: Rio Grande do Sul
+        RO: Rondônia
+        RR: Roraima
+        SC: Santa Catarina
+        SP: São Paulo
+        SE: Sergipe
+        TO: Tocantins
       calendar_modal:
         calendar_url: URL do calendário
         close_window: Fechar janela
@@ -160,7 +195,7 @@ pt-BR:
         registered: Participantes registrados para este evento
         signed_in: Somente participantes inscritos
       iframe_embed_type:
-        embed_in_meeting_page: Embutir na página do evento
+        embed_in_meeting_page: "Embutir na página do evento. (Apenas alguns poucos serviços permitem a incorporação em reuniões ou eventos ao vivo dos seguintes domínios: youtube.com twitch.tv meet.jit.si)."
         none: Nenhum
         open_in_live_event_page: Abrir na página de eventos ao vivo (com enquetes opcionais)
         open_in_new_tab: Abrir URL em uma nova aba
@@ -172,6 +207,10 @@ pt-BR:
         registration_mailer:
           confirmation:
             subject: A sua inscrição do evento foi confirmada
+      meeting_closes:
+        edit:
+          close: Vincular propostas
+          title: Vincular propostas
       meetings:
         show:
           confirm_delete: "Você tem certeza que deseja deletar este evento?"
@@ -183,6 +222,8 @@ pt-BR:
           registration_code_help_text: O seu código de inscrição
           back: Voltar à lista
           remaining_slots: vagas disponíveis
+          close_meeting: Vincular propostas
+          edit_close_meeting: Vincular propostas
           live_event: Este evento está acontecendo agora
           live_permission_notice: Ao clicar no botão abaixo, serão solicitadas permissões de microfone e/ou câmera e você entrará na videoconferência.
           live_link: "Link do evento:"
@@ -206,6 +247,9 @@ pt-BR:
           see_all_withdrawn: Ver todos os eventos retiradas
           text_banner: Você está vendo a lista de eventos retiradas por seus autores. %{go_back_link}.
         form:
+          iframe_embed_type: "Forma de exibição do evento:"
+          iframe_access_level: "Permissão do público:"
+          to_define: A ser definido
           new:
             title: Sobre o evento
           placeholder:

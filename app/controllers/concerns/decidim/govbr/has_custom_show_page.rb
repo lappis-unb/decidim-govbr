@@ -10,7 +10,7 @@ module Decidim
     module HasCustomShowPage
       extend ActiveSupport::Concern
 
-      TYPES = %w(default homes pages).freeze
+      TYPES = %w(default homes).freeze
 
       included do
         helper_method :current_settings,
@@ -24,7 +24,7 @@ module Decidim
 
         if initial_page_type == "homes" && initial_page_component
           redirect_to decidim_participatory_space_homes_path(current_participatory_space, initial_page_component)
-        elsif initial_page_type == "pages" && initial_page_component
+        elsif valid_components.include?(initial_page_type) && initial_page_component
           redirect_to decidim_participatory_space_pages_path(current_participatory_space, initial_page_component)
         end
       end
@@ -35,10 +35,11 @@ module Decidim
         if initial_page_type == "homes" && initial_page_component
           set_homes_component_context
           render template: "decidim/homes/application/show"
-
         elsif initial_page_type == "pages" && initial_page_component
           set_pages_component_context
           render template: "decidim/pages/application/show"
+        elsif valid_components.include?(initial_page_type) && initial_page_component
+          redirect_to_custom_show_page_if_necessary
         end
       end
 
@@ -46,9 +47,7 @@ module Decidim
         @home = Decidim::Homes::Home.find_by(component: initial_page_component)
         @supporters = current_participatory_space.try(:supporters) || []
         @organizers = current_participatory_space.try(:organizers) || []
-        @latest_posts = Rails.cache.fetch("decidim_homes_home_#{@home.id}_blogs_#{@home.news_id}_latest_3_posts", expires_in: 2.minutes) do
-          @home.news_section_enabled? ? Decidim::Blogs::Post.where(component: @home.news_id).order(created_at: :desc).limit(3) : []
-        end
+        @elements = Decidim::Homes::HomeElements.where(decidim_homes_home_id: @home.id)
       end
 
       def set_pages_component_context
@@ -75,6 +74,10 @@ module Decidim
 
       def component_settings
         @component_settings ||= initial_page_component&.settings
+      end
+
+      def valid_components
+        current_participatory_space.components.map { |component| component[:manifest_name] }
       end
     end
   end

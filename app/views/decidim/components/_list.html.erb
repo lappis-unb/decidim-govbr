@@ -3,48 +3,53 @@
     <div class="callout warning">
       <% if elements_name == "proposals"%>
         <%= t("decidim.proposals.proposals.index.text_banner",
-                    go_back_link: link_to(t("decidim.proposals.proposals.index.click_here"), 
+                    go_back_link: link_to(t("decidim.proposals.proposals.index.click_here"),
                     proposals_path("filter[with_availability]" => nil)),
-                    ).html_safe 
+                    ).html_safe
                 %>
       <% end %>
       <% if elements_name == "meetings" %>
         <%= t("decidim.meetings.meetings.index.text_banner",
-                    go_back_link: link_to(t("decidim.meetings.meetings.index.click_here"), 
+                    go_back_link: link_to(t("decidim.meetings.meetings.index.click_here"),
                     meetings_path("filter[with_availability]" => nil)),
-                    ).html_safe 
+                    ).html_safe
                 %>
       <% end %>
     </div>
   <% end %>
   <div class="<%= elements_name %>-container">
-    <p id="<%= elements_name %>-count" class="<% elements_name %>-counter">
-      <%= render partial: "count" %>
-    </p>
-    <div class="order__by-text">
-      <% if elements_name == "proposals"%>
-        <%= order_selector available_orders, i18n_scope: "decidim.proposals.proposals.orders" %>
-      <% end %>
-    </div>
+    <% if collection.length != 0 %>
+      <p id="<%= elements_name %>-count" class="<% elements_name %>-counter">
+        <%= render partial: "count" %>
+      </p>
+      <div class="order__by-text">
+        <% if elements_name == "proposals"%>
+          <%= order_selector available_orders, i18n_scope: "decidim.proposals.proposals.orders" %>
+        <% end %>   
+        </div>
+    <% else %>
+     <p class="warning-meetings">
+        Não há eventos agendados para 
+        <%=
+          translated_attribute(current_component.singular_name).downcase
+        %>
+        no momento.
+      </p>
+    <% end %>
   </div>
   <div class="card-grid component-content">
     <% if collection.length != 0 %>
       <% collection.each do |item| %>
         <%= card_for item %>
       <% end %>
-    <% else %>
-      <p>
-        Ainda não há nenhuma 
-        <%=
-          translated_attribute(current_component.singular_name).downcase
-        %>
-      </p>
     <% end %>
   </div>
   <div class="paginate-container">
     <div class="empyt-div"></div>
     <%= decidim_paginate collection %>
-    <%= render partial: "decidim/shared/results_per_page" %>
+    <% if collection.length != 0 %>
+      <%= render partial: "decidim/shared/results_per_page" %>
+    <% end %>
   </div>
 <% else %>
   <% collection.each do |item| %>

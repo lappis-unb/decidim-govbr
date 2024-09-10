@@ -55,6 +55,8 @@ pt-BR:
         should_have_user_full_profile: Exigir Perfil de Usuário completo para responder o formulário
         show_mobilization: Mostrar mobilização
         express_your_opinion: Expresse suas opiniões e ideias sobre questões que importam para você e sua comunidade. Sua contribuição é fundamental para promover um diálogo transparente e eficaz entre a administração pública e os cidadãos. Ao participar da consulta pública, você está exercendo seu direito democrático e ajudando a moldar políticas públicas que refletem as necessidades e desejos da sociedade. Não deixe sua voz ficar em silêncio. Junte-se a nós e faça a diferença!
+        organization_info_survey: Enquete Informações da Organização
+        record_what_happened_survey: Enquete Registre o que aconteceu
       participatory_process_group:
         group_url: Site
         promoted: Promovido
@@ -129,6 +131,7 @@ pt-BR:
           update: Atualizar
         form:
           title: Título
+          description: Descrição
         new:
           create: Criar
           title: Novo tipo de processo
@@ -189,6 +192,8 @@ pt-BR:
             slug_help: "A URL Amigável é usada para gerar a URL para acessar o processo participativo. Apenas aceita letras, números e traços, e deve começar com uma letra. Exemplo: https://brasilparticipativo.presidencia.gov.br/nome do processo participativo/nome-da-conferência"
             announcement_help: O texto que insere aqui será mostrado ao usuário logo abaixo das informações do processo.
             select_participatory_process_type: Selecione um tipo de processo
+            organization_info_survey: Link para a enquete Adicione Informações da Organização
+            record_what_happened_survey: Link para a enquete Registre o que aconteceu
       pages:
         home:
           highlighted_processes:
@@ -197,6 +202,9 @@ pt-BR:
         filters:
           all_types: Todos os tipos
           filter_by: Tipo de processo
+        region_meetings:
+          meeting_map_title: Encontre uma Reunião perto de você
+          meeting_map_subtitle: Selecione no mapa a região onde deseja procurar reuniões
         show:
           title: Sobre este processo
           participate: Participar
@@ -207,6 +215,9 @@ pt-BR:
           finished: Encerrada - Resultado
   layouts:
     decidim:
+      participatory_processes:
+        index:
+          view_button: Visualizar
       participatory_process_widgets:
         show:
           active_step: Etapa ativa

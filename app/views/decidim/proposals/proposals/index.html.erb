@@ -1,4 +1,33 @@
 <div class="br-container-lg">
+  <% if flash.try(:[], :alert) %>
+    <div class="br-message warning new-proposal-error">
+      <div class="icon">
+        <i class="fas fa-check-circle fa-lg" aria-hidden="true"></i>
+      </div>
+      <div class="content" aria-label="Data de início do afastamento inválida. A data não pode ser superior à data atual." role="alert">
+        <span class="message-title"><%= flash.first.last %></span>
+      </div>
+      <div class="close">
+        <button class="br-button circle small" type="button" aria-label="Fechar a messagem alterta">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  <% elsif flash.try(:[], :notice) %>
+    <div class="br-message success">
+      <div class="icon">
+        <i class="fas fa-check-circle fa-lg" aria-hidden="true"></i>
+      </div>
+      <div class="content" aria-label="Sucesso. Seus dados foram alterados conforme preenchimento do formulário." role="alert">
+        <span class="message-title"><%= flash.first.last %></span>
+      </div>
+      <div class="close">
+        <button class="br-button circle small" type="button" aria-label="Fechar a messagem alterta">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  <% end %>
   <%= render partial: "admin_actions",
     locals: {mounted_admin_engine: current_participatory_space.mounted_admin_engine,
     current_participatory_space: current_participatory_space,
@@ -31,8 +60,7 @@
   <div class="proposals-announcement">
     <%= render partial: "decidim/shared/component_announcement" %>
   </div>
-  <!-- TODO fazer aparecer novamente quando for necessário mostrar as estatisticas -->
-  <% if false %>
+  <% if component_settings.statistics_enable? %>
     <div class="filter-container">
       <div class="proposals__buttons-container">
         <div class="proposals-button__container">

@@ -18,32 +18,32 @@ module Decidim
       helper Decidim::ShortLinkHelper
       helper_method :meetings, :meeting, :registration, :search
 
+      def handle_success(action, redirect_path)
+        flash[:notice] = I18n.t("meetings.#{action}.success", scope: "decidim")
+        redirect_to redirect_path
+      end
+
+      def handle_invalid(action)
+        flash.now[:alert] = I18n.t("meetings.#{action}.invalid", scope: "decidim")
+        render action: action == :update ? :edit : "new"
+      end
+
       def new
         enforce_permission_to :create, :meeting
-
         @form = meeting_form.instance
       end
 
       def create
         enforce_permission_to :create, :meeting
-
         @form = meeting_form.from_params(params, current_component: current_component)
 
         CreateMeeting.call(@form) do
-          on(:ok) do |meeting|
-            flash[:notice] = I18n.t("meetings.create.success", scope: DECIDIM_MEETINGS_SCOPE)
-            redirect_to meeting_path(meeting)
-          end
-
-          on(:invalid) do
-            flash.now[:alert] = I18n.t("meetings.create.invalid", scope: DECIDIM_MEETINGS_SCOPE)
-            render action: "new"
-          end
+          on(:ok) { handle_success(:create, meeting_path(@form)) }
+          on(:invalid) { handle_invalid(:create) }
         end
       end
 
       def index
-
         return unless search.result.blank? && params.dig("filter", "date") != %w(past)
 
         @past_meetings ||= search_with(filter_params.merge(with_any_date: %w(past)))
@@ -59,6 +59,9 @@ module Decidim
       def show
         raise ActionController::RoutingError, "Not Found" unless meeting
 
+        session_token = meeting.answers&.first&.session_token
+        @participants = session_token.present? ? participant(participants_query.participant(session_token)) : nil
+
         return if meeting.current_user_can_visit_meeting?(current_user)
 
         flash[:alert] = I18n.t("meeting.not_allowed", scope: DECIDIM_MEETINGS_SCOPE)
@@ -67,40 +70,25 @@ module Decidim
 
       def edit
         enforce_permission_to :update, :meeting, meeting: meeting
-
         @form = meeting_form.from_model(meeting)
       end
 
       def update
         enforce_permission_to :update, :meeting, meeting: meeting
-
         @form = meeting_form.from_params(params)
 
         UpdateMeeting.call(@form, current_user, meeting) do
-          on(:ok) do |meeting|
-            flash[:notice] = I18n.t("meetings.update.success", scope: DECIDIM_MEETINGS_SCOPE)
-            redirect_to Decidim::ResourceLocatorPresenter.new(meeting).path
-          end
-
-          on(:invalid) do
-            flash.now[:alert] = I18n.t("meetings.update.invalid", scope: DECIDIM_MEETINGS_SCOPE)
-            render :edit
-          end
+          on(:ok) { handle_success(:update, Decidim::ResourceLocatorPresenter.new(meeting).path) }
+          on(:invalid) { handle_invalid(:update) }
         end
       end
 
       def withdraw
         enforce_permission_to :withdraw, :meeting, meeting: meeting
 
-        WithdrawMeeting.call(@meeting, current_user) do
-          on(:ok) do
-            flash[:notice] = I18n.t("meetings.withdraw.success", scope: "decidim")
-            redirect_to Decidim::ResourceLocatorPresenter.new(@meeting).path
-          end
-          on(:invalid) do
-            flash[:alert] = I18n.t("meetings.withdraw.error", scope: "decidim")
-            redirect_to Decidim::ResourceLocatorPresenter.new(@meeting).path
-          end
+        WithdrawMeeting.call(meeting, current_user) do
+          on(:ok) { handle_success(:withdraw, Decidim::ResourceLocatorPresenter.new(meeting).path) }
+          on(:invalid) { handle_invalid(:withdraw) }
         end
       end
 
@@ -112,7 +100,7 @@ module Decidim
 
       def meetings
         is_past_meetings = params.dig("filter", "with_any_date")&.include?("past")
-        @meetings ||= paginate(search.result.order(start_time: is_past_meetings ? :desc : :asc))
+        @meetings ||= paginate(search.result.order(start_time: is_past_meetings ? :asc : :desc))
       end
 
       def registration
@@ -130,7 +118,21 @@ module Decidim
         form(Decidim::Meetings::MeetingForm)
       end
 
+      def questionnaire(questionnaire)
+        @questionnaire ||= Decidim::Forms::Questionnaire.find_by(id: questionnaire.id)
+      end
 
+      def participants_query
+        Decidim::Forms::QuestionnaireParticipants.new(questionnaire(meeting.answers.first.questionnaire))
+      end
+
+      def participant(answer)
+        Decidim::Forms::Admin::QuestionnaireParticipantPresenter.new(participant: answer)
+      end
+
+      def participants(query)
+        query.map { |answer| participant(answer) }
+      end
     end
   end
 end

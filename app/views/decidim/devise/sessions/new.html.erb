@@ -1,0 +1,76 @@
+<% add_decidim_page_title(t("devise.sessions.new.sign_in")) %>
+<div class="login-container">
+  <div class="govbr-login-container">
+    <% I18n.with_locale('pt-BR') do %>
+      <h1><%= t("devise.sessions.new.sign_in") %></h1>
+      <span class="foreign-login-container">
+        <p>Acesse o Brasil Participativo com a sua conta no <strong>gov.br</strong></p>
+      </span>
+    <% end %>
+    <% cache current_organization do %>
+      <%= render "decidim/devise/shared/omniauth_buttons" %>
+    <% end %>
+  </div>
+  <div class="foreign-login-container">
+    <span>
+      <a id="foreign-login-button">
+        Are you foreign? Click here to participate
+      </a>
+    </span>
+    <div id="login-form-container">
+      <% I18n.with_locale(:en) do %>
+        <span>
+          <h2><%= t("devise.sessions.new.foreign_login.access") %></h1>
+          <p><%= t("devise.sessions.new.foreign_login.description") %></p>
+        </span>
+      <% end %>
+      <%= decidim_form_for(resource, namespace: "session", as: resource_name, url: session_path(resource_name), html: { class: "register-form new_user" }) do |f| %>
+        <span>
+          <div class="br-input input-highlight bp-input">
+            <%= f.email_field :email, autocomplete: "email", placeholder: "Ex: example@email.com",  required: true %>
+          </div>
+          <div class="br-input input-highlight bp-input">
+            <%= f.password_field :password, {autocomplete: "current-password", placeholder: "•••••••••••••••••••••",  required: true } %>
+          </div>
+        </span>
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+          </div>
+        <% end %>
+        <div class="actions">
+          <button class="br-button primary block mt-3" id="foreign-login-form-button">
+            <%= t("devise.sessions.new.foreign_login.login") %>
+          </button>
+        </div>
+      <% end %>
+      <%= render "decidim/devise/shared/links" %>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById('foreign-login-button').addEventListener('click', function() {
+    var elementsToHide = document.querySelectorAll('.govbr-login-container, #foreign-login-button, #foreign-sign_up-button');
+
+    elementsToHide.forEach(function(element) {
+      element.style.transition = 'opacity 0.4s ease-out';
+      element.style.opacity = '0';
+      setTimeout(function() {
+        element.style.display = 'none';
+      }, 400);
+    });
+
+    var loginForm = document.getElementById('login-form-container');
+    setTimeout(function() {
+      loginForm.style.display = 'block';
+      loginForm.style.transition = 'opacity 0.4s ease-in';
+      loginForm.style.opacity = '0';
+      setTimeout(function() {
+        loginForm.style.opacity = '1';
+      }, 10);
+    }, 400);
+  });
+});
+</script>

@@ -42,7 +42,7 @@ module Decidim
         state = proposal.internal_state if proposal.answered? && !proposal.published_state?
 
         case state
-        when "accepted"
+        when "accepted", "partially_accepted"
           "text-success"
         when "rejected", "withdrawn", "disqualified"
           "text-alert"
@@ -211,6 +211,7 @@ module Decidim
           Decidim::CheckBoxesTreeHelper::TreePoint.new("", t("decidim.proposals.application_helper.filter_state_values.all")),
           [
             Decidim::CheckBoxesTreeHelper::TreePoint.new("accepted", t("decidim.proposals.application_helper.filter_state_values.accepted")),
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("partially_accepted", t("decidim.proposals.application_helper.filter_state_values.partially_accepted")),
             Decidim::CheckBoxesTreeHelper::TreePoint.new("evaluating", t("decidim.proposals.application_helper.filter_state_values.evaluating")),
             Decidim::CheckBoxesTreeHelper::TreePoint.new("state_not_published", t("decidim.proposals.application_helper.filter_state_values.not_answered")),
             Decidim::CheckBoxesTreeHelper::TreePoint.new("rejected", t("decidim.proposals.application_helper.filter_state_values.rejected")),

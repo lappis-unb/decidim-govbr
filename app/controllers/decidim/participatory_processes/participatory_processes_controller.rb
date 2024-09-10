@@ -41,6 +41,37 @@ module Decidim
         end
       end
 
+      def all_meetings_of_a_participatory_process
+        state = params[:state]
+        search = params[:search]
+
+        meeting_component = Decidim::Component.where(manifest_name: "meetings",
+                                                     participatory_space_id: current_participatory_space.id,
+                                                     participatory_space_type: "Decidim::ParticipatoryProcess")
+                                              .first
+
+        render status: :not_found unless meeting_component
+
+        @all_meetings_of_a_participatory_process ||= if search.to_s.strip.empty?
+
+                                                       Decidim::Meetings::Meeting.where(decidim_component_id: meeting_component.id, associated_state: state).except_withdrawn
+                                                                                 .published
+                                                                                 .not_hidden
+                                                                                 .visible_for(current_user)
+                                                     else
+
+                                                       Decidim::Meetings::Meeting
+                                                         .where(decidim_component_id: meeting_component.id, associated_state: state)
+                                                         .except_withdrawn
+                                                         .published
+                                                         .not_hidden
+                                                         .visible_for(current_user)
+                                                         .where("title ->> 'pt-BR' ILIKE ?", "%#{params[:search]}%")
+                                                     end
+
+        render json: @all_meetings_of_a_participatory_process
+      end
+
       private
 
       def search_collection
@@ -49,7 +80,7 @@ module Decidim
 
       def default_filter_params
         {
-          with_scope: nil,
+          with_any_scope: '',
           with_area: nil,
           with_type: nil,
           with_date: default_date_filter
@@ -85,7 +116,7 @@ module Decidim
       end
 
       def collection
-        @collection ||= participatory_processes + participatory_process_groups
+        @collection ||= participatory_processes
       end
 
       def filtered_processes
@@ -93,7 +124,7 @@ module Decidim
       end
 
       def participatory_processes
-        @participatory_processes ||= filtered_processes.groupless.includes(attachments: :file_attachment)
+        @participatory_processes ||= filtered_processes.includes(attachments: :file_attachment)
       end
 
       def participatory_process_groups
@@ -114,10 +145,6 @@ module Decidim
       end
 
       def default_date_filter
-        return "active" if published_processes.any?(&:active?)
-        return "upcoming" if published_processes.any?(&:upcoming?)
-        return "past" if published_processes.any?(&:past?)
-
         "all"
       end
 

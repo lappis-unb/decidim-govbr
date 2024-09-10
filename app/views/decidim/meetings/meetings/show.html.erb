@@ -4,7 +4,6 @@
   description: present(meeting).description,
   url: meeting_url(meeting.id)
 }) %>
-
 <% edit_link(
   resource_locator(meeting).edit,
   :update,
@@ -24,49 +23,47 @@
     <div class="main-content">
       <div class="meeting-actions-buttons">
         <% @meeting_cell = cell("decidim/meetings/meeting_m", @meeting, full_badge: true) %>
-        <% if has_started?(meeting) %>
-          <% if admin_allowed_to?(:destroy, :meeting, meeting: meeting) && meeting.deletable? && !@meeting_cell.finished? %>
-            <%= link_to resource_locator(meeting).show, method: :delete, class: "br-button secondary delete-meeting", 
+        <% if allowed_to?(:withdraw, :meeting, meeting: meeting) %>
+          <%= link_to resource_locator(meeting).show, method: :delete, class: "br-button secondary delete-meeting", 
                 data: { confirm: t(".confirm_delete") } do %>
-                <i class="fa-solid fa-trash-can" style="color: #8b0a03;"></i>
-                <%= t(".delete_meeting") %>
-            <% end %>
-          <% else %>
-            <% if !@meeting_cell.finished? && !cancelled?(meeting) %>
-              <%= link_to withdraw_meeting_path(@meeting), method: 'put', class: "br-button secondary cancel-meeting", 
+            <i class="fa-solid fa-trash-can" style="color: #8b0a03;"></i>
+            <%= t(".delete_meeting") %>
+          <% end %>
+        <% end %>
+        <% if allowed_to?(:cancel, :meeting, meeting: meeting) %>
+          <%= link_to withdraw_meeting_path(@meeting), method: 'put', class: "br-button secondary cancel-meeting", 
                 data: { confirm: t('.confirm_cancel') } do %>
-                <i class="fa-solid fa-trash-can" style="color: #8b0a03;"></i>
-                <%= t(".cancel_meeting") %>
-              <% end %>
-            <% end %>
+            <i class="fa-solid fa-trash-can" style="color: #8b0a03;"></i>
+            <%= t(".cancel_meeting") %>
           <% end %>
         <% end %>
-
-        <% if !@meeting_cell.finished? && !cancelled?(meeting) %>
-          <% if allowed_to?(:update, :meeting, meeting: meeting) %>
-            <%= link_to edit_meeting_path(meeting), class: "br-button secondary black-and-white-btn" do %>
-              <i class="fa-solid fa-pen-to-square" style="color: #333333;"></i>
-              <%=t(".edit_meeting")%>
-            <% end %>
+        <% if allowed_to?(:update, :meeting, meeting: meeting) %>
+          <%= link_to edit_meeting_path(meeting), class: "br-button secondary black-and-white-btn" do %>
+            <i class="fa-solid fa-pen-to-square" style="color: #333333;"></i>
+            <%=t(".edit_meeting")%>
           <% end %>
         <% end %>
-
-        <% if allowed_to?(:close, :meeting, meeting: meeting) && !cancelled?(meeting) && @meeting_cell.finished? %>
+        <% if allowed_to?(:close, :meeting, meeting: meeting) %>
           <%= link_to edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "br-button secondary black-and-white-btn" do %>
             <%= caption =  meeting.closed? ? t(".edit_close_meeting") : t(".close_meeting") %>
           <% end %>
         <% end %>
+        <% if author_presenter_for(meeting.normalized_author) == current_user %>
+          <% organization_info_survey = current_participatory_space.organization_info_survey.presence.to_s.chomp("/") %>
+          <% record_what_happened_survey = current_participatory_space.record_what_happened_survey.presence.to_s.chomp("/") %>
+          <a class="br-button secondary black-and-white-btn" href="<%= organization_info_survey %>?meeting_id=<%= meeting.id %>">
+            Adicione Informações da organização
+          </a>
+          <a class="br-button secondary black-and-white-btn" href="<%= record_what_happened_survey %>?meeting_id=<%= meeting.id %>">
+            Registre o que aconteceu
+          </a>
+        <% end %>
       </div>
-      
-      <div class="badge-container">
-        <%== @meeting_cell.badge %>
-      </div>
-
+      <%== @meeting_cell.badge %>
       <h2 class="title"><%= present(meeting).title(links: true, html_escape: true ) %></h2>
       <%= render_meeting_body(@meeting) %>
       <div class="meetings-author-info-br">
         <% @author_cell = cell "decidim/author", author_presenter_for(meeting.normalized_author), has_actions: true, from: meeting, context: { extra_classes: ["author-data--small"] } %>
-
         <div class="author-data">
           <div class="author-data__main">
             <%== @author_cell.profile %>
@@ -92,8 +89,10 @@
           <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
           <div class="br-divider"></div>
         <% end %>
-        <% unless meeting.in_person_meeting? || meeting.withdrawn? %>
-          <%= cell "decidim/meetings/online_meeting_link", meeting %>
+        <% if meeting.start_time.present? && meeting.end_time.present? %>
+          <% unless meeting.in_person_meeting? || meeting.withdrawn? %>
+            <%= cell "decidim/meetings/online_meeting_link", meeting %>
+          <% end %>
         <% end %>
       </div>
       <%= render partial: "decidim/shared/tags", locals: { resource: meeting, tags_class_extra: "tags--meeting" } %>
@@ -116,7 +115,7 @@
           </div>
         </div>
       <% end %>
-      <% if meeting.closed? && meeting.closing_visible? %>
+      <% if meeting.closed? && meeting.closing_visible? && false %>
         <div class="section">
           <h3 class="section-heading"><%= t(".meeting_minutes") %></h3>
           <%= decidim_sanitize_editor translated_attribute meeting.closing_report %>
@@ -139,17 +138,24 @@
           <% end %>
         </div>
       <% end %>
+      <dl>
+        <% @participants&.answers&.each do |answer| %>
+          <% if answer.public_information? %>
+            <dt><%= answer.question %></dt>
+            <dd><%= answer.body %></dd>
+          <% end %>
+        <% end %>
+      </dl>
     </div>
     <div class="side-content">
       <div class="card-component">
         <div class="card-component__content">
           <div class="header">
-          <i class="fas fa-globe data-icon"></i>
-          <p>Evento <%= t("decidim.meetings.type_of_meeting.#{meeting.type_of_meeting}") %></p>
-        </div>
-        <span class="br-divider"></span>
+            <i class="fas fa-globe data-icon"></i>
+            <p>Evento <%= t("decidim.meetings.type_of_meeting.#{meeting.type_of_meeting}") %></p>
+          </div>
+          <span class="br-divider"></span>
           <%= cell("decidim/date_range", { start: meeting.start_time, end: meeting.end_time }) %>
-          
           <%= render partial: "calendar_modal", locals: {
               ics_url: calendar_meeting_url(meeting),
               google_url: google_calendar_event_url(meeting)
@@ -164,12 +170,6 @@
               <span class="definition-data__number"><%= meeting.contributions_count %></span>
             </div>
           <% end %>
-          <% if meeting.has_attendees? %>
-            <div class="definition-data__item">
-              <span><%= t(".attendees") %></span>
-              <span class="definition-data__number"><%= meeting.attendees_count %></span>
-            </div>
-          <% end %>
           <% if meeting.attending_organizations.present? %>
             <div class="definition-data__item">
               <span><%= t(".organizations") %></span>
@@ -179,23 +179,19 @@
         <% end %>
       </div>
       <div class="card-component">
-        <div class="meetings-subs-count">
-          <div class="subs-count">
-            <%= meeting.subscribers_count %>
+        <% unless meeting.on_different_platform? %>
+          <div class="meetings-subs-count">
+            <div class="subs-count">
+              <%= meeting.subscribers_count %>
+            </div>
+            <div class="subs-legend">
+              inscritos
+            </div>
           </div>
-          <div class="subs-legend">
-            inscritos
-          </div>
-        </div>
+        <% end %>
         <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
       </div>
       <div class="meetings-br-actions-buttons">
-        <%= render partial: "decidim/shared/share_modal", locals: {
-              translation_component: t("decidim.shared.share_modal.share_text_meeting",
-              resource_name: resource_title(@meeting),
-              component_name: resource_title(current_participatory_space))
-            }
-        %>
         <% if (current_user.try(:admin?) || @can_moderate) %>
           <button type="button" class="br-button" data-open="flagModal" title="Denunciar"
             aria-controls="flagModal" aria-haspopup="dialog" tabindex="0">
@@ -203,6 +199,12 @@
             <%= t("decidim.meetings.meetings.moderation.label") %>
           </button>
         <% end %>
+        <%= render partial: "decidim/shared/share_modal", locals: {
+              translation_component: t("decidim.shared.share_modal.share_text_meeting",
+              resource_name: resource_title(@meeting),
+              component_name: resource_title(current_participatory_space))
+            }
+        %>
       </div>
     </div>
   </div>

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'sidekiq/web'
 
 Sidekiq::Web.use Rack::Auth::Basic do |username, password|
@@ -21,6 +23,11 @@ Rails.application.routes.draw do
     end
   end
 
+  patch 'proposal_badges/:component_id', to: 'decidim/admin/proposal_badges#update', as: :update_proposal_badge
+  patch 'proposal_badges/:component_id/:proposal_id/:badge_id', to: 'decidim/admin/proposal_badges#update_proposal_badge', as: :update_one_proposal_badge
+  delete 'proposal_badges/:component_id', to: 'decidim/admin/proposal_badges#destroy_all_badges', as: :destroy_proposal_badge
+  delete 'proposal_badges/:component_id/:proposal_id/:badge_id', to: 'decidim/admin/proposal_badges#destroy_one_badge', as: :destroy_one_proposal_badge
+
   get 'admin/user_proposal_statistic_report/:slug', to: 'decidim/govbr/user_proposals_statistic_settings#export_user_data', as: 'user_proposal_statistic_report'
 
   # These two routes are not present anywhere in the product
@@ -35,6 +42,12 @@ Rails.application.routes.draw do
     'admin/user_proposal_statistic_report_create/:slug',
     to: 'decidim/govbr/user_proposals_statistic_settings#create',
     as: 'user_proposal_statistic_report_create'
+  )
+
+  get(
+    'get_all_meetings_of_a_participatory_process/:slug',
+    to: 'decidim/participatory_processes/participatory_processes#all_meetings_of_a_participatory_process',
+    as: 'get_all_meetings_of_a_participatory_process'
   )
 
   resources :reports, only: [:create], controller: 'decidim/reports/reports'
@@ -67,6 +80,32 @@ Rails.application.routes.draw do
       resources :media_links, except: [:show], controller: 'decidim/assemblies/admin/media_links'
     end
   end
+
+  Decidim::Admin::Engine.routes.draw do
+    constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
+      resource :organization, only: [:edit, :update], controller: "organization" do
+        resource :appearance, only: [:edit, :update], controller: "organization_appearance"
+        resource :homepage, only: [:edit, :update], controller: "organization_homepage" do
+          resources :content_blocks, only: [:edit, :update, :destroy, :create], controller: "organization_homepage_content_blocks"
+        end
+        resource :external_domain_whitelist, only: [:edit, :update], controller: "organization_external_domain_whitelist"
+
+        member do
+          get :users
+          get :user_entities
+        end
+      end
+    end
+  end
+
+  Decidim.participatory_space_manifests.each do |manifest|
+    mount manifest.context(:admin).engine, at: "/", as: "decidim_admin_#{manifest.name}"
+  end
+
+  Decidim.authorization_admin_engines.each do |manifest|
+    mount manifest.admin_engine, at: "/#{manifest.name}", as: "decidim_admin_#{manifest.name}"
+  end
+
 
   scope :admin do
     resources :participatory_processes, param: :slug, only: [] do

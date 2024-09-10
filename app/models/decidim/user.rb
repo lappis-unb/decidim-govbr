@@ -274,6 +274,10 @@ module Decidim
       password_updated_at < Decidim.config.admin_password_expiration_days.days.ago
     end
 
+    def super_admin?
+      organization.super_admins.include?(email)
+    end
+
     protected
 
     # Overrides devise email required validation.
