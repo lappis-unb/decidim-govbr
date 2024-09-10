@@ -17,14 +17,3 @@
 </div>
 
 <%= javascript_pack_tag "decidim_proposals_admin" %>
-
-<script>
-  if (typeof button === 'undefined') {
-    let button = document.getElementById("submit-proposals-link");
-
-    button.addEventListener("click", () => {
-      let submit = document.getElementById("close_meeting-submit");
-      submit.querySelector("button").click();
-    });
-  }
-</script>

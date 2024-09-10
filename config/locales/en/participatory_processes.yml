@@ -1,0 +1,214 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-participatory_processes/config/locales/en.yml
+en:
+  activemodel:
+    attributes:
+      participatory_process:
+        title: Participatory Process Name
+        make_your_voice: "Make Your Voice Count: Participate in the Public Consultation Now!"
+        title: Participatory Process Name
+        document: Document
+        import_attachments: Import Attachments
+        slug: Friendly URL
+        index: Indices
+        import_components: Import Components
+        participatory_process_type_id: Participatory Process Type
+        private_space: Private Space
+        weight: Order Position
+        announcement: Announcement
+        initial_page_component_id: Initial Page of the Participatory Process
+        area_id: Agency/Institution
+        decidim_area_id: Agency/Institution
+        banner_image: Cover Image (desktop)
+        copy_categories: Copy Categories
+        copy_components: Copy Components
+        copy_steps: Copy Steps
+        description: Participatory Process Summary
+        developer_group: Sector
+        domain: Domain
+        end_date: End Date
+        hashtag: Keywords
+        hero_image: Cover Image (mobile)
+        import_categories: Import Categories
+        import_steps: Import Steps
+        local_area: Sector
+        start: START
+        closure: CLOSURE
+        make_your_voice: "Make Your Voice Count: Participate in the Public Consultation Now!"
+        poll: Poll
+        participatory_process: Participatory Text
+        meta_scope: Select the Status of this Participatory Process
+        participatory_process_group_id: Secretariat
+        participatory_scope: Link to the publication of the process in the Federal Official Gazette
+        participatory_structure: Institutional Phone or Email of the Sector
+        promoted: Promoted
+        publish_date: Publication Date of the process in the Federal Official Gazette
+        published_at: Published at
+        related_process_ids: Related Processes
+        scope_id: Areas of Interest
+        scope_type_max_depth_id: Scope Filter Depth
+        scopes_enabled: Areas of Interest Enabled
+        show_metrics: Show Metrics
+        show_statistics: Show Participatory Data
+        start_date: Start Date
+        General_information: General Information
+        target: Responsible for the consultation
+        should_have_user_full_profile: Require Full User Profile to Respond to the Form
+        show_mobilization: Show Mobilization
+        express_your_opinion: Express your opinions and ideas on issues that matter to you and your community. Your contribution is essential to promote transparent and effective dialogue between the public administration and citizens. By participating in the public consultation, you are exercising your democratic right and helping shape public policies that reflect the needs and desires of society. Don't let your voice stay silent. Join us and make a difference!
+      participatory_process_group:
+        group_url: Website
+        promoted: Promoted
+      participatory_process_step:
+        cta_text: Call to Action Text
+      participatory_process_type:
+        title: Title
+      participatory_process_user_role:
+        email: Email
+      category:
+        weight: Order Position
+      component:
+        weight: Order Position
+    models:
+      decidim/participatory_process_role_assigned_event: Role Assigned in Participatory Process
+  activerecord:
+    models:
+      decidim/participatory_process_user_role: User
+      decidim/participatory_space_private_user: User
+  decidim:
+    admin:
+      actions:
+        new_process_step: New Step
+        new_process_type: New Process Type
+        unpublish: Unpublish
+        New_Process_Template: New Process via Template
+        No_Process_Template: No templates
+      menu:
+        participatory_processes_submenu:
+          attachment_files: Files
+          process_admins: Process Users
+          info: General Info
+          steps: Steps
+        participatory_process_types: Process Types
+      models:
+        participatory_process_type:
+          fields:
+            created_at: Created at
+            title: Title
+        user:
+          fields:
+            invitation_accepted_at: Invitation Accepted at
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Active Content Blocks
+          inactive_content_blocks: Inactive Content Blocks
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Update
+      participatory_process_steps:
+        create:
+          success: Participatory Process Step created successfully.
+        destroy:
+          error:
+            last_step: Cannot delete the last step of a process.
+        edit:
+          title: Edit Participatory Process Step
+        index:
+          steps_title: Steps
+        new:
+          title: New Participatory Process Step
+        update:
+          success: Participatory Process Step updated successfully.
+      participatory_process_types:
+        create:
+          error: There was a problem creating a new process type.
+          success: Process type created successfully.
+        destroy:
+          success: Process type deleted successfully.
+        edit:
+          title: Edit Process Type
+          update: Update
+        form:
+          title: Title
+        new:
+          create: Create
+          title: New Process Type
+      participatory_process_user_roles:
+        new:
+          title: New User of Participatory Process
+      titles:
+        participatory_process_types: Process Types
+    admin_log:
+      participatory_process:
+        create: "%{user_name} created the participatory process %{resource_name}"
+        duplicate: "%{user_name} duplicated the participatory process %{resource_name}"
+        export: "%{user_name} exported the participatory process %{resource_name}"
+        import: "%{user_name} imported the participatory process %{resource_name}"
+        publish: "%{user_name} published the participatory process %{resource_name}"
+        unpublish: "%{user_name} unpublished the participatory process %{resource_name}"
+        update: "%{user_name} updated the participatory process %{resource_name}"
+      participatory_process_step:
+        activate: "%{user_name} activated the step %{resource_name} in the participatory process %{space_name}"
+        create: "%{user_name} created the step %{resource_name} in the participatory process %{space_name}"
+        delete: "%{user_name} deleted the step %{resource_name} in the participatory process %{space_name}"
+        update: "%{user_name} updated the step %{resource_name} in the participatory process %{space_name}"
+      participatory_process_type:
+        create: "%{user_name} created the participatory process type %{resource_name}"
+        delete: "%{user_name} deleted the participatory process type %{resource_name}"
+        update: "%{user_name} updated the participatory process type %{resource_name}"
+    events:
+      participatory_process:
+        role_assigned:
+          email_intro: You have been assigned as %{role} in the participatory process "%{resource_title}".
+          email_outro: You received this notification because you are %{role} of the participatory process "%{resource_title}".
+          email_subject: You have been assigned as %{role} for "%{resource_title}".
+          notification_title: You have been assigned as %{role} in the participatory process <a href="%{resource_url}">%{resource_title}</a>.
+        step_activated:
+          email_intro: "The step %{resource_title} is now active for %{participatory_space_title}. You can view it from this page:"
+          email_outro: You received this notification because you follow %{participatory_space_title}. You can stop receiving notifications by following the link above.
+          email_subject: An update for %{participatory_space_title}
+          notification_title: The step %{resource_title} is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: "The dates for the step %{resource_title} in %{participatory_space_title} have been updated. You can view them from this page:"
+          email_outro: You received this notification because you follow %{participatory_space_title}. You can stop receiving notifications by following the link above.
+          email_subject: An update for %{participatory_space_title}
+          notification_title: The dates for the step <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> have been updated.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p>A <strong>participatory process</strong> is a sequence of participation activities (for example, first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) aimed at defining and making a decision on a specific topic.</p> <p>Examples of participatory processes include: a process for electing members of a committee (where candidates are first nominated, then discussed, and finally a candidate is chosen), participatory budgets (where proposals are submitted, economically valued, and considered with available funds), a strategic planning process, collaborative drafting of a regulation or norm, design of an urban space, or production of a public policy plan.</p>\n"
+          page: "<p>A <strong>participatory process</strong> is a sequence of participation activities (for example, first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) aimed at defining and making a decision on a specific topic.</p> <p>Examples of participatory processes include: a process for electing members of a committee (where candidates are first nominated, then discussed, and finally a candidate is chosen), participatory budgets (where proposals are submitted, economically valued, and considered with available funds), a strategic planning process, collaborative drafting of a regulation or norm, design of an urban space, or production of a public policy plan.</p>\n"
+    participatory_processes:
+      show:
+        belongs_to_group: This process belongs to
+      admin:
+        participatory_processes:
+          form:
+            select_an_area: Select an Agency/Institution
+            select_process_group: Select a Sector
+            duration: Participatory Process Duration
+            slug_help: "The Friendly URL is used to generate the URL to access the participatory process. It only accepts letters, numbers, and dashes, and must start with a letter. Example: https://brasilparticipativo.presidencia.gov.br/nome do processo participativo/nome-da-conferência"
+            announcement_help: The text you enter here will be shown to the user just below the process information.
+            select_participatory_process_type: Select a process type
+      pages:
+        home:
+          highlighted_processes:
+            active_step: Active Step
+      participatory_processes:
+        filters:
+          all_types: All types
+          filter_by: Process Type
+        show:
+          title: About this process
+          participate: Participate
+      card:
+        status:
+          active: Active
+          closed: Closed
+          finished: Closed - Result
+  layouts:
+    decidim:
+      participatory_process_widgets:
+        show:
+          active_step: Active Step
+      process_header_steps:
+        step: Step %{current} of %{total}

@@ -1,9 +1,147 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-core/config/locales/en.yml
 en:
   activemodel:
     attributes:
+      invite:
+        nickname: Username
+      group:
+        nickname: Short name
       user:
+        avatar: Your photo
         name: Full name
+        nickname: Username
+        email: Email
+        password: Password
+        password_confirmation: Confirm your password
+        personal_url: Personal website
+        locale: Language
+      comment:
+        attachment_file: attachment
+    models:
+      decidim/invited_to_group_event: Invited to the group
+      decidim/join_request_accepted_event: Join request accepted
+      decidim/resource_hidden_event: Resource hidden
+      decidim/user_group_created_event: User group created
+      decidim/welcome_notification_event: Welcome message
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Current password
+        email: Email
+        name: Name
+        nickname: Username
+        password: Password
+        password_confirmation: Password confirmation
+        remember_me: Remember me
   decidim:
+    scopes:
+      global: Select the process theme
+    accessibility:
+      front_page_link: Go to the main page
+    account:
+      delete:
+        alert: This action cannot be undone. If you delete your account, you will not be able to log in with your credentials. Deleting your account will result in the anonymization of your contributions. You will still be able to create a new account, but these contributions will not be associated with it.
+      show:
+        available_locales_helper: Choose the language you want to use to navigate and receive notifications on the platform
+      update:
+        error: There was a problem updating your account.
+        success: Your account has been successfully updated.
+        success_with_email_confirmation: Your account has been successfully updated. You will receive an email to confirm your new email address.
+    admin:
+      actions:
+        cancel: Cancel
+      password_change:
+        alert: You need to change your password to proceed
+        notification: Admin users need to change their passwords every %{days} days.
+    admin_log:
+      area_type:
+        create: "%{user_name} created the area type %{resource_name}"
+        delete: "%{user_name} removed the area type %{resource_name}"
+        update: "%{user_name} updated the area type %{resource_name}"
+      attachment:
+        create: "%{user_name} created the attachment %{resource_name}"
+        delete: "%{user_name} removed the attachment %{resource_name}"
+        update: "%{user_name} updated the attachment %{resource_name}"
+      attachment_collection:
+        create: "%{user_name} created the attachment collection %{resource_name}"
+        delete: "%{user_name} removed the attachment collection %{resource_name}"
+        update: "%{user_name} updated the attachment collection %{resource_name}"
+      category:
+        create: "%{user_name} created the category %{resource_name} in the %{space_name} space"
+        delete: "%{user_name} removed the category %{resource_name} from the %{space_name} space"
+        update: "%{user_name} updated the category %{resource_name} in the %{space_name} space"
+      component:
+        export_component: "%{user_name} exported %{resource_name} %{component_name} in %{space_name} as %{format_name}"
+        update_permissions_with_space: "%{user_name} updated the permissions of %{resource_name} in %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} updated the help section %{resource_name}"
+      helpers:
+        answers: answers
+        comments: comments
+        projects: projects
+        results: results
+      impersonation_log:
+        manage: "%{user_name} managed %{resource_name} because %{reason}"
+      moderation:
+        hide: "%{user_name} hid a %{resource_type} resource in the %{space_name} space"
+        unreport: "%{user_name} unreported a %{resource_type} resource in the %{space_name} space"
+      newsletter:
+        create: "%{user_name} created the newsletter %{resource_name}"
+        delete: "%{user_name} removed the newsletter %{resource_name}"
+        deliver: "%{user_name} sent the newsletter %{resource_name}"
+        update: "%{user_name} updated the newsletter %{resource_name}"
+      oauth_application:
+        create: "%{user_name} created the OAuth application %{resource_name}"
+        delete: "%{user_name} removed the OAuth application %{resource_name}"
+        update: "%{user_name} updated the OAuth application %{resource_name}"
+      organization:
+        update: "%{user_name} updated the organization settings"
+        update_external_domain: "%{user_name} updated the organization's external domains"
+      participatory_space_private_user:
+        create: "%{user_name} invited %{resource_name} to be a private participant"
+        create_via_csv: "%{user_name} invited %{resource_name} via CSV to be a private participant"
+        delete: "%{user_name} removed %{resource_name} as a private participant"
+      scope_type:
+        create: "%{user_name} created the interest area type %{resource_name}"
+        delete: "%{user_name} removed the interest area type %{resource_name}"
+        update: "%{user_name} updated the interest area type %{resource_name}"
+      static_page:
+        create: "%{user_name} created the static page %{resource_name}"
+        delete: "%{user_name} removed the static page %{resource_name}"
+        update: "%{user_name} updated the static page %{resource_name}"
+      user:
+        block: "%{user_name} blocked the user %{resource_name}"
+        invite: "%{user_name} invited the user %{resource_name} with role: %{role}"
+        officialize: "%{user_name} officialized the user %{resource_name}"
+        promote: "%{user_name} promoted %{resource_name}"
+        remove_from_admin: "%{user_name} removed the user %{resource_name} with role: %{role}"
+        show_email: "%{user_name} retrieved the email of the user %{resource_name}"
+        transfer: "%{user_name} transferred the user %{resource_name}"
+        unblock: "%{user_name} unblocked the user %{resource_name}"
+        unofficialize: "%{user_name} removed the officialization of the user %{resource_name}"
+      user_group:
+        block: "%{user_name} blocked the group %{resource_name}"
+        reject: "%{user_name} rejected the group verification %{resource_name}"
+        unblock: "%{user_name} unblocked the group %{resource_name}"
+        verify: "%{user_name} verified the group %{resource_name}"
+        verify_via_csv: "%{user_name} verified the group %{resource_name} via CSV file"
+      user_moderation:
+        unreport: "%{user_name} removed the report on %{resource_type} - %{unreported_user_name}"
+    amendments:
+      accepted:
+        success: The amendment was successfully accepted.
+      amendable:
+        help_text: Improve the %{model_name} by amending its %{amendable_fields}
+    authorization_modals:
+      ok:
+        title: Authorization received for this page. Please reload the page to perform your action.
+    contact: Contact
+    content_blocks:
+      cta:
+        name: Image, text, call to action button
+      cta_settings_form:
+        button_text: Call to action text
+        button_url: Call to action URL
     core:
       actions:
         login_before_access: Please sign in with your account before accessing.
@@ -11,10 +149,421 @@ en:
     devise:
       registrations:
         new:
+          nickname_help: Your username on %{organization}. Can only contain letters, numbers, '-' and '_'.
           password_help: |
             The password must be at least 14 characters long.
             The password must include at least one uppercase letter.
             The password must include at least one lowercase letter.
             The password must include at least one number.
+          newsletter_title: Contact permission
+      sessions:
+        new:
+          sign_in_disabled: You can access with an external account
+          sign_up_disabled: Sign-up is disabled, use an existing user account to access
+        user:
+          timed_out: You have been inactive for too long and were automatically signed out. If you want to continue using the service, please log in again.
+      shared:
+        newsletter_modal:
+          buttons:
+            uncheck: Keep unchecked
+    events:
+      gamification:
+        badge_earned:
+          email_intro: Congratulations! You earned the <a href="%{resource_url}">%{badge_name} badge</a> (level %{current_level}).
+          email_outro: You received this notification because you performed an activity on our platform.
+          email_subject: "You earned a new badge: %{badge_name}!"
+          notification_title: Congratulations! You earned the <a href="%{resource_path}">%{badge_name} badge</a> (level %{current_level}).
+        level_up:
+          email_intro: Congratulations! You reached level %{current_level} on the <a href="%{resource_url}">%{badge_name} badge</a>!
+          email_outro: You received this notification because you performed an activity on our platform.
+          email_subject: You reached level %{current_level} on the %{badge_name} badge!
+          notification_title: Congratulations! You reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
+    editor_images:
+      create:
+        error: Error uploading the image
+        success: Image successfully uploaded
+      drag_and_drop_help: Briefly describe your Participatory Process. Add images by dragging and dropping them or pasting them.
+    forms:
+      current_file: Current file
+      current_image: Current image
+      default_image: Default image
+      file_help:
+        file:
+          explanation: "File guidance:"
+          message_2: For images, preferably use landscape images, the service crops the image. For CSV files, the column separator must be a comma (",")
+        icon:
+          explanation: "Icon guidance:"
+          message_1: It must be a square image.
+          message_2: The recommended size for this image is 512x512.
+        image:
+          message_1: Preferably, a landscape image with no text.
+      file_validation:
+        allowed_file_extensions: "Allowed file extensions: %{extensions}"
+        max_file_dimension: "Maximum file dimensions: %{resolution} pixels"
+        max_file_size: "Maximum file size: %{megabytes}MB"
+        comments_attachment_extension:  Choose the contribution file. Only PDF.
+      remove_this_file: Remove this file
+      upload:
+        labels:
+          add_attachment: Add attachment
+          add_file: Add file
+          add_image: Add image
+          cancel: Cancel
+          edit_image: Edit image
+          error: Error!
+          file_size_too_large: "The file size is too large! Maximum file size: %{megabytes}MB"
+          remove: Remove
+          replace: Replace
+          save: Save
+          title: Title
+          title_required: Title is required!
+          uploaded: Uploaded
+          validating: Validating...
+          validation_error: Validation error!
+      upload_help:
+        dropzone: Drop files here or click to upload
+        explanation: Guidance for %{attribute}
+    help:
+      main_topic:
+        title: About
+    log:
+      base_presenter:
+        publish: "%{user_name} published %{resource_name}"
+        publish_with_space: "%{user_name} published %{resource_name} in %{space_name}"
+        unpublish: "%{user_name} unpublished %{resource_name}"
+        unpublish_with_space: "%{user_name} unpublished %{resource_name} in %{space_name}"
+        update_permissions_with_space: "%{user_name} updated the permissions of %{resource_name} in %{space_name}"
+    modal:
+      export_data: Generate report
+      component_edit: Edit component
+      select_date: Select the dates to generate the report for this process.
+      export_confirmation: Report requested! We will soon send it to your registered email. Please check your inbox and spam folder.
+      export_error: An error occurred while generating the report. Please try again later.
+      submit: Submit
+      cancel: Cancel
+      close: Close
+    pages:
+      home:
+        footer_sub_hero:
+          footer_sub_hero_body: Let's build a more open, transparent, and collaborative society.<br /> Register, participate, and decide.
+          register: Register
+        sub_hero:
+          register: Register
+      index:
+        title: About
+      terms_and_conditions:
+        form:
+          agreement: I agree with these terms
+        refuse:
+          modal_body: If you refuse, you will not be able to use the platform, you can <a href="%{download_your_data_path}">download your data</a> and/or <a href="%{delete_path}">delete your account</a>.
+        required_review:
+          alert: We have updated our Terms of Service, please review them.
+    passwords:
+      update:
+        error: An error occurred while updating the password
+        success: Password updated successfully
+    reported_mailer:
+      hide:
+        report_html: <p>The following <a href="%{url}">content</a> was automatically hidden.</p>
+        subject: A resource was automatically hidden
+      report:
+        content: Reported content
+        date: Reported on
+        details: Details
+        id: ID
+        report_html: <p>The following <a href="%{url}">content</a> was reported.</p>
+        subject: A resource was reported
+    reports:
+      create:
+        error: An error occurred while reporting the issue. Please try again.
+        success: The issue was successfully reported and will be reviewed by an administrator.
+    versions:
+      resource_version:
+        see_other_versions: see other versions
+    shared:
+      filter_form_help:
+        help: Filter by topics of interest.
+      flag_modal:
+        to_2000_characters: Up to 2000 characters
+        already_reported: This content has already been reported and will be reviewed by an administrator.
+        close: Close
+        cancel: Cancel
+        comment_placeholder: Type here...
+        description: Is this content inappropriate? The proposal will be sent for moderation.
+        does_not_belong: Violent or dangerous content (hate speech; discrimination or prejudice based on race, color, ethnicity, religion, or national origin; homophobic and transphobic behavior; dangerous or harmful content; violent or explicit content; extremist or criminal organizations; virtual harassment and bullying).
+        offensive: Sensitive content (vulgar or inappropriate language; sexual or pornographic content).
+        reason: Select the reason
+        report: Report
+        spam: Content that may constitute slander, by falsely imputing/disseminating a fact defined as a crime; defamation, imputing to someone a fact offensive to their reputation; insult, offending someone's dignity or decorum (Penal Code, arts. 138, 139, and 140) or disinformation (false news/fake news).
+        title: Report an issue
+      flag_user_modal:
+        already_reported: This content has already been reported and will be reviewed by an administrator.
+        close: Close
+        description: What is inappropriate about the user?
+        does_not_belong: Violent or dangerous content (hate speech; discrimination or prejudice based on race, color, ethnicity, religion, or national origin; homophobic and transphobic behavior; dangerous or harmful content; violent or explicit content; extremist or criminal organizations; virtual harassment and bullying).
+        offensive: Sensitive content (vulgar or inappropriate language; sexual or pornographic content).
+        report: Report
+        spam: Content that may constitute slander, by falsely imputing/disseminating a fact defined as a crime; defamation, imputing to someone a fact offensive to their reputation; insult, offending someone's dignity or decorum (Penal Code, arts. 138, 139, and 140) or disinformation (false news/fake news).
+        title: Report inappropriate user
+      floating_help:
+        close: Close help
+        help: Help
+      mentions_modal:
+        remove_recipient: Remove recipient %{name}
+      results_per_page:
+        label: 'Results per page:'
+      share_modal:
+        share: Share your contribution
+        share_link: Share link
+        share_button: Share
+        share_text_proposal: Share to get votes and contributions for your proposal %{resource_name} in %{component_name} on Brasil Participativo
+        share_text_meeting: Share to get participants for your meeting %{resource_name} in %{component_name} on Brasil Participativo
+    follows:
+      create:
+        participatory_space: Follow <span class="show-for-sr">%{resource_name}</span>
+    menu:
+      help: About
+      home: Home
+    notifications:
+      no_notifications: No notifications yet.
+      show:
+        missing_event: Oops, this notification belongs to an item that is no longer available. You can dismiss it.
+    notifications_digest_mailer:
+      header:
+        daily: Daily Notification Digest
+        weekly: Weekly Notification Digest
+      hello: Hello %{name},
+      intro:
+        daily: "Here are the notifications from the last day based on the activity you are following:"
+        weekly: "Here are the notifications from the last week based on the activity you are following:"
+      outro: You received these notifications because you are following this content or its authors. You can unfollow them on their respective pages.
+      see_more: See more notifications
+      subject: This is your summary email
+    notifications_settings:
+      show:
+        allow_push_notifications: Receive push notifications to find out what's happening when you're not on the platform. You can turn them off at any time.
+        email_on_moderations: I want to receive an email each time something is reported for moderation.
+        update_notifications_settings: Save changes
+        notification_settings:
+          close_meeting_reminder: I want to receive email reminders of unpublished reports from closed meetings
+        notifications_sending_frequencies:
+          daily: Daily
+          none: None
+          real_time: In real-time
+          weekly: Weekly
+        notifications_sending_frequency: How often do you want to receive email notifications?
+        push_notifications: Push notifications
+        push_notifications_reminder: To get platform notifications, you will first need to allow them in your browser settings.
+    data_portability:
+      show:
+        download_data_description: A file containing all the information associated with your account will be sent to <strong>%{user_email}</strong>. This email will contain a .zip file and a password to open it.<br/><br/>To unzip the file, you will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) or <a href="https://www.keka.io/">Keka</a> (for MacOS). If you use Linux, most of the time you will have it installed by default. Otherwise, you can use <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> or <a href="https://peazip.github.io">PeaZip</a>).
+    groups:
+      form:
+          nickname_help: Abbreviated name of your organization, association, collective, group, etc. Do not use spaces or accents.
+      new:
+        subtitle: Create a group and invite other users to join to participate at a collective level.
+    messaging:
+      conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: You received this because you are an administrator in %{group}.
+          outro: Enjoy Decidim!
+        comanagers_new_message:
+          admin_in_group: You received this because you are an administrator in %{group}.
+          intro: "%{manager} posted new messages in a conversation on behalf of %{group}. Click here to see them:"
+          outro: Enjoy Decidim!
+        new_conversation:
+          intro: "%{sender} started a new conversation with you. Click here to see it:"
+          outro: Enjoy Decidim!
+          subject: "%{sender} started a conversation with you"
+      conversations:
+        add_conversation_users:
+          add_max_users: "Add users to the conversation: 9 users maximum"
+        index:
+            to: To
+    tags:
+      filter_results_for_category: "Filter results for the theme: %{resource}"
+    welcome_notification:
+      default_body: <p>Hello {{name}}, thank you for joining {{organization}} and welcome!</p><ul><li>If you want a quick idea of what you can do here, see the <a href="{{help_url}}">Help</a> section.</li><li>After reading it, you will receive your first badge. Here is a <a href="{{badges_url}}">list of all the badges</a> you can earn as a participant of {{organization}}</li><li>Last but not least, join others, share with them your experience of being involved and participating in {{organization}}. Make proposals, comments, debate, think about how to contribute to the common good, provide arguments to convince, listen and read to be convinced, express your ideas concretely and directly, respond with patience and decision, defend your ideas, and keep an open mind to collaborate and join others' ideas.</li></ul>
+    wizard_step_form:
+      wizard_aside:
+        back: Back
+  devise:
+    failure:
+      already_authenticated: You are already logged in.
+      inactive: Your account is not yet activated.
+      invalid: "%{authentication_keys} or password is invalid."
+      locked: Your account is locked.
+      not_found_in_database: "%{authentication_keys} or password is invalid."
+      timeout: Your session has expired. Please log in again to continue.
+      unauthenticated: You need to sign in or sign up before continuing.
+    invitations:
+      updated_not_active: Your password has been set successfully.
+      edit:
+        nickname_help: Your username on %{organization}. It can only contain letters, numbers, '-' and '_'.
+        subtitle: If you accept the invitation, please set your username and password.
+      updated: Your password has been set successfully. You are now signed in.
+    mailer:
+      confirmation_instructions:
+        instruction: "You can confirm your account's email through the link below:"
+      email_changed:
+        message: We are contacting you to notify the change of your email to %{email}.
+        subject: Email changed
+      invitation_instructions:
+        accept_until: This invitation will expire on %{due_date}.
+        ignore: |-
+          If you do not wish to accept the invitation, please ignore this email.<br />
+          Your account will not be created until you access the link above and set your username and password.
+        invited_you_as_admin: "%{invited_by} invited you as an administrator of %{application}. Accept through the link below."
+        invited_you_as_private_user: "%{invited_by} invited you as a private participant of %{application}. Accept through the link below."
+        someone_invited_you: Someone invited you to %{application}. Accept through the link below.
+        someone_invited_you_as_admin: Someone invited you as an administrator of %{application}. Accept through the link below.
+        someone_invited_you_as_private_user: Someone invited you as a private participant of %{application}. Accept through the link below.
+      invite_admin:
+        subject: You received an invitation to manage %{organization}
+      invite_collaborator:
+        subject: You received an invitation to collaborate on %{organization}
+      invite_private_user:
+        subject: You received an invitation to a private participatory process on %{organization}
+      organization_admin_invitation_instructions:
+        subject: You received an invitation to manage %{organization}
+      password_change:
+        message: We are contacting you to inform you that your password has been changed.
+        subject: Password changed
+      reset_password_instructions:
+        action: Change my password
+        instruction: Someone requested a link to change your password and you can do so through the link below.
+        instruction_3: Your password will not be changed until you access the link above and create a new one.
+        subject: Password change instructions
+    omniauth_callbacks:
+      failure: Could not authenticate you via %{kind} because "%{reason}".
+      success: You have been successfully authenticated via %{kind}.
+    passwords:
+      edit:
+        change_my_password: Change my password
+        change_your_password: Change your password
+        confirm_new_password: Confirm new password
+        new_password: New password
+        password_help: "%{minimun_characters} minimum characters, should not be too common (e.g., 123456), and should be different from your username and email."
+        password_help_admin: "%{minimun_characters} minimum characters, should not be too common (e.g., 123456), should be different from your username and email, and should be different from your old passwords."
+        title: Password change
+      new:
+        forgot_your_password: Forgot your password?
+        send_me_reset_password_instructions: Send me password reset instructions
+      no_token: You cannot access this page without coming from a password reset email. If you came from a password reset email, make sure you used the complete URL provided.
+      send_instructions: You will receive an email with instructions on how to reset your password in a few minutes.
+      send_paranoid_instructions: If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes.
+      updated: Your password has been successfully changed. You are now signed in.
+      updated_not_active: Your password has been successfully changed.
+    registrations:
+      destroyed: Your account has been successfully cancelled. We hope to see you again soon.
+      edit:
+        are_you_sure: Are you sure?
+        we_need_your_current_password_to_confirm_your_changes: We need your current password to confirm your changes
+      signed_up_but_unconfirmed: A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.
+      update_needs_confirmation: You have successfully updated your account, but we need to confirm your new email address. Please check your email and follow the link to confirm your new email address.
+      updated: Your account has been successfully updated.
+    sessions:
+      already_signed_out: Session successfully ended.
+      signed_in: Successfully signed in.
+      signed_out: Successfully signed out.
+      new:
+        sign_in: Sign in
+        foreign_login:
+          access: Access for foreigners
+          description: For people who are not naturalized as Brazilians, you need to have your passport on hand to register. If you already have a registration, just click login
+          login: "Login"
+          sign_up: "Register"
+    shared:
+      links:
+        back: Back
+        forgot_your_password: Forgot your password?
   forms:
+    length_validator:
+      minimum:
+        one: At least %{count} character
+        other: At least %{count} characters
     required_explanation: Required fields are marked with an asterisk*
+  layouts:
+    decidim:
+      data_consent:
+        details:
+          columns:
+            description: Description
+            name: Name
+            service: Service
+            type: Type
+          items:
+            _session_id:
+              description: Allows sites to remember the user within a site as they move between pages.
+              service: This site
+            decidim-consent:
+              description: Stores information about the cookies allowed by the user on this site.
+              service: This site
+            pwaInstallPromptSeen:
+              description: Stores the status of whether the progressive web app (PWA) installation prompt has been seen by the user.
+              service: This site
+          types:
+            cookie: Cookie
+            local_storage: Local storage
+        dialog:
+          accept_all: Accept cookies
+          reject: Reject cookies
+          description: We use cookies to enhance the performance and content of the site. Cookies allow us to provide a more personalized user experience and social media channels.
+          settings: Cookie manager
+          title: Information about the cookies used on the site
+        modal:
+          accept_all: Save
+          reject: Reject cookies
+          accept_only_essential: Reject cookies
+          analytics:
+            description: These cookies are used to measure and analyze the audience to help improve the site.
+            title: Analytics and statistics
+          description: We use cookies to ensure the basic functionalities of the site and to enhance your online experience. You can configure and accept the use of cookies, and modify your consent options, at any time.
+          essential:
+            description: These cookies enable key site functionality and help keep your users safe. They are automatically saved in the browser and cannot be disabled.
+            title: Essential
+          marketing:
+            description: These cookies collect information about how you use the site and may be used to provide you with more personalized advertising across the different sites you use.
+            title: Marketing
+          preferences:
+            description: These cookies allow the site to remember the choices you made in the past on this site to provide a more personalized experience for site users.
+            title: Preferences
+          save_settings: Save settings
+          title: Cookie settings
+          toggle: Toggle %{consent_category}
+        warning:
+          all_categories: All cookies
+          change_settings: Change cookie settings
+          consent_required: You need to enable %{categories} to view this content.
+      map:
+        dynamic:
+          screen_reader_explanation: The following element is a map presenting the items on this page as map points. The element can be used with a screen reader, but it may be difficult to understand.
+          skip_button: Skip map
+        static:
+          latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
+          map_service_brand: OpenStreetMap
+          arrive_instructions: "How to get there:"
+          see_map: "See map"
+      footer:
+        data_consent_settings: Cookie settings
+        download_open_data: Download Open Data files
+      offline_banner:
+        cache_version_page: Oooops! Your network is offline. This is a previously cached version of the page you are visiting, the content may not be up to date.
+      timeout_modal:
+        body: You have been inactive for %{minutes} minutes. If you continue to be inactive, you will be automatically logged out for your own security.
+        continue_session: Continue session
+        sign_out: Sign out
+        title: Would you like to continue your session?
+      upload_modal:
+        close_modal: Close modal
+  password_validator:
+    blacklisted: is blacklisted
+    email_included_in_password: is too similar to your email
+    nickname_included_in_password: is too similar to your username
+    password_repeated: cannot reuse old password
+  time:
+    formats:
+      decidim_with_month_name: "%d %B %Y"
+      ddmm: "%d/%m"
+      ddmmyyyy: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"

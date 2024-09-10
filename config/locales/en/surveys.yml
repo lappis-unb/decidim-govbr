@@ -1,0 +1,71 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-survey/config/locales/en.yml
+en:
+  activemodel:
+    models:
+      decidim/surveys/closed_survey_event: Survey closed
+      decidim/surveys/opened_survey_event: Survey opened
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Survey
+        other: Surveys
+  decidim:
+    components:
+      surveys:
+        actions:
+          action_not_allowed: You cannot interact with surveys. Your User Profile is incomplete!
+        name: Surveys
+        settings:
+          global:
+            clean_after_publish: Delete responses upon publishing the survey
+            ends_at: Possible to respond to the form until
+            scopes_enabled: Scopes enabled
+            starts_at: Possible to respond to the form from
+          step:
+            allow_unregistered: Allow unregistered users to respond to the survey
+            allow_unregistered_help: If active, no login will be required to respond to the survey. This may lead to unreliable or untrustworthy data and will be more vulnerable to automated attacks. Use with caution! Remember that a participant can respond to the same survey multiple times using different browsers or the "private browsing" feature of their web browser.
+    forms:
+      questionnaires:
+        questionnaire_form:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Sign in</a> or <a href="%{sign_up_link}">sign up</a> to answer the questionnaire.
+            title: Answer the questionnaire
+          questionnaire_js_disabled:
+            body: Some of the functionalities of this form will be disabled. To improve your experience, please enable JavaScript in your browser.
+            title: JavaScript is disabled
+          tos_agreement: By participating you accept the Terms of Service
+          questionnaire_answered:
+            body: Thank you for your contribution!
+            title: You have already participated in this survey!
+          questionnaire_closed:
+            body: The questionnaire is closed and cannot be answered.
+            title: Questionnaire closed
+      incomplete_profile: Complete User Profile
+    events:
+      surveys:
+        survey_closed:
+          email_intro: The survey %{resource_title} in %{participatory_space_title} has closed.
+          email_subject: A survey has closed in %{participatory_space_title}
+          notification_title: The survey <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> has closed.
+        survey_opened:
+          email_intro: "The survey %{resource_title} in %{participatory_space_title} is now open. You can participate from this page:"
+          email_subject: A new survey in %{participatory_space_title}
+          notification_title: The survey <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is now open.
+    metrics:
+      survey_answers:
+        description: Number of surveys answered by participants
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Participant responses to surveys
+        surveys:
+          update:
+            invalid: There was a problem saving the survey.
+            success: Survey saved successfully.
+      last_activity:
+        new_survey_at_html: "<span>New survey in %{link}</span>"
+      surveys:
+        answer:
+          invalid: There was a problem answering the survey.
+          spam_detected: There was a problem answering the survey. Maybe it was too fast, can you try again?
+          success: Survey answered successfully.

@@ -1,0 +1,257 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-admin/config/locales/en.yml
+en:
+  activemodel:
+    attributes:
+      area:
+        area_type_id: Area type
+      attachment:
+        weight: Order position
+      attachment_collection:
+        weight: Order position
+      content_block_attachment:
+        background_image: Background image
+      external_domain:
+        value: URL
+      help_section:
+        content: Content
+      organization:
+        admin_terms_of_use_body: Admin terms of use content
+        default_locale: Default language
+        enable_omnipresent_banner: Show omnipresent banner
+        enable_participatory_space_filters: Enable participatory space filters
+        force_users_to_authenticate_before_access_organization: Force users to authenticate before accessing the organization
+        header_snippets: Header snippets
+        host: Primary internet address
+        logo: Logo
+        official_img_footer: Official footer logo
+        official_img_header: Official header logo
+        secondary_hosts: Secondary internet addresses
+        theme_color: Theme color
+        users_registration_mode: User registration mode
+      participatory_space_private_user:
+        email: Email
+        name: Name
+      settings:
+        scope_id: Scope
+      static_page:
+        topic_id: Topic
+        weight: Order position
+      static_page_topic:
+        weight: Order position
+    metrics:
+      blocked_users:
+        object: blocked users
+        title: Blocked users
+      reported_users:
+        object: reported users
+        title: Reported users
+      user_reports:
+        object: user reports
+        title: User reports
+  activerecord:
+    models:
+      decidim/event_calendar:
+        other: Calendar
+      decidim/moderation: Moderation
+      decidim/user_moderation: Reported user
+  decidim:
+    admin:
+      actions:
+        attachment_collection:
+          new: New attachment collection
+        export-selection: Export selection
+        manage: Manage
+        share: Share
+        participatory_space_private_user:
+          new: New private participatory space user
+        import: Import
+        unpublish: Unpublish
+        user:
+          new: New user
+      admin_terms_of_use:
+        actions:
+          accept: I agree to the terms
+          are_you_sure: Are you sure you want to decline the admin terms of use?
+        required_review:
+          callout: Please take a moment to review the Admin Terms of Use. Otherwise, you will not be able to manage the platform.
+      block_user:
+        new:
+          action: Block account and send justification
+          description: Blocking a user makes their account unusable. You can provide guidance in your justification on what could lead to considering unblocking the user.
+          justification: Justification
+          title: Block user %{name}
+      components:
+        index:
+          headers:
+            scope: Component scope
+        form:
+          default_step_settings: Default step settings
+          step_settings: Step settings
+          name_field: "This is the name of the component, it should be in singular. Example of name for a Polls component: Poll"
+          pluralized_name_field: "Fill in with the name that represents the set of this component. Example of name for a Motion component: Motions"
+          menu_name_field: Fill in with the name of the page that will appear in the Horizontal Menu. If not filled, the Component Set Name will be used
+      conflicts:
+        title: Verification conflicts
+      dashboard:
+        show:
+          view_more_logs: View more logs
+          welcome: Welcome to the Admin Panel.
+      filters:
+        moderated_users:
+          reports_reason_eq:
+            label: Report reason
+        search_placeholder:
+          label: Report reason
+          name_or_nickname_or_email_cont: Search %{collection} by email, name, or username.
+          reported_id_string_or_reported_content_cont: Search %{collection} by report identifier or content.
+          title_cont: Search %{collection} by title.
+          user_name_or_user_email_cont: Search %{collection} by name or email.
+          user_name_or_user_nickname_or_user_email_cont: Search %{collection} by email, name, or username.
+      help_sections:
+        error: There was a problem updating the help sections
+        form:
+          save: Save
+        success: Help sections updated successfully
+      impersonatable_users:
+        index:
+          view_logs: View logs
+      imports:
+        import_from_file: Import from a file
+      logs:
+        logs_list:
+          no_logs_yet: No logs yet
+      menu:
+        admin_log: Admin activity log
+        admins: Admins
+        dashboard: Dashboard
+        external_domain_whitelist: Allowed external domains
+        impersonations: Impersonations
+        moderation: Global moderations
+        users: Users
+        help_sections: Help sections
+        newsletters: Newsletters
+        reported_users: Reported users
+        assemblies: Assemblies
+      models:
+        user:
+          fields:
+            role: Role
+            roles:
+              admin: Admin
+      moderated_users:
+        index:
+          actions:
+            block: Block user
+            title: Actions
+            unblock: Unblock user
+            unreport: Remove report
+          name: Name
+          nickname: Username
+          reason: Reason
+          reports: Report count
+          title: Reported users list
+      newsletters:
+        edit:
+          save_and_preview: Save and preview
+        index:
+          all_users: "All users "
+          title: Newsletters
+        new:
+          save: Save
+        select_recipients_to_deliver:
+          all_users_help: Sends a newsletter to all confirmed users.
+          confirm_deliver: Are you sure you want to send this newsletter? This action cannot be undone.
+          followers_help: Sends a newsletter to all confirmed users who follow any participatory spaces in the list.
+          participants_help: Sends a newsletter to all confirmed users who have participated in any of the selected participatory spaces in the list.
+          recipients_count: This newsletter will be sent to <strong id='recipients_count'>%{count}</strong> users.
+          scopes_help: Sends a newsletter to users who have any of the selected scopes enabled in their "My interests" settings.
+          select_scopes: Filter for users who have any selected scope enabled in their "My interests" settings.
+          select_users: Select the users you want to send the newsletter to
+          send_to_all_users: Send to all users
+          send_to_followers: Send to followers
+          send_to_participants: Send to participants
+          warning: "<strong>Attention:</strong> This newsletter will only be sent to users who have enabled the <em>I want to receive newsletters</em> option in their notification settings."
+      officializations:
+        index:
+          badge: Badge
+          block: Block user
+          nickname: Username
+          reports: Reports
+        show_email_modal:
+          description: If you need to contact a participant directly, click the Show button to see their email address. This action will be logged.
+          title: Show participant's email address
+      organization_appearance:
+        edit:
+          update: Update
+        form:
+          colors:
+            colors_warning_html: Warning! Changing these colors may break accessibility contrasts. You can check the contrast of your choice with the <a href="%{link}">WebAIM Contrast Checker</a> or other similar tools.
+            header_snippets_help: Use this field to add things to the HTML header. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Additionally, you can use it to add extra meta tags to the HTML. Note that this will only be displayed on public pages, not in the admin section.
+          omnipresent_banner_appearance_title: Edit omnipresent banner
+      organization_external_domain_whitelist:
+        edit:
+          update: Update
+        external_domain:
+          down: Down
+          external_domain: External domain
+          remove: Remove
+          up: Up
+        form:
+          add: Add to list
+          title: Authorized external domains list
+      organization_homepage:
+        edit:
+          active_content_blocks: Active content blocks
+          inactive_content_blocks: Inactive content blocks
+      participatory_space_private_users:
+        destroy:
+          error: There was an error deleting a private user from this participatory space.
+        index:
+          title: Participatory space private user
+        new:
+          title: New private user of Participatory Space.
+      participatory_space_private_users_csv_imports:
+        new:
+          destroy:
+            empty: You have no private participants.
+            title: Delete private participants
+          explanation: 'Upload your CSV file. It should have two columns with email in the first column and name in the last column of the file (email, name) of the users you want to add to the participatory space, without headers. Avoid using invalid characters like `<>?%&^*#@()[]=+:;"{}\├` in the username.'
+          title: Upload your CSV file
+          upload: Upload
+      scope_types:
+        new:
+          title: New scope type
+      share_tokens:
+        actions:
+          share: Share
+        share_tokens:
+          empty: There are no active tokens
+          help: These tokens are used to publicly share this unpublished resource with any user. They will be hidden when the resource is published. Click the share icon of the token to visit the shareable URL.
+          title: Share tokens
+      shared:
+        gallery:
+          add_images: Add images
+          delete_image: Delete image
+          edit_images: Edit images
+          gallery_legend: Add an image gallery (Optional)
+      titles:
+        admin_log: Admin log
+        dashboard: Dashboard
+        participants: Participants
+        users: Users
+      users:
+        form:
+          role: Role
+        new:
+          title: Invite new admin
+    moderations:
+      models:
+        moderation:
+          fields:
+            reportable_id: ID
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: Global moderations
+

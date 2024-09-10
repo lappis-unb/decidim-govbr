@@ -1,0 +1,22 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-blogs/config/locales/es.yml
+es:
+  decidim:
+    blogs:
+      social_medias:
+        share: "Compartir:"
+        face_share: Compartir en Facebook
+        twitter_share: Compartir en Twitter
+        LinkedIn_share: Compartir en LinkedIn
+        whatssap_share: Compartir en WhatsApp
+      admin_log:
+        post:
+          create: "%{user_name} creó la publicación del blog %{resource_name} en %{space_name}"
+          delete: "%{user_name} eliminó la publicación del blog %{resource_name} de %{space_name}"
+          update: "%{user_name} actualizó la publicación del blog %{resource_name} en %{space_name}"
+      posts:
+        show:
+          published_at: 'Publicado el'
+          updated_at: 'Actualizado el'
+          back: Volver a la lista
+          page_has_no_publication: La página no tiene publicación.
+          read_more: Leer más

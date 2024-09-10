@@ -5,7 +5,7 @@ require 'rails_helper'
 module Decidim
   module Admin
     describe UpdateBadgeProposals do
-      let(:component) { create(:component, manifest_name: "proposals") }
+      let(:component) { create(:component, manifest_name: "proposals", settings: { most_voted_rule: 10 }) }
       let(:user) { create(:user) }
       let!(:proposals) do
         15.times.map do |index|

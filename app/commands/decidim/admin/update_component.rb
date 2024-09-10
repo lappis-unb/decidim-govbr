@@ -37,8 +37,6 @@ module Decidim
       private
 
       def update_component
-        UpdateBadgeProposals.call(@component, @user) if permitted_to_insert_label?
-
         @previous_settings = @component.attributes["settings"].with_indifferent_access
         @component.name = form.name
         @component.weight = form.weight
@@ -55,14 +53,6 @@ module Decidim
         @settings_changed = @component.settings_changed?
 
         @component.save!
-      end
-
-      def permitted_to_insert_label?
-        active_step_p = current_participatory_space.steps.where(active: true).first.id
-
-        @component.manifest_name == "proposals" &&
-          (params[:component][:step_settings][active_step_p.to_s][:votes_enabled] != @component.step_settings[active_step_p.to_s][:votes_enabled]) &&
-          (params[:component][:step_settings][active_step_p.to_s][:votes_enabled] == "false")
       end
 
       def run_hooks

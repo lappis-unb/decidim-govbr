@@ -1,0 +1,2 @@
+<%= link_to "Destacar mais votadas", main_app.update_proposal_badge_path(current_component: current_component.id), method: :patch, data: { confirm: "Você tem certeza que deseja atualizar os rótulos?" }, class: "exports dropdown-br br-button secondary black-and-white-btn" %>
+<%= link_to "Remover mais votadas", main_app.destroy_proposal_badge_path(current_component: current_component.id), method: :delete, data: { confirm: "Você tem certeza que deseja excluir os rótulos?" }, class: "exports dropdown-br br-button secondary black-and-white-btn" %>
