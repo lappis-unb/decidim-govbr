@@ -42,7 +42,10 @@ pt-BR:
         body: Corpo
         subject: Assunto
       organization:
-        show_filters: Mostrar Filtros
+        filters:
+          show: Mostrar Filtros
+          apply: Aplicar filtros
+          remove_all: Remover todos os filtros
         admin_terms_of_use_body: Corpo para os termos de uso do administrador
         alert_color: Alerta
         available_authorizations: Autorizações disponíveis

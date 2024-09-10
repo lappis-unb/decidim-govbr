@@ -20,7 +20,7 @@
 
   <span id="filter-btn-br" class="button">
     <i class="fa-solid fa-sliders fa-lg" style="color: var(--gray-80);"></i>
-    <%=t("activemodel.attributes.organization.show_filters")%> 
+    <%=t("activemodel.attributes.organization.filters.show")%> 
   </span>
 
   <div id="filters__menu__container" 
@@ -32,7 +32,7 @@
 
     <div id="filters__menu">
       <% if hidden_field[:status] %>
-        <%= form.hidden_field hidden_field[:value], value: params.dig("filter", hidden_field[:value]) %>
+        <%= form.hidden_field hidden_field[:value], value: params.dig("filter", hidden_field[:value]), class: "custom-checkbox" %>
       <% end %>
 
       <% for item in radio_collection %>
@@ -43,7 +43,8 @@
               item[:collection], 
               :first, 
               :last, 
-              legend_title: item[:legend] 
+              legend_title: item[:legend],
+              class: "custom-checkbox" 
             %>
           </div>
         <% end %>
@@ -56,7 +57,8 @@
               form.check_boxes_tree item[:attribute], 
               item[:collection], 
               legend_title: item[:legend], 
-              "aria-controls": item[:aria_controls] 
+              "aria-controls": item[:aria_controls],
+              class: "custom-checkbox" 
             %>
           </div>
         <% end %>
@@ -65,6 +67,35 @@
       <% if hidden_tag[:status] %>
         <%= hidden_field_tag :order, hidden_tag[:order], id: nil, class: "order_filter" %>
       <% end %>
+      <div class="filters-submit mb-0">
+        <div id="apply-filters-button" class="br-button primary filters-submit-btn">
+          <%= form.submit "Aplicar filtros", class: "button button--sc" %>
+        </div>
+      </div>  
     </div>
   </div>
 <% end %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var radioFields = document.querySelectorAll('input[type="radio"][name="filter[activity]"]');
+    var meetingRadioFields = document.querySelectorAll('input[type="radio"][name="filter[with_any_date]"]');
+
+    radioFields.forEach(function(radio) {
+      radio.classList.add("custom-checkbox");
+    });
+
+    meetingRadioFields.forEach(function(meetingRadioField) {
+      meetingRadioField.classList.add("custom-checkbox");
+    });
+
+    var checkboxes = document.querySelectorAll(".custom-checkbox");
+
+    checkboxes.forEach(function(checkbox) {
+      checkbox.addEventListener("change", function(event) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+      });
+    });
+  });
+</script>

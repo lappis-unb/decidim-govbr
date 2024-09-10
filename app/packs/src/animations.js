@@ -127,4 +127,12 @@ document.addEventListener("DOMContentLoaded", function () {
       filtersMenu.classList.add("filters__hidden");
     }, 500);
   }
+
+  // const applyFiltersButton = document.getElementById("apply-filters-button");
+  // const removeAllFiltersButton = document.getElementById("remove-all-btn")
+  
+  // if (applyFiltersButton || remove-all-btn) {
+  //   applyFiltersButton.addEventListener("click", hideFilters);
+  //   removeAllFiltersButton.addEventListener("click", hideFilters);
+  // }
 });

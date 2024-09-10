@@ -13,3 +13,37 @@
 .show-notice-btn {
   min-width: 170px;
 }
+
+.filters-submit {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 0;
+  @media (max-width: 610px) {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+.filters-submit-btn {
+  font-size: 16.8px;
+  @media (max-width: 610px) {
+    width: 100%;
+  }
+}
+
+.filters-removed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: var(--gray-80);
+  font-size: 14px;
+  font-weight: 700;
+  i {
+    width: 16px;
+    height: 16px;
+    color: var(--gray-80); 
+  }
+}
+
