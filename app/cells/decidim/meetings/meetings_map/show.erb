@@ -6,22 +6,10 @@
         <p>{{html description}}</p>
         <div class="map__date-address">
           <div class="card__datetime">
-            <% if startTimeDay.present? %>
-              <div class="card__datetime__date">
-                ${startTimeDay} <span class="card__datetime__month">${startTimeMonth} ${startTimeYear}</span>
-              </div>
-            <% else %>
-              <div class="card__datetime__date">
-                A definir
-              </div>
-            <% end %>
-            <% if startTime.present? %>
-              <div class="card__datetime__time">${startTime}</div>
-            <% else  %>
-              <div class="card__datetime__time">
-                A definir
-              </div>
-            <% end %>
+            <div class="card__datetime__date">
+              ${startTimeDay} <span class="card__datetime__month">${startTimeMonth} ${startTimeYear}</span>
+            </div>
+            <div class="card__datetime__time">${startTime}</div>
           </div>
           <div class="address card__extra">
             <div class="address__icon">{{html icon}}</div>
