@@ -24,12 +24,12 @@ module Decidim
 
           CreateMediaLink.call(@form, current_user, current_participatory_space) do
             on(:ok) do
-              flash[:notice] = I18n.t("media_links.create.success", scope: "decidim.admin")
+              flash[:notice] = I18n.t("media_links.create.success", scope: DECIDIM_ADMIN_SCOPE)
               redirect_to participatory_space_media_links_path(current_participatory_space)
             end
 
             on(:invalid) do
-              flash[:alert] = I18n.t("media_links.create.error", scope: "decidim.admin")
+              flash[:alert] = I18n.t("media_links.create.error", scope: DECIDIM_ADMIN_SCOPE)
               render :new
             end
           end
@@ -48,12 +48,12 @@ module Decidim
 
           UpdateMediaLink.call(@form, @media_link) do
             on(:ok) do
-              flash[:notice] = I18n.t("media_links.update.success", scope: "decidim.admin")
+              flash[:notice] = I18n.t("media_links.update.success", scope: DECIDIM_ADMIN_SCOPE)
               redirect_to participatory_space_media_links_path(current_participatory_space)
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("media_links.update.error", scope: "decidim.admin")
+              flash.now[:alert] = I18n.t("media_links.update.error", scope: DECIDIM_ADMIN_SCOPE)
               render :edit
             end
           end
@@ -65,7 +65,7 @@ module Decidim
 
           DestroyMediaLink.call(@media_link, current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t("media_links.destroy.success", scope: "decidim.admin")
+              flash[:notice] = I18n.t("media_links.destroy.success", scope: DECIDIM_ADMIN_SCOPE)
               redirect_to participatory_space_media_links_path(current_participatory_space)
             end
           end

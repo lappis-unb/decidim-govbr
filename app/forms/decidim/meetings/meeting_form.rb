@@ -6,6 +6,8 @@ module Decidim
     class MeetingForm < ::Decidim::Meetings::BaseMeetingForm
       include Decidim::AttachmentAttributes
 
+      DECIDIM_MEETINGS_SCOPE = "decidim.meetings"
+
       attribute :title, String
       attribute :description, String
       attribute :location, String
@@ -129,7 +131,7 @@ module Decidim
       def select_collection(collection, scope)
         collection.map do |type|
           [
-            I18n.t("#{scope}.#{type}", scope: "decidim.meetings"),
+            I18n.t("#{scope}.#{type}", scope: DECIDIM_MEETINGS_SCOPE),
             type
           ]
         end

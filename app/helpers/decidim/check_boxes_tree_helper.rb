@@ -53,7 +53,7 @@ module Decidim
         category_descendants = sorted_categories.select { |cat| category.id == cat.parent_id }
 
         if category_descendants.any?
-          sorted_descendant_categories = category_descendants.flat_map do |subcategory|
+          category_descendants.flat_map do |subcategory|
             [subcategory.weight, translated_attribute(subcategory.name, organization)]
           end
 

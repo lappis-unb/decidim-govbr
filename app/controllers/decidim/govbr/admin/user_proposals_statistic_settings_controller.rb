@@ -23,12 +23,12 @@ module Decidim
 
           CreateUserProposalsStatisticSetting.call(@form, current_user, current_participatory_space) do
             on(:ok) do
-              flash[:notice] = I18n.t("user_proposals_statistic_settings.create.success", scope: "decidim.admin")
+              flash[:notice] = I18n.t("user_proposals_statistic_settings.create.success", scope: DECIDIM_ADMIN_SCOPE)
               redirect_to participatory_space_user_proposals_statistic_settings_path(current_participatory_space)
             end
 
             on(:invalid) do
-              flash[:alert] = I18n.t("user_proposals_statistic_settings.create.error", scope: "decidim.admin")
+              flash[:alert] = I18n.t("user_proposals_statistic_settings.create.error", scope: DECIDIM_ADMIN_SCOPE)
               render :new
             end
           end
@@ -47,12 +47,12 @@ module Decidim
 
           UpdateUserProposalsStatisticSetting.call(@form, @statistic_setting) do
             on(:ok) do
-              flash[:notice] = I18n.t("user_proposals_statistic_settings.update.success", scope: "decidim.admin")
+              flash[:notice] = I18n.t("user_proposals_statistic_settings.update.success", scope: DECIDIM_ADMIN_SCOPE)
               redirect_to participatory_space_user_proposals_statistic_settings_path(current_participatory_space)
             end
 
             on(:invalid) do
-              flash[:alert] = I18n.t("user_proposals_statistic_settings.update.error", scope: "decidim.admin")
+              flash[:alert] = I18n.t("user_proposals_statistic_settings.update.error", scope: DECIDIM_ADMIN_SCOPE)
               render :edit
             end
           end
@@ -64,7 +64,7 @@ module Decidim
 
           DestroyUserProposalsStatisticSetting.call(@statistic_setting, current_user) do
             on(:ok) do
-              flash[:alert] = I18n.t("user_proposals_statistic_settings.destroy.success", scope: "decidim.admin")
+              flash[:alert] = I18n.t("user_proposals_statistic_settings.destroy.success", scope: DECIDIM_ADMIN_SCOPE)
               redirect_to participatory_space_user_proposals_statistic_settings_path(current_participatory_space)
             end
           end

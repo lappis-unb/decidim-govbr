@@ -21,12 +21,12 @@ module Decidim
         end
 
         def set_flash_and_redirect(message_key, path)
-          flash[:notice] = I18n.t(message_key, scope: "decidim.proposals.admin")
+          flash[:notice] = I18n.t(message_key, scope: DECIDIM_PROPOSALS_SCOPE)
           redirect_to path
         end
 
         def handle_validation_failures(failures, action)
-          alert_msg = [I18n.t("participatory_texts.publish.invalid", scope: "decidim.proposals.admin")]
+          alert_msg = [I18n.t("participatory_texts.publish.invalid", scope: DECIDIM_PROPOSALS_SCOPE)]
           failures.each_pair { |id, msg| alert_msg << "ID:[#{id}] #{msg}" }
           flash.now[:alert] = alert_msg.join("<br/>").html_safe
           send(action)
@@ -42,12 +42,12 @@ module Decidim
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("participatory_texts.import.invalid", scope: "decidim.proposals.admin")
+              flash.now[:alert] = I18n.t("participatory_texts.import.invalid", scope: DECIDIM_PROPOSALS_SCOPE)
               render action: "new_import", status: :unprocessable_entity
             end
 
             on(:invalid_file) do
-              flash.now[:alert] = I18n.t("participatory_texts.import.invalid_file", scope: "decidim.proposals.admin")
+              flash.now[:alert] = I18n.t("participatory_texts.import.invalid_file", scope: DECIDIM_PROPOSALS_SCOPE)
               render action: "new_import", status: :unprocessable_entity
             end
           end
@@ -100,7 +100,7 @@ module Decidim
             end
 
             on(:invalid) do |failures|
-              alert_msg = [I18n.t("participatory_texts.publish.invalid", scope: "decidim.proposals.admin")]
+              alert_msg = [I18n.t("participatory_texts.publish.invalid", scope: DECIDIM_PROPOSALS_SCOPE)]
               failures.each_pair { |id, msg| alert_msg << "ID:[#{id}] #{msg}" }
               flash.now[:alert] = alert_msg.join("<br/>").html_safe
               edit_as_preview

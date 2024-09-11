@@ -64,7 +64,7 @@ module Decidim
 
         return if meeting.current_user_can_visit_meeting?(current_user)
 
-        flash[:alert] = I18n.t("meeting.not_allowed", scope: "decidim.meetings")
+        flash[:alert] = I18n.t("meeting.not_allowed", scope: DECIDIM_MEETINGS_SCOPE)
         redirect_to(ResourceLocatorPresenter.new(meeting).index)
       end
 
