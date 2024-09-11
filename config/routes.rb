@@ -119,6 +119,7 @@ Rails.application.routes.draw do
           end
         end
       end
+    end
 
     resources :participatory_process_groups, only: [] do
       resources :participatory_process_group_users,
@@ -126,5 +127,4 @@ Rails.application.routes.draw do
                 except: [:show],
                 as: :users
     end
-  end
 end
