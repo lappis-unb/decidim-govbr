@@ -916,7 +916,7 @@ en:
       process_navigation:
         media: Media
       edit_link:
-        edit_component: Edit component
+        edit_component: Edit Component
       data_consent:
         dialog:
           accept_all: Aceitar cookies
@@ -1127,6 +1127,8 @@ es-MX:
         media: Medios
       process_navigation:
         media: Medios
+      edit_link:
+        edit_component: Editar Componente
 
 es-PY:
   activemodel:
@@ -1329,6 +1331,8 @@ es-PY:
         media: Medios
       process_navigation:
         media: Medios
+      edit_link:
+        edit_component: Editar Componente
 
 es:
   activemodel:

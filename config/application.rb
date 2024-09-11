@@ -21,6 +21,8 @@ module Decide
     config.active_job.queue_adapter = :sidekiq
 
     config.i18n.load_path += Dir['config/locales/**/*.yml']
+    config.i18n.available_locales = [:en, :'pt-BR', :es]
+    config.i18n.default_locale = :'pt-BR'
 
     config.to_prepare do
       list = Dir.glob("#{Rails.root}/lib/extends/**/*.rb")
