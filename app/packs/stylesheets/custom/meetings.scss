@@ -668,7 +668,6 @@
 
 .agenda-card-content {
   border-radius: 0.25rem;
-  padding: 0.5rem;
 
   .agenda-item-content-container {
     display: flex;
@@ -693,8 +692,14 @@
   .agenda-item-content-container.childless {
     cursor: default;
     .fa-solid {
-      display: none;
+      opacity: 0%;
     }
+  }
+}
+
+.agenda-items-content{
+  .agenda-card-time{
+    padding: 1rem!important;
   }
 }
 
@@ -1203,9 +1208,18 @@ div.meetings-author-info-br span.author__name {
 .meeting-actions-buttons {
   display: flex;
   width: 100%;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 12px;
 }
+
+@media (max-width: 768px) {
+
+  .meeting-actions-buttons{
+    flex-direction: column!important;
+  }
+
+}
+
 
 .meeting-actions-buttons .br-button {
   display: flex;
@@ -1356,10 +1370,15 @@ div.meetings-author-info-br span.author__name {
   }
 }
 
+.fa-chevron-down:before {
+  padding: 0.5rem;
+  content: "\f078";
+}
+
 .agenda__section-container {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 
   .agenda-section {
     display: flex;
@@ -1387,7 +1406,6 @@ div.meetings-author-info-br span.author__name {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 1rem;
     width: 100%;
 
     .agenda-card-text {
@@ -1396,6 +1414,7 @@ div.meetings-author-info-br span.author__name {
       text-align: left;
       width: 100%;
       gap: 0.5rem;
+      padding: 0.5rem;
 
       h3 {
         font-size: 1rem;
@@ -1418,7 +1437,7 @@ div.meetings-author-info-br span.author__name {
       flex-direction: column;
       min-width: fit-content;
       gap: 0.25rem;
-      padding: 0;
+      padding: 0.5rem;
 
       .agenda-time-duration {
         font-size: 1rem;
@@ -1555,12 +1574,13 @@ div.meetings-author-info-br span.author__name {
 
 @media (max-width: 768px) {
   .agenda__section-container {
+
     .agenda-item-content {
       flex-direction: column;
       align-items: flex-start;
 
       .agenda-card-time {
-        padding: 0;
+        padding: 0.5rem!important;
         align-items: flex-start;
   
         .agenda-time-duration {
@@ -1580,9 +1600,21 @@ div.meetings-author-info-br span.author__name {
       flex-direction: column;
     }
   }
+
+  .agenda-item-content{
+    .agenda-card-text{
+      padding: 0 0.5rem;
+    }
+  }
+
   .agenda-card-content {
+    .agenda-items-content{
+        margin: 0.5rem 0 0 0.75rem;
+    }
+
     .agenda-item-content-container {
       >.fa-solid {
+        padding: 12px 0px 0px 0px;
         display: flex;
         min-width: 2rem;
         align-items: flex-start;
