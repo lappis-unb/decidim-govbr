@@ -70,6 +70,11 @@ module Decidim
           on(:ok) do |export_data|
             send_data export_data.read, type: "text/#{export_data.extension}", filename: export_data.filename("registrations")
           end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("registrations.export.invalid", scope: "decidim.meetings")
+            redirect_after_path
+          end
         end
       end
 
