@@ -12,10 +12,10 @@
 )
 %>
 <% @can_moderate = current_participatory_space.moderators.include?(current_user) %>
-<div class="br-container-lg">
-  <div class="m-bottom">
+<div class="br-container-lg button_back">
+  <div class="mb-3x">
     <%= link_to meetings_path, class: "small hollow js-back-to-list" do %>
-      <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+      <i class="fa fa-chevron-left" aria-hidden="true"></i>
       <%= t(".back") %>
     <% end %>
   </div>
