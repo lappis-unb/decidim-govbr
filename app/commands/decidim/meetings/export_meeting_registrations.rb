@@ -18,6 +18,8 @@ module Decidim
       #
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
+        return broadcast(:invalid) unless can_export_registrations?
+
         broadcast(:ok, export_data)
       end
 
@@ -36,6 +38,10 @@ module Decidim
             .new(meeting.registrations, Decidim::Meetings::RegistrationSerializer)
             .export
         end
+      end
+
+      def can_export_registrations?
+        current_user.admin? || @meeting.authored_by?(@current_user)
       end
     end
   end

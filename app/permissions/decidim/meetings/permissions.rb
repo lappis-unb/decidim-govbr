@@ -119,7 +119,7 @@ module Decidim
       end
 
       def can_export_registrations?
-        meeting.present? && user.present? && (user.admin? || meeting.authored_by?(user)) && authorized?(:export_registrations, resource: meeting)
+        meeting.present? && user.present? && (user.admin? || meeting.authored_by?(user))
       end
 
       def can_answer_question?
