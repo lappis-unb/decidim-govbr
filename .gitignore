@@ -35,4 +35,3 @@ public/sw.js*
 yarn-debug.log*
 .yarn-integrity
 package-lock.json
-.DS_Store

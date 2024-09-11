@@ -1,0 +1,1103 @@
+en:
+  activemodel:
+    attributes:
+      area:
+        area_type: Area type
+        name: Name
+        organization: Organization
+      area_type:
+        name: Name
+        organization: Organization
+        plural: Plural
+      attachment:
+        attachment_collection_id: Folder
+        description: Description
+        file: File
+        title: Image or attachment name
+        weight: Order position
+      attachment_collection:
+        description: Description
+        name: Name
+        weight: Order position
+      category:
+        description: Description
+        name: Name
+        parent_id: Parent
+        weight: Order position
+      component:
+        name: Component Set Name
+        published_at: Published on
+        weight: Order position
+        singular_name: Component Name
+        menu_name: Page Name
+      external_domain:
+        value: Value
+      help_section:
+        content: Content
+      id: ID
+      import:
+        user_group_id: Create imports as
+      newsletter:
+        body: Body
+        subject: Subject
+      organization:
+        show_filters: Show Filters
+        admin_terms_of_use_body: Admin terms of use body
+        alert_color: Alert
+        available_authorizations: Available authorizations
+        badges_enabled: Enable badges
+        comments_max_length: Maximum characters per comment (leave 0 for no limit)
+        cta_button_path: Call to Action button path
+        cta_button_text: Call to Action button text
+        customize_welcome_notification: Customize welcome notification
+        default_locale: Default language
+        description: Description
+        enable_omnipresent_banner: Show omnipresent banner
+        enable_participatory_space_filters: Enable participatory space filters
+        facebook_handler: Facebook handler
+        favicon: Icon
+        force_authentication: Force authentication
+        force_users_to_authenticate_before_access_organization: Force users to authenticate before accessing the organization
+        from: Sender email address
+        github_handler: GitHub handler
+        header_snippets: Header snippets
+        highlight_alternative_color: Highlight, alternative
+        highlight_color: Highlight
+        highlighted_content_banner_action_subtitle: Action button subtitle
+        highlighted_content_banner_action_title: Action button title
+        highlighted_content_banner_action_url: Action button URL
+        highlighted_content_banner_enabled: Show highlighted content banner
+        highlighted_content_banner_image: Image
+        highlighted_content_banner_short_description: Short description
+        highlighted_content_banner_title: Title
+        host: Host
+        instagram_handler: Instagram handler
+        logo: Logo
+        machine_translation_display_priority: Machine translation display priority
+        machine_translation_display_priority_original: Original text first
+        machine_translation_display_priority_translation: Translated text first
+        user_profile_survey_id: User Profile Survey ID
+        name: Name
+        official_img_footer: Official footer symbol
+        official_img_header: Official header logo
+        official_url: Official organization URL
+        omnipresent_banner_short_description: Short description
+        omnipresent_banner_title: Title
+        omnipresent_banner_url: URL
+        organization_admin_email: Organization admin email
+        organization_admin_name: Organization admin name
+        organization_locales: Organization locales
+        primary_color: Primary
+        reference_prefix: Reference prefix
+        rich_text_editor_in_public_views: Enable rich text editor for participants
+        secondary_color: Secondary
+        secondary_hosts: Secondary space
+        send_welcome_notification: Send welcome notification
+        success_color: Success
+        time_zone: Time zone
+        tos_version: Terms of service version
+        user_groups_enabled: Enable user groups
+        users_registration_mode: User registration mode
+        warning_color: Warning
+        welcome_notification_body: Welcome notification body
+        welcome_notification_subject: Welcome notification subject
+        youtube_handler: YouTube handler
+      participatory_space_private_user:
+        email: Email
+        name: Name
+      scope:
+        code: Code
+        name: Name
+        organization: Organization
+        parent_id: Parent
+        scope_type: Scope type
+        scope_type_id: Scope type ID
+      scope_type:
+        name: Name
+        organization: Organization
+        plural: Plural
+      settings:
+        scope_id: Scope
+      static_page:
+        allow_public_access: Allow public access
+        changed_notably: Notable changes
+        content: Content
+        organization: Organization
+        show_in_footer: Show in footer
+        slug: URL short text
+        title: Title
+        topic_id: Topic
+        weight: Order position
+      static_page_topic:
+        description: Description
+        show_in_footer: Show in footer
+        title: Title
+        weight: Order position
+      user_group_csv_verification:
+        file: File
+    errors:
+      models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Select at least one participatory space
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Invalid image file
+            official_img_header:
+              allowed_file_content_types: Invalid image file
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Malformed import file, please read the instructions carefully and ensure the file is UTF-8 encoded.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Malformed import file, please read the instructions carefully and ensure the file is UTF-8 encoded.
+      new_import:
+        attributes:
+          file:
+            invalid_file: Invalid file provided, please ensure the file is correctly formatted
+            invalid_mime_type: Invalid mime type
+  activerecord:
+    attributes:
+      decidim/static_page:
+        content: Content
+        slug: URL short text
+        title: Title
+      doorkeeper/application:
+        authorize_url: Authorize URL
+        client_id: Client ID
+        client_secret: Client Secret
+        organization_name: Organization name
+        organization_url: Organization URL
+        redirect_uri: Redirect URI
+        site: Site
+  decidim:
+    admin:
+      actions:
+        add: Add
+        attachment:
+          new: New attachment
+        attachment_collection:
+          new: New attachment collection
+        browse: Browse
+        category:
+          new: New category
+        export: Export all
+        export_comments: Export contributions
+        export_proposals: Export proposals
+        export-selection: Export selected
+        import: Import
+        manage: Manage
+        new: New %{name}
+        newsletter:
+          new: New Newsletter
+        participatory_space_private_user:
+          new: New private user participatory space
+        per_page: Per page
+        permissions: Permissions
+        reject: Deny
+        share: Share your contribution
+        user:
+          new: New administrator
+        verify: Verify
+      admin_terms_of_use:
+        accept:
+          error: An error occurred while accepting the admin terms of use.
+          success: Great! You have accepted the admin terms of use.
+        actions:
+          accept: I agree to these terms
+          refuse: Refuse the admin terms
+          title: Agree to the terms and conditions of use
+        required_review:
+          alert: "Required: Review our admin terms of use"
+          cta: Review them now.
+        title: Admin Terms of Use
+      area_types:
+        create:
+          error: An error occurred while creating a new area type.
+          success: Area type successfully created.
+        destroy:
+          success: Area type successfully deleted
+        edit:
+          title: Edit area type
+          update: Update
+        new:
+          create: Create area type
+          title: New area type
+        update:
+          error: An error occurred while updating this area type.
+          success: Area type successfully updated
+      areas:
+        create:
+          error: An error occurred while creating a new area.
+          success: Area successfully created.
+        destroy:
+          has_spaces: This area has dependent spaces. Please ensure no Participatory Space references this area before deleting it.
+          success: Area successfully deleted
+        edit:
+          title: Edit area
+          update: Update
+        new:
+          create: Create area
+          title: New area
+        no_areas: No areas
+        update:
+          error: An error occurred while updating this area.
+          success: Area successfully updated
+      attachment_collections:
+        create:
+          error: An error occurred while creating a new folder.
+          success: Folder successfully created.
+        destroy:
+          success: Folder successfully deleted.
+        edit:
+          title: Edit folder
+          update: Update
+        index:
+          attachment_collection_used: This folder cannot be removed because it is in use.
+          attachment_collections_title: Attachment folders
+        new:
+          create: Create
+          title: New folder
+        update:
+          error: An error occurred while updating this folder.
+          success: Folder successfully updated.
+      attachments:
+        create:
+          error: An error occurred while creating a new attachment.
+          success: Attachment successfully created.
+        destroy:
+          success: Attachment successfully deleted.
+        edit:
+          title: Edit attachment
+          update: Update
+        index:
+          attachments_title: Attachments
+        new:
+          create: Create attachment
+          title: New attachment
+        update:
+          error: An error occurred while updating this attachment.
+          success: Attachment successfully updated.
+      attachments_privacy_warning:
+        message: Be careful when working with attachments in a private space. Any participant can share this document with others.
+      autocomplete:
+        no_results: No results found
+        search_prompt: Type at least three characters to search
+      block_user:
+        new:
+          action: Block account and send justification
+          description: Blocking a user will make their account unusable. You can provide in your justification any guidelines on how you might consider unblocking the user.
+          justification: Justification
+          title: Block user %{name}
+      categories:
+        create:
+          error: An error occurred while creating this category.
+          success: Category successfully created.
+        destroy:
+          error: An error occurred while deleting this category. Please delete any subcategories first, ensure no other entity belongs to this category, and try again.
+          success: Category successfully deleted.
+        edit:
+          title: Edit category
+          update: Update
+        index:
+          categories_title: Categories
+          category_used: This category cannot be removed because it is in use.
+        new:
+          create: Create category
+          title: New category
+        update:
+          error: An error occurred while updating this category.
+          success: Category successfully updated.
+      component_permissions:
+        update:
+          error: An error occurred while updating this component's permissions.
+          success: Permissions successfully updated.
+      components:
+        create:
+          error: An error occurred while creating this component.
+          success: Component successfully created.
+        destroy:
+          error: An error occurred while deleting this component.
+          success: Component successfully deleted.
+        edit:
+          title: Edit Participation Page (Component)
+          update: Update
+        form:
+          default_step_settings: Default step settings
+          global_settings: Settings
+          step_settings: Process Step Settings
+        index:
+          add: Add component
+          headers:
+            actions: Actions
+            name: Component name
+            scope: Component scope
+            type: Component type
+        new:
+          add: Add component
+          title: "Add component: %{name}"
+        publish:
+          success: The component was successfully published.
+        title: Components
+        unpublish:
+          success: The component was successfully unpublished.
+        update:
+          error: An error occurred while updating this component.
+          success: The component was successfully updated.
+      conflicts:
+        attempts: Attempts
+        "false": "No"
+        managed_user_name: Managed user
+        solved: Solved
+        title: Verification conflicts
+        transfer:
+          email: Email
+          error: There was an error transferring the current user to the managed user.
+          name: Name
+          reason: Reason
+          success: The current transfer was successfully completed.
+          title: Transfer
+        "true": "Yes"
+        user_name: User
+      dashboard:
+        show:
+          view_more_logs: View more logs
+          welcome: Welcome to the administration panel.
+      domain_whitelist:
+        form:
+          domain_too_short: Domain too short
+        update:
+          error: Failed to update whitelist domain
+          success: Whitelist domain successfully updated
+      exports:
+        export_as: "%{name} as %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
+        notice: Your export is currently in progress. You will receive an email when it is complete.
+      filters:
+        category_id_eq:
+          label: Category
+        filter_label: Filter
+        invitation_accepted_at_present:
+          label: Invitation accepted
+          values:
+            "false": "No"
+            "true": "Yes"
+        last_sign_in_at_present:
+          label: Logged in before
+          values:
+            "false": "No"
+            "true": "Yes"
+        moderated_users:
+          reports_reason_eq:
+            label: Report reason
+            values:
+              does_not_belong: Does not belong
+              offensive: Offensive
+              spam: Spam 
+        moderations:
+          reportable_type_string_eq:
+            label: Type
+        officialized_at_null:
+          label: Status
+          values:
+            "false": Official
+            "true": Not official
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Invitation accepted
+            values:
+              "false": Not accepted
+              "true": Accepted
+          user_invitation_sent_at_not_null:
+            label: Invitation sent
+            values:
+              "false": Not sent
+              "true": Sent
+        private_space_eq:
+          label: Private
+          values:
+            "false": Public
+            "true": Private
+        published_at_null:
+          label: Published
+          values:
+            "false": Published
+            "true": Not published
+        scope_id_eq:
+          label: Area of interest
+        search_label: Search
+        search_placeholder:
+          name_or_nickname_or_email_cont: Search %{collection} by email, name, or nickname.
+          report_count_eq: Number of reports
+          reported_id_string_or_reported_content_cont: Search %{collection} by reportable id or content.
+          title_cont: Search %{collection} by title.
+          user_name_or_user_email_cont: Search %{collection} by name or email.
+          user_name_or_user_nickname_or_user_email_cont: Search %{collection} by email, name, or nickname.
+        state_eq:
+          label: State
+          values:
+            all: All
+            pending: Pending
+            rejected: Rejected
+            verified: Verified
+      forms:
+        file_help:
+          import:
+            explanation: "File guidance:"
+            message_1: CSV, JSON, and Excel (xlsx) files are supported
+            message_2: For CSV files, the column separator must be a semicolon (";")
+      help_sections:
+        error: There was an error updating the help sections
+        form:
+          save: Save
+        success: Help sections updated successfully
+      impersonatable_users:
+        index:
+          filter:
+            all: All
+            managed: Managed
+            not_managed: Not managed
+          filter_by: Filter by
+          impersonate: Impersonate
+          impersonate_new_managed_user: Impersonate new managed user
+          managed: Managed
+          name: Name
+          needs_authorization_warning: You need at least one authorization enabled for this organization.
+          not_managed: Not managed
+          promote: Promote
+          search: Search
+          status: Status
+          view_logs: View logs
+      impersonations:
+        close_session:
+          error: There was an error closing the current impersonation session.
+          success: The current impersonation session was successfully ended.
+        create:
+          error: There was an error impersonating the user.
+          success: The managed user was successfully created.
+        form:
+          authorization_method: Authorization method
+          name: Name
+          reason: Reason
+        new:
+          impersonate: Impersonate
+          impersonate_existing_managed_user: Impersonate managed user "%{name}"
+          impersonate_existing_user: Impersonate user "%{name}"
+          impersonate_new_managed_user: Impersonate new managed user
+      imports:
+        and: and
+        data_errors:
+          duplicate_headers:
+            detail: Please check the file contains mandatory columns or headers only once.
+            message:
+              one: Duplicate column %{columns}.
+              other: Duplicate columns %{columns}.
+          invalid_indexes:
+            lines:
+              detail: Please check these lines are properly formatted and contain valid records.
+              message:
+                one: An error occurred in the import file at line %{indexes}.
+                other: Errors found in the import file at lines %{indexes}.
+            records:
+              detail: Please check these lines are properly formatted and contain valid records.
+              message:
+                one: Errors found in the import file for records with order number %{indexes}.
+                other: Found an error in the import file for records with order numbers %{indexes}.
+          missing_headers:
+            detail: Please check the file contains mandatory columns.
+        error: There was a problem during the import
+        example_error: Unable to create an example for the provided type
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xlsx: xlsx
+          actions:
+            back: Back
+          download_example: Download example
+          download_example_format: Example as %{name}
+          file_legend: Add an import file that will be analyzed.
+          import: Import
+        notice: "%{number} %{resource_name} successfully imported"
+      logs:
+        logs_list:
+          no_logs_yet: No logs yet
+      managed_users:
+        promotion:
+          error: There was an error promoting the managed user.
+          success: The managed user was successfully promoted.
+        promotions:
+          new:
+            explanation: Managed users can be promoted to standard users. This means they will be invited to the app and you will no longer be able to impersonate them. The invited user will receive an email to accept their invitation.
+            new_managed_user_promotion: New managed user promotion
+            promote: Promote
+      menu:
+        admin_log: Admin activity log
+        admins: Admins
+        appearance: Appearance
+        area_types: Area types
+        areas: Areas
+        configuration: Configuration
+        dashboard: Dashboard
+        external_domain_whitelist: External allowed domains
+        help_sections: Help sections
+        homepage: Homepage
+        impersonations: Impersonations
+        moderation: Global moderators
+        newsletters: Newsletters
+        participants: Participants
+        reported_users: Reported users
+        scope_types: Area of interest types
+        scopes: Areas of interest
+        settings: Settings
+        static_pages: Pages
+        user_groups: User groups
+        users: Users
+      metrics:
+        metrics:
+          see_more_metrics: See more metrics
+      models:
+        area:
+          fields:
+            area_type: Area type
+            name: Name
+        area_type:
+          fields:
+            name: Name
+            plural: Plural
+        attachment:
+          fields:
+            collection: Folder
+            content_type: Type
+            file_size: Size
+            title: Title
+          name: Attachment
+        attachment_collection:
+          name: Folder
+        category:
+          name: Category
+        impersonation_log:
+          fields:
+            admin: Admin
+            ended_at: Ended at
+            expired_at: Expired at
+            reason: Reason
+            started_at: Started at
+            user: User
+        newsletter:
+          fields:
+            created_at: Created at
+            progress: Progress
+            sent_at: Sent at
+            sent_to: Sent to
+            subject: Subject
+          name: Newsletter
+        participatory_space_private_user:
+          name: Participatory space private user
+        scope:
+          fields:
+            name: Name
+            scope_type: Area of interest type
+        scope_type:
+          fields:
+            name: Name
+            plural: Plural
+        share_token:
+          fields:
+            created_at: Created at
+            expires_at: Expires at
+            last_used_at: Last used at
+            times_used: Times used
+            token: Token
+            user: Created by
+        static_page:
+          fields:
+            created_at: Created at
+            title: Title
+        user:
+          fields:
+            created_at: Created at
+            email: Email
+            last_sign_in_at: Last sign in at
+            name: Name
+            role: Role
+            roles:
+              admin: Admin
+              user_manager: User manager
+              group_admin: Process group member
+          name: User
+        user_group:
+          fields:
+            actions: Actions
+            created_at: Created at
+            document_number: Document number
+            name: Name
+            phone: Phone
+            state: State
+            users_count: Users count
+      moderated_users:
+        index:
+          actions:
+            block: Block user
+            title: Actions
+            unblock: Unblock user
+            unreport: Unreport
+          name: Name
+          nickname: Nickname
+          reason: Reason
+          reports: Number of reports
+          title: Reported participants
+        report:
+          reasons:
+            does_not_belong: Does not belong
+            offensive: Offensive
+            spam: Spam
+        tabs:
+          blocked: Blocked
+          unblocked: Unblocked
+      moderations:
+        index:
+          title: Reported content
+        report:
+          reasons:
+            does_not_belong: Does not belong
+            offensive: Offensive
+            spam: Spam
+        reports:
+          index:
+            author: Author(s)
+            callout_html: A content appears on the moderation panel when flagged by a user (it can be a registered account) by clicking the %{icon} flag next to the item.
+            content_original_language: Content original language
+            participatory_space: Participatory space
+            reported_content: Reported content
+            see_current: See current
+            see_original: See original
+            title: Moderation reports
+          show:
+            report_details: Report details
+            report_language: Report language
+            report_reason: Reason
+            title: Report details
+      newsletter_templates:
+        index:
+          preview_template: Preview
+          title: Newsletter templates
+          use_template: Use this template
+        show:
+          preview: "Preview template: %{template_name}"
+          use_template: Use this template
+      newsletters:
+        create:
+          error: There was an error creating this newsletter.
+          success: Newsletter successfully created. Please review it before sending.
+        deliver:
+          error: There was an error delivering this newsletter.
+          success: Newsletter successfully delivered.
+        destroy:
+          error_already_sent: "Cannot destroy newsletter: it has already been sent."
+          success: Newsletter successfully deleted.
+        edit:
+          save_and_preview: Save and preview
+          title: Edit newsletter
+        index:
+          all: All
+          all_users: "All users"
+          and: "and"
+          confirm_delete: Are you sure you want to delete this newsletter?
+          followers: "followers"
+          has_been_sent_to: "Has been sent to: "
+          no_scopes: No areas of interest
+          not_sent: Not sent
+          participants: "participants"
+          segmented_to: "Segmented to %{subject}: "
+          subscribed_count: "Subscribed:"
+          title: Newsletters
+        new:
+          save: Save
+          title: New newsletter
+        select_recipients_to_deliver:
+          all_spaces: All
+          all_users_help: Send the newsletter to all confirmed users.
+          confirm_deliver: Are you sure you want to send this newsletter? This action cannot be undone.
+          deliver: Deliver newsletter
+          followers_help: Send the newsletter to all confirmed users who follow any participatory spaces selected from the list.
+          none: None
+          participants_help: Send the newsletter to all confirmed users who participated in any of the participatory spaces selected from the list.
+          recipients_count: This newsletter will be sent to <strong id='recipients_count'>%{count}</strong> users.
+          scopes_help: Send the newsletter to users who have any of the selected areas of interest enabled in their "My Interests" account settings.
+          select_scopes: Filter by users who have enabled any selected area of interest in their "My Interests" account settings.
+          select_spaces: Select spaces to segment the newsletter
+          select_users: Select which users you want to send the newsletter to
+          send_to_all_users: Send to all users
+          send_to_followers: Send to followers
+          send_to_participants: Send to participants
+          title: Select recipients to deliver
+          warning: "<strong>Warning:</strong> This newsletter will only be sent to users who have enabled <em>want to receive newsletters</em> in their notification settings."
+        send:
+          no_recipients: No recipients for this selection
+        show:
+          preview: Preview
+          select_recipients_to_deliver: Select recipients to deliver
+          subject: Subject
+        update:
+          error: There was an error updating this newsletter.
+          success: Newsletter successfully updated. Please review it before sending.
+      officializations:
+        block:
+          error: There was an error blocking the user
+          success: User successfully blocked
+        create:
+          success: User successfully officialized
+        destroy:
+          success: User successfully unofficialized
+        index:
+          actions: Actions
+          badge: Badge
+          block: Block user
+          created_at: Created at
+          name: Name
+          nickname: Nickname
+          not_officialized: Not officialized
+          officialize: Officialize
+          officialized: Officialized
+          reofficialize: Reofficialize
+          reports: Reports
+          show_email: Show email address
+          status: Status
+          unblock: Unblock user
+          unofficialize: Unofficialize
+        new:
+          badge: Officialization badge
+          officialize: Officialize
+          title: Officialize user "%{name}"
+        show_email_modal:
+          close_modal: Close modal
+          description: If you need to contact a participant directly you can click the Show button to see their email address. This action will be logged.
+          email_address: Email address
+          full_name: Full name
+          hidden: Hidden
+          show: Show
+          title: Show participant's email address
+        unblock:
+          error: There was an error unblocking the participant
+          success: User successfully unblocked
+      organization:
+        edit:
+          title: Edit organization
+          update: Update
+        form:
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          rich_text_editor_in_public_views_help: In some text areas, participants will be able to insert some HTML tags using the rich text editor.
+          social_handlers: Social
+          url: URL
+          youtube: YouTube
+        update:
+          error: There was an error updating this organization.
+          success: Organization successfully updated.
+      organization_appearance:
+        edit:
+          update: Update
+        form:
+          colors:
+            colors_title: Organization colors
+            colors_warning_html: Warning! Changing these colors may break accessibility contrasts. You can check your choice's contrast with the <a href="%{link}">WebAIM Contrast Checker</a> or other similar tools.
+            header_snippets_help: Use this field to add things to the HTML header. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Additionally, you can use it to add extra meta tags to the HTML. Note that this will only show up on public pages, not in the administration section.
+          cta_button_path_help: "You can override where the Call to Action button on the home page links. Use partial paths, not full URLs here. Accepts letters, numbers, dashes, and slashes, and must start with a letter. The Call to Action button appears on the home page between the welcome text and the description. Example: %{url}"
+          cta_button_text_help: You can override the Call to Action button text on the home page for each language available in your organization. If not set, the default value will be used. The Call to Action button appears on the home page between the welcome text and the description.
+          homepage_appearance_title: Edit home page appearance
+          homepage_highlighted_content_banner_title: Highlighted content banner
+          images:
+            layout_appearance_title: Edit layout appearance
+            preview: Preview
+          omnipresent_banner_appearance_title: Edit omnipresent banner
+      organization_external_domain_whitelist:
+        edit:
+          update: Update
+        external_domain:
+          down: Down
+          external_domain: External domain
+          remove: Remove
+          up: Up
+        form:
+          add: Add to whitelist
+          title: External domain whitelist
+      organization_homepage:
+        edit:
+          active_content_blocks: Active content blocks
+          inactive_content_blocks: Inactive content blocks
+      organization_homepage_content_blocks:
+        edit:
+          update: Update
+      participatory_space_private_users:
+        create:
+          error: There was an error adding a private user to this participatory space.
+          success: Private user access to participatory space successfully created.
+        destroy:
+          error: There was an error deleting a private user from this participatory space.
+          success: Private user access to participatory space successfully deleted.
+        index:
+          import_via_csv: Import via CSV
+          title: Participatory space private user
+        new:
+          create: Create
+          title: New participatory space private user
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: There was an error reading the CSV file.
+          success: CSV file successfully uploaded, we are sending an invitation email to the participants. This may take a while.
+        new:
+          destroy:
+            button: Delete all private participants
+            confirm: Are you sure you want to delete all private participants? This action cannot be undone, you will not be able to recover them.
+            empty: You have no private participants.
+            explanation: You have %{count} private participants.
+            title: Delete private participants
+          explanation: 'Upload your CSV file. It must have two columns with email in the first column and name in the last column (email, name) of the users you want to add to the participatory space, without headers. Avoid using invalid characters like `<>?%&^*#@()[]=+:;"{}\├` in the username.'
+          title: Upload your CSV file
+          upload: Upload
+      reminders:
+        create:
+          error: There was a problem creating reminders.
+          success:
+            one: "%{count} user will be reminded."
+            other: "%{count} users will be reminded."
+        new:
+          submit: Submit
+      resource_permissions:
+        edit:
+          submit: Submit
+          title: Edit permissions
+        update:
+          success: Permissions successfully updated.
+      resources:
+        index:
+          headers:
+            scope: Area of interest
+      scope_types:
+        create:
+          error: There was an error creating a new area of interest type.
+          success: Area of interest type successfully created.
+        destroy:
+          success: Area of interest type successfully deleted.
+        edit:
+          title: Edit area of interest type
+          update: Update
+        new:
+          create: Create area of interest type
+          title: New area of interest type
+        update:
+          error: There was an error updating this area of interest type.
+          success: Area of interest type successfully updated.
+      scopes:
+        create:
+          error: There was an error creating a new area of interest.
+          success: Area of interest successfully created.
+        destroy:
+          success: Area of interest successfully deleted.
+        edit:
+          title: Edit area of interest
+          update: Update
+        new:
+          create: Create area of interest
+          title: New area of interest
+        no_scopes: No areas of interest at this level.
+        update:
+          error: There was an error updating this area of interest.
+          success: Area of interest successfully updated.
+      share_tokens:
+        actions:
+          confirm_destroy: Are you sure you want to delete this token?
+          destroy: Delete
+          share: Share
+        destroy:
+          error: There was a problem destroying the token.
+          success: Token successfully deleted.
+        share_tokens:
+          empty: No active tokens
+          help: These tokens are used to publicly share this unpublished resource with any user. They will be hidden when the resource is published. Click the token sharing icon to visit the shareable URL.
+          title: Share tokens
+      shared:
+        gallery:
+          add_images: Add images
+          delete_image: Delete image
+          edit_images: Edit images
+          gallery_legend: Add an image gallery (Optional)
+      static_page_topics:
+        create:
+          error: There was an error creating a new topic.
+          success: Topic successfully created.
+        destroy:
+          success: Topic successfully destroyed.
+        edit:
+          title: Edit topic
+          update: Update topic
+        new:
+          create: Create topic
+          title: New topic
+        update:
+          error: There was an error updating this topic.
+          success: Topic successfully updated.
+      static_pages:
+        actions:
+          view: View public page
+        create:
+          error: There was an error creating a new page.
+          success: Page successfully created.
+        destroy:
+          success: Page successfully deleted.
+        edit:
+          changed_notably_help: If checked, users will be notified to accept the new terms and conditions.
+          title: Edit page
+          update: Update
+        form:
+          none: None
+        index:
+          last_notable_change: Last notable change
+        new:
+          create: Create page
+          title: New page
+        topic:
+          destroy: Remove topic
+          edit: Edit topic
+          empty: No pages under this topic
+          without_topic: Pages without topic
+        update:
+          error: There was an error updating this page.
+          success: Page successfully updated.
+      titles:
+        admin_log: Admin log
+        area_types: Area types
+        areas: Areas
+        authorization_workflows: Verification methods
+        dashboard: Dashboard
+        edit_external_domains: External domain whitelist
+        edit_organization_appearance: Edit home page appearance
+        impersonatable_users: Manageable users
+        impersonations: User management
+        metrics: Metrics
+        panel: Admin
+        participants: Commerce
+        scope_types: Area of interest types
+        scopes: Areas of interest
+        static_pages: Pages
+        statistics: Activity
+        user_groups: User groups
+        users: Admins
+      user_group:
+        csv_verify:
+          invalid: There was an error reading the CSV file.
+          success: The CSV file was successfully uploaded, we are verifying user groups that match the criteria. This may take a while.
+        reject:
+          invalid: There was an error rejecting this user group.
+          success: User group successfully rejected.
+        verify:
+          invalid: There was an error verifying this user group.
+          success: User group successfully verified.
+      user_groups: 
+        index:
+          state:
+            pending: Pending
+            rejected: Rejected
+            verified: Verified
+          verify_via_csv: Verify via CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Upload your CSV file. It must have the official emails of the user groups in your organization in the first column of the file, without headers. Only user groups that have confirmed their emails and have an email appearing in the CSV file will be validated.
+          title: Upload your CSV file
+          upload: Upload
+      users:
+        create:
+          error: There was an error inviting this user.
+          success: User successfully invited.
+        destroy:
+          error: There was an error trying to delete this user.
+          success: The user is no longer an administrator.
+        form:
+          email: Email
+          name: Name
+          role: Role
+          needs_entity_fields: Require extra fields at registration
+        new:
+          create: Invite
+          title: Invite new administrator
+      users_statistics:
+        users_count:
+          admins: Admins
+          last_day: Last day
+          last_month: Last month
+          last_week: Last week
+          no_users_count_statistics_yet: No user statistics yet
+          participants: Participants
+      view_public_page: View public page
+    metrics:
+      blocked_users:
+        object: blocked users
+        title: Blocked users
+      reported_users:
+        object: reported users
+        title: Reported users
+      user_reports:
+        object: user reports
+        title: User reports
+    moderations:
+      actions:
+        expand: Expand
+        hidden: Hidden
+        hide: Hide
+        not_hidden: Not hidden
+        title: Actions
+        unhide: Unhide
+        unreport: Unreport
+      admin:
+        reportable:
+          hide:
+            invalid: There was a problem hiding the resource.
+            success: The resource was successfully hidden.
+          unhide:
+            invalid: There was a problem un-hiding the resource.
+            success: Resource successfully un-hidden.
+          unreport:
+            invalid: There was a problem un-reporting the resource.
+            success: The resource was successfully un-reported.
+      models:
+        moderation:
+          fields:
+            created_at: Created at
+            deleted_resource: Deleted resource
+            hidden_at: Hidden at
+            participatory_space: Participatory space
+            report_count: Report count
+            reportable_id: ID
+            reportable_type: Type
+            reported_content_url: Reported content URL
+            reports: Reports
+            visit_url: Visit URL
+        report:
+          fields:
+            details: Reason details
+            locale: Language
+            reason: Reason
+  errors:
+    messages:
+      invalid_json: Invalid JSON
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: Global moderators
+        newsletters:
+          title: Newsletters
+        settings:
+          title: Settings
+        users:
+          title: Participants

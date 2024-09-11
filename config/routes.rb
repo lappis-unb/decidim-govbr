@@ -17,12 +17,17 @@ Rails.application.routes.draw do
 
     mount Decidim::Core::Engine => '/'
 
-    resource :organization, only: [], controller: "decidim/admin/organization" do
-      member do
-        patch :autofill_menu_links, action: :autofill_menu_links
-        patch :autofill_footer_menu_links, action: :autofill_footer_menu_links
-      end
+  resource :organization, only: [], controller: "decidim/admin/organization" do
+    member do
+      patch :autofill_menu_links, action: :autofill_menu_links
+      patch :autofill_footer_menu_links, action: :autofill_footer_menu_links
     end
+  end
+
+  patch 'proposal_badges/:component_id', to: 'decidim/admin/proposal_badges#update', as: :update_proposal_badge
+  patch 'proposal_badges/:component_id/:proposal_id/:badge_id', to: 'decidim/admin/proposal_badges#update_proposal_badge', as: :update_one_proposal_badge
+  delete 'proposal_badges/:component_id', to: 'decidim/admin/proposal_badges#destroy_all_badges', as: :destroy_proposal_badge
+  delete 'proposal_badges/:component_id/:proposal_id/:badge_id', to: 'decidim/admin/proposal_badges#destroy_one_badge', as: :destroy_one_proposal_badge
 
     get 'admin/user_proposal_statistic_report/:slug', to: 'decidim/govbr/user_proposals_statistic_settings#export_user_data', as: 'user_proposal_statistic_report'
 
@@ -115,12 +120,11 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :participatory_process_groups, only: [] do
-        resources :participatory_process_group_users,
-                  controller: 'decidim/participatory_processes/admin/participatory_process_group_users',
-                  except: [:show],
-                  as: :users
-      end
+    resources :participatory_process_groups, only: [] do
+      resources :participatory_process_group_users,
+                controller: 'decidim/participatory_processes/admin/participatory_process_group_users',
+                except: [:show],
+                as: :users
     end
   end
 end

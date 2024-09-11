@@ -38,7 +38,7 @@ gem 'sidekiq', '6.5.7'
 
 gem 'whenever', require: false
 
-gem 'decidim-extra_user_fields', git: 'https://gitlab.com/lappis-unb/decidimbr/decidim-extra_user_fields.git', branch: 'feat/allow-to-configure-permitted-components'
+gem 'decidim-extra_user_fields', git: 'https://gitlab.com/lappis-unb/decidimbr/decidim-extra_user_fields.git', branch: 'fix/remove-extra-user-fields-from-oatuh-registration'
 gem 'decidim-ej', git: 'https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-ej.git', branch: 'main'
 gem 'decidim-homes', git: 'https://gitlab.com/lappis-unb/decidimbr/components-brasil-participativo/decidim-module-homes.git'
 

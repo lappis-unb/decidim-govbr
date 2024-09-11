@@ -1,0 +1,107 @@
+# https://github.com/decidim/decidim/blob/develop/decidim-initiatives/config/locales/es.yml
+es:
+  activemodel:
+    attributes:
+      attachment:
+        documents: Documentos
+      initiative:
+        answer: Respuesta
+        answer_url: URL de respuesta
+        area_id: Área
+        decidim_scope_id: Área de interés
+      initiatives_committee_member:
+        user: Miembro del Comité
+      initiatives_settings:
+        initiatives_order: Orden de las iniciativas
+      initiatives_type:
+        child_scope_threshold_enabled: Activar área de interés descendente de firmas
+        comments_enabled: Contribuciones activadas
+        minimum_committee_members: Mínimo de miembros del comité
+        promoting_committee_enabled: Permitir comité promotor
+        signature_type: Tipo de firma
+      initiatives_type_scope:
+        decidim_scopes_id: Área de interés
+        supports_required: Firmas necesarias
+    models:
+      decidim/initiatives/initiative_sent_to_technical_validation_event: Iniciativa enviada para validación técnica
+  decidim:
+    admin:
+      initiatives_settings:
+        update:
+          error: Ha ocurrido un error
+          success: La configuración de las iniciativas se ha actualizado correctamente
+      menu:
+        committee_members: Miembros del Comité
+        initiatives_settings: Configuraciones
+    initiatives:
+      admin:
+        committee_requests:
+          index:
+            approve: Aprobar
+            confirm_revoke: ¿Está seguro?
+            invite_to_committee_help: Comparte este enlace para invitar a otros participantes al comité promotor
+            no_members_yet: Aún no hay miembros en el comité promotor
+            revoke: Revocar
+            title: Miembros del Comité
+        initiatives_settings:
+          edit:
+            update: Actualizar
+          form:
+            comments: Más contribuciones
+            date: Más recientes
+            publication_date: Publicado más recientemente
+            random: Aleatoria
+            signatures: Más firmadas
+            title: Configuraciones para iniciativas
+        initiatives_types:
+          form:
+            authorizations: Configuraciones de autorización
+            child_scope_threshold_enabled_help: 'Esta opción de configuración no admite votos fuera de línea, permite subáreas de interés y funciona con un controlador de autorización que asocia un área de interés al usuario. Asegúrese de seleccionar esta autorización abajo en las configuraciones de autorización. Para que funcione, las áreas de interés deben configurarse jerárquicamente: 1 Padre - N Descendiente. Para más información sobre cómo funciona esta configuración, consulte el siguiente <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">enlace</a>.'
+            only_global_scope_enabled_help: Marque esta opción si ha activado "área de interés descendente de firmas" y ha configurado el área de interés global como su área de interés padre. Al activar esto, se omitirá la selección del tipo de iniciativa en el asistente de creación de iniciativas. Para más información sobre cómo funciona esta configuración, consulte el siguiente <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">enlace</a>.
+        initiatives_type_scopes:
+          edit:
+            back: Volver
+          new:
+            back: Volver
+      admin_log:
+        initiatives_settings:
+          update: "%{user_name} ha actualizado la configuración de las iniciativas"
+        initiatives_type:
+          create: "%{user_name} ha creado el tipo de iniciativas %{resource_name}"
+          delete: "%{user_name} ha eliminado el tipo de iniciativas %{resource_name}"
+          update: "%{user_name} ha actualizado el tipo de iniciativas %{resource_name}"
+      create_initiative:
+        fill_data:
+          fill_data_help: "<ul> <li>Revise el contenido de su iniciativa. ¿Es fácil de entender el título? ¿El objetivo de su iniciativa es claro?</li> <li>Debe elegir el tipo de firma. Personalmente, en línea o una combinación de ambos.</li> <li>¿Cuál es el área de interés geográfico de la iniciativa?</li> </ul>"
+        finish:
+          back: Volver
+          back_to_initiatives: Volver a iniciativas
+          callout_text: ¡Felicidades! Su iniciativa se ha creado correctamente.
+          confirm: Va a enviar la iniciativa para que un administrador la revise y la publique. Una vez publicada, no podrá editarla. ¿Está seguro?
+          edit_my_initiative: Editar mi iniciativa
+          go_to_my_initiatives: Ir a mis iniciativas
+          more_information: "(Más información)"
+          send_my_initiative: Enviar mi iniciativa para validación técnica
+        finish_help:
+          access_reminder: Puede acceder a sus iniciativas a través del filtro %{link} en la página de Iniciativas.
+          publish_helper_text: ¡Recuerde! Para que su iniciativa sea publicada, debe completar la información necesaria y <strong>enviarla para validación técnica</strong> para que un administrador la revise.
+        select_initiative_type:
+          select_initiative_type_help: Las iniciativas son un medio por el cual los participantes pueden intervenir para que la organización pueda emprender acciones en defensa del interés general. ¿Qué iniciativa desea lanzar?
+      form:
+        add_attachments: Documentos
+        attachment_legend: "(Opcional) Añadir un adjunto"
+      initiatives:
+        committee_members:
+          approve: Aprobar
+          confirm_revoke: ¿Está seguro?
+          invite_to_committee_help: Comparte este enlace para invitar a otros participantes al comité promotor
+          no_members_yet: Aún no hay miembros en el comité promotor
+          revoke: Revocar
+          title: Miembros del Comité
+        print:
+          members_header: Miembros del comité promotor de la iniciativa
+          postal_code: Código postal
+        vote_cabin:
+          vote: Firmar
+      signature_interval:
+        title: Período de recolección de firmas

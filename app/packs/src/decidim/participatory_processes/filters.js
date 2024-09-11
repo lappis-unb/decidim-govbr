@@ -36,7 +36,10 @@ $(() => {
     $processesGridCards.hide();
     $loading.show();
 
-    let params = new URLSearchParams(window.location.search);
+    const full_url = window.location.search;
+    let host = "";
+    if (full_url) host = full_url.split("?")[0];
+    let params = new URLSearchParams(host);
 
     const stateFilterLink = $processesGrid.find("#inline-filter-sort a.is-active");
     const typeFilterLink = $processesGrid.find("#inline-filter-sort a.is-active");

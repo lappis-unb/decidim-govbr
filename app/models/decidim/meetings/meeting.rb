@@ -37,6 +37,9 @@ module Decidim
       has_many :services, class_name: "Decidim::Meetings::Service", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_one :agenda, class_name: "Decidim::Meetings::Agenda", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_one :poll, class_name: "Decidim::Meetings::Poll", foreign_key: "decidim_meeting_id", dependent: :destroy
+      has_many :questions, class_name: "Decidim::Forms::Question", foreign_key: "decidim_meetings_meeting_id"
+      has_many :answers, class_name: "Decidim::Forms::Answer", foreign_key: "decidim_meetings_meeting_id"
+
       has_many(
         :public_participants,
         -> { merge(Registration.public_participant) },
@@ -204,11 +207,23 @@ module Decidim
       end
 
       def can_be_joined_by?(user)
-        !closed? && registrations_enabled? && can_participate?(user) && !finished?
+        !closed? && registrations_enabled? && can_participate?(user) && !finished? && !cancelled?
       end
 
       def finished?
-        end_time < Time.current if end_time
+        if end_time.present?
+          return true if end_time < Time.current
+        else
+          false
+        end
+      end
+
+      def running?
+        start_time && end_time && Time.current.between?(start_time, end_time)
+      end
+
+      def cancelled?
+        state == "withdrawn"
       end
 
       def can_register_invitation?(user)

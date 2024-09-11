@@ -892,6 +892,8 @@ ActiveRecord::Schema.define(version: 2024_08_30_024117) do
     t.string "session_token", default: "", null: false
     t.string "ip_hash"
     t.boolean "anonymous_answer", default: true
+    t.integer "decidim_meetings_meeting_id"
+    t.jsonb "extra_fields"
     t.index ["decidim_question_id"], name: "index_decidim_forms_answers_question_id"
     t.index ["decidim_questionnaire_id"], name: "index_decidim_forms_answers_on_decidim_questionnaire_id"
     t.index ["decidim_user_id"], name: "index_decidim_forms_answers_on_decidim_user_id"
@@ -947,6 +949,7 @@ ActiveRecord::Schema.define(version: 2024_08_30_024117) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "max_characters", default: 0
+    t.integer "decidim_meetings_meeting_id"
     t.index ["decidim_questionnaire_id"], name: "index_decidim_forms_questions_on_decidim_questionnaire_id"
     t.index ["position"], name: "index_decidim_forms_questions_on_position"
   end
@@ -2209,6 +2212,8 @@ ActiveRecord::Schema.define(version: 2024_08_30_024117) do
   add_foreign_key "decidim_debates_debates", "decidim_scopes"
   add_foreign_key "decidim_editor_images", "decidim_organizations"
   add_foreign_key "decidim_editor_images", "decidim_users", column: "decidim_author_id"
+  add_foreign_key "decidim_forms_answers", "decidim_meetings_meetings"
+  add_foreign_key "decidim_forms_questions", "decidim_meetings_meetings"
   add_foreign_key "decidim_homes_elements", "decidim_homes_homes"
   add_foreign_key "decidim_identities", "decidim_organizations"
   add_foreign_key "decidim_initiatives_settings", "decidim_organizations"

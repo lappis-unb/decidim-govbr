@@ -20,14 +20,25 @@ module Decidim
           @import = form(Admin::ImportParticipatoryTextForm).from_model(participatory_text)
         end
 
+        def set_flash_and_redirect(message_key, path)
+          flash[:notice] = I18n.t(message_key, scope: "decidim.proposals.admin")
+          redirect_to path
+        end
+
+        def handle_validation_failures(failures, action)
+          alert_msg = [I18n.t("participatory_texts.publish.invalid", scope: "decidim.proposals.admin")]
+          failures.each_pair { |id, msg| alert_msg << "ID:[#{id}] #{msg}" }
+          flash.now[:alert] = alert_msg.join("<br/>").html_safe
+          send(action)
+        end
+
         def import
           enforce_permission_to :manage, :participatory_texts
           @import = form(Admin::ImportParticipatoryTextForm).from_params(params)
 
           Admin::ImportParticipatoryText.call(@import) do
             on(:ok) do
-              flash[:notice] = I18n.t("participatory_texts.import.success", scope: "decidim.proposals.admin")
-              redirect_to EngineRouter.admin_proxy(current_component).participatory_texts_path
+              set_flash_and_redirect("participatory_texts.import.success", EngineRouter.admin_proxy(current_component).participatory_texts_path)
             end
 
             on(:invalid) do
@@ -50,34 +61,24 @@ module Decidim
           form_params = params.require(:preview_participatory_text).permit!
           @preview_form = form(Admin::PreviewParticipatoryTextForm).from_params(proposals: form_params[:proposals_attributes]&.values, proposal_to_add: form_params[:proposal_to_add])
 
-          if params.has_key?("save_draft")
+          if params[:save_draft].present?
             UpdateParticipatoryText.call(@preview_form) do
               on(:ok) do
-                flash[:notice] = I18n.t("participatory_texts.update.success", scope: "decidim.proposals.admin")
-                redirect_to EngineRouter.admin_proxy(current_component).participatory_texts_path
+                set_flash_and_redirect("participatory_texts.update.success", EngineRouter.admin_proxy(current_component).participatory_texts_path)
               end
 
               on(:invalid) do |failures|
-                alert_msg = [I18n.t("participatory_texts.publish.invalid", scope: "decidim.proposals.admin")]
-                failures.each_pair { |id, msg| alert_msg << "ID:[#{id}] #{msg}" }
-                flash.now[:alert] = alert_msg.join("<br/>").html_safe
-                index
-                render action: "index"
+                handle_validation_failures(failures, "index")
               end
             end
           else
             PublishParticipatoryText.call(@preview_form) do
               on(:ok) do
-                flash[:notice] = I18n.t("participatory_texts.publish.success", scope: "decidim.proposals.admin")
-                redirect_to proposals_path
+                set_flash_and_redirect("participatory_texts.publish.success", proposals_path)
               end
 
               on(:invalid) do |failures|
-                alert_msg = [I18n.t("participatory_texts.publish.invalid", scope: "decidim.proposals.admin")]
-                failures.each_pair { |id, msg| alert_msg << "ID:[#{id}] #{msg}" }
-                flash.now[:alert] = alert_msg.join("<br/>").html_safe
-                index
-                render action: "index"
+                handle_validation_failures(failures, "index")
               end
             end
           end
@@ -91,11 +92,10 @@ module Decidim
 
           PublishParticipatoryText.call(@preview_form) do
             on(:ok) do
-              flash[:notice] = I18n.t("participatory_texts.update.success", scope: "decidim.proposals.admin")
               if form_params[:proposal_to_add].present?
-                redirect_to EngineRouter.admin_proxy(current_component).edit_as_preview_participatory_texts_path
+                set_flash_and_redirect("participatory_texts.update.success", EngineRouter.admin_proxy(current_component).edit_as_preview_participatory_texts_path)
               else
-                redirect_to proposals_path
+                set_flash_and_redirect("participatory_texts.update.success", proposals_path)
               end
             end
 
@@ -123,8 +123,7 @@ module Decidim
 
           DiscardParticipatoryText.call(current_component) do
             on(:ok) do
-              flash[:notice] = I18n.t("participatory_texts.discard.success", scope: "decidim.proposals.admin")
-              redirect_to EngineRouter.admin_proxy(current_component).participatory_texts_path
+              set_flash_and_redirect("participatory_texts.discard.success", EngineRouter.admin_proxy(current_component).participatory_texts_path)
             end
           end
         end
