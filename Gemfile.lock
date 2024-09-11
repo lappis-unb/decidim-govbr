@@ -25,8 +25,8 @@ GIT
 
 GIT
   remote: https://gitlab.com/lappis-unb/decidimbr/decidim-extra_user_fields.git
-  revision: 0c28ba3d622d442e34fa2d8f0da6bcf7cf59b7ce
-  branch: fix/remove-extra-user-fields-from-oatuh-registration
+  revision: f31d81b86b458c6fee3472ea32b863140b5a9270
+  branch: develop
   specs:
     decidim-extra_user_fields (0.27.2)
       country_select (~> 4.0)
