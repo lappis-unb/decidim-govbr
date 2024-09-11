@@ -31147,3 +31147,19 @@ textarea {
 .large-button {
   width: 100%;
 }
+
+.locale-select {
+  color: var(--interactive);
+  cursor: pointer;
+  width: 54px;
+  padding-bottom: 7px !important;
+  font-weight: 500;
+  margin-right: 10px;
+  border: 0;
+}
+
+.locale-select:focus,
+.locale-select:hover {
+  background-color: var(--background);
+  color: var(--interactive);
+}

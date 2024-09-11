@@ -1171,6 +1171,7 @@ div.meetings-author-info-br span.author__name {
   display: flex;
   width: 100%;
   justify-content: flex-end;
+  flex-wrap: wrap;
   gap: 12px;
 }
 
@@ -1294,4 +1295,17 @@ div.meetings-author-info-br span.author__name {
 
 #close_meeting-submit {
   margin-top: 1.5rem;
+}
+
+.add-calendar {
+  border: 1px solid var(--blue-warm-vivid-70);
+  background: var(--pure-0);
+}
+
+.button_back {
+  a {
+    color: var(--blue-warm-vivid-70);
+    font-weight: 600;
+    margin: 0;
+  }
 }
