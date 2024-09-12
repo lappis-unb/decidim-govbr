@@ -98,15 +98,6 @@ Rails.application.routes.draw do
     end
   end
 
-  Decidim.participatory_space_manifests.each do |manifest|
-    mount manifest.context(:admin).engine, at: "/", as: "decidim_admin_#{manifest.name}"
-  end
-
-  Decidim.authorization_admin_engines.each do |manifest|
-    mount manifest.admin_engine, at: "/#{manifest.name}", as: "decidim_admin_#{manifest.name}"
-  end
-
-
   scope :admin do
     resources :participatory_processes, param: :slug, only: [] do
       resources :partners, except: [:show], controller: 'decidim/participatory_processes/admin/partners'
