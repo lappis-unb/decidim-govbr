@@ -1,15 +1,17 @@
 <div class="login-container">
-  <h1><%= t("decidim.verifications.authorizations.first_login.title") %></h1>
+  <h2><%= t("decidim.verifications.authorizations.first_login.title") %></h2>
   <p><%= t("decidim.verifications.authorizations.first_login.verify_with_these_options") %></p>
-
   <ul class="sign_up-card" style="list-style: none; text-align: center;">
-    <% unauthorized_methods.each do |unauthorized_method| %>
-      <li>
-        <%= link_to t("decidim.verifications.authorizations.first_login.actions.#{unauthorized_method.key}"),
-          unauthorized_method.root_path,
-          class: "button button__sm button__transparent-secondary" %>
-      </li>
+    <% if false %>
+      <% unauthorized_methods.each do |unauthorized_method| %>
+        <li>
+          <%= link_to t("decidim.verifications.authorizations.first_login.actions.#{unauthorized_method.key}"),
+            unauthorized_method.root_path,
+            class: "button button__sm button__transparent-secondary" %>
+        </li>
+      <% end %>
     <% end %>
+    <a href="/id_documents/authorizations/edit" class="br-button primary">Send identification documents</a>
   </ul>
   <p class="prose prose-a:text-secondary">
     <%= t("decidim.verifications.authorizations.skip_verification", link: link_to(t("decidim.verifications.authorizations.start_exploring"), '/').html_safe).html_safe %>.
