@@ -49,12 +49,6 @@
             <%= f.check_box :tos_agreement, label: t(".tos_agreement", link: link_to(t(".terms"), 'https://brasilparticipativo.presidencia.gov.br/processes/brasilparticipativo/f/211/')) %>
           </div>
         </div>
-        <div class="submit-foreign-form-content" id="card__newsletter">
-          <h3><%= t(".newsletter_title") %></h3>
-          <div class="field">
-            <%= f.check_box :newsletter, label: t(".newsletter"), checked: @form.newsletter %>
-          </div>
-        </div>
       </div>
       <div class="sign_up-card">
         <%= f.submit t(".sign_up"), class: "br-button block primary" %>
