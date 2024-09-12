@@ -130,6 +130,8 @@ module Decidim
       def can_destroy_meeting?
         meeting.authored_by?(user) &&
           user.admin?
+      end
+
       def can_export_registrations?
         meeting.present? && user.present? && (user.admin? || meeting.authored_by?(user))
       end
