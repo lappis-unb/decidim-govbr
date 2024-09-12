@@ -262,6 +262,9 @@ es:
             id: ID
       versions:
         back_to_resource: Volver al evento
+      registrations:
+        export:
+          invalid: Se produjo un error al exportar las inscripciones. Por favor, intenta de nuevo.
       registration_mailer:
         confirmation:
           confirmed_html: Tu inscripción para el evento <a href="%{url}">%{title}</a> ha sido confirmada.

@@ -45,6 +45,8 @@ module Decidim
             toggle_allow(can_register_invitation_meeting?)
           when :register_what_happened
             toggle_allow(can_register_what_happened_meeting?)
+          when :export_registrations
+            toggle_allow(can_export_registrations?)
           end
         else
           return permission_action
@@ -128,6 +130,8 @@ module Decidim
       def can_destroy_meeting?
         meeting.authored_by?(user) &&
           user.admin?
+      def can_export_registrations?
+        meeting.present? && user.present? && (user.admin? || meeting.authored_by?(user))
       end
 
       def can_answer_question?
