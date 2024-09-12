@@ -37,10 +37,14 @@ module Decidim
             toggle_allow(can_cancel_meeting?)
           when :withdraw
             toggle_allow(can_withdraw_meeting?)
+          when :destroy
+            toggle_allow(can_destroy_meeting?)
           when :close
             toggle_allow(can_close_meeting?)
           when :register
             toggle_allow(can_register_invitation_meeting?)
+          when :register_what_happened
+            toggle_allow(can_register_what_happened_meeting?)
           when :export_registrations
             toggle_allow(can_export_registrations?)
           end
@@ -116,6 +120,16 @@ module Decidim
       def can_register_invitation_meeting?
         meeting.can_register_invitation?(user) &&
           authorized?(:register, resource: meeting)
+      end
+
+      def can_register_what_happened_meeting?
+        meeting.authored_by?(user) &&
+          meeting.finished?
+      end
+
+      def can_destroy_meeting?
+        meeting.authored_by?(user) &&
+          user.admin?
       end
 
       def can_export_registrations?

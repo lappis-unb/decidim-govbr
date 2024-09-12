@@ -23,7 +23,7 @@
     <div class="main-content">
       <div class="meeting-actions-buttons">
         <% @meeting_cell = cell("decidim/meetings/meeting_m", @meeting, full_badge: true) %>
-        <% if allowed_to?(:withdraw, :meeting, meeting: meeting) %>
+        <% if allowed_to?(:destroy, :meeting, meeting: meeting) %>
           <%= link_to resource_locator(meeting).show, method: :delete, class: "br-button secondary delete-meeting", 
                 data: { confirm: t(".confirm_delete") } do %>
             <i class="fa-solid fa-trash-can" style="color: #8b0a03;"></i>
@@ -54,9 +54,11 @@
           <a class="br-button secondary black-and-white-btn" href="<%= organization_info_survey %>?meeting_id=<%= meeting.id %>">
             Adicione Informações da organização
           </a>
-          <a class="br-button secondary black-and-white-btn" href="<%= record_what_happened_survey %>?meeting_id=<%= meeting.id %>">
-            Registre o que aconteceu
-          </a>
+          <% if allowed_to?(:register_what_happened, :meeting, meeting: meeting) %>
+            <a class="br-button secondary black-and-white-btn" href="<%= record_what_happened_survey %>?meeting_id=<%= meeting.id %>">
+              Registre o que aconteceu
+            </a>
+          <% end %>
         <% end %>
       </div>
       <%== @meeting_cell.badge %>

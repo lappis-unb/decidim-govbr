@@ -5,7 +5,7 @@
   <% end %>
   <% if current_component.settings.attributes[:creation_enabled_for_participants] %>
     <%= action_authorized_link_to :create, new_meeting_path, data: { "redirect_url" => new_meeting_path } do %>
-      <div class="title-action br-magic-button medium">
+      <div class="search-filters br-magic-button medium">
         <span class="title-action__action br-button">
           <i class="fa-solid fa-plus fa-md"></i>
           <%= t("new_meeting", scope: "decidim.meetings.meetings.index") %>
