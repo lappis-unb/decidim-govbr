@@ -188,6 +188,19 @@
               inscritos
             </div>
           </div>
+            <% if allowed_to?(:export_registrations, :meeting, meeting: meeting) && !meeting.registrations.empty? %>
+              <span class="exports dropdown tiny button button--simple button--title" data-toggle="export-dropdown"><%= t "actions.export", scope: "decidim.admin" %></span>
+              <div class="dropdown-pane" id="export-dropdown" data-dropdown data-auto-focus="true" data-close-on-click="true">
+                <ul class="vertical menu add-components">
+                  <% %w{CSV JSON Excel}.each do |format| %>
+                    <li class="exports--format--<%= format.downcase %> exports--registrations">
+                      <%= link_to t("decidim.admin.exports.export_as", name: t("decidim.#{current_component.manifest.name}.admin.exports.registrations"), export_format: format),
+                          main_app.export_public_registrations_path(slug: current_participatory_space.slug, process_id: current_component, meeting_id: meeting, format: format) %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
         <% end %>
         <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
       </div>
