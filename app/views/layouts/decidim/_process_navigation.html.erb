@@ -33,6 +33,10 @@
     position = participatory_space.mobilization_position.to_i
     position = 1 if position < 1
 
+    if position > items.length
+      position = items.length
+    end
+
     items.insert(position, mobilization_item)
   end
 
