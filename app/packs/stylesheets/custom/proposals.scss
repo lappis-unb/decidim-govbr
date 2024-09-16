@@ -21,6 +21,7 @@
   gap: 24px;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 2rem;
 }
 
 .main-content {
@@ -33,7 +34,6 @@
 .side-content {
   display: flex;
   width: 267px;
-  padding: 8px 16px;
   flex-direction: column;
   justify-content: flex-start;
   gap: 16px;
@@ -47,6 +47,12 @@
 
 .proposals-content-container {
   display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+#results .proposals-content-container {
+  display: block;
   flex-direction: row;
   gap: 24px;
 }
@@ -113,10 +119,14 @@
   font-weight: 700;
 }
 
-.title-action-text {
-  font-size: 18px;
+.title {
+  color: var(--blue-warm-vivid-70);
+  font-size: 1.25rem;
+  padding: 0;
+  margin: 0;
+  font-style: normal;
   font-weight: 600;
-  line-height: 21px;
+  line-height: normal;
 }
 
 .title-action-button {
@@ -179,12 +189,15 @@
 }
 .proposals-actions {
   display: flex;
-  gap: 8px 24px;
+  width: 100%;
+  gap: 16px;
   padding: 0px 0px 24px 0px;
   justify-content: flex-start;
-  align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
+  @media (min-width: 640px) {
+    flex-direction: row;
+  }
 }
 .proposals-criteria-label {
   color: var(--blue-warm-vivid-80);
@@ -212,7 +225,7 @@
 }
 
 .proposals-announcement {
-  padding-bottom: 3rem;
+  padding-bottom: 1rem;
 }
 
 .proposals-announcement .br-announcement {
@@ -231,7 +244,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
+  gap: 8px;
 }
 
 .author__data__card {
@@ -302,7 +315,7 @@ div.author-data__extra {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 16px 0px;
+  padding: 0px;
   gap: 24px;
 }
 
@@ -343,13 +356,15 @@ div.author-data__extra {
 
   .proposal-extra-data {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
   .proposal__btn__controls {
     justify-content: center;
     align-items: center;
     flex-direction: row-reverse;
-    padding-top: 64px;
   }
 
   .proposal__btn__controls .button.secondary {
@@ -393,7 +408,6 @@ div.author-data__extra {
   .proposals-container {
     display: flex;
     flex-direction: row;
-    margin: 3rem 0 1.5rem 0;
     justify-content: space-between;
     align-items: flex-start;
   }
@@ -420,10 +434,6 @@ div.author-data__extra {
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-  }
-  .proposals-actions {
-    justify-content: flex-start;
-    flex-direction: row;
   }
   .proposals-criteria-label {
     color: var(--blue-warm-vivid-80);
@@ -452,6 +462,10 @@ div.author-data__extra {
 
 .proposals-br {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 3rem 0;
 }
 
 .proposals-br .dropdown.menu > li {
@@ -1009,11 +1023,11 @@ div.author-data__extra {
   border-color: var(--info);
   border-width: 2px;
 }
-.bp-select select:not(:disabled):hover {
-  background-image: linear-gradient(
-    rgba(var(--color-rgb), var(--hover)),
-    rgba(var(--color-rgb), var(--hover))
-  );
+.bp-select select {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C!--%21Font%20Awesome%20Free%206.5.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22%230c326f%22%20d%3D%22M233.4%20406.6c12.5%2012.5%2032.8%2012.5%2045.3%200l192-192c12.5-12.5%2012.5-32.8%200-45.3s-32.8-12.5-45.3%200L256%20338.7%2086.6%20169.4c-12.5-12.5-32.8-12.5-45.3%200s-12.5%2032.8%200%2045.3l192%20192z%22/%3E%3C/svg%3E) !important;
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px 16px;
 }
 .bp-select select:focus,
 .bp-select select:focus-visible,
@@ -1051,7 +1065,6 @@ div.author-data__extra {
 
 .proposals-no-actions {
   flex-direction: column;
-  align-items: flex-start;
   gap: 8px;
 }
 
@@ -1217,6 +1230,13 @@ textarea::placeholder {
   align-items: center;
   gap: 1rem;
   flex-direction: row;
+}
+
+.share_container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: column;
 }
 
 .social__media_container {
@@ -1418,4 +1438,113 @@ ul.dropdown.menu.bp-result-per-page
     margin: 0 !important;
     align-items: center;
   }
+}
+
+.proposals-br .card-grid .column,
+.proposals-br .card-grid .columns {
+  height: fit-content;
+}
+@media (min-width: 768px) {
+  .proposals-br .card-grid .column,
+  .proposals-br .card-grid .columns {
+    height: 100%;
+  }
+}
+
+.linked-proposals-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.linked-proposals-item {
+  display: flex;
+  width: 100%;
+  padding: 0px 8px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: var(--pure);
+}
+
+.linked-proposals-item:nth-child(odd) {
+  background: var(--pure);
+}
+
+.linked-proposals-item:nth-child(even) {
+  background: var(--blue-warm-vivid-5);
+}
+
+.linked-proposals-item-text {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1 0 0;
+  align-self: stretch;
+  padding: 8px;
+}
+
+.linked-proposals-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+
+  h5 {
+    color: var(--blue-warm-vivid-70);
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.linked-proposals-author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+}
+
+.linked-proposals-author-avatar {
+  width: 24px;
+  img {
+    border-radius: 24px;
+  }
+}
+
+.linked-proposals-author-name {
+  color: var(--blue-warm-vivid-70);
+  font-size: 14px;
+}
+
+.linked-proposals-item-data {
+  display: flex;
+  padding: 8px 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.linked-proposals-item-data-number {
+  align-self: stretch;
+  color: var(--pure-100);
+  text-align: center;
+  font-size: 24px;
+}
+
+.linked-proposals-item-data-text {
+  align-self: stretch;
+  color: var(--gray-90);
+  text-align: center;
+  font-size: 14px;
+  margin: 0;
 }

@@ -20,13 +20,13 @@
     callout_class: "warning"
   ) %>
 <% if local_assigns[:edit_form_bool] %>
-  <h2 class="section-header-text">Edite sua proposta</h2>
+  <h2 class="section-header-text"><%=t("models.components.Edit_your_proposal", scope: "decidim.forms.admin")%></h2> 
 <% else %>
   <h2 class="section-header-text"><%= proposal_wizard_step_title action_name %></h2>
 <% end %>
 <h3 class="section-header-help-text">
-  Siga as instruções abaixo para participar ativamente e deixar sua marca nas decisões que impactam o Brasil.
+  <%=t("models.components.follow_the_instructions", scope: "decidim.forms.admin")%>
 </h3>
 <p class="help-new-proposal-header">
-  Revise o seu conteúdo e tenha certeza que está tudo correto antes de publicar. Após a publicação, você poderá editar ou apagar a proposta somente se não tiver recebido nenhum voto.
+  <%=t("models.components.Review_your_content", scope: "decidim.forms.admin")%>
 </p>

@@ -12,24 +12,13 @@ module Decidim
       prepend_before_action :skip_timeout, only: :index
       before_action :authenticate_user!, only: [:create]
       before_action :set_commentable, except: [:destroy, :update]
-      before_action :ensure_commentable!, except: [:destroy, :update, :update_status]
 
       helper_method :root_depth, :commentable, :order, :reply?, :reload?, :root_comment
 
       def index
         enforce_permission_to :read, :comment, commentable: commentable
 
-        @comments = SortedComments.for(
-          commentable,
-          order_by: order,
-          after: params.fetch(:after, 0).to_i
-        )
-        @comments = @comments.reject do |comment|
-          next if comment.depth < 1
-          next if !comment.deleted? && !comment.hidden?
-
-          comment.commentable.descendants.where(decidim_commentable_type: "Decidim::Comments::Comment").not_hidden.not_deleted.blank?
-        end
+        @comments = filtered_comments
         @comments_count = commentable.comments_count
 
         respond_to do |format|
@@ -109,13 +98,7 @@ module Decidim
           on(:ok) do |comment|
             handle_success(comment)
 
-            if form.attachment_file.present?
-              @attachment = build_attachment(comment)
-
-              Decidim.traceability.perform_action!(:create, Decidim::Attachment, @user) do
-                @attachment.save!
-              end
-            end
+            create_attachment(comment) if form.attachment_file.present?
 
             respond_to do |format|
               format.js { render :create }
@@ -170,7 +153,11 @@ module Decidim
       attr_reader :commentable, :comment, :form
 
       def set_commentable
-        @commentable = GlobalID::Locator.locate_signed(commentable_gid)
+        @commentable ||= if commentable_gid
+                           GlobalID::Locator.locate_signed(commentable_gid)
+                         elsif comment
+                           comment.root_commentable
+                         end
       end
 
       def set_comment
@@ -238,6 +225,27 @@ module Decidim
           file: form.attachment_file, # Define attached_to before this
           content_type: file.content_type
         )
+      end
+
+      def filtered_comments
+        SortedComments.for(
+          commentable,
+          order_by: order,
+          after: params.fetch(:after, 0).to_i
+        ).reject do |comment|
+          next if comment.depth < 1
+          next if !comment.deleted? && !comment.hidden?
+
+          comment.commentable.descendants.where(decidim_commentable_type: "Decidim::Comments::Comment").not_hidden.not_deleted.blank?
+        end
+      end
+
+      def create_attachment(comment)
+        @attachment = build_attachment(comment)
+
+        Decidim.traceability.perform_action!(:create, Decidim::Attachment, @user) do
+          @attachment.save!
+        end
       end
     end
   end

@@ -14,9 +14,14 @@
 
 .comments-count {
   font-weight: var(--font-weight-semi-bold) !important;
-  color: var(--pure-0) !important;
-  gap: 1.5rem;
+  color: var(pure-100);
+  margin-left: 1rem;
+
+  &.coments-count-override {
+    margin: 0 !important;
+  }
 }
+
 .comments_blocked_warning {
   display: flex;
   flex-direction: column;
@@ -147,7 +152,7 @@
 }
 
 .author--inline .author__name {
-  color: #0c326f;
+  color: var(--blue-warm-vivid-70);
 }
 .comment-settings {
   display: flex;
@@ -225,6 +230,11 @@
   gap: 1.5rem;
   margin-top: 24px;
   padding: 0 16px;
+
+  &.comment-threads-override {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
 }
 
 .add-comment .field .button--sc {

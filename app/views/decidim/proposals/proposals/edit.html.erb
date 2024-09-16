@@ -3,9 +3,14 @@
   <% if flash.any? %>
     <div class="br-message warning new-proposal-error">
       <i class="fas fa-exclamation-triangle fa-lg" aria-hidden="true"></i>
-      <div class="content" aria-label="Data de início do afastamento inválida. A data não pode ser superior à data atual." role="alert"><span class="message-title"><%= flash.first.last %></span></div>
+      <div class="content" aria-label="Data de início do afastamento inválida. A data não pode ser superior à data atual." role="alert">
+        <span class="message-title">
+          <%= flash.first.last %>
+        </span>
+      </div>
       <div class="close">
-        <button class="br-button circle small" type="button" aria-label="Fechar a messagem alterta"><i class="fas fa-times" aria-hidden="true"></i>
+        <button class="br-button circle small" type="button" aria-label="Fechar a messagem alterta">
+          <i class="fas fa-times" aria-hidden="true"></i>
         </button>
       </div>
     </div>

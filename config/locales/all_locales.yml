@@ -13,6 +13,7 @@ pt-BR:
         partner_type: Tipo
         weight: Weight (posição de exibição)
       participatory_process:
+        Order: 'Ordenar:'
         area_id: Órgão/Instituição
         participatory_process_group_id: Setor
         decidim_area_id: Órgão/Instituição
@@ -22,6 +23,9 @@ pt-BR:
         slug: URL Amigável
         developer_group: Órgão/Instituição
         local_area: Setor
+        Responsible: 'Responsável:'
+        contact: 'Contato:'
+        Publication_in_the_DOU: Publicação no DOU
         meta_scope: Selecione o Status deste processo participativo
         target: Responsável pela consulta
         participatory_scope: Link da publicação do processo no DOU
@@ -34,6 +38,8 @@ pt-BR:
         show_statistics: Mostrar Dados Participativos
         should_have_user_full_profile: Exigir Perfil de Usuário completo para responder o formulário
         show_mobilization: Mostrar mobilização
+        mobilization_title: Título da aba de mobilização
+        mobilization_position: Posição da aba de mobilização
         is_template: É um processo template?
       participatory_process_partner:
         link: Link oficial
@@ -45,8 +51,6 @@ pt-BR:
         date: Data
         link: Link
         title: Título
-      assembly:
-        initial_page_component_id: Página Principal da Assembléia
       participatory_space_user_proposals_statistic_setting:
         name: Nome
         proposals_done_weight: Peso das Propostas Criadas
@@ -62,6 +66,9 @@ pt-BR:
       participatory_process_group:
         decidim_area_id: Órgão/Instituição
   decidim:
+    attachment_title: Documentos
+    attachment_description: Abaixo você encontra documentos que pode baixar para x, y e z. Você também pode disponibilizar seus documentos.
+    attachment_send_button: Enviar documento
     statistics:
       headline: Dados Participativos
     components:
@@ -83,6 +90,7 @@ pt-BR:
             comments_max_length: Quantidade máxima de caracteres por comentário (deixe 0 para não limitar)
             attachments_allowed: Permitir que o órgão crie propostas com anexos
             enable_comments_attachment: Permitir anexos em contribuições
+            statistics_enable: Mostrar estatísticas do usuário
       blogs:
         settings:
           global:
@@ -90,8 +98,10 @@ pt-BR:
       meetings:
         settings:
           global:
+            attachments_allowed: Permitir que o órgão crie reuniões com anexos
             enable_comments_attachment: Permitir anexos em contribuições
             requires_previous_moderation: Requerer moderação prévia de novas propostas
+      publish_date_text: Publicado em
     govbr:
       initial_page_type:
         default: Página Padrão
@@ -104,6 +114,8 @@ pt-BR:
           form:
             initial_page_component_id_help: Selecione qual componente será utilizado como a página principal desta assembléia. Apenas Páginas Estáticas e Páginas Iniciais serão exibidas aqui como opção. Caso não queira uma página inicial customizada, deixe marcada a opção "Página Padrão"
     participatory_processes:
+      show:
+        unspecified: A ser definido
       admin:
         partners:
           index:
@@ -129,6 +141,11 @@ pt-BR:
           components:
             topp: Termos de Privacidade
             collect_user_data: Habilitar termos de privacidade para coleta de dados dos usuarios (e-mail e CPF).
+            My_stats: Minhas estatísticas
+            Learn_about_the_rules_proposals: Conheça as regras e os critérios para seleção de propostas
+            Edit_your_proposal: Edite sua proposta
+            follow_the_instructions: Siga as instruções abaixo para participar ativamente e deixar sua marca nas decisões que impactam o Brasil.
+            Review_your_content: Revise o seu conteúdo e tenha certeza que está tudo correto antes de publicar. Após a publicação, você poderá editar ou apagar a proposta somente se não tiver recebido nenhum voto.
       user_answers_serializer:
         email: E-mail
         uid: CPF
@@ -141,7 +158,9 @@ pt-BR:
             body: Pré-visualização da enquete
           current_step: Passo %{step}
           of_total_steps: de %{total_steps}
-
+    search:
+      results_for_term: "Resultados em todo o "
+      platform: Brasil Participativo
     admin:
       participatory_process_copies:
         new:
@@ -245,7 +264,15 @@ pt-BR:
           create: "%{user_name} criou o relatório de participação de usuários %{resource_name} no espaço participativo %{space_name}"
           delete: "%{user_name} removeu o relatório de participação de usuários %{resource_name} do espaço participativo %{space_name}"
           update: "%{user_name} atualizou o relatório de participação de usuários %{resource_name} do espaço participativo %{space_name}"
+    meetings:
+      meetings:
+        confirm_destroy: "Você tem certeza que deseja deletar este evento?"
+        calendar_modal:
+          add_to_calendar: Adicionar na agenda
     proposals:
+      proposals_picker:
+        cancel: Cancelar
+        close: Confirmar
       admin:
         participatory_texts:
           section:
@@ -266,6 +293,14 @@ pt-BR:
         media: Mobilização
       process_navigation:
         media: Mobilização
+      edit_link:
+        edit_component: Editar componente
+      participatory_processes:
+        index:
+          default_title: Processos participativos
+          title: "%{title_name}"
+          help_text: O que são %{current_type_filter_name}?
+          card_button: Participar
 
 pt:
   activemodel:
@@ -329,7 +364,12 @@ pt:
         decidim_area_id: Órgão/Instituição
   decidim:
     components:
+      meetings:
+          actions:
+            new: 'Novo(a) %{singular_name}'
       proposals:
+        actions:
+          new: Novo(a) %{name}
         settings:
           global:
             vote_limit: Quantidade máxima de votos por usuário
@@ -364,6 +404,7 @@ pt:
             metadata: Dados do Processo
             group_chat_id_help: Coloque o ID do grupo de chat que será utilizado para este processo.
             hash_tag_help: Adicione palavras-chave separadas por vírgulas para identificar este processo nos campos de pesquisa.
+            mobilization_position_help: Esta posição será exibida na aba de mobilização
             slug_help: "A URL amigável é usada para gerar a URL para acessar o processo participativo. Apenas aceita letra, números e traços, e deve começar com uma letra. Exemplo: %{url}"
             duration: Prazo do Processo Participativo
             select_process_group: Selecione um Setor
@@ -403,9 +444,6 @@ pt:
         search_placeholder:
           name_or_nickname_or_email_or_identities_uid_cont: Pesquisar %{collection} por e-mail, nome, nome de usuário ou CPF.
       components:
-        proposals:
-          actions:
-            new: Novo(a) %{name}
         meetings:
           actions:
             new: "Novo(a) %{singular_name}"
@@ -499,13 +537,6 @@ pt:
           create: "%{user_name} criou o relatório de participação de usuários %{resource_name} no espaço participativo %{space_name}"
           delete: "%{user_name} removeu o relatório de participação de usuários %{resource_name} do espaço participativo %{space_name}"
           update: "%{user_name} atualizou o relatório de participação de usuários %{resource_name} do espaço participativo %{space_name}"
-    components:
-      proposals:
-        actions:
-          new: Novo(a) %{name}
-      meetings:
-        actions:
-          new: 'Novo(a) %{singular_name}'
     meetings:
       admin:
         meetings:
@@ -550,12 +581,41 @@ pt:
 en:
   activemodel:
     attributes:
+      assembly:
+        initial_page_component_id: Assembly Home Page
       assembly_partner:
         link: Link
         logo: Logo
         name: Name
         partner_type: Type
         weight: Weight (display position)
+      participatory_process:
+        Order: 'Order:'
+        area_id: Body/Institution
+        participatory_process_group_id: Sector
+        decidim_area_id: Body/Institution
+        initial_page_component_id: Participatory Process Home Page
+        scope_id: Areas of interest
+        scopes_enabled: Areas of interest enabled
+        slug: Friendly URL
+        developer_group: Body/Institution
+        local_area: Sector
+        Responsible: 'Responsible:'
+        contact: 'Contact:'
+        Publication_in_the_DOU: Publication in the DOU
+        meta_scope: Select the status of this participatory process
+        target: Responsible for the consultation
+        participatory_scope: Process publication link in the DOU
+        publish_date: Process publication date in the DOU
+        hashtag: Keywords
+        description: Participatory Process Summary
+        hero_image: Cover image (mobile)
+        banner_image: Cover image (desktop)
+        participatory_structure: Institutional Sector Phone or Email
+        show_statistics: Show Participatory Data
+        should_have_user_full_profile: Require full User Profile to answer the form
+        show_mobilization: Show mobilization
+        is_template: Is it a template process?
       participatory_process_partner:
         link: Link
         logo: Logo
@@ -588,12 +648,57 @@ en:
         template_processes_ids: Processes to be used as Templates
       participatory_process_group:
         decidim_area_id: Participatory Process Group
+      user:
+        email: E-mail
+  activerecord:
+    attributes:
+      decidim/user:
+        email: E-mail
   decidim:
+    statistics:
+      headline: Participatory Data
+    search:
+      results_for_term: "Results across the entire "
+      platform: Participatory Brazil
+    participatory_process_group:
+      participatory_process_group_id: Process group
+    meetings:
+      meetings:
+        confirm_destroy: "Are you sure you want to delete this event?"
+        calendar_modal:
+          add_to_calendar: Add to calendar
+    attachment_title: Documents
     components:
+      meetings:
+        settings:
+          global:
+            attachments_allowed: Allow the organization to create meetings with attachments
+            enable_comments_attachment: Allow attachments in contributions
+            requires_previous_moderation: Require prior moderation of new proposals
+      comment:
+        reply: Reply
+        report:
+          action: Moderate
+      blogs:
+        settings:
+          global:
+            enable_comments_attachment: Allow attachments in contributions
       proposals:
         settings:
           global:
+            vote_limit: Maximum number of votes per user
+            minimum_votes_per_user: Minimum number of votes per user
+            most_voted_rule: How many top-voted proposals will be selected?
+            proposal_limit: Maximum number of proposals per user (leave 0 if you don't want to limit)
+            proposal_length: Maximum number of characters per proposal
+            proposal_answering_enabled: Allow the organization to provide feedback on proposals
+            official_proposals_enabled: Allow the organization to make official proposals
+            comments_enabled: Allow users to comment on proposals
+            comments_max_length: Maximum number of characters per comment (leave 0 to not limit)
+            attachments_allowed: Allow the organization to create proposals with attachments
+            enable_comments_attachment: Allow attachments in contributions
             requires_previous_moderation: New proposals requires previous moderation
+      publish_date_text: Published on
     govbr:
       initial_page_type:
         default: Default Page
@@ -606,22 +711,52 @@ en:
           form:
             initial_page_component_id_help: Select the component to be used as the assembly main page. Only Static Pages and Initial Pages are displayed here as options. If a custom main page is not necessary, keep the option "Default Page" selected.
     participatory_processes:
+      card:
+        status:
+          active: Active
       admin:
         partners:
           index:
             title: Organizers and Supporters
         participatory_processes:
           form:
+            slug_help: "The friendly URL is used to generate the URL for accessing the participatory process. It only accepts letters, numbers, and hyphens, and must start with a letter. Example: %{url}"
+            select_process_group: Select an Organization/Institution
+            select_an_area: Select a Secretariat
+            metadata: Process Details
+            duration: Participatory Process Deadline
             initial_page_component_id_help: Select the component to be used as the process main page. Only Static Pages and Initial Pages are displayed here as options. If a custom main page is not necessary, keep the option "Default Page" selected.
             group_chat_id_help: The Telegram group ID to be used on this process
             hash_tag_help: The key-words to be used to identify this process on searching
         participatory_process_group_users:
           index:
             title: Group Member Users
+          new:
+            needs_entity_fields: Require additional fields in user registration
+
+    extra_user_fields:
+      registration_form:
+        selfie_image:
+          label: Selfie holding the Document
+          button_label: Choose file
+          help_title: Selfie holding the Document
+        document_image:
+          label: Photo of ID document
+          button_label: Choose file
+          help_title: Photo of ID document
+        document_valid:
+          help_title: Instructions to upload your selfie ID verification
+          help_text: Please upload a selfie photo side by side with your document. Your face must be clean, without glasses or masks and looking straight ahead.
+          error_text: The image provided does not match the criteria. See the help instructions to provide a better photo.
     forms:
       admin:
         models:
           components:
+            follow_the_instructions: Follow the instructions below to actively participate and make your mark on decisions that impact Brazil.
+            Review_your_content: Review your content and make sure everything is correct before publishing. After publishing, you can only edit or delete the proposal if it has not received any votes.
+            My_stats: My statistics
+            Learn_about_the_rules_proposals: Learn about the rules and criteria for proposal selection
+            Edit_your_proposal: Edit your proposal
             topp: Terms of privacy policy
             collect_user_data: Enable user data collecting via terms of privacy policy.
       user_answers_serializer:
@@ -629,6 +764,11 @@ en:
         uid: Identification number
         anonymous_answer: User didn't want to inform
       questionnaires:
+        questionnaire_form:
+          questionnaire_not_published:
+            body: Poll preview
+          current_step: Step %{step}
+          of_total_steps: of %{total_steps}
         show:
           topp_agreement: I agree with the privacy policy
     admin:
@@ -722,7 +862,7 @@ en:
           error: Could not update group user
       users:
         form:
-          needs_entity_fields: Exigir campos extras no cadastro do usuário
+          needs_entity_fields: Require additional fields in user registration
     admin_log:
       govbr:
         partner:
@@ -737,7 +877,26 @@ en:
           create: "%{user_name} created an user participation report %{resource_name} in the participatory space %{space_name}"
           delete: "%{user_name} removed the user participation report %{resource_name} from the participatory space %{space_name}"
           update: "%{user_name} updated the user participation report %{resource_name} from the participatory space %{space_name}"
+    devise:
+      shared:
+        links:
+          sign_in: Login
+          sign_up: Register
+          sign_out: Log out
+      registrations:
+        new:
+          sign_up: Sign up
+          subtitle: For people who are not naturalized as Brazilians, you need to have your passport on hand to register.
+          subtitle_help: Sign up to participate in discussions and support proposals.
+          username_help: Public name that appears on your posts.
+      passwords:
+        new:
+          forgot_your_password: Forgot your password
+
     proposals:
+      proposals_picker:
+        cancel: Cancel
+        close: Confirm
       admin:
         participatory_texts:
           section:
@@ -756,10 +915,16 @@ en:
         media: Media
       process_navigation:
         media: Media
+      edit_link:
+        edit_component: Edit Component
       data_consent:
         dialog:
           accept_all: Aceitar cookies
           reject: Rejeitar cookies
+          Advanced_cookie_settings: Configurações avançadas de cookies
+          Cookie_Declaration: Ver Declaração de Cookies
+          To_improve_your_experience: Para melhorar a sua experiência na plataforma e prover serviços personalizados, utilizamos cookies.
+
 
 es-MX:
   activemodel:
@@ -962,6 +1127,8 @@ es-MX:
         media: Medios
       process_navigation:
         media: Medios
+      edit_link:
+        edit_component: Editar Componente
 
 es-PY:
   activemodel:
@@ -1164,205 +1331,352 @@ es-PY:
         media: Medios
       process_navigation:
         media: Medios
+      edit_link:
+        edit_component: Editar Componente
 
 es:
   activemodel:
     attributes:
+      assembly:
+        initial_page_component_id: Página principal de la Asamblea
       assembly_partner:
         link: Enlace
-        logo: Logo
+        logo: Logotipo
         name: Nombre
         partner_type: Tipo
-        weight: Weight (posición de visualización)
+        weight: Peso (posición de visualización)
+      participatory_process:
+        Order: 'Orden:'
+        area_id: Cuerpo/Institución
+        participatory_process_group_id: Sector
+        decidim_area_id: Cuerpo/Institución
+        initial_page_component_id: Página principal del Proceso Participativo
+        scope_id: Áreas de interés
+        scopes_enabled: Áreas de interés habilitadas
+        slug: URL amigable
+        developer_group: Cuerpo/Institución
+        local_area: Sector
+        Responsible: 'Responsable:'
+        contact: 'Contacto:'
+        Publication_in_the_DOU: Publicación en el DOU
+        meta_scope: Seleccione el estado de este proceso participativo
+        target: Responsable de la consulta
+        participatory_scope: Enlace de publicación del proceso en el DOU
+        publish_date: Fecha de publicación del proceso en el DOU
+        hashtag: Palabras clave
+        description: Resumen del Proceso Participativo
+        hero_image: Imagen de portada (móvil)
+        banner_image: Imagen de portada (escritorio)
+        participatory_structure: Teléfono o correo electrónico del Sector Institucional
+        show_statistics: Mostrar datos participativos
+        should_have_user_full_profile: Requerir perfil de usuario completo para responder el formulario
+        show_mobilization: Mostrar movilización
+        is_template: ¿Es un proceso modelo?
       participatory_process_partner:
         link: Enlace
-        logo: Logo
+        logo: Logotipo
         name: Nombre
         partner_type: Tipo
-        weight: Weight (posición de visualización)
+        weight: Peso (posición de visualización)
       participatory_space_media_link:
         date: Fecha
         link: Enlace
         title: Título
       participatory_process_group_user:
-        email: Dirección de Correo Electrónico del Usuario
-        role: Role
+        email: Correo electrónico del usuario
+        role: Rol
       assembly:
-        initial_page_component_id: La página Principal de la Asamblea
+        initial_page_component_id: Página principal de la Asamblea
       participatory_process:
-        initial_page_component_id: La página Principal del Proceso
-        is_template: Es una plantilla?
+        initial_page_component_id: Página principal del Proceso
+        is_template: ¿Es un proceso modelo?
       participatory_space_user_proposals_statistic_setting:
         name: Nombre
-        proposals_done_weight: Peso de Propuestas Realizadas
-        comments_done_weight: Peso de Comentarios Realizados
-        votes_done_weight: Peso de los Votos Realizados
-        follows_done_weight: Peso de los Follows Realizados
-        votes_received_weight: Peso de los Votos Recebidos
-        comments_received_weight: Peso de los Comentarios Recebidos
-        follows_received_weight: Peso de los Follows Recebidos
-        users_to_be_exported: Tamaño de Clasificación de Usuarios
+        proposals_done_weight: Peso de propuestas realizadas
+        comments_done_weight: Peso de comentarios realizados
+        votes_done_weight: Peso de votos realizados
+        follows_done_weight: Peso de seguimientos realizados
+        votes_received_weight: Peso de votos recibidos
+        comments_received_weight: Peso de comentarios recibidos
+        follows_received_weight: Peso de seguimientos recibidos
+        users_to_be_exported: Tamaño del ranking de usuarios
       organization:
-        template_processes_ids: Procesos a utilizar como Plantillas
+        template_processes_ids: Procesos para ser usados como plantillas
       participatory_process_group:
         decidim_area_id: Grupo de Proceso Participativo
+      user:
+        email: Correo electrónico
+  activerecord:
+    attributes:
+      decidim/user:
+        email: Correo electrónico
   decidim:
+    statistics:
+      headline: Datos Participativos
+    search:
+      results_for_term: "Resultados en toda la "
+      platform: Brasil Participativo
+    participatory_process_group:
+      participatory_process_group_id: Grupo de procesos
+    meetings:
+      meetings:
+        confirm_destroy: "¿Está seguro de que desea eliminar este evento?"
+        calendar_modal:
+          add_to_calendar: Añadir al calendario
+    attachment_title: Documentos
+    components:
+      meetings:
+        settings:
+          global:
+            attachments_allowed: Permitir a la organización crear reuniones con adjuntos
+            enable_comments_attachment: Permitir archivos adjuntos en contribuciones
+            requires_previous_moderation: Requiere moderación previa de nuevas propuestas
+      comment:
+        reply: Responder
+        report:
+          action: Modificar
+      blogs:
+        settings:
+          global:
+            enable_comments_attachment: Permitir archivos adjuntos en contribuciones
+      proposals:
+        settings:
+          global:
+            vote_limit: Número máximo de votos por usuario
+            minimum_votes_per_user: Número mínimo de votos por usuario
+            most_voted_rule: ¿Cuántas propuestas más votadas se seleccionarán?
+            proposal_limit: Número máximo de propuestas por usuario (dejar 0 si no se quiere limitar)
+            proposal_length: Número máximo de caracteres por propuesta
+            proposal_answering_enabled: Permitir a la organización dar retroalimentación sobre las propuestas
+            official_proposals_enabled: Permitir a la organización hacer propuestas oficiales
+            comments_enabled: Permitir a los usuarios comentar propuestas
+            comments_max_length: Número máximo de caracteres por comentario (dejar 0 para no limitar)
+            attachments_allowed: Permitir a la organización crear propuestas con adjuntos
+            enable_comments_attachment: Permitir archivos adjuntos en contribuciones
+            requires_previous_moderation: Nuevas propuestas requieren moderación previa
+      publish_date_text: Publicado el
     govbr:
       initial_page_type:
-        default: Página Predeterminada
+        default: Página por defecto
     assemblies:
       admin:
         partners:
           index:
-            title: Organizadores y Simpatizantes
+            title: Organizadores y Colaboradores
         assemblies:
           form:
-            initial_page_component_id_help: Seleccione el componente que se utilizará como página principal del ensamblaje. Aquí sólo se muestran como opciones Páginas estáticas y Páginas iniciales. Si no es necesaria una página principal personalizada, mantenga seleccionada la opción "Página Predeterminada".
+            initial_page_component_id_help: Seleccione el componente que se utilizará como la página principal de la asamblea. Solo se muestran aquí como opciones las páginas estáticas y las páginas iniciales. Si no es necesaria una página principal personalizada, mantenga seleccionada la opción "Página por defecto".
     participatory_processes:
+      card:
+        status:
+          active: Activo
       admin:
         partners:
           index:
-            title: Organizadores y Simpatizantes
+            title: Organizadores y Colaboradores
         participatory_processes:
           form:
-            initial_page_component_id_help: Seleccione el componente que se utilizará como página principal del proceso. Aquí sólo se muestran como opciones Páginas estáticas y Páginas iniciales. Si no es necesaria una página principal personalizada, mantenga seleccionada la opción "Página Predeterminada".
-            group_chat_id_help: El ID del grupo de Telegram que se utilizará en este proceso.
-            hash_tag_help: Las palabras clave que se utilizarán para identificar este proceso en la búsqueda.
+            slug_help: "La URL amigable se usa para generar la URL para acceder al proceso participativo. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}"
+            select_process_group: Seleccione una Organización/Institución
+            select_an_area: Seleccione una Secretaría
+            metadata: Detalles del proceso
+            duration: Fecha límite del Proceso Participativo
+            initial_page_component_id_help: Seleccione el componente que se utilizará como la página principal del proceso. Solo se muestran aquí como opciones las páginas estáticas y las páginas iniciales. Si no es necesaria una página principal personalizada, mantenga seleccionada la opción "Página por defecto".
+            group_chat_id_help: ID del grupo de Telegram que se utilizará en este proceso
+            hash_tag_help: Las palabras clave que se utilizarán para identificar este proceso en las búsquedas
         participatory_process_group_users:
           index:
             title: Usuarios Miembros del Grupo
+          new:
+            needs_entity_fields: Requiere campos adicionales en el registro del usuario
+
+    extra_user_fields:
+      registration_form:
+        selfie_image:
+          label: Selfie sosteniendo el documento
+          button_label: Elegir archivo
+          help_title: Selfie sosteniendo el documento
+        document_image:
+          label: Foto del documento de identidad
+          button_label: Elegir archivo
+          help_title: Foto del documento de identidad
+        document_valid:
+          help_title: Instrucciones para subir tu verificación de identidad en selfie
+          help_text: Por favor, sube una foto tipo selfie junto a tu documento. Tu rostro debe estar despejado, sin gafas ni mascarillas, y mirando hacia adelante.
+          error_text: La imagen proporcionada no cumple con los criterios. Consulta las instrucciones de ayuda para proporcionar una mejor foto.
     forms:
       admin:
         models:
           components:
-            topp: Términos de política de privacidad
-            collect_user_data: Habilite la recopilación de datos del usuario a través de los términos de la política de privacidad.
+            follow_the_instructions: Sigue las instrucciones a continuación para participar activamente y dejar tu huella en las decisiones que afectan a Brasil.
+            Review_your_content: Revisa tu contenido y asegúrate de que todo esté correcto antes de publicar. Después de publicar, solo podrás editar o eliminar la propuesta si no ha recibido ningún voto.
+            My_stats: Mis estadísticas
+            Learn_about_the_rules_proposals: Aprende sobre las reglas y criterios para la selección de propuestas
+            Edit_your_proposal: Edita tu propuesta
+            topp: Términos de la política de privacidad
+            collect_user_data: Habilitar la recopilación de datos de usuarios a través de los términos de la política de privacidad.
       user_answers_serializer:
-        email: E-mail
+        email: Correo electrónico
         uid: Número de identificación
-        anonymous_answer: El usuario no quería informar
+        anonymous_answer: El usuario no quiso informar
       questionnaires:
+        questionnaire_form:
+          questionnaire_not_published:
+            body: Vista previa de la encuesta
+          current_step: Paso %{step}
+          of_total_steps: de %{total_steps}
         show:
-          topp_agreement: Estoy de acuerdo con la política de privacidad
+          topp_agreement: Acepto la política de privacidad
     admin:
       participatory_process_copies:
         new:
           copy: Guardar
-          select: Opciones Avanzadas
-          title: Crear proceso basado en %{subject} (%{subject_title})
+          select: Opciones avanzadas
+          title: Crear proceso basado en un %{subject} (%{subject_title})
           template: Plantilla
           process: Proceso existente
       actions:
         participatory_process_group_user:
-          confirm_destroy: ¿Realmente deseas eliminar a este usuario del grupo? Esta acción revocará todos los roles de usuario en los procesos asociados con este grupo.
+          confirm_destroy: ¿Realmente quieres eliminar a este usuario del grupo? Esta acción revocará todos los roles de usuario en los procesos asociados con este grupo.
         create: Crear
         update: Actualizar %{name}
       filters:
         search_placeholder:
-          name_or_nickname_or_email_or_identities_uid_cont: Buscar %{collection} por correo electrónico, nombre o alias.
-      menu:
+          name_or_nickname_or_email_or_identities_uid_cont: Buscar %{collection} por correo electrónico, nombre, apodo o número de identificación.
+      menú:
         assemblies_submenu:
-          partners: Organizadores y Simpatizantes
-          media_links: Enlaces de Medios
+          partners: Organizadores y Colaboradores
+          media_links: Enlaces de medios
         participatory_processes_submenu:
-          user_proposals_statistic_settings: Informes de Participación de los Usuarios
+          user_proposals_statistic_settings: Informes de Participación de Usuarios
       models:
         participatory_process_group_user:
           name: Usuario Miembro del Grupo
         partner:
           types:
-            supporter: Simpatizantes
-            organizer: Organizadores
+            supporter: Colaborador
+            organizer: Organizador
         media_link:
           fields:
             date: Fecha
             link: Enlace
             title: Título
         user_proposals_statistic_setting:
-          name: Informe de Participación de los Usuarios
+          name: Informe de Participación de Usuarios
           fields:
             name: Nombre
             proposals_done_weight: Peso de Propuestas Realizadas
             comments_done_weight: Peso de Comentarios Realizados
-            votes_done_weight: Peso de los Votos Realizados
-            follows_done_weight: Peso de los Follows Realizados
-            votes_received_weight: Peso de los Votos Recebidos
-            comments_received_weight: Peso de los Comentarios Recebidos
-            follows_received_weight: Peso de los Follows Recebidos
-            users_to_be_exported: Tamaño de Clasificación de Usuarios
+            votes_done_weight: Peso de Votos Realizados
+            follows_done_weight: Peso de Seguimientos Realizados
+            votes_received_weight: Peso de Votos Recibidos
+            comments_received_weight: Peso de Comentarios Recibidos
+            follows_received_weight: Peso de Seguimientos Recibidos
+            users_to_be_exported: Tamaño del Ranking de Usuarios
             created_at: Creado en
             updated_at: Actualizado en
-            statistics_data_updated_at: Clasificación Actualizada en
-      user_proposals_statistic_settings:
-        index:
-          user_proposals_statistic_settings_title: Informes de Participación de los Usuarios
-          statistics_data_updated_at_blank: Nunca
-        create:
-          success: Informe de Participación de los Usuarios creado con éxito
-          error: No fue posible crear el Informe de Participación de los Usuarios
-        update:
-          success: Informe de Participación de los Usuarios editado con éxito
-          error: No fue posible editar el Informe de Participación de los Usuarios
-        destroy:
-          success: Informe de Participación de los Usuarios eliminado con éxito
-          error: No fue posible eliminar el Informe de Participación de los Usuarios
-      user_proposals_statistic_setting:
-        new:
-          title: Nuevo Informe de Participación de los Usuarios
-          create: Crear
-        edit:
-          title: Editar el Informe de Participación de los Usuarios
-          update: Actualizar
-      partners:
-        update:
-          success: Colaborador actualizado exitosamente
-          error: No se pudo actualizar el colaborador
-        create:
-          success: Colaborador creado con éxito
-          error: No se pudo crear el colaborador
-        destroy:
-          success: Colaborador eliminado con éxito
-          error: No se pudo eliminar el colaborador
-      participatory_process_group_users:
-        create:
-          success: Usuario agregado al grupo exitosamente
-          error: No se pudo agregar usuario al grupo
-        destroy:
-          success: Usuario eliminado del grupo con éxito
-          error: No se pudo eliminar el usuario del grupo
-        update:
-          success: Usuario del grupo actualizado con éxito
-          error: No se pudo actualizar el usuario del grupo
-    admin_log:
-      govbr:
-        partner:
-          create: "%{user_name} crea el paquete %{resource_name} en el espacio participativo %{space_name}"
-          delete: "%{user_name} eliminó el paquete %{resource_name} en el espacio participativo %{space_name}"
-          update: "%{user_name} actualizó el paquete %{resource_name} en el espacio participativo %{space_name}"
-        media_link:
-          create: "%{user_name} creó un enlace externo %{resource_name} en el espacio participativo %{space_name}"
-          delete: "%{user_name} eliminó el enlace externo %{resource_name} del espacio participativo %{space_name}"
-          update: "%{user_name} actualizó el enlace externo %{resource_name} del espacio participativo %{space_name}"
+            statistics_data_updated_at: Ranking Actualizado en
+        user_proposals_statistic_settings:
+          index:
+            user_proposals_statistic_settings_title: Informes de Participación de Usuarios
+            statistics_data_updated_at_blank: Nunca
+          create:
+            success: Informe de Participación de Usuarios creado con éxito
+            error: No se pudo crear el Informe de Participación de Usuarios
+          update:
+            success: Informe de Participación de Usuarios editado con éxito
+            error: No se pudo editar el Informe de Participación de Usuarios
+          destroy:
+            success: Informe de Participación de Usuarios eliminado con éxito
+            error: No se pudo eliminar el Informe de Participación de Usuarios
         user_proposals_statistic_setting:
-          create: "%{user_name} creó un informe de participación de los usuarios %{resource_name} en el espacio participativo %{space_name}"
-          delete: "%{user_name} eliminó el informe de participación de los usuarios %{resource_name} del espacio participativo %{space_name}"
-          update: "%{user_name} actualizó el informe de participación de los usuarios %{resource_name} del espacio participativo %{space_name}"
-    proposals:
-      admin:
-        participatory_texts:
-          section:
-            levels:
-              section: Sección
-              sub-section: Subsección
-              article: Artículo
+          new:
+            title: Nuevo Informe de Participación de Usuarios
+            create: Crear
+          edit:
+            title: Editar Informe de Participación de Usuarios
+            update: Guardar
+        partners:
+          update:
+            success: Socio actualizado con éxito
+            error: No se pudo actualizar el socio
+          create:
+            success: Socio creado con éxito
+            error: No se pudo crear el socio
+          destroy:
+            success: Socio eliminado con éxito
+            error: No se pudo eliminar el socio
+        participatory_process_group_users:
+          create:
+            success: Usuario agregado al grupo con éxito
+            error: No se pudo agregar el usuario al grupo
+          destroy:
+            success: Usuario eliminado del grupo con éxito
+            error: No se pudo eliminar el usuario del grupo
+          update:
+            success: Usuario del grupo actualizado con éxito
+            error: No se pudo actualizar el usuario del grupo
+        users:
+          form:
+            needs_entity_fields: Requiere campos adicionales en el registro del usuario
+      admin_log:
+        govbr:
+          partner:
+            create: "%{user_name} creó el socio %{resource_name} en el espacio participativo %{space_name}"
+            delete: "%{user_name} eliminó el socio %{resource_name} en el espacio participativo %{space_name}"
+            update: "%{user_name} actualizó el socio %{resource_name} en el espacio participativo %{space_name}"
+          media_link:
+            create: "%{user_name} creó un enlace externo %{resource_name} en el espacio participativo %{space_name}"
+            delete: "%{user_name} eliminó el enlace externo %{resource_name} del espacio participativo %{space_name}"
+            update: "%{user_name} actualizó el enlace externo %{resource_name} del espacio participativo %{space_name}"
+          user_proposals_statistic_setting:
+            create: "%{user_name} creó un informe de participación de usuarios %{resource_name} en el espacio participativo %{space_name}"
+            delete: "%{user_name} eliminó el informe de participación de usuarios %{resource_name} del espacio participativo %{space_name}"
+            update: "%{user_name} actualizó el informe de participación de usuarios %{resource_name} del espacio participativo %{space_name}"
+      devise:
+        shared:
+          links:
+            sign_in: Iniciar sesión
+            sign_up: Registrarse
+            sign_out: Cerrar sesión
+        registrations:
+          new:
+            sign_up: Regístrate
+            subtitle: Para las personas que no están naturalizadas como brasileñas, necesitas tener tu pasaporte a mano para registrarte.
+            subtitle_help: Regístrate para participar en discusiones y apoyar propuestas.
+            username_help: Nombre público que aparece en tus publicaciones.
+        passwords:
+          new:
+            forgot_your_password: ¿Olvidaste tu contraseña?
+
       proposals:
-        comments_count:
-          count:
-            one: COMENTARIO
-            other: COMENTARIOS
-  layouts:
-    decidim:
-      assembly_navigation:
-        media: Medios
-      process_navigation:
-        media: Medios
+        proposals_picker:
+          cancel: Cancelar
+          close: Confirmar
+        admin:
+          participatory_texts:
+            section:
+              levels:
+                section: Sección
+                sub-section: Subsección
+                article: Artículo
+        proposals:
+          comments_count:
+            count:
+              one: COMENTARIO
+              other: COMENTARIOS
+      layouts:
+        decidim:
+          assembly_navigation:
+            media: Medios
+        process_navigation:
+            media: Medios
+        edit_link:
+          edit_component: Editar componente
+        data_consent:
+          dialog:
+            accept_all: Aceptar cookies
+            reject: Rechazar cookies
+            Advanced_cookie_settings: Configuración avanzada de cookies
+            Cookie_Declaration: Ver Declaración de Cookies
+            To_improve_your_experience: Para mejorar tu experiencia en la plataforma y proporcionar servicios personalizados, utilizamos cookies.

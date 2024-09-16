@@ -1,8 +1,11 @@
+
 # https://github.com/decidim/decidim/blob/develop/decidim-comments/config/locales/en.yml
 pt-BR:
   activemodel:
     models:
       decidim/comments/comment_by_followed_user_event: Contribua
+      Participate_with_comment: Participe com um comentário
+      Collaborations_Received: Colaborações Recebidas
       decidim/comments/comment_created_event:
         one: Contribuição
         other: Contribuições
@@ -18,7 +21,7 @@ pt-BR:
         one: Contribuição
         other: Contribuições
   decidim:
-    comments:
+    contribuicoes:
       admin:
         shared:
           availability_fields:
@@ -30,6 +33,17 @@ pt-BR:
         account_message: <a href="%{sign_in_url}">Entre com sua conta</a> ou <a href="%{sign_up_url}">inscreva-se</a> para adicionar sua contribuição.
         form:
           body:
+            Incorporate: Incorporar
+            reject: Rejeitar
+            rejected: Rejeitada
+            incorporated: Incorporada
+            contributions_received: Contribuições recebidas
+            Number_proposals_created: Número de propostas criadas
+            Number_contributions_made: Número de contribuições feitas
+            Number_votes_cast: Número de votos dados
+            Votes_received_your_proposals: Votos recebidos nas suas propostas
+            Number_proposals_followed: Número de propostas seguidas
+            Followers_your_proposals: Seguidores nas suas propostas
             label: Contribua
             placeholder: Digite aqui a sua contribuição...
           form_error: O texto é obrigatório e não pode ser maior que %{length} caracteres.
@@ -46,9 +60,15 @@ pt-BR:
           positive_selected: Sua opinião sobre este tópico é positiva
         remaining_characters: "%{count} caracteres restantes"
         remaining_characters_1: "%{count} personagem à esquerda"
-        title: "Compartilhe sua contribuição:"
+        title: "Adicione sua contribuição:"
+      comments_section_title:
+        title:
+          zero: Ainda não há contribuições
+          one: Contribuições recebidas
+          other: Contribuições recebidas
       comments:
         title:
+          zero: ""
           one: "%{count} contribuição"
           other: "%{count} contribuições"
         single_comment_warning: Pode consultar as contribuições restantes <a href="%{url}">aqui</a>.

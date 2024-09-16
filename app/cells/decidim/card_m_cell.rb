@@ -13,6 +13,7 @@ module Decidim
     include Decidim::SearchesHelper
 
     def show
+      @current_component = context[:controller].try(:current_component)
       render
     end
 
@@ -103,12 +104,20 @@ module Decidim
       state_classes.concat(["card__text--status"]).join(" ")
     end
 
+    def extra_badges_classes(badge)
+      ["blue"].concat(["card__text--status"]).join(" ") if badge == "Mais Votada"
+    end
+
     def state_classes
       ["muted"]
     end
 
     def comments_count
       model.comments_count
+    end
+
+    def commentable?
+      model.component.settings.comments_enabled?
     end
 
     def statuses

@@ -22,8 +22,7 @@
           <label><%= builder.radio_button(id: nil) + builder.text %></label>
         <% end %>
       </fieldset>
-      <%= f.text_area :details, rows: 4, id: "#{modal_id}_details", label_options: { for: "#{modal_id}_details" , class:"report_modal_comment"}, placeholder: t("decidim.shared.flag_modal.comment_placeholder") %>
-      <p class="character_limit_text">Até 2000 caracteres</p>
+      <%= f.text_area :details, rows: 4, id: "#{modal_id}_details", label_options: { for: "#{modal_id}_details" , class:"report_modal_comment"}, placeholder: t("decidim.shared.flag_modal.comment_placeholder"), maxlength: 2000 %>
       <div class="report_modal_bottom">
         <button class="close_share_modal_button" data-close aria-label="<%= t("decidim.shared.flag_modal.close") %>" type="button">
           <%= t("decidim.shared.flag_modal.cancel") %>

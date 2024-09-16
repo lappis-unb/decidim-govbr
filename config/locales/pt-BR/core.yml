@@ -230,7 +230,8 @@ pt-BR:
         unpublish_with_space: "%{user_name} removeu a publicação %{resource_name} em %{space_name}"
         update_permissions_with_space: "%{user_name} atualizou as permissões de %{resource_name} em %{space_name}"
     modal:
-      export_data: Gerar relatório
+      export_data: Gerar relatório 
+      component_edit: Editar componente
       select_date: Selecione as datas para a geração do relatório deste processo.
       export_confirmation: Relatório solicitado! Em breve enviaremos para o seu e-mail cadastrado. Por favor, verifique sua caixa de entrada e spam.
       export_error: Ocorreu um erro ao gerar o relatório. Por favor, tente novamente mais tarde.
@@ -279,6 +280,7 @@ pt-BR:
       filter_form_help:
         help: Filtre por temas de interesse.
       flag_modal:
+        to_2000_characters: Até 2000 caracteres
         already_reported: Este conteúdo já foi reportado e será revisado por um administrador.
         close: Fechar
         cancel: Cancelar
@@ -304,6 +306,8 @@ pt-BR:
         help: Ajuda
       mentions_modal:
         remove_recipient: Remover o destinatário %{name}
+      results_per_page:
+        label: 'Resultados por página:'  
       share_modal:
         share: Compartilhe sua contribuição
         share_link: Compartilhar link
@@ -459,7 +463,12 @@ pt-BR:
       signed_in: Sessão iniciada com sucesso.
       signed_out: Sessão terminada com sucesso.
       new:
-        sign_in: Conecte-se
+        sign_in: Acesse o Brasil Participativo com a sua conta no gov.br
+        foreign_login:
+          access: Access for foreigners
+          description: For people who are not naturalized as Brazilians, you need to have your passport on hand to register. If you already have a registration, just click login
+          login: "Login"
+          sign_up: "Register"
     shared:
       links:
         back: Voltar
@@ -521,6 +530,15 @@ pt-BR:
           all_categories: Todos os cookies
           change_settings: Alterar configurações de cookies
           consent_required: Você precisa habilitar %{categories} para poder ver este conteúdo.
+      map:
+        dynamic:
+          screen_reader_explanation: O elemento a seguir é um mapa que apresenta os itens nesta página como pontos de mapa. O elemento pode ser usado com um leitor de tela, mas pode ser difícil de entender.
+          skip_button: Pular mapa
+        static:
+          latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
+          map_service_brand: OpenStreetMap
+          arrive_instructions: "Como chegar:"
+          see_map: "Ver mapa"
       footer:
         data_consent_settings: Configurações de cookies
         download_open_data: Baixar arquivos de Dados Abertos
@@ -540,5 +558,7 @@ pt-BR:
     password_repeated: não pode reutilizar a senha antiga
   time:
     formats:
+      decidim_with_month_name: "%d %B %Y"
       ddmm: "%d/%m"
       ddmmyyyy: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"

@@ -48,9 +48,9 @@ module Decidim
 
       def state_classes
         case state
-        when "accepted"
+        when "accepted", "partially_accepted"
           ["green"]
-        when "rejected", "withdrawn"
+        when "rejected", "withdrawn", "disqualified"
           ["red"]
         when "evaluating"
           ["orange"]

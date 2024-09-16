@@ -2,6 +2,12 @@
 pt-BR:
   decidim:
     blogs:
+      social_medias:
+          share: "Compartilhe:"
+          face_share: Compartilhe por Facebook
+          twitter_share: Compartilhe por Twitter
+          LinkedIn_share: Compartilhe por LinkedIn
+          whatssap_share: Compartilhe por WhatsApp
       admin_log:
         post:
           create: "%{user_name} criou a postagem de blog %{resource_name} em %{space_name}"
@@ -9,4 +15,8 @@ pt-BR:
           update: "%{user_name} atualizou a postagem de blog %{resource_name} em %{space_name}"
       posts:
         show:
+          published_at: 'Publicado em'
+          updated_at: 'Atualizado em'
           back: Voltar à lista
+          page_has_no_publication: A página não possui publicação. 
+          Read_more: ler mais

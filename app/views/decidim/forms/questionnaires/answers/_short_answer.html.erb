@@ -1,0 +1,11 @@
+<% organization_info_survey = current_participatory_space.organization_info_survey.presence.to_s.chomp("/") %>
+<% record_what_happened_survey = current_participatory_space.record_what_happened_survey.presence.to_s.chomp("/") %>
+
+<% if organization_info_survey.present? && request.original_url.include?(organization_info_survey) && field_id.include?("questionnaire_responses_0") %>
+  <%= answer_form.text_field :body, label: false, id: field_id, disabled: disabled, maxlength: maxlength, value: "#{params[:meeting_id]}" %>
+<% elsif record_what_happened_survey.present? && request.original_url.include?(record_what_happened_survey) && translated_attribute(answer.question.body) == "origin_meeting_id" %>
+  <%= answer_form.hidden_field :body, label: false, id: field_id, disabled: disabled, maxlength: maxlength, value: "#{params[:meeting_id]}" %>
+<% else %>
+  <%= answer_form.text_field :body, label: false, id: field_id, disabled: disabled, maxlength: maxlength %>
+<% end %>
+

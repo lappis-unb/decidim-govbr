@@ -7,6 +7,11 @@ pt-BR:
       questionnaire:
         title: Nome do Formulário
   decidim:
+    pages:
+      admin:
+        models:
+          components:
+            description: Descrição
     forms:
       admin:
         questionnaires:
@@ -53,6 +58,7 @@ pt-BR:
       step_navigation:
         show:
           are_you_sure: Esta ação não poderá ser desfeita e não deixará editar as suas respostas. Você tem certeza?
+          continue: Sim, continuar
           back: Voltar
       user_answers_serializer:
         registered: Registrado

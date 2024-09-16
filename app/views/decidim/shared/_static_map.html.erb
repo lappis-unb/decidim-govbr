@@ -1,0 +1,22 @@
+<% if geolocalizable.address.present? %>
+  <div class="card--secondary">
+    <div class="card__content address__map_container">
+      <% if Decidim::Map.available?(:static) || Decidim::Map.available?(:dynamic) %>
+      <div class="address__map">
+          <%= static_map_link(geolocalizable, { zoom: 10 }, { class: "static__map-map" }) %>
+        </div>
+      <% end %>
+      <div class="address__info">
+        <div class="address__details_container">
+          <h5 class="section-heading address__arrive_title"><%=t("layouts.decidim.map.static.arrive_instructions")%></h5>
+          <%= render partial: "decidim/shared/address_details", locals: { geolocalizable: geolocalizable } %>
+          <div class="map_location_address"><%= translated_attribute(meeting.location) %></div>
+          <a href="<%= map_url_string geolocalizable %>" target=”_blank” class="button secondary hollow button-sc button--icon follow-button">
+            <i class="fas fa-map-marked-alt"></i>
+            <%=t("layouts.decidim.map.static.see_map")%>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

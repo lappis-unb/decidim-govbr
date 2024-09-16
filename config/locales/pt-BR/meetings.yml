@@ -6,9 +6,13 @@ pt-BR:
         description: Descrição
         duration: Duração
         title: Título
+        registered: Inscritos
+        filter_only_applies_Agenda_meetings: Este filtro refere-se, apenas para as reuniões da Agenda
       close_meeting:
         proposals: Propostas criadas no evento
+        closing_report: Relatório
       meeting:
+        title: "Título do evento:"
         available_slots: Vagas disponíveis para este evento
         customize_registration_email: Personalizar o e-mail de inscrição
         iframe_access_level: Nível de acesso do iframe
@@ -16,11 +20,18 @@ pt-BR:
         registration_type: Tipo de inscrição
         registration_form_enabled: Formulário de inscrição ativado
         registration_terms: Termos de inscrição
-        registrations_enabled: Inscrição ativados
-        reserved_slots: Vagas reservadas para este evento
-        start_time: Hora de início
-        end_time: Hora de término
-        type_of_meeting: Tipo
+        registrations_enabled: "Inscrição ativados:"
+        reserved_slots: "Vagas reservadas para este evento:"
+        online_meeting_url: "URL do evento:"
+        start_time: "Horário de início:"
+        end_time: "Horário de fim:"
+        type_of_meeting: "Formato:"
+        description: "Descrição:"
+        address: "Endereço:"
+        location: "Localização:"
+        location_hints: "Dicas:"
+        associated_state: Estado associado
+        decidim_scope_id: "Área de interesse:"
       meeting_agenda:
         title: Título
         visible: Visível
@@ -48,6 +59,9 @@ pt-BR:
               official: Oficial
               participants: Participante
               user_group: Grupos de usuários
+    forms:
+      meetings:
+        closing_report: Descreva o que ocorreu
     components:
       meetings:
         actions:
@@ -77,6 +91,9 @@ pt-BR:
           notification_title: O evento <a href="%{resource_path}">%{resource_title}</a> abriu inscrições.
 
     meetings:
+      types:
+        withdraw: Cancelado
+      itinerary: Cronograma do Evento
       actions:
         close: Encerrar Evento
         registrations: Inscrições
@@ -88,8 +105,10 @@ pt-BR:
             title: Editar o evento
           form:
             available_slots_help: Deixe o valor 0 se você tiver vagas ilimitadas disponíveis
+            to_define: A ser definido
             location_hints_help: "Exemplo: o andar do edifício se for um evento presencial, ou a senha do evento se for um evento virtual com acesso restrito."
             select_a_meeting_type: Por favor, selecione um tipo de evento
+            select_a_meeting_associated_state: Por favor, selecione um estado associado ao evento
             select_a_registration_type: Por favor, selecione um tipo de inscrição
             select_an_iframe_access_level: Por favor selecione um nível de acesso iframe
             show_embedded_iframe_help: "Apenas alguns poucos serviços permitem a incorporação em reuniões ou eventos ao vivo dos seguintes domínios: %{domains}"
@@ -127,6 +146,34 @@ pt-BR:
       admin_log:
         meeting:
           export_registrations: "%{user_name} exportou as inscrições do evento %{resource_name} no espaço %{space_name}"
+      associated_states:
+        AC: Acre
+        AL: Alagoas
+        AP: Amapá
+        AM: Amazonas
+        BA: Bahia
+        CE: Ceará
+        DF: Distrito Federal
+        ES: Espírito Santo
+        GO: Goiás
+        MA: Maranhão
+        MT: Mato Grosso
+        MS: Mato Grosso do Sul
+        MG: Minas Gerais
+        PA: Pará
+        PB: Paraíba
+        PR: Paraná
+        PE: Pernambuco
+        PI: Piauí
+        RJ: Rio de Janeiro
+        RN: Rio Grande do Norte
+        RS: Rio Grande do Sul
+        RO: Rondônia
+        RR: Roraima
+        SC: Santa Catarina
+        SP: São Paulo
+        SE: Sergipe
+        TO: Tocantins
       calendar_modal:
         calendar_url: URL do calendário
         close_window: Fechar janela
@@ -148,19 +195,38 @@ pt-BR:
         registered: Participantes registrados para este evento
         signed_in: Somente participantes inscritos
       iframe_embed_type:
-        embed_in_meeting_page: Embutir na página do evento
+        embed_in_meeting_page: "Embutir na página do evento. (Apenas alguns poucos serviços permitem a incorporação em reuniões ou eventos ao vivo dos seguintes domínios: youtube.com twitch.tv meet.jit.si)."
         none: Nenhum
         open_in_live_event_page: Abrir na página de eventos ao vivo (com enquetes opcionais)
         open_in_new_tab: Abrir URL em uma nova aba
+      join_meeting_button:
+        modal:
+          confirm_registration:
+            title: Confirmar inscrição
       mailer:
         registration_mailer:
           confirmation:
             subject: A sua inscrição do evento foi confirmada
+      meeting_closes:
+        edit:
+          close: Vincular propostas
+          title: Vincular propostas
       meetings:
         show:
+          confirm_delete: "Você tem certeza que deseja deletar este evento?"
+          confirm_cancel: "Você tem certeza que deseja cancelar este evento?"
+          cancel_meeting: Cancelar evento
+          delete_meeting: Deletar evento
+          edit_meeting: Editar evento
           join: Inscreva-se
           registration_code_help_text: O seu código de inscrição
-          back: Voltar à lista
+          back: Voltar
+          remaining_slots: vagas disponíveis
+          close_meeting: Vincular propostas
+          edit_close_meeting: Vincular propostas
+          live_event: Este evento está acontecendo agora
+          live_permission_notice: Ao clicar no botão abaixo, serão solicitadas permissões de microfone e/ou câmera e você entrará na videoconferência.
+          live_link: "Link do evento:"
         filters:
           activity: Minha atividade
           all: Todas
@@ -168,16 +234,29 @@ pt-BR:
           type: Tipo
           date_values:
             all: Todas
+            now: Acontecendo
           type_values:
             all: Todas
             hybrid: Ambas
             in_person: Presencial
             online: Virtual
         index:
+          new_meeting: Criar evento
           click_here: Ver todos os eventos
           see_all: Ver todos os eventos
           see_all_withdrawn: Ver todos os eventos retiradas
           text_banner: Você está vendo a lista de eventos retiradas por seus autores. %{go_back_link}.
+        form:
+          iframe_embed_type: "Forma de exibição do evento:"
+          iframe_access_level: "Permissão do público:"
+          to_define: A ser definido
+          new:
+            title: Sobre o evento
+          placeholder:
+            title: Digite aqui
+            description: Descreva detalhadamente a sua proposta...
+        moderation:
+          label: Moderação
       models:
         meeting:
           fields:
@@ -189,7 +268,7 @@ pt-BR:
           confirmed_html: A sua inscrição para o evento <a href="%{url}">%{title}</a> foi confirmado.
           registration_code: O seu código de inscrição é %{code}.
       type_of_meeting:
-        hybrid: Ambas
+        hybrid: Híbrido
         in_person: Presencial
         online: Virtual
       registration_type:
@@ -206,6 +285,7 @@ pt-BR:
           upcoming: Próximo
           finished: Encerrado
           active: Acontecendo
+          cancel: Cancelado
         subscriber_count:
           one: pessoa inscrita
           other: pessoas inscritas

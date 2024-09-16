@@ -1,21 +1,27 @@
 <div class="news-title-container">
-  <h1 class="page-title"><%= translated_attribute(current_component.name)  %></h1>
-  
+  <h1 class="page-title"><%= translated_attribute(current_component.name) %></h1>
   <% if current_user && current_user.admin? %>
-  <%= link_to send(current_component.mounted_admin_engine).new_post_path, class: "br-button secondary black-and-white-btn" do %>
-    <i class="fa fa-solid fa-plus fa-md"></i>
-    <%= t("actions.new", scope: "decidim.blogs") %>
+    <%= link_to send(current_component.mounted_admin_engine).new_post_path, class: "br-button secondary black-and-white-btn" do %>
+      <i class="fa fa-solid fa-plus fa-md"></i>
+      <%= t("actions.new", scope: "decidim.blogs") %>
+    <% end %>
   <% end %>
-<% end %>
-
 </div>
+
 <%= render partial: "medias-section" %>
+
 <% if browser.mobile? %>
   <ul class="news-list">
     <% if paginate_posts.empty? %>
       <div class="br-message info" role="alert">
-        <div class="message-icon"><i class="fas fa-info-circle fa-xl" aria-hidden="true"></i></div>
-        <div class="content"><span class="message-title">A página não possui publicação.</span></div>
+        <div class="message-icon">
+          <i class="fas fa-info-circle fa-xl" aria-hidden="true"></i>
+        </div>
+        <div class="content">
+          <span class="message-title">
+            <%=t("decidim.blogs.posts.show.page_has_no_publication")%>
+          </span>
+        </div>
       </div>
     <% else %>
       <% paginate_posts.each do |post| %>
@@ -26,7 +32,7 @@
                 <%= translated_attribute post.title %>
               <% end %>
               <p class="br-card-date">
-                <%= l post.created_at, format: "%d/%m/%Y" %>
+              <%= l post.created_at, format: "%d/%m/%Y" %>
               </p>
               <% if post.photo.present? %>
                 <%= link_to post do %>
@@ -40,12 +46,12 @@
             <div class="card-footer">
               <div class="d-flex">
                 <%= link_to post, class: "card__link" do %>
-                  <button class="br-button" type="button">Ler mais</button>
+                  <button class="br-button" type="button"><%=t("decidim.blogs.posts.show.read_more")%></button>
                 <% end %>
                 <div class="ml-auto">
                   <button class="br-button circle" type="button" aria-label="Ícone de compartilhamento"
-                onclick="navigator.share({title: '<%= translated_attribute post.title %>', url: '<%= post_path(post) %>'})">
-                    <i class="fas fa-share-alt" aria-hidden="true"></i>
+                         onclick="navigator.share({title: '<%= translated_attribute post.title %>', url: '<%= post_path(post) %>'})">
+                         <i class="fas fa-share-alt" aria-hidden="true"></i>
                   </button>
                 </div>
               </div>
@@ -53,44 +59,46 @@
           </div>
         </li>
       <% end %>
-      <ul>
-      <% end %>
+    <% end %>
+  </ul>
+<% else %>
+  <ul class="news-list">
+    <% if paginate_posts.empty? %>
+      <div class="br-message info" role="alert">
+        <div class="message-icon"><i class="fas fa-info-circle fa-xl" aria-hidden="true"></i></div>
+        <div class="content"><span class="message-title"><%=t("decidim.blogs.posts.show.page_has_no_publication")%></span></div>
+      </div>
     <% else %>
-      <ul class="news-list">
-        <% if paginate_posts.empty? %>
-          <div class="br-message info" role="alert">
-            <div class="message-icon"><i class="fas fa-info-circle fa-xl" aria-hidden="true"></i></div>
-            <div class="content"><span class="message-title">A página não possui publicação.</span></div>
+      <% paginate_posts.each do |post| %>
+        <li class="news-item">
+          <div class="news-card">
+            <div class="news-content">
+              <%= link_to post, class: "news-title" do %>
+                <%= translated_attribute post.title %>
+              <% end %>
+              <span class="news-description">
+                <span class="news-date">
+                  <%= l post.created_at, format: "%d/%m/%Y" %>
+                </span>
+                - <%= translated_attribute post.subtitle %>
+              </span>
+            </div>
+            <div class="news-image-container">
+              <% if post.photo.present? %>
+                <%= link_to post do %>
+                  <%= image_tag post.photo.url, class: "news-cover-image" %>
+                <% end %>
+              <% end %>
+            </div>
           </div>
-        <% else %>
-          <% paginate_posts.each do |post| %>
-            <li class="news-item">
-              <div class="news-card">
-                <div class="news-content">
-                  <%= link_to post, class: "news-title" do %>
-                    <%= translated_attribute post.title %>
-                  <% end %>
-                  <span class="news-description">
-                    <span class="news-date">
-                      <%= l post.created_at, format: "%d/%m/%Y" %>
-                    </span>
-                    - <%= translated_attribute post.subtitle %>
-                  </span>
-                </div>
-                <div class="news-image-container">
-                  <% if post.photo.present? %>
-                    <%= link_to post do %>
-                      <%= image_tag post.photo.url, class: "news-cover-image" %>
-                    <% end %>
-                  <% end %>
-                </div>
-              </div>
-            </li>
-          <% end %>
-        </ul>
+        </li>
       <% end %>
     <% end %>
-    <div class="pagination-container">
-      <%= decidim_paginate paginate_posts %>
-    </div>
-    <%= render partial: "medias-section" %>
+  </ul>
+<% end %>
+
+<div class="pagination-container">
+  <%= decidim_paginate paginate_posts %>
+</div>
+
+<%= render partial: "medias-section" %>

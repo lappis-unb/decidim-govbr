@@ -40,7 +40,7 @@
 <%= cell "decidim/author", post_presenter.author, from: post %>
 <%
 =end%>
-    <%= render partial: 'medias-section', :locals=>{ :post_date => post.created_at} %>
+    <%= render partial: 'medias-section', :locals=>{ :post_date => post.created_at, :update_date => post.updated_at} %>
     <%
 =begin%>
     <% if show_endorsements_card? %>

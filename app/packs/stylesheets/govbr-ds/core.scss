@@ -16261,7 +16261,7 @@ template {
 @media (min-width: 576px) {
   .br-magic-button,
   .br-magic-button .br-button {
-    width: auto !important;
+    width: fit-content !important;
   }
   .overflow-sm-auto {
     overflow: auto !important;
@@ -24663,6 +24663,11 @@ hr {
   --divider-padding: var(--spacing-scale-2x);
   margin: var(--divider-padding) 0;
 }
+
+.footer{
+  margin-top: auto;
+}
+
 .br-footer {
   --footer-logo-height: 48px;
   --footer-logo-width: 180px;
@@ -31141,4 +31146,20 @@ textarea {
 
 .large-button {
   width: 100%;
+}
+
+.locale-select {
+  color: var(--interactive);
+  cursor: pointer;
+  width: 54px;
+  padding-bottom: 7px !important;
+  font-weight: 500;
+  margin-right: 10px;
+  border: 0;
+}
+
+.locale-select:focus,
+.locale-select:hover {
+  background-color: var(--background);
+  color: var(--interactive);
 }

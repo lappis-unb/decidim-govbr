@@ -101,9 +101,9 @@ module Decidim
 
       def update_status_classes(current_proposal)
         case current_proposal.state
-        when "accepted"
+        when "accepted", "partially_accepted"
           "green"
-        when "rejected", "withdrawn"
+        when "rejected", "withdrawn", "disqualified"
           "red"
         when "evaluating"
           "orange"

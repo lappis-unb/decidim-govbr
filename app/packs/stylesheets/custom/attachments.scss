@@ -5,9 +5,6 @@
   padding: 33px;
   width: 100%;
 }
-.attachments .section-heading {
-  margin: 0 0 2rem 0;
-}
 
 .download-attachment {
   width: 15px;
@@ -29,6 +26,7 @@
 .documents {
   display: flex;
   flex-direction: column;
+  gap: 32px;
   width: 100%;
 }
 
@@ -102,6 +100,16 @@
   align-items: center;
 }
 
+.user-follow-stats .card__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-follow-stats .card__link strong {
+  color: var(--gray-60);
+}
+
 .doc_extension {
   text-transform: lowercase;
   text-align: left;
@@ -117,10 +125,77 @@
 }
 
 .attachments {
-  background-color: var(--blue-3);
   display: flex;
   justify-content: center;
   flex-direction: column;
-  border-radius: 10px;
+}
+
+.attachment-item {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--blue-3);
+  border-radius: 8px;
+
+  .download-button {
+    display: flex;
+    justify-content: center;
+    width: 368px;
+    align-items: center;
+    padding: 1.5rem 0.5rem;
+    gap: 8px;
+
+    span {
+      font-size: var(--font-size-scale-up-01);
+      font-weight: var(--font-weight-semi-bold);
+    }
+
+    i.fa-solid {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+.attachment-file {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 80px;
   padding: 1rem;
+  background-color: var(--blue-3);
+  gap: 0.5rem;
+
+  h4 {
+    color: var(--blue-warm-vivid-80);
+    font-weight: var(--font-weight-semi-bold);
+    font-size: 1.25rem;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+  }
+  p {
+    color: #1B1B1B;
+    font-size: 1rem;
+    font-weight: var(--font-weight-regular);
+    text-align: left;
+    margin: 0;
+  }
+  span {
+    color: var(--blue-warm-vivid-70, #1351b4);
+    font-variant-numeric: lining-nums proportional-nums;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+}
+
+@media (max-width: 768px) {
+  .attachment-item {
+    flex-direction: column;
+    align-items: center;
+  }
+  .download-button {
+    width: 328px;
+  }
 }

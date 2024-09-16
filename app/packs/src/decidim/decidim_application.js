@@ -5,8 +5,10 @@
 require.context("../../images", true);
 import "../govbr-ds/core";
 import "../animations";
+import "../brazil_map_meetings";
 import "../votes_rules";
 import "../copy_to_clipboard";
+import "../meeting";
 
 import { contrastButtonFunc } from "../acessibility_widget";
 contrastButtonFunc();

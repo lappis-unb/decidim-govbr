@@ -37,7 +37,7 @@ pt-BR:
           topp_agreement: Ao participar, você concorda com a Política de Privacidade
           questionnaire_answered:
             body: Obrigado pela sua contribuição!
-            title: Você já participou desta pesquisa!
+            title: Seu envio foi realizado com sucesso!
           questionnaire_closed:
             body: O questionário está fechado e não pode ser respondido.
             title: Questionário fechado

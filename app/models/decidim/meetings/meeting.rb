@@ -37,6 +37,9 @@ module Decidim
       has_many :services, class_name: "Decidim::Meetings::Service", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_one :agenda, class_name: "Decidim::Meetings::Agenda", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_one :poll, class_name: "Decidim::Meetings::Poll", foreign_key: "decidim_meeting_id", dependent: :destroy
+      has_many :questions, class_name: "Decidim::Forms::Question", foreign_key: "decidim_meetings_meeting_id"
+      has_many :answers, class_name: "Decidim::Forms::Answer", foreign_key: "decidim_meetings_meeting_id"
+
       has_many(
         :public_participants,
         -> { merge(Registration.public_participant) },
@@ -49,6 +52,36 @@ module Decidim
       enum iframe_access_level: [:all, :signed_in, :registered], _prefix: true
       enum iframe_embed_type: [:none, :embed_in_meeting_page, :open_in_live_event_page, :open_in_new_tab], _prefix: true
 
+      enum associated_state: {
+        AC: 0, # Acre
+        AL: 1, # Alagoas
+        AP: 2, # Amapá
+        AM: 3, # Amazonas
+        BA: 4, # Bahia
+        CE: 5, # Ceará
+        DF: 6, # Distrito Federal
+        ES: 7, # Espírito Santo
+        GO: 8, # Goiás
+        MA: 9, # Maranhão
+        MT: 10, # Mato Grosso
+        MS: 11, # Mato Grosso do Sul
+        MG: 12, # Minas Gerais
+        PA: 13, # Pará
+        PB: 14, # Paraíba
+        PR: 15, # Paraná
+        PE: 16, # Pernambuco
+        PI: 17, # Piauí
+        RJ: 18, # Rio de Janeiro
+        RN: 19, # Rio Grande do Norte
+        RS: 20, # Rio Grande do Sul
+        RO: 21, # Rondônia
+        RR: 22, # Roraima
+        SC: 23, # Santa Catarina
+        SP: 24, # São Paulo
+        SE: 25, # Sergipe
+        TO: 26 # Tocantins
+      }
+
       component_manifest_name "meetings"
 
       validates :title, presence: true
@@ -57,7 +90,8 @@ module Decidim
 
       scope :published, -> { where.not(published_at: nil) }
       scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }
-      scope :upcoming, -> { where(arel_table[:end_time].gteq(Time.current)) }
+      scope :upcoming, -> { where(arel_table[:start_time].gteq(Time.current)) }
+      scope :now, -> { where(arel_table[:start_time].lteq(Time.current)).where(arel_table[:end_time].gteq(Time.current)) }
       scope :withdrawn, -> { where(state: "withdrawn") }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
       scope :with_availability, lambda { |state_key|
@@ -68,7 +102,7 @@ module Decidim
           except_withdrawn
         end
       }
-      scope_search_multi :with_any_date, [:upcoming, :past]
+      scope_search_multi :with_any_date, [:upcoming, :now, :past]
       scope :with_any_space, lambda { |*target_space|
         target_spaces = target_space.compact.compact_blank
 
@@ -173,7 +207,23 @@ module Decidim
       end
 
       def can_be_joined_by?(user)
-        !closed? && registrations_enabled? && can_participate?(user)
+        !closed? && registrations_enabled? && can_participate?(user) && !finished? && !cancelled?
+      end
+
+      def finished?
+        if end_time.present?
+          return true if end_time < Time.current
+        else
+          false
+        end
+      end
+
+      def running?
+        start_time && end_time && Time.current.between?(start_time, end_time)
+      end
+
+      def cancelled?
+        state == "withdrawn"
       end
 
       def can_register_invitation?(user)
@@ -186,7 +236,7 @@ module Decidim
       end
 
       def past?
-        end_time < Time.current
+        end_time&.<(Time.current) || false
       end
 
       def emendation?
@@ -261,7 +311,7 @@ module Decidim
 
       # Return the duration of the meeting in minutes
       def meeting_duration
-        @meeting_duration ||= ((end_time - start_time) / 1.minute).abs
+        @meeting_duration ||= ((end_time - start_time) / 1.minute).abs if start_time && end_time
       end
 
       def resource_visible?
@@ -285,12 +335,16 @@ module Decidim
         user && !withdrawn? && !past? && authored_by?(user)
       end
 
+      def deletable?
+        comments_count.zero? && subscribers_count.zero?
+      end
+
       # Overwrites method from Paddable to add custom rules in order to know
       # when to display a pad or not.
       def pad_is_visible?
         return false unless pad
 
-        (start_time - Time.current) <= 24.hours
+        (start_time&.-(Time.current)) <= 24.hours if start_time
       end
 
       # Overwrites method from Paddable to add custom rules in order to know
@@ -298,7 +352,7 @@ module Decidim
       def pad_is_writable?
         return false unless pad_is_visible?
 
-        (Time.current - end_time) < 72.hours
+        (Time.current - end_time) < 72.hours if end_time
       end
 
       def authored_proposals
@@ -356,10 +410,7 @@ module Decidim
       end
 
       def live?
-        start_time &&
-          end_time &&
-          Time.current >= (start_time - 10.minutes) &&
-          Time.current <= end_time
+        start_time && end_time && Time.current.between?(start_time - 10.minutes, end_time)
       end
 
       def self.sort_by_translated_title_asc

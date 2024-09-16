@@ -1,2 +1,6 @@
-<%= content_for(:extra_admin_link) if content_for?(:extra_admin_link) %>
-<%= content_for(:edit_link) if content_for?(:edit_link) %>
+<% if content_for?(:extra_admin_link) or content_for?(:edit_link) %>
+    <div class="admin--links br-container-lg mt-4 mb-4" id="admin-actions-btns">
+        <%= content_for(:extra_admin_link) if content_for?(:extra_admin_link) %>
+        <%= content_for(:edit_link) if content_for?(:edit_link) %>
+    </div>
+<% end %>

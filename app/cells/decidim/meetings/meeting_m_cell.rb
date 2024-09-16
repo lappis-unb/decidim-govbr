@@ -12,13 +12,31 @@ module Decidim
         true
       end
 
+      def finished?
+        end_date.present? && Time.current > end_date
+      end
+
       def badge_name
-        if Date.current > end_date
+        if model.state == "withdrawn"
+          t("decidim.meetings.card.status.cancel")
+        elsif finished?
           t("decidim.meetings.card.status.finished")
-        elsif Date.current.between?(start_date, end_date)
+        elsif start_date.present? && end_date.present? && Time.current.between?(start_date, end_date)
           t("decidim.meetings.card.status.active")
         else
           t("decidim.meetings.card.status.upcoming")
+        end
+      end
+
+      def state_classes
+        if model.state == "withdrawn"
+          ["red"]
+        elsif finished?
+          ["gray"]
+        elsif start_date.present? && end_date.present? && Time.current.between?(start_date, end_date)
+          ["green"]
+        else
+          ["blue"]
         end
       end
 
@@ -58,16 +76,6 @@ module Decidim
 
       def location_badge
         render
-      end
-
-      def state_classes
-        if Date.current > end_date
-          ["gray"]
-        elsif Date.current.between?(start_date, end_date)
-          ["green"]
-        else
-          ["blue"]
-        end
       end
 
       def base_card_class
@@ -120,29 +128,29 @@ module Decidim
       end
 
       def spans_multiple_dates?
-        start_date != end_date
+        start_date.present? && end_date.present? && start_date.to_date != end_date.to_date
       end
 
       def meeting_date
-        return render(:multiple_dates) if spans_multiple_dates?
+        return unless start_date.present? && end_date.present?
 
-        render(:single_date)
+        spans_multiple_dates? ? render(:multiple_dates) : render(:single_date)
       end
 
       def formatted_start_time
-        model.start_time.strftime("%H:%M")
+        model.start_time&.strftime("%H:%M") || ""
       end
 
       def formatted_end_time
-        model.end_time.strftime("%H:%M")
+        model.end_time&.strftime("%H:%M") || ""
       end
 
       def start_date
-        model.start_time.to_date
+        model.start_time
       end
 
       def end_date
-        model.end_time.to_date
+        model.end_time
       end
 
       def can_join?
