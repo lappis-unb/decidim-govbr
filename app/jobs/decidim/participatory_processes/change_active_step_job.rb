@@ -7,28 +7,15 @@ module Decidim
 
       def perform(_start_date)
         time_now = Time.current
-        participatory_processes = Decidim::ParticipatoryProcess.published.where("start_date <= ? AND end_date >= ?", time_now.to_date, time_now.to_date)
+
+        participatory_processes = current_participatory_processes(time_now)
 
         participatory_processes.each do |process|
-          steps = Decidim::ParticipatoryProcessStep.unscoped
-                                                   .where(decidim_participatory_process_id: process.id)
-                                                   .where("start_date <= ? AND end_date >= ?", time_now, time_now).order("end_date ASC", :position)
+          steps = process.steps.order(:position)
+          desired_step = find_desired_step(steps, time_now)
+          active_steps = steps.select(&:active)
 
-          active_step = process.steps.find_by(active: true)
-          if steps.empty? && active_step
-            next_position = active_step.position + 1
-            next_step = process.steps.where("start_date <= ?", time_now.to_date).find_by(position: next_position)
-            if next_step.present?
-              active_step.update(active: false)
-              next_step.update(active: true)
-            end
-          else
-            step_to_activate = steps.first
-            if active_step != step_to_activate
-              active_step&.update(active: false)
-              step_to_activate.update(active: true)
-            end
-          end
+          update_steps(active_steps, desired_step)
         end
       end
 
@@ -37,12 +24,38 @@ module Decidim
 
         scheduled_jobs.each do |job|
           next unless job.klass == "ActiveJob::QueueAdapters::SidekiqAdapter::JobWrapper" &&
-                      job.item["wrapped"] == "Decidim::ParticipatoryProcesses::ChangeActiveStepJob"
+                      job.item["wrapped"] == "Decidim::ParticipatoryProcesses::ChangeActiveStepJob" &&
+                      job.item["args"].first["arguments"].include?(start_date)
 
-          job_arguments = job.item["args"].first["arguments"]
-
-          job.delete if job_arguments.include?(start_date)
+          job.delete
         end
+      end
+
+      private
+
+      def current_participatory_processes(time_now)
+        Decidim::ParticipatoryProcess.published.where(
+          "start_date <= ? AND end_date >= ?", time_now.to_date, time_now.to_date
+        )
+      end
+
+      def find_desired_step(steps, time_now)
+        steps_within_time = steps.select do |step|
+          step.start_date.present? &&
+            step.start_date <= time_now &&
+            (step.end_date.nil? || step.end_date >= time_now)
+        end
+
+        # Seleciona o passo com o start_date mais recente
+        steps_within_time.max_by(&:start_date)
+      end
+
+      def update_steps(active_steps, desired_step)
+        active_steps.each do |active_step|
+          active_step.update(active: false) unless active_step == desired_step
+        end
+
+        desired_step&.update(active: true) unless desired_step&.active?
       end
     end
   end
