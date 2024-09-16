@@ -5,7 +5,7 @@ module Decidim
     class ChangeActiveStepJob < ApplicationJob
       queue_as :default
 
-      def perform
+      def perform(_start_date)
         time_now = Time.current
         participatory_processes = Decidim::ParticipatoryProcess.published.where("start_date <= ? AND end_date >= ?", time_now.to_date, time_now.to_date)
 
@@ -29,6 +29,19 @@ module Decidim
               step_to_activate.update(active: true)
             end
           end
+        end
+      end
+
+      def self.clear(start_date:)
+        scheduled_jobs = Sidekiq::ScheduledSet.new
+
+        scheduled_jobs.each do |job|
+          next unless job.klass == "ActiveJob::QueueAdapters::SidekiqAdapter::JobWrapper" &&
+                      job.item["wrapped"] == "Decidim::ParticipatoryProcesses::ChangeActiveStepJob"
+
+          job_arguments = job.item["args"].first["arguments"]
+
+          job.delete if job_arguments.include?(start_date)
         end
       end
     end
