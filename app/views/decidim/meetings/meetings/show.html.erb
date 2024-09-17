@@ -23,7 +23,7 @@
     <div class="main-content">
       <div class="meeting-actions-buttons">
         <% @meeting_cell = cell("decidim/meetings/meeting_m", @meeting, full_badge: true) %>
-        <% if allowed_to?(:withdraw, :meeting, meeting: meeting) %>
+        <% if allowed_to?(:destroy, :meeting, meeting: meeting) %>
           <%= link_to resource_locator(meeting).show, method: :delete, class: "br-button secondary delete-meeting", 
                 data: { confirm: t(".confirm_delete") } do %>
             <i class="fa-solid fa-trash-can" style="color: #8b0a03;"></i>
@@ -54,9 +54,11 @@
           <a class="br-button secondary black-and-white-btn" href="<%= organization_info_survey %>?meeting_id=<%= meeting.id %>">
             Adicione Informações da organização
           </a>
-          <a class="br-button secondary black-and-white-btn" href="<%= record_what_happened_survey %>?meeting_id=<%= meeting.id %>">
-            Registre o que aconteceu
-          </a>
+          <% if allowed_to?(:register_what_happened, :meeting, meeting: meeting) %>
+            <a class="br-button secondary black-and-white-btn" href="<%= record_what_happened_survey %>?meeting_id=<%= meeting.id %>">
+              Registre o que aconteceu
+            </a>
+          <% end %>
         <% end %>
       </div>
       <%== @meeting_cell.badge %>
@@ -188,6 +190,19 @@
               inscritos
             </div>
           </div>
+            <% if allowed_to?(:export_registrations, :meeting, meeting: meeting) && !meeting.registrations.empty? %>
+              <span class="exports dropdown tiny button button--simple button--title" data-toggle="export-dropdown"><%= t "actions.export", scope: "decidim.admin" %></span>
+              <div class="dropdown-pane" id="export-dropdown" data-dropdown data-auto-focus="true" data-close-on-click="true">
+                <ul class="vertical menu add-components">
+                  <% %w{CSV JSON Excel}.each do |format| %>
+                    <li class="exports--format--<%= format.downcase %> exports--registrations">
+                      <%= link_to t("decidim.admin.exports.export_as", name: t("decidim.#{current_component.manifest.name}.admin.exports.registrations"), export_format: format),
+                          main_app.export_public_registrations_path(slug: current_participatory_space.slug, process_id: current_component, meeting_id: meeting, format: format) %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
         <% end %>
         <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
       </div>
