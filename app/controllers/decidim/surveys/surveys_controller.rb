@@ -7,6 +7,7 @@ module Decidim
       include Decidim::Forms::Concerns::HasQuestionnaire
       include Decidim::ComponentPathHelper
       include Decidim::Govbr::ParticipatoryProcessesHelper
+      helper Decidim::Surveys::SurveyHelper
       helper_method :should_record_what_happened_survey?
 
       delegate :allow_unregistered?, to: :current_settings
