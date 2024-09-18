@@ -57,7 +57,11 @@ extra_admin_link(
     <%= t(".back_to_list_proposals") %>
   <% end %>
   <div class="flex-column mt-4">
-    <%= render partial: "voting_rules" , locals: { is_vote_rule: true, triangle_position: "flex-start" ,help_button_text: t("decidim.proposals.proposals.voting_rules.help_button_text"), inform_text_help: t("decidim.proposals.proposals.voting_rules.infom_text_help") } %>
+     <% voting_rules_button_text = t("decidim.proposals.proposals.voting_rules.help_button_text", proposal: translated_attribute(current_component.singular_name).present? ? 
+                translated_attribute(current_component.singular_name).downcase : 
+                "proposta"
+                )%>
+    <%= render partial: "voting_rules" , locals: { is_vote_rule: true, triangle_position: "flex-start" ,help_button_text: voting_rules_button_text, inform_text_help: t("decidim.proposals.proposals.voting_rules.infom_text_help") } %>
   </div>
   <span class="br-divider my-5"></span>
   <div class="content-container">

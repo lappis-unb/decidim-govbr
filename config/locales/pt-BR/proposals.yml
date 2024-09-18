@@ -372,27 +372,27 @@ pt-BR:
           already_voted_hover: Retirar voto
           vote: Votar
         voting_rules:
-          help_button_text: Conheça as regras e os critérios para seleção de propostas
+          help_button_text: Conheça as regras e os critérios para seleção de %{proposal}
           infom_text_help: ""
           can_accumulate_supports_beyond_threshold:
-            description: Cada proposta pode acumular mais de %{limit} voto(s)
+            description: Cada %{proposal} pode acumular mais de %{limit} voto(s)
           minimum_votes_per_user:
-            description: Deve distribuir um mínimo de %{votes} voto(s) entre diferentes propostas.
-            supports_remaining: Tem que votar em mais %{remaining_votes} proposta(s) para os seus votos serem levados em conta.
+            description: Deve distribuir um mínimo de %{votes} voto(s) entre diferentes %{proposal}s.
+            supports_remaining: Tem que votar em mais %{remaining_votes} %{proposal}(s) para os seus votos serem levados em conta.
           proposal_limit:
             start_description: Cada participante pode
             important: criar
-            end_description: até %{limit} proposta(s);
+            end_description: até %{limit} %{proposal}(s);
           threshold_per_proposal:
-            description: Para serem aceites, as propostas precisam de atingir %{limit} voto(s)
+            description: Para serem aceites, as %{proposal}s precisam de atingir %{limit} voto(s)
           vote_limit:
             start_description: Cada participante pode
             important: votar
-            end_description: em até %{limit} proposta(s);
+            end_description: em até %{limit} %{proposal}(s);
             left: Você tem
             votes: votos restantes
           most_voted_rule:
-            start_description: As %{limit} propostas
+            start_description: As %{limit} %{proposal}s
             important: mais votadas
             end_description: de cada tema seguirão para análise, podendo ou não ser incorporadas.
         wizard_aside:
