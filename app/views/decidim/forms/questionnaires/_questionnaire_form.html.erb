@@ -7,7 +7,6 @@
     </div>
   </div>
 </div>
-
 <div class="row">
   <div class="columns large-<%= columns %> medium-centered">
     <div class="card">
@@ -19,7 +18,6 @@
             </div>
           </div>
         <% end %>
-
         <% if allow_answers? %>
           <% if visitor_can_answer? %>
             <% if visitor_already_answered? %>
@@ -47,7 +45,6 @@
                     </div>
                   </div>
                 <% end %>
-
                 <%= decidim_form_for(@form, url: update_url, method: :post, html: { multipart: true, class: "form answer-questionnaire" }, data: { "safe-path" => form_path }) do |form| %>
                   <%= form_required_explanation %>
                   <%= invisible_captcha %>
@@ -61,13 +58,11 @@
                           <span class="answer-questionnaire__steps"><%= t(".of_total_steps", total_steps: @form.total_steps) %></span>
                         </h3>
                       <% end %>
-
                       <% step_answers.each do |answer| %>
                         <div class="row column answer question" data-max-choices="<%= answer.question.max_choices %>" data-conditioned="<%= answer.question.display_conditions.any? %>" data-question-id="<%= answer.question.id %>">
                           <% answer.question.display_conditions.each do |display_condition| %>
                             <%= content_tag :div, nil, class: "display-condition", data: display_condition.to_html_data %>
                           <% end %>
-
                           <%= fields_for "questionnaire[responses][#{answer_idx}]", answer do |answer_form| %>
                             <%= render(
                               "decidim/forms/questionnaires/answer",
@@ -84,20 +79,17 @@
                         <% end %>
                         <% answer_idx += 1 %>
                       <% end %>
-
                       <% if step_index + 1 == @form.total_steps %>
                         <% if show_represent_user_group? %>
                           <div class="row column represent-user-group">
                             <%= cell("decidim/represent_user_group", form) %>
                           </div>
                         <% end %>
-
                         <% if show_public_participation? %>
                           <div class="row column public-participation">
                             <%= cell("decidim/public_participation", form) %>
                           </div>
                         <% end %>
-
                         <div class="row column tos-agreement">
                           <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "questionnaire_tos_agreement", disabled: !current_participatory_space.can_participate?(current_user) %>
                           <div class="help-text">
@@ -105,7 +97,6 @@
                           </div>
                         </div>
                       <% end %>
-
                       <%= cell(
                         "decidim/forms/step_navigation",
                         step_index,
@@ -124,7 +115,6 @@
               <p>
                 <%= t(".answer_questionnaire.anonymous_user_message", sign_in_link: decidim.new_user_session_path, sign_up_link: decidim.new_user_registration_path).html_safe %>
               </p>
-
               <ol>
                 <%= cell("decidim/forms/question_readonly", collection: @questionnaire.questions.not_conditioned) %>
               </ol>
