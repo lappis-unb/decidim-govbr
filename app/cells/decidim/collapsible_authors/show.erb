@@ -28,7 +28,7 @@
     <% if context[:amendable?] && context[:allowed?] %>
       <%= link_to context[:proposal_edit_link], class: "button secondary hollow" do %>
         <i class="fas fa-edit"></i>
-        <%= t("decidim.components.proposals.actions.edit_proposal") %>
+        <%= t("decidim.components.proposals.actions.edit_proposal", proposal: translated_attribute(current_component.singular_name).present? ? translated_attribute(current_component.singular_name).downcase : "proposta") %>
       <% end %>
     <% else %>
       <%= context[:ammend_button] %>
