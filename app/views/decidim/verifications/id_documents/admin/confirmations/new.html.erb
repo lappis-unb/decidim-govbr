@@ -15,7 +15,7 @@
 
       <div class="row column">
         <%= form.select :document_type, @form.document_types_for_select, prompt: true, selected: nil %>
-        <%= form.text_field :document_number, value: nil %>
+        <%= form.text_field :document_number, value: nil, id: "document_number" %>
         <%= form.hidden_field :verification_type, value: :online %>
       </div>
     </div>
@@ -25,3 +25,12 @@
     <%= form.submit t(".verify") %>
   </div>
 <% end %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var docNumberField = document.getElementById("document_number");
+    docNumberField.addEventListener("input", function() {
+      this.value = this.value.toUpperCase();
+    });
+  });
+</script>
