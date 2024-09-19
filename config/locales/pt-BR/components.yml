@@ -188,7 +188,7 @@ pt-BR:
           new: Nova categoria
         export: Exportar tudo
         export_comments: Exportar contribuições
-        export_proposals: Exportar propostas
+        export_proposals: Exportar %{proposal}(s)
         export-selection: Exportar selecionado
         import: Importar
         manage: Gerenciar

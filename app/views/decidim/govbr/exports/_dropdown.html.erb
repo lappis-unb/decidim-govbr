@@ -16,14 +16,14 @@
     </ul>
   </div>
 <% else %>
-  <span class="exports dropdown-br br-button secondary black-and-white-btn" data-toggle="export-dropdown"><i class="fa-solid fa-file-export"></i><%= t "actions.export_proposals", scope: "decidim.admin" %><i class="fa-solid fa-chevron-down"></i></span>
+  <span class="exports dropdown-br br-button secondary black-and-white-btn" data-toggle="export-dropdown"><i class="fa-solid fa-file-export"></i><%= t "actions.export_proposals", scope: "decidim.admin", proposal: translated_attribute(current_component.name).present? ? translated_attribute(current_component.name).downcase : t("decidim.#{component.manifest.name}.admin.exports.#{manifest.name}") %><i class="fa-solid fa-chevron-down"></i></span>
   <div class="dropdown-pane" id="export-dropdown" data-dropdown data-position=bottom data-alignment=right data-auto-focus="true" data-close-on-click="true">
     <ul class="vertical menu add-components">
       <% component.manifest.export_manifests.each do |manifest| %>
         <% manifest.formats.each do |format| %>
           <% if manifest.name.to_s == "proposals" %>
             <li class="exports--format--<%= format.downcase %> exports--<%= manifest.name %>">
-              <%= link_to t("decidim.admin.exports.export_as", name: t("decidim.#{component.manifest.name}.admin.exports.#{manifest.name}"), export_format: t("decidim.admin.exports.formats.#{format}")),
+              <%= link_to t("decidim.admin.exports.export_as", name: translated_attribute(current_component.name).present? ? translated_attribute(current_component.name).downcase : t("decidim.#{component.manifest.name}.admin.exports.#{manifest.name}"), export_format: t("decidim.admin.exports.formats.#{format}")),
                 exports_path(component, id: manifest.name, format: format, resource_id: resource_id),
                 method: :post, remote: true%>
             </li>

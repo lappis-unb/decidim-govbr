@@ -314,6 +314,7 @@ pt-BR:
         new:
          title: Crie sua %{singular_name}
          send: Publicar
+         title_field: Título do(a) %{singular_name}
         edit:
           add_documents: Adicionar documentos
           add_image: Adicionar imagem
@@ -405,7 +406,7 @@ pt-BR:
         wizard_steps:
           current_step: Etapa atual
           see_steps: ver etapas
-          step_1: Faça a sua proposta
+          step_1: Faça a sua %{singular_name}
           step_2: Comparar
           step_3: Concluir
           step_4: Publique sua proposta
