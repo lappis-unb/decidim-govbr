@@ -74,6 +74,10 @@
       </div>
     </div>
   <% end %>
+  <% voting_rules_button_text = t("decidim.proposals.proposals.voting_rules.help_button_text", proposal: translated_attribute(current_component.singular_name).present? ? 
+                translated_attribute(current_component.singular_name).downcase : 
+                "proposta"
+                )%>
   <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) %>
     <div class="proposals-actions">
       <div class="br-magic-button medium">
@@ -105,7 +109,7 @@
           <% end %>
         <% end %>
       </div>
-      <%= render partial: "voting_rules" , locals: { is_vote_rule: true, triangle_position: "center" ,help_button_text: t("decidim.proposals.proposals.voting_rules.help_button_text"), inform_text_help: t("decidim.proposals.proposals.voting_rules.infom_text_help") } %>
+      <%= render partial: "voting_rules" , locals: { is_vote_rule: true, triangle_position: "center" ,help_button_text: voting_rules_button_text, inform_text_help: t("decidim.proposals.proposals.voting_rules.infom_text_help") } %>
     </div>
   <% else %>
     <div class="proposals-actions proposals-no-actions">
@@ -114,7 +118,7 @@
       </span>
       <%= render partial: "voting_rules" ,
         locals: { is_vote_rule: true, triangle_position: "flex-start" ,
-        help_button_text: t("decidim.proposals.proposals.voting_rules.help_button_text"),
+        help_button_text: voting_rules_button_text,
         inform_text_help: t("decidim.proposals.proposals.voting_rules.infom_text_help") } %>
     </div>
   <% end %>

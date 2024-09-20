@@ -23,7 +23,7 @@
     <%= form_required_explanation %>
     <div class="new-proposal-form">
       <div class="br-input input-highlight bp-input" >
-        <%= form.text_field :title , placeholder: "Digite aqui" %>
+        <%= form.text_field :title , placeholder: "Digite aqui", label: t("decidim.proposals.proposals.new.title_field", singular_name: translated_attribute(current_component.singular_name).present? ? translated_attribute(current_component.singular_name).downcase : "proposta")  %>
       </div>
       <% if @form.categories&.any? %>
         <div class="bp-select input-highlight ">

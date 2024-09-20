@@ -20,7 +20,7 @@
     callout_class: "warning"
   ) %>
 <% if local_assigns[:edit_form_bool] %>
-  <h2 class="section-header-text"><%=t("models.components.Edit_your_proposal", scope: "decidim.forms.admin")%></h2> 
+  <h2 class="section-header-text"><%=t("models.components.Edit_your_proposal", scope: "decidim.forms.admin", proposal_name:translated_attribute(current_component.singular_name).present? ? translated_attribute(current_component.singular_name).downcase : "proposta") %></h2>
 <% else %>
   <h2 class="section-header-text"><%= proposal_wizard_step_title action_name %></h2>
 <% end %>
