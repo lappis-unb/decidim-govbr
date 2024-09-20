@@ -1,4 +1,5 @@
 <% if show_voting_rules? %>
+  <% proposal_name = translated_attribute(current_component.singular_name).present? ? translated_attribute(current_component.singular_name).downcase : "proposta" %>
   <button id="showRulesButton" class="show-votes-rule-button">
     <span class="proposals-criteria-label" >
       <i class="fas fa-info-circle fa-lg" aria-hidden="true"></i>
@@ -18,34 +19,34 @@
               <li>
                 <%= t(".vote_limit.start_description") %>
                 <b><%= t(".vote_limit.important") %></b></b>
-                <%= t(".vote_limit.end_description", limit: component_settings.vote_limit) %>
+                <%= t(".vote_limit.end_description", limit: component_settings.vote_limit, proposal: proposal_name) %>
               </li>
             <% end %>
             <% if proposal_limit_enabled? %>
               <li>
                 <%= t(".proposal_limit.start_description") %>
                 <b><%= t(".proposal_limit.important") %></b>
-                <%= t(".proposal_limit.end_description", limit: proposal_limit) %>
+                <%= t(".proposal_limit.end_description", limit: proposal_limit, proposal: proposal_name) %>
               </li>
             <% end %>
             <% if threshold_per_proposal_enabled? %>
-              <li><%= t(".threshold_per_proposal.description", limit: threshold_per_proposal) %></li>
+              <li><%= t(".threshold_per_proposal.description", limit: threshold_per_proposal, proposal: proposal_name) %></li>
             <% end %>
             <% if can_accumulate_supports_beyond_threshold? %>
-              <li><%= t(".can_accumulate_supports_beyond_threshold.description", limit: threshold_per_proposal) %></li>
+              <li><%= t(".can_accumulate_supports_beyond_threshold.description", limit: threshold_per_proposal, proposal: proposal_name) %></li>
             <% end %>
             <% if minimum_votes_per_user_enabled? %>
               <li>
-                <%= t(".minimum_votes_per_user.description", votes: minimum_votes_per_user) %>
+                <%= t(".minimum_votes_per_user.description", votes: minimum_votes_per_user, proposal: proposal_name) %>
                 <% if votes_given >= minimum_votes_per_user %>
                   <%= t(".minimum_votes_per_user.given_enough_votes") %>
                 <% else %>
-                  <%= t(".minimum_votes_per_user.supports_remaining", remaining_votes: minimum_votes_per_user - votes_given) %>
+                  <%= t(".minimum_votes_per_user.supports_remaining", remaining_votes: minimum_votes_per_user - votes_given, proposal: proposal_name) %>
                 <% end %>
               </li>
             <% end %>
             <li>
-              <%= t(".most_voted_rule.start_description", limit: most_voted_rule) %>
+              <%= t(".most_voted_rule.start_description", limit: most_voted_rule, proposal: proposal_name) %>
               <b><%= t(".most_voted_rule.important") %></b>
               <%= t(".most_voted_rule.end_description") %>
             </li>
