@@ -8,6 +8,10 @@ module Decidim
 
       delegate :user_signed_in?, to: :controller
 
+      def participatory_texts?
+        options[:participatory_texts] == true
+      end
+
       def add_comment
         return if single_comment?
         return if comments_blocked?

@@ -7,11 +7,11 @@ module Decidim
       # Render commentable comments inside the `expanded` template content.
       #
       # resource - A commentable resource
-      def comments_for(resource, options = {})
+      def comments_for(resource, options = {}, participatory_texts: false)
         return unless resource.commentable?
 
         content_for :expanded do
-          inline_comments_for(resource, options)
+          inline_comments_for(resource, options, participatory_texts)
         end
       end
 
@@ -20,7 +20,7 @@ module Decidim
       # resource - A commentable resource
       #
       # Returns the comments cell
-      def inline_comments_for(resource, options = {})
+      def inline_comments_for(resource, options = {}, participatory_texts)
         return unless resource.commentable?
 
         if options.try(:[], :hide_comment_action)
@@ -33,7 +33,8 @@ module Decidim
             polymorphic: options[:polymorphic],
             hide_comment_action: options[:hide_comment_action],
             alert: options[:alert],
-            poll_link: options[:poll_link]
+            poll_link: options[:poll_link],
+            participatory_texts: participatory_texts
           ).to_s
         else
           cell(
@@ -42,7 +43,8 @@ module Decidim
             machine_translations: machine_translations_toggled?,
             single_comment: params.fetch("commentId", nil),
             order: options[:order],
-            polymorphic: options[:polymorphic]
+            polymorphic: options[:polymorphic],
+            participatory_texts: participatory_texts
           ).to_s
         end
       end

@@ -14,7 +14,9 @@
     <% end %>
 
     <% if @proposals.first %>
-      <%= comments_for @proposals.first %>
+      <% @proposals.each do |proposal| %>
+        <%= comments_for proposal, participatory_texts: true %>
+      <% end %>
     <% end %>
   </ul>
 </div>
