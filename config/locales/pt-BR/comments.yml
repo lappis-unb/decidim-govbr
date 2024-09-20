@@ -67,6 +67,7 @@ pt-BR:
           one: Contribuições recebidas
           other: Contribuições recebidas
       comments:
+        blocked_comments_for_unauthorized_user_warning: Você não tem permissão para comentar neste momento, mas pode ler os comentários anteriores.
         title:
           zero: ""
           one: "%{count} contribuição"
