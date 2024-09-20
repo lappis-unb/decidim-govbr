@@ -5,7 +5,7 @@
     <%= form.select :document_type, @form.document_types_for_select, prompt: true %>
   </div>
 
-  <div class="field">
+  <div class="field" id="user_document_number_container">
     <%= form.text_field :document_number %>
   </div>
 
@@ -17,3 +17,20 @@
 
   <%= form.hidden_field :verification_type, value: verification_type %>
 </div>
+
+<% content_for :js_content do %>
+  <script>
+    $(document).ready(function() {
+      $('#user_document_image_button').append('<i class="fas fa-cloud-arrow-up"></i>');
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const document_number_form = document.getElementById("user_document_number_container");
+      if (document_number_form) {
+        document_number_form.addEventListener('input', function(e) {
+          this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+        });
+      }
+    });
+  </script>
+<% end %>
