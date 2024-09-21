@@ -28,7 +28,8 @@
       const document_number_form = document.getElementById("user_document_number_container");
       if (document_number_form) {
         document_number_form.addEventListener('input', function(e) {
-          this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+          console.log(e.target.value);
+          e.target.value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
         });
       }
     });

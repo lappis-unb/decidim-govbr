@@ -7,7 +7,8 @@ en:
         authorization_briefing:
           granted: Your documentation was reviewed and approved. You can now freely participate in the platform.
           rejected: Unfortunatelly, we were not able to validate your identity with the provided documentation. You can still access the platform, but you need to submit your documentation again in order to effectively participate.
-        instruction: 'To confirm your account and access the platform, click the link below:'
+        instruction: 'To confirm your account and access the platform (if you have already confirmed your account, skip this step), click the link below:'
+        resend_documentation: 'After confirming your account, you can resend the documents to be evaluated again at the following link:'
         subject: Confirmation instructions
         acknowledgment: Thanks for joining us!
         farewell: Best Regards, The Brasil Participativo Team

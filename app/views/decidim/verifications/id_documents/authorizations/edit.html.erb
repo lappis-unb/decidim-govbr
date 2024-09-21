@@ -9,6 +9,7 @@
             <ul>
               <li><%= t(".rejection_correctness") %></li>
               <li><%= t(".rejection_clarity") %></li>
+              <li><%= t(".feedback_time") %></li>
             </ul>
           <% else %>
             <h3><%= t(".being_reviewed") %></h3>
@@ -29,10 +30,10 @@
 
               <div class="card-section">
                 <div class="actions">
-                  <%= form.submit t(".send"), class: "button expanded", "data-disable-with" => "#{t('.send')}..." %>
+                  <%= form.submit t(".send"), class: "br-button primary block", "data-disable-with" => "#{t('.send')}..." %>
                   <% if available_methods.count > 1 %>
-                    <%= link_to t(".offline"), { action: :edit, using: :offline }, class: "button expanded hollow" if using_online? %>
-                    <%= link_to t(".online"), { action: :edit, using: :online }, class: "button expanded hollow" if using_offline? %>
+                    <%= link_to t(".offline"), { action: :edit, using: :offline }, class: "br-button secondary block" if using_online? %>
+                    <%= link_to t(".online"), { action: :edit, using: :online }, class: "br-button secondary block" if using_offline? %>
                   <% end %>
                 </div>
               </div>

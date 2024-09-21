@@ -12,10 +12,16 @@
   <% end %>
 
   <p class="email-instructions"><%= t(".instruction") %></p>
+  <p class="email-button email-button__cta">
+    <%= link_to t(".action"), confirmation_url(@resource, confirmation_token: @token, host: @resource.organization.host) %>
+  </p>
 
-  <p class="email-button email-button__cta"><%= link_to t(".action"), confirmation_url(@resource, confirmation_token: @token, host: @resource.organization.host) %></p>
-
+  <p class="email-instructions">
+    <%= t(".resend_documentation") %>
+    <a href="https://brasilparticipativo.presidencia.gov.br/id_documents/authorizations/new?using=online">
+      resend documentation
+    </a>
+  </p>
   <p class="email-instructions"><%= t(".acknowledgment") %></p>
-
   <p class="email-instructions"><%= t(".farewell") %></p>
 <% end %>
