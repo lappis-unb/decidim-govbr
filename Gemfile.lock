@@ -25,7 +25,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/lappis-unb/decidimbr/decidim-extra_user_fields.git
-  revision: a0a49cd3d1225926fca695937dbf8b786a71da47
+  revision: 8ac1992a5e03269ebc69920827c9768637d1674d
   branch: develop
   specs:
     decidim-extra_user_fields (0.27.2)
