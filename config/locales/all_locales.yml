@@ -95,12 +95,17 @@ pt-BR:
         settings:
           global:
             enable_comments_attachment: Permitir anexos em contribuições
+      surveys:
+        settings:
+          global:
+            enabled_for_foreign_users: Permitir que usuários estrangeiros criem enquetes
       meetings:
         settings:
           global:
             attachments_allowed: Permitir que o órgão crie reuniões com anexos
             enable_comments_attachment: Permitir anexos em contribuições
-            requires_previous_moderation: Requerer moderação prévia de novas propostas
+            requires_previous_moderation: Requerer moderação prévia de novas reuniões
+            enabled_for_foreign_users: Permitir que usuários estrangeiros criem reuniões
       publish_date_text: Publicado em
     govbr:
       initial_page_type:

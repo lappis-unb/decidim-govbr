@@ -6,10 +6,9 @@
   .card__content {
     padding: 0;
   }
-
 }
 
-.question-grid{
+.question-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
@@ -21,12 +20,60 @@
   }
 }
 
+.collection-input > label {
+  font-size: 1rem;
+  font-weight: normal;
+  color: var(--gray-90);
+}
+
+.questionnaire-step-title {
+  font-size: var(--font-size-32);
+  font-weight: var(--font-weight-semi-bold);
+  margin-bottom: 1rem;
+  color: var(--gray-90);
+  padding: 0;
+}
+
+.questionnaire-step {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.questionary-br-input > input,
+.questionary-br-input > textarea {
+  display: flex;
+  min-height: 63px !important;
+  padding: 0.5rem 1rem !important;
+  align-items: center !important;
+  border-radius: 6px !important;
+  border: none !important;
+  background-color: var(--gray-3) !important;
+  margin: 1rem 0 0 0 !important;
+  -webkit-border-radius: 6px !important;
+  -moz-border-radius: 6px !important;
+  -ms-border-radius: 6px !important;
+  -o-border-radius: 6px !important;
+}
+
+.questionary-br-input > label,
+.questionnaire-step > label {
+  color: var(--blue-warm-vivid-80);
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-semi-bold);
+}
+
+.add-questionnaire-file {
+  background-color: var(--blue-warm-vivid-70) !important;
+  margin: 0.5rem 0;
+  color: var(--pure-0) !important;
+}
+
 .question-conainer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 1rem;
-
 }
 
 .submit-container {
