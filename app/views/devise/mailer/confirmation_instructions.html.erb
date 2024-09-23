@@ -6,7 +6,7 @@
   <% if @resource.is_a?(Decidim::User) %>
     <% if (authorization = Decidim::Authorization.find_by(user: @resource)).present? && authorization.try(:verification_metadata).try(:[], 'rejected') %>
       <p><%= t(".authorization_briefing.rejected") %></p>
-    <% else %>
+    <% elsif authorization.granted_at.present? %>
       <p><%= t(".authorization_briefing.granted") %></p>
     <% end %>
   <% end %>
