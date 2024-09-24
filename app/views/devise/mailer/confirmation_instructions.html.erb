@@ -17,12 +17,6 @@
     <%= link_to t(".action"), confirmation_url(@resource, confirmation_token: @token, host: @resource.organization.host) %>
   </p>
 
-  <% # TODO: acho que seria melhor tirar isso aqui%>
-  <p class="email-instructions">
-    <%= t(".resend_documentation") %>
-    <%= link_to "Resend documentation", decidim_verifications.new_authorization_url(using: :online) %>
-  </p>
-  
   <p class="email-instructions"><%= t(".acknowledgment") %></p>
   <p class="email-instructions"><%= t(".farewell") %></p>
 <% end %>
