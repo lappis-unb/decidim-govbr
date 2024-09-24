@@ -4,9 +4,10 @@
   <% end %>
 
   <% if @resource.is_a?(Decidim::User) %>
-    <% if (authorization = Decidim::Authorization.find_by(user: @resource)).present? && authorization.try(:verification_metadata).try(:[], 'rejected') %>
+    <% authorization = Decidim::Authorization.find_by(user: @resource) %>
+    <% if authorization && authorization.try(:verification_metadata).try(:[], 'rejected') %>
       <p><%= t(".authorization_briefing.rejected") %></p>
-    <% elsif authorization.granted_at.present? %>
+    <% elsif authorization && authorization.granted_at.present? %>
       <p><%= t(".authorization_briefing.granted") %></p>
     <% end %>
   <% end %>
@@ -16,12 +17,12 @@
     <%= link_to t(".action"), confirmation_url(@resource, confirmation_token: @token, host: @resource.organization.host) %>
   </p>
 
+  <% # TODO: acho que seria melhor tirar isso aqui%>
   <p class="email-instructions">
     <%= t(".resend_documentation") %>
-    <a href="https://brasilparticipativo.presidencia.gov.br/id_documents/authorizations/new?using=online">
-      resend documentation
-    </a>
+    <%= link_to "Resend documentation", decidim_verifications.new_authorization_url(using: :online) %>
   </p>
+  
   <p class="email-instructions"><%= t(".acknowledgment") %></p>
   <p class="email-instructions"><%= t(".farewell") %></p>
 <% end %>
