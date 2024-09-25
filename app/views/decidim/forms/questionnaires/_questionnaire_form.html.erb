@@ -104,6 +104,15 @@
                             <%= decidim_sanitize_editor translated_attribute questionnaire.tos %>
                           </div>
                         </div>
+
+                        <% if questionnaire.collect_user_data %>
+                          <div class="row column topp-agreement">
+                            <%= form.check_box :topp_agreement, label: t(".topp_agreement"), id: "questionnaire_topp_agreement", disabled: !current_participatory_space.can_participate?(current_user) %>
+                            <div class="help-text">
+                              <%= decidim_sanitize_editor translated_attribute questionnaire.topp %>
+                            </div>
+                          </div>
+                        <% end %>
                       <% end %>
 
                       <%= cell(

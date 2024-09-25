@@ -54,6 +54,7 @@ pt-BR:
           questionnaire_answered:
             body: Você já respondeu este questionário.
           tos_agreement: Ao participar, você aceita os seus Termos de Serviço
+          topp_agreement: Ao participar, você concorda com a Política de Privacidade
       step_navigation:
         show:
           are_you_sure: Esta ação não poderá ser desfeita e não deixará editar as suas respostas. Você tem certeza?
